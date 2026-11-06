@@ -36,7 +36,7 @@ const itemList = {
       <details class="more card">
         <summary>{othersLabel} <span class="muted">({others.length})</span></summary>
         <p class="sub">Listed, but no owner reviews or review evidence yet. If you've used one, your review moves it up.</p>
-        <div class="plainlist">{others.map((g) => <GarageCard g={g} plain />)}</div>
+        <div class="plainlist">{others.map((g) => <GarageCard g={g} plain make={make} />)}</div>
       </details>
     )}
     {dealers.length > 0 && (

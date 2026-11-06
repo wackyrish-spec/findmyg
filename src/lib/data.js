@@ -173,6 +173,8 @@ export const BRANDS = (() => {
     (m[s.makeSlug] ||= { make: s.make, slug: s.makeSlug, garages: new Set(), models: {} }).garages.add(g.slug);
     s.models.forEach((md) => ((m[s.makeSlug].models[slugify(md)] ||= { model: md, slug: slugify(md), garages: new Set() }).garages.add(g.slug)));
   }));
+  // Brands a garage claims only on its own website: listed (collapsed), never ranked.
+  GARAGES.forEach((g) => (g.self_claims || []).forEach((c) => c.make && m[slugify(c.make)]?.garages.add(g.slug)));
   // Main dealers (no specialties) join their marque's page as unranked price anchors.
   GARAGES.forEach((g) => g.isDealer && g.dealer_for && m[slugify(g.dealer_for)]?.garages.add(g.slug));
   GARAGES.forEach((g) => g.ownerReviews.forEach((r) => m[slugify(r.car_make || "")]?.garages.add(g.slug)));

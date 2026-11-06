@@ -324,3 +324,4 @@ details.more .sub{margin:8px 0 4px}
 .dealer{padding:2px 8px;border-radius:999px;background:var(--line);color:var(--ink);font-size:12px;font-weight:800}
 [hidden]{display:none!important}
 .dnote{margin:10px 0 0;font-size:13px;color:var(--muted)}
+.claim{margin-top:3px;font-size:13px;color:var(--muted)}

@@ -2,6 +2,7 @@
 import { specFor, LEVELS } from "../lib/data.js";
 import Icon from "./Icon.astro";
 const { g, make = null, model = null, plain = false } = Astro.props;
+const claim = plain && make ? (g.self_claims || []).find((c) => c.make === make) : null;
 const spec = make ? specFor(g, make, model) : null;
 const level = spec ? spec.conf : 0;
 const snips = g.ext.flatMap((e) => e.snips.map((s) => ({ ...s, source: e.source })));
@@ -17,7 +18,8 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
 {plain ? (
 <article class="plaincard" data-plain={g.slug}>
   <div><a href={`/garage/${g.slug}/`}><b>{g.name}</b></a>
-    <div class="meta"><span><Icon name="pin" />{g.area || "Dubai"}</span>{g.isDealer ? <span class="dealer">Main dealer</span> : <span class="muted">Listed, no owner reviews yet</span>}</div></div>
+    <div class="meta"><span><Icon name="pin" />{g.area || "Dubai"}</span>{g.isDealer ? <span class="dealer">Main dealer</span> : <span class="muted">Listed, no owner reviews yet</span>}</div>
+    {claim && <div class="claim">Says it works on {claim.make}{claim.url && <> (<a href={claim.url} target="_blank" rel="noopener nofollow">their website</a>)</>}</div>}</div>
   <div class="acts">
     {!g.isDealer && <a class="btn sm primary" href={`/review/${g.slug}/`}>Review</a>}
     {g.isDealer && g.phone && <a class="btn sm" href={`tel:${g.phone.replace(/\s/g, "")}`}>Call {g.phone}</a>}

@@ -171,6 +171,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
             {g.phone && <div><dt>Phone</dt><dd class="num"><a href={`tel:${g.phone.replace(/\s/g, "")}`}>{g.phone}</a></dd></div>}
             {g.hours && <div><dt>Hours</dt><dd>{g.hours}</dd></div>}
             {g.website && <div><dt>Website</dt><dd><a href={g.website} target="_blank" rel="noopener" style="overflow-wrap:anywhere">{g.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}</a></dd></div>}
+            {(g.self_claims || []).length > 0 && <div><dt>Says it works on</dt><dd>{g.self_claims.map((c, i) => <>{i > 0 && ", "}{c.url ? <a href={c.url} target="_blank" rel="noopener nofollow">{c.make}</a> : c.make}</>)} <span class="muted">(their own website, not owner reviews)</span></dd></div>}
             {(g.services || []).length > 0 && <div><dt>Services</dt><dd>{g.services.join(", ")}</dd></div>}
           </dl>
           <p class="confirmed">Is something wrong or missing? <a href={`/add-a-garage/?fix=${g.slug}`}>Suggest a correction</a>.</p>
