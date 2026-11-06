@@ -80,9 +80,36 @@ def quote_t(d):
 <div class="who"><b>{e(d['author'])}</b> · {e(d['car'])} <span class="chip" style="font-size:28px;padding:8px 12px;margin-left:10px;vertical-align:4px">{e(d['code'])}</span><br>{e(d['job'])}</div>
 <div class="gap"></div>"""
 
-T = {"paid": paid_t, "who": who_t, "quote": quote_t}
+def garage_t(d):
+    chips = "".join(f'<span class="chip" style="font-size:52px;padding:18px 24px">{e(c)}</span>' for c in d["known"])
+    return f"""<div class="eyebrow">Known for, on KnowsMyCar</div>
+<div class="gap"></div>
+<h1>{e(d['garage'])}</h1>
+<div style="margin-top:40px;display:flex;gap:18px;flex-wrap:wrap">{chips}</div>
+<div class="sub" style="margin-top:40px">{e(d['evidence'])}</div>
+<div class="gap"></div>
+<div class="sub muted" style="font-size:34px">Been here with your car? Tell the next owner.</div>
+<div class="sub" style="color:#FFB400;font:600 40px/1.2 JB;margin-top:14px">{e(d['url'])}</div>
+<div style="height:40px"></div>"""
+
+def badge(d, out_dir):
+    """'Known for' web badge for a garage's own site or Instagram, 2x PNG."""
+    html_ = f"""<!doctype html><meta charset=utf-8><style>{CSS}
+    body{{margin:0;background:transparent}}html{{background:transparent}}
+    .b{{display:inline-flex;align-items:center;gap:18px;background:#14171C;border-radius:16px;padding:16px 22px 16px 18px}}
+    .b .logo svg{{height:30px}} .b .k{{font:800 15px/1 MR;letter-spacing:.12em;color:#9AA3B1;text-transform:uppercase}}
+    .b .chip{{font-size:24px;padding:8px 12px;border-radius:8px}}</style>
+    <div class="b" id="b"><div class="logo">{LOGO}</div><span class="k">Known for</span>{''.join(f'<span class="chip">{e(c)}</span>' for c in d['known'])}</div>"""
+    hp = os.path.join(out_dir, d["name"] + ".html"); open(hp, "w").write(html_)
+    subprocess.run(["node", str(ROOT / "scripts" / "render.cjs"), hp, os.path.join(out_dir, d["name"] + ".png"), "1000", "200", "2", "#b"], check=True)
+    os.remove(hp)
+    return d["name"]
+
+T = {"paid": paid_t, "who": who_t, "quote": quote_t, "garage": garage_t}
 
 def render(d, out_dir, i):
+    if d["template"] == "badge":
+        return badge(d, out_dir)
     h = 1920 if d.get("format") == "story" else 1350
     stamp = '<div class="stamp">SAMPLE DATA</div>' if d.get("sample", True) else ""
     pad = "padding-top:180px;padding-bottom:220px;" if h == 1920 else ""  # keep clear of story UI

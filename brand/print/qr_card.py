@@ -66,7 +66,7 @@ def card(url, headline, known_html, steps_title, steps_body, foot):
   {known_html}
   <div class="qrwrap">
     <div class="qr">{qr_svg(url)}</div>
-    <div class="steps"><strong>{steps_title}</strong>{steps_body}<div class="url">{html.escape(url.replace('https://',''))}</div></div>
+    <div class="steps"><strong>{steps_title}</strong>{steps_body}<div class="url" style="font-size:{min(9.5, 44 / (len(url) - 8) / 0.6 * 2.835):.1f}pt">{html.escape(url.replace('https://',''))}</div></div>
   </div>
   <div class="foot">{foot}</div>
 </section>"""
@@ -77,6 +77,23 @@ def sticker(url, headline, sub):
   <h2>{headline}</h2>
   <div class="row"><div class="qr">{qr_svg(url)}</div><p>{sub}</p></div>
 </section>"""
+
+def from_data(slug, name, known):
+    """Name and 'known for' chips from evidenced specialties only (high/medium confidence; models need 2+ mentions)."""
+    import json, re
+    data = json.load(open(ROOT.parent / "data" / "garages.json"))
+    g = next((x for x in data.get("garages", data) if x.get("id") == slug), None)
+    if not g:
+        raise SystemExit(f"no garage with id {slug} in data/garages.json")
+    chips = []
+    for sp in g.get("specialties", []):
+        if sp.get("confidence") not in ("high", "medium") or not re.search("reviews|community", sp.get("basis", "")):
+            continue
+        chips.append(sp["make"])
+        counts = {m: int(n) for m, n in re.findall(r"(\w[\w -]*?) \((\d+)\)", sp.get("evidence", ""))}
+        chips += [m for m in sp.get("models", []) if counts.get(m, 0) >= 2]
+    clean = re.sub(r"\s*[\[(|].*$", "", g["name"]).strip()
+    return name or clean, known or chips[:3]
 
 def main():
     ap = argparse.ArgumentParser()
@@ -93,6 +110,8 @@ def main():
         name = "knowsmycar-meet-card"
     else:
         url = f"{SITE}/r/{a.slug}"  # short redirect to /review/<slug>/?src=qr (CTO adds the route)
+        if not a.known or not a.name:
+            a.name, a.known = from_data(a.slug, a.name, a.known)
         known = "".join(f'<span class="chip">{html.escape(k)}</span>' for k in a.known)
         known_html = f'<div class="garage"><b>{html.escape(a.name)}</b>{known}</div>' if a.name else ""
         pages = card(url, "Did we know <em>your car?</em><br><span style=\"font-size:22pt;color:#C9CED6\">Tell the next owner on KnowsMyCar.</span>", known_html,
