@@ -15,7 +15,7 @@ export async function loadReviews() {
   if (!URL_ || !KEY) return {};
   try {
     const res = await fetch(`${URL_}/rest/v1/reviews?select=${COLS}&order=created_at.desc&limit=10000`, {
-      headers: { apikey: KEY, Authorization: `Bearer ${KEY}` },
+      headers: { apikey: KEY },
     });
     if (!res.ok) { console.warn(`[reviews] Supabase returned ${res.status}; building without owner reviews`); return {}; }
     const rows = await res.json();
