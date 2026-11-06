@@ -59,6 +59,7 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
 
     </div>
     {g.google && <p class="gfact">{Number(g.google.rating).toFixed(1)} on <a href={g.google.url || maps} target="_blank" rel="noopener nofollow">Google</a>, {(g.google.count || 0).toLocaleString("en-US")} reviews{checked ? `, checked ${checked}` : ""}</p>}
+    {g.priceTalk && <p class={`ptalk ${g.priceTalk.tone}`}>{g.priceTalk.label} <span class="muted">({g.priceTalk.n} reviews mention price)</span></p>}
     <div class="acts">
       {g.waNumber && <button class="btn wa sm" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
       {!g.waNumber && g.phone && <a class="btn sm" href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">Call</a>}

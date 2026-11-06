@@ -88,6 +88,7 @@ function norm(g) {
     jobs: JOBS.filter((j) => j.re.test(text)).map((j) => j.slug),
     goodFor: goodFor(text),
     waNumber: waNumber(g),
+    priceTalk: priceTalk(g.price_signal),
     ownerReviews: REVIEWS[g.id || slugify(g.name)] || [],
     own: ownerStats(REVIEWS[g.id || slugify(g.name)]),
     ownerCount: (REVIEWS[g.id || slugify(g.name)] || []).length,
@@ -233,3 +234,18 @@ export function pickerCatalog() {
   });
   return { rows, pages };
 }
+
+// Cost signal from reviews on other sites (Data's price pass): counts only, no review text.
+// Shown when 5+ reviews mention price; typical prices only for jobs with 3+ sources. Never used for ranking.
+export function priceTalk(ps) {
+  if (!ps || !(ps.price_mentions >= 5)) return null;
+  const n = ps.price_mentions, exp = ps.expensive || 0, fair = ps.fair || 0, cheap = ps.cheap || 0;
+  const label = exp / n >= 0.5 ? "Often called expensive"
+    : exp / n >= 0.25 ? "Mixed views on price"
+    : cheap > fair ? "Often called good value" : "Mostly called fair value";
+  const tone = exp / n >= 0.5 ? "neg" : exp / n >= 0.25 ? "mid" : "pos";
+  const jobs = (ps.jobs || []).filter((j) => j.sources >= 3 && j.aed_low > 0)
+    .map((j) => ({ ...j, aed_high: Math.max(j.aed_high || j.aed_low, j.aed_low) }));
+  return { label, tone, n, read: ps.reviews_read || null, asOf: ps.as_of || "", jobs };
+}
+

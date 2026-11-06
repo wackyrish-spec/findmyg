@@ -166,13 +166,24 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
           </div>
         </section>
 
-        {(priced.length > 0 || listPrices.length > 0) && (
+        {(priced.length > 0 || listPrices.length > 0 || g.priceTalk) && (
           <section class="card panel"><h2>What owners paid</h2><p class="sub">Totals owners reported in their reviews. Prices vary with parts and the car's condition.</p>
             {priced.length > 0 ? (
               <table class="ptable"><thead><tr><th>Job</th><th>Car</th><th class="num">AED</th></tr></thead><tbody>
                 {priced.map((r) => <tr><td>{[r.job, r.job_note].filter(Boolean).join(": ")}</td><td>{[r.car_make, r.car_model].filter(Boolean).join(" ")}</td><td class="num">{Number(r.price_paid).toLocaleString("en-US")}</td></tr>)}
               </tbody></table>
             ) : <p class="muted" style="font-size:14px">No owner has reported a price yet.</p>}
+            {g.priceTalk && (
+              <div class="ownlist"><h3>Price talk in reviews elsewhere</h3>
+                <p class={`ptalk ${g.priceTalk.tone}`}><b>{g.priceTalk.label}</b> · {g.priceTalk.n}{g.priceTalk.read ? ` of ${g.priceTalk.read}` : ""} reviews mention price{g.priceTalk.asOf ? `, checked ${fmtDay(g.priceTalk.asOf)}` : ""}</p>
+                {g.priceTalk.jobs.length > 0 && (
+                  <table class="ptable"><thead><tr><th>Job</th><th>Car</th><th class="num">AED</th></tr></thead><tbody>
+                    {g.priceTalk.jobs.map((j) => <tr><td>{j.job}</td><td>{[j.make, j.model].filter(Boolean).join(" ")}</td><td class="num">{j.aed_low === j.aed_high ? Number(j.aed_low).toLocaleString("en-US") : `${Number(j.aed_low).toLocaleString("en-US")} to ${Number(j.aed_high).toLocaleString("en-US")}`}</td></tr>)}
+                  </tbody></table>
+                )}
+                <p class="sub" style="margin-top:6px">Counted from public reviews on other sites, in our own words. A rough guide only, and never used to rank garages.</p>
+              </div>
+            )}
             {listPrices.length > 0 && (
               <div class="ownlist"><h3>Garage's own price list</h3><p class="sub">Published by the garage, not reported by owners.</p>
                 <table class="ptable"><tbody>
