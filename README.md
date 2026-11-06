@@ -68,7 +68,7 @@ Without Supabase settings the site still builds, with no owner reviews and the f
 
 ### Supabase (owner reviews and sign-in)
 
-1. SQL editor → run `supabase/schema.sql`, then `supabase/002_review_rules.sql` (6-month review limit, private WhatsApp field) and `supabase/003_contacts.sql` (contact-click tracking and "tell me when my car is covered" sign-ups; read them in the table editor).
+1. SQL editor → run `supabase/schema.sql`, then `supabase/002_review_rules.sql` (6-month review limit, private WhatsApp field) and `supabase/003_contacts.sql` (contact-click tracking and "tell me when my car is covered" sign-ups; read them in the table editor) and `supabase/004_reports_and_replies.sql` ("Report this review" reports, and the `garage_reply` / `garage_reply_at` columns you fill in to publish a garage's reply).
 2. Authentication → URL configuration: set Site URL to the live domain and add `https://<domain>/**` to Redirect URLs.
 3. Optional, Google sign-in: create an OAuth client in Google Cloud (Web application, redirect URI `https://<project>.supabase.co/auth/v1/callback`), paste its ID and secret into Authentication → Providers → Google, then set `PUBLIC_GOOGLE_SIGNIN=1` in Cloudflare. Email sign-in links work without this.
 4. Project settings → API: copy the Project URL and the anon (publishable) key. Both are public. Never put the service role key in this repo or in Cloudflare.
@@ -90,3 +90,7 @@ Without Supabase settings the site still builds, with no owner reviews and the f
 - Site name, proof line and contact details: `src/lib/site.js`.
 - Legal pages (`/privacy/`, `/terms/`, `/review-guidelines/`, `/right-of-reply/`) come from the legal drafts: `node scripts/legal-import.mjs <legal folder>` rewrites `src/content/legal/*.md`.
 - Share images: `/og/...png`, built at build time from `src/lib/og.js` (fonts in `brand/fonts`).
+
+### QR short links
+
+`public/_redirects` sends `/r/<slug>` to that garage's review form (tagged `ref=qr`) and `/r/meet` to the home page. Printed cards use garage slugs, so never rename a slug in `data/garages.json` once its card is printed.
