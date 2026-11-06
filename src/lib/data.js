@@ -1,0 +1,176 @@
+// Loads data/garages.json at build time and builds the indexes every page uses.
+import raw from "../../data/garages.json";
+import intros from "../content/intros.json";
+import { CATALOG } from "./catalog.js";
+
+export const CITY = { slug: "dubai", name: "Dubai" };
+export const slugify = (s) =>
+  String(s ?? "").toLowerCase().normalize("NFKD").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+const CONF = { high: 3, medium: 2, low: 1 };
+export const LEVELS = ["No evidence", "Some experience", "Good match", "Strong match"];
+
+export const AREA_GROUPS = [
+  "Al Quoz", "Ras Al Khor", "Al Qusais", "Dubai Investments Park", "Jebel Ali",
+  "Umm Ramool", "Nadd Al Hamar", "Al Khabaisi", "Saih Shuaib",
+];
+
+// Job pages for people who search by problem, not by car.
+export const JOBS = [
+  { slug: "servicing", name: "Servicing", plain: "Regular servicing and oil changes", re: /oil change|tune up|servic|maintenance/i },
+  { slug: "ac-repair", name: "AC repair", plain: "Car AC not cold", re: /air conditioning|\bac\b/i },
+  { slug: "gearbox", name: "Gearbox and transmission", plain: "Gearbox slipping, jerky or warning light", re: /transmission|gearbox|dsg/i },
+  { slug: "electrical", name: "Electrical", plain: "Warning lights, battery and electrical faults", re: /electrical|battery|electr/i },
+  { slug: "engine", name: "Engine repair", plain: "Engine noise, leaks and rebuilds", re: /engine|machine shop/i },
+  { slug: "bodywork", name: "Bodywork and paint", plain: "Dents, scratches and accident repair", re: /body|paint|dent/i },
+  { slug: "brakes", name: "Brakes", plain: "Brake noise and replacement", re: /brake/i },
+  { slug: "suspension", name: "Suspension", plain: "Knocks, air suspension and alignment", re: /spring|suspension|alignment|shock/i },
+  { slug: "restoration", name: "Restoration", plain: "Classic and older car restoration", re: /restoration/i },
+];
+
+function goodFor(text) {
+  const out = [];
+  if (/restoration/i.test(text)) out.push("Restorations");
+  if (/engine rebuild|transmission|machine shop/i.test(text)) out.push("Big repairs");
+  if (/oil change|tune up|maintenance|servic/i.test(text)) out.push("Regular servicing");
+  if (/body|paint|dent/i.test(text)) out.push("Bodywork");
+  return out.slice(0, 2);
+}
+
+function norm(g) {
+  const specs = (g.specialties || [])
+    .filter((s) => s.make)
+    .map((s) => ({
+      make: s.make,
+      makeSlug: slugify(s.make),
+      models: (s.models || []).filter(Boolean),
+      level: s.level || "brand",
+      confidence: s.confidence || "low",
+      conf: CONF[s.confidence] || 1,
+      evidence: s.evidence || "",
+      mentions: s.mentions || 0,
+      basis: s.basis || "",
+    }))
+    .sort((a, b) => b.conf - a.conf || b.mentions - a.mentions);
+  const real = (s) => /reviews|community/.test(s.basis) && s.conf >= 2;
+  const bySource = {};
+  (g.external_ratings || []).forEach((r) => {
+    bySource[r.source] = { source: r.source, rating: r.rating ?? null, count: r.count ?? null, url: r.url || "", snips: [] };
+  });
+  (g.external_reviews || []).forEach((r) => {
+    (bySource[r.source] ||= { source: r.source, rating: null, count: null, url: r.url || "", snips: [] }).snips.push({
+      text: r.excerpt, author: r.author || "", date: r.date || "", url: r.url || "", rating: r.rating ?? null, mentions: r.mentions || [],
+    });
+  });
+  const ext = Object.values(bySource);
+  const google = ext.find((e) => e.source === "Google" && e.rating) || null;
+  const areaGroup = AREA_GROUPS.find((a) => (g.area || "").startsWith(a)) || null;
+  const text = [...(g.categories || []), ...(g.services || [])].join(" | ");
+  return {
+    ...g,
+    slug: g.id || slugify(g.name),
+    specs,
+    ext,
+    google,
+    hasEvidence: specs.some(real),
+    topConf: Math.max(0, ...specs.map((s) => s.conf)),
+    areaGroup,
+    areaSlug: areaGroup ? slugify(areaGroup) : null,
+    jobs: JOBS.filter((j) => j.re.test(text)).map((j) => j.slug),
+    goodFor: goodFor(text),
+    waNumber: waNumber(g),
+    makes: [...new Set(specs.map((s) => s.make))],
+  };
+}
+
+export function waNumber(g) {
+  const n = String(g.whatsapp || g.phone || "").replace(/\D/g, "");
+  if (/^9715\d{8}$/.test(n)) return n;
+  if (/^05\d{8}$/.test(n)) return "971" + n.slice(1);
+  return "";
+}
+
+const defaultRank = (a, b) =>
+  b.hasEvidence - a.hasEvidence || b.topConf - a.topConf || (b.google?.count || 0) - (a.google?.count || 0);
+
+export const GARAGES = (raw.garages || raw).filter((g) => g && g.name).map(norm).sort(defaultRank);
+export const BY_SLUG = Object.fromEntries(GARAGES.map((g) => [g.slug, g]));
+export const DATA_UPDATED = raw.updated || "";
+export const METHOD = raw.method || "";
+
+/* ---------- brand and model indexes ---------- */
+export function specFor(g, make, model) {
+  const s = g.specs.filter((x) => x.make === make);
+  if (!s.length) return null;
+  if (model) {
+    const hit = s.filter((x) => x.models.includes(model));
+    if (hit.length) return { ...hit[0], modelHit: true };
+    return { ...s[0], conf: Math.min(s[0].conf, 2), modelHit: false };
+  }
+  return s[0];
+}
+export const levelOf = (spec) => (spec ? spec.conf : 0);
+const realFor = (g, make, model) => {
+  const s = specFor(g, make, model);
+  return !!s && /reviews|community/.test(s.basis) && s.conf >= 2 && (!model || s.modelHit);
+};
+
+function rankFor(make, model) {
+  return (a, b) => {
+    const sa = specFor(a, make, model), sb = specFor(b, make, model);
+    return (sb?.conf || 0) - (sa?.conf || 0) || (sb?.modelHit ? 1 : 0) - (sa?.modelHit ? 1 : 0) ||
+      (sb?.mentions || 0) - (sa?.mentions || 0) || (b.google?.count || 0) - (a.google?.count || 0);
+  };
+}
+
+export const BRANDS = (() => {
+  const m = {};
+  GARAGES.forEach((g) => g.specs.forEach((s) => {
+    (m[s.makeSlug] ||= { make: s.make, slug: s.makeSlug, garages: new Set(), models: {} }).garages.add(g.slug);
+    s.models.forEach((md) => ((m[s.makeSlug].models[slugify(md)] ||= { model: md, slug: slugify(md), garages: new Set() }).garages.add(g.slug)));
+  }));
+  return Object.values(m).map((b) => {
+    const garages = [...b.garages].map((x) => BY_SLUG[x]).sort(rankFor(b.make));
+    const models = Object.values(b.models).map((md) => ({
+      ...md,
+      garages: [...md.garages].map((x) => BY_SLUG[x]).sort(rankFor(b.make, md.model)),
+    }));
+    models.forEach((md) => (md.evidenceCount = md.garages.filter((g) => realFor(g, b.make, md.model)).length));
+    return { make: b.make, slug: b.slug, garages, models, evidenceCount: garages.filter((g) => realFor(g, b.make)).length };
+  }).sort((a, b) => b.evidenceCount - a.evidenceCount || b.garages.length - a.garages.length);
+})();
+
+export const AREAS = AREA_GROUPS.map((a) => ({
+  name: a, slug: slugify(a), garages: GARAGES.filter((g) => g.areaGroup === a),
+})).filter((a) => a.garages.length).map((a) => ({ ...a, evidenceCount: a.garages.filter((g) => g.hasEvidence).length }));
+
+export const JOB_PAGES = JOBS.map((j) => {
+  const garages = GARAGES.filter((g) => g.jobs.includes(j.slug));
+  return { ...j, re: undefined, garages, evidenceCount: garages.filter((g) => g.hasEvidence).length };
+}).filter((j) => j.garages.length);
+
+/* ---------- indexing rule (research doc section 14) ----------
+   A list page is indexed only with 3+ garages that have real evidence AND an approved intro. */
+export function intro(key) {
+  const i = intros[key];
+  return i && i.text ? i : null;
+}
+export function isIndexable(key, evidenceCount) {
+  const i = intros[key];
+  return evidenceCount >= 3 && !!(i && i.text && i.approved);
+}
+// Garage pages are indexed when they have real evidence for at least one specialty.
+export const garageIndexable = (g) => g.hasEvidence;
+
+/* ---------- picker payload (kept small; shipped to the browser) ---------- */
+export function pickerCatalog() {
+  const rows = CATALOG.map((c) => ({ ...c }));
+  BRANDS.forEach((b) => b.models.forEach((md) => {
+    if (!rows.some((r) => r.make === b.make && r.model === md.model)) rows.push({ make: b.make, model: md.model, code: "", years: "", aliases: "" });
+  }));
+  const pages = {};
+  BRANDS.forEach((b) => {
+    pages[b.make] = { url: `/${CITY.slug}/${b.slug}/`, models: Object.fromEntries(b.models.map((md) => [md.model, `/${CITY.slug}/${b.slug}/${md.slug}/`])) };
+  });
+  return { rows, pages };
+}

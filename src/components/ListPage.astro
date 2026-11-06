@@ -1,0 +1,41 @@
+---
+import Base from "../layouts/Base.astro";
+import GarageCard from "./GarageCard.astro";
+const {
+  title, description, h1, lead, introText = null, garages, make = null, model = null,
+  noindex, crumbs = [], related = [], pathKey,
+} = Astro.props;
+const itemList = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: h1,
+  itemListElement: garages.slice(0, 30).map((g, i) => ({
+    "@type": "ListItem", position: i + 1, url: new URL(`/garage/${g.slug}/`, Astro.site).toString(), name: g.name,
+  })),
+};
+---
+<Base title={title} description={description} noindex={noindex} jsonld={[itemList]} crumbs={crumbs}>
+  <div class="wrap">
+    <div class="rhead"><div>
+      <h1>{h1}</h1>
+      <p>{lead}</p>
+      <div class="resort" id="resort" hidden></div>
+    </div></div>
+    {introText && <div class="intro" set:html={introText.split(/\n\n+/).map((p) => `<p>${p}</p>`).join("")} />}
+    <div class="bar">
+      <button class="btn sm" type="button" data-setcar>Your car: <span data-carlabel>not set</span></button>
+      <span class="grow"></span>
+      <span class="muted" style="font-size:13px">{garages.length} garage{garages.length === 1 ? "" : "s"}</span>
+    </div>
+    <div class="results" id="results" data-make={make || ""} data-model={model || ""}>
+      {garages.map((g) => <GarageCard g={g} make={make} model={model} />)}
+      {garages.length === 0 && <div class="card empty">No garages here yet. <a href="/add-a-garage/">Tell us about one</a>.</div>}
+    </div>
+    {related.length > 0 && (
+      <section class="blk" style="padding-top:0;padding-bottom:48px">
+        <div class="blkhead"><h2>Related</h2></div>
+        <div class="linkgrid">{related.map((r) => <a class="pill" href={r.url}>{r.name}</a>)}</div>
+      </section>
+    )}
+  </div>
+</Base>

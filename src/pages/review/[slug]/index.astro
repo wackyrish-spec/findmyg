@@ -1,0 +1,38 @@
+---
+import Base from "../../../layouts/Base.astro";
+import { GARAGES } from "../../../lib/data.js";
+export function getStaticPaths() {
+  return GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
+}
+const { g } = Astro.props;
+const supabaseReady = !!(import.meta.env.PUBLIC_SUPABASE_URL && import.meta.env.PUBLIC_SUPABASE_ANON_KEY);
+---
+<Base title={`Review ${g.name}`} description={`Tell other owners how ${g.name} handled your car.`} noindex={true} crumbs={[{ name: g.name, url: `/garage/${g.slug}/` }, { name: "Write a review" }]}>
+  <div class="wrap" style="padding-block:20px 56px;max-width:680px">
+    <h1 style="font-size:42px;text-transform:uppercase">Review {g.name}</h1>
+    <p class="muted">About a minute. Your review helps the next owner of the same car.</p>
+    {!supabaseReady && <div class="note" style="margin:12px 0">Reviews open soon. Sign-in and saving go live once the review database is connected.</div>}
+    <form class="f card panel" id="reviewForm" data-garage={g.slug} data-ready={supabaseReady ? "1" : ""} novalidate>
+      <div class="label">Your car</div>
+      <div class="two">
+        <label class="fld" for="rMake">Brand<input id="rMake" required list="makesList" placeholder="e.g. Porsche" /></label>
+        <label class="fld" for="rModel">Model and generation<input id="rModel" placeholder="e.g. Cayenne 958" /></label>
+      </div>
+      <label class="fld" for="rYear">Year<input id="rYear" inputmode="numeric" maxlength="4" placeholder="2014" /></label>
+      <div class="label">The job</div>
+      <label class="fld" for="rJob">What was done<input id="rJob" required placeholder="e.g. air suspension compressor" /></label>
+      <div class="two">
+        <label class="fld" for="rPaid">Total paid (AED)<input id="rPaid" inputmode="numeric" placeholder="2400" /></label>
+        <fieldset class="fld" style="border:0;padding:0;margin:0"><legend style="margin-bottom:5px">Final bill vs quote</legend>
+          <div class="seg"><label for="q1"><input type="radio" name="qvf" id="q1" value="same" />Same</label><label for="q2"><input type="radio" name="qvf" id="q2" value="higher" />Higher</label><label for="q3"><input type="radio" name="qvf" id="q3" value="lower" />Lower</label></div></fieldset>
+      </div>
+      <fieldset class="fld" style="border:0;padding:0;margin:0"><legend style="margin-bottom:5px">How well did they know your car?</legend>
+        <div class="seg"><label for="k1"><input type="radio" name="knew" id="k1" value="expert" />Inside out</label><label for="k2"><input type="radio" name="knew" id="k2" value="good" />Well</label><label for="k3"><input type="radio" name="knew" id="k3" value="average" />Average</label><label for="k4"><input type="radio" name="knew" id="k4" value="poor" />Not really</label></div></fieldset>
+      <label class="fld" for="rRating">Overall rating<select id="rRating" required><option value="">Choose</option><option value="5">5 · Excellent</option><option value="4">4 · Good</option><option value="3">3 · OK</option><option value="2">2 · Poor</option><option value="1">1 · Bad</option></select></label>
+      <div class="seg"><label for="c1"><input type="checkbox" id="c1" />Showed me the old parts</label><label for="c2"><input type="checkbox" id="c2" />Called before extra work</label><label for="c3"><input type="checkbox" id="c3" />Would go back</label></div>
+      <label class="fld" for="rText">Your review<textarea id="rText" required placeholder="What was wrong, what they did, and how they dealt with you"></textarea><small>At least 40 characters.</small></label>
+      <div class="err" id="rErr" hidden></div>
+      <button class="btn primary" type="submit" disabled={!supabaseReady}>{supabaseReady ? "Sign in and submit" : "Reviews open soon"}</button>
+    </form>
+  </div>
+</Base>

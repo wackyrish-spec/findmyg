@@ -1,0 +1,21 @@
+---
+import Base from "../layouts/Base.astro";
+import { METHOD, DATA_UPDATED } from "../lib/data.js";
+---
+<Base title="How GarageGuide works" description="How GarageGuide decides which Dubai garages specialise in which cars, and how owner reviews work." crumbs={[{ name: "How it works" }]}>
+  <div class="wrap" style="padding-block:24px 56px;max-width:840px">
+    <h1 style="font-size:48px;text-transform:uppercase">How GarageGuide works</h1>
+    <p class="muted" style="font-size:17px">Owners ask the same question every week on Reddit, in Facebook groups and in person: who in Dubai really knows my car? GarageGuide answers it with evidence. It's free, and garages can't pay to be listed or ranked.</p>
+    <section class="card panel" style="margin-top:20px"><h2>How we decide what a garage specialises in</h2>
+      <p style="margin:0 0 10px">We read reviews of each garage and count which car brands and models customers mention, then add recommendations from owners on Reddit and forums. Each specialty gets a confidence level and shows the numbers behind it.</p>
+      <p style="margin:0 0 10px"><b>High</b> means the brand comes up in most reviews that name a car. <b>Medium</b> means it's a large share, or owners recommend the garage for it online. <b>Low</b> means it's only in the garage's name or listing, or the signal is weak.</p>
+      <p class="muted" style="margin:0;font-size:13px">{METHOD}{DATA_UPDATED ? ` Data updated ${DATA_UPDATED}.` : ""}</p></section>
+    <section class="card panel" style="margin-top:14px"><h2>Match for your car</h2>
+      <p style="margin:0">Set your car once and every list re-sorts around it. A <b>strong match</b> means strong review evidence for your brand or model. A <b>good match</b> means solid evidence. <b>Some experience</b> means your brand comes up, but not often.</p></section>
+    <section class="card panel faq" style="margin-top:14px"><h2>Questions</h2>
+      <details open><summary>Where do “what the internet says” excerpts come from?</summary><p>Public ratings and short excerpts from Google, Reddit and owner forums, always linked to the original. They're kept separate from GarageGuide owner reviews.</p></details>
+      <details><summary>How do owner reviews work?</summary><p>Owners sign in, then tell us their car, the job, what they paid and whether the final bill matched the quote. Every review is checked before it goes live.</p></details>
+      <details><summary>Can a garage pay to rank higher?</summary><p>No. Ranking comes only from evidence for your car.</p></details>
+      <details><summary>I know a great specialist that's missing.</summary><p><a href="/add-a-garage/">Tell us about it</a> and which cars they're good with.</p></details>
+    </section></div>
+</Base>

@@ -1,0 +1,6 @@
+{
+  "_how": "Key is the page path without slashes at the ends, e.g. 'dubai/porsche' or 'dubai/porsche/cayenne'. A brand, model, area or job page is only indexed by Google when it has 3+ garages with real evidence AND an intro here with approved: true. Write intros in Rishal's own voice (150-300 words).",
+  "dubai/porsche": { "approved": false, "text": "" },
+  "dubai/volkswagen/golf-gti": { "approved": false, "text": "" },
+  "dubai/alfa-romeo": { "approved": false, "text": "" }
+}

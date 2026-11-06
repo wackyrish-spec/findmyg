@@ -1,0 +1,19 @@
+---
+import ListPage from "../../components/ListPage.astro";
+import { GARAGES, BRANDS, AREAS, JOB_PAGES } from "../../lib/data.js";
+const related = [
+  ...BRANDS.slice(0, 12).map((b) => ({ name: `${b.make} specialists`, url: `/dubai/${b.slug}/` })),
+  ...AREAS.map((a) => ({ name: `Garages in ${a.name}`, url: `/dubai/area/${a.slug}/` })),
+  ...JOB_PAGES.map((j) => ({ name: j.name, url: `/dubai/job/${j.slug}/` })),
+];
+---
+<ListPage
+  title="Independent car garages in Dubai"
+  description={`${GARAGES.length} independent garages in Dubai, with the car brands and models each one knows best.`}
+  h1="Independent garages in Dubai"
+  lead="Set your car and this list re-sorts by how well each garage knows it. Garages with evidence from real reviews come first."
+  garages={GARAGES}
+  noindex={false}
+  crumbs={[{ name: "Dubai" }]}
+  related={related}
+/>

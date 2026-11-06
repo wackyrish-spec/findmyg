@@ -1,0 +1,205 @@
+// Client-side behaviour: saved car, car picker, re-ranking, match panel, WhatsApp.
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const LEVELS = ["No evidence", "Some experience", "Good match", "Strong match"];
+const DATA = JSON.parse($("#picker-data")?.textContent || '{"rows":[],"pages":{}}');
+const BRANDS = [...new Set(DATA.rows.map((r) => r.make))];
+
+/* ---------- saved car ---------- */
+const store = {
+  get(k, d) { try { const v = localStorage.getItem("gg:" + k); return v ? JSON.parse(v) : d; } catch { return d; } },
+  set(k, v) { try { localStorage.setItem("gg:" + k, JSON.stringify(v)); } catch {} },
+};
+let car = store.get("car", null);
+const carLabel = (c) => (c ? [c.year, c.make, c.model, c.code].filter(Boolean).join(" ") : "");
+const carShort = (c) => (c ? (c.model ? [c.model, c.code].filter(Boolean).join(" ") : c.make) : "");
+function setCar(c) { car = c; store.set("car", c); paintCar(); }
+function paintCar() {
+  const b = $("#mycarBtn");
+  if (b) {
+    b.innerHTML = car ? `<span class="dot"></span><span>${esc(carShort(car))}</span>` : `<span>Set your car</span>`;
+    b.setAttribute("aria-label", car ? `Your car: ${carLabel(car)}. Change` : "Set your car");
+  }
+  $$("[data-carlabel]").forEach((e) => (e.textContent = car ? carLabel(car) : "not set"));
+}
+function pageFor(c) {
+  const p = DATA.pages[c.make];
+  if (!p) return "/dubai/";
+  return (c.model && p.models[c.model]) || p.url;
+}
+
+/* ---------- search ---------- */
+function searchCars(q) {
+  q = q.toLowerCase().replace(/\b(19[89]\d|20[0-3]\d)\b/, "").trim();
+  if (!q) return [];
+  const toks = q.split(/[\s,]+/).filter(Boolean);
+  const out = [];
+  BRANDS.forEach((b) => {
+    const bl = b.toLowerCase();
+    if (bl.startsWith(q) || toks.every((t) => bl.includes(t))) out.push({ make: b, model: "", code: "", years: "", score: 3, brandOnly: true });
+  });
+  DATA.rows.forEach((c) => {
+    const hay = [c.make, c.model, c.code, c.aliases].join(" ").toLowerCase();
+    const words = hay.split(/[\s-]+/);
+    let s = 0;
+    for (const t of toks) {
+      if (c.code && c.code.toLowerCase() === t) s += 5;
+      else if (words.includes(t)) s += 3;
+      else if (hay.includes(t)) s += 1;
+      else { s = -1; break; }
+    }
+    if (s > 0) out.push({ ...c, score: s });
+  });
+  return out.sort((a, b) => b.score - a.score).slice(0, 8);
+}
+function wirePicker(root, onPick) {
+  const inp = $("input", root), list = $(".sugg", root);
+  let items = [], act = -1;
+  const draw = () => {
+    if (!items.length) { list.hidden = true; inp.setAttribute("aria-expanded", "false"); return; }
+    list.innerHTML = items.map((c, i) => `<button type="button" role="option" class="${i === act ? "act" : ""}" data-i="${i}"><span>${c.brandOnly ? `${esc(c.make)} <span class="muted">· any model</span>` : `${esc(c.make)} ${esc(c.model)} ${c.code ? `<span class="code">${esc(c.code)}</span>` : ""}`}</span><small>${esc(c.years || "")}</small></button>`).join("");
+    list.hidden = false; inp.setAttribute("aria-expanded", "true");
+  };
+  const choose = (c) => {
+    const yr = (inp.value.match(/\b(19[89]\d|20[0-3]\d)\b/) || [])[1] || "";
+    setCar({ make: c.make, model: c.model || "", code: c.code || "", year: yr });
+    items = []; draw(); inp.value = carLabel(car); onPick(car);
+  };
+  inp.addEventListener("input", () => { items = searchCars(inp.value); act = items.length ? 0 : -1; draw(); });
+  inp.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowDown") { act = Math.min(items.length - 1, act + 1); draw(); e.preventDefault(); }
+    else if (e.key === "ArrowUp") { act = Math.max(0, act - 1); draw(); e.preventDefault(); }
+    else if (e.key === "Enter") { e.preventDefault(); if (items[act]) choose(items[act]); }
+    else if (e.key === "Escape") { items = []; draw(); }
+  });
+  list.addEventListener("click", (e) => { const b = e.target.closest("[data-i]"); if (b) choose(items[+b.dataset.i]); });
+  document.addEventListener("click", (e) => { if (!root.contains(e.target)) { items = []; list.hidden = true; } }, true);
+  return { inp, run: () => { if (items[act]) choose(items[act]); else { items = searchCars(inp.value); act = 0; if (items.length === 1) choose(items[0]); else draw(); } } };
+}
+
+/* ---------- dialog ---------- */
+const dlg = $("#dlg");
+$("#dlgX")?.addEventListener("click", () => dlg.close());
+dlg?.addEventListener("click", (e) => { if (e.target === dlg) dlg.close(); });
+function openDlg(title, html) { $("#dlgTitle").textContent = title; $("#dlgBody").innerHTML = html; if (!dlg.open) dlg.showModal(); }
+
+function carDialog() {
+  openDlg("Your car", `<div style="display:flex;flex-direction:column;gap:12px">
+    <div class="picker" id="dp"><label class="label" for="dpIn">What do you drive?</label>
+      <div class="pickrow"><input id="dpIn" autocomplete="off" role="combobox" aria-expanded="false" placeholder="e.g. Cayenne 958, E90 335i, LC200" value="${esc(carLabel(car))}"></div>
+      <div class="sugg" role="listbox" hidden></div></div>
+    <p class="muted" style="margin:0;font-size:13px">Saved on this device. Lists re-sort around it.</p>
+    ${car ? `<button class="btn" type="button" id="clearCar">Clear my car</button>` : ""}</div>`);
+  const p = wirePicker($("#dp"), () => { dlg.close(); applyCar(true); });
+  p.inp.focus();
+  $("#clearCar")?.addEventListener("click", () => { setCar(null); dlg.close(); applyCar(true); });
+}
+
+/* ---------- ranking ---------- */
+function matchFor(specs, c) {
+  if (!c) return null;
+  const ent = specs.filter((s) => s[0] === c.make);
+  if (!ent.length) return { l: 0, ev: "", hit: false };
+  let best = ent[0], l = Math.max(...ent.map((s) => s[2])), hit = false;
+  if (c.model) {
+    const mh = ent.filter((s) => s[1].includes(c.model));
+    if (mh.length) { best = mh[0]; l = Math.max(...mh.map((s) => s[2])); hit = true; } else l = Math.min(l, 2);
+  }
+  return { l, ev: best[3], hit };
+}
+const matchHTML = (m) => `<span class="match l${m.l}"><span class="meter">${[1, 2, 3].map((i) => `<i class="${i <= m.l ? "on" : ""}"></i>`).join("")}</span>${LEVELS[m.l]}</span>`;
+
+function rerank(announce) {
+  const box = $("#results");
+  if (!box) return;
+  const cards = $$(".gcard", box);
+  const pageMake = box.dataset.make;
+  // On a brand page for another make, the saved car doesn't apply.
+  const c = car && (!pageMake || pageMake === car.make) ? car : null;
+  const scored = cards.map((el, i) => {
+    const specs = JSON.parse(el.dataset.specs || "[]");
+    const m = c ? matchFor(specs, c) : null;
+    return { el, i, m, g: +el.dataset.gcount || 0 };
+  });
+  if (c) {
+    scored.sort((a, b) => (b.m.l - a.m.l) || ((b.m.hit ? 1 : 0) - (a.m.hit ? 1 : 0)) || (a.i - b.i));
+    scored.forEach(({ el, m }) => {
+      const slot = $(".matchslot", el); if (slot) slot.innerHTML = matchHTML(m);
+      const ev = $(".evid", el); if (ev && m.ev) ev.textContent = m.ev;
+      el.classList.toggle("dim", m.l === 0);
+      const d = $("details.enth", el); if (d && c.code) d.open = true;
+    });
+  } else scored.sort((a, b) => a.i - b.i);
+  scored.forEach(({ el }) => box.appendChild(el));
+  const r = $("#resort");
+  if (r && c && announce) { r.hidden = false; r.textContent = `Re-sorted for your ${carShort(c)}`; }
+  else if (r) r.hidden = true;
+}
+
+function matchPanel() {
+  const page = $("[data-garage-page]"), panel = $("#matchPanel");
+  if (!page || !panel) return;
+  const specs = JSON.parse(page.dataset.specs || "[]");
+  $$("[data-model-tile]").forEach((t) => { const [mk, md] = t.dataset.modelTile.split("|"); t.classList.toggle("hit", !!car && car.make === mk && car.model === md); });
+  if (!car) {
+    panel.hidden = false;
+    panel.classList.remove("matchpanel");
+    panel.innerHTML = `<h2>Does it know your car?</h2><p class="muted" style="margin:0 0 12px">Set your car to see how well this garage matches it.</p><button class="btn primary" type="button" data-setcar>Set your car</button>`;
+    return;
+  }
+  const m = matchFor(specs, car);
+  panel.classList.add("matchpanel");
+  panel.hidden = false;
+  const quotes = $$(".snip").filter((s) => s.textContent.toLowerCase().includes((car.model || car.make).toLowerCase())).slice(0, 2);
+  panel.innerHTML = `<h2>Match for your ${esc(carShort(car))}</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">${matchHTML(m)}<span class="evid">${esc(m.ev || `No reviews we've read mention ${car.make} here.`)}</span></div>
+    ${quotes.map((q) => `<blockquote class="quote" style="margin-top:10px">${q.innerHTML}</blockquote>`).join("")}
+    <p class="muted" style="font-size:13px;margin:10px 0 0">Not your car? <button class="btn sm" type="button" data-setcar>Change car</button></p>`;
+}
+
+function applyCar(announce) { paintCar(); rerank(announce); matchPanel(); }
+
+/* ---------- WhatsApp ---------- */
+function waDialog(btn) {
+  const num = btn.dataset.waNum, name = btn.dataset.name;
+  const jobs = ["Service", "Diagnosis of a fault", "Repair quote", "Something else"];
+  openDlg(`WhatsApp ${name}`, `<div style="display:flex;flex-direction:column;gap:12px">
+    ${car ? "" : `<div class="note">Add your car so the garage can quote properly. <button class="btn sm" type="button" data-setcar>Set your car</button></div>`}
+    <label class="fld" for="waJob">What do you need?<select id="waJob">${jobs.map((j) => `<option>${j}</option>`).join("")}</select></label>
+    <label class="fld" for="waNote">Anything to add? (optional)<input id="waNote" placeholder="e.g. warning light on, car is drivable"></label>
+    <div><div class="label" style="margin-bottom:6px">Your message</div><div class="msg" id="waMsg"></div></div>
+    <a class="btn wa" id="waGo" target="_blank" rel="noopener">Open WhatsApp</a></div>`);
+  const upd = () => {
+    const note = $("#waNote").value.trim();
+    const m = `Hi, found you on GarageGuide. I have ${car ? "a " + carLabel(car) : "a car"}, looking for: ${$("#waJob").value.toLowerCase()}.${note ? " " + note : ""} Can you quote?`;
+    $("#waMsg").textContent = m;
+    $("#waGo").href = `https://wa.me/${num}?text=${encodeURIComponent(m)}`;
+  };
+  $("#waJob").onchange = upd; $("#waNote").oninput = upd; upd();
+  $("#waGo").onclick = () => track(btn.dataset.wa, "whatsapp");
+}
+function track(slug, kind) {
+  const log = store.get("contacts", []);
+  log.unshift({ slug, kind, t: Date.now() });
+  store.set("contacts", log.slice(0, 20));
+}
+
+/* ---------- events ---------- */
+document.addEventListener("click", (e) => {
+  const t = e.target.closest("[data-setcar],#mycarBtn,[data-wa],[data-track],[data-try]");
+  if (!t) return;
+  if (t.matches("[data-setcar],#mycarBtn")) carDialog();
+  else if (t.dataset.wa) waDialog(t);
+  else if (t.dataset.track) { const p = $("[data-garage-page]"); if (p) track(p.dataset.garagePage, t.dataset.track); }
+  else if (t.dataset.try !== undefined) { const i = $("#hpIn"); if (i) { i.value = t.dataset.try; i.dispatchEvent(new Event("input")); i.focus(); } }
+});
+
+const hp = $("#hp");
+if (hp) {
+  const p = wirePicker(hp, (c) => { location.href = pageFor(c); });
+  $("#hpGo")?.addEventListener("click", () => (p.inp.value.trim() ? p.run() : car ? (location.href = pageFor(car)) : p.inp.focus()));
+  if (car) p.inp.value = carLabel(car);
+}
+if ($("#sticky")) document.body.classList.add("has-sticky");
+applyCar(!!$("#results") && !!car);

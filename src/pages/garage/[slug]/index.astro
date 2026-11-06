@@ -1,0 +1,141 @@
+---
+import Base from "../../../layouts/Base.astro";
+import Icon from "../../../components/Icon.astro";
+import { GARAGES, garageIndexable, slugify } from "../../../lib/data.js";
+export function getStaticPaths() {
+  return GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
+}
+const { g } = Astro.props;
+const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(g.name + " " + (g.area || "") + " Dubai")}`;
+const top = g.specs[0];
+const brandsList = g.makes.join(", ");
+const desc = top
+  ? `${g.name} in ${g.area || "Dubai"}: ${brandsList} ${g.specs.length > 1 ? "specialist" : "specialist"}. See what owners say, the evidence and how to contact them.`
+  : `${g.name}, an independent garage in ${g.area || "Dubai"}. Reviews, contact details and directions.`;
+const models = g.specs.flatMap((s) => s.models.map((m) => ({ make: s.make, model: m, conf: s.conf, confidence: s.confidence })));
+// AutoRepair schema. aggregateRating is added only from GarageGuide's own owner reviews (none yet).
+const ld = {
+  "@context": "https://schema.org",
+  "@type": "AutoRepair",
+  name: g.name,
+  url: new URL(`/garage/${g.slug}/`, Astro.site).toString(),
+  ...(g.phone ? { telephone: g.phone } : {}),
+  ...(g.address ? { address: { "@type": "PostalAddress", streetAddress: g.address, addressLocality: g.area || "Dubai", addressRegion: "Dubai", addressCountry: "AE" } } : {}),
+  ...(g.lat && g.lng ? { geo: { "@type": "GeoCoordinates", latitude: g.lat, longitude: g.lng } } : {}),
+  sameAs: [g.website, g.maps_url].filter(Boolean),
+  ...(g.makes.length ? { knowsAbout: g.makes } : {}),
+};
+const firstMake = g.specs[0]?.make;
+---
+<Base
+  title={`${g.name}${top ? ` · ${top.make} specialist` : ""} in ${g.area || "Dubai"}`}
+  description={desc}
+  noindex={!garageIndexable(g)}
+  jsonld={[ld]}
+  crumbs={[{ name: "Dubai", url: "/dubai/" }, ...(firstMake ? [{ name: firstMake, url: `/dubai/${slugify(firstMake)}/` }] : []), { name: g.name }]}
+>
+  <div class="wrap" data-garage-page={g.slug} data-specs={JSON.stringify(g.specs.map((s) => [s.make, s.models, s.conf, s.evidence]))}>
+    <div class="ghead"><div>
+      <div class="meta" style="margin-bottom:8px">
+        <span><Icon name="pin" />{g.area || "Dubai"}</span>
+        {g.goodFor.map((x) => <span class="goodfor">Good for: {x}</span>)}
+        {g.business_type && g.business_type !== "workshop" && <span class="biztag">Also sells parts</span>}
+      </div>
+      <h1>{g.name}</h1></div>
+      <div class="gacts">
+        {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
+        {g.phone && <a class={`btn ${g.waNumber ? "" : "primary"}`} href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call"><Icon name="phone" />Call</a>}
+        <a class="btn" href={maps} target="_blank" rel="noopener"><Icon name="nav" />Directions</a>
+      </div>
+    </div>
+
+    {g.specs.length > 0 && (
+      <div class="known"><span class="label" style="margin-inline-end:4px">Known for</span>
+        {g.specs.map((s) => (
+          <a class="pill" href={`/dubai/${s.makeSlug}/`}>{s.make}{s.mentions ? ` · ${s.mentions}` : ""} <span class={`conf c${s.conf}`}>{s.confidence}</span></a>
+        ))}
+      </div>
+    )}
+
+    <div class="gbody">
+      <div>
+        <section class="card panel matchpanel" id="matchPanel" hidden></section>
+
+        {g.review_summary && (
+          <section class="card panel summary"><h2>What reviewers say</h2>
+            <p class="sub">Summary of reviews we read on {g.ext.map((e) => e.source).join(", ") || "other sites"}{g.reviews_analysed ? ` (${g.reviews_analysed} reviews read)` : ""}.</p>
+            <p>{g.review_summary}</p></section>
+        )}
+
+        {models.length > 0 && (
+          <section class="card panel"><h2>Models they've worked on</h2><p class="sub">Models that come up in reviews and owner recommendations.</p>
+            <div class="models">{models.map((m) => (
+              <div data-model-tile={`${m.make}|${m.model}`}><b>{m.make} {m.model}</b><small>{m.confidence} confidence</small></div>
+            ))}</div></section>
+        )}
+
+        <section class="card panel ours" id="ownerRevs">
+          <div class="blkhead" style="margin-bottom:8px"><div>
+            <h2 style="font-size:24px;text-transform:uppercase;margin:0">Owner reviews on GarageGuide</h2>
+            <p class="sub" style="margin:4px 0 0">Reviews from owners who used this garage: their car, the job, what they paid and whether the bill matched the quote.</p></div>
+            <a class="btn primary sm" href={`/review/${g.slug}/`}><Icon name="pen" />Write a review</a></div>
+          <div id="ownerList" data-garage={g.slug}>
+            <div class="note">No owner reviews yet. If you've taken your car here, <a href={`/review/${g.slug}/`}>your review</a> helps the next owner of the same car.</div>
+          </div>
+        </section>
+
+        <section class="card panel theirs"><h2>What the internet says</h2>
+          <p class="sub">Ratings and short excerpts from other sites, linked to the original. Shown separately and never mixed into GarageGuide ratings.</p>
+          <div class="srclist">
+            {g.ext.map((e) => (
+              <div class="src">
+                <div class="h"><span class="sname">{e.source}</span>
+                  {e.rating ? <span><b class="num">{Number(e.rating).toFixed(1)}</b> <span class="muted">from {(e.count || 0).toLocaleString("en-US")} reviews</span></span> : null}</div>
+                {e.snips.slice(0, 3).map((s) => (
+                  <div class="snip">“{s.text}”<cite>{[s.author, s.date].filter(Boolean).join(" · ")}{s.url && <> · <a href={s.url} target="_blank" rel="noopener nofollow">Read on {e.source}</a></>}</cite></div>
+                ))}
+                {e.url && <a href={e.url} target="_blank" rel="noopener nofollow" style="font-weight:800;font-size:13px">See all on {e.source} <Icon name="ext" /></a>}
+              </div>
+            ))}
+            {g.ext.length === 0 && <p class="muted">Nothing found on other sites yet.</p>}
+          </div>
+        </section>
+      </div>
+
+      <div class="side">
+        <section class="card panel">
+          <h2 style="font-size:22px">Owner rating</h2>
+          <p style="margin:0;font-size:14px"><b>No owner reviews yet.</b> <span class="muted">GarageGuide ratings and quote accuracy appear once owners review this garage.</span></p>
+          <a class="btn primary" href={`/review/${g.slug}/`}><Icon name="pen" />Be the first to review</a>
+        </section>
+        <section class="card panel"><h2 style="font-size:22px">Workshop facts</h2>
+          <dl class="facts">
+            {g.address && <div><dt>Address</dt><dd>{g.address}</dd></div>}
+            {g.phone && <div><dt>Phone</dt><dd class="num"><a href={`tel:${g.phone.replace(/\s/g, "")}`}>{g.phone}</a></dd></div>}
+            {g.hours && <div><dt>Hours</dt><dd>{g.hours}</dd></div>}
+            {g.website && <div><dt>Website</dt><dd><a href={g.website} target="_blank" rel="noopener" style="overflow-wrap:anywhere">{g.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}</a></dd></div>}
+            {(g.services || []).length > 0 && <div><dt>Services</dt><dd>{g.services.join(", ")}</dd></div>}
+          </dl>
+          <p class="confirmed">Is something wrong or missing? <a href={`/add-a-garage/?fix=${g.slug}`}>Suggest a correction</a>.</p>
+        </section>
+        <section class="card panel">
+          <details class="enth" open={false}><summary>For enthusiasts: the evidence</summary>
+            <div class="enthlist">
+              {g.specs.map((s) => (
+                <div><span><b>{s.make}</b>{s.models.length > 0 && <> · {s.models.map((m) => <span class="code">{m}</span>)}</>} <span class={`conf c${s.conf}`}>{s.confidence}</span></span>
+                <span class="muted">{s.evidence}{s.basis ? ` (source: ${s.basis})` : ""}</span></div>
+              ))}
+              {(g.categories || []).length > 0 && <div class="muted">Google categories: {g.categories.join(", ")}</div>}
+              {(g.sources || []).length > 0 && <div>{g.sources.slice(0, 6).map((u) => <a href={u} target="_blank" rel="noopener nofollow" style="overflow-wrap:anywhere;display:block">{u.replace(/^https?:\/\/(www\.)?/, "").slice(0, 60)}</a>)}</div>}
+            </div>
+          </details>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div class="stickybar" id="sticky">
+    {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
+    {g.phone && <a class={`btn ${g.waNumber ? "" : "primary"}`} href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call"><Icon name="phone" />Call</a>}
+    <a class="btn" href={maps} target="_blank" rel="noopener"><Icon name="nav" />Directions</a>
+  </div>
+</Base>

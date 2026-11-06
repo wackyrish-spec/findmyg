@@ -1,0 +1,75 @@
+---
+import "../styles/global.css";
+import { pickerCatalog } from "../lib/data.js";
+
+const {
+  title,
+  description,
+  noindex = false,
+  jsonld = [],
+  crumbs = [],
+} = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).toString();
+const fullTitle = title.includes("GarageGuide") ? title : `${title} | GarageGuide`;
+const picker = pickerCatalog();
+const crumbLd = crumbs.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [{ name: "Home", url: "/" }, ...crumbs].map((c, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: c.name,
+        ...(c.url ? { item: new URL(c.url, Astro.site).toString() } : {}),
+      })),
+    }
+  : null;
+const ld = [...jsonld, ...(crumbLd ? [crumbLd] : [])];
+---
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>{fullTitle}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  {noindex && <meta name="robots" content="noindex, follow" />}
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GarageGuide" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" />
+  {ld.map((x) => <script type="application/ld+json" set:html={JSON.stringify(x)} />)}
+</head>
+<body>
+  <header class="top"><div class="wrap">
+    <a class="logo" href="/"><i></i><span>Garage<b>Guide</b></span></a>
+    <nav class="main">
+      <a href="/dubai/">All garages</a>
+      <a href="/how-it-works/">How it works</a>
+      <button class="mycar" type="button" id="mycarBtn" aria-label="Set your car"><span>Set your car</span></button>
+    </nav>
+  </div></header>
+  {crumbs.length > 0 && (
+    <div class="wrap"><nav class="crumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      {crumbs.map((c) => (<><span aria-hidden="true">›</span>{c.url ? <a href={c.url}>{c.name}</a> : <span>{c.name}</span>}</>))}
+    </nav></div>
+  )}
+  <main><slot /></main>
+  <footer><div class="wrap">
+    <span>GarageGuide · Find the garage that knows your car. Free, no paid listings.</span>
+    <span><a href="/how-it-works/">How specialties are decided</a></span>
+  </div></footer>
+  <dialog id="dlg"><div class="dhead"><h2 id="dlgTitle"></h2><button class="iconbtn" type="button" id="dlgX" aria-label="Close">✕</button></div><div class="dbody" id="dlgBody"></div></dialog>
+  <script type="application/json" id="picker-data" set:html={JSON.stringify(picker)} />
+  <script>
+    import "../scripts/site.js";
+  </script>
+</body>
+</html>

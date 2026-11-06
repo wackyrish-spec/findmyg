@@ -1,0 +1,26 @@
+---
+import ListPage from "../../../../components/ListPage.astro";
+import { BRANDS, intro, isIndexable } from "../../../../lib/data.js";
+export function getStaticPaths() {
+  return BRANDS.flatMap((b) => b.models.map((m) => ({ params: { make: b.slug, model: m.slug }, props: { b, m } })));
+}
+const { b, m } = Astro.props;
+const key = `dubai/${b.slug}/${m.slug}`;
+const it = intro(key);
+// Show model specialists first, then the brand's other specialists as a fallback.
+const rest = b.garages.filter((g) => !m.garages.includes(g));
+const garages = [...m.garages, ...rest];
+---
+<ListPage
+  title={`${b.make} ${m.model} specialist garages in Dubai`}
+  description={`Where to fix a ${b.make} ${m.model} in Dubai: independent garages that owners recommend for the ${m.model}, with the evidence for each.`}
+  h1={`${b.make} ${m.model} specialists in Dubai`}
+  lead={`${m.garages.length} garage${m.garages.length === 1 ? "" : "s"} where owners mention the ${m.model}, followed by other ${b.make} specialists.`}
+  introText={it?.text}
+  garages={garages}
+  make={b.make}
+  model={m.model}
+  noindex={!isIndexable(key, m.evidenceCount)}
+  crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: b.make, url: `/dubai/${b.slug}/` }, { name: m.model }]}
+  related={b.models.filter((x) => x.slug !== m.slug).map((x) => ({ name: `${b.make} ${x.model}`, url: `/dubai/${b.slug}/${x.slug}/` }))}
+/>
