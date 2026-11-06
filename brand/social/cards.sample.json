@@ -1,11 +1,82 @@
 [
-  {"template": "paid", "format": "post", "model": "Cayenne S", "code": "958", "job": "Air suspension compressor", "low": "2,400", "high": "3,100", "reports": 6, "dealer": "7,800"},
-  {"template": "who", "format": "post", "make": "Volkswagen", "model": "Golf GTI", "code": "MK5", "reviews": 23,
-   "garages": [
-     {"name": "Garage name one", "area": "Al Quoz 3", "note": "DSG and coil packs", "level": 3},
-     {"name": "Garage name two", "area": "Ras Al Khor", "note": "Timing chain", "level": 3},
-     {"name": "Garage name three", "area": "Al Qusais", "note": "Servicing", "level": 2}
-   ]},
-  {"template": "quote", "format": "post", "garage": "Garage name", "quote": "Quoted 1,800, paid 1,800. Showed me the old coil packs and explained why they failed in the heat.", "author": "Owner first name", "car": "Golf GTI 2008", "code": "MK5", "job": "Coil packs and plugs"},
-  {"template": "paid", "format": "story", "model": "Land Cruiser", "code": "LC200", "job": "AC compressor", "low": "1,900", "high": "2,600", "reports": 9}
+ {
+  "template": "paid",
+  "format": "post",
+  "model": "Cayenne S",
+  "code": "958",
+  "job": "Air suspension compressor",
+  "low": "2,400",
+  "high": "3,100",
+  "reports": 6,
+  "dealer": "7,800"
+ },
+ {
+  "template": "who",
+  "format": "post",
+  "make": "Volkswagen",
+  "model": "Golf GTI",
+  "code": "MK5",
+  "reviews": 23,
+  "garages": [
+   {
+    "name": "Garage name one",
+    "area": "Al Quoz 3",
+    "note": "DSG and coil packs",
+    "level": 3
+   },
+   {
+    "name": "Garage name two",
+    "area": "Ras Al Khor",
+    "note": "Timing chain",
+    "level": 3
+   },
+   {
+    "name": "Garage name three",
+    "area": "Al Qusais",
+    "note": "Servicing",
+    "level": 2
+   }
+  ]
+ },
+ {
+  "template": "quote",
+  "format": "post",
+  "garage": "Garage name",
+  "quote": "Quoted 1,800, paid 1,800. Showed me the old coil packs and explained why they failed in the heat.",
+  "author": "Owner first name",
+  "car": "Golf GTI 2008",
+  "code": "MK5",
+  "job": "Coil packs and plugs"
+ },
+ {
+  "template": "paid",
+  "format": "story",
+  "model": "Land Cruiser",
+  "code": "LC200",
+  "job": "AC compressor",
+  "low": "1,900",
+  "high": "2,600",
+  "reports": 9
+ },
+ {
+  "template": "garage",
+  "format": "story",
+  "sample": false,
+  "name": "garage-story-armotors",
+  "garage": "ARMotors",
+  "known": [
+   "Porsche",
+   "911"
+  ],
+  "evidence": "18 Google reviews mention Porsche",
+  "url": "knowsmycar.ae/r/armotors-arm-d8c6"
+ },
+ {
+  "template": "badge",
+  "name": "known-for-badge-armotors",
+  "known": [
+   "Porsche"
+  ],
+  "w": 470
+ }
 ]

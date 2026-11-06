@@ -14,6 +14,6 @@ export async function GET({ props: { g } }) {
     // OG fonts are Latin only: drop other scripts (e.g. Arabic) and fall back to a generic title.
     title: g.name.replace(/\s*[\[(|].*$/, "").replace(/[^\x20-\x7E\u00C0-\u024F\u2019&]/g, "").replace(/\s+/g, " ").trim() || `Garage in ${g.area || "Dubai"}`,
     chips,
-    meterInfo: top && top.conf ? { level: top.conf, label: `for ${top.make}${top.mentions ? `, from ${top.mentions} review mentions` : ""}` } : null,
+    meterInfo: top && top.conf ? { level: top.conf, label: top.mentions ? `${top.mentions} ${/community/.test(top.basis) ? "community posts" : "Google reviews"} mention ${top.make}` : `for ${top.make}` } : null,
   })));
 }
