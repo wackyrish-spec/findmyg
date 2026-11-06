@@ -71,6 +71,8 @@ function norm(g) {
   const text = [...(g.categories || []), ...(g.services || [])].join(" | ");
   return {
     ...g,
+    // NFKC turns styled Unicode names (e.g. bold maths letters from Maps listings) into plain text.
+    name: String(g.name).normalize("NFKC").replace(/\s+/g, " ").trim(),
     slug: g.id || slugify(g.name),
     specs,
     ext,

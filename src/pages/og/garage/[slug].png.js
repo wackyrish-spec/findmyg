@@ -11,7 +11,8 @@ export async function GET({ props: { g } }) {
   const chips = !evidenced ? [] : [...new Set(g.specs.flatMap((s) => [s.make, ...s.models.slice(0, 2)]))].slice(0, 4);
   return pngResponse(await png(card({
     eyebrow: ["Garage", g.area || "Dubai"].join(" · "),
-    title: g.name.replace(/\s*[\[(|].*$/, "").trim() || g.name,
+    // OG fonts are Latin only: drop other scripts (e.g. Arabic) and fall back to a generic title.
+    title: g.name.replace(/\s*[\[(|].*$/, "").replace(/[^\x20-\x7E\u00C0-\u024F\u2019&]/g, "").replace(/\s+/g, " ").trim() || `Garage in ${g.area || "Dubai"}`,
     chips,
     meterInfo: top && top.conf ? { level: top.conf, label: `for ${top.make}${top.mentions ? `, from ${top.mentions} review mentions` : ""}` } : null,
   })));
