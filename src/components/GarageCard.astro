@@ -19,7 +19,7 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
     {claim && <div class="claim">Says it works on {claim.make}{claim.url && <> (<a href={claim.url} target="_blank" rel="noopener nofollow">their website</a>)</>}</div>}</div>
   <div class="acts">
     {!g.isDealer && <a class="btn sm primary" href={`/review/${g.slug}/`}>Review</a>}
-    {g.isDealer && g.phone && <a class="btn sm" href={`tel:${g.phone.replace(/\s/g, "")}`}>Call {g.phone}</a>}
+    {g.isDealer && g.phone && <a class="btn sm" href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call" data-slug={g.slug}>Call {g.phone}</a>}
     <a class="btn sm" href={`/garage/${g.slug}/`}>View</a>
   </div>
 </article>
@@ -61,8 +61,8 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
     {g.google && <p class="gfact">{Number(g.google.rating).toFixed(1)} on <a href={g.google.url || maps} target="_blank" rel="noopener nofollow">Google</a>, {(g.google.count || 0).toLocaleString("en-US")} reviews{checked ? `, checked ${checked}` : ""}</p>}
     <div class="acts">
       {g.waNumber && <button class="btn wa sm" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
-      {!g.waNumber && g.phone && <a class="btn sm" href={`tel:${g.phone.replace(/\s/g, "")}`}>Call</a>}
-      <a class="btn sm" href={maps} target="_blank" rel="noopener">Directions</a>
+      {!g.waNumber && g.phone && <a class="btn sm" href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">Call</a>}
+      <a class="btn sm" href={maps} target="_blank" rel="noopener" data-track="directions">Directions</a>
       <a class="btn sm primary" href={`/garage/${g.slug}/`}>View</a>
     </div>
   </div>

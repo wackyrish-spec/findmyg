@@ -7,13 +7,14 @@ export function getStaticPaths() {
 const { j } = Astro.props;
 const key = `dubai/job/${j.slug}`;
 const L = splitGeneral(j.garages);
+const it = intro(key);
 ---
 <ListPage
-  title={`${j.name} in Dubai: independent garages`}
-  description={`${j.plain}? Independent garages in Dubai for ${j.name.toLowerCase()}, and the car brands each one knows best.`}
-  h1={`${j.name} in Dubai`}
+  title={it?.title || `${j.name} in Dubai: independent garages`}
+  description={it?.description || `${j.plain}? Independent garages in Dubai for ${j.name.toLowerCase()}, and the car brands each one knows best.`}
+  h1={it?.h1 || `${j.name} in Dubai`}
   lead={`${j.plain}. Garages with review evidence come first. Set your car to find the ones that know it.`}
-  introText={intro(key)?.text}
+  introText={it?.text}
   garages={L.ranked}
   others={L.others}
   othersLabel={"Also listed, no reviews yet"}

@@ -308,12 +308,16 @@
    "specialties": [
     {
      "make": "Lexus",
-     "models": [],
+     "models": [
+      "LX",
+      "GX",
+      "IS"
+     ],
      "level": "brand",
      "confidence": "medium",
-     "evidence": "7 of 60 Google reviews read mention Lexus (41% of reviews that name any make)",
+     "evidence": "7 of 60 Google reviews read mention Lexus (41% of reviews that name any make); recommended for Lexus in 4 Reddit threads (2020-2026), described as run by an ex-Lexus technician; branches in Ras Al Khor and DIP",
      "mentions": 7,
-     "basis": "reviews"
+     "basis": "reviews+community"
     }
    ],
    "self_claims": [],
@@ -350,13 +354,60 @@
      "url": "https://www.google.com/maps/search/?api=1&query=Al%20Nahdha%20Auto%20Garage&query_place_id=ChIJ1594y_5mXz4R8xE2PLN56gg",
      "date": "2026-10",
      "mentions": []
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bdjqnd/lexus_specialist_dubai/",
+     "date": "2024-03",
+     "rating": null,
+     "excerpt": "They specialize in Lexus from what I've seen and as the owner mentioned.",
+     "mentions": [
+      "Lexus",
+      "LX"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1w60bh2/best_lexus_garage_in_dubai_which_is_not_going_to/",
+     "date": "2026-09",
+     "rating": null,
+     "excerpt": "Seconded for Al Nahda Auto Balance in Ras Al Khor.",
+     "mentions": [
+      "Lexus"
+     ]
+    },
+    {
+     "source": "Reddit r/dubai",
+     "url": "https://www.reddit.com/r/dubai/comments/ju03j9/lexus_is_good_affordable_garage_trustworthy/",
+     "date": "2020-11",
+     "rating": null,
+     "excerpt": "Al Nahda Auto Garage in Ras al Khor. He's ex lexus guy. Really good!",
+     "mentions": [
+      "Lexus",
+      "IS"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bowljq/garage_for_lexus/",
+     "date": "2024-03",
+     "rating": null,
+     "excerpt": "Would recommend Al Nahdha Auto Garage.",
+     "mentions": [
+      "Lexus",
+      "IS"
+     ]
     }
    ],
-   "review_summary": "Google rating 4.6 from 1545 reviews. In the 60 most relevant reviews we read, customers mostly bring Lexus; praise centres on knowledgeable staff, honest, fast turnaround. 5 of 60 were 1–2 stars.",
+   "review_summary": "Google rating 4.6 from 1545 reviews. In the 60 most relevant reviews we read, customers mostly bring Lexus; praise centres on knowledgeable staff, honest, fast turnaround. 5 of 60 were 1–2 stars. Repeatedly recommended for Lexus (LX, GX, IS) on Reddit.",
    "reviews_analysed": 60,
    "sources": [
     "https://www.google.com/maps/search/?api=1&query=Al%20Nahdha%20Auto%20Garage&query_place_id=ChIJ1594y_5mXz4R8xE2PLN56gg",
-    "https://www.alnahdhaauto.com/"
+    "https://www.alnahdhaauto.com/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bdjqnd/lexus_specialist_dubai/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1w60bh2/best_lexus_garage_in_dubai_which_is_not_going_to/",
+    "https://www.reddit.com/r/dubai/comments/ju03j9/lexus_is_good_affordable_garage_trustworthy/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bowljq/garage_for_lexus/"
    ],
    "possible_matches": [],
    "price_examples": [],
@@ -1187,7 +1238,7 @@
    ],
    "business_type": "workshop",
    "dealer_for": null,
-   "hours": "",
+   "hours": "Mon–Sat 8:00–18:00",
    "services": [
     "Servicing",
     "Engine",
@@ -1210,7 +1261,56 @@
      "basis": "reviews"
     }
    ],
-   "self_claims": [],
+   "self_claims": [
+    {
+     "make": "Porsche",
+     "models": [],
+     "url": "https://www.armotors.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Ferrari",
+     "models": [],
+     "url": "https://www.armotors.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Maserati",
+     "models": [],
+     "url": "https://www.armotors.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Bentley",
+     "models": [],
+     "url": "https://www.armotors.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Lamborghini",
+     "models": [],
+     "url": "https://www.armotors.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Land Rover",
+     "models": [],
+     "url": "https://www.armotors.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "McLaren",
+     "models": [],
+     "url": "https://www.armotors.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Rolls-Royce",
+     "models": [],
+     "url": "https://www.armotors.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
    "is_specialist": true,
    "external_ratings": [
     {
@@ -1249,6 +1349,27 @@
      "rating": null,
      "excerpt": "ARMotors is a garage that comes to mind based on your description. They provide aftermarket warranty as well under some conditions.",
      "mentions": []
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1oho0e5/garage_recommendations_for_porsche/",
+     "date": "2025-10",
+     "rating": null,
+     "excerpt": "Alex Renner is quite famous for working on Porsches!",
+     "mentions": [
+      "Porsche"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1oho0e5/garage_recommendations_for_porsche/",
+     "date": "2026-04",
+     "rating": null,
+     "excerpt": "I had plenty of issues with them, terrible service... I have a porsche cayman",
+     "mentions": [
+      "Porsche",
+      "Cayman"
+     ]
     }
    ],
    "review_summary": "Google rating 4.7 from 632 reviews. In the 60 most relevant reviews we read, customers mostly bring Porsche; praise centres on knowledgeable staff, honest, good communication. 4 of 60 were 1–2 stars.",
@@ -1797,9 +1918,9 @@
      ],
      "level": "brand",
      "confidence": "medium",
-     "evidence": "8 of 60 Google reviews read mention Toyota (44% of reviews that name any make); most-mentioned models: Prado (2), Land Cruiser (2)",
+     "evidence": "8 of 60 Google reviews read mention Toyota (44% of reviews that name any make); most-mentioned models: Prado (2), Land Cruiser (2); recommended on Reddit r/DubaiPetrolHeads for modifying and maintaining a Land Cruiser",
      "mentions": 8,
-     "basis": "reviews"
+     "basis": "reviews+community"
     },
     {
      "make": "Ford",
@@ -1846,13 +1967,25 @@
      "url": "https://www.google.com/maps/search/?api=1&query=Titan%20Performance%20UAE&query_place_id=ChIJp1GJX65nXz4RsZ0_JuAXAsk",
      "date": "2026-08",
      "mentions": []
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1q1qhbj/land_cruiser_garage/",
+     "date": "2026-01",
+     "rating": null,
+     "excerpt": "you want to mod and maintain the car based on that maybe try titan performance",
+     "mentions": [
+      "Toyota",
+      "Land Cruiser"
+     ]
     }
    ],
    "review_summary": "Google rating 4.3 from 448 reviews. In the 60 most relevant reviews we read, customers mostly bring Toyota; praise centres on knowledgeable staff, good communication, fast turnaround. 10 of 60 were 1–2 stars, mainly about delays.",
    "reviews_analysed": 60,
    "sources": [
     "https://www.google.com/maps/search/?api=1&query=Titan%20Performance%20UAE&query_place_id=ChIJp1GJX65nXz4RsZ0_JuAXAsk",
-    "https://titanperformanceuae.com/"
+    "https://titanperformanceuae.com/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1q1qhbj/land_cruiser_garage/"
    ],
    "possible_matches": [],
    "price_examples": [],
@@ -3029,10 +3162,12 @@
    "specialties": [
     {
      "make": "Porsche",
-     "models": [],
+     "models": [
+      "Cayenne"
+     ],
      "level": "brand",
      "confidence": "medium",
-     "evidence": "Garage name advertises Porsche; reviews not yet analysed; Recommended for Porsche on Reddit r/DubaiPetrolHeads",
+     "evidence": "Garage name advertises Porsche; recommended for Porsche in two Reddit r/DubaiPetrolHeads threads (Boxster GTS, Cayenne GTS gearbox fault); Google reviews not yet analysed",
      "mentions": 0,
      "basis": "listing name+community"
     }
@@ -3058,14 +3193,26 @@
      "mentions": [
       "Porsche"
      ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1oho0e5/garage_recommendations_for_porsche/",
+     "date": "2025-10",
+     "rating": null,
+     "excerpt": "I think its the transfer case, try project 11 in al quoz",
+     "mentions": [
+      "Porsche",
+      "Cayenne"
+     ]
     }
    ],
-   "review_summary": "Google rating 4.9 from 197 reviews. Google reviews not yet analysed; recommended by owners on Reddit r/DubaiPetrolHeads.",
+   "review_summary": "Google rating 4.9 from 197 reviews. Google reviews not yet analysed; recommended by Porsche owners in two Reddit r/DubaiPetrolHeads threads, including for a Cayenne.",
    "reviews_analysed": 0,
    "sources": [
     "https://www.google.com/maps/search/?api=1&query=Project%2011%20Independent%20Porsche%20Specialists&query_place_id=ChIJOcnpqQVrXz4RoixX07edtl4",
     "http://www.project11.ae/",
-    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1me56nh/best_porsche_garage_in_dubai/"
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1me56nh/best_porsche_garage_in_dubai/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1oho0e5/garage_recommendations_for_porsche/"
    ],
    "possible_matches": [],
    "price_examples": [],
@@ -3249,7 +3396,7 @@
    "lng": 55.1867521,
    "phone": "+971504559177",
    "whatsapp": "",
-   "website": "https://starpitgermancars.com/",
+   "website": "https://starpitautocare.com/",
    "maps_url": "https://www.google.com/maps/search/?api=1&query=Starpit%20German%20Cars-%20Independent%20Porsche%20Specialist&query_place_id=ChIJf59Xa-RbXz4RF3krsGJffSw",
    "google_place_id": "ChIJf59Xa-RbXz4RF3krsGJffSw",
    "categories": [
@@ -3265,7 +3412,7 @@
    ],
    "business_type": "workshop",
    "dealer_for": null,
-   "hours": "",
+   "hours": "Open 7 days",
    "services": [
     "Servicing",
     "Engine",
@@ -3285,7 +3432,20 @@
      "basis": "listing name+community"
     }
    ],
-   "self_claims": [],
+   "self_claims": [
+    {
+     "make": "Porsche",
+     "models": [
+      "911",
+      "Cayenne",
+      "Macan",
+      "Panamera",
+      "Boxster"
+     ],
+     "url": "https://starpitautocare.com/",
+     "note": "Garage's own website: German-car workshop with a Porsche focus; not owner evidence"
+    }
+   ],
    "is_specialist": true,
    "external_ratings": [
     {
@@ -3741,12 +3901,12 @@
    "id": "jzm-gulf-web",
    "name": "JZM Gulf",
    "listing_name": "JZM Gulf",
-   "emirate": "Dubai",
-   "area": "Dubai",
+   "emirate": "Abu Dhabi",
+   "area": "Abu Dhabi",
    "address": "",
    "lat": null,
    "lng": null,
-   "phone": "",
+   "phone": "+97125552090",
    "whatsapp": "",
    "website": "https://www.jzmgulf.com/",
    "maps_url": "",
@@ -3764,7 +3924,7 @@
      ],
      "level": "model",
      "confidence": "medium",
-     "evidence": "Recommended for Porsche on Garage website; self-description from the garage's website, not an independent review",
+     "evidence": "Recommended for Porsche on Garage website; self-description from the garage's website, not an independent review; NOTE: Abu Dhabi workshop (02 landline, free pickup within Abu Dhabi), not Dubai",
      "mentions": 0,
      "basis": "community"
     }
@@ -3784,7 +3944,7 @@
      ]
     }
    ],
-   "review_summary": "Not yet matched to a Google Maps listing. Recommended by owners on Garage website.",
+   "review_summary": "Abu Dhabi independent Porsche workshop (not Dubai). Not yet matched to a Google Maps listing.",
    "reviews_analysed": 0,
    "sources": [
     "https://www.jzmgulf.com/porsche-specialist-dubai/",
@@ -4157,14 +4317,14 @@
    "name": "Abdulla Ahli Workshop",
    "listing_name": "Abdulla Ahli Workshop",
    "emirate": "Dubai",
-   "area": "Dubai",
-   "address": "",
+   "area": "Al Qusais Industrial 1",
+   "address": "Warehouse 7, 5 Halab Street, Al Qusais Industrial 1, Dubai",
    "lat": null,
    "lng": null,
-   "phone": "",
-   "whatsapp": "",
+   "phone": "+971505852304",
+   "whatsapp": "+971505852304",
    "website": "",
-   "maps_url": "",
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=Abdulla%20Ahli%20Workshop%20Al%20Qusais%20Industrial%201%20Dubai",
    "google_place_id": null,
    "categories": [],
    "business_type": "workshop",
@@ -4177,21 +4337,59 @@
      "models": [],
      "level": "brand",
      "confidence": "high",
-     "evidence": "Rishal has used this garage for his Alfas",
+     "evidence": "Rishal has used this garage for his Alfas; recommended by Alfa owners on AlfaOwner forum (2009, 2015) as an independent run by an ex-Alfa mechanic",
      "mentions": 0,
-     "basis": "founder"
+     "basis": "founder+community"
     }
    ],
    "self_claims": [],
    "possible_matches": [],
    "is_specialist": true,
    "external_ratings": [],
-   "external_reviews": [],
-   "review_summary": "Founder's pick for Alfa Romeo. Location and contact details still to be confirmed.",
+   "external_reviews": [
+    {
+     "source": "AlfaOwner forum",
+     "url": "https://www.alfaowner.com/threads/alfa-romeo-garage-service-stations-in-the-uae.257043/",
+     "date": "2015-11",
+     "rating": null,
+     "excerpt": "Al Ahli Garage (Recommended Independent Garage) ... Location: Al Qusais, Dubai ... Highly recommended...ex Alfa mechanic.",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "AlfaOwner forum",
+     "url": "https://www.alfaowner.com/threads/maintenance-in-dubai.165976/",
+     "date": "2009-04",
+     "rating": null,
+     "excerpt": "I do all maintenance of my car at the Abdulla Ahli Garage",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/16927sd/alfa_romeo_specialist_abdulla_ahli_workshop/",
+     "date": "2023-09",
+     "rating": null,
+     "excerpt": "the independent Alfa specialist Abdulla Ahli Workshop in Al Qusais",
+     "mentions": [
+      "Alfa Romeo",
+      "Giulia"
+     ]
+    }
+   ],
+   "review_summary": "Founder's pick for Alfa Romeo. Long-standing independent in Al Qusais Industrial 1 that Alfa owners on the AlfaOwner forum have recommended since 2009, run by an ex-Alfa mechanic. Google reviews not yet analysed.",
    "reviews_analysed": 0,
-   "sources": [],
+   "sources": [
+    "https://2gis.ae/dubai/firm/70000001006568356",
+    "https://yandex.ru/maps/org/abdulla_ahli_workshop/48042783644/",
+    "https://www.alfaowner.com/threads/alfa-romeo-garage-service-stations-in-the-uae.257043/",
+    "https://www.alfaowner.com/threads/maintenance-in-dubai.165976/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/16927sd/alfa_romeo_specialist_abdulla_ahli_workshop/"
+   ],
    "price_examples": [],
-   "evidence_summary": "Founder's pick for Alfa Romeo."
+   "evidence_summary": "Founder's pick for Alfa Romeo, also recommended by Alfa owners on the AlfaOwner forum."
   },
   {
    "id": "800carguru-mobile-auto-repair-services-4a6b",
@@ -19579,8 +19777,38 @@
    "business_type": "workshop",
    "dealer_for": null,
    "hours": "Mon–Sat 09:00–19:00",
-   "services": [],
-   "specialties": [],
+   "services": [
+    "Servicing",
+    "Diagnostics",
+    "Transmission",
+    "Tuning & performance",
+    "Pre-purchase inspection"
+   ],
+   "specialties": [
+    {
+     "make": "Alfa Romeo",
+     "models": [
+      "Giulia",
+      "Stelvio"
+     ],
+     "level": "brand",
+     "confidence": "low",
+     "evidence": "Own website and Instagram say Alfa Romeo is one of its two specialist makes (Giorgio-platform Giulia/Stelvio focus); owner reviews not yet analysed",
+     "mentions": 0,
+     "basis": "website"
+    },
+    {
+     "make": "Ford",
+     "models": [
+      "Focus ST"
+     ],
+     "level": "brand",
+     "confidence": "low",
+     "evidence": "Own website says Ford EcoBoost is one of its two specialist makes; owner reviews not yet analysed",
+     "mentions": 0,
+     "basis": "website"
+    }
+   ],
    "self_claims": [
     {
      "make": "Alfa Romeo",
@@ -19590,23 +19818,40 @@
       "Giulietta",
       "MiTo",
       "4C",
-      "Tonale"
+      "Tonale",
+      "Quadrifoglio"
      ],
-     "url": "https://rstwerks.com/services/alfa-romeo/",
-     "note": "Garage's own website: 'Alfa Romeo Specialists in Dubai', enthusiast-owned; not owner evidence"
+     "url": "https://rstwerks.com/",
+     "note": "Garage's own website and Instagram: Alfa Romeo and Ford EcoBoost specialists, enthusiast-owned; not owner evidence"
+    },
+    {
+     "make": "Ford",
+     "models": [
+      "Focus ST",
+      "Focus RS",
+      "Fiesta ST",
+      "Mustang",
+      "F-150",
+      "Raptor",
+      "Bronco"
+     ],
+     "url": "https://rstwerks.com/",
+     "note": "Garage's own website: Ford EcoBoost specialist; not owner evidence"
     }
    ],
    "is_specialist": false,
    "external_ratings": [],
    "external_reviews": [],
-   "review_summary": "Not yet matched to a Google Maps listing; no owner reviews analysed.",
+   "review_summary": "Small enthusiast-owned workshop in Al Khawaneej focused on Alfa Romeo and Ford EcoBoost cars. About 61 Google reviews (per its site); not yet matched to a Maps listing or analysed.",
    "reviews_analysed": 0,
    "sources": [
-    "https://rstwerks.com/services/alfa-romeo/"
+    "https://rstwerks.com/",
+    "https://rstwerks.com/services/alfa-romeo/",
+    "https://www.instagram.com/rstwerks/"
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "Its own website says it works on Alfa Romeo (not owner evidence)."
+   "evidence_summary": "Its own website says it specialises in Alfa Romeo and Ford EcoBoost (not owner evidence)."
   },
   {
    "id": "amf-auto-services-porschegarageae-web",
@@ -19625,7 +19870,7 @@
    "categories": [],
    "business_type": "workshop",
    "dealer_for": null,
-   "hours": "",
+   "hours": "Mon–Sat 9:00–19:00",
    "services": [],
    "specialties": [],
    "self_claims": [
@@ -19657,8 +19902,197 @@
     "https://porschegarage.ae/"
    ],
    "possible_matches": [],
-   "price_examples": [],
+   "price_examples": [
+    {
+     "item": "Porsche minor service",
+     "price_aed": "840–1,575",
+     "vat": "including VAT",
+     "source": "garage's own price list",
+     "url": "https://porschegarage.ae/"
+    },
+    {
+     "item": "Porsche pre-purchase inspection",
+     "price_aed": "525–945",
+     "vat": "including VAT",
+     "source": "garage's own price list",
+     "url": "https://porschegarage.ae/"
+    }
+   ],
    "evidence_summary": "Its own website says it works on Land Rover, Porsche, Volkswagen (not owner evidence)."
+  },
+  {
+   "id": "dynatrade-nad-al-hamar-web",
+   "name": "Dynatrade Auto Service (Nad Al Hamar)",
+   "listing_name": "Dynatrade Auto Service (Nad Al Hamar)",
+   "emirate": "Dubai",
+   "area": "Nad Al Hamar",
+   "address": "Opposite Belhasa Driving Center, Nad Al Hamar, Dubai (second Dubai branch: 6th Street, Al Quoz Industrial 1)",
+   "lat": null,
+   "lng": null,
+   "phone": "+97142845931",
+   "whatsapp": "+97142845931",
+   "website": "https://dynatrade-uae.com/",
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=Dynatrade%20Auto%20Service%20Nad%20Al%20Hamar%20Dubai",
+   "google_place_id": null,
+   "categories": [],
+   "business_type": "workshop (multi-brand chain)",
+   "dealer_for": null,
+   "hours": "",
+   "services": [],
+   "specialties": [
+    {
+     "make": "Toyota",
+     "models": [
+      "Land Cruiser"
+     ],
+     "level": "model",
+     "confidence": "medium",
+     "evidence": "Recommended as a dealer alternative for Land Cruiser by 3 owners in 2 Reddit threads (2023, 2026); multi-brand UAE chain, not Toyota-only",
+     "mentions": 0,
+     "basis": "community"
+    },
+    {
+     "make": "Lexus",
+     "models": [],
+     "level": "brand",
+     "confidence": "low",
+     "evidence": "Suggested for a Lexus GX on Reddit, but another owner said its quote was barely below the dealer's; mixed",
+     "mentions": 0,
+     "basis": "community"
+    }
+   ],
+   "is_specialist": true,
+   "external_ratings": [],
+   "external_reviews": [
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/13hcsro/land_cruiser_owners_where_do_you_get_your_car/",
+     "date": "2023-05",
+     "rating": null,
+     "excerpt": "Dynatrade is a fantastic dealer alternative.",
+     "mentions": [
+      "Toyota",
+      "Land Cruiser"
+     ]
+    },
+    {
+     "source": "Reddit r/UaeCarEnthusiasts",
+     "url": "https://www.reddit.com/r/UaeCarEnthusiasts/comments/1uxz8rt/2011_land_cruiser_57_v8_225k_km_toyota_quoted_aed/",
+     "date": "2026-07",
+     "rating": null,
+     "excerpt": "You should take it to dynatrade, they will replace with original parts with oem level work quality",
+     "mentions": [
+      "Toyota",
+      "Land Cruiser"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bdjqnd/lexus_specialist_dubai/",
+     "date": "2024-03",
+     "rating": null,
+     "excerpt": "Dynatrade's quote is only 5% less than Futtaim.",
+     "mentions": [
+      "Lexus"
+     ]
+    }
+   ],
+   "review_summary": "Large UAE multi-brand workshop chain often named by Land Cruiser owners as the dealer alternative; one Lexus owner found it nearly as pricey as the dealer. Not yet matched to a Google Maps listing.",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://dynatrade-uae.com/brands/lexus-repair-service/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/13hcsro/land_cruiser_owners_where_do_you_get_your_car/",
+    "https://www.reddit.com/r/UaeCarEnthusiasts/comments/1uxz8rt/2011_land_cruiser_57_v8_225k_km_toyota_quoted_aed/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bdjqnd/lexus_specialist_dubai/"
+   ],
+   "self_claims": [
+    {
+     "make": "Lexus",
+     "models": [],
+     "url": "https://dynatrade-uae.com/brands/lexus-repair-service/",
+     "note": "Chain's own website markets Lexus and Toyota servicing among many brands; not owner evidence"
+    },
+    {
+     "make": "Toyota",
+     "models": [],
+     "url": "https://dynatrade-uae.com/brands/toyota-repair-service/",
+     "note": "Chain's own website markets Toyota servicing among many brands; not owner evidence"
+    }
+   ],
+   "possible_matches": [],
+   "price_examples": [],
+   "evidence_summary": "Recommended by Land Cruiser owners on Reddit as a dealer alternative."
+  },
+  {
+   "id": "mag-auto-services-web",
+   "name": "MAG Auto Services",
+   "listing_name": "MAG Auto Services",
+   "emirate": "Dubai",
+   "area": "Umm Ramool",
+   "address": "18B Street, off 17th Street, Umm Ramool, Dubai",
+   "lat": null,
+   "lng": null,
+   "phone": "+971506874307",
+   "whatsapp": "",
+   "website": "https://magautoservices.com/",
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=MAG%20Auto%20Services%20Umm%20Ramool%20Dubai",
+   "google_place_id": null,
+   "categories": [],
+   "business_type": "workshop",
+   "dealer_for": null,
+   "hours": "",
+   "services": [],
+   "specialties": [
+    {
+     "make": "Toyota",
+     "models": [
+      "Land Cruiser",
+      "Prado"
+     ],
+     "level": "model",
+     "confidence": "medium",
+     "evidence": "Recommended on Reddit r/DubaiPetrolHeads for Land Cruiser maintenance and Prado major work (same owner, two threads, 2026); weak evidence",
+     "mentions": 0,
+     "basis": "community"
+    }
+   ],
+   "is_specialist": true,
+   "external_ratings": [],
+   "external_reviews": [
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1q1qhbj/land_cruiser_garage/",
+     "date": "2026-01",
+     "rating": null,
+     "excerpt": "Just for routine maintenance and fixing I take mine to MAG auto garage",
+     "mentions": [
+      "Toyota",
+      "Land Cruiser"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1qxcl9o/lc150_prado_recommended_garages/",
+     "date": "2026-02",
+     "rating": null,
+     "excerpt": "Mag auto service, take my Prado there for any major works",
+     "mentions": [
+      "Toyota",
+      "Prado"
+     ]
+    }
+   ],
+   "review_summary": "Umm Ramool general workshop that a Land Cruiser and Prado owner uses for maintenance and major work. Not yet matched to a Google Maps listing.",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://garagefinderuae.com/garage/m-a-g-auto-services-al-garhoud/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1q1qhbj/land_cruiser_garage/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1qxcl9o/lc150_prado_recommended_garages/"
+   ],
+   "self_claims": [],
+   "possible_matches": [],
+   "price_examples": [],
+   "evidence_summary": "Recommended by a Land Cruiser/Prado owner on Reddit r/DubaiPetrolHeads."
   }
  ]
 }

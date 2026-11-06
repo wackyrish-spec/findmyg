@@ -1,4 +1,4 @@
-import { BRANDS } from "../../../../lib/data.js";
+import { BRANDS, splitBrand } from "../../../../lib/data.js";
 import { card, png, pngResponse } from "../../../../lib/og.js";
 
 export function getStaticPaths() {
@@ -11,7 +11,7 @@ export async function GET({ props: { b, m } }) {
   return pngResponse(await png(card({
     eyebrow: `Dubai · ${b.make}`,
     title: `Who fixes your ${m.model}?`,
-    chips: m.garages.slice(0, 3).map((g) => g.name.length > 18 ? g.name.slice(0, 17) + "…" : g.name),
+    chips: splitBrand(m.garages, b.make, m.model).ranked.slice(0, 3).map((g) => g.name.length > 18 ? g.name.slice(0, 17) + "…" : g.name),
     stat: { big: n, label: `${n === 1 ? "garage" : "garages"} ${ev ? "owners rate" : "listed so far"} for the ${m.model}` },
   })));
 }

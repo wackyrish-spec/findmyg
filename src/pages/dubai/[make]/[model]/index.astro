@@ -12,9 +12,9 @@ const rest = b.garages.filter((g) => !m.garages.includes(g));
 const L = splitBrand([...m.garages, ...rest], b.make, m.model);
 ---
 <ListPage
-  title={`${b.make} ${m.model} specialist garages in Dubai`}
-  description={`Where to fix a ${b.make} ${m.model} in Dubai: independent garages that owners recommend for the ${m.model}, with the evidence for each.`}
-  h1={`${b.make} ${m.model} specialists in Dubai`}
+  title={it?.title || `${b.make} ${m.model} specialist garages in Dubai`}
+  description={it?.description || `Where to fix a ${b.make} ${m.model} in Dubai: independent garages that owners recommend for the ${m.model}, with the evidence for each.`}
+  h1={it?.h1 || `${b.make} ${m.model} specialists in Dubai`}
   lead={`Garages owners recommend for the ${m.model} come first, followed by other ${b.make} specialists with review evidence.`}
   introText={it?.text}
   garages={L.ranked}
@@ -24,6 +24,7 @@ const L = splitBrand([...m.garages, ...rest], b.make, m.model);
   dealerPrices={dealerPrices(b.make, m.model)}
   dealerNote={DEALER_NOTES[b.slug]}
   make={b.make}
+  ogImage={`/og/dubai/${b.slug}/${m.slug}.png`}
   model={m.model}
   noindex={!isIndexable(key, m.evidenceCount)}
   crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: b.make, url: `/dubai/${b.slug}/` }, { name: m.model }]}

@@ -1,29 +1,85 @@
 
 /* Layout: pit-lane clean. Light orderly surfaces, blue for actions, pit-board amber only for "match for your car". Spec-sheet tables, mono chassis codes. */
+/* Tokens from brand/tokens.css (KnowsMyCar v1). */
 :root{
-  --bg:#f5f7fb; --surface:#ffffff; --ink:#20242b; --muted:#5b6370; --line:#e1e6ee; --soft:#eef2f8;
-  --blue:#1d5bff; --blue-ink:#ffffff; --blue-soft:#e8efff;
-  --signal:#f2b705; --signal-ink:#2b2200; --signal-soft:#fff4cf; --signal-text:#8a6400;
-  --pos:#12804c; --pos-soft:#e4f4ea; --warn:#a4620c; --warn-soft:#fbf0dc; --neg:#bf3a28;
-  --star:#f2a516; --shadow:0 1px 2px rgba(20,30,50,.05),0 4px 16px rgba(20,30,50,.05);
-  --wa:#1fa855; --wa-ink:#ffffff;
-  --f-display:"Barlow Condensed","Arial Narrow",system-ui,sans-serif;
-  --f-body:"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --bg:#F5F7FB;
+  --surface:#FFFFFF;
+  --soft:#EEF2F8;
+  --ink:#14171C;
+  --muted:#5B6370;
+  --line:#E1E6EE;
+  --blue:#1F5BFF;
+  --blue-ink:#FFFFFF;
+  --blue-soft:#E8EFFF;
+  --signal:#FFB400;
+  --signal-ink:#14171C;
+  --signal-soft:#FFF3D1;
+  --signal-text:#8A5A00;
+  --pos:#12804C;
+  --pos-soft:#E4F4EA;
+  --warn:#A4620C;
+  --warn-soft:#FBF0DC;
+  --neg:#BF3A28;
+  --star:#F2A516;
+  --wa:#25D366;
+  --wa-ink:#14171C;
+  --f-display:"Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  --f-body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --f-arabic:"IBM Plex Sans Arabic", system-ui, sans-serif;
+  --shadow:0 1px 2px rgba(20,30,50,.05),0 4px 16px rgba(20,30,50,.05);
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0e1116; --surface:#161a21; --ink:#e8ecf2; --muted:#9aa3b1; --line:#272e39; --soft:#1c222b;
-  --blue:#5b8dff; --blue-ink:#0e1116; --blue-soft:#18233d;
-  --signal:#ffcc33; --signal-ink:#1d1700; --signal-soft:#2c2610; --signal-text:#ffd75e;
-  --pos:#3fbf82; --pos-soft:#14291f; --warn:#e0a54a; --warn-soft:#2c2414; --neg:#f07a66;
-  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25); --wa:#25c463; --wa-ink:#0e1116; color-scheme:dark}}
+  --bg:#0E1116;
+  --surface:#161A21;
+  --soft:#1C222B;
+  --ink:#E8ECF2;
+  --muted:#9AA3B1;
+  --line:#272E39;
+  --blue:#6B8FFF;
+  --blue-ink:#0E1116;
+  --blue-soft:#18233D;
+  --signal:#FFB400;
+  --signal-ink:#14171C;
+  --signal-soft:#2A2412;
+  --signal-text:#FFD166;
+  --pos:#3FBF82;
+  --pos-soft:#14291F;
+  --warn:#E0A54A;
+  --warn-soft:#2C2414;
+  --neg:#F07A66;
+  --star:#FFB400;
+  --wa:#25D366;
+  --wa-ink:#14171C;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+  color-scheme:dark;
+}}
 :root[data-theme="dark"]{
-  --bg:#0e1116; --surface:#161a21; --ink:#e8ecf2; --muted:#9aa3b1; --line:#272e39; --soft:#1c222b;
-  --blue:#5b8dff; --blue-ink:#0e1116; --blue-soft:#18233d;
-  --signal:#ffcc33; --signal-ink:#1d1700; --signal-soft:#2c2610; --signal-text:#ffd75e;
-  --pos:#3fbf82; --pos-soft:#14291f; --warn:#e0a54a; --warn-soft:#2c2414; --neg:#f07a66;
-  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25); --wa:#25c463; --wa-ink:#0e1116; color-scheme:dark}
+  --bg:#0E1116;
+  --surface:#161A21;
+  --soft:#1C222B;
+  --ink:#E8ECF2;
+  --muted:#9AA3B1;
+  --line:#272E39;
+  --blue:#6B8FFF;
+  --blue-ink:#0E1116;
+  --blue-soft:#18233D;
+  --signal:#FFB400;
+  --signal-ink:#14171C;
+  --signal-soft:#2A2412;
+  --signal-text:#FFD166;
+  --pos:#3FBF82;
+  --pos-soft:#14291F;
+  --warn:#E0A54A;
+  --warn-soft:#2C2414;
+  --neg:#F07A66;
+  --star:#FFB400;
+  --wa:#25D366;
+  --wa-ink:#14171C;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.25);
+  color-scheme:dark;
+}
 *{box-sizing:border-box}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 body{margin:0;background:var(--bg);color:var(--ink);font:500 15px/1.55 var(--f-body)}
@@ -44,8 +100,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
 header.top .wrap{display:flex;align-items:center;gap:14px;padding-block:10px}
 .logo{display:flex;align-items:center;gap:8px;color:var(--ink);font:800 24px/1 var(--f-display);text-transform:uppercase;letter-spacing:.02em}
-.logo>i{display:block;width:26px;height:18px;border-radius:3px;background:repeating-conic-gradient(var(--ink) 0 25%,var(--surface) 0 50%) 0 0/9px 9px;border:2px solid var(--ink)}
-.logo b{color:var(--blue)}
+
+
 nav.main{display:flex;gap:16px;margin-inline-start:auto;align-items:center}
 nav.main a{color:var(--muted);font-weight:700;font-size:14px}
 nav.main a[aria-current="page"],nav.main a:hover{color:var(--ink)}
@@ -331,3 +387,18 @@ details.more .sub{margin:8px 0 4px}
 .fpick{padding:2px 8px;border-radius:999px;background:var(--signal-soft);color:var(--signal-text);font-size:12px;font-weight:800;text-decoration:none}
 .gfact{margin:6px 0 0;font-size:12px;color:var(--muted)}.gfact a{color:inherit}
 .esum{margin:6px 0 0;font-size:14px}
+
+/* brand header + footer */
+.logo img{height:28px;width:auto;display:block}
+footer .proof{margin:0 0 8px;font-weight:800}
+.flinks{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:8px}
+.flinks a{color:inherit}
+/* legal and about pages */
+.legal{max-width:760px;padding-block:20px 56px}
+.legal h1{font-size:42px;text-transform:uppercase;margin:0 0 12px}
+.legal table{min-width:0;margin:12px 0;font-size:14px}
+.legal th,.legal td{text-align:start;vertical-align:top;padding:8px 6px;border-bottom:1px solid var(--line)}
+.legal p,.legal li{font-size:15px}
+.legal{overflow-wrap:anywhere}
+.agree{display:flex;gap:8px;align-items:flex-start;font-size:14px;font-weight:700}.agree input{margin-top:4px;accent-color:var(--blue)}
+.notify{margin-top:14px;display:flex;flex-direction:column;gap:10px}.notify h2{margin:0}

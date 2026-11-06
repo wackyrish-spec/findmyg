@@ -14,9 +14,9 @@ const related = [
 ];
 ---
 <ListPage
-  title={`${b.make} specialist garages in Dubai`}
-  description={`Independent ${b.make} specialists in Dubai, ranked by how many owners vouch for them, with the evidence for each.`}
-  h1={`${b.make} specialists in Dubai`}
+  title={it?.title || `${b.make} specialist garages in Dubai`}
+  description={it?.description || `Independent ${b.make} specialists in Dubai, ranked by how many owners vouch for them, with the evidence for each.`}
+  h1={it?.h1 || `${b.make} specialists in Dubai`}
   lead={`Independent garages that work on ${b.make}, ranked by evidence from owner reviews.`}
   introText={it?.text}
   garages={L.ranked}
@@ -26,6 +26,7 @@ const related = [
   dealerPrices={dealerPrices(b.make)}
   dealerNote={DEALER_NOTES[b.slug]}
   make={b.make}
+  ogImage={`/og/dubai/${b.slug}.png`}
   noindex={!isIndexable(key, b.evidenceCount)}
   crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: b.make }]}
   related={related}

@@ -32,6 +32,7 @@ if (form && form.dataset.ready && URL_ && KEY) {
   form.addEventListener("input", saveDraft);
 
   const validate = (d) => {
+    if (!$("rTrue").checked) return "Please confirm the review is true and your own experience.";
     if (!d.rMake) return "Add your car's brand.";
     if (!d.rJob) return "Choose the type of job.";
     if (d.rJob === "Other" && !d.rJobNote) return "Describe the job in a few words.";
@@ -92,6 +93,7 @@ if (form && form.dataset.ready && URL_ && KEY) {
         would_return: d.c3,
         body: d.rText,
         whatsapp: d.rWa || null,
+        ref: (() => { try { const r = JSON.parse(sessionStorage.getItem("gg:ref") || "{}"); return [r.ref, r.utm_source, r.utm_campaign].filter(Boolean).join("|").slice(0, 120) || null; } catch { return null; } })(),
         dealer_quote: d.rDealer ? Number(d.rDealer.replace(/[,\s]/g, "")) : null,
       });
       if (error) {

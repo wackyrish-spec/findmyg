@@ -7,6 +7,19 @@ const DATA = JSON.parse($("#picker-data")?.textContent || '{"rows":[],"pages":{}
 const BRANDS = [...new Set(DATA.rows.map((r) => r.make))];
 
 /* ---------- saved car ---------- */
+// First-touch attribution: ?ref= and utm_* from the landing URL, kept for the visit.
+function attribution() {
+  try {
+    const saved = JSON.parse(sessionStorage.getItem("gg:ref") || "null");
+    if (saved) return saved;
+    const q = new URLSearchParams(location.search), r = {};
+    ["ref", "utm_source", "utm_medium", "utm_campaign"].forEach((k) => { const v = q.get(k); if (v) r[k] = v.slice(0, 80); });
+    sessionStorage.setItem("gg:ref", JSON.stringify(r));
+    return r;
+  } catch { return {}; }
+}
+attribution();
+window.ggAttribution = attribution;
 const store = {
   get(k, d) { try { const v = localStorage.getItem("gg:" + k); return v ? JSON.parse(v) : d; } catch { return d; } },
   set(k, v) { try { localStorage.setItem("gg:" + k, JSON.stringify(v)); } catch {} },
@@ -170,17 +183,28 @@ function waDialog(btn) {
     <a class="btn wa" id="waGo" target="_blank" rel="noopener">Open WhatsApp</a></div>`);
   const upd = () => {
     const note = $("#waNote").value.trim();
-    const m = `Hi, found you on GarageGuide. I have ${car ? "a " + carLabel(car) : "a car"}, looking for: ${$("#waJob").value.toLowerCase()}.${note ? " " + note : ""} Can you quote?`;
+    const m = `Hi, found you on KnowsMyCar. I have ${car ? "a " + carLabel(car) : "a car"}, looking for: ${$("#waJob").value.toLowerCase()}.${note ? " " + note : ""} Can you quote?`;
     $("#waMsg").textContent = m;
     $("#waGo").href = `https://wa.me/${num}?text=${encodeURIComponent(m)}`;
   };
   $("#waJob").onchange = upd; $("#waNote").oninput = upd; upd();
   $("#waGo").onclick = () => track(btn.dataset.wa, "whatsapp");
 }
+// North-star metric: garage contacts (WhatsApp, call, directions), with the visitor's ref/UTM tags.
+const SB_URL = import.meta.env.PUBLIC_SUPABASE_URL, SB_KEY = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
 function track(slug, kind) {
   const log = store.get("contacts", []);
   log.unshift({ slug, kind, t: Date.now() });
   store.set("contacts", log.slice(0, 20));
+  if (!SB_URL || !SB_KEY || !slug) return;
+  const r = attribution();
+  try {
+    fetch(`${SB_URL}/rest/v1/contacts`, {
+      method: "POST", keepalive: true,
+      headers: { apikey: SB_KEY, "Content-Type": "application/json", Prefer: "return=minimal" },
+      body: JSON.stringify({ garage_slug: slug, kind, page: location.pathname, ref: r.ref || null, utm_source: r.utm_source || null, utm_medium: r.utm_medium || null, utm_campaign: r.utm_campaign || null }),
+    }).catch(() => {});
+  } catch {}
 }
 
 /* ---------- events ---------- */
@@ -189,7 +213,10 @@ document.addEventListener("click", (e) => {
   if (!t) return;
   if (t.matches("[data-setcar],#mycarBtn")) carDialog();
   else if (t.dataset.wa) waDialog(t);
-  else if (t.dataset.track) { const p = $("[data-garage-page]"); if (p) track(p.dataset.garagePage, t.dataset.track); }
+  else if (t.dataset.track) {
+    const slug = t.dataset.slug || t.closest("[data-garage]")?.dataset.garage || $("[data-garage-page]")?.dataset.garagePage;
+    if (slug) track(slug, t.dataset.track);
+  }
   else if (t.dataset.try !== undefined) { const i = $("#hpIn"); if (i) { i.value = t.dataset.try; i.dispatchEvent(new Event("input")); i.focus(); } }
 });
 
@@ -201,3 +228,24 @@ if (hp) {
 }
 if ($("#sticky")) document.body.classList.add("has-sticky");
 applyCar(!!$("#results") && !!car);
+
+/* ---------- "my car isn't covered yet" ---------- */
+const nf = $("#notifyForm");
+if (nf) nf.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const email = $("#nEmail").value.trim(), carText = $("#nCar").value.trim(), err = $("#nErr");
+  if (!/^\S+@\S+\.\S+$/.test(email)) { err.textContent = "Enter a valid email."; err.hidden = false; return; }
+  err.hidden = true;
+  if (!SB_URL || !SB_KEY) { err.textContent = "Sign-up isn't open yet. Please try again soon."; err.hidden = false; return; }
+  const r = attribution();
+  try {
+    const res = await fetch(`${SB_URL}/rest/v1/coverage_requests`, {
+      method: "POST",
+      headers: { apikey: SB_KEY, "Content-Type": "application/json", Prefer: "return=minimal" },
+      body: JSON.stringify({ email, car: carText || [nf.dataset.make, nf.dataset.model].filter(Boolean).join(" ") || null, page: nf.dataset.page, ref: r.ref || r.utm_source || null }),
+    });
+    if (!res.ok) throw new Error(res.status);
+    nf.querySelector("button[type=submit]").hidden = true;
+    $("#nOk").hidden = false;
+  } catch { err.textContent = "Something went wrong. Please try again."; err.hidden = false; }
+});

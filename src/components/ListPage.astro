@@ -1,11 +1,16 @@
 ---
 import Base from "../layouts/Base.astro";
 import GarageCard from "./GarageCard.astro";
+import Icon from "./Icon.astro";
+import { SITE } from "../lib/site.js";
 const {
   title, description, h1, lead, introText = null, garages, make = null, model = null,
-  noindex, crumbs = [], related = [], pathKey,
+  noindex, crumbs = [], related = [], pathKey, ogImage,
   others = [], othersLabel = "Also in Dubai, no reviews for your car yet", dealers = [], dealerPrices = [], dealerNote = null,
 } = Astro.props;
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const shareText = `${h1}, on ${SITE.name}: ${pageUrl}?ref=wa-share`;
+const thin = garages.length < 3;
 const itemList = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -15,7 +20,7 @@ const itemList = {
   })),
 };
 ---
-<Base title={title} description={description} noindex={noindex} jsonld={[itemList]} crumbs={crumbs}>
+<Base title={title} description={description} noindex={noindex} jsonld={[itemList]} crumbs={crumbs} ogImage={ogImage}>
   <div class="wrap">
     <div class="rhead"><div>
       <h1>{h1}</h1>
@@ -25,6 +30,7 @@ const itemList = {
     {introText && <div class="intro" set:html={introText.split(/\n\n+/).map((p) => `<p>${p}</p>`).join("")} />}
     <div class="bar">
       <button class="btn sm" type="button" data-setcar>Your car: <span data-carlabel>not set</span></button>
+      <a class="btn sm wa" href={`https://wa.me/?text=${encodeURIComponent(shareText)}`} target="_blank" rel="noopener"><Icon name="wa" />Share this list</a>
       <span class="grow"></span>
       <span class="muted" style="font-size:13px">{garages.length} with evidence{others.length ? ` · ${others.length} more listed` : ""}</span>
     </div>
@@ -32,6 +38,20 @@ const itemList = {
       {garages.map((g) => <GarageCard g={g} make={make} model={model} />)}
       {garages.length === 0 && <div class="card empty">No garages with owner evidence here yet.{others.length > 0 ? " Some are listed below." : ""} Know a good one? <a href="/add-a-garage/">Tell us about it</a>.</div>}
     </div>
+    {thin && (
+      <form class="card panel notify" id="notifyForm" data-page={Astro.url.pathname} data-make={make || ""} data-model={model || ""}>
+        <h2>Your car isn't covered well yet?</h2>
+        <p class="sub">Leave your email and we'll tell you once, when owners have reviewed enough garages for it. Nothing else.</p>
+        <div class="two">
+          <label class="fld" for="nEmail">Email<input id="nEmail" type="email" required autocomplete="email" placeholder="you@example.com" /></label>
+          <label class="fld" for="nCar">Your car<input id="nCar" maxlength="80" placeholder={model ? `${make} ${model}` : make ? `${make} ...` : "e.g. Alfa Romeo Giulia"} /></label>
+        </div>
+        <p class="muted" style="font-size:12px;margin:0">See our <a href="/privacy/">privacy policy</a>.</p>
+        <div class="err" id="nErr" hidden></div>
+        <button class="btn primary" type="submit">Tell me when it's covered</button>
+        <p class="okmsg" id="nOk" hidden>Thanks, we'll email you once.</p>
+      </form>
+    )}
     {others.length > 0 && (
       <details class="more card">
         <summary>{othersLabel} <span class="muted">({others.length})</span></summary>

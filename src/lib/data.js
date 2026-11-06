@@ -123,7 +123,7 @@ export function specFor(g, make, model) {
 }
 export const levelOf = (spec) => (spec ? spec.conf : 0);
 const lc = (x) => String(x || "").toLowerCase();
-// An owner review on GarageGuide for this car is evidence too.
+// An owner review on KnowsMyCar for this car is evidence too.
 const ownerFor = (g, make, model) =>
   g.ownerReviews.some((r) => lc(r.car_make) === lc(make) && (!model || lc(r.car_model).includes(lc(model))));
 const realFor = (g, make, model) => {
@@ -206,9 +206,11 @@ export const JOB_PAGES = JOBS.map((j) => {
 
 /* ---------- indexing rule (research doc section 14) ----------
    A list page is indexed only with 3+ garages that have real evidence AND an approved intro. */
+// Only approved entries are used. An entry may also carry title, description and h1
+// overrides for its page (SEO spec, "On-page SEO for go-live").
 export function intro(key) {
   const i = intros[key];
-  return i && i.text ? i : null;
+  return i && i.approved ? i : null;
 }
 export function isIndexable(key, evidenceCount) {
   const i = intros[key];

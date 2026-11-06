@@ -13,7 +13,7 @@ const desc = top
   ? `${g.name} in ${g.area || "Dubai"}: ${brandsList} ${g.specs.length > 1 ? "specialist" : "specialist"}. See what owners say, the evidence and how to contact them.`
   : `${g.name}, an independent garage in ${g.area || "Dubai"}. Reviews, contact details and directions.`;
 const models = g.specs.flatMap((s) => s.models.map((m) => ({ make: s.make, model: m, conf: s.conf, confidence: s.confidence })));
-// AutoRepair schema. aggregateRating is added only from GarageGuide's own owner reviews (none yet).
+// AutoRepair schema. aggregateRating is added only from KnowsMyCar's own owner reviews (none yet).
 const ld = {
   "@context": "https://schema.org",
   "@type": "AutoRepair",
@@ -24,12 +24,12 @@ const ld = {
   ...(g.lat && g.lng ? { geo: { "@type": "GeoCoordinates", latitude: g.lat, longitude: g.lng } } : {}),
   sameAs: [g.website, g.maps_url].filter(Boolean),
   ...(g.makes.length ? { knowsAbout: g.makes } : {}),
-  // Only GarageGuide's own approved owner reviews feed the rating schema.
+  // Only KnowsMyCar's own approved owner reviews feed the rating schema.
   ...(g.own ? {
     aggregateRating: { "@type": "AggregateRating", ratingValue: g.own.avg.toFixed(1), reviewCount: g.own.n, bestRating: 5, worstRating: 1 },
     review: g.ownerReviews.slice(0, 5).map((r) => ({
       "@type": "Review",
-      author: { "@type": "Person", name: r.display_name || "GarageGuide owner" },
+      author: { "@type": "Person", name: r.display_name || "KnowsMyCar owner" },
       datePublished: r.created_at.slice(0, 10),
       reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5 },
       reviewBody: r.body,
@@ -52,6 +52,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
   description={desc}
   noindex={!garageIndexable(g)}
   jsonld={[ld]}
+  ogImage={`/og/garage/${g.slug}.png`}
   crumbs={[{ name: "Dubai", url: "/dubai/" }, ...(firstMake ? [{ name: firstMake, url: `/dubai/${slugify(firstMake)}/` }] : []), { name: g.name }]}
 >
   <div class="wrap" data-garage-page={g.slug} data-specs={evidenced ? JSON.stringify(g.specs.map((s) => [s.make, s.models, s.conf, s.evidence])) : "[]"}>
@@ -68,7 +69,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
       <div class="gacts">
         {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
         {g.phone && <a class={`btn ${g.waNumber ? "" : "primary"}`} href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call"><Icon name="phone" />Call</a>}
-        <a class="btn" href={maps} target="_blank" rel="noopener"><Icon name="nav" />Directions</a>
+        <a class="btn" href={maps} target="_blank" rel="noopener" data-track="directions"><Icon name="nav" />Directions</a>
       </div>
     </div>
 
@@ -99,7 +100,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
 
         <section class="card panel ours" id="ownerRevs">
           <div class="blkhead" style="margin-bottom:8px"><div>
-            <h2 style="font-size:24px;text-transform:uppercase;margin:0">Owner reviews on GarageGuide</h2>
+            <h2 style="font-size:24px;text-transform:uppercase;margin:0">Owner reviews on KnowsMyCar</h2>
             <p class="sub" style="margin:4px 0 0">Reviews from owners who used this garage: their car, the job, what they paid and whether the bill matched the quote.</p></div>
             <a class="btn primary sm" href={`/review/${g.slug}/`}><Icon name="pen" />Write a review</a></div>
           <div id="ownerList" data-garage={g.slug}>
@@ -118,7 +119,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
                   {r.called_before_extra && <span class="pos">Called before extra work</span>}
                   {r.would_return && <span class="pos">Would go back</span>}
                 </div>
-                <cite>{r.display_name || "GarageGuide owner"} · {fmtDate(r.created_at)}</cite>
+                <cite>{r.display_name || "KnowsMyCar owner"} · {fmtDate(r.created_at)}</cite>
               </article>
             ))}
           </div>
@@ -143,7 +144,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
         )}
 
         <section class="card panel theirs"><h2>Around the web</h2>
-          <p class="sub">What other sites show, in our own words, with links to the originals. Shown separately and never mixed into GarageGuide ratings or ranking.</p>
+          <p class="sub">What other sites show, in our own words, with links to the originals. Shown separately and never mixed into KnowsMyCar ratings or ranking.</p>
           {g.summary.map((x) => <p style="margin:0 0 8px">{x}</p>)}
           <div class="srclist">
             {g.ext.map((e) => (
@@ -172,7 +173,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
             </>
           ) : (
             <>
-              <p style="margin:0;font-size:14px"><b>No owner reviews yet.</b> <span class="muted">GarageGuide ratings and quote accuracy appear once owners review this garage.</span></p>
+              <p style="margin:0;font-size:14px"><b>No owner reviews yet.</b> <span class="muted">KnowsMyCar ratings and quote accuracy appear once owners review this garage.</span></p>
               <a class="btn primary" href={`/review/${g.slug}/`}><Icon name="pen" />Be the first to review</a>
             </>
           )}
@@ -180,7 +181,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
         <section class="card panel"><h2 style="font-size:22px">Workshop facts</h2>
           <dl class="facts">
             {g.address && <div><dt>Address</dt><dd>{g.address}</dd></div>}
-            {g.phone && <div><dt>Phone</dt><dd class="num"><a href={`tel:${g.phone.replace(/\s/g, "")}`}>{g.phone}</a></dd></div>}
+            {g.phone && <div><dt>Phone</dt><dd class="num"><a href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">{g.phone}</a></dd></div>}
             {g.hours && <div><dt>Hours</dt><dd>{g.hours}</dd></div>}
             {g.website && <div><dt>Website</dt><dd><a href={g.website} target="_blank" rel="noopener" style="overflow-wrap:anywhere">{g.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}</a></dd></div>}
             {(g.self_claims || []).length > 0 && <div><dt>The garage says</dt><dd>{g.self_claims.map((c) => <div>{c.note || `Works on ${c.make}${(c.models || []).length ? ` (${c.models.join(", ")})` : ""}`}{c.url && <> · <a href={c.url} target="_blank" rel="noopener nofollow">their website</a></>}</div>)}<small class="muted">Their own claim, not owner evidence.</small></dd></div>}
@@ -206,6 +207,6 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
   <div class="stickybar" id="sticky">
     {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
     {g.phone && <a class={`btn ${g.waNumber ? "" : "primary"}`} href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call"><Icon name="phone" />Call</a>}
-    <a class="btn" href={maps} target="_blank" rel="noopener"><Icon name="nav" />Directions</a>
+    <a class="btn" href={maps} target="_blank" rel="noopener" data-track="directions"><Icon name="nav" />Directions</a>
   </div>
 </Base>

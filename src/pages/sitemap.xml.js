@@ -2,7 +2,7 @@ import { BRANDS, AREAS, JOB_PAGES, GARAGES, isIndexable, garageIndexable } from 
 
 export function GET({ site }) {
   const u = (p) => new URL(p, site).toString();
-  const urls = ["/", "/dubai/", "/how-it-works/"];
+  const urls = ["/", "/dubai/", "/how-it-works/", "/about/", "/review-guidelines/", "/right-of-reply/", "/privacy/", "/terms/"];
   BRANDS.forEach((b) => {
     if (isIndexable(`dubai/${b.slug}`, b.evidenceCount)) urls.push(`/dubai/${b.slug}/`);
     b.models.forEach((m) => { if (isIndexable(`dubai/${b.slug}/${m.slug}`, m.evidenceCount)) urls.push(`/dubai/${b.slug}/${m.slug}/`); });
