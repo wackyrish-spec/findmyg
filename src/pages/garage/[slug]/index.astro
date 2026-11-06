@@ -1,6 +1,7 @@
 ---
 import Base from "../../../layouts/Base.astro";
 import Icon from "../../../components/Icon.astro";
+import { existsSync } from "node:fs";
 import { GARAGES, garageIndexable, slugify, DATA_UPDATED } from "../../../lib/data.js";
 export function getStaticPaths() {
   return GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
@@ -8,6 +9,9 @@ export function getStaticPaths() {
 const { g } = Astro.props;
 const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(g.name + " " + (g.area || "") + " Dubai")}`;
 const top = g.specs[0];
+// Real photo if we have one with the garage's OK (public/photos/<slug>.jpg); otherwise a branded header.
+const photo = existsSync(`public/photos/${g.slug}.jpg`) ? `/photos/${g.slug}.jpg` : null;
+const mono = (g.name.match(/[A-Za-z0-9]+/g) || ["G"]).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
 const brandsList = g.makes.join(", ");
 const desc = top
   ? `${g.name} in ${g.area || "Dubai"}: ${brandsList} ${g.specs.length > 1 ? "specialist" : "specialist"}. See what owners say, the evidence and how to contact them.`
@@ -56,6 +60,12 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
   crumbs={[{ name: "Dubai", url: "/dubai/" }, ...(firstMake ? [{ name: firstMake, url: `/dubai/${slugify(firstMake)}/` }] : []), { name: g.name }]}
 >
   <div class="wrap" data-garage-page={g.slug} data-specs={evidenced ? JSON.stringify(g.specs.map((s) => [s.make, s.models, s.conf, s.evidence])) : "[]"}>
+    {photo ? (
+      <img class="gphoto" src={photo} alt={`${g.name}, ${g.area || "Dubai"}`} width="1200" height="400" loading="eager" />
+    ) : (
+      <div class="gband" aria-hidden="true"><span class="mono">{mono}</span>
+        <span class="gbtxt">{g.isDealer ? `${[].concat(g.dealer_for || []).join(", ") || "Main"} dealer` : g.makes.length ? g.makes.slice(0, 3).join(" · ") : "Independent garage"}<small>{g.isDealer ? "Franchised main dealer" : evidenced ? "Independent specialist" : "Independent garage"}</small></span></div>
+    )}
     <div class="ghead"><div>
       <div class="meta" style="margin-bottom:8px">
         <span><Icon name="pin" />{g.area || "Dubai"}</span>
