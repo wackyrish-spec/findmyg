@@ -125,7 +125,7 @@ section.blk{padding-block:38px 6px}
 .bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:16px}
 .bar select{font:700 14px var(--f-body);padding:9px 10px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);min-height:40px}
 .bar .grow{flex:1}
-.results{display:flex;flex-direction:column;gap:12px;padding-bottom:56px}
+.results{display:flex;flex-direction:column;gap:12px;padding-bottom:24px}
 .gcard{display:grid;grid-template-columns:1fr auto;gap:14px 20px;padding:18px}
 .gcard .main{min-width:0;display:flex;flex-direction:column;gap:8px}
 .gtop{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
@@ -294,3 +294,40 @@ details.enth[open] summary::before{content:"− ";}
 .gcard.dim{opacity:.6}
 .acts{flex-wrap:wrap;justify-content:flex-end}
 @media (max-width:640px){.stats{flex-direction:column;align-items:stretch}.acts{justify-content:flex-start}.acts .btn{flex:1 1 auto}}
+
+/* owner reviews */
+.orev{padding:14px 0;border-top:1px solid var(--line)}
+.orev:first-child{border-top:0;padding-top:4px}
+.orh{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;font-size:14px}
+.stars{color:var(--signal);letter-spacing:1px}.stars .off{color:var(--line)}
+.orev p{margin:8px 0;font-size:15px}
+.otags{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;font-weight:700}
+.otags span{padding:3px 8px;border-radius:999px;background:var(--blue-soft)}
+.otags .pos{background:var(--pos-soft)}
+.otags .pos{color:var(--pos)}.otags .neg{color:var(--neg)}
+.orev cite{display:block;margin-top:8px;font-size:12px;font-style:normal;color:var(--muted)}
+.orating{display:flex;align-items:baseline;gap:8px;margin:0 0 8px}.orating b{font-size:44px;line-height:1}
+.ptable{width:100%;border-collapse:collapse;font-size:14px}
+.ptable th,.ptable td{text-align:start;padding:8px 6px;border-bottom:1px solid var(--line)}
+.ptable th{font-size:12px;text-transform:uppercase;color:var(--muted)}
+.ptable .num{text-align:end}
+.okmsg{padding:14px;border-radius:12px;background:var(--blue-soft);font-weight:700}
+
+/* collapsed secondary lists */
+details.more{margin:14px 0 0;padding:14px 16px}
+details.more>summary{cursor:pointer;font-weight:800;font-size:15px}
+details.more .sub{margin:8px 0 4px}
+.plainlist{display:flex;flex-direction:column}
+.plaincard{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--line);flex-wrap:wrap}
+.plaincard:first-child{border-top:0}
+.plaincard .meta{margin-top:3px}
+.dealer{padding:2px 8px;border-radius:999px;background:var(--line);color:var(--ink);font-size:12px;font-weight:800}
+[hidden]{display:none!important}
+.dnote{margin:10px 0 0;font-size:13px;color:var(--muted)}
+.claim{margin-top:3px;font-size:13px;color:var(--muted)}
+.ownlist{margin-top:16px}.ownlist h3{margin:0;font-size:16px}
+.gbody>*{min-width:0}.ptable td{overflow-wrap:anywhere}.ptable td.num{white-space:nowrap}.enthlist .code{display:inline-block;margin:2px 2px 0 0}
+.ptable{table-layout:fixed;min-width:0}.ptable td.num,.ptable th.num{width:96px}
+.fpick{padding:2px 8px;border-radius:999px;background:var(--signal-soft);color:var(--signal-text);font-size:12px;font-weight:800;text-decoration:none}
+.gfact{margin:6px 0 0;font-size:12px;color:var(--muted)}.gfact a{color:inherit}
+.esum{margin:6px 0 0;font-size:14px}

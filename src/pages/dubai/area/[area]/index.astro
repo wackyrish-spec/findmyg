@@ -1,19 +1,22 @@
 ---
 import ListPage from "../../../../components/ListPage.astro";
-import { AREAS, intro, isIndexable } from "../../../../lib/data.js";
+import { AREAS, intro, isIndexable, splitGeneral } from "../../../../lib/data.js";
 export function getStaticPaths() {
   return AREAS.map((a) => ({ params: { area: a.slug }, props: { a } }));
 }
 const { a } = Astro.props;
 const key = `dubai/area/${a.slug}`;
+const L = splitGeneral(a.garages);
 ---
 <ListPage
   title={`Car garages in ${a.name}, Dubai`}
-  description={`${a.garages.length} independent garages in ${a.name}, Dubai, with the car brands each one specialises in.`}
+  description={`Independent garages in ${a.name}, Dubai, with the car brands each one specialises in.`}
   h1={`Garages in ${a.name}`}
-  lead={`${a.garages.length} independent garages in ${a.name}. Set your car to see which ones know it best.`}
+  lead={`Independent garages in ${a.name} with owner evidence first. Set your car to see which ones know it best.`}
   introText={intro(key)?.text}
-  garages={a.garages}
+  garages={L.ranked}
+  others={L.others}
+  othersLabel={`Also in ${a.name}, no reviews yet`}
   noindex={!isIndexable(key, a.evidenceCount)}
   crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: a.name }]}
   related={AREAS.filter((x) => x.slug !== a.slug).map((x) => ({ name: `Garages in ${x.name}`, url: `/dubai/area/${x.slug}/` }))}

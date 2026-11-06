@@ -1,12 +1,13 @@
 ---
 import ListPage from "../../../components/ListPage.astro";
-import { BRANDS, intro, isIndexable } from "../../../lib/data.js";
+import { BRANDS, intro, isIndexable, splitBrand, dealerPrices, DEALER_NOTES } from "../../../lib/data.js";
 export function getStaticPaths() {
   return BRANDS.map((b) => ({ params: { make: b.slug }, props: { b } }));
 }
 const { b } = Astro.props;
 const key = `dubai/${b.slug}`;
 const it = intro(key);
+const L = splitBrand(b.garages, b.make);
 const related = [
   ...b.models.map((m) => ({ name: `${b.make} ${m.model}`, url: `/dubai/${b.slug}/${m.slug}/` })),
   ...BRANDS.filter((x) => x.slug !== b.slug).slice(0, 8).map((x) => ({ name: `${x.make} specialists`, url: `/dubai/${x.slug}/` })),
@@ -14,11 +15,16 @@ const related = [
 ---
 <ListPage
   title={`${b.make} specialist garages in Dubai`}
-  description={`Independent ${b.make} specialists in Dubai, ranked by how many owners vouch for them. ${b.garages.length} garages, with the evidence for each.`}
+  description={`Independent ${b.make} specialists in Dubai, ranked by how many owners vouch for them, with the evidence for each.`}
   h1={`${b.make} specialists in Dubai`}
-  lead={`Independent garages that work on ${b.make}, ranked by evidence from owner reviews. ${b.evidenceCount} of ${b.garages.length} have strong review evidence.`}
+  lead={`Independent garages that work on ${b.make}, ranked by evidence from owner reviews.`}
   introText={it?.text}
-  garages={b.garages}
+  garages={L.ranked}
+  others={L.others}
+  othersLabel={`Also in Dubai, no reviews for your ${b.make} yet`}
+  dealers={L.dealers}
+  dealerPrices={dealerPrices(b.make)}
+  dealerNote={DEALER_NOTES[b.slug]}
   make={b.make}
   noindex={!isIndexable(key, b.evidenceCount)}
   crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: b.make }]}

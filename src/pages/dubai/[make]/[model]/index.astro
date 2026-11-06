@@ -1,23 +1,28 @@
 ---
 import ListPage from "../../../../components/ListPage.astro";
-import { BRANDS, intro, isIndexable } from "../../../../lib/data.js";
+import { BRANDS, intro, isIndexable, splitBrand, dealerPrices, DEALER_NOTES } from "../../../../lib/data.js";
 export function getStaticPaths() {
   return BRANDS.flatMap((b) => b.models.map((m) => ({ params: { make: b.slug, model: m.slug }, props: { b, m } })));
 }
 const { b, m } = Astro.props;
 const key = `dubai/${b.slug}/${m.slug}`;
 const it = intro(key);
-// Show model specialists first, then the brand's other specialists as a fallback.
+// Model specialists first, then brand specialists with evidence; unreviewed garages collapsed.
 const rest = b.garages.filter((g) => !m.garages.includes(g));
-const garages = [...m.garages, ...rest];
+const L = splitBrand([...m.garages, ...rest], b.make, m.model);
 ---
 <ListPage
   title={`${b.make} ${m.model} specialist garages in Dubai`}
   description={`Where to fix a ${b.make} ${m.model} in Dubai: independent garages that owners recommend for the ${m.model}, with the evidence for each.`}
   h1={`${b.make} ${m.model} specialists in Dubai`}
-  lead={`${m.garages.length} garage${m.garages.length === 1 ? "" : "s"} where owners mention the ${m.model}, followed by other ${b.make} specialists.`}
+  lead={`Garages owners recommend for the ${m.model} come first, followed by other ${b.make} specialists with review evidence.`}
   introText={it?.text}
-  garages={garages}
+  garages={L.ranked}
+  others={L.others}
+  othersLabel={`Also in Dubai, no reviews for your ${m.model} yet`}
+  dealers={L.dealers}
+  dealerPrices={dealerPrices(b.make, m.model)}
+  dealerNote={DEALER_NOTES[b.slug]}
   make={b.make}
   model={m.model}
   noindex={!isIndexable(key, m.evidenceCount)}
