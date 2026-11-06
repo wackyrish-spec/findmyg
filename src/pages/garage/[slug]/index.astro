@@ -2,6 +2,7 @@
 import Base from "../../../layouts/Base.astro";
 import Icon from "../../../components/Icon.astro";
 import { existsSync } from "node:fs";
+import { SITE } from "../../../lib/site.js";
 import { GARAGES, garageIndexable, slugify, DATA_UPDATED } from "../../../lib/data.js";
 export function getStaticPaths() {
   return GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
@@ -9,6 +10,7 @@ export function getStaticPaths() {
 const { g } = Astro.props;
 const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(g.name + " " + (g.area || "") + " Dubai")}`;
 const top = g.specs[0];
+const SB = import.meta.env.PUBLIC_SUPABASE_URL;
 // Real photo if we have one with the garage's OK (public/photos/<slug>.jpg); otherwise a branded header.
 const photo = existsSync(`public/photos/${g.slug}.jpg`) ? `/photos/${g.slug}.jpg` : null;
 const mono = (g.name.match(/[A-Za-z0-9]+/g) || ["G"]).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
@@ -66,6 +68,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
       <div class="gband" aria-hidden="true"><span class="mono">{mono}</span>
         <span class="gbtxt">{g.isDealer ? `${[].concat(g.dealer_for || []).join(", ") || "Main"} dealer` : g.makes.length ? g.makes.slice(0, 3).join(" · ") : "Independent garage"}<small>{g.isDealer ? "Franchised main dealer" : evidenced ? "Independent specialist" : "Independent garage"}</small></span></div>
     )}
+    {!photo && !g.isDealer && <p class="gsend">Is this your garage? <a href={`mailto:${SITE.emailReply}?subject=${encodeURIComponent(`Photo for ${g.name} (${g.slug})`)}&body=${encodeURIComponent("Attach one photo of your workshop (the front works best). By sending it, you confirm you own it and allow KnowsMyCar to show it on your garage page.")}`}>Send us a photo of your workshop</a>.</p>}
     <div class="ghead"><div>
       <div class="meta" style="margin-bottom:8px">
         <span><Icon name="pin" />{g.area || "Dubai"}</span>
@@ -121,6 +124,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
                   <b>{[r.car_make, r.car_model, r.car_year].filter(Boolean).join(" ")}</b>
                   <span class="muted">{[r.job, r.job_note].filter(Boolean).join(": ")}</span></div>
                 <p>{r.body}</p>
+                {r.photo_path && SB && <a class="rphoto" href={`${SB}/storage/v1/object/public/review-photos/${r.photo_path}`} target="_blank" rel="noopener"><img src={`${SB}/storage/v1/object/public/review-photos/${r.photo_path}`} alt={`Photo from a ${[r.car_make, r.car_model].filter(Boolean).join(" ")} owner`} loading="lazy" /></a>}
                 <div class="otags">
                   {r.price_paid > 0 && <span>Paid AED {Number(r.price_paid).toLocaleString("en-US")}</span>}
                   {r.quote_vs_final && <span class={r.quote_vs_final === "higher" ? "neg" : "pos"}>{QVF[r.quote_vs_final]}</span>}

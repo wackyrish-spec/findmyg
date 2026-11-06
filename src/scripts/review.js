@@ -48,6 +48,7 @@ if (form && form.dataset.ready && URL_ && KEY) {
   let session = null;
   const paint = () => {
     signin.hidden = !!session;
+    if ($("rPhotoWrap")) $("rPhotoWrap").hidden = !session;
     go.textContent = session ? "Submit review" : "Email me a sign-in link";
   };
   $("rGoogle")?.addEventListener("click", async () => {
@@ -76,7 +77,17 @@ if (form && form.dataset.ready && URL_ && KEY) {
         ok.hidden = false;
         return;
       }
+      let photo_path = null;
+      const file = $("rPhoto")?.files?.[0];
+      if (file) {
+        const blob = await shrink(file);
+        if (!blob) throw new Error("That photo couldn't be read. Try a JPG or PNG, or leave it out.");
+        photo_path = `${session.user.id}/${crypto.randomUUID()}.jpg`;
+        const up = await sb.storage.from("review-photos").upload(photo_path, blob, { contentType: "image/jpeg" });
+        if (up.error) throw new Error("The photo didn't upload. Try again, or leave it out.");
+      }
       const { error } = await sb.from("reviews").insert({
+        photo_path,
         garage_slug: slug,
         display_name: d.rName || null,
         car_make: d.rMake,
@@ -112,3 +123,16 @@ if (form && form.dataset.ready && URL_ && KEY) {
     }
   });
 }
+
+// Resize to max 1600px and re-encode as JPEG. Re-encoding drops EXIF, including GPS location.
+async function shrink(file) {
+  try {
+    const img = await createImageBitmap(file);
+    const k = Math.min(1, 1600 / Math.max(img.width, img.height));
+    const c = document.createElement("canvas");
+    c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+    c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+    return await new Promise((r) => c.toBlob(r, "image/jpeg", 0.8));
+  } catch { return null; }
+}
+
