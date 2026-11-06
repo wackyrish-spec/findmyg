@@ -32,7 +32,7 @@ h1 em{{font-style:normal;color:#FFB400}}
 .big small{{font-size:80px;color:#fff;margin-right:18px}}
 .sub{{font:700 40px/1.3 MR;color:#fff}}
 .muted{{color:#9AA3B1}}
-.foot{{margin-top:auto;padding-top:30px;border-top:2px solid #2C323C;display:flex;justify-content:space-between;font:700 28px/1.3 MR;color:#9AA3B1}}
+.foot{{margin-top:auto;padding-top:30px;border-top:2px solid #2C323C;display:flex;justify-content:space-between;gap:24px;font:700 24px/1.3 MR;color:#9AA3B1}}
 .foot b{{color:#fff}}
 .list{{display:flex;flex-direction:column;gap:22px}}
 .row{{display:flex;align-items:center;gap:28px;padding:30px 34px;background:#1C222B;border-radius:22px}}
@@ -47,7 +47,7 @@ blockquote::before{{content:"“";display:block;font:800 220px/.6 BC;color:#FFB4
 """
 
 def foot(sample):
-    return '<div class="foot"><span>Independent. No paid listings.</span><b>knowsmycar.ae</b></div>'
+    return '<div class="foot"><span>Independent. No paid listings. Not affiliated with any car maker.</span><b>knowsmycar.ae</b></div>'
 
 def paid_t(d):
     s = f"""<div class="eyebrow">What owners paid · Dubai</div>

@@ -36,30 +36,31 @@ const meter = (n) => h("div", { gap: 6 }, [1, 2, 3].map((i) => h("div", { width:
  * card({ eyebrow, title, chips, stat: { big, label } | meter: { level, label }, foot })
  */
 export function card({ eyebrow = "", title, chips = [], stat = null, meterInfo = null, foot = "Independent. No paid listings. Every specialist backed by owner reviews." }) {
-  const roomy = !stat && !meterInfo;
-  const tsize = roomy ? (title.length > 40 ? 84 : 104) : title.length > 34 ? 64 : title.length > 22 ? 78 : 96;
-  const right = stat
-    ? h("div", { flexDirection: "column", alignItems: "flex-start", justifyContent: "center", width: 300, paddingLeft: 40, borderLeft: `2px solid ${LINE}` },
-        h("div", { fontFamily: "BC", fontWeight: 800, fontSize: 168, lineHeight: 0.9, color: AMBER }, String(stat.big)),
-        h("div", { fontFamily: "MR", fontWeight: 700, fontSize: 24, lineHeight: 1.3, color: WHITE, marginTop: 14 }, stat.label))
+  // Centred layout: WhatsApp and iMessage crop to a near-square on some phones, so the title, the number and the chips
+  // sit inside the middle ~760px. The logo and domain live in the corners, where a crop loses nothing important.
+  const tsize = title.length > 30 ? 84 : title.length > 20 ? 100 : 116;
+  const proof = stat
+    ? h("div", { alignItems: "baseline", gap: 16, marginTop: 26 },
+        h("div", { fontFamily: "BC", fontWeight: 800, fontSize: 96, lineHeight: 0.9, color: AMBER }, String(stat.big)),
+        h("div", { fontFamily: "MR", fontWeight: 700, fontSize: 28, lineHeight: 1.25, color: WHITE, maxWidth: 520 }, stat.label))
     : meterInfo
-    ? h("div", { flexDirection: "column", justifyContent: "center", width: 300, paddingLeft: 40, borderLeft: `2px solid ${LINE}`, gap: 16 },
-        meter(meterInfo.level),
-        h("div", { fontFamily: "BC", fontWeight: 800, fontSize: 44, lineHeight: 1, color: WHITE, textTransform: "uppercase" }, LEVELS[meterInfo.level] || ""),
-        h("div", { fontFamily: "MR", fontWeight: 700, fontSize: 22, lineHeight: 1.35, color: MUTED }, meterInfo.label))
+    ? h("div", { flexDirection: "column", alignItems: "center", gap: 10, marginTop: 26 },
+        h("div", { alignItems: "center", gap: 16 },
+          meter(meterInfo.level),
+          h("div", { fontFamily: "BC", fontWeight: 800, fontSize: 48, lineHeight: 1, color: WHITE, textTransform: "uppercase" }, LEVELS[meterInfo.level] || "")),
+        h("div", { fontFamily: "MR", fontWeight: 700, fontSize: 24, lineHeight: 1.3, color: MUTED }, meterInfo.label))
     : null;
-  return h("div", { width: 1200, height: 630, background: INK, padding: "56px 64px", flexDirection: "column", position: "relative" },
+  return h("div", { width: 1200, height: 630, background: INK, padding: "40px 56px 36px", flexDirection: "column", position: "relative" },
     h("div", { position: "absolute", left: 0, top: 0, width: 12, height: 630, background: AMBER }),
-    logo(44),
-    h("div", { flex: 1, alignItems: "center", marginTop: 20 },
-      h("div", { flex: 1, flexDirection: "column", justifyContent: "center", paddingRight: 40 },
-        eyebrow && h("div", { fontFamily: "MR", fontWeight: 800, fontSize: 24, letterSpacing: 3, color: AMBER, textTransform: "uppercase" }, eyebrow),
-        h("div", { fontFamily: "BC", fontWeight: 800, fontSize: tsize, lineHeight: 0.95, color: WHITE, textTransform: "uppercase", marginTop: 14 }, title),
-        chips.length > 0 && h("div", { gap: 12, marginTop: 28, flexWrap: "wrap" }, chips.slice(0, 4).map(chip))),
-      right),
-    h("div", { borderTop: `2px solid ${LINE}`, paddingTop: 20, justifyContent: "space-between", fontFamily: "MR", fontWeight: 700, fontSize: 22, color: MUTED },
-      h("div", {}, foot),
-      h("div", { color: WHITE }, "knowsmycar.ae")));
+    h("div", { justifyContent: "space-between", alignItems: "center" },
+      logo(34),
+      h("div", { fontFamily: "MR", fontWeight: 700, fontSize: 22, color: MUTED }, "knowsmycar.ae")),
+    h("div", { flex: 1, flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "0 180px" },
+      eyebrow && h("div", { fontFamily: "MR", fontWeight: 800, fontSize: 24, letterSpacing: 3, color: AMBER, textTransform: "uppercase" }, eyebrow),
+      h("div", { fontFamily: "BC", fontWeight: 800, fontSize: tsize, lineHeight: 0.95, color: WHITE, textTransform: "uppercase", marginTop: 14, justifyContent: "center", textAlign: "center" }, title),
+      proof,
+      chips.length > 0 && h("div", { gap: 12, marginTop: 24, flexWrap: "wrap", justifyContent: "center" }, chips.slice(0, 4).map(chip))),
+    h("div", { justifyContent: "center", fontFamily: "MR", fontWeight: 700, fontSize: 20, color: MUTED }, foot));
 }
 
 export async function png(node) {
