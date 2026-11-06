@@ -44,7 +44,12 @@ def ink_bounds(s, size, weight=800):
     xmin, ymin, xmax, ymax = bp.bounds
     return xmin * sc, (x - xmax) * sc  # left and right side bearings of the whole run
 
+import re as _re
+def _round(m):
+    v = round(float(m.group(0)), 1)
+    return ("%d" % v) if v == int(v) else ("%.1f" % v)
 def svg(w, h, body, title):
+    body = _re.sub(r"-?\d+\.\d+", _round, body)  # 1-decimal coords: ~3x smaller files
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w:.1f} {h:.1f}" width="{w:.0f}" height="{h:.0f}" role="img" aria-label="{title}">'
             f'<title>{title}</title>{body}</svg>\n')
 
