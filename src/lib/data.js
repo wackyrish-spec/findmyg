@@ -89,6 +89,7 @@ function norm(g) {
     goodFor: goodFor(text),
     waNumber: waNumber(g),
     priceTalk: priceTalk(g.price_signal),
+    prices: normPrices(g.price_examples),
     ownerReviews: REVIEWS[g.id || slugify(g.name)] || [],
     own: ownerStats(REVIEWS[g.id || slugify(g.name)]),
     ownerCount: (REVIEWS[g.id || slugify(g.name)] || []).length,
@@ -240,12 +241,82 @@ export function pickerCatalog() {
 export function priceTalk(ps) {
   if (!ps || !(ps.price_mentions >= 5)) return null;
   const n = ps.price_mentions, exp = ps.expensive || 0, fair = ps.fair || 0, cheap = ps.cheap || 0;
-  const label = exp / n >= 0.5 ? "Often called expensive"
-    : exp / n >= 0.25 ? "Mixed views on price"
-    : cheap > fair ? "Often called good value" : "Mostly called fair value";
-  const tone = exp / n >= 0.5 ? "neg" : exp / n >= 0.25 ? "mid" : "pos";
+  const pos = fair + cheap;
+  const label = exp / n >= 0.5 ? `Reviewers often call it expensive (${exp} of ${n} who mentioned price)`
+    : pos / n >= 0.6 && exp / n < 0.25 ? `Reviewers call prices fair (${pos} of ${n} who mentioned price)`
+    : `Mixed views on price (${n} reviewers mentioned it)`;
+  const tone = exp / n >= 0.5 ? "neg" : pos / n >= 0.6 && exp / n < 0.25 ? "pos" : "mid";
   const jobs = (ps.jobs || []).filter((j) => j.sources >= 3 && j.aed_low > 0)
     .map((j) => ({ ...j, aed_high: Math.max(j.aed_high || j.aed_low, j.aed_low) }));
   return { label, tone, n, read: ps.reviews_read || null, asOf: ps.as_of || "", jobs };
 }
 
+// Price points a garage publishes or owners reported elsewhere (Data's price_examples), normalised.
+// Accepts old rows ({item, price_aed: 1350 | "840–1,575"}) and new rows ({job, make, model, aed_low, aed_high, includes_parts}).
+export function normPrices(list) {
+  return (list || []).map((p) => {
+    let low = Number(p.aed_low), high = Number(p.aed_high);
+    if (!(low > 0)) {
+      const nums = String(p.price_aed ?? "").replace(/,/g, "").match(/\d+(\.\d+)?/g) || [];
+      low = Number(nums[0]); high = Number(nums[1] || nums[0]);
+    }
+    if (!(low > 0)) return null;
+    if (!(high >= low)) high = low;
+    const source = p.source || "";
+    // Store AED including VAT: add 5% when the source says it excludes VAT.
+    const exVat = /excl/i.test(p.vat || "");
+    if (exVat) { low *= 1.05; high *= 1.05; }
+    return { item: (p.item || "").replace(/\s+/g, " ").trim(), job: p.job || "", make: p.make || "", model: p.model || "",
+      low: Math.round(low), high: Math.round(high), vat: p.vat && p.vat !== "unknown" ? p.vat : "", vatNote: exVat ? "VAT added" : /incl/i.test(p.vat || "") ? "incl. VAT" : "",
+      from: /starting|from/i.test(source) || p.from === true,
+      parts: p.includes_parts === true ? "parts included" : p.includes_parts === false ? "labour only" : "",
+      source, owner: /owner/i.test(source), url: p.url || "", asOf: p.as_of || p.date || "" };
+  }).filter(Boolean);
+}
+
+// Cost benchmark (PM decision, research/cost-benchmark-decision.md): three everyday jobs, compared per car make.
+// Prices are AED including VAT. Minor service is the headline number on result cards.
+export const BENCHMARKS = [
+  { slug: "minor-service", key: "minor_service", name: "Minor service", plain: "Minor service (oil and filter)", job: ["minor_service", "oil_service"], re: /minor service|oil (and|&) filter|oil change|\b10,?000 ?km service|small service/i,
+    includes: ["Oil and filter", "Air filter", "Cabin filter"] },
+  { slug: "front-brake-pads", key: "brake_pads_front", name: "Front brake pads", plain: "Front brake pads, fitted", job: ["brake_pads_front", "brake_pads_axle"], re: /brake pad/i,
+    includes: ["Pads only", "Discs too", "Sensors too"] },
+  { slug: "ac-regas", key: "ac_regas", name: "AC re-gas", plain: "AC re-gas and leak check", job: ["ac_regas"], re: /re-?gas|ac gas|refrigerant/i,
+    includes: ["Re-gas only", "Leak repair"] },
+  { slug: "diagnostic", key: "diagnostic", name: "Diagnostic check", plain: "Diagnostic check (warning-light scan)", job: ["diagnostic"], re: /diagnos|warning.light scan|obd/i,
+    includes: [], pageOnly: true },
+];
+function benchPoints(g, b) {
+  const pts = [];
+  g.ownerReviews.forEach((r) => { if (r.price_paid > 0 && (r.job === b.name || b.re.test(`${r.job} ${r.job_note || ""}`))) pts.push({ src: "owners", make: r.car_make, model: r.car_model || "", low: r.price_paid, high: r.price_paid }); });
+  g.prices.forEach((p) => { if (b.job.includes(p.job) || (!p.job && b.re.test(p.item))) pts.push({ ...p, src: g.isDealer ? "dealer" : p.owner ? "reported" : "list" }); });
+  (g.priceTalk?.jobs || []).forEach((j) => { if (b.re.test(j.job || "") || b.job.includes(j.job)) pts.push({ src: "web", make: j.make, model: j.model || "", low: j.aed_low, high: j.aed_high }); });
+  return pts;
+}
+export function benchmarks(g, make = null, model = null) {
+  return BENCHMARKS.map((b) => {
+    let pts = benchPoints(g, b).filter((p) => !make || !p.make || lc(p.make) === lc(make));
+    if (model) { const m = pts.filter((p) => lc(p.model).includes(lc(model))); if (m.length) pts = m; }
+    if (!pts.length) return null;
+    // Owner prices win once there are 3+; otherwise the garage's list, then owner reports online, then reviews elsewhere.
+    const own = pts.filter((p) => p.src === "owners");
+    const src = own.length >= 3 ? "owners" : ["dealer", "list", "reported", "owners", "web"].find((s) => pts.some((p) => p.src === s));
+    let use = pts.filter((p) => p.src === src);
+    // Prefer rows filed under the main job key (e.g. minor_service over a plain oil_service).
+    if (use.some((p) => p.job === b.job[0])) use = use.filter((p) => !p.job || p.job === b.job[0]);
+    const one = (k) => { const v = [...new Set(use.map((p) => p[k] || ""))]; return v.length === 1 ? v[0] : ""; };
+    return { ...b, src, n: use.length, low: Math.min(...use.map((p) => p.low)), high: Math.max(...use.map((p) => p.high)),
+      from: use.some((p) => p.from), make: one("make"), car: [one("make"), one("model")].filter(Boolean).join(" "), vatNote: one("vatNote"), parts: one("parts") };
+  }).filter(Boolean);
+}
+// Budget tier for a make: only when 3+ independents have a minor-service price for it.
+export function budgetTier(g, make) {
+  if (!make || g.isDealer) return "";
+  const lows = GARAGES.filter((x) => !x.isDealer).map((x) => benchmarks(x, make).find((b) => b.slug === "minor-service")?.low).filter((v) => v > 0).sort((a, b) => a - b);
+  const mine = benchmarks(g, make).find((b) => b.slug === "minor-service")?.low;
+  if (lows.length < 3 || !mine) return "";
+  const rank = lows.filter((v) => v < mine).length / lows.length;
+  return rank < 1 / 3 ? "$" : rank < 2 / 3 ? "$$" : "$$$";
+}
+export const BENCH_SRC = { owners: "KnowsMyCar owners", list: "garage's price list", dealer: "dealer price list", reported: "owner on a forum", web: "reviews elsewhere" };
+export const aedRange = (lo, hi) => lo === hi ? `AED ${Number(lo).toLocaleString("en-US")}` : `AED ${Number(lo).toLocaleString("en-US")} to ${Number(hi).toLocaleString("en-US")}`;

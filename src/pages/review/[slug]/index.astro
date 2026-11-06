@@ -1,6 +1,6 @@
 ---
 import Base from "../../../layouts/Base.astro";
-import { GARAGES, JOBS } from "../../../lib/data.js";
+import { GARAGES, JOBS, BENCHMARKS } from "../../../lib/data.js";
 export function getStaticPaths() {
   return GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
 }
@@ -21,10 +21,15 @@ const supabaseReady = !!(import.meta.env.PUBLIC_SUPABASE_URL && import.meta.env.
       </div>
       <label class="fld" for="rYear">Year<input id="rYear" inputmode="numeric" maxlength="4" placeholder="2014" /></label>
       <div class="label">The job</div>
-      <label class="fld" for="rJob">Type of job<select id="rJob" required><option value="">Choose</option>{JOBS.map((j) => <option value={j.name}>{j.name}</option>)}<option value="Other">Other (describe below)</option></select></label>
+      <label class="fld" for="rJob">Type of job<select id="rJob" required><option value="">Choose</option>{BENCHMARKS.map((b) => <option value={b.name}>{b.plain}</option>)}{JOBS.map((j) => <option value={j.name}>{j.name}</option>)}<option value="Other">Other (describe below)</option></select></label>
       <label class="fld" for="rJobNote">What exactly was done<input id="rJobNote" maxlength="120" placeholder="e.g. air suspension compressor replaced" /><small>Optional, unless you chose Other.</small></label>
+      <fieldset class="fld" id="rIncl" hidden style="border:0;padding:0;margin:0"><legend style="margin-bottom:5px">What was included?</legend>
+        {BENCHMARKS.filter((b) => b.includes.length).map((b) => (
+          <div class="seg" data-incl-for={b.name} hidden>{b.includes.map((x, i) => <label for={`inc-${b.slug}-${i}`}><input type="checkbox" name="incl" id={`inc-${b.slug}-${i}`} value={x} />{x}</label>)}</div>
+        ))}
+        <small id="rPaidHint" hidden>Your price helps the next owner know what's fair.</small></fieldset>
       <div class="two">
-        <label class="fld" for="rPaid">Total paid (AED)<input id="rPaid" inputmode="numeric" placeholder="2400" /></label>
+        <label class="fld" for="rPaid">Total paid (AED, including VAT)<input id="rPaid" inputmode="numeric" placeholder="2400" /></label>
         <fieldset class="fld" style="border:0;padding:0;margin:0"><legend style="margin-bottom:5px">Final bill vs quote</legend>
           <div class="seg"><label for="q1"><input type="radio" name="qvf" id="q1" value="same" />Same</label><label for="q2"><input type="radio" name="qvf" id="q2" value="higher" />Higher</label><label for="q3"><input type="radio" name="qvf" id="q3" value="lower" />Lower</label></div></fieldset>
       </div>

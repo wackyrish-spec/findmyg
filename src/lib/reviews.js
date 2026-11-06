@@ -4,7 +4,7 @@ const URL_ = import.meta.env.PUBLIC_SUPABASE_URL;
 const KEY = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
 const COLS = "id,created_at,garage_slug,display_name,car_make,car_model,car_year,job,price_paid,quote_vs_final,knew_car,rating,showed_old_parts,called_before_extra,would_return,body,dealer_quote,job_note";
 // Added by supabase/004; the build falls back to COLS if that file hasn't been run yet.
-const COLS_TRY = [`${COLS},garage_reply,garage_reply_at,photo_path`, `${COLS},garage_reply,garage_reply_at`, COLS];
+const COLS_TRY = [`${COLS},garage_reply,garage_reply_at,photo_path,includes`, `${COLS},garage_reply,garage_reply_at,photo_path`, `${COLS},garage_reply,garage_reply_at`, COLS];
 
 export async function loadReviews() {
   // For local testing: REVIEWS_FIXTURE=path/to/reviews.json npm run build

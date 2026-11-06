@@ -63,7 +63,7 @@ const itemList = {
       <details class="more card">
         <summary>Main dealer for comparison <span class="muted">({dealers.length})</span></summary>
         <p class="sub">Franchised dealers, shown for price and service comparison. Not ranked.</p>
-        <div class="plainlist">{dealers.map((g) => <GarageCard g={g} plain />)}</div>
+        <div class="plainlist">{dealers.map((g) => <GarageCard g={g} plain make={make} model={model} />)}</div>
         {dealerPrices.length > 0 && (
           <table class="ptable"><thead><tr><th>Job</th><th class="num">Dealer quotes (AED)</th></tr></thead><tbody>
             {dealerPrices.map((p) => <tr><td>{p.job} <span class="muted">({p.n} reports)</span></td><td class="num">{p.min === p.max ? p.min.toLocaleString("en-US") : `${p.min.toLocaleString("en-US")} to ${p.max.toLocaleString("en-US")}`}</td></tr>)}

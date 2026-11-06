@@ -171,7 +171,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "15 of 60 Google reviews we read mention Jeep work (mostly Wrangler). Recommended by owners for Jeep on Reddit r/dubai."
+   "evidence_summary": "15 of 60 Google reviews we read mention Jeep work (mostly Wrangler). Recommended by owners for Jeep on Reddit r/dubai.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 7,
+    "fair": 2,
+    "expensive": 0,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "car-garage-auto-mechanical-repair-7955",
@@ -268,7 +277,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "4 of 60 Google reviews we read mention Nissan work (mostly Pathfinder)."
+   "evidence_summary": "4 of 60 Google reviews we read mention Nissan work (mostly Pathfinder).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 28,
+    "fair": 11,
+    "expensive": 2,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "al-nahdha-auto-garage-11f3",
@@ -311,11 +329,13 @@
      "models": [
       "LX",
       "GX",
-      "IS"
+      "IS",
+      "NX",
+      "GS"
      ],
      "level": "brand",
      "confidence": "medium",
-     "evidence": "7 of 60 Google reviews read mention Lexus (41% of reviews that name any make); recommended for Lexus in 4 Reddit threads (2020-2026), described as run by an ex-Lexus technician; branches in Ras Al Khor and DIP",
+     "evidence": "7 of 60 Google reviews read mention Lexus (41% of reviews that name any make); recommended for Lexus in 6 Reddit threads (2020-2026), described as run by an ex-Lexus technician; branches in Ras Al Khor and DIP",
      "mentions": 7,
      "basis": "reviews+community"
     }
@@ -397,6 +417,28 @@
       "Lexus",
       "IS"
      ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jk6rag/lexus_service_advice/",
+     "date": "2025-03",
+     "rating": null,
+     "excerpt": "Al Nahdha in Ras Al Khor seems to have good reviews. I take mine to them",
+     "mentions": [
+      "Lexus",
+      "NX"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1uxdjx4/good_lexus_garage_specialist/",
+     "date": "2026-07",
+     "rating": null,
+     "excerpt": "Al nahda auto garage in ras al khor",
+     "mentions": [
+      "Lexus",
+      "GS"
+     ]
     }
    ],
    "review_summary": "Google rating 4.6 from 1545 reviews. In the 60 most relevant reviews we read, customers mostly bring Lexus; praise centres on knowledgeable staff, honest, fast turnaround. 5 of 60 were 1–2 stars. Repeatedly recommended for Lexus (LX, GX, IS) on Reddit.",
@@ -407,11 +449,51 @@
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bdjqnd/lexus_specialist_dubai/",
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/1w60bh2/best_lexus_garage_in_dubai_which_is_not_going_to/",
     "https://www.reddit.com/r/dubai/comments/ju03j9/lexus_is_good_affordable_garage_trustworthy/",
-    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bowljq/garage_for_lexus/"
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bowljq/garage_for_lexus/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jk6rag/lexus_service_advice/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1uxdjx4/good_lexus_garage_specialist/"
    ],
    "possible_matches": [],
-   "price_examples": [],
-   "evidence_summary": "7 of 60 Google reviews we read mention Lexus work."
+   "price_examples": [
+    {
+     "item": "Lexus GX460 service (owner-reported)",
+     "price_aed": 465,
+     "vat": "unknown",
+     "source": "owner on Reddit",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bdjqnd/lexus_specialist_dubai/",
+     "date": "2024-03",
+     "job": "minor_service",
+     "make": "Lexus",
+     "model": "GX460",
+     "aed_low": 465,
+     "aed_high": 465,
+     "includes_parts": true
+    },
+    {
+     "item": "Lexus minor service (owner-reported)",
+     "price_aed": 365,
+     "vat": "unknown",
+     "source": "owner on Reddit",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bdjqnd/lexus_specialist_dubai/",
+     "date": "2024-03",
+     "job": "minor_service",
+     "make": "Lexus",
+     "model": "",
+     "aed_low": 365,
+     "aed_high": 365,
+     "includes_parts": true
+    }
+   ],
+   "evidence_summary": "7 of 60 Google reviews we read mention Lexus work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 21,
+    "fair": 12,
+    "expensive": 0,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "deutsches-auto-service-75f4",
@@ -539,7 +621,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "7 of 60 Google reviews we read mention Audi work. 6 of 60 Google reviews we read mention BMW work. Recommended by owners for Mercedes-Benz on Reddit r/DubaiPetrolHeads."
+   "evidence_summary": "7 of 60 Google reviews we read mention Audi work. 6 of 60 Google reviews we read mention BMW work. Recommended by owners for Mercedes-Benz on Reddit r/DubaiPetrolHeads.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 22,
+    "fair": 5,
+    "expensive": 3,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "german-experts-car-maintenance-dubai-7ed4",
@@ -619,7 +710,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "4 of 60 Google reviews we read mention BMW work."
+   "evidence_summary": "4 of 60 Google reviews we read mention BMW work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 14,
+    "fair": 3,
+    "expensive": 0,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "orange-auto-8dde",
@@ -742,7 +842,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "3 of 60 Google reviews we read mention Nissan work (mostly Patrol). 3 of 60 Google reviews we read mention Mercedes-Benz work. 3 of 60 Google reviews we read mention Porsche work. 2 of 60 Google reviews we read mention BMW work."
+   "evidence_summary": "3 of 60 Google reviews we read mention Nissan work (mostly Patrol). 3 of 60 Google reviews we read mention Mercedes-Benz work. 3 of 60 Google reviews we read mention Porsche work. 2 of 60 Google reviews we read mention BMW work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 20,
+    "fair": 12,
+    "expensive": 1,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "dme-auto-repairing-874b",
@@ -846,7 +955,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "6 of 60 Google reviews we read mention Mercedes-Benz work. 4 of 60 Google reviews we read mention Audi work."
+   "evidence_summary": "6 of 60 Google reviews we read mention Mercedes-Benz work. 4 of 60 Google reviews we read mention Audi work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 22,
+    "fair": 12,
+    "expensive": 1,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "rover-auto-centre-llc-9bc1",
@@ -931,7 +1049,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "23 of 60 Google reviews we read mention Land Rover work."
+   "evidence_summary": "23 of 60 Google reviews we read mention Land Rover work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 9,
+    "fair": 4,
+    "expensive": 1,
+    "cheap": 2,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "deutsche-technik-dubai-fa09",
@@ -1022,17 +1149,39 @@
      "url": "https://www.google.com/maps/search/?api=1&query=Deutsche%20Technik%20Dubai&query_place_id=ChIJsQKT8tNrXz4RCfoyT9hKDKE",
      "date": "2026-06",
      "mentions": []
+    },
+    {
+     "source": "Reddit r/dubai",
+     "url": "https://www.reddit.com/r/dubai/comments/bwleda/best_place_to_service_a_porsche/",
+     "date": "2019-06",
+     "rating": null,
+     "excerpt": "Please do not use deutche tecknik. I agree they are audi and vw specialists but they failed at fixing a porsche.",
+     "mentions": [
+      "Porsche",
+      "Audi",
+      "Volkswagen"
+     ]
     }
    ],
    "review_summary": "Google rating 4.6 from 678 reviews. In the 60 most relevant reviews we read, customers mostly bring Audi, Porsche; praise centres on knowledgeable staff, honest, fast turnaround. 9 of 60 were 1–2 stars, mainly about price complaints.",
    "reviews_analysed": 60,
    "sources": [
     "https://www.google.com/maps/search/?api=1&query=Deutsche%20Technik%20Dubai&query_place_id=ChIJsQKT8tNrXz4RCfoyT9hKDKE",
-    "https://dtservicecentre.com/?utm_source=gmb&utm_medium=organic"
+    "https://dtservicecentre.com/?utm_source=gmb&utm_medium=organic",
+    "https://www.reddit.com/r/dubai/comments/bwleda/best_place_to_service_a_porsche/"
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "11 of 60 Google reviews we read mention Audi work (mostly RS). 9 of 60 Google reviews we read mention Porsche work (mostly 911, Cayenne)."
+   "evidence_summary": "11 of 60 Google reviews we read mention Audi work (mostly RS). 9 of 60 Google reviews we read mention Porsche work (mostly 911, Cayenne).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 23,
+    "fair": 8,
+    "expensive": 2,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "subzero-motorsport-4b66",
@@ -1118,7 +1267,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "19 of 60 Google reviews we read mention Nissan work (mostly GT-R)."
+   "evidence_summary": "19 of 60 Google reviews we read mention Nissan work (mostly GT-R).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 13,
+    "fair": 7,
+    "expensive": 1,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "profix-auto-care-garage-3004",
@@ -1208,11 +1366,20 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "5 of 60 Google reviews we read mention BMW work."
+   "evidence_summary": "5 of 60 Google reviews we read mention BMW work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 25,
+    "fair": 14,
+    "expensive": 3,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "armotors-arm-d8c6",
-   "name": "ARMotors [ARM®",
+   "name": "ARMotors",
    "listing_name": "ARMotors [ARM® - Alex Renner Motors Garage LLC]",
    "emirate": "Dubai",
    "area": "Saih Shuaib",
@@ -1381,7 +1548,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "18 of 60 Google reviews we read mention Porsche work (mostly 911)."
+   "evidence_summary": "18 of 60 Google reviews we read mention Porsche work (mostly 911).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 20,
+    "fair": 6,
+    "expensive": 1,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "offroad-zone-d37f",
@@ -1480,7 +1656,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "32 of 60 Google reviews we read mention Jeep work (mostly Wrangler). Recommended by owners for Jeep on Reddit r/dubai."
+   "evidence_summary": "32 of 60 Google reviews we read mention Jeep work (mostly Wrangler). Recommended by owners for Jeep on Reddit r/dubai.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 10,
+    "fair": 5,
+    "expensive": 0,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "silberarrows-7699",
@@ -1665,7 +1850,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "13 of 60 Google reviews we read mention Land Rover work (mostly Range Rover). 6 of 60 Google reviews we read mention Jaguar work."
+   "evidence_summary": "13 of 60 Google reviews we read mention Land Rover work (mostly Range Rover). 6 of 60 Google reviews we read mention Jaguar work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 19,
+    "fair": 11,
+    "expensive": 1,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "euro-experts-auto-services-1724",
@@ -1749,7 +1943,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "5 of 60 Google reviews we read mention Land Rover work (mostly Range Rover)."
+   "evidence_summary": "5 of 60 Google reviews we read mention Land Rover work (mostly Range Rover).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 24,
+    "fair": 19,
+    "expensive": 1,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "vaahan-garage-jeep-dodge-ram-chrysler-specialists-4f32",
@@ -1872,7 +2075,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "26 of 60 Google reviews we read mention Dodge work (mostly Charger, Durango, Challenger). 18 of 60 Google reviews we read mention Jeep work (mostly Grand Cherokee, Wrangler). 5 of 60 Google reviews we read mention Chrysler work. Recommended by owners for Jeep on Reddit r/DubaiPetrolHeads."
+   "evidence_summary": "26 of 60 Google reviews we read mention Dodge work (mostly Charger, Durango, Challenger). 18 of 60 Google reviews we read mention Jeep work (mostly Grand Cherokee, Wrangler). 5 of 60 Google reviews we read mention Chrysler work. Recommended by owners for Jeep on Reddit r/DubaiPetrolHeads.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 29,
+    "fair": 8,
+    "expensive": 4,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "titan-performance-uae-9db1",
@@ -1989,7 +2201,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "8 of 60 Google reviews we read mention Toyota work (mostly Prado, Land Cruiser). 5 of 60 Google reviews we read mention Ford work (mostly Raptor)."
+   "evidence_summary": "8 of 60 Google reviews we read mention Toyota work (mostly Prado, Land Cruiser). 5 of 60 Google reviews we read mention Ford work (mostly Raptor).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 11,
+    "fair": 1,
+    "expensive": 3,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "al-taeif-honda-garage-fef2",
@@ -2070,7 +2291,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "18 of 60 Google reviews we read mention Honda work."
+   "evidence_summary": "18 of 60 Google reviews we read mention Honda work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 27,
+    "fair": 8,
+    "expensive": 3,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "motorworks-auto-garage-llc-09cf",
@@ -2165,7 +2395,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "4 of 60 Google reviews we read mention Audi work (mostly A6)."
+   "evidence_summary": "4 of 60 Google reviews we read mention Audi work (mostly A6).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 19,
+    "fair": 10,
+    "expensive": 1,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "rk-custom-952e",
@@ -2271,7 +2510,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "6 of 60 Google reviews we read mention Nissan work (mostly Patrol). 4 of 60 Google reviews we read mention Toyota work (mostly Land Cruiser)."
+   "evidence_summary": "6 of 60 Google reviews we read mention Nissan work (mostly Patrol). 4 of 60 Google reviews we read mention Toyota work (mostly Land Cruiser).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 9,
+    "fair": 5,
+    "expensive": 0,
+    "cheap": 3,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "cardio-auto-5775",
@@ -2427,7 +2675,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "2 of 60 Google reviews we read mention Nissan work. 2 of 60 Google reviews we read mention BMW work. 2 of 60 Google reviews we read mention Land Rover work (mostly Range Rover). 4 of 60 Google reviews we read mention Audi work. 1 of 60 Google reviews we read mention Toyota work. 1 of 60 Google reviews we read mention Mercedes-Benz work. 1 of 60 Google reviews we read mention Porsche work."
+   "evidence_summary": "2 of 60 Google reviews we read mention Nissan work. 2 of 60 Google reviews we read mention BMW work. 2 of 60 Google reviews we read mention Land Rover work (mostly Range Rover). 4 of 60 Google reviews we read mention Audi work. 1 of 60 Google reviews we read mention Toyota work. 1 of 60 Google reviews we read mention Mercedes-Benz work. 1 of 60 Google reviews we read mention Porsche work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 22,
+    "fair": 12,
+    "expensive": 1,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "al-maraghi-mercedes-service-center-c49b",
@@ -2510,7 +2767,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "19 of 60 Google reviews we read mention Mercedes-Benz work."
+   "evidence_summary": "19 of 60 Google reviews we read mention Mercedes-Benz work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 13,
+    "fair": 5,
+    "expensive": 3,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "sss-garage-c333",
@@ -2599,7 +2865,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "32 of 60 Google reviews we read mention Jeep work (mostly Wrangler)."
+   "evidence_summary": "32 of 60 Google reviews we read mention Jeep work (mostly Wrangler).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 19,
+    "fair": 10,
+    "expensive": 2,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "technical-resources-general-auto-services-centre-llc-dubai-c4ff",
@@ -2680,7 +2955,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "25 of 60 Google reviews we read mention Tesla work (mostly Model 3)."
+   "evidence_summary": "25 of 60 Google reviews we read mention Tesla work (mostly Model 3).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 8,
+    "fair": 0,
+    "expensive": 0,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "procto-be9f",
@@ -2792,8 +3076,48 @@
     "https://procto.ae/?utm_source=google&utm_medium=organic&utm_campaign=maps_location_1"
    ],
    "possible_matches": [],
-   "price_examples": [],
-   "evidence_summary": "10 of 60 Google reviews we read mention Audi work (mostly A6). 4 of 60 Google reviews we read mention Bentley work. 3 of 60 Google reviews we read mention Porsche work."
+   "price_examples": [
+    {
+     "job": "minor_service",
+     "item": "Porsche  minor service",
+     "make": "Porsche",
+     "model": "",
+     "price_aed": 699,
+     "aed_low": 699,
+     "aed_high": 699,
+     "vat": "unknown",
+     "includes_parts": "unclear",
+     "source": "garage's own price list (package: oil + filter + checks)",
+     "url": "https://procto.ae/porsche-price.html",
+     "as_of": "2026-11-06",
+     "note": "parts inclusion not stated"
+    },
+    {
+     "job": "oil_service",
+     "item": "Porsche  oil service",
+     "make": "Porsche",
+     "model": "",
+     "price_aed": 210,
+     "aed_low": 210,
+     "aed_high": 210,
+     "vat": "unknown",
+     "includes_parts": "unclear",
+     "source": "garage's own price list (oil + filter replacement)",
+     "url": "https://procto.ae/porsche-price.html",
+     "as_of": "2026-11-06",
+     "note": "likely labour only"
+    }
+   ],
+   "evidence_summary": "10 of 60 Google reviews we read mention Audi work (mostly A6). 4 of 60 Google reviews we read mention Bentley work. 3 of 60 Google reviews we read mention Porsche work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 16,
+    "fair": 4,
+    "expensive": 2,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "abd-auto-services-38f5",
@@ -2890,7 +3214,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "4 of 60 Google reviews we read mention Rolls-Royce work. 4 of 60 Google reviews we read mention Porsche work."
+   "evidence_summary": "4 of 60 Google reviews we read mention Rolls-Royce work. 4 of 60 Google reviews we read mention Porsche work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 8,
+    "fair": 5,
+    "expensive": 1,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "top-challenger-car-auto-services-llc-df7c",
@@ -3163,11 +3496,12 @@
     {
      "make": "Porsche",
      "models": [
-      "Cayenne"
+      "Cayenne",
+      "911"
      ],
      "level": "brand",
      "confidence": "medium",
-     "evidence": "Garage name advertises Porsche; recommended for Porsche in two Reddit r/DubaiPetrolHeads threads (Boxster GTS, Cayenne GTS gearbox fault); Google reviews not yet analysed",
+     "evidence": "Garage name advertises Porsche; recommended for Porsche in three Reddit r/DubaiPetrolHeads threads (Boxster GTS, Cayenne GTS gearbox fault); Google reviews not yet analysed",
      "mentions": 0,
      "basis": "listing name+community"
     }
@@ -3204,6 +3538,17 @@
       "Porsche",
       "Cayenne"
      ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1k6215m/need_to_find_a_reputable_garage_for_a_classic/",
+     "date": "2025-04",
+     "rating": null,
+     "excerpt": "Call up Project 11 and check with them it's a specialized Porsche garage. Amazing team!",
+     "mentions": [
+      "Porsche",
+      "911"
+     ]
     }
    ],
    "review_summary": "Google rating 4.9 from 197 reviews. Google reviews not yet analysed; recommended by Porsche owners in two Reddit r/DubaiPetrolHeads threads, including for a Cayenne.",
@@ -3212,7 +3557,8 @@
     "https://www.google.com/maps/search/?api=1&query=Project%2011%20Independent%20Porsche%20Specialists&query_place_id=ChIJOcnpqQVrXz4RoixX07edtl4",
     "http://www.project11.ae/",
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/1me56nh/best_porsche_garage_in_dubai/",
-    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1oho0e5/garage_recommendations_for_porsche/"
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1oho0e5/garage_recommendations_for_porsche/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1k6215m/need_to_find_a_reputable_garage_for_a_classic/"
    ],
    "possible_matches": [],
    "price_examples": [],
@@ -3576,10 +3922,14 @@
    "specialties": [
     {
      "make": "BMW",
-     "models": [],
+     "models": [
+      "7 Series",
+      "X5",
+      "5 Series"
+     ],
      "level": "brand",
      "confidence": "medium",
-     "evidence": "Recommended for BMW on Reddit r/DubaiPetrolHeads; also recommended in r/dubai (\"They specialize in BMWs\") and r/DubaiPetrolHeads car service prices thread; website lists BMW, Land Rover and Mercedes",
+     "evidence": "Recommended for BMW in 4+ Reddit threads (2024-2026), incl. 7 Series, X5 pre-purchase checks and F10 5 Series owners; said to sponsor the BMW UAE Club; reported as pricey",
      "mentions": 0,
      "basis": "community"
     }
@@ -3606,6 +3956,49 @@
      "mentions": [
       "BMW"
      ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ssgkie/recommendations_for_a_good_bmw_specialist_in/",
+     "date": "2026-04",
+     "rating": null,
+     "excerpt": "If you want the best BMW specialists then the only answer is Octane. They're pricey though.",
+     "mentions": [
+      "BMW",
+      "7 Series"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ssgkie/recommendations_for_a_good_bmw_specialist_in/",
+     "date": "2026-04",
+     "rating": null,
+     "excerpt": "they provided a quote that was 50% less than the agency, and completed the work on time.",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ouqq5l/bmw_x5_m50i_2020/",
+     "date": "2025-11",
+     "rating": null,
+     "excerpt": "Octane Car service. The official BMW UAE Club sponsor.",
+     "mentions": [
+      "BMW",
+      "X5"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jgh81g/reliable_garage_for_bmw/",
+     "date": "2025-03",
+     "rating": null,
+     "excerpt": "I go to the following places: ... Octane",
+     "mentions": [
+      "BMW",
+      "5 Series"
+     ]
     }
    ],
    "review_summary": "Not yet matched to a Google Maps listing. Recommended by owners on Reddit r/DubaiPetrolHeads.",
@@ -3614,11 +4007,23 @@
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/1vlgxkj/garage_recommendations_for_bmw_x4/",
     "https://www.octanecs.com/",
     "https://www.reddit.com/r/dubai/comments/1db5xpz/save_me_from_these_predator_car_garages_in_dubai/",
-    "https://www.octanecs.com/"
+    "https://www.octanecs.com/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ssgkie/recommendations_for_a_good_bmw_specialist_in/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jgh81g/reliable_garage_for_bmw/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ouqq5l/bmw_x5_m50i_2020/"
    ],
    "self_claims": [],
    "possible_matches": [],
-   "price_examples": [],
+   "price_examples": [
+    {
+     "item": "BMW pre-purchase inspection (owner-reported)",
+     "price_aed": "600–800",
+     "vat": "unknown",
+     "source": "owner on Reddit",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ouqq5l/bmw_x5_m50i_2020/",
+     "date": "2025-11"
+    }
+   ],
    "evidence_summary": "Recommended by owners for BMW on Reddit r/DubaiPetrolHeads, Reddit r/dubai."
   },
   {
@@ -4268,9 +4673,9 @@
      ],
      "level": "model",
      "confidence": "high",
-     "evidence": "Rishal has used this garage for his Alfas",
+     "evidence": "The founder uses this garage for their own Alfa Romeos; recommended for Alfa by two owners on Reddit r/DubaiPetrolHeads (2026)",
      "mentions": 0,
-     "basis": "founder"
+     "basis": "founder+community"
     }
    ],
    "self_claims": [
@@ -4295,11 +4700,33 @@
    "possible_matches": [],
    "is_specialist": true,
    "external_ratings": [],
-   "external_reviews": [],
+   "external_reviews": [
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1uxld4d/thoughts_on_alfa/",
+     "date": "2026-07",
+     "rating": null,
+     "excerpt": "AutoTech in Al Quoz specializes in Alfas, Italian cars and older European cars ... No nonsense from them.",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1uxld4d/thoughts_on_alfa/",
+     "date": "2026-07",
+     "rating": null,
+     "excerpt": "Autotech are the best",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    }
+   ],
    "review_summary": "Founder's pick for Alfa Romeo. Alfa-only workshop (classic and modern) and Squadra Tuning appointed garage for the Middle East, per its own site. Google reviews not yet analysed.",
    "reviews_analysed": 0,
    "sources": [
-    "https://www.autotechdxb.com/"
+    "https://www.autotechdxb.com/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1uxld4d/thoughts_on_alfa/"
    ],
    "price_examples": [
     {
@@ -4307,10 +4734,17 @@
      "price_aed": 1350,
      "vat": "excluding VAT",
      "source": "garage's own price list",
-     "url": "https://www.autotechdxb.com/"
+     "url": "https://www.autotechdxb.com/",
+     "job": "minor_service",
+     "make": "Alfa Romeo",
+     "model": "Giulia/Stelvio 2.0",
+     "aed_low": 1350,
+     "aed_high": 1350,
+     "includes_parts": true,
+     "as_of": "2026-11-06"
     }
    ],
-   "evidence_summary": "Founder's pick for Alfa Romeo. Its own website says it works on Alfa Romeo (not owner evidence)."
+   "evidence_summary": "Founder's pick for Alfa Romeo, also recommended by Alfa owners on Reddit."
   },
   {
    "id": "abdulla-ahli-workshop-founder",
@@ -4334,10 +4768,14 @@
    "specialties": [
     {
      "make": "Alfa Romeo",
-     "models": [],
+     "models": [
+      "147",
+      "Giulietta",
+      "Giulia"
+     ],
      "level": "brand",
      "confidence": "high",
-     "evidence": "Rishal has used this garage for his Alfas; recommended by Alfa owners on AlfaOwner forum (2009, 2015) as an independent run by an ex-Alfa mechanic",
+     "evidence": "The founder uses this garage for their own Alfa Romeos; recommended by Alfa owners on AlfaOwner forum (2009, 2015) and Reddit (2021) as an independent run by an ex-Alfa mechanic",
      "mentions": 0,
      "basis": "founder+community"
     }
@@ -4377,6 +4815,18 @@
       "Alfa Romeo",
       "Giulia"
      ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/qi641y/recommendation_on_alfa_romeo_mechanics/",
+     "date": "2021-10",
+     "rating": null,
+     "excerpt": "The only garage that I know that only touches Alfas ... It is the only place I take my 147",
+     "mentions": [
+      "Alfa Romeo",
+      "147",
+      "Giulietta"
+     ]
     }
    ],
    "review_summary": "Founder's pick for Alfa Romeo. Long-standing independent in Al Qusais Industrial 1 that Alfa owners on the AlfaOwner forum have recommended since 2009, run by an ex-Alfa mechanic. Google reviews not yet analysed.",
@@ -4386,7 +4836,8 @@
     "https://yandex.ru/maps/org/abdulla_ahli_workshop/48042783644/",
     "https://www.alfaowner.com/threads/alfa-romeo-garage-service-stations-in-the-uae.257043/",
     "https://www.alfaowner.com/threads/maintenance-in-dubai.165976/",
-    "https://www.reddit.com/r/DubaiPetrolHeads/comments/16927sd/alfa_romeo_specialist_abdulla_ahli_workshop/"
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/16927sd/alfa_romeo_specialist_abdulla_ahli_workshop/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/qi641y/recommendation_on_alfa_romeo_mechanics/"
    ],
    "price_examples": [],
    "evidence_summary": "Founder's pick for Alfa Romeo, also recommended by Alfa owners on the AlfaOwner forum."
@@ -4469,7 +4920,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "No brand focus found in the reviews we read."
+   "evidence_summary": "No brand focus found in the reviews we read.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 9,
+    "fair": 4,
+    "expensive": 1,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "volkswagen-service-center-and-spare-parts-dubai-5ce2",
@@ -4600,7 +5060,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "No brand focus found in the reviews we read."
+   "evidence_summary": "No brand focus found in the reviews we read.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 23,
+    "fair": 1,
+    "expensive": 3,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "agmc-1c86",
@@ -4724,7 +5193,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "No brand focus found in the reviews we read."
+   "evidence_summary": "No brand focus found in the reviews we read.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 13,
+    "fair": 4,
+    "expensive": 1,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "gargash-auto-multi-brand-car-service-centre-a4ed",
@@ -4916,7 +5394,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "Its own website says it works on Alfa Romeo (not owner evidence)."
+   "evidence_summary": "Its own website says it works on Alfa Romeo (not owner evidence).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 14,
+    "fair": 4,
+    "expensive": 1,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "superfix-auto-center-al-qusais-6dd6",
@@ -4998,7 +5485,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "No brand focus found in the reviews we read."
+   "evidence_summary": "No brand focus found in the reviews we read.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 25,
+    "fair": 16,
+    "expensive": 3,
+    "cheap": 2,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "royal-tech-auto-services-7a79",
@@ -5068,7 +5564,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "No brand focus found in the reviews we read."
+   "evidence_summary": "No brand focus found in the reviews we read.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 11,
+    "fair": 3,
+    "expensive": 2,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "carzilla-auto-service-411c",
@@ -5173,7 +5678,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "3 of 60 Google reviews we read mention Volkswagen work (mostly Touareg). 3 of 60 Google reviews we read mention Mercedes-Benz work (mostly G-Class)."
+   "evidence_summary": "3 of 60 Google reviews we read mention Volkswagen work (mostly Touareg). 3 of 60 Google reviews we read mention Mercedes-Benz work (mostly G-Class).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 17,
+    "fair": 7,
+    "expensive": 1,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "porsche-service-centre-al-quoz-d496",
@@ -5220,7 +5734,233 @@
     "https://dealer.porsche.com/ae/dubai/en-GB"
    ],
    "possible_matches": [],
-   "price_examples": [],
+   "price_examples": [
+    {
+     "job": "oil_service",
+     "item": "Porsche Cayenne (E2) oil service",
+     "make": "Porsche",
+     "model": "Cayenne (E2)",
+     "price_aed": 1098,
+     "aed_low": 1098,
+     "aed_high": 1098,
+     "vat": "including VAT",
+     "includes_parts": true,
+     "source": "dealer Q4 2026 promo price list (starting price)",
+     "url": "https://dealer.porsche.com/ae/dubai/en-GB/Service-Promo-Q4_2026",
+     "as_of": "2026-11-06",
+     "note": ""
+    },
+    {
+     "job": "minor_service",
+     "item": "Porsche Cayenne (E2) minor service",
+     "make": "Porsche",
+     "model": "Cayenne (E2)",
+     "price_aed": 1590,
+     "aed_low": 1590,
+     "aed_high": 1590,
+     "vat": "including VAT",
+     "includes_parts": true,
+     "source": "dealer Q4 2026 promo price list (starting price)",
+     "url": "https://dealer.porsche.com/ae/dubai/en-GB/Service-Promo-Q4_2026",
+     "as_of": "2026-11-06",
+     "note": ""
+    },
+    {
+     "job": "brake_repair",
+     "item": "Porsche Cayenne (E2) brake repair",
+     "make": "Porsche",
+     "model": "Cayenne (E2)",
+     "price_aed": 1738,
+     "aed_low": 1738,
+     "aed_high": 1738,
+     "vat": "including VAT",
+     "includes_parts": true,
+     "source": "dealer Q4 2026 promo price list (starting price; scope not itemised)",
+     "url": "https://dealer.porsche.com/ae/dubai/en-GB/Service-Promo-Q4_2026",
+     "as_of": "2026-11-06",
+     "note": "promo ends 31 Dec 2026"
+    },
+    {
+     "job": "oil_service",
+     "item": "Porsche Cayenne (E3) oil service",
+     "make": "Porsche",
+     "model": "Cayenne (E3)",
+     "price_aed": 1220,
+     "aed_low": 1220,
+     "aed_high": 1220,
+     "vat": "including VAT",
+     "includes_parts": true,
+     "source": "dealer Q4 2026 promo price list (starting price)",
+     "url": "https://dealer.porsche.com/ae/dubai/en-GB/Service-Promo-Q4_2026",
+     "as_of": "2026-11-06",
+     "note": ""
+    },
+    {
+     "job": "minor_service",
+     "item": "Porsche Cayenne (E3) minor service",
+     "make": "Porsche",
+     "model": "Cayenne (E3)",
+     "price_aed": 1960,
+     "aed_low": 1960,
+     "aed_high": 1960,
+     "vat": "including VAT",
+     "includes_parts": true,
+     "source": "dealer Q4 2026 promo price list (starting price)",
+     "url": "https://dealer.porsche.com/ae/dubai/en-GB/Service-Promo-Q4_2026",
+     "as_of": "2026-11-06",
+     "note": ""
+    },
+    {
+     "job": "brake_repair",
+     "item": "Porsche Cayenne (E3) brake repair",
+     "make": "Porsche",
+     "model": "Cayenne (E3)",
+     "price_aed": 2182,
+     "aed_low": 2182,
+     "aed_high": 2182,
+     "vat": "including VAT",
+     "includes_parts": true,
+     "source": "dealer Q4 2026 promo price list (starting price; scope not itemised)",
+     "url": "https://dealer.porsche.com/ae/dubai/en-GB/Service-Promo-Q4_2026",
+     "as_of": "2026-11-06",
+     "note": "promo ends 31 Dec 2026"
+    },
+    {
+     "job": "oil_service",
+     "item": "Porsche Macan (95B) oil service",
+     "make": "Porsche",
+     "model": "Macan (95B)",
+     "price_aed": 1055,
+     "aed_low": 1055,
+     "aed_high": 1055,
+     "vat": "including VAT",
+     "includes_parts": true,
+     "source": "dealer Q4 2026 promo price list (starting price)",
+     "url": "https://dealer.porsche.com/ae/dubai/en-GB/Service-Promo-Q4_2026",
+     "as_of": "2026-11-06",
+     "note": ""
+    },
+    {
+     "job": "minor_service",
+     "item": "Porsche Macan (95B) minor service",
+     "make": "Porsche",
+     "model": "Macan (95B)",
+     "price_aed": 1535,
+     "aed_low": 1535,
+     "aed_high": 1535,
+     "vat": "including VAT",
+     "includes_parts": true,
+     "source": "dealer Q4 2026 promo price list (starting price)",
+     "url": "https://dealer.porsche.com/ae/dubai/en-GB/Service-Promo-Q4_2026",
+     "as_of": "2026-11-06",
+     "note": ""
+    },
+    {
+     "job": "brake_repair",
+     "item": "Porsche Macan (95B) brake repair",
+     "make": "Porsche",
+     "model": "Macan (95B)",
+     "price_aed": 1873,
+     "aed_low": 1873,
+     "aed_high": 1873,
+     "vat": "including VAT",
+     "includes_parts": true,
+     "source": "dealer Q4 2026 promo price list (starting price; scope not itemised)",
+     "url": "https://dealer.porsche.com/ae/dubai/en-GB/Service-Promo-Q4_2026",
+     "as_of": "2026-11-06",
+     "note": "promo ends 31 Dec 2026"
+    },
+    {
+     "job": "oil_service",
+     "item": "Porsche 911 (992) oil service",
+     "make": "Porsche",
+     "model": "911 (992)",
+     "price_aed": 1485,
+     "aed_low": 1485,
+     "aed_high": 1485,
+     "vat": "including VAT",
+     "includes_parts": true,
+     "source": "dealer Q4 2026 promo price list (starting price)",
+     "url": "https://dealer.porsche.com/ae/dubai/en-GB/Service-Promo-Q4_2026",
+     "as_of": "2026-11-06",
+     "note": ""
+    },
+    {
+     "job": "minor_service",
+     "item": "Porsche 911 (992) minor service",
+     "make": "Porsche",
+     "model": "911 (992)",
+     "price_aed": 2265,
+     "aed_low": 2265,
+     "aed_high": 2265,
+     "vat": "including VAT",
+     "includes_parts": true,
+     "source": "dealer Q4 2026 promo price list (starting price)",
+     "url": "https://dealer.porsche.com/ae/dubai/en-GB/Service-Promo-Q4_2026",
+     "as_of": "2026-11-06",
+     "note": ""
+    },
+    {
+     "job": "brake_repair",
+     "item": "Porsche 911 (992) brake repair",
+     "make": "Porsche",
+     "model": "911 (992)",
+     "price_aed": 2054,
+     "aed_low": 2054,
+     "aed_high": 2054,
+     "vat": "including VAT",
+     "includes_parts": true,
+     "source": "dealer Q4 2026 promo price list (starting price; scope not itemised)",
+     "url": "https://dealer.porsche.com/ae/dubai/en-GB/Service-Promo-Q4_2026",
+     "as_of": "2026-11-06",
+     "note": "promo ends 31 Dec 2026"
+    },
+    {
+     "job": "oil_service",
+     "item": "Porsche Panamera (971) oil service",
+     "make": "Porsche",
+     "model": "Panamera (971)",
+     "price_aed": 1100,
+     "aed_low": 1100,
+     "aed_high": 1100,
+     "vat": "including VAT",
+     "includes_parts": true,
+     "source": "dealer Q4 2026 promo price list (starting price)",
+     "url": "https://dealer.porsche.com/ae/dubai/en-GB/Service-Promo-Q4_2026",
+     "as_of": "2026-11-06",
+     "note": ""
+    },
+    {
+     "job": "minor_service",
+     "item": "Porsche Panamera (971) minor service",
+     "make": "Porsche",
+     "model": "Panamera (971)",
+     "price_aed": 1816,
+     "aed_low": 1816,
+     "aed_high": 1816,
+     "vat": "including VAT",
+     "includes_parts": true,
+     "source": "dealer Q4 2026 promo price list (starting price)",
+     "url": "https://dealer.porsche.com/ae/dubai/en-GB/Service-Promo-Q4_2026",
+     "as_of": "2026-11-06",
+     "note": ""
+    },
+    {
+     "job": "brake_repair",
+     "item": "Porsche Panamera (971) brake repair",
+     "make": "Porsche",
+     "model": "Panamera (971)",
+     "price_aed": 2228,
+     "aed_low": 2228,
+     "aed_high": 2228,
+     "vat": "including VAT",
+     "includes_parts": true,
+     "source": "dealer Q4 2026 promo price list (starting price; scope not itemised)",
+     "url": "https://dealer.porsche.com/ae/dubai/en-GB/Service-Promo-Q4_2026",
+     "as_of": "2026-11-06",
+     "note": "promo ends 31 Dec 2026"
+    }
+   ],
    "evidence_summary": "Official Porsche dealer service centre, shown as a price reference."
   },
   {
@@ -5294,11 +6034,20 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "No brand focus found in the reviews we read."
+   "evidence_summary": "No brand focus found in the reviews we read.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 4,
+    "fair": 2,
+    "expensive": 0,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "garage-d6c2",
-   "name": "𝙋𝙤𝙬𝙚𝙧𝙩𝙚𝙘𝙝 𝘼𝙪𝙩𝙤 𝙎𝙚𝙧𝙫𝙞𝙘𝙚𝙨",
+   "name": "Powertech Auto Services",
    "listing_name": "𝙋𝙤𝙬𝙚𝙧𝙩𝙚𝙘𝙝 𝘼𝙪𝙩𝙤 𝙎𝙚𝙧𝙫𝙞𝙘𝙚𝙨",
    "emirate": "Dubai",
    "area": "Al Quoz Industrial 4",
@@ -5376,7 +6125,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "No brand focus found in the reviews we read."
+   "evidence_summary": "No brand focus found in the reviews we read.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 26,
+    "fair": 11,
+    "expensive": 0,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "gargash-auto-multi-brand-car-service-centre-e695",
@@ -5456,7 +6214,19 @@
     "Diagnostics",
     "Tyres"
    ],
-   "specialties": [],
+   "specialties": [
+    {
+     "make": "Porsche",
+     "models": [
+      "Boxster"
+     ],
+     "level": "brand",
+     "confidence": "medium",
+     "evidence": "Recommended for Porsche in 2 Reddit threads (Boxster owner 2024, German-car owner 2019); multi-brand workshop",
+     "mentions": 0,
+     "basis": "community"
+    }
+   ],
    "self_claims": [
     {
      "make": "Alfa Romeo",
@@ -5465,7 +6235,7 @@
      "note": "Garage's own website claims this make; not owner evidence"
     }
    ],
-   "is_specialist": false,
+   "is_specialist": true,
    "external_ratings": [
     {
      "source": "Google",
@@ -5493,17 +6263,49 @@
      "url": "https://www.google.com/maps/search/?api=1&query=Max%20Garage&query_place_id=ChIJsX-6hOhrXz4RgAC7nXsq4V8",
      "date": "2026-08",
      "mentions": []
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1btrflj/porsche_service_center_recommendations/",
+     "date": "2024-04",
+     "rating": null,
+     "excerpt": "I ended up going to Max Garage, quite happy with them. Good service, reasonable prices and honest feedback.",
+     "mentions": [
+      "Porsche",
+      "Boxster"
+     ]
+    },
+    {
+     "source": "Reddit r/dubai",
+     "url": "https://www.reddit.com/r/dubai/comments/bwleda/best_place_to_service_a_porsche/",
+     "date": "2019-06",
+     "rating": null,
+     "excerpt": "Max Garage, I service all of my German cars there, fair pricing",
+     "mentions": [
+      "Porsche"
+     ]
     }
    ],
    "review_summary": "Google rating 4.5 from 847 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, good communication, honest. 2 of 60 were 1–2 stars.",
    "reviews_analysed": 60,
    "sources": [
     "https://www.google.com/maps/search/?api=1&query=Max%20Garage&query_place_id=ChIJsX-6hOhrXz4RgAC7nXsq4V8",
-    "https://maxgarage.ae/"
+    "https://maxgarage.ae/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1btrflj/porsche_service_center_recommendations/",
+    "https://www.reddit.com/r/dubai/comments/bwleda/best_place_to_service_a_porsche/"
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "Its own website says it works on Alfa Romeo (not owner evidence)."
+   "evidence_summary": "Its own website says it works on Alfa Romeo (not owner evidence). Recommended for Porsche on Reddit.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 20,
+    "fair": 4,
+    "expensive": 0,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "prime-auto-repair-llc-f6fc",
@@ -5579,11 +6381,20 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "No brand focus found in the reviews we read."
+   "evidence_summary": "No brand focus found in the reviews we read.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 30,
+    "fair": 10,
+    "expensive": 3,
+    "cheap": 2,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "garage-0078",
-   "name": "𝐓𝐡𝐞 𝐂𝐚𝐫 𝐋𝐚𝐛 𝐀𝐮𝐭𝐨 𝐑𝐞𝐩𝐚𝐢𝐫 𝐂𝐞𝐧𝐭𝐞𝐫",
+   "name": "The Car Lab Auto Repair Center",
    "listing_name": "𝐓𝐡𝐞 𝐂𝐚𝐫 𝐋𝐚𝐛 𝐀𝐮𝐭𝐨 𝐑𝐞𝐩𝐚𝐢𝐫 𝐂𝐞𝐧𝐭𝐞𝐫",
    "emirate": "Dubai",
    "area": "Al Quoz Industrial 2",
@@ -5671,7 +6482,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "6 of 60 Google reviews we read mention Mercedes-Benz work (mostly G-Class)."
+   "evidence_summary": "6 of 60 Google reviews we read mention Mercedes-Benz work (mostly G-Class).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 14,
+    "fair": 7,
+    "expensive": 0,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "munich-motor-works-3636",
@@ -5785,7 +6605,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "5 of 60 Google reviews we read mention BMW work. 5 of 60 Google reviews we read mention Audi work. 5 of 60 Google reviews we read mention Mercedes-Benz work."
+   "evidence_summary": "5 of 60 Google reviews we read mention BMW work. 5 of 60 Google reviews we read mention Audi work. 5 of 60 Google reviews we read mention Mercedes-Benz work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 21,
+    "fair": 3,
+    "expensive": 2,
+    "cheap": 2,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "emg-performance-513c",
@@ -5868,7 +6697,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "3 of 60 Google reviews we read mention Toyota work."
+   "evidence_summary": "3 of 60 Google reviews we read mention Toyota work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 14,
+    "fair": 2,
+    "expensive": 2,
+    "cheap": 2,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "royal-swiss-auto-service-center-al-quoz-dubai-best-luxury-ca-d5d5",
@@ -5953,7 +6791,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "No brand focus found in the reviews we read."
+   "evidence_summary": "No brand focus found in the reviews we read.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 19,
+    "fair": 0,
+    "expensive": 2,
+    "cheap": 2,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "the-gearbox-6b08",
@@ -6047,7 +6894,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "4 of 60 Google reviews we read mention Audi work."
+   "evidence_summary": "4 of 60 Google reviews we read mention Audi work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 26,
+    "fair": 11,
+    "expensive": 1,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "hpg-auto-repair-9d84",
@@ -6142,7 +6998,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "3 of 60 Google reviews we read mention Chevrolet work. 3 of 60 Google reviews we read mention BMW work."
+   "evidence_summary": "3 of 60 Google reviews we read mention Chevrolet work. 3 of 60 Google reviews we read mention BMW work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 26,
+    "fair": 10,
+    "expensive": 1,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "dexol-al-quoz-32f9",
@@ -6240,7 +7105,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "3 of 60 Google reviews we read mention Ford work (mostly Mustang). 3 of 60 Google reviews we read mention Toyota work."
+   "evidence_summary": "3 of 60 Google reviews we read mention Ford work (mostly Mustang). 3 of 60 Google reviews we read mention Toyota work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 12,
+    "fair": 1,
+    "expensive": 1,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "german-auto-care-0a7a",
@@ -6336,7 +7210,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "6 of 60 Google reviews we read mention BMW work (mostly X5)."
+   "evidence_summary": "6 of 60 Google reviews we read mention BMW work (mostly X5).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 25,
+    "fair": 7,
+    "expensive": 0,
+    "cheap": 2,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "bosch-car-service-b988",
@@ -6409,7 +7292,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "No brand focus found in the reviews we read."
+   "evidence_summary": "No brand focus found in the reviews we read.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 25,
+    "fair": 10,
+    "expensive": 3,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "the-mechanic-auto-center-b093",
@@ -6498,7 +7390,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "Its own website says it works on Alfa Romeo (not owner evidence)."
+   "evidence_summary": "Its own website says it works on Alfa Romeo (not owner evidence).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 28,
+    "fair": 6,
+    "expensive": 4,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "autofix-multibrand-car-service-center-a763",
@@ -6568,7 +7469,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "No brand focus found in the reviews we read."
+   "evidence_summary": "No brand focus found in the reviews we read.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 15,
+    "fair": 9,
+    "expensive": 1,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "power-house-auto-garage-car-wash-bc54",
@@ -6646,7 +7556,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "No brand focus found in the reviews we read."
+   "evidence_summary": "No brand focus found in the reviews we read.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 21,
+    "fair": 11,
+    "expensive": 0,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "sunshine-auto-repair-workshop-dubai-d022",
@@ -6734,7 +7653,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "4 of 60 Google reviews we read mention Nissan work (mostly Patrol)."
+   "evidence_summary": "4 of 60 Google reviews we read mention Nissan work (mostly Patrol).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 23,
+    "fair": 10,
+    "expensive": 1,
+    "cheap": 2,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "check-point-car-garage-71eb",
@@ -6808,7 +7736,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "No brand focus found in the reviews we read."
+   "evidence_summary": "No brand focus found in the reviews we read.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 18,
+    "fair": 4,
+    "expensive": 1,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "kings-auto-garage-af0a",
@@ -6907,7 +7844,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "5 of 60 Google reviews we read mention Porsche work (mostly Cayenne)."
+   "evidence_summary": "5 of 60 Google reviews we read mention Porsche work (mostly Cayenne).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 24,
+    "fair": 14,
+    "expensive": 0,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "performance-tuning-llc-f4e5",
@@ -6929,7 +7875,7 @@
     "Auto painting",
     "Car wash"
    ],
-   "business_type": "workshop",
+   "business_type": "dealer group (Al Nabooda) bodywork/detailing",
    "dealer_for": null,
    "hours": "",
    "services": [
@@ -6998,11 +7944,21 @@
    "reviews_analysed": 60,
    "sources": [
     "https://www.google.com/maps/search/?api=1&query=Performance%20Tuning%20LLC&query_place_id=ChIJlbTPsn9pXz4R5fRrh9ZhoYY",
+    "https://performancetuning.ae/",
     "https://performancetuning.ae/"
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "3 of 60 Google reviews we read mention Porsche work. 3 of 60 Google reviews we read mention Volkswagen work."
+   "evidence_summary": "Part of the Khalifa Juma Al Nabooda Group (Porsche dealer group) per its own website; bodywork, PPF and detailing, not an independent mechanical specialist.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 4,
+    "fair": 2,
+    "expensive": 0,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "icon-auto-offroad-garage-77af",
@@ -7102,7 +8058,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "6 of 60 Google reviews we read mention Jeep work (mostly Wrangler). 5 of 60 Google reviews we read mention Toyota work (mostly Prado)."
+   "evidence_summary": "6 of 60 Google reviews we read mention Jeep work (mostly Wrangler). 5 of 60 Google reviews we read mention Toyota work (mostly Prado).",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 24,
+    "fair": 7,
+    "expensive": 3,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "autobahn-auto-service-3a32",
@@ -7207,7 +8172,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "6 of 60 Google reviews we read mention Land Rover work (mostly Range Rover). 5 of 60 Google reviews we read mention BMW work."
+   "evidence_summary": "6 of 60 Google reviews we read mention Land Rover work (mostly Range Rover). 5 of 60 Google reviews we read mention BMW work.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 22,
+    "fair": 12,
+    "expensive": 2,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "chipcentric-performance-c48c",
@@ -7880,7 +8854,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "No brand focus found in the reviews we read."
+   "evidence_summary": "No brand focus found in the reviews we read.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 19,
+    "fair": 11,
+    "expensive": 0,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "luxury-auto-service-centre-55d9",
@@ -7951,7 +8934,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "No brand focus found in the reviews we read."
+   "evidence_summary": "No brand focus found in the reviews we read.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 3,
+    "fair": 2,
+    "expensive": 0,
+    "cheap": 0,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "care-auto-repair-d9d0",
@@ -8027,7 +9019,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "No brand focus found in the reviews we read."
+   "evidence_summary": "No brand focus found in the reviews we read.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 26,
+    "fair": 11,
+    "expensive": 1,
+    "cheap": 1,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "avenue-auto-services-4f13",
@@ -8110,7 +9111,16 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "No brand focus found in the reviews we read."
+   "evidence_summary": "No brand focus found in the reviews we read.",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 25,
+    "fair": 8,
+    "expensive": 0,
+    "cheap": 3,
+    "as_of": "2026-11-06",
+    "jobs": []
+   }
   },
   {
    "id": "top-race-garage-25f1",
@@ -8998,7 +10008,7 @@
   },
   {
    "id": "garage-fba1",
-   "name": "𝙇𝙪𝙭𝙪𝙧𝙮 𝙒𝙝𝙚𝙚𝙡𝙨 𝘼𝙪𝙩𝙤𝙢𝙤𝙗𝙞𝙡𝙚 𝙎𝙚𝙧𝙫𝙞𝙘𝙚𝙨",
+   "name": "Luxury Wheels Automobile Services",
    "listing_name": "𝙇𝙪𝙭𝙪𝙧𝙮 𝙒𝙝𝙚𝙚𝙡𝙨 𝘼𝙪𝙩𝙤𝙢𝙤𝙗𝙞𝙡𝙚 𝙎𝙚𝙧𝙫𝙞𝙘𝙚𝙨",
    "emirate": "Dubai",
    "area": "Al Quoz Industrial 4",
@@ -14049,7 +15059,7 @@
   },
   {
    "id": "1-d12a",
-   "name": "𝙉𝙤 1 𝘼𝙪𝙩𝙤 𝙧𝙚𝙥𝙖𝙞𝙧𝙞𝙣𝙜 𝙘𝙚𝙣𝙩𝙚𝙧",
+   "name": "No 1 Auto repairing center",
    "listing_name": "𝙉𝙤 1 𝘼𝙪𝙩𝙤 𝙧𝙚𝙥𝙖𝙞𝙧𝙞𝙣𝙜 𝙘𝙚𝙣𝙩𝙚𝙧 -𝙏𝙤𝙥 𝙀𝙭𝙘𝙚𝙡𝙡𝙚𝙣𝙘𝙚 𝙂𝙖𝙧𝙖𝙜𝙚",
    "emirate": "Dubai",
    "area": "Al Quoz Industrial 3",
@@ -14154,7 +15164,7 @@
   },
   {
    "id": "garage-4b0f",
-   "name": "𝗘𝘂𝗿𝗼 𝗦𝗽𝗼𝘁 𝗔𝘂𝘁𝗼 𝗿𝗲𝗽𝗮𝗶𝗿𝗶𝗻𝗴",
+   "name": "Euro Spot Auto repairing",
    "listing_name": "𝗘𝘂𝗿𝗼 𝗦𝗽𝗼𝘁 𝗔𝘂𝘁𝗼 𝗿𝗲𝗽𝗮𝗶𝗿𝗶𝗻𝗴 | 𝗔𝗗𝗔𝗦 𝗰𝗮𝗹𝗶𝗯𝗿𝗮𝘁𝗶𝗼𝗻 | 𝗔𝘂𝘁𝗼 𝗽𝗿𝗼𝗴𝗿𝗮𝗺𝗶𝗻𝗴 𝗰𝗲𝗻𝘁𝗲𝗿",
    "emirate": "Dubai",
    "area": "Al Quoz Industrial 1",
@@ -18562,7 +19572,7 @@
   },
   {
    "id": "garage-eaee",
-   "name": "𝗘𝘂𝗿𝗼 𝗔𝘂𝘁𝗼𝘀 𝗥𝗲𝗽𝗮𝗶𝗿",
+   "name": "Euro Autos Repair",
    "listing_name": "𝗘𝘂𝗿𝗼 𝗔𝘂𝘁𝗼𝘀 𝗥𝗲𝗽𝗮𝗶𝗿",
    "emirate": "Dubai",
    "area": "Al Quoz Industrial 4",
@@ -19073,7 +20083,7 @@
   },
   {
    "id": "garage-0d6d",
-   "name": "𝐑𝐞𝐩𝐚𝐢𝐫 𝐘𝐨𝐮𝐫 𝐂𝐚𝐫",
+   "name": "Repair Your Car",
    "listing_name": "𝐑𝐞𝐩𝐚𝐢𝐫 𝐘𝐨𝐮𝐫 𝐂𝐚𝐫",
    "emirate": "Dubai",
    "area": "Al Quoz",
@@ -19841,13 +20851,23 @@
    ],
    "is_specialist": false,
    "external_ratings": [],
-   "external_reviews": [],
+   "external_reviews": [
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1db5xnb/save_me_from_these_predator_car_garages_in_dubai/",
+     "date": "2024-06",
+     "rating": null,
+     "excerpt": "RST Werks",
+     "mentions": []
+    }
+   ],
    "review_summary": "Small enthusiast-owned workshop in Al Khawaneej focused on Alfa Romeo and Ford EcoBoost cars. About 61 Google reviews (per its site); not yet matched to a Maps listing or analysed.",
    "reviews_analysed": 0,
    "sources": [
     "https://rstwerks.com/",
     "https://rstwerks.com/services/alfa-romeo/",
-    "https://www.instagram.com/rstwerks/"
+    "https://www.instagram.com/rstwerks/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1db5xnb/save_me_from_these_predator_car_garages_in_dubai/"
    ],
    "possible_matches": [],
    "price_examples": [],
@@ -19904,18 +20924,49 @@
    "possible_matches": [],
    "price_examples": [
     {
-     "item": "Porsche minor service",
-     "price_aed": "840–1,575",
+     "job": "minor_service",
+     "item": "Porsche  minor service",
+     "make": "Porsche",
+     "model": "",
+     "price_aed": "840–1575",
+     "aed_low": 840,
+     "aed_high": 1575,
      "vat": "including VAT",
+     "includes_parts": true,
      "source": "garage's own price list",
-     "url": "https://porschegarage.ae/"
+     "url": "https://porschegarage.ae/",
+     "as_of": "2026-11-06",
+     "note": ""
     },
     {
-     "item": "Porsche pre-purchase inspection",
-     "price_aed": "525–945",
+     "job": "minor_service",
+     "item": "Porsche Cayenne GTS minor service",
+     "make": "Porsche",
+     "model": "Cayenne GTS",
+     "price_aed": "997.5–1575",
+     "aed_low": 997.5,
+     "aed_high": 1575,
      "vat": "including VAT",
+     "includes_parts": true,
      "source": "garage's own price list",
-     "url": "https://porschegarage.ae/"
+     "url": "https://porschegarage.ae/cayenne/gts/",
+     "as_of": "2026-11-06",
+     "note": ""
+    },
+    {
+     "job": "brake_pads_axle",
+     "item": "Porsche  brake pads axle",
+     "make": "Porsche",
+     "model": "",
+     "price_aed": "1890–4725",
+     "aed_low": 1890,
+     "aed_high": 4725,
+     "vat": "including VAT",
+     "includes_parts": true,
+     "source": "garage's own price list (pads + fitting, one axle; discs/sensors extra)",
+     "url": "https://porschegarage.ae/",
+     "as_of": "2026-11-06",
+     "note": ""
     }
    ],
    "evidence_summary": "Its own website says it works on Land Rover, Porsche, Volkswagen (not owner evidence)."
@@ -20093,6 +21144,312 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Recommended by a Land Cruiser/Prado owner on Reddit r/DubaiPetrolHeads."
+  },
+  {
+   "id": "auto-whiz-garage-web",
+   "name": "Auto Whiz Garage",
+   "listing_name": "Auto Whiz Garage",
+   "emirate": "Dubai",
+   "area": "Al Quoz Industrial 3",
+   "address": "Warehouse 1, Al Quoz Industrial 3, Dubai",
+   "lat": null,
+   "lng": null,
+   "phone": "+971521167166",
+   "whatsapp": "+971521167166",
+   "website": "https://autowhizgarage.com/",
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage%20Al%20Quoz%20Dubai",
+   "google_place_id": null,
+   "categories": [],
+   "business_type": "workshop",
+   "dealer_for": null,
+   "hours": "Sat–Thu 9:00–19:00, Fri closed",
+   "services": [
+    "Servicing",
+    "Diagnostics",
+    "Electrical",
+    "AC",
+    "Pre-purchase inspection"
+   ],
+   "specialties": [
+    {
+     "make": "Lexus",
+     "models": [
+      "LX"
+     ],
+     "level": "brand",
+     "confidence": "medium",
+     "evidence": "Recommended for Lexus (LX owner) on Reddit r/DubaiPetrolHeads; weak evidence (one owner); general multi-brand workshop",
+     "mentions": 0,
+     "basis": "community"
+    },
+    {
+     "make": "Toyota",
+     "models": [
+      "Land Cruiser"
+     ],
+     "level": "model",
+     "confidence": "low",
+     "evidence": "Recommended by one owner in a Reddit Land Cruiser servicing thread",
+     "mentions": 0,
+     "basis": "community"
+    }
+   ],
+   "is_specialist": true,
+   "external_ratings": [],
+   "external_reviews": [
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jk6rag/lexus_service_advice/",
+     "date": "2025-03",
+     "rating": null,
+     "excerpt": "Al Nahda auto ... or Autowhiz in alquoz or overall better service, honesty, and friendliness.",
+     "mentions": [
+      "Lexus",
+      "LX"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/13hcsro/land_cruiser_owners_where_do_you_get_your_car/",
+     "date": "2023-05",
+     "rating": null,
+     "excerpt": "Would totally recommend trying autowhiz garage in al qouz dubai. They are amazing at what they do.",
+     "mentions": [
+      "Toyota",
+      "Land Cruiser"
+     ]
+    }
+   ],
+   "review_summary": "Busy general workshop in Al Quoz 3 that a Lexus LX owner and a Land Cruiser owner recommend on Reddit. Not yet matched to a Google Maps listing.",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://autowhizgarage.com/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jk6rag/lexus_service_advice/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/13hcsro/land_cruiser_owners_where_do_you_get_your_car/"
+   ],
+   "self_claims": [],
+   "possible_matches": [],
+   "price_examples": [],
+   "evidence_summary": "Recommended by a Lexus owner on Reddit r/DubaiPetrolHeads."
+  },
+  {
+   "id": "focus-auto-service-web",
+   "name": "Focus Auto Service",
+   "listing_name": "Focus Auto Service",
+   "emirate": "Dubai",
+   "area": "Dubai Investments Park",
+   "address": "Warehouse 39-1, Dubai Investments Park, Dubai (older listings also show Al Quoz Industrial 3)",
+   "lat": null,
+   "lng": null,
+   "phone": "+971522998360",
+   "whatsapp": "",
+   "website": "https://focusauto.ae/",
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=Focus%20Auto%20Service%20Dubai%20Investments%20Park",
+   "google_place_id": null,
+   "categories": [],
+   "business_type": "workshop",
+   "dealer_for": null,
+   "hours": "",
+   "services": [],
+   "specialties": [
+    {
+     "make": "Lexus",
+     "models": [
+      "GX"
+     ],
+     "level": "model",
+     "confidence": "medium",
+     "evidence": "Recommended for Lexus GX servicing and electrical work on Reddit r/DubaiPetrolHeads; weak evidence (one owner); website now markets luxury and sports cars",
+     "mentions": 0,
+     "basis": "community"
+    },
+    {
+     "make": "Toyota",
+     "models": [
+      "Land Cruiser"
+     ],
+     "level": "model",
+     "confidence": "low",
+     "evidence": "Named by one owner in a Reddit Land Cruiser servicing thread",
+     "mentions": 0,
+     "basis": "community"
+    }
+   ],
+   "is_specialist": true,
+   "external_ratings": [],
+   "external_reviews": [
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bdjqnd/lexus_specialist_dubai/",
+     "date": "2024-03",
+     "rating": null,
+     "excerpt": "Try Focus Auto garage. Contact Aditya. Have a gx myself. He does everything including electrical, tyres",
+     "mentions": [
+      "Lexus",
+      "GX"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/13hcsro/land_cruiser_owners_where_do_you_get_your_car/",
+     "date": "2023-05",
+     "rating": null,
+     "excerpt": "focus auto service al quoz",
+     "mentions": [
+      "Toyota",
+      "Land Cruiser"
+     ]
+    }
+   ],
+   "review_summary": "Independent workshop recommended on Reddit by a Lexus GX owner for servicing and electrical work. Its website now markets luxury and sports cars. Not yet matched to a Google Maps listing.",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://focusauto.ae/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bdjqnd/lexus_specialist_dubai/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/13hcsro/land_cruiser_owners_where_do_you_get_your_car/"
+   ],
+   "self_claims": [],
+   "possible_matches": [],
+   "price_examples": [],
+   "evidence_summary": "Recommended by a Lexus GX owner on Reddit r/DubaiPetrolHeads."
+  },
+  {
+   "id": "jas-motors-garage-web",
+   "name": "JAS Motors Garage",
+   "listing_name": "JAS Motors Garage",
+   "emirate": "Dubai",
+   "area": "Al Quoz Industrial 1",
+   "address": "30, 5B Street, Al Quoz Industrial 1, Dubai",
+   "lat": null,
+   "lng": null,
+   "phone": "+97143307574",
+   "whatsapp": "",
+   "website": "http://jasdubai.com/",
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=JAS%20Motors%20Garage%20Al%20Quoz%20Dubai",
+   "google_place_id": null,
+   "categories": [],
+   "business_type": "workshop",
+   "dealer_for": null,
+   "hours": "",
+   "services": [],
+   "specialties": [
+    {
+     "make": "Porsche",
+     "models": [
+      "Cayenne"
+     ],
+     "level": "brand",
+     "confidence": "medium",
+     "evidence": "Recommended for Porsche in 3 Reddit threads (2019, 2025), including by a Cayenne owner who says its staff are mostly ex-dealer Porsche technicians; Porsche classic club tags it on Instagram",
+     "mentions": 0,
+     "basis": "community"
+    }
+   ],
+   "is_specialist": true,
+   "external_ratings": [],
+   "external_reviews": [
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1oho0e5/garage_recommendations_for_porsche/",
+     "date": "2025-10",
+     "rating": null,
+     "excerpt": "Jas Motors Garage, they know their stuff when it comes to Porsches since they're mostly ex-Al Nabooda technicians.",
+     "mentions": [
+      "Porsche",
+      "Cayenne"
+     ]
+    },
+    {
+     "source": "Reddit r/dubai",
+     "url": "https://www.reddit.com/r/dubai/comments/bwleda/best_place_to_service_a_porsche/",
+     "date": "2019-06",
+     "rating": null,
+     "excerpt": "i've been using JAS since years. very affordable and am completely satisfied with their attention to detail",
+     "mentions": [
+      "Porsche"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1k6215m/need_to_find_a_reputable_garage_for_a_classic/",
+     "date": "2025-04",
+     "rating": null,
+     "excerpt": "JAS Motors ... My friend's bosses take their Porsche there",
+     "mentions": [
+      "Porsche"
+     ]
+    }
+   ],
+   "review_summary": "Long-running Al Quoz workshop that Porsche owners on Reddit recommend, including for a Cayenne gearbox fault; owner said to be ex-Porsche distributor. Not yet matched to a Google Maps listing.",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://www.dubaireview.ae/listing/jas-motors-garage/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1oho0e5/garage_recommendations_for_porsche/",
+    "https://www.reddit.com/r/dubai/comments/bwleda/best_place_to_service_a_porsche/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1k6215m/need_to_find_a_reputable_garage_for_a_classic/"
+   ],
+   "self_claims": [],
+   "possible_matches": [],
+   "price_examples": [],
+   "evidence_summary": "Recommended by Porsche owners, including a Cayenne owner, on Reddit."
+  },
+  {
+   "id": "7-cylinders-automotives-garage-web",
+   "name": "7 Cylinders Automotives Garage",
+   "listing_name": "7 Cylinders Automotives Garage",
+   "emirate": "Dubai",
+   "area": "Al Quoz Industrial 4",
+   "address": "10th Street, in front of Emirates Glass, Al Quoz Industrial 4, Dubai",
+   "lat": null,
+   "lng": null,
+   "phone": "+971502729978",
+   "whatsapp": "",
+   "website": "",
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=7%20Cylinders%20Automotives%20Garage%20Al%20Quoz%20Dubai",
+   "google_place_id": null,
+   "categories": [],
+   "business_type": "workshop",
+   "dealer_for": null,
+   "hours": "",
+   "services": [],
+   "specialties": [
+    {
+     "make": "BMW",
+     "models": [
+      "3 Series"
+     ],
+     "level": "brand",
+     "confidence": "medium",
+     "evidence": "Called a BMW specialist on Reddit r/DubaiPetrolHeads by a 320i owner who uses it; weak evidence (one owner)",
+     "mentions": 0,
+     "basis": "community"
+    }
+   ],
+   "is_specialist": true,
+   "external_ratings": [],
+   "external_reviews": [
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ssgkie/recommendations_for_a_good_bmw_specialist_in/",
+     "date": "2026-04",
+     "rating": null,
+     "excerpt": "There is a garage in al quoz , they are specialist in BMW ... i have 320i and when need smth i always go there",
+     "mentions": [
+      "BMW",
+      "3 Series"
+     ]
+    }
+   ],
+   "review_summary": "Al Quoz 4 workshop that a BMW 320i owner on Reddit calls a BMW specialist. Not yet matched to a Google Maps listing.",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://www.facebook.com/7CylindersDubai/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ssgkie/recommendations_for_a_good_bmw_specialist_in/"
+   ],
+   "self_claims": [],
+   "possible_matches": [],
+   "price_examples": [],
+   "evidence_summary": "Recommended by a BMW owner on Reddit r/DubaiPetrolHeads."
   }
  ]
 }

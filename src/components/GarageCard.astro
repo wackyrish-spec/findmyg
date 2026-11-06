@@ -1,11 +1,15 @@
 ---
-import { specFor, LEVELS, DATA_UPDATED } from "../lib/data.js";
+import { specFor, LEVELS, DATA_UPDATED, benchmarks, budgetTier, BENCH_SRC } from "../lib/data.js";
 const fmt = (d) => (d ? new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "");
 import Icon from "./Icon.astro";
 const { g, make = null, model = null, plain = false } = Astro.props;
 const claim = plain && make ? (g.self_claims || []).find((c) => c.make === make) : null;
 const spec = make ? specFor(g, make, model) : null;
 const level = spec ? spec.conf : 0;
+const bench = (g.hasEvidence || g.ownerCount > 0) && !g.isDealer ? benchmarks(g, make, model).filter((b) => b.slug === "minor-service") : [];
+const tier = bench.length ? budgetTier(g, make) : "";
+// Dealer anchor in the "Main dealer for comparison" strip: same job (and model, when on a model page).
+const dmin = g.isDealer && make ? benchmarks(g, make, model).find((b) => b.slug === "minor-service") : null;
 const checked = fmt(g.google?.asOf || DATA_UPDATED);
 const brandLines = g.specs.slice(0, 3);
 // Compact spec payload for the browser to re-rank by the visitor's saved car.
@@ -16,6 +20,7 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
 <article class="plaincard" data-plain={g.slug}>
   <div><a href={`/garage/${g.slug}/`}><b>{g.name}</b></a>
     <div class="meta"><span><Icon name="pin" />{g.area || "Dubai"}</span>{g.isDealer ? <span class="dealer">Main dealer</span> : <span class="muted">Listed, no owner reviews yet</span>}</div>
+    {dmin && <div class="benchline">Dealer minor service{dmin.car.replace(make, "").trim() ? `, ${dmin.car.replace(make, "").trim()}` : ""}: {dmin.from ? "from " : ""}<b>AED {Number(dmin.low).toLocaleString("en-US")}</b>{dmin.high > dmin.low ? ` to ${Number(dmin.high).toLocaleString("en-US")}` : ""} <span class="muted">· dealer price list</span></div>}
     {claim && <div class="claim">Says it works on {claim.make}{claim.url && <> (<a href={claim.url} target="_blank" rel="noopener nofollow">their website</a>)</>}</div>}</div>
   <div class="acts">
     {!g.isDealer && <a class="btn sm primary" href={`/review/${g.slug}/`}>Review</a>}
@@ -59,7 +64,8 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
 
     </div>
     {g.google && <p class="gfact">{Number(g.google.rating).toFixed(1)} on <a href={g.google.url || maps} target="_blank" rel="noopener nofollow">Google</a>, {(g.google.count || 0).toLocaleString("en-US")} reviews{checked ? `, checked ${checked}` : ""}</p>}
-    {g.priceTalk && <p class={`ptalk ${g.priceTalk.tone}`}>{g.priceTalk.label} <span class="muted">({g.priceTalk.n} reviews mention price)</span></p>}
+    {bench.length > 0 ? <p class="benchline">{tier && <span class="tier" title="Compared with other independents for this make">{tier}</span>}Minor service from <b>AED {Number(bench[0].low).toLocaleString("en-US")}</b>{bench[0].car.replace(make || "", "").trim() ? ` (${bench[0].car.replace(make || "", "").trim()})` : ""} <span class="muted">· {BENCH_SRC[bench[0].src]}</span></p>
+      : g.priceTalk && !g.isDealer && <p class={`ptalk ${g.priceTalk.tone}`}>{g.priceTalk.label}</p>}
     <div class="acts">
       {g.waNumber && <button class="btn wa sm" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
       {!g.waNumber && g.phone && <a class="btn sm" href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">Call</a>}

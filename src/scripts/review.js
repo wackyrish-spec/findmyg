@@ -86,8 +86,10 @@ if (form && form.dataset.ready && URL_ && KEY) {
         const up = await sb.storage.from("review-photos").upload(photo_path, blob, { contentType: "image/jpeg" });
         if (up.error) throw new Error("The photo didn't upload. Try again, or leave it out.");
       }
+      const incl = [...form.querySelectorAll('[data-incl-for]:not([hidden]) input[name=incl]:checked')].map((x) => x.value);
       const { error } = await sb.from("reviews").insert({
         photo_path,
+        includes: incl.length ? incl.join(", ").slice(0, 200) : null,
         garage_slug: slug,
         display_name: d.rName || null,
         car_make: d.rMake,
@@ -134,5 +136,18 @@ async function shrink(file) {
     c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
     return await new Promise((r) => c.toBlob(r, "image/jpeg", 0.8));
   } catch { return null; }
+}
+
+// Everyday benchmark jobs: show "What was included?" ticks for the chosen job.
+{
+  const job = document.getElementById("rJob"), box = document.getElementById("rIncl");
+  if (job && box) {
+    const sync = () => {
+      let any = false;
+      box.querySelectorAll("[data-incl-for]").forEach((d) => { const on = d.dataset.inclFor === job.value; d.hidden = !on; any ||= on; });
+      box.hidden = !any; document.getElementById("rPaidHint").hidden = !any;
+    };
+    job.addEventListener("change", sync); sync();
+  }
 }
 
