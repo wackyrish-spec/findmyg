@@ -24,7 +24,23 @@ const ld = {
   ...(g.lat && g.lng ? { geo: { "@type": "GeoCoordinates", latitude: g.lat, longitude: g.lng } } : {}),
   sameAs: [g.website, g.maps_url].filter(Boolean),
   ...(g.makes.length ? { knowsAbout: g.makes } : {}),
+  // Only GarageGuide's own approved owner reviews feed the rating schema.
+  ...(g.own ? {
+    aggregateRating: { "@type": "AggregateRating", ratingValue: g.own.avg.toFixed(1), reviewCount: g.own.n, bestRating: 5, worstRating: 1 },
+    review: g.ownerReviews.slice(0, 5).map((r) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: r.display_name || "GarageGuide owner" },
+      datePublished: r.created_at.slice(0, 10),
+      reviewRating: { "@type": "Rating", ratingValue: r.rating, bestRating: 5 },
+      reviewBody: r.body,
+    })),
+  } : {}),
 };
+const KNEW = { expert: "Knew the car inside out", good: "Knew the car well", average: "Average knowledge of the car", poor: "Didn't really know the car" };
+const QVF = { same: "Bill matched the quote", lower: "Bill came in under the quote", higher: "Bill was higher than the quote" };
+const fmtDate = (d) => new Date(d).toLocaleDateString("en-GB", { month: "short", year: "numeric" });
+const pct = (x) => `${Math.round(x * 100)}%`;
+const priced = g.ownerReviews.filter((r) => r.price_paid > 0);
 const firstMake = g.specs[0]?.make;
 ---
 <Base
@@ -80,9 +96,33 @@ const firstMake = g.specs[0]?.make;
             <p class="sub" style="margin:4px 0 0">Reviews from owners who used this garage: their car, the job, what they paid and whether the bill matched the quote.</p></div>
             <a class="btn primary sm" href={`/review/${g.slug}/`}><Icon name="pen" />Write a review</a></div>
           <div id="ownerList" data-garage={g.slug}>
-            <div class="note">No owner reviews yet. If you've taken your car here, <a href={`/review/${g.slug}/`}>your review</a> helps the next owner of the same car.</div>
+            {g.ownerReviews.length === 0 && <div class="note">No owner reviews yet. If you've taken your car here, <a href={`/review/${g.slug}/`}>your review</a> helps the next owner of the same car.</div>}
+            {g.ownerReviews.map((r) => (
+              <article class="orev" data-review-car={`${r.car_make}|${r.car_model || ""}`}>
+                <div class="orh"><span class="stars" aria-label={`${r.rating} out of 5`}>{"★".repeat(r.rating)}<span class="off">{"★".repeat(5 - r.rating)}</span></span>
+                  <b>{[r.car_make, r.car_model, r.car_year].filter(Boolean).join(" ")}</b>
+                  <span class="muted">{r.job}</span></div>
+                <p>{r.body}</p>
+                <div class="otags">
+                  {r.price_paid > 0 && <span>Paid AED {Number(r.price_paid).toLocaleString("en-US")}</span>}
+                  {r.quote_vs_final && <span class={r.quote_vs_final === "higher" ? "neg" : "pos"}>{QVF[r.quote_vs_final]}</span>}
+                  {r.knew_car && <span>{KNEW[r.knew_car]}</span>}
+                  {r.showed_old_parts && <span class="pos">Showed the old parts</span>}
+                  {r.called_before_extra && <span class="pos">Called before extra work</span>}
+                  {r.would_return && <span class="pos">Would go back</span>}
+                </div>
+                <cite>{r.display_name || "GarageGuide owner"} · {fmtDate(r.created_at)}</cite>
+              </article>
+            ))}
           </div>
         </section>
+
+        {priced.length > 0 && (
+          <section class="card panel"><h2>What owners paid</h2><p class="sub">Totals owners reported in their reviews. Prices vary with parts and the car's condition.</p>
+            <table class="ptable"><thead><tr><th>Job</th><th>Car</th><th class="num">AED</th></tr></thead><tbody>
+              {priced.map((r) => <tr><td>{r.job}</td><td>{[r.car_make, r.car_model].filter(Boolean).join(" ")}</td><td class="num">{Number(r.price_paid).toLocaleString("en-US")}</td></tr>)}
+            </tbody></table></section>
+        )}
 
         <section class="card panel theirs"><h2>What the internet says</h2>
           <p class="sub">Ratings and short excerpts from other sites, linked to the original. Shown separately and never mixed into GarageGuide ratings.</p>
@@ -105,8 +145,21 @@ const firstMake = g.specs[0]?.make;
       <div class="side">
         <section class="card panel">
           <h2 style="font-size:22px">Owner rating</h2>
-          <p style="margin:0;font-size:14px"><b>No owner reviews yet.</b> <span class="muted">GarageGuide ratings and quote accuracy appear once owners review this garage.</span></p>
-          <a class="btn primary" href={`/review/${g.slug}/`}><Icon name="pen" />Be the first to review</a>
+          {g.own ? (
+            <>
+              <div class="orating"><b class="num">{g.own.avg.toFixed(1)}</b><span class="muted">from {g.own.n} owner review{g.own.n === 1 ? "" : "s"}</span></div>
+              <dl class="facts">
+                {g.own.qa !== null && <div><dt>Bill matched quote</dt><dd class="num">{pct(g.own.qa)} <span class="muted">of {g.own.qn}</span></dd></div>}
+                <div><dt>Would go back</dt><dd class="num">{pct(g.own.back)}</dd></div>
+              </dl>
+              <a class="btn primary" href={`/review/${g.slug}/`}><Icon name="pen" />Write a review</a>
+            </>
+          ) : (
+            <>
+              <p style="margin:0;font-size:14px"><b>No owner reviews yet.</b> <span class="muted">GarageGuide ratings and quote accuracy appear once owners review this garage.</span></p>
+              <a class="btn primary" href={`/review/${g.slug}/`}><Icon name="pen" />Be the first to review</a>
+            </>
+          )}
         </section>
         <section class="card panel"><h2 style="font-size:22px">Workshop facts</h2>
           <dl class="facts">

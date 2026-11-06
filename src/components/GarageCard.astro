@@ -46,7 +46,7 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
   </div>
   <div class="stats">
     <div class="statrow">
-      <div class="stat"><b>{g.ownerCount || 0}</b><small>Owner reviews</small></div>
+      {g.own ? <div class="stat"><b>{g.own.avg.toFixed(1)}</b><small>Owners · {g.own.n}</small></div> : <div class="stat"><b>0</b><small>Owner reviews</small></div>}
       {g.google && <div class="stat"><b>{Number(g.google.rating).toFixed(1)}</b><small>Google · {(g.google.count || 0).toLocaleString("en-US")}</small></div>}
     </div>
     <div class="acts">

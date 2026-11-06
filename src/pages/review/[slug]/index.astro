@@ -31,8 +31,14 @@ const supabaseReady = !!(import.meta.env.PUBLIC_SUPABASE_URL && import.meta.env.
       <label class="fld" for="rRating">Overall rating<select id="rRating" required><option value="">Choose</option><option value="5">5 · Excellent</option><option value="4">4 · Good</option><option value="3">3 · OK</option><option value="2">2 · Poor</option><option value="1">1 · Bad</option></select></label>
       <div class="seg"><label for="c1"><input type="checkbox" id="c1" />Showed me the old parts</label><label for="c2"><input type="checkbox" id="c2" />Called before extra work</label><label for="c3"><input type="checkbox" id="c3" />Would go back</label></div>
       <label class="fld" for="rText">Your review<textarea id="rText" required placeholder="What was wrong, what they did, and how they dealt with you"></textarea><small>At least 40 characters.</small></label>
+      <label class="fld" for="rName">Name shown with your review<input id="rName" maxlength="40" placeholder="e.g. Rishal, or a nickname" /><small>Optional. Leave blank to show "GarageGuide owner".</small></label>
+      <div class="signin" id="rSignin" hidden>
+        <label class="fld" for="rEmail">Your email<input id="rEmail" type="email" autocomplete="email" placeholder="you@example.com" /><small>We email you a sign-in link so each review comes from a real owner. Your email is never shown.</small></label>
+      </div>
       <div class="err" id="rErr" hidden></div>
-      <button class="btn primary" type="submit" disabled={!supabaseReady}>{supabaseReady ? "Sign in and submit" : "Reviews open soon"}</button>
+      <button class="btn primary" type="submit" id="rGo" disabled={!supabaseReady}>{supabaseReady ? "Submit review" : "Reviews open soon"}</button>
     </form>
+    <div class="okmsg" id="rOk" hidden></div>
   </div>
+  <script>import "../../../scripts/review.js";</script>
 </Base>

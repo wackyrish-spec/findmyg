@@ -294,3 +294,21 @@ details.enth[open] summary::before{content:"− ";}
 .gcard.dim{opacity:.6}
 .acts{flex-wrap:wrap;justify-content:flex-end}
 @media (max-width:640px){.stats{flex-direction:column;align-items:stretch}.acts{justify-content:flex-start}.acts .btn{flex:1 1 auto}}
+
+/* owner reviews */
+.orev{padding:14px 0;border-top:1px solid var(--line)}
+.orev:first-child{border-top:0;padding-top:4px}
+.orh{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;font-size:14px}
+.stars{color:var(--signal);letter-spacing:1px}.stars .off{color:var(--line)}
+.orev p{margin:8px 0;font-size:15px}
+.otags{display:flex;flex-wrap:wrap;gap:6px;font-size:12px;font-weight:700}
+.otags span{padding:3px 8px;border-radius:999px;background:var(--blue-soft)}
+.otags .pos{background:var(--pos-soft)}
+.otags .pos{color:var(--pos)}.otags .neg{color:var(--neg)}
+.orev cite{display:block;margin-top:8px;font-size:12px;font-style:normal;color:var(--muted)}
+.orating{display:flex;align-items:baseline;gap:8px;margin:0 0 8px}.orating b{font-size:44px;line-height:1}
+.ptable{width:100%;border-collapse:collapse;font-size:14px}
+.ptable th,.ptable td{text-align:start;padding:8px 6px;border-bottom:1px solid var(--line)}
+.ptable th{font-size:12px;text-transform:uppercase;color:var(--muted)}
+.ptable .num{text-align:end}
+.okmsg{padding:14px;border-radius:12px;background:var(--blue-soft);font-weight:700}

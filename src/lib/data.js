@@ -2,6 +2,9 @@
 import raw from "../../data/garages.json";
 import intros from "../content/intros.json";
 import { CATALOG } from "./catalog.js";
+import { loadReviews, ownerStats } from "./reviews.js";
+
+const REVIEWS = await loadReviews();
 
 export const CITY = { slug: "dubai", name: "Dubai" };
 export const slugify = (s) =>
@@ -79,6 +82,9 @@ function norm(g) {
     jobs: JOBS.filter((j) => j.re.test(text)).map((j) => j.slug),
     goodFor: goodFor(text),
     waNumber: waNumber(g),
+    ownerReviews: REVIEWS[g.id || slugify(g.name)] || [],
+    own: ownerStats(REVIEWS[g.id || slugify(g.name)]),
+    ownerCount: (REVIEWS[g.id || slugify(g.name)] || []).length,
     makes: [...new Set(specs.map((s) => s.make))],
   };
 }
@@ -91,7 +97,7 @@ export function waNumber(g) {
 }
 
 const defaultRank = (a, b) =>
-  b.hasEvidence - a.hasEvidence || b.topConf - a.topConf || (b.google?.count || 0) - (a.google?.count || 0);
+  (b.ownerCount >= 3) - (a.ownerCount >= 3) || b.hasEvidence - a.hasEvidence || b.topConf - a.topConf || (b.google?.count || 0) - (a.google?.count || 0);
 
 export const GARAGES = (raw.garages || raw).filter((g) => g && g.name).map(norm).sort(defaultRank);
 export const BY_SLUG = Object.fromEntries(GARAGES.map((g) => [g.slug, g]));
@@ -160,7 +166,7 @@ export function isIndexable(key, evidenceCount) {
   return evidenceCount >= 3 && !!(i && i.text && i.approved);
 }
 // Garage pages are indexed when they have real evidence for at least one specialty.
-export const garageIndexable = (g) => g.hasEvidence;
+export const garageIndexable = (g) => g.hasEvidence || g.ownerCount > 0;
 
 /* ---------- picker payload (kept small; shipped to the browser) ---------- */
 export function pickerCatalog() {
