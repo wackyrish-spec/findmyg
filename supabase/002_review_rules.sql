@@ -34,3 +34,8 @@ grant insert on public.reviews to authenticated;
 alter table public.reviews add column if not exists dealer_quote int
   check (dealer_quote is null or dealer_quote between 0 and 2000000);
 grant select (dealer_quote) on public.reviews to anon;
+
+-- Job is now picked from a fixed list; free text goes in job_note.
+alter table public.reviews add column if not exists job_note text
+  check (job_note is null or char_length(job_note) <= 120);
+grant select (job_note) on public.reviews to anon;

@@ -13,7 +13,7 @@ if (form && form.dataset.ready && URL_ && KEY) {
   const DRAFT = `gg:draft:${slug}`;
   const err = $("rErr"), go = $("rGo"), ok = $("rOk"), signin = $("rSignin");
   const showErr = (m) => { err.textContent = m; err.hidden = !m; };
-  const fields = ["rMake", "rModel", "rYear", "rJob", "rPaid", "rRating", "rText", "rName", "rWa", "rDealer"];
+  const fields = ["rMake", "rModel", "rYear", "rJob", "rPaid", "rRating", "rText", "rName", "rWa", "rDealer", "rJobNote"];
 
   const read = () => ({
     ...Object.fromEntries(fields.map((f) => [f, $(f).value.trim()])),
@@ -33,7 +33,8 @@ if (form && form.dataset.ready && URL_ && KEY) {
 
   const validate = (d) => {
     if (!d.rMake) return "Add your car's brand.";
-    if (!d.rJob) return "Say what job was done.";
+    if (!d.rJob) return "Choose the type of job.";
+    if (d.rJob === "Other" && !d.rJobNote) return "Describe the job in a few words.";
     if (!d.rRating) return "Choose an overall rating.";
     if (d.rText.length < 40) return "Write at least 40 characters about how it went.";
     if (d.rYear && !/^(19|20)\d\d$/.test(d.rYear)) return "Year should look like 2014.";
@@ -81,6 +82,7 @@ if (form && form.dataset.ready && URL_ && KEY) {
         car_model: d.rModel || null,
         car_year: d.rYear ? Number(d.rYear) : null,
         job: d.rJob,
+        job_note: d.rJobNote || null,
         price_paid: d.rPaid ? Number(d.rPaid.replace(/[,\s]/g, "")) : null,
         quote_vs_final: d.qvf || null,
         knew_car: d.knew || null,

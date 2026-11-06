@@ -1,6 +1,6 @@
 ---
 import Base from "../../../layouts/Base.astro";
-import { GARAGES } from "../../../lib/data.js";
+import { GARAGES, JOBS } from "../../../lib/data.js";
 export function getStaticPaths() {
   return GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
 }
@@ -21,7 +21,8 @@ const supabaseReady = !!(import.meta.env.PUBLIC_SUPABASE_URL && import.meta.env.
       </div>
       <label class="fld" for="rYear">Year<input id="rYear" inputmode="numeric" maxlength="4" placeholder="2014" /></label>
       <div class="label">The job</div>
-      <label class="fld" for="rJob">What was done<input id="rJob" required placeholder="e.g. air suspension compressor" /></label>
+      <label class="fld" for="rJob">Type of job<select id="rJob" required><option value="">Choose</option>{JOBS.map((j) => <option value={j.name}>{j.name}</option>)}<option value="Other">Other (describe below)</option></select></label>
+      <label class="fld" for="rJobNote">What exactly was done<input id="rJobNote" maxlength="120" placeholder="e.g. air suspension compressor replaced" /><small>Optional, unless you chose Other.</small></label>
       <div class="two">
         <label class="fld" for="rPaid">Total paid (AED)<input id="rPaid" inputmode="numeric" placeholder="2400" /></label>
         <fieldset class="fld" style="border:0;padding:0;margin:0"><legend style="margin-bottom:5px">Final bill vs quote</legend>

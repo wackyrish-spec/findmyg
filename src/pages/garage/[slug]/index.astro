@@ -105,7 +105,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
               <article class="orev" data-review-car={`${r.car_make}|${r.car_model || ""}`}>
                 <div class="orh"><span class="stars" aria-label={`${r.rating} out of 5`}>{"★".repeat(r.rating)}<span class="off">{"★".repeat(5 - r.rating)}</span></span>
                   <b>{[r.car_make, r.car_model, r.car_year].filter(Boolean).join(" ")}</b>
-                  <span class="muted">{r.job}</span></div>
+                  <span class="muted">{[r.job, r.job_note].filter(Boolean).join(": ")}</span></div>
                 <p>{r.body}</p>
                 <div class="otags">
                   {r.price_paid > 0 && <span>Paid AED {Number(r.price_paid).toLocaleString("en-US")}</span>}
@@ -124,7 +124,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
         {priced.length > 0 && (
           <section class="card panel"><h2>What owners paid</h2><p class="sub">Totals owners reported in their reviews. Prices vary with parts and the car's condition.</p>
             <table class="ptable"><thead><tr><th>Job</th><th>Car</th><th class="num">AED</th></tr></thead><tbody>
-              {priced.map((r) => <tr><td>{r.job}</td><td>{[r.car_make, r.car_model].filter(Boolean).join(" ")}</td><td class="num">{Number(r.price_paid).toLocaleString("en-US")}</td></tr>)}
+              {priced.map((r) => <tr><td>{[r.job, r.job_note].filter(Boolean).join(": ")}</td><td>{[r.car_make, r.car_model].filter(Boolean).join(" ")}</td><td class="num">{Number(r.price_paid).toLocaleString("en-US")}</td></tr>)}
             </tbody></table></section>
         )}
 
