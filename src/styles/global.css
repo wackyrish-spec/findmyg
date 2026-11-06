@@ -329,3 +329,5 @@ details.more .sub{margin:8px 0 4px}
 .gbody>*{min-width:0}.ptable td{overflow-wrap:anywhere}.ptable td.num{white-space:nowrap}.enthlist .code{display:inline-block;margin:2px 2px 0 0}
 .ptable{table-layout:fixed;min-width:0}.ptable td.num,.ptable th.num{width:96px}
 .fpick{padding:2px 8px;border-radius:999px;background:var(--signal-soft);color:var(--signal-text);font-size:12px;font-weight:800;text-decoration:none}
+.gfact{margin:6px 0 0;font-size:12px;color:var(--muted)}.gfact a{color:inherit}
+.esum{margin:6px 0 0;font-size:14px}

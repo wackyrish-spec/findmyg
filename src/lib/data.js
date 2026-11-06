@@ -58,7 +58,7 @@ function norm(g) {
   const real = (s) => /reviews|community|founder/.test(s.basis) && s.conf >= 2;
   const bySource = {};
   (g.external_ratings || []).forEach((r) => {
-    bySource[r.source] = { source: r.source, rating: r.rating ?? null, count: r.count ?? null, url: r.url || "", snips: [] };
+    bySource[r.source] = { source: r.source, rating: r.rating ?? null, count: r.count ?? null, url: r.url || "", asOf: r.as_of || "", snips: [] };
   });
   (g.external_reviews || []).forEach((r) => {
     (bySource[r.source] ||= { source: r.source, rating: null, count: null, url: r.url || "", snips: [] }).snips.push({
@@ -90,6 +90,8 @@ function norm(g) {
     own: ownerStats(REVIEWS[g.id || slugify(g.name)]),
     ownerCount: (REVIEWS[g.id || slugify(g.name)] || []).length,
     makes: [...new Set(specs.map((s) => s.make))],
+    // Own-words summary (array of sentences, or a string in older data).
+    summary: [].concat(g.evidence_summary || []).filter(Boolean),
   };
 }
 
@@ -101,7 +103,7 @@ export function waNumber(g) {
 }
 
 const defaultRank = (a, b) =>
-  a.isDealer - b.isDealer || (b.ownerCount >= 3) - (a.ownerCount >= 3) || b.hasEvidence - a.hasEvidence || b.topConf - a.topConf || (b.google?.count || 0) - (a.google?.count || 0);
+  a.isDealer - b.isDealer || (b.ownerCount >= 3) - (a.ownerCount >= 3) || b.hasEvidence - a.hasEvidence || b.topConf - a.topConf || a.name.localeCompare(b.name);
 
 export const GARAGES = (raw.garages || raw).filter((g) => g && g.name).map(norm).sort(defaultRank);
 export const BY_SLUG = Object.fromEntries(GARAGES.map((g) => [g.slug, g]));
@@ -167,7 +169,7 @@ function rankFor(make, model) {
   return (a, b) => {
     const sa = specFor(a, make, model), sb = specFor(b, make, model);
     return (sb?.conf || 0) - (sa?.conf || 0) || (sb?.modelHit ? 1 : 0) - (sa?.modelHit ? 1 : 0) ||
-      (sb?.mentions || 0) - (sa?.mentions || 0) || (b.google?.count || 0) - (a.google?.count || 0);
+      (sb?.mentions || 0) - (sa?.mentions || 0) || a.name.localeCompare(b.name);
   };
 }
 
