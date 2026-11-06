@@ -1,26 +1,37 @@
 ---
-import { specFor, LEVELS } from "../lib/data.js";
+import { specFor, LEVELS, DATA_UPDATED } from "../lib/data.js";
+const fmt = (d) => (d ? new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "");
 import Icon from "./Icon.astro";
-const { g, make = null, model = null } = Astro.props;
+const { g, make = null, model = null, plain = false } = Astro.props;
+const claim = plain && make ? (g.self_claims || []).find((c) => c.make === make) : null;
 const spec = make ? specFor(g, make, model) : null;
 const level = spec ? spec.conf : 0;
-const snips = g.ext.flatMap((e) => e.snips.map((s) => ({ ...s, source: e.source })));
-const snip =
-  (make && snips.find((s) => s.mentions.includes(make) && (!model || s.mentions.includes(model)))) ||
-  (make && snips.find((s) => s.mentions.includes(make))) ||
-  snips[0];
+const checked = fmt(g.google?.asOf || DATA_UPDATED);
 const brandLines = g.specs.slice(0, 3);
 // Compact spec payload for the browser to re-rank by the visitor's saved car.
 const payload = JSON.stringify(g.specs.map((s) => [s.make, s.models, s.conf, s.evidence]));
 const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(g.name + " " + (g.area || "") + " Dubai")}`;
 ---
-<article class="card gcard" data-garage={g.slug} data-specs={payload} data-gcount={g.google?.count || 0}>
+{plain ? (
+<article class="plaincard" data-plain={g.slug}>
+  <div><a href={`/garage/${g.slug}/`}><b>{g.name}</b></a>
+    <div class="meta"><span><Icon name="pin" />{g.area || "Dubai"}</span>{g.isDealer ? <span class="dealer">Main dealer</span> : <span class="muted">Listed, no owner reviews yet</span>}</div>
+    {claim && <div class="claim">Says it works on {claim.make}{claim.url && <> (<a href={claim.url} target="_blank" rel="noopener nofollow">their website</a>)</>}</div>}</div>
+  <div class="acts">
+    {!g.isDealer && <a class="btn sm primary" href={`/review/${g.slug}/`}>Review</a>}
+    {g.isDealer && g.phone && <a class="btn sm" href={`tel:${g.phone.replace(/\s/g, "")}`}>Call {g.phone}</a>}
+    <a class="btn sm" href={`/garage/${g.slug}/`}>View</a>
+  </div>
+</article>
+) : (
+<article class="card gcard" data-garage={g.slug} data-specs={payload}>
   <div class="main">
     <div class="gtop"><h3><a href={`/garage/${g.slug}/`}>{g.name}</a></h3></div>
     <div class="meta">
       <span><Icon name="pin" />{g.area || "Dubai"}</span>
+      {g.founderPick && <a class="fpick" href="/how-it-works/#founders-picks">Founder's pick</a>}
       {g.goodFor.map((x) => <span class="goodfor">Good for: {x}</span>)}
-      {g.business_type && g.business_type !== "workshop" && <span class="biztag">Also sells parts</span>}
+      {g.isDealer ? <span class="dealer">Main dealer</span> : g.business_type && g.business_type !== "workshop" && <span class="biztag">Also sells parts</span>}
     </div>
     <div class="matchslot">
       {spec && (
@@ -30,9 +41,7 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
     <div class="evid">
       {spec ? spec.evidence || `${make} specialist` : brandLines.length ? brandLines.map((s, i) => (<>{i > 0 && <span class="sep">|</span>}{s.make}{s.models.length ? ` (${s.models.slice(0, 2).join(", ")})` : ""} <span class={`conf c${s.conf}`}>{s.confidence}</span></>)) : <span class="muted">No specialty found yet</span>}
     </div>
-    {snip && (
-      <blockquote class="quote">“{snip.text}”<cite>{snip.source}{snip.author ? ` · ${snip.author}` : ""}{snip.date ? ` · ${snip.date}` : ""}</cite></blockquote>
-    )}
+    {g.summary[0] && (g.hasEvidence || g.ownerCount > 0) && <p class="esum">{g.summary[0]}</p>}
     <details class="enth">
       <summary>For enthusiasts</summary>
       <div class="enthlist">
@@ -46,9 +55,10 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
   </div>
   <div class="stats">
     <div class="statrow">
-      <div class="stat"><b>{g.ownerCount || 0}</b><small>Owner reviews</small></div>
-      {g.google && <div class="stat"><b>{Number(g.google.rating).toFixed(1)}</b><small>Google · {(g.google.count || 0).toLocaleString("en-US")}</small></div>}
+      {g.own ? <div class="stat"><b>{g.own.avg.toFixed(1)}</b><small>Owners · {g.own.n}</small></div> : <div class="stat"><b>0</b><small>Owner reviews</small></div>}
+
     </div>
+    {g.google && <p class="gfact">{Number(g.google.rating).toFixed(1)} on <a href={g.google.url || maps} target="_blank" rel="noopener nofollow">Google</a>, {(g.google.count || 0).toLocaleString("en-US")} reviews{checked ? `, checked ${checked}` : ""}</p>}
     <div class="acts">
       {g.waNumber && <button class="btn wa sm" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
       {!g.waNumber && g.phone && <a class="btn sm" href={`tel:${g.phone.replace(/\s/g, "")}`}>Call</a>}
@@ -57,3 +67,4 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
     </div>
   </div>
 </article>
+)}

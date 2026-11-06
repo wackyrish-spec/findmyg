@@ -120,7 +120,7 @@ function rerank(announce) {
   const scored = cards.map((el, i) => {
     const specs = JSON.parse(el.dataset.specs || "[]");
     const m = c ? matchFor(specs, c) : null;
-    return { el, i, m, g: +el.dataset.gcount || 0 };
+    return { el, i, m };
   });
   if (c) {
     scored.sort((a, b) => (b.m.l - a.m.l) || ((b.m.hit ? 1 : 0) - (a.m.hit ? 1 : 0)) || (a.i - b.i));
@@ -151,10 +151,8 @@ function matchPanel() {
   const m = matchFor(specs, car);
   panel.classList.add("matchpanel");
   panel.hidden = false;
-  const quotes = $$(".snip").filter((s) => s.textContent.toLowerCase().includes((car.model || car.make).toLowerCase())).slice(0, 2);
   panel.innerHTML = `<h2>Match for your ${esc(carShort(car))}</h2>
     <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center">${matchHTML(m)}<span class="evid">${esc(m.ev || `No reviews we've read mention ${car.make} here.`)}</span></div>
-    ${quotes.map((q) => `<blockquote class="quote" style="margin-top:10px">${q.innerHTML}</blockquote>`).join("")}
     <p class="muted" style="font-size:13px;margin:10px 0 0">Not your car? <button class="btn sm" type="button" data-setcar>Change car</button></p>`;
 }
 

@@ -1,0 +1,18 @@
+name: Nightly rebuild
+# Rebuilds the site every night so newly approved reviews appear even if the
+# approve webhook was missed. Needs the CF_DEPLOY_HOOK repository secret
+# (Cloudflare Pages > Settings > Builds > Deploy hooks).
+on:
+  schedule:
+    - cron: "0 22 * * *"   # 02:00 Dubai time
+  workflow_dispatch:
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Pages deploy hook
+        env:
+          HOOK: ${{ secrets.CF_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "CF_DEPLOY_HOOK secret not set"; exit 0; fi
+          curl -fsS -X POST "$HOOK"

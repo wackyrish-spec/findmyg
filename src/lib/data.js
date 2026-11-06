@@ -2,6 +2,9 @@
 import raw from "../../data/garages.json";
 import intros from "../content/intros.json";
 import { CATALOG } from "./catalog.js";
+import { loadReviews, ownerStats } from "./reviews.js";
+
+const REVIEWS = await loadReviews();
 
 export const CITY = { slug: "dubai", name: "Dubai" };
 export const slugify = (s) =>
@@ -52,10 +55,10 @@ function norm(g) {
       basis: s.basis || "",
     }))
     .sort((a, b) => b.conf - a.conf || b.mentions - a.mentions);
-  const real = (s) => /reviews|community/.test(s.basis) && s.conf >= 2;
+  const real = (s) => /reviews|community|founder/.test(s.basis) && s.conf >= 2;
   const bySource = {};
   (g.external_ratings || []).forEach((r) => {
-    bySource[r.source] = { source: r.source, rating: r.rating ?? null, count: r.count ?? null, url: r.url || "", snips: [] };
+    bySource[r.source] = { source: r.source, rating: r.rating ?? null, count: r.count ?? null, url: r.url || "", asOf: r.as_of || "", snips: [] };
   });
   (g.external_reviews || []).forEach((r) => {
     (bySource[r.source] ||= { source: r.source, rating: null, count: null, url: r.url || "", snips: [] }).snips.push({
@@ -72,14 +75,23 @@ function norm(g) {
     specs,
     ext,
     google,
-    hasEvidence: specs.some(real),
+    isDealer: g.business_type === "dealer",
+    // Product spec: a garage ranks only if owners can reach or find it.
+    contactable: !!(g.phone || g.whatsapp || g.maps_url || (g.lat && g.lng)),
+    founderPick: specs.some((s) => s.basis === "founder"),
+    hasEvidence: g.business_type !== "dealer" && specs.some(real),
     topConf: Math.max(0, ...specs.map((s) => s.conf)),
     areaGroup,
     areaSlug: areaGroup ? slugify(areaGroup) : null,
     jobs: JOBS.filter((j) => j.re.test(text)).map((j) => j.slug),
     goodFor: goodFor(text),
     waNumber: waNumber(g),
+    ownerReviews: REVIEWS[g.id || slugify(g.name)] || [],
+    own: ownerStats(REVIEWS[g.id || slugify(g.name)]),
+    ownerCount: (REVIEWS[g.id || slugify(g.name)] || []).length,
     makes: [...new Set(specs.map((s) => s.make))],
+    // Own-words summary (array of sentences, or a string in older data).
+    summary: [].concat(g.evidence_summary || []).filter(Boolean),
   };
 }
 
@@ -91,7 +103,7 @@ export function waNumber(g) {
 }
 
 const defaultRank = (a, b) =>
-  b.hasEvidence - a.hasEvidence || b.topConf - a.topConf || (b.google?.count || 0) - (a.google?.count || 0);
+  a.isDealer - b.isDealer || (b.ownerCount >= 3) - (a.ownerCount >= 3) || b.hasEvidence - a.hasEvidence || b.topConf - a.topConf || a.name.localeCompare(b.name);
 
 export const GARAGES = (raw.garages || raw).filter((g) => g && g.name).map(norm).sort(defaultRank);
 export const BY_SLUG = Object.fromEntries(GARAGES.map((g) => [g.slug, g]));
@@ -110,16 +122,54 @@ export function specFor(g, make, model) {
   return s[0];
 }
 export const levelOf = (spec) => (spec ? spec.conf : 0);
+const lc = (x) => String(x || "").toLowerCase();
+// An owner review on GarageGuide for this car is evidence too.
+const ownerFor = (g, make, model) =>
+  g.ownerReviews.some((r) => lc(r.car_make) === lc(make) && (!model || lc(r.car_model).includes(lc(model))));
 const realFor = (g, make, model) => {
+  if (g.isDealer || !g.contactable) return false;
+  if (ownerFor(g, make, model)) return true;
   const s = specFor(g, make, model);
-  return !!s && /reviews|community/.test(s.basis) && s.conf >= 2 && (!model || s.modelHit);
+  return !!s && /reviews|community|founder/.test(s.basis) && s.conf >= 2 && (!model || s.modelHit);
 };
+export { realFor };
+
+/* ---------- list split (product spec 11a and 11c) ----------
+   Ranked: garages with evidence. Dealers never rank; they sit in a collapsed comparison strip
+   on brand/model pages only. No-evidence garages never rank; on brand/model pages they appear
+   collapsed only when fewer than 5 garages rank. */
+export const OTHERS_MIN = 5;
+// Dealer price ranges from owners' reports of dealer quotes, per job, only with 3+ reports.
+export function dealerPrices(make, model) {
+  const by = {};
+  GARAGES.forEach((g) => g.ownerReviews.forEach((r) => {
+    if (!(r.dealer_quote > 0) || lc(r.car_make) !== lc(make) || (model && !lc(r.car_model).includes(lc(model)))) return;
+    const k = lc(r.job).trim();
+    (by[k] ||= { job: r.job, q: [] }).q.push(r.dealer_quote);
+  }));
+  return Object.values(by).filter((x) => x.q.length >= 3)
+    .map((x) => ({ job: x.job, n: x.q.length, min: Math.min(...x.q), max: Math.max(...x.q) }));
+}
+// Cited dealer-vs-independent line (research/dealer-price-anchors.md). Land Rover pages only.
+export const DEALER_NOTES = {
+  "land-rover": { text: "Agency servicing on a Range Rover typically costs 30 to 50% more than independents.", source: "CarSwitch, Jul 2026", url: "https://carswitch.com/newsroom/range-rover-price-in-uae-2026-used-vs-new-generation-guide-true-cost-of-owning-a-pre-owned-range-rover/" },
+};
+export function splitBrand(garages, make, model) {
+  const ranked = [], others = [], dealers = [];
+  garages.forEach((g) => (g.isDealer ? dealers : realFor(g, make, model) || (model && realFor(g, make)) ? ranked : others).push(g));
+  return { ranked, others: ranked.length < OTHERS_MIN ? others : [], dealers };
+}
+export function splitGeneral(garages) {
+  const ok = garages.filter((g) => !g.isDealer);
+  const ranks = (g) => g.contactable && (g.hasEvidence || g.ownerCount > 0);
+  return { ranked: ok.filter(ranks), others: ok.filter((g) => !ranks(g)), dealers: [] };
+}
 
 function rankFor(make, model) {
   return (a, b) => {
     const sa = specFor(a, make, model), sb = specFor(b, make, model);
     return (sb?.conf || 0) - (sa?.conf || 0) || (sb?.modelHit ? 1 : 0) - (sa?.modelHit ? 1 : 0) ||
-      (sb?.mentions || 0) - (sa?.mentions || 0) || (b.google?.count || 0) - (a.google?.count || 0);
+      (sb?.mentions || 0) - (sa?.mentions || 0) || a.name.localeCompare(b.name);
   };
 }
 
@@ -129,6 +179,11 @@ export const BRANDS = (() => {
     (m[s.makeSlug] ||= { make: s.make, slug: s.makeSlug, garages: new Set(), models: {} }).garages.add(g.slug);
     s.models.forEach((md) => ((m[s.makeSlug].models[slugify(md)] ||= { model: md, slug: slugify(md), garages: new Set() }).garages.add(g.slug)));
   }));
+  // Brands a garage claims only on its own website: listed (collapsed), never ranked.
+  GARAGES.forEach((g) => (g.self_claims || []).forEach((c) => c.make && m[slugify(c.make)]?.garages.add(g.slug)));
+  // Main dealers (no specialties) join their marque's page as unranked price anchors.
+  GARAGES.forEach((g) => g.isDealer && g.dealer_for && m[slugify(g.dealer_for)]?.garages.add(g.slug));
+  GARAGES.forEach((g) => g.ownerReviews.forEach((r) => m[slugify(r.car_make || "")]?.garages.add(g.slug)));
   return Object.values(m).map((b) => {
     const garages = [...b.garages].map((x) => BY_SLUG[x]).sort(rankFor(b.make));
     const models = Object.values(b.models).map((md) => ({
@@ -142,11 +197,11 @@ export const BRANDS = (() => {
 
 export const AREAS = AREA_GROUPS.map((a) => ({
   name: a, slug: slugify(a), garages: GARAGES.filter((g) => g.areaGroup === a),
-})).filter((a) => a.garages.length).map((a) => ({ ...a, evidenceCount: a.garages.filter((g) => g.hasEvidence).length }));
+})).filter((a) => a.garages.length).map((a) => ({ ...a, evidenceCount: a.garages.filter((g) => g.hasEvidence && g.contactable).length }));
 
 export const JOB_PAGES = JOBS.map((j) => {
   const garages = GARAGES.filter((g) => g.jobs.includes(j.slug));
-  return { ...j, re: undefined, garages, evidenceCount: garages.filter((g) => g.hasEvidence).length };
+  return { ...j, re: undefined, garages, evidenceCount: garages.filter((g) => g.hasEvidence && g.contactable).length };
 }).filter((j) => j.garages.length);
 
 /* ---------- indexing rule (research doc section 14) ----------
@@ -160,7 +215,7 @@ export function isIndexable(key, evidenceCount) {
   return evidenceCount >= 3 && !!(i && i.text && i.approved);
 }
 // Garage pages are indexed when they have real evidence for at least one specialty.
-export const garageIndexable = (g) => g.hasEvidence;
+export const garageIndexable = (g) => g.hasEvidence || g.ownerCount > 0;
 
 /* ---------- picker payload (kept small; shipped to the browser) ---------- */
 export function pickerCatalog() {
