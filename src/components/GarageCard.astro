@@ -1,7 +1,7 @@
 ---
 import { specFor, LEVELS } from "../lib/data.js";
 import Icon from "./Icon.astro";
-const { g, make = null, model = null } = Astro.props;
+const { g, make = null, model = null, plain = false } = Astro.props;
 const spec = make ? specFor(g, make, model) : null;
 const level = spec ? spec.conf : 0;
 const snips = g.ext.flatMap((e) => e.snips.map((s) => ({ ...s, source: e.source })));
@@ -14,13 +14,24 @@ const brandLines = g.specs.slice(0, 3);
 const payload = JSON.stringify(g.specs.map((s) => [s.make, s.models, s.conf, s.evidence]));
 const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(g.name + " " + (g.area || "") + " Dubai")}`;
 ---
+{plain ? (
+<article class="plaincard" data-plain={g.slug}>
+  <div><a href={`/garage/${g.slug}/`}><b>{g.name}</b></a>
+    <div class="meta"><span><Icon name="pin" />{g.area || "Dubai"}</span>{g.isDealer ? <span class="dealer">Main dealer</span> : <span class="muted">Listed, no owner reviews yet</span>}</div></div>
+  <div class="acts">
+    {!g.isDealer && <a class="btn sm primary" href={`/review/${g.slug}/`}>Review</a>}
+    {g.isDealer && g.phone && <a class="btn sm" href={`tel:${g.phone.replace(/\s/g, "")}`}>Call {g.phone}</a>}
+    <a class="btn sm" href={`/garage/${g.slug}/`}>View</a>
+  </div>
+</article>
+) : (
 <article class="card gcard" data-garage={g.slug} data-specs={payload} data-gcount={g.google?.count || 0}>
   <div class="main">
     <div class="gtop"><h3><a href={`/garage/${g.slug}/`}>{g.name}</a></h3></div>
     <div class="meta">
       <span><Icon name="pin" />{g.area || "Dubai"}</span>
       {g.goodFor.map((x) => <span class="goodfor">Good for: {x}</span>)}
-      {g.business_type && g.business_type !== "workshop" && <span class="biztag">Also sells parts</span>}
+      {g.isDealer ? <span class="dealer">Main dealer</span> : g.business_type && g.business_type !== "workshop" && <span class="biztag">Also sells parts</span>}
     </div>
     <div class="matchslot">
       {spec && (
@@ -57,3 +68,4 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
     </div>
   </div>
 </article>
+)}

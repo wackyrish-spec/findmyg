@@ -1,19 +1,22 @@
 ---
 import ListPage from "../../../../components/ListPage.astro";
-import { JOB_PAGES, intro, isIndexable } from "../../../../lib/data.js";
+import { JOB_PAGES, intro, isIndexable, splitGeneral } from "../../../../lib/data.js";
 export function getStaticPaths() {
   return JOB_PAGES.map((j) => ({ params: { job: j.slug }, props: { j } }));
 }
 const { j } = Astro.props;
 const key = `dubai/job/${j.slug}`;
+const L = splitGeneral(j.garages);
 ---
 <ListPage
   title={`${j.name} in Dubai: independent garages`}
   description={`${j.plain}? Independent garages in Dubai for ${j.name.toLowerCase()}, and the car brands each one knows best.`}
   h1={`${j.name} in Dubai`}
-  lead={`${j.plain}. ${j.garages.length} garages list this work. Set your car to find the ones that know it.`}
+  lead={`${j.plain}. Garages with review evidence come first. Set your car to find the ones that know it.`}
   introText={intro(key)?.text}
-  garages={j.garages}
+  garages={L.ranked}
+  others={L.others}
+  othersLabel={"Also listed, no reviews yet"}
   noindex={!isIndexable(key, j.evidenceCount)}
   crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: j.name }]}
   related={JOB_PAGES.filter((x) => x.slug !== j.slug).map((x) => ({ name: x.name, url: `/dubai/job/${x.slug}/` }))}

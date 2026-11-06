@@ -13,7 +13,7 @@ if (form && form.dataset.ready && URL_ && KEY) {
   const DRAFT = `gg:draft:${slug}`;
   const err = $("rErr"), go = $("rGo"), ok = $("rOk"), signin = $("rSignin");
   const showErr = (m) => { err.textContent = m; err.hidden = !m; };
-  const fields = ["rMake", "rModel", "rYear", "rJob", "rPaid", "rRating", "rText", "rName"];
+  const fields = ["rMake", "rModel", "rYear", "rJob", "rPaid", "rRating", "rText", "rName", "rWa", "rDealer"];
 
   const read = () => ({
     ...Object.fromEntries(fields.map((f) => [f, $(f).value.trim()])),
@@ -37,6 +37,8 @@ if (form && form.dataset.ready && URL_ && KEY) {
     if (!d.rRating) return "Choose an overall rating.";
     if (d.rText.length < 40) return "Write at least 40 characters about how it went.";
     if (d.rYear && !/^(19|20)\d\d$/.test(d.rYear)) return "Year should look like 2014.";
+    if (d.rDealer && !/^\d+$/.test(d.rDealer.replace(/[,\s]/g, ""))) return "Dealer quote should be a number in AED.";
+    if (d.rWa && !/^\+?[0-9 ]{7,20}$/.test(d.rWa)) return "WhatsApp number should be digits only, like +971 50 123 4567.";
     if (d.rPaid && !/^\d+$/.test(d.rPaid.replace(/[,\s]/g, ""))) return "Total paid should be a number in AED.";
     return "";
   };
@@ -46,6 +48,11 @@ if (form && form.dataset.ready && URL_ && KEY) {
     signin.hidden = !!session;
     go.textContent = session ? "Submit review" : "Email me a sign-in link";
   };
+  $("rGoogle")?.addEventListener("click", async () => {
+    saveDraft();
+    const { error } = await sb.auth.signInWithOAuth({ provider: "google", options: { redirectTo: location.href.split("#")[0] } });
+    if (error) showErr(error.message);
+  });
   sb.auth.getSession().then(({ data }) => { session = data.session; paint(); });
   sb.auth.onAuthStateChange((_e, s) => { session = s; paint(); });
 
@@ -82,9 +89,12 @@ if (form && form.dataset.ready && URL_ && KEY) {
         called_before_extra: d.c2,
         would_return: d.c3,
         body: d.rText,
+        whatsapp: d.rWa || null,
+        dealer_quote: d.rDealer ? Number(d.rDealer.replace(/[,\s]/g, "")) : null,
       });
       if (error) {
-        if (error.code === "23505") throw new Error("You've already reviewed this garage. Thanks, one review per owner keeps things fair.");
+        if (error.code === "23505" || /recent_review/.test(error.message || ""))
+          throw new Error("You've reviewed this garage in the last 6 months. Thanks, one review per owner per garage every 6 months keeps things fair.");
         throw error;
       }
       clearDraft();

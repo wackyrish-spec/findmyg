@@ -5,6 +5,7 @@ export function getStaticPaths() {
   return GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
 }
 const { g } = Astro.props;
+const googleOn = import.meta.env.PUBLIC_GOOGLE_SIGNIN === "1";
 const supabaseReady = !!(import.meta.env.PUBLIC_SUPABASE_URL && import.meta.env.PUBLIC_SUPABASE_ANON_KEY);
 ---
 <Base title={`Review ${g.name}`} description={`Tell other owners how ${g.name} handled your car.`} noindex={true} crumbs={[{ name: g.name, url: `/garage/${g.slug}/` }, { name: "Write a review" }]}>
@@ -26,13 +27,17 @@ const supabaseReady = !!(import.meta.env.PUBLIC_SUPABASE_URL && import.meta.env.
         <fieldset class="fld" style="border:0;padding:0;margin:0"><legend style="margin-bottom:5px">Final bill vs quote</legend>
           <div class="seg"><label for="q1"><input type="radio" name="qvf" id="q1" value="same" />Same</label><label for="q2"><input type="radio" name="qvf" id="q2" value="higher" />Higher</label><label for="q3"><input type="radio" name="qvf" id="q3" value="lower" />Lower</label></div></fieldset>
       </div>
+      <label class="fld" for="rDealer">Did a main dealer quote you for this job? How much (AED)?<input id="rDealer" inputmode="numeric" placeholder="Optional, e.g. 6500" /><small>Helps other owners compare dealer and independent prices.</small></label>
       <fieldset class="fld" style="border:0;padding:0;margin:0"><legend style="margin-bottom:5px">How well did they know your car?</legend>
         <div class="seg"><label for="k1"><input type="radio" name="knew" id="k1" value="expert" />Inside out</label><label for="k2"><input type="radio" name="knew" id="k2" value="good" />Well</label><label for="k3"><input type="radio" name="knew" id="k3" value="average" />Average</label><label for="k4"><input type="radio" name="knew" id="k4" value="poor" />Not really</label></div></fieldset>
       <label class="fld" for="rRating">Overall rating<select id="rRating" required><option value="">Choose</option><option value="5">5 · Excellent</option><option value="4">4 · Good</option><option value="3">3 · OK</option><option value="2">2 · Poor</option><option value="1">1 · Bad</option></select></label>
       <div class="seg"><label for="c1"><input type="checkbox" id="c1" />Showed me the old parts</label><label for="c2"><input type="checkbox" id="c2" />Called before extra work</label><label for="c3"><input type="checkbox" id="c3" />Would go back</label></div>
       <label class="fld" for="rText">Your review<textarea id="rText" required placeholder="What was wrong, what they did, and how they dealt with you"></textarea><small>At least 40 characters.</small></label>
       <label class="fld" for="rName">Name shown with your review<input id="rName" maxlength="40" placeholder="e.g. Rishal, or a nickname" /><small>Optional. Leave blank to show "GarageGuide owner".</small></label>
+      <label class="fld" for="rWa">WhatsApp number (private)<input id="rWa" type="tel" inputmode="tel" maxlength="20" placeholder="+971 50 123 4567" /><small>Optional. Never shown. Only used if we need to check your review with you.</small></label>
       <div class="signin" id="rSignin" hidden>
+        {googleOn && <button class="btn" type="button" id="rGoogle">Continue with Google</button>}
+        {googleOn && <p class="muted" style="margin:8px 0;font-size:13px">or get a sign-in link by email:</p>}
         <label class="fld" for="rEmail">Your email<input id="rEmail" type="email" autocomplete="email" placeholder="you@example.com" /><small>We email you a sign-in link so each review comes from a real owner. Your email is never shown.</small></label>
       </div>
       <div class="err" id="rErr" hidden></div>

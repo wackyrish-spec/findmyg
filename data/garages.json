@@ -95,6 +95,7 @@
     "Jeep dealer"
    ],
    "business_type": "workshop + parts/sales",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -203,6 +204,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -299,6 +301,7 @@
     "Wheel alignment service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -397,6 +400,7 @@
     "Wheel alignment service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -520,6 +524,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -610,6 +615,7 @@
     "Window tinting service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -735,6 +741,7 @@
     "Transmission shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -839,6 +846,7 @@
     "Repair service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -926,6 +934,7 @@
     "Racing car parts store"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -1027,6 +1036,7 @@
     "Racing car parts store"
    ],
    "business_type": "workshop + parts/sales",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -1123,6 +1133,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -1216,6 +1227,7 @@
     "Vehicle wrapping service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -1315,6 +1327,7 @@
     "Tourist attraction"
    ],
    "business_type": "workshop + parts/sales",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -1423,6 +1436,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -1532,6 +1546,7 @@
     "Window tinting service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -1630,6 +1645,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -1717,6 +1733,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -1845,6 +1862,7 @@
     "Motorsports store"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -1945,6 +1963,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -2038,6 +2057,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop + parts/sales",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -2128,6 +2148,7 @@
     "Metal fabricator"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -2243,6 +2264,7 @@
     "Wheel alignment service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -2392,6 +2414,7 @@
     "Repair service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -2481,6 +2504,7 @@
     "Truck parts supplier"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -2569,6 +2593,7 @@
     "Auto body shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -2657,6 +2682,7 @@
     "Oil change service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -2767,6 +2793,7 @@
     "Auto machine shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -2865,6 +2892,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -2951,6 +2979,7 @@
     "Transmission shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -3029,6 +3058,7 @@
     "Oil change service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -3096,6 +3126,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -3159,6 +3190,7 @@
     "Repair service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -3236,6 +3268,7 @@
     "Car inspection station"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Bodywork & paint"
@@ -3323,6 +3356,7 @@
     "Transmission shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -3394,6 +3428,7 @@
     "Mechanic"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -3459,6 +3494,7 @@
    "google_place_id": null,
    "categories": [],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -3523,6 +3559,7 @@
    "google_place_id": null,
    "categories": [],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -3573,6 +3610,7 @@
    "google_place_id": null,
    "categories": [],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -3664,6 +3702,7 @@
    "google_place_id": null,
    "categories": [],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -3714,6 +3753,7 @@
    "google_place_id": null,
    "categories": [],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -3784,6 +3824,7 @@
    "google_place_id": null,
    "categories": [],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -3838,6 +3879,7 @@
    "google_place_id": null,
    "categories": [],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -3888,6 +3930,7 @@
    "google_place_id": null,
    "categories": [],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -3938,6 +3981,7 @@
    "google_place_id": null,
    "categories": [],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -3988,6 +4032,7 @@
    "google_place_id": null,
    "categories": [],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -4038,6 +4083,7 @@
    "google_place_id": null,
    "categories": [],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -4102,6 +4148,7 @@
     "Wheel alignment service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -4159,6 +4206,51 @@
    ]
   },
   {
+   "id": "volkswagen-service-center-and-spare-parts-dubai-5ce2",
+   "name": "Volkswagen Service Center and Spare Parts, Dubai - Al Nabooda Automobiles",
+   "listing_name": "Volkswagen Service Center and Spare Parts, Dubai - Al Nabooda Automobiles",
+   "emirate": "Dubai",
+   "area": "Al Rashidiya",
+   "address": "#D62 - Nad Al Hamar Rd - Al Rashidiya - Dubai",
+   "lat": 25.226543,
+   "lng": 55.375997,
+   "phone": "80089",
+   "whatsapp": "",
+   "website": "https://www.volkswagen-dubai.com/en.html?_ga=2.190697131.1028605659.1628073661-261454694.1628073661&utm_source=organic&utm_medium=googlemybusiness&utm_id=gmb_Volkswagen_Service_Center_Dubai+",
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=Volkswagen%20Service%20Center%20and%20Spare%20Parts%2C%20Dubai%20-%20Al%20Nabooda%20Automobiles&query_place_id=ChIJXYj1NIpdXz4R4lwpMpRKuzY",
+   "google_place_id": "ChIJXYj1NIpdXz4R4lwpMpRKuzY",
+   "categories": [
+    "Volkswagen dealer",
+    "Auto parts store",
+    "Car accessories store",
+    "Car repair and maintenance service",
+    "Oil change service"
+   ],
+   "business_type": "dealer",
+   "dealer_for": "Volkswagen",
+   "hours": "",
+   "services": [
+    "Servicing"
+   ],
+   "specialties": [],
+   "is_specialist": false,
+   "external_ratings": [
+    {
+     "source": "Google",
+     "rating": 4.8,
+     "count": 5088,
+     "url": "https://www.google.com/maps/search/?api=1&query=Volkswagen%20Service%20Center%20and%20Spare%20Parts%2C%20Dubai%20-%20Al%20Nabooda%20Automobiles&query_place_id=ChIJXYj1NIpdXz4R4lwpMpRKuzY"
+    }
+   ],
+   "external_reviews": [],
+   "review_summary": "Official Volkswagen dealer service centre, listed as a price anchor. Google rating 4.8 from 5088 reviews.",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://www.google.com/maps/search/?api=1&query=Volkswagen%20Service%20Center%20and%20Spare%20Parts%2C%20Dubai%20-%20Al%20Nabooda%20Automobiles&query_place_id=ChIJXYj1NIpdXz4R4lwpMpRKuzY",
+    "https://www.volkswagen-dubai.com/en.html?_ga=2.190697131.1028605659.1628073661-261454694.1628073661&utm_source=organic&utm_medium=googlemybusiness&utm_id=gmb_Volkswagen_Service_Center_Dubai+"
+   ]
+  },
+  {
    "id": "royal-swiss-auto-service-center-al-quoz-dubai-a81e",
    "name": "Royal Swiss Auto Service Center, AL Quoz, Dubai",
    "listing_name": "Royal Swiss Auto Service Center, AL Quoz, Dubai",
@@ -4185,6 +4277,7 @@
     "Repair service"
    ],
    "business_type": "workshop + parts/sales",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -4243,6 +4336,49 @@
    ]
   },
   {
+   "id": "agmc-1c86",
+   "name": "AGMC - BMW - Sheikh Zayed Road",
+   "listing_name": "AGMC - BMW - Sheikh Zayed Road",
+   "emirate": "Dubai",
+   "area": "Al Quoz",
+   "address": "Sheikh Zayed Rd - Al Qouz First - Al Quoz - Dubai",
+   "lat": 25.1748152,
+   "lng": 55.2457717,
+   "phone": "8002462",
+   "whatsapp": "",
+   "website": "https://www.bmw-dubai.com/?utm_source=Local-SheikhZayedRoad&utm_medium=organic&utm_campaign=GBP",
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=AGMC%20-%20BMW%20-%20Sheikh%20Zayed%20Road&query_place_id=ChIJ3Uctl-lpXz4RhhyZW3iwkXI",
+   "google_place_id": "ChIJ3Uctl-lpXz4RhhyZW3iwkXI",
+   "categories": [
+    "BMW dealer",
+    "Auto body parts supplier",
+    "Auto repair shop",
+    "Car dealer",
+    "Used car dealer"
+   ],
+   "business_type": "dealer",
+   "dealer_for": "BMW",
+   "hours": "",
+   "services": [],
+   "specialties": [],
+   "is_specialist": false,
+   "external_ratings": [
+    {
+     "source": "Google",
+     "rating": 4.3,
+     "count": 3686,
+     "url": "https://www.google.com/maps/search/?api=1&query=AGMC%20-%20BMW%20-%20Sheikh%20Zayed%20Road&query_place_id=ChIJ3Uctl-lpXz4RhhyZW3iwkXI"
+    }
+   ],
+   "external_reviews": [],
+   "review_summary": "Official BMW dealer service centre, listed as a price anchor. Google rating 4.3 from 3686 reviews.",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://www.google.com/maps/search/?api=1&query=AGMC%20-%20BMW%20-%20Sheikh%20Zayed%20Road&query_place_id=ChIJ3Uctl-lpXz4RhhyZW3iwkXI",
+    "https://www.bmw-dubai.com/?utm_source=Local-SheikhZayedRoad&utm_medium=organic&utm_campaign=GBP"
+   ]
+  },
+  {
    "id": "800motorguru-auto-repair-services-0424",
    "name": "800MotorGuru Auto Repair Services",
    "listing_name": "800MotorGuru Auto Repair Services",
@@ -4265,6 +4401,7 @@
     "Towing service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -4322,6 +4459,95 @@
    ]
   },
   {
+   "id": "gargash-auto-multi-brand-car-service-centre-a4ed",
+   "name": "Gargash Auto Multi-Brand Car Service Centre",
+   "listing_name": "Gargash Auto Multi-Brand Car Service Centre - Al Quoz 4 , Dubai.",
+   "emirate": "Dubai",
+   "area": "Al Quoz Industrial 4",
+   "address": "7b St - Al Qouz Ind.fourth - Al Quoz - Dubai",
+   "lat": 25.121970899999997,
+   "lng": 55.2399401,
+   "phone": "+97142584460",
+   "whatsapp": "",
+   "website": "https://gargashauto.ae/",
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=Gargash%20Auto%20Multi-Brand%20Car%20Service%20Centre%20-%20Al%20Quoz%204%20%2C%20Dubai.&query_place_id=ChIJQ61dU1NpXz4R7aRfYUHN2Os",
+   "google_place_id": "ChIJQ61dU1NpXz4R7aRfYUHN2Os",
+   "categories": [
+    "Auto repair shop",
+    "Auto body shop",
+    "Auto painting",
+    "Car battery store",
+    "Car repair and maintenance service"
+   ],
+   "business_type": "workshop",
+   "dealer_for": null,
+   "hours": "",
+   "services": [
+    "Servicing",
+    "Electrical",
+    "Bodywork & paint"
+   ],
+   "specialties": [],
+   "is_specialist": false,
+   "external_ratings": [
+    {
+     "source": "Google",
+     "rating": 4.6,
+     "count": 1763,
+     "url": "https://www.google.com/maps/search/?api=1&query=Gargash%20Auto%20Multi-Brand%20Car%20Service%20Centre%20-%20Al%20Quoz%204%20%2C%20Dubai.&query_place_id=ChIJQ61dU1NpXz4R7aRfYUHN2Os"
+    }
+   ],
+   "external_reviews": [],
+   "review_summary": "Google rating 4.6 from 1763 reviews. Reviews not yet analysed.",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://www.google.com/maps/search/?api=1&query=Gargash%20Auto%20Multi-Brand%20Car%20Service%20Centre%20-%20Al%20Quoz%204%20%2C%20Dubai.&query_place_id=ChIJQ61dU1NpXz4R7aRfYUHN2Os",
+    "https://gargashauto.ae/"
+   ]
+  },
+  {
+   "id": "gargash-98c0",
+   "name": "Gargash - Quoz",
+   "listing_name": "Gargash - Quoz",
+   "emirate": "Dubai",
+   "area": "Al Quoz Industrial 3",
+   "address": "14 19th St - Al Qouz Ind.third - Al Quoz - Dubai",
+   "lat": 25.1240569,
+   "lng": 55.2172238,
+   "phone": "8002369",
+   "whatsapp": "",
+   "website": "https://www.mercedes-benz-mena.com/",
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=Gargash%20-%20Quoz&query_place_id=ChIJkz2CTCdrXz4RwJj5AVQNgB8",
+   "google_place_id": "ChIJkz2CTCdrXz4RwJj5AVQNgB8",
+   "categories": [
+    "Mercedes-Benz dealer",
+    "Car repair and maintenance service"
+   ],
+   "business_type": "dealer",
+   "dealer_for": "Mercedes-Benz",
+   "hours": "",
+   "services": [
+    "Servicing"
+   ],
+   "specialties": [],
+   "is_specialist": false,
+   "external_ratings": [
+    {
+     "source": "Google",
+     "rating": 3.9,
+     "count": 1729,
+     "url": "https://www.google.com/maps/search/?api=1&query=Gargash%20-%20Quoz&query_place_id=ChIJkz2CTCdrXz4RwJj5AVQNgB8"
+    }
+   ],
+   "external_reviews": [],
+   "review_summary": "Official Mercedes-Benz dealer service centre, listed as a price anchor. Google rating 3.9 from 1729 reviews.",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://www.google.com/maps/search/?api=1&query=Gargash%20-%20Quoz&query_place_id=ChIJkz2CTCdrXz4RwJj5AVQNgB8",
+    "https://www.mercedes-benz-mena.com/"
+   ]
+  },
+  {
    "id": "quick-fit-auto-center-8128",
    "name": "Quick Fit Auto Center",
    "listing_name": "Quick Fit Auto Center",
@@ -4348,6 +4574,7 @@
     "Auto window tinting service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -4437,6 +4664,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -4513,6 +4741,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -4594,6 +4823,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -4664,6 +4894,49 @@
    ]
   },
   {
+   "id": "porsche-service-centre-al-quoz-d496",
+   "name": "Porsche Service Centre, Al Quoz (Authorized Service Centre)",
+   "listing_name": "Porsche Service Centre, Al Quoz (Authorized Service Centre)",
+   "emirate": "Dubai",
+   "area": "Al Quoz",
+   "address": "Al Quoz Industrial Area 3 - Dubai",
+   "lat": 25.1256746,
+   "lng": 55.216154,
+   "phone": "800918",
+   "whatsapp": "",
+   "website": "https://dealer.porsche.com/ae/dubai/en-GB",
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=Porsche%20Service%20Centre%2C%20Al%20Quoz%20%28Authorized%20Service%20Centre%29&query_place_id=ChIJpcWSFdtrXz4RltTgcV4IJRw",
+   "google_place_id": "ChIJpcWSFdtrXz4RltTgcV4IJRw",
+   "categories": [
+    "Car repair and maintenance service",
+    "Auto repair shop",
+    "Porsche dealer"
+   ],
+   "business_type": "dealer",
+   "dealer_for": "Porsche",
+   "hours": "",
+   "services": [
+    "Servicing"
+   ],
+   "specialties": [],
+   "is_specialist": false,
+   "external_ratings": [
+    {
+     "source": "Google",
+     "rating": 4.3,
+     "count": 1040,
+     "url": "https://www.google.com/maps/search/?api=1&query=Porsche%20Service%20Centre%2C%20Al%20Quoz%20%28Authorized%20Service%20Centre%29&query_place_id=ChIJpcWSFdtrXz4RltTgcV4IJRw"
+    }
+   ],
+   "external_reviews": [],
+   "review_summary": "Official Porsche dealer service centre, listed as a price anchor. Google rating 4.3 from 1040 reviews.",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://www.google.com/maps/search/?api=1&query=Porsche%20Service%20Centre%2C%20Al%20Quoz%20%28Authorized%20Service%20Centre%29&query_place_id=ChIJpcWSFdtrXz4RltTgcV4IJRw",
+    "https://dealer.porsche.com/ae/dubai/en-GB"
+   ]
+  },
+  {
    "id": "evs-electric-vehicle-services-afcc",
    "name": "EVS Electric Vehicle Services.",
    "listing_name": "EVS Electric Vehicle Services.",
@@ -4684,6 +4957,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -4765,6 +5039,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -4825,6 +5100,47 @@
    ]
   },
   {
+   "id": "gargash-auto-multi-brand-car-service-centre-e695",
+   "name": "Gargash Auto Multi-Brand Car Service Centre",
+   "listing_name": "Gargash Auto Multi-Brand Car Service Centre - Al Qusais 4, Dubai",
+   "emirate": "Dubai",
+   "area": "Al Qusais",
+   "address": "208 Amman St - Al Qusais Ind. Fourth - Al Qusais Industrial Area - Dubai",
+   "lat": 25.2923086,
+   "lng": 55.398428599999995,
+   "phone": "+97142679971",
+   "whatsapp": "",
+   "website": "http://gargashauto.ae/",
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=Gargash%20Auto%20Multi-Brand%20Car%20Service%20Centre%20-%20Al%20Qusais%204%2C%20Dubai&query_place_id=ChIJ5YZpXB9cXz4RleYWQO_a0Js",
+   "google_place_id": "ChIJ5YZpXB9cXz4RleYWQO_a0Js",
+   "categories": [
+    "Auto body shop"
+   ],
+   "business_type": "workshop",
+   "dealer_for": null,
+   "hours": "",
+   "services": [
+    "Bodywork & paint"
+   ],
+   "specialties": [],
+   "is_specialist": false,
+   "external_ratings": [
+    {
+     "source": "Google",
+     "rating": 4.3,
+     "count": 930,
+     "url": "https://www.google.com/maps/search/?api=1&query=Gargash%20Auto%20Multi-Brand%20Car%20Service%20Centre%20-%20Al%20Qusais%204%2C%20Dubai&query_place_id=ChIJ5YZpXB9cXz4RleYWQO_a0Js"
+    }
+   ],
+   "external_reviews": [],
+   "review_summary": "Google rating 4.3 from 930 reviews. Reviews not yet analysed.",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://www.google.com/maps/search/?api=1&query=Gargash%20Auto%20Multi-Brand%20Car%20Service%20Centre%20-%20Al%20Qusais%204%2C%20Dubai&query_place_id=ChIJ5YZpXB9cXz4RleYWQO_a0Js",
+    "http://gargashauto.ae/"
+   ]
+  },
+  {
    "id": "max-garage-0080",
    "name": "Max Garage",
    "listing_name": "Max Garage",
@@ -4846,6 +5162,7 @@
     "Tire shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -4924,6 +5241,7 @@
     "Oil change service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -5004,6 +5322,7 @@
     "Oil change service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -5099,6 +5418,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -5210,6 +5530,7 @@
     "Racing car parts store"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -5303,6 +5624,7 @@
     "Repair service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -5390,6 +5712,7 @@
     "Vehicle wrapping service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -5480,6 +5803,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -5579,6 +5903,7 @@
     "Oil change service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -5679,6 +6004,7 @@
     "Vehicle wrapping service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -5735,6 +6061,59 @@
    ]
   },
   {
+   "id": "silberarrows-7699",
+   "name": "SilberArrows",
+   "listing_name": "SilberArrows - Mercedes-Benz Service Centre",
+   "emirate": "Dubai",
+   "area": "Al Quoz Industrial 1",
+   "address": "Al Manara St - Al Qouz Ind.first - Al Quoz - Dubai",
+   "lat": 25.1460083,
+   "lng": 55.2301848,
+   "phone": "+97143805515",
+   "whatsapp": "",
+   "website": "https://mercedes-benz.silberarrows.com/",
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=SilberArrows%20-%20Mercedes-Benz%20Service%20Centre&query_place_id=ChIJF3QahH1pXz4RmXY83SPFJaE",
+   "google_place_id": "ChIJF3QahH1pXz4RmXY83SPFJaE",
+   "categories": [
+    "Auto repair shop",
+    "Auto machine shop",
+    "Car repair and maintenance service"
+   ],
+   "business_type": "workshop",
+   "dealer_for": null,
+   "hours": "",
+   "services": [
+    "Servicing"
+   ],
+   "specialties": [
+    {
+     "make": "Mercedes-Benz",
+     "models": [],
+     "level": "brand",
+     "confidence": "low",
+     "evidence": "Garage name advertises Mercedes-Benz; reviews not yet analysed",
+     "mentions": 0,
+     "basis": "listing name"
+    }
+   ],
+   "is_specialist": false,
+   "external_ratings": [
+    {
+     "source": "Google",
+     "rating": 4.8,
+     "count": 539,
+     "url": "https://www.google.com/maps/search/?api=1&query=SilberArrows%20-%20Mercedes-Benz%20Service%20Centre&query_place_id=ChIJF3QahH1pXz4RmXY83SPFJaE"
+    }
+   ],
+   "external_reviews": [],
+   "review_summary": "Google rating 4.8 from 539 reviews. Reviews not yet analysed.",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://www.google.com/maps/search/?api=1&query=SilberArrows%20-%20Mercedes-Benz%20Service%20Centre&query_place_id=ChIJF3QahH1pXz4RmXY83SPFJaE",
+    "https://mercedes-benz.silberarrows.com/"
+   ]
+  },
+  {
    "id": "the-mechanic-auto-center-b093",
    "name": "The Mechanic Auto Center",
    "listing_name": "The Mechanic Auto Center",
@@ -5759,6 +6138,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -5840,6 +6220,7 @@
     "Car detailing service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -5919,6 +6300,7 @@
     "Wheel alignment service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -5994,6 +6376,7 @@
     "Car wash"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -6083,6 +6466,7 @@
     "Car inspection station"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -6166,6 +6550,7 @@
     "Tire repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -6262,6 +6647,7 @@
     "Car wash"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -6362,6 +6748,7 @@
     "Car accessories store"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -6469,6 +6856,7 @@
     "Transmission shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -6568,6 +6956,7 @@
     "Auto tune up service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -6617,6 +7006,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -6660,6 +7050,7 @@
     "Car battery store"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -6701,6 +7092,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -6718,6 +7110,45 @@
    "reviews_analysed": 0,
    "sources": [
     "https://www.google.com/maps/search/?api=1&query=PINOY%20AUTO%20GARAGE%20DUBAI&query_place_id=ChIJ0WEmqqZnXz4Rs2yYvbl4zMc"
+   ]
+  },
+  {
+   "id": "gargash-alfa-romeo-service-centre-2d8f",
+   "name": "Gargash Alfa Romeo Service Centre",
+   "listing_name": "Gargash Alfa Romeo Service Centre",
+   "emirate": "Dubai",
+   "area": "Al Qusais",
+   "address": "79RX+RP8 - Qusais - Al Qusais Industrial Area - Industrial Area 4 - Dubai",
+   "lat": 25.2916965,
+   "lng": 55.3983449,
+   "phone": "8004627",
+   "whatsapp": "",
+   "website": "https://alfaromeo-uae.com/",
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=Gargash%20Alfa%20Romeo%20Service%20Centre&query_place_id=ChIJGT47BwldXz4Rjy1OswjqHRw",
+   "google_place_id": "ChIJGT47BwldXz4Rjy1OswjqHRw",
+   "categories": [
+    "Auto repair shop"
+   ],
+   "business_type": "dealer",
+   "dealer_for": "Alfa Romeo",
+   "hours": "",
+   "services": [],
+   "specialties": [],
+   "is_specialist": false,
+   "external_ratings": [
+    {
+     "source": "Google",
+     "rating": 4.3,
+     "count": 382,
+     "url": "https://www.google.com/maps/search/?api=1&query=Gargash%20Alfa%20Romeo%20Service%20Centre&query_place_id=ChIJGT47BwldXz4Rjy1OswjqHRw"
+    }
+   ],
+   "external_reviews": [],
+   "review_summary": "Official Alfa Romeo dealer service centre, listed as a price anchor. Google rating 4.3 from 382 reviews.",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://www.google.com/maps/search/?api=1&query=Gargash%20Alfa%20Romeo%20Service%20Centre&query_place_id=ChIJGT47BwldXz4Rjy1OswjqHRw",
+    "https://alfaromeo-uae.com/"
    ]
   },
   {
@@ -6745,6 +7176,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -6796,6 +7228,7 @@
     "Vehicle wrapping service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -6845,6 +7278,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -6896,6 +7330,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -6947,6 +7382,7 @@
     "Mechanic"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -6992,6 +7428,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -7069,6 +7506,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -7142,6 +7580,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -7220,6 +7659,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -7302,6 +7742,7 @@
     "Repair service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -7387,6 +7828,7 @@
     "Tire service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -7430,6 +7872,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -7473,6 +7916,7 @@
     "Electrical repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -7518,6 +7962,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -7568,6 +8013,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -7614,6 +8060,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -7658,6 +8105,7 @@
     "Car security system installer"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -7679,6 +8127,56 @@
    "reviews_analysed": 0,
    "sources": [
     "https://www.google.com/maps/search/?api=1&query=TRD%20AUTO%20REPAIRING%20DUBAI&query_place_id=ChIJQXdcPFtpXz4RgHMMtInVa1I"
+   ]
+  },
+  {
+   "id": "gargash-auto-elite-f4db",
+   "name": "Gargash Auto Elite",
+   "listing_name": "Gargash Auto Elite",
+   "emirate": "Dubai",
+   "area": "Al Quoz Industrial 4",
+   "address": "16 29th St - Al Qouz Ind.fourth - Al Quoz - Dubai",
+   "lat": 25.1098341,
+   "lng": 55.226568099999994,
+   "phone": "8004272886",
+   "whatsapp": "",
+   "website": "https://gargashauto.ae/",
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=Gargash%20Auto%20Elite&query_place_id=ChIJUagJtP1dXz4R2_R4DeNrntA",
+   "google_place_id": "ChIJUagJtP1dXz4R2_R4DeNrntA",
+   "categories": [
+    "Car repair and maintenance service",
+    "Auto body shop",
+    "Auto dent removal service",
+    "Auto electrical service",
+    "Auto painting",
+    "Auto tune up service",
+    "Vehicle inspection service"
+   ],
+   "business_type": "workshop",
+   "dealer_for": null,
+   "hours": "",
+   "services": [
+    "Servicing",
+    "Electrical",
+    "Bodywork & paint",
+    "Tuning & performance"
+   ],
+   "specialties": [],
+   "is_specialist": false,
+   "external_ratings": [
+    {
+     "source": "Google",
+     "rating": 4.7,
+     "count": 267,
+     "url": "https://www.google.com/maps/search/?api=1&query=Gargash%20Auto%20Elite&query_place_id=ChIJUagJtP1dXz4R2_R4DeNrntA"
+    }
+   ],
+   "external_reviews": [],
+   "review_summary": "Google rating 4.7 from 267 reviews. Reviews not yet analysed.",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://www.google.com/maps/search/?api=1&query=Gargash%20Auto%20Elite&query_place_id=ChIJUagJtP1dXz4R2_R4DeNrntA",
+    "https://gargashauto.ae/"
    ]
   },
   {
@@ -7707,6 +8205,7 @@
     "Oil change service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -7757,6 +8256,7 @@
     "Repair service"
    ],
    "business_type": "workshop + parts/sales",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -7802,6 +8302,7 @@
     "Car wash"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -7843,6 +8344,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -7881,6 +8383,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -7927,6 +8430,7 @@
     "Tire shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -7972,6 +8476,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -8018,6 +8523,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -8064,6 +8570,7 @@
     "Mechanic"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -8111,6 +8618,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -8159,6 +8667,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -8202,6 +8711,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -8251,6 +8761,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -8292,6 +8803,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -8333,6 +8845,7 @@
     "Transmission shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -8375,6 +8888,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -8416,6 +8930,7 @@
     "Auto parts store"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -8464,6 +8979,7 @@
     "Transmission shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -8510,6 +9026,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -8550,6 +9067,7 @@
     "Auto tune up service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -8590,6 +9108,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -8654,6 +9173,7 @@
     "Store"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -8695,6 +9215,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -8737,6 +9258,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -8778,6 +9300,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -8819,6 +9342,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -8866,6 +9390,7 @@
     "Transmission shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -8911,6 +9436,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -8951,6 +9477,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop + parts/sales",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -8994,6 +9521,7 @@
     "Small engine repair service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -9035,6 +9563,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -9078,6 +9607,7 @@
     "Mechanic"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -9103,6 +9633,47 @@
    ]
   },
   {
+   "id": "land-rover-authorised-repairer-al-tayer-motors-3bf7",
+   "name": "Land Rover Authorised Repairer Al Tayer Motors",
+   "listing_name": "Land Rover Authorised Repairer Al Tayer Motors",
+   "emirate": "Dubai",
+   "area": "Sheikh Zayed Road",
+   "address": "Between 3rd and - Sheikh Zayed Road - 4th interchange - Dubai",
+   "lat": 25.141717,
+   "lng": 55.220544,
+   "phone": "+97143037070",
+   "whatsapp": "",
+   "website": "https://www.landrover-uae.com/en/dealer-locator?utm_source=GMB&utm_medium=organic&utm_campaign=LRAESC008",
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=Land%20Rover%20Authorised%20Repairer%20Al%20Tayer%20Motors&query_place_id=ChIJj8a2cSxqXz4R9ztOBQy773g",
+   "google_place_id": "ChIJj8a2cSxqXz4R9ztOBQy773g",
+   "categories": [
+    "Land Rover dealer",
+    "Car dealer",
+    "Used car dealer"
+   ],
+   "business_type": "dealer",
+   "dealer_for": "Land Rover",
+   "hours": "",
+   "services": [],
+   "specialties": [],
+   "is_specialist": false,
+   "external_ratings": [
+    {
+     "source": "Google",
+     "rating": 4,
+     "count": 191,
+     "url": "https://www.google.com/maps/search/?api=1&query=Land%20Rover%20Authorised%20Repairer%20Al%20Tayer%20Motors&query_place_id=ChIJj8a2cSxqXz4R9ztOBQy773g"
+    }
+   ],
+   "external_reviews": [],
+   "review_summary": "Official Land Rover dealer service centre, listed as a price anchor. Google rating 4 from 191 reviews.",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://www.google.com/maps/search/?api=1&query=Land%20Rover%20Authorised%20Repairer%20Al%20Tayer%20Motors&query_place_id=ChIJj8a2cSxqXz4R9ztOBQy773g",
+    "https://www.landrover-uae.com/en/dealer-locator?utm_source=GMB&utm_medium=organic&utm_campaign=LRAESC008"
+   ]
+  },
+  {
    "id": "compass-automatic-gear-llc-daa3",
    "name": "Compass Automatic Gear LLC",
    "listing_name": "Compass Automatic Gear LLC - Dubai",
@@ -9120,6 +9691,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -9158,6 +9730,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -9200,6 +9773,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -9258,6 +9832,7 @@
     "Transmission shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -9307,6 +9882,7 @@
     "Fabrication engineer"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -9351,6 +9927,7 @@
     "Chauffeur service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -9401,6 +9978,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -9444,6 +10022,7 @@
     "Vehicle wrapping service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -9494,6 +10073,7 @@
     "Transmission shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -9548,6 +10128,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -9620,6 +10201,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -9658,6 +10240,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -9717,6 +10300,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -9763,6 +10347,7 @@
     "Camping store"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Bodywork & paint"
@@ -9803,6 +10388,7 @@
     "Auto restoration service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -9842,6 +10428,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -9884,6 +10471,7 @@
     "Paint store"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -9927,6 +10515,7 @@
     "Auto tune up service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -9968,6 +10557,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -10017,6 +10607,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -10069,6 +10660,7 @@
     "Mechanic"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -10121,6 +10713,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -10172,6 +10765,7 @@
     "Car leasing service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -10236,6 +10830,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -10277,6 +10872,7 @@
     "Car wash"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -10318,6 +10914,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -10363,6 +10960,7 @@
     "Window tinting service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -10407,6 +11005,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -10448,6 +11047,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop + parts/sales",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -10488,6 +11088,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -10525,6 +11126,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -10569,6 +11171,7 @@
     "Electrical repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -10617,6 +11220,7 @@
     "Repair service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -10660,6 +11264,7 @@
     "Brake shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Brakes"
@@ -10702,6 +11307,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -10747,6 +11353,7 @@
     "Repair service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -10802,6 +11409,7 @@
     "Repair service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -10845,6 +11453,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -10890,6 +11499,7 @@
     "Wheel store"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -10933,6 +11543,7 @@
     "Car wash"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -10983,6 +11594,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -11036,6 +11648,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -11110,6 +11723,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -11150,6 +11764,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -11205,6 +11820,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -11246,6 +11862,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -11287,6 +11904,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -11330,6 +11948,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -11374,6 +11993,7 @@
     "Racing car parts store"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -11415,6 +12035,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -11457,6 +12078,7 @@
     "Oil change service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -11508,6 +12130,7 @@
     "Transmission shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -11561,6 +12184,7 @@
     "Transmission shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -11612,6 +12236,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -11655,6 +12280,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -11699,6 +12325,7 @@
     "Window tinting service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -11750,6 +12377,7 @@
     "Oil change service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -11798,6 +12426,7 @@
     "Tire service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -11848,6 +12477,7 @@
     "Chauffeur service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -11893,6 +12523,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -11934,6 +12565,7 @@
     "Mechanic"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -11971,6 +12603,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -12009,6 +12642,7 @@
     "Auto tune up service"
    ],
    "business_type": "workshop + parts/sales",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -12053,6 +12687,7 @@
     "Auto tune up service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -12105,6 +12740,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -12145,6 +12781,7 @@
     "Auto accessories wholesaler"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Gearbox"
@@ -12185,6 +12822,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -12224,6 +12862,7 @@
     "Mechanic"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -12262,6 +12901,7 @@
     "Auto bodywork mechanic"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Bodywork & paint"
@@ -12320,6 +12960,7 @@
     "Wheel alignment service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -12392,6 +13033,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -12434,6 +13076,7 @@
     "Metal fabricator"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -12482,6 +13125,7 @@
     "Truck repair shop"
    ],
    "business_type": "workshop + parts/sales",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -12526,6 +13170,7 @@
     "Auto bodywork mechanic"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -12575,6 +13220,7 @@
     "Wheel store"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -12617,6 +13263,7 @@
     "Auto electrical service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -12658,6 +13305,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -12696,6 +13344,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -12733,6 +13382,7 @@
     "Auto air conditioning service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -12774,6 +13424,7 @@
     "Auto parts manufacturer"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -12812,6 +13463,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -12849,6 +13501,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -12888,6 +13541,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -12934,6 +13588,7 @@
     "Tire shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -12976,6 +13631,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -13015,6 +13671,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -13054,6 +13711,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -13097,6 +13755,7 @@
     "Electrical repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -13150,6 +13809,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -13193,6 +13853,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -13240,6 +13901,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -13279,6 +13941,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -13317,6 +13980,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -13355,6 +14019,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -13393,6 +14058,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -13437,6 +14103,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -13489,6 +14156,7 @@
     "Auto bodywork mechanic"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Bodywork & paint"
@@ -13529,6 +14197,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -13569,6 +14238,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -13606,6 +14276,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -13646,6 +14317,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -13686,6 +14358,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -13724,6 +14397,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -13765,6 +14439,7 @@
     "Repair service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -13806,6 +14481,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -13858,6 +14534,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -13904,6 +14581,7 @@
     "Chauffeur service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -13954,6 +14632,7 @@
     "Vehicle wrapping service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -13998,6 +14677,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -14045,6 +14725,7 @@
     "Motor vehicle dealer"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -14087,6 +14768,7 @@
     "Auto restoration service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -14136,6 +14818,7 @@
     "Transmission shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -14188,6 +14871,7 @@
     "Mechanic"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -14233,6 +14917,7 @@
     "Repair service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -14274,6 +14959,7 @@
     "Auto tune up service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -14319,6 +15005,7 @@
     "Small engine repair service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -14370,6 +15057,7 @@
     "Transmission shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -14415,6 +15103,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -14459,6 +15148,7 @@
     "Tune up supplier"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -14501,6 +15191,7 @@
     "Auto tune up service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -14543,6 +15234,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -14584,6 +15276,7 @@
     "Small engine repair service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -14626,6 +15319,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -14664,6 +15358,7 @@
     "Mechanic"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -14701,6 +15396,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -14738,6 +15434,7 @@
    "google_place_id": "ChIJyz7dQONrXz4Rg9RIKRWngN0",
    "categories": [],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -14782,6 +15479,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -14830,6 +15528,7 @@
     "Repair service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -14877,6 +15576,7 @@
     "Truck accessories store"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -14920,6 +15620,7 @@
     "Car dealer"
    ],
    "business_type": "workshop + parts/sales",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -14960,6 +15661,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -15010,6 +15712,7 @@
     "Transmission shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Gearbox"
@@ -15049,6 +15752,7 @@
     "Auto bodywork mechanic"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Bodywork & paint"
@@ -15097,6 +15801,7 @@
     "Vehicle wrapping service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -15140,6 +15845,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -15177,6 +15883,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -15226,6 +15933,7 @@
     "Automation company"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -15273,6 +15981,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -15311,6 +16020,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -15358,6 +16068,7 @@
     "Wheel alignment service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -15401,6 +16112,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -15440,6 +16152,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -15484,6 +16197,7 @@
     "Oil change service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -15535,6 +16249,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -15580,6 +16295,7 @@
     "Car battery store"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -15631,6 +16347,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -15675,6 +16392,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -15715,6 +16433,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -15764,6 +16483,7 @@
     "Wheel alignment service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -15810,6 +16530,7 @@
     "Car accessories store"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -15854,6 +16575,7 @@
     "Auto tune up service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -15895,6 +16617,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -15932,6 +16655,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -15972,6 +16696,7 @@
     "Auto body shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Bodywork & paint"
@@ -16016,6 +16741,7 @@
     "Oil change service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -16057,6 +16783,7 @@
     "Auto body shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Bodywork & paint"
@@ -16101,6 +16828,7 @@
     "Vehicle wrapping service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -16142,6 +16870,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -16188,6 +16917,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -16232,6 +16962,7 @@
     "GMC dealer"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Gearbox"
@@ -16271,6 +17002,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -16311,6 +17043,7 @@
     "Porsche dealer"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -16352,6 +17085,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -16389,6 +17123,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -16429,6 +17164,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -16478,6 +17214,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -16521,6 +17258,7 @@
     "Car dealer"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Bodywork & paint"
@@ -16560,6 +17298,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -16597,6 +17336,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -16637,6 +17377,7 @@
     "Car accessories store"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -16677,6 +17418,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -16717,6 +17459,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -16757,6 +17500,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -16803,6 +17547,7 @@
     "Tire service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -16845,6 +17590,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -16884,6 +17630,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -16928,6 +17675,7 @@
     "Car detailing service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -16969,6 +17717,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],
@@ -17006,6 +17755,7 @@
     "Car repair and maintenance service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -17053,6 +17803,7 @@
     "Oil change service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -17105,6 +17856,7 @@
     "Vehicle inspection service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -17159,6 +17911,7 @@
     "Store"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [
@@ -17206,6 +17959,7 @@
     "Transmission shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Gearbox"
@@ -17250,6 +18004,7 @@
     "Powder coating service"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing"
@@ -17294,6 +18049,7 @@
     "Mechanic"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -17340,6 +18096,7 @@
     "Mechanic"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [
     "Servicing",
@@ -17381,6 +18138,7 @@
     "Auto repair shop"
    ],
    "business_type": "workshop",
+   "dealer_for": null,
    "hours": "",
    "services": [],
    "specialties": [],

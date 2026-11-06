@@ -42,6 +42,8 @@ const fmtDate = (d) => new Date(d).toLocaleDateString("en-GB", { month: "short",
 const pct = (x) => `${Math.round(x * 100)}%`;
 const priced = g.ownerReviews.filter((r) => r.price_paid > 0);
 const firstMake = g.specs[0]?.make;
+// Product spec 11c: garages without evidence get no chips, match levels or model tiles.
+const evidenced = g.hasEvidence || g.ownerCount > 0;
 ---
 <Base
   title={`${g.name}${top ? ` · ${top.make} specialist` : ""} in ${g.area || "Dubai"}`}
@@ -50,14 +52,16 @@ const firstMake = g.specs[0]?.make;
   jsonld={[ld]}
   crumbs={[{ name: "Dubai", url: "/dubai/" }, ...(firstMake ? [{ name: firstMake, url: `/dubai/${slugify(firstMake)}/` }] : []), { name: g.name }]}
 >
-  <div class="wrap" data-garage-page={g.slug} data-specs={JSON.stringify(g.specs.map((s) => [s.make, s.models, s.conf, s.evidence]))}>
+  <div class="wrap" data-garage-page={g.slug} data-specs={evidenced ? JSON.stringify(g.specs.map((s) => [s.make, s.models, s.conf, s.evidence])) : "[]"}>
     <div class="ghead"><div>
       <div class="meta" style="margin-bottom:8px">
         <span><Icon name="pin" />{g.area || "Dubai"}</span>
-        {g.goodFor.map((x) => <span class="goodfor">Good for: {x}</span>)}
-        {g.business_type && g.business_type !== "workshop" && <span class="biztag">Also sells parts</span>}
+        {evidenced && g.goodFor.map((x) => <span class="goodfor">Good for: {x}</span>)}
+        {g.isDealer ? <span class="dealer">Main dealer</span> : g.business_type && g.business_type !== "workshop" && <span class="biztag">Also sells parts</span>}
+        {!evidenced && !g.isDealer && <span class="muted">Listed, no owner reviews yet</span>}
       </div>
       <h1>{g.name}</h1></div>
+      {!evidenced && !g.isDealer && <a class="btn primary" href={`/review/${g.slug}/`}><Icon name="pen" />Used them? Write the first review</a>}
       <div class="gacts">
         {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
         {g.phone && <a class={`btn ${g.waNumber ? "" : "primary"}`} href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call"><Icon name="phone" />Call</a>}
@@ -65,7 +69,7 @@ const firstMake = g.specs[0]?.make;
       </div>
     </div>
 
-    {g.specs.length > 0 && (
+    {evidenced && g.specs.length > 0 && (
       <div class="known"><span class="label" style="margin-inline-end:4px">Known for</span>
         {g.specs.map((s) => (
           <a class="pill" href={`/dubai/${s.makeSlug}/`}>{s.make}{s.mentions ? ` · ${s.mentions}` : ""} <span class={`conf c${s.conf}`}>{s.confidence}</span></a>
@@ -75,7 +79,7 @@ const firstMake = g.specs[0]?.make;
 
     <div class="gbody">
       <div>
-        <section class="card panel matchpanel" id="matchPanel" hidden></section>
+        {evidenced && <section class="card panel matchpanel" id="matchPanel" hidden></section>}
 
         {g.review_summary && (
           <section class="card panel summary"><h2>What reviewers say</h2>
@@ -83,7 +87,7 @@ const firstMake = g.specs[0]?.make;
             <p>{g.review_summary}</p></section>
         )}
 
-        {models.length > 0 && (
+        {evidenced && models.length > 0 && (
           <section class="card panel"><h2>Models they've worked on</h2><p class="sub">Models that come up in reviews and owner recommendations.</p>
             <div class="models">{models.map((m) => (
               <div data-model-tile={`${m.make}|${m.model}`}><b>{m.make} {m.model}</b><small>{m.confidence} confidence</small></div>

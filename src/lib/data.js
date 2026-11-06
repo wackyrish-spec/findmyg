@@ -75,7 +75,8 @@ function norm(g) {
     specs,
     ext,
     google,
-    hasEvidence: specs.some(real),
+    isDealer: g.business_type === "dealer",
+    hasEvidence: g.business_type !== "dealer" && specs.some(real),
     topConf: Math.max(0, ...specs.map((s) => s.conf)),
     areaGroup,
     areaSlug: areaGroup ? slugify(areaGroup) : null,
@@ -97,7 +98,7 @@ export function waNumber(g) {
 }
 
 const defaultRank = (a, b) =>
-  (b.ownerCount >= 3) - (a.ownerCount >= 3) || b.hasEvidence - a.hasEvidence || b.topConf - a.topConf || (b.google?.count || 0) - (a.google?.count || 0);
+  a.isDealer - b.isDealer || (b.ownerCount >= 3) - (a.ownerCount >= 3) || b.hasEvidence - a.hasEvidence || b.topConf - a.topConf || (b.google?.count || 0) - (a.google?.count || 0);
 
 export const GARAGES = (raw.garages || raw).filter((g) => g && g.name).map(norm).sort(defaultRank);
 export const BY_SLUG = Object.fromEntries(GARAGES.map((g) => [g.slug, g]));
@@ -116,10 +117,47 @@ export function specFor(g, make, model) {
   return s[0];
 }
 export const levelOf = (spec) => (spec ? spec.conf : 0);
+const lc = (x) => String(x || "").toLowerCase();
+// An owner review on GarageGuide for this car is evidence too.
+const ownerFor = (g, make, model) =>
+  g.ownerReviews.some((r) => lc(r.car_make) === lc(make) && (!model || lc(r.car_model).includes(lc(model))));
 const realFor = (g, make, model) => {
+  if (g.isDealer) return false;
+  if (ownerFor(g, make, model)) return true;
   const s = specFor(g, make, model);
   return !!s && /reviews|community/.test(s.basis) && s.conf >= 2 && (!model || s.modelHit);
 };
+export { realFor };
+
+/* ---------- list split (product spec 11a and 11c) ----------
+   Ranked: garages with evidence. Dealers never rank; they sit in a collapsed comparison strip
+   on brand/model pages only. No-evidence garages never rank; on brand/model pages they appear
+   collapsed only when fewer than 5 garages rank. */
+export const OTHERS_MIN = 5;
+// Dealer price ranges from owners' reports of dealer quotes, per job, only with 3+ reports.
+export function dealerPrices(make, model) {
+  const by = {};
+  GARAGES.forEach((g) => g.ownerReviews.forEach((r) => {
+    if (!(r.dealer_quote > 0) || lc(r.car_make) !== lc(make) || (model && !lc(r.car_model).includes(lc(model)))) return;
+    const k = lc(r.job).trim();
+    (by[k] ||= { job: r.job, q: [] }).q.push(r.dealer_quote);
+  }));
+  return Object.values(by).filter((x) => x.q.length >= 3)
+    .map((x) => ({ job: x.job, n: x.q.length, min: Math.min(...x.q), max: Math.max(...x.q) }));
+}
+// Cited dealer-vs-independent line (research/dealer-price-anchors.md). Land Rover pages only.
+export const DEALER_NOTES = {
+  "land-rover": { text: "Agency servicing on a Range Rover typically costs 30 to 50% more than independents.", source: "CarSwitch, Jul 2026", url: "https://carswitch.com/newsroom/range-rover-price-in-uae-2026-used-vs-new-generation-guide-true-cost-of-owning-a-pre-owned-range-rover/" },
+};
+export function splitBrand(garages, make, model) {
+  const ranked = [], others = [], dealers = [];
+  garages.forEach((g) => (g.isDealer ? dealers : realFor(g, make, model) || (model && realFor(g, make)) ? ranked : others).push(g));
+  return { ranked, others: ranked.length < OTHERS_MIN ? others : [], dealers };
+}
+export function splitGeneral(garages) {
+  const ok = garages.filter((g) => !g.isDealer);
+  return { ranked: ok.filter((g) => g.hasEvidence || g.ownerCount > 0), others: ok.filter((g) => !g.hasEvidence && !g.ownerCount), dealers: [] };
+}
 
 function rankFor(make, model) {
   return (a, b) => {
@@ -135,6 +173,9 @@ export const BRANDS = (() => {
     (m[s.makeSlug] ||= { make: s.make, slug: s.makeSlug, garages: new Set(), models: {} }).garages.add(g.slug);
     s.models.forEach((md) => ((m[s.makeSlug].models[slugify(md)] ||= { model: md, slug: slugify(md), garages: new Set() }).garages.add(g.slug)));
   }));
+  // Main dealers (no specialties) join their marque's page as unranked price anchors.
+  GARAGES.forEach((g) => g.isDealer && g.dealer_for && m[slugify(g.dealer_for)]?.garages.add(g.slug));
+  GARAGES.forEach((g) => g.ownerReviews.forEach((r) => m[slugify(r.car_make || "")]?.garages.add(g.slug)));
   return Object.values(m).map((b) => {
     const garages = [...b.garages].map((x) => BY_SLUG[x]).sort(rankFor(b.make));
     const models = Object.values(b.models).map((md) => ({
