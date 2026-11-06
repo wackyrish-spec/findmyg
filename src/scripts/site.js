@@ -14,6 +14,7 @@ function attribution() {
     if (saved) return saved;
     const q = new URLSearchParams(location.search), r = {};
     ["ref", "utm_source", "utm_medium", "utm_campaign"].forEach((k) => { const v = q.get(k); if (v) r[k] = v.slice(0, 80); });
+    if (!r.ref && q.get("src")) r.ref = q.get("src").slice(0, 80);
     sessionStorage.setItem("gg:ref", JSON.stringify(r));
     return r;
   } catch { return {}; }

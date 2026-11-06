@@ -1,0 +1,3 @@
+# QR cards (brand/print): short links that keep where the visitor came from.
+/r/meet  /?src=qr-meet  302
+/r/:slug /review/:slug/?src=qr 302

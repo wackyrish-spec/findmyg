@@ -25,7 +25,7 @@
   --wa-ink:#14171C;
   --f-display:"Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
   --f-body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --f-mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --f-mono:ui-monospace, SFMono-Regular, Menlo, monospace;
   --f-arabic:"IBM Plex Sans Arabic", system-ui, sans-serif;
   --shadow:0 1px 2px rgba(20,30,50,.05),0 4px 16px rgba(20,30,50,.05);
   color-scheme:light;
@@ -384,7 +384,7 @@ details.more .sub{margin:8px 0 4px}
 .ownlist{margin-top:16px}.ownlist h3{margin:0;font-size:16px}
 .gbody>*{min-width:0}.ptable td{overflow-wrap:anywhere}.ptable td.num{white-space:nowrap}.enthlist .code{display:inline-block;margin:2px 2px 0 0}
 .ptable{table-layout:fixed;min-width:0}.ptable td.num,.ptable th.num{width:96px}
-.fpick{padding:2px 8px;border-radius:999px;background:var(--signal-soft);color:var(--signal-text);font-size:12px;font-weight:800;text-decoration:none}
+.fpick{padding:2px 8px;border-radius:999px;background:#14171C;color:#FFFFFF;border:1.5px solid var(--signal);font-size:12px;font-weight:800;text-decoration:none}
 .gfact{margin:6px 0 0;font-size:12px;color:var(--muted)}.gfact a{color:inherit}
 .esum{margin:6px 0 0;font-size:14px}
 
@@ -404,3 +404,6 @@ footer .proof{margin:0 0 8px;font-weight:800}
 .notify{margin-top:14px;display:flex;flex-direction:column;gap:10px}.notify h2{margin:0}
 .greply{margin-top:10px;padding:10px 12px;border-left:3px solid var(--signal);background:var(--soft);border-radius:6px;font-size:14px}.greply p{margin:4px 0 0}
 .report{margin-top:8px;font-size:13px}.report summary{cursor:pointer;color:var(--muted);display:inline}.report form{display:flex;flex-direction:column;gap:8px;margin-top:8px;max-width:460px}
+.mcount{font-size:13px;font-weight:600;color:var(--muted)}.noown{margin:0;font-size:13px;color:var(--muted);font-weight:600}
+/* Manrope for garage names and long titles; Barlow stays for short headings */
+.gcard h3,.gtop h3,.ghead h1,.orev p{font-family:var(--f-body);font-weight:800;letter-spacing:0}.orev p{font-weight:500}
