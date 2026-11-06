@@ -249,3 +249,23 @@ if (nf) nf.addEventListener("submit", async (e) => {
     $("#nOk").hidden = false;
   } catch { err.textContent = "Something went wrong. Please try again."; err.hidden = false; }
 });
+
+/* ---------- report a review ---------- */
+document.querySelectorAll(".reportForm").forEach((f) => f.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const err = f.querySelector(".err"), d = new FormData(f);
+  if (!SB_URL || !SB_KEY) { err.textContent = "Reporting isn't open yet. Please email us from the For garages page."; err.hidden = false; return; }
+  err.hidden = true;
+  const val = (k) => (d.get(k) || "").toString().trim() || null;
+  try {
+    const res = await fetch(`${SB_URL}/rest/v1/reports`, {
+      method: "POST",
+      headers: { apikey: SB_KEY, "Content-Type": "application/json", Prefer: "return=minimal" },
+      body: JSON.stringify({ review_id: f.closest("[data-review-id]").dataset.reviewId, reason: val("reason"), reporter_type: val("reporter_type") || "other", details: val("details"), contact: val("contact"), page: location.pathname }),
+    });
+    if (!res.ok) throw new Error(res.status);
+    f.querySelector("button[type=submit]").hidden = true;
+    f.querySelector(".okmsg").hidden = false;
+  } catch { err.textContent = "Something went wrong. Please try again."; err.hidden = false; }
+}));
+

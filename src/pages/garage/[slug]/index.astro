@@ -120,6 +120,33 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
                   {r.would_return && <span class="pos">Would go back</span>}
                 </div>
                 <cite>{r.display_name || "KnowsMyCar owner"} · {fmtDate(r.created_at)}</cite>
+                {r.garage_reply && (
+                  <div class="greply"><b>Reply from {g.name}</b>{r.garage_reply_at && <span class="muted"> · {fmtDate(r.garage_reply_at)}</span>}<p>{r.garage_reply}</p></div>
+                )}
+                <details class="report" data-review-id={r.id}>
+                  <summary>Report this review</summary>
+                  <form class="reportForm">
+                    <label class="fld">What's wrong?<select name="reason" required>
+                      <option value="">Choose one</option>
+                      <option value="fake">Looks fake, or not a real customer</option>
+                      <option value="abusive">Abusive or breaks the guidelines</option>
+                      <option value="private">Shares private details</option>
+                      <option value="wrong">Facts are wrong</option>
+                      <option value="other">Something else</option>
+                    </select></label>
+                    <label class="fld">I am<select name="reporter_type">
+                      <option value="other">A visitor</option>
+                      <option value="garage">From this garage</option>
+                      <option value="owner">The person who wrote it</option>
+                    </select></label>
+                    <label class="fld">Details (optional)<textarea name="details" maxlength="1000" rows="3"></textarea></label>
+                    <label class="fld">Email or WhatsApp, if you want an answer (optional)<input name="contact" maxlength="200" /></label>
+                    <p class="muted" style="font-size:12px;margin:0">We check every report. See <a href="/right-of-reply/">how we handle reports and garage replies</a>.</p>
+                    <div class="err" hidden></div>
+                    <button class="btn sm" type="submit">Send report</button>
+                    <p class="okmsg" hidden>Thanks. We'll look at it within 2 working days.</p>
+                  </form>
+                </details>
               </article>
             ))}
           </div>
