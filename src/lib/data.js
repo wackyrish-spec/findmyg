@@ -55,7 +55,7 @@ function norm(g) {
       basis: s.basis || "",
     }))
     .sort((a, b) => b.conf - a.conf || b.mentions - a.mentions);
-  const real = (s) => /reviews|community/.test(s.basis) && s.conf >= 2;
+  const real = (s) => /reviews|community|founder/.test(s.basis) && s.conf >= 2;
   const bySource = {};
   (g.external_ratings || []).forEach((r) => {
     bySource[r.source] = { source: r.source, rating: r.rating ?? null, count: r.count ?? null, url: r.url || "", snips: [] };
@@ -125,7 +125,7 @@ const realFor = (g, make, model) => {
   if (g.isDealer) return false;
   if (ownerFor(g, make, model)) return true;
   const s = specFor(g, make, model);
-  return !!s && /reviews|community/.test(s.basis) && s.conf >= 2 && (!model || s.modelHit);
+  return !!s && /reviews|community|founder/.test(s.basis) && s.conf >= 2 && (!model || s.modelHit);
 };
 export { realFor };
 

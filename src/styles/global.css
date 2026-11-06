@@ -325,3 +325,6 @@ details.more .sub{margin:8px 0 4px}
 [hidden]{display:none!important}
 .dnote{margin:10px 0 0;font-size:13px;color:var(--muted)}
 .claim{margin-top:3px;font-size:13px;color:var(--muted)}
+.ownlist{margin-top:16px}.ownlist h3{margin:0;font-size:16px}
+.gbody>*{min-width:0}.ptable td{overflow-wrap:anywhere}.ptable td.num{white-space:nowrap}.enthlist .code{display:inline-block;margin:2px 2px 0 0}
+.ptable{table-layout:fixed;min-width:0}.ptable td.num,.ptable th.num{width:96px}

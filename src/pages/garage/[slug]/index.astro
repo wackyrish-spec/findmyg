@@ -41,6 +41,7 @@ const QVF = { same: "Bill matched the quote", lower: "Bill came in under the quo
 const fmtDate = (d) => new Date(d).toLocaleDateString("en-GB", { month: "short", year: "numeric" });
 const pct = (x) => `${Math.round(x * 100)}%`;
 const priced = g.ownerReviews.filter((r) => r.price_paid > 0);
+const listPrices = (g.hasEvidence || g.ownerCount > 0) ? (g.price_examples || []).filter((p) => p.price_aed > 0) : [];
 const firstMake = g.specs[0]?.make;
 // Product spec 11c: garages without evidence get no chips, match levels or model tiles.
 const evidenced = g.hasEvidence || g.ownerCount > 0;
@@ -121,11 +122,22 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
           </div>
         </section>
 
-        {priced.length > 0 && (
+        {(priced.length > 0 || listPrices.length > 0) && (
           <section class="card panel"><h2>What owners paid</h2><p class="sub">Totals owners reported in their reviews. Prices vary with parts and the car's condition.</p>
-            <table class="ptable"><thead><tr><th>Job</th><th>Car</th><th class="num">AED</th></tr></thead><tbody>
-              {priced.map((r) => <tr><td>{[r.job, r.job_note].filter(Boolean).join(": ")}</td><td>{[r.car_make, r.car_model].filter(Boolean).join(" ")}</td><td class="num">{Number(r.price_paid).toLocaleString("en-US")}</td></tr>)}
-            </tbody></table></section>
+            {priced.length > 0 ? (
+              <table class="ptable"><thead><tr><th>Job</th><th>Car</th><th class="num">AED</th></tr></thead><tbody>
+                {priced.map((r) => <tr><td>{[r.job, r.job_note].filter(Boolean).join(": ")}</td><td>{[r.car_make, r.car_model].filter(Boolean).join(" ")}</td><td class="num">{Number(r.price_paid).toLocaleString("en-US")}</td></tr>)}
+              </tbody></table>
+            ) : <p class="muted" style="font-size:14px">No owner has reported a price yet.</p>}
+            {listPrices.length > 0 && (
+              <div class="ownlist"><h3>Garage's own price list</h3><p class="sub">Published by the garage, not reported by owners.</p>
+                <table class="ptable"><tbody>
+                  {listPrices.map((p) => <tr><td>{p.item}{p.vat ? <small class="muted"> · {p.vat}</small> : null}</td><td class="num">{Number(p.price_aed).toLocaleString("en-US")}</td></tr>)}
+                </tbody></table>
+                {listPrices[0].url && <a href={listPrices[0].url} target="_blank" rel="noopener nofollow" style="font-size:13px;font-weight:800">See their price list <Icon name="ext" /></a>}
+              </div>
+            )}
+          </section>
         )}
 
         <section class="card panel theirs"><h2>What the internet says</h2>
@@ -171,7 +183,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
             {g.phone && <div><dt>Phone</dt><dd class="num"><a href={`tel:${g.phone.replace(/\s/g, "")}`}>{g.phone}</a></dd></div>}
             {g.hours && <div><dt>Hours</dt><dd>{g.hours}</dd></div>}
             {g.website && <div><dt>Website</dt><dd><a href={g.website} target="_blank" rel="noopener" style="overflow-wrap:anywhere">{g.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}</a></dd></div>}
-            {(g.self_claims || []).length > 0 && <div><dt>Says it works on</dt><dd>{g.self_claims.map((c, i) => <>{i > 0 && ", "}{c.url ? <a href={c.url} target="_blank" rel="noopener nofollow">{c.make}</a> : c.make}</>)} <span class="muted">(their own website, not owner reviews)</span></dd></div>}
+            {(g.self_claims || []).length > 0 && <div><dt>The garage says</dt><dd>{g.self_claims.map((c) => <div>{c.note || `Works on ${c.make}${(c.models || []).length ? ` (${c.models.join(", ")})` : ""}`}{c.url && <> · <a href={c.url} target="_blank" rel="noopener nofollow">their website</a></>}</div>)}<small class="muted">Their own claim, not owner evidence.</small></dd></div>}
             {(g.services || []).length > 0 && <div><dt>Services</dt><dd>{g.services.join(", ")}</dd></div>}
           </dl>
           <p class="confirmed">Is something wrong or missing? <a href={`/add-a-garage/?fix=${g.slug}`}>Suggest a correction</a>.</p>
@@ -181,7 +193,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
             <div class="enthlist">
               {g.specs.map((s) => (
                 <div><span><b>{s.make}</b>{s.models.length > 0 && <> · {s.models.map((m) => <span class="code">{m}</span>)}</>} <span class={`conf c${s.conf}`}>{s.confidence}</span></span>
-                <span class="muted">{s.evidence}{s.basis ? ` (source: ${s.basis})` : ""}</span></div>
+                <span class="muted">{s.evidence}{s.basis ? ` (source: ${s.basis === "founder" ? "founder's own experience" : s.basis})` : ""}</span></div>
               ))}
               {(g.categories || []).length > 0 && <div class="muted">Google categories: {g.categories.join(", ")}</div>}
               {(g.sources || []).length > 0 && <div>{g.sources.slice(0, 6).map((u) => <a href={u} target="_blank" rel="noopener nofollow" style="overflow-wrap:anywhere;display:block">{u.replace(/^https?:\/\/(www\.)?/, "").slice(0, 60)}</a>)}</div>}
