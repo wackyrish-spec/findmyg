@@ -1,6 +1,6 @@
 # KnowsMyCar brand kit (v1, 6 Nov 2026)
 
-Brand sheet: https://claude.ai/artifact/S2avPHZah4eSrWELDBiSGy · Direction: brand plan section 4 (`car-website/research/brand-and-growth-plan.md`).
+Brand sheet: https://claude.ai/artifact/S2avPHZah4eSrWELDBiSGy · Logo A confirmed by the marketer 6 Nov 2026. Print on hold until knowsmycar.ae is bought. · Direction: brand plan section 4 (`car-website/research/brand-and-growth-plan.md`).
 
 | Folder | What | Remake |
 |---|---|---|

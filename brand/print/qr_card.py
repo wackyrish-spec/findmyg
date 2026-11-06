@@ -88,16 +88,16 @@ def main():
     if a.generic:
         url = f"{SITE}/?src=qr-meet"
         pages = card(url, "<span style=\"font-size:60pt\">Who fixes <em>yours?</em></span>", "<div class=\"garage\"><span class=\"chip\">958</span><span class=\"chip\">MK5 GTI</span><span class=\"chip\">147</span><span class=\"chip\">LC200</span><span class=\"chip\">E46 M3</span></div>",
-                     "Scan. Pick your car.", "See which Dubai garages owners of your car trust, and what they paid.", foot)
-        pages += sticker(url, "Who fixes <em>yours?</em>", "Scan to see what owners of your car paid, and who they trust.")
+                     "Scan · free · no ads", "See which Dubai garages owners of your car trust, and what they paid.", foot)
+        pages += sticker(url, "Who fixes <em>yours?</em>", "See which Dubai garages owners of your car trust, and what they paid. Scan · free · no ads")
         name = "knowsmycar-meet-card"
     else:
         url = f"{SITE}/review/{a.slug}/?src=qr"
         known = "".join(f'<span class="chip">{html.escape(k)}</span>' for k in a.known)
         known_html = f'<div class="garage"><b>{html.escape(a.name)}</b>{known}</div>' if a.name else ""
-        pages = card(url, "Owners of <em>your car</em> review us on KnowsMyCar", known_html,
-                     "Scan. Two minutes.", "Was the bill what we quoted? Tell the next owner. It helps them find a garage that knows their car.", foot)
-        pages += sticker(url, "Owners of <em>your car</em> review us here", "Scan to read what owners say, or leave your own review. Two minutes.")
+        pages = card(url, "Did we know <em>your car?</em><br><span style=\"font-size:22pt;color:#C9CED6\">Tell the next owner on KnowsMyCar.</span>", known_html,
+                     "Scan to review", "Two minutes. Was the bill what we quoted? An honest review helps the next owner find a garage that knows their car.", foot)
+        pages += sticker(url, "Did we know <em>your car?</em>", "Scan to review. Tell the next owner on KnowsMyCar.")
         name = f"qr-card-{a.slug}"
     doc = f"<!doctype html><html><head><meta charset=utf-8><style>@page card{{size:148mm 210mm;margin:0}}@page stk{{size:100mm 100mm;margin:0}}{CSS}</style></head><body>{pages}</body></html>"
     h = os.path.join(a.out, name + ".html"); open(h, "w").write(doc)
