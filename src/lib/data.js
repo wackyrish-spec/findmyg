@@ -76,6 +76,9 @@ function norm(g) {
     ext,
     google,
     isDealer: g.business_type === "dealer",
+    // Product spec: a garage ranks only if owners can reach or find it.
+    contactable: !!(g.phone || g.whatsapp || g.maps_url || (g.lat && g.lng)),
+    founderPick: specs.some((s) => s.basis === "founder"),
     hasEvidence: g.business_type !== "dealer" && specs.some(real),
     topConf: Math.max(0, ...specs.map((s) => s.conf)),
     areaGroup,
@@ -122,7 +125,7 @@ const lc = (x) => String(x || "").toLowerCase();
 const ownerFor = (g, make, model) =>
   g.ownerReviews.some((r) => lc(r.car_make) === lc(make) && (!model || lc(r.car_model).includes(lc(model))));
 const realFor = (g, make, model) => {
-  if (g.isDealer) return false;
+  if (g.isDealer || !g.contactable) return false;
   if (ownerFor(g, make, model)) return true;
   const s = specFor(g, make, model);
   return !!s && /reviews|community|founder/.test(s.basis) && s.conf >= 2 && (!model || s.modelHit);
@@ -156,7 +159,8 @@ export function splitBrand(garages, make, model) {
 }
 export function splitGeneral(garages) {
   const ok = garages.filter((g) => !g.isDealer);
-  return { ranked: ok.filter((g) => g.hasEvidence || g.ownerCount > 0), others: ok.filter((g) => !g.hasEvidence && !g.ownerCount), dealers: [] };
+  const ranks = (g) => g.contactable && (g.hasEvidence || g.ownerCount > 0);
+  return { ranked: ok.filter(ranks), others: ok.filter((g) => !ranks(g)), dealers: [] };
 }
 
 function rankFor(make, model) {
@@ -191,11 +195,11 @@ export const BRANDS = (() => {
 
 export const AREAS = AREA_GROUPS.map((a) => ({
   name: a, slug: slugify(a), garages: GARAGES.filter((g) => g.areaGroup === a),
-})).filter((a) => a.garages.length).map((a) => ({ ...a, evidenceCount: a.garages.filter((g) => g.hasEvidence).length }));
+})).filter((a) => a.garages.length).map((a) => ({ ...a, evidenceCount: a.garages.filter((g) => g.hasEvidence && g.contactable).length }));
 
 export const JOB_PAGES = JOBS.map((j) => {
   const garages = GARAGES.filter((g) => g.jobs.includes(j.slug));
-  return { ...j, re: undefined, garages, evidenceCount: garages.filter((g) => g.hasEvidence).length };
+  return { ...j, re: undefined, garages, evidenceCount: garages.filter((g) => g.hasEvidence && g.contactable).length };
 }).filter((j) => j.garages.length);
 
 /* ---------- indexing rule (research doc section 14) ----------

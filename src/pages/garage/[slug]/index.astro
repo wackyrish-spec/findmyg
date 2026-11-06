@@ -57,6 +57,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
     <div class="ghead"><div>
       <div class="meta" style="margin-bottom:8px">
         <span><Icon name="pin" />{g.area || "Dubai"}</span>
+        {g.founderPick && <a class="fpick" href="/how-it-works/#founders-picks">Founder's pick</a>}
         {evidenced && g.goodFor.map((x) => <span class="goodfor">Good for: {x}</span>)}
         {g.isDealer ? <span class="dealer">Main dealer</span> : g.business_type && g.business_type !== "workshop" && <span class="biztag">Also sells parts</span>}
         {!evidenced && !g.isDealer && <span class="muted">Listed, no owner reviews yet</span>}
