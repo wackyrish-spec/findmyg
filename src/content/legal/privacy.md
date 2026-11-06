@@ -24,6 +24,8 @@ KnowsMyCar is a free guide to independent garages in Dubai. It's run by {{operat
 | Technical data: IP address, device and browser type, pages visited | Any visit | To keep the site secure, stop spam and fake reviews, and count visits. Our analytics (Cloudflare Web Analytics) don't use cookies or build profiles. |
 | Your saved car | You pick "What do you drive?" | Stored only in your own browser (local storage), not on our servers |
 
+**Review photos.** Photos you add to a review are checked with the review before anything is published. Please cover or blur number plates and people's faces; if you don't, we will, or we won't publish the photo. We strip location and camera data (EXIF) from every photo when it's uploaded. You can ask us to remove a photo at any time.
+
 **Our legal basis.** We process your data because you asked us to (your account and review), because you agreed (optional receipt, WhatsApp number, update emails), and because we have a legitimate need to keep reviews genuine and the site secure.
 
 **Who we share it with**
