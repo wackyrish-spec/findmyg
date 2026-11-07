@@ -51,14 +51,12 @@ The Cayenne is one of the most common out-of-warranty Porsches in Dubai. Below a
 
 These come from a long-running owner list on Rennlist. It's owners' experience, not official data, and fixes may or may not exist. Costs aren't known yet.
 
-- **Lurch when slowing and changing down** (early cars): owners link it to the torque converter damper.
-- **Shudder in 6th gear**, mainly on the V6. Fewer reports on 2022 and later cars.
-- **Check-engine light with loss of power:** water pump shroud seal failure, V6 and V8.
-- **Check-engine light with a misfire:** oil vapour (air-oil) separator failure, V6 and V8.
-- **Squealing brakes** on Porsche Surface Coated Brakes (PSCB).
-- **Battery dying early** on early cars with the lithium battery. Owners say it was replaced under warranty.
-
-[Tell us what you paid](/check-a-quote/?make=Porsche&model=Cayenne&job=other&note=Cayenne%209Y0%20%282019%20on%29)
+- **Lurch when slowing and changing down** (early cars): owners link it to the torque converter damper. [Tell us what you paid](/check-a-quote/?make=Porsche&model=Cayenne&job=other&note=Lurch%20when%20slowing%20and%20changing%20down)
+- **Shudder in 6th gear**, mainly on the V6. Fewer reports on 2022 and later cars. [Tell us what you paid](/check-a-quote/?make=Porsche&model=Cayenne&job=other&note=Shudder%20in%206th%20gear)
+- **Check-engine light with loss of power:** water pump shroud seal failure, V6 and V8. [Tell us what you paid](/check-a-quote/?make=Porsche&model=Cayenne&job=other&note=Check-engine%20light%20with%20loss%20of%20power)
+- **Check-engine light with a misfire:** oil vapour (air-oil) separator failure, V6 and V8. [Tell us what you paid](/check-a-quote/?make=Porsche&model=Cayenne&job=other&note=Check-engine%20light%20with%20a%20misfire)
+- **Squealing brakes** on Porsche Surface Coated Brakes (PSCB). [Tell us what you paid](/check-a-quote/?make=Porsche&model=Cayenne&job=other&note=Squealing%20brakes)
+- **Battery dying early** on early cars with the lithium battery. Owners say it was replaced under warranty. [Tell us what you paid](/check-a-quote/?make=Porsche&model=Cayenne&job=other&note=Battery%20dying%20early)
 
 ### 9Y0 recalls to check by VIN
 - **Front upper control arm** (US 24V-533, 2024 cars): the arm can crack.

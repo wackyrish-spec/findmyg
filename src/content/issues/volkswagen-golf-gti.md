@@ -35,28 +35,22 @@ The Golf GTI is cheap to buy and fun to drive, and its weak spots are well known
 [Tell us what you paid](/check-a-quote/?make=Volkswagen&model=Golf%20GTI&job=other&note=Misfire%20or%20rough%20running)
 
 ## Mk5 extras
-- **Flat spot, no full boost:** diverter valve diaphragm, "more common". Small.
-- **Power loss that can damage the camshaft:** high-pressure fuel pump cam follower wear. Small, but fix it at once.
-- **Oil around the filler cap, engine faltering:** PCV valve, "common". Small.
-- **Cambelt, water pump and tensioners** are due at about 130,000 km or four years. That's maintenance, not a fault. Moderate.
-
-[Tell us what you paid](/check-a-quote/?make=Volkswagen&model=Golf%20GTI&job=other&note=Mk5%20extras)
+- **Flat spot, no full boost:** diverter valve diaphragm, "more common". Small. [Tell us what you paid](/check-a-quote/?make=Volkswagen&model=Golf%20GTI&job=other&note=Flat%20spot%2C%20no%20full%20boost)
+- **Power loss that can damage the camshaft:** high-pressure fuel pump cam follower wear. Small, but fix it at once. [Tell us what you paid](/check-a-quote/?make=Volkswagen&model=Golf%20GTI&job=other&note=Power%20loss%20that%20can%20damage%20the%20camshaft)
+- **Oil around the filler cap, engine faltering:** PCV valve, "common". Small. [Tell us what you paid](/check-a-quote/?make=Volkswagen&model=Golf%20GTI&job=other&note=Oil%20around%20the%20filler%20cap%2C%20engine%20faltering)
+- **Cambelt, water pump and tensioners** are due at about 130,000 km or four years. That's maintenance, not a fault. Moderate. [Tell us what you paid](/check-a-quote/?make=Volkswagen&model=Golf%20GTI&job=other&note=Cambelt%2C%20water%20pump%20and%20tensioners)
 
 ## Mk6 extras
-- **Rattle for a few seconds on a cold start:** timing chain tensioner failure (2.0 TSI, cars built to May 2012). If the chain skips, the valves hit the pistons and the engine can be ruined. A US class action covered 2008 to 2012 GTIs. A revised tensioner fitted from May 2012 is the fix. Moderate to replace early, Major if it fails.
-- **Rattle at 1,800 to 3,000 rpm:** wastegate rattle. Small.
-- **Rough running, ticking, lack of power:** carbon build-up on the intake valves. Moderate.
+- **Rattle for a few seconds on a cold start:** timing chain tensioner failure (2.0 TSI, cars built to May 2012). If the chain skips, the valves hit the pistons and the engine can be ruined. A US class action covered 2008 to 2012 GTIs. A revised tensioner fitted from May 2012 is the fix. Moderate to replace early, Major if it fails. [Tell us what you paid](/check-a-quote/?make=Volkswagen&model=Golf%20GTI&job=other&note=Rattle%20for%20a%20few%20seconds%20on%20a%20cold%20start)
+- **Rattle at 1,800 to 3,000 rpm:** wastegate rattle. Small. [Tell us what you paid](/check-a-quote/?make=Volkswagen&model=Golf%20GTI&job=other&note=Rattle%20at%201%2C800%20to%203%2C000%20rpm)
+- **Rough running, ticking, lack of power:** carbon build-up on the intake valves. Moderate. [Tell us what you paid](/check-a-quote/?make=Volkswagen&model=Golf%20GTI&job=other&note=Rough%20running%2C%20ticking%2C%20lack%20of%20power)
 - **Recalls to check by VIN:** starter motor relay (2011 to 2012) and Takata airbags.
 
-[Tell us what you paid](/check-a-quote/?make=Volkswagen&model=Golf%20GTI&job=other&note=Mk6%20extras)
-
 ## Mk7 extras
-- **Whistle, rough idle, code P052E:** PCV / valve cover. Small to Moderate.
-- **Power loss at high mileage:** intake valve carbon after about 100,000 km. Moderate.
-- **Knocks from the rear:** springs and dampers, "a common issue". Small.
-- **Fuel flap won't open:** the actuator, "still a common issue". Small.
-
-[Tell us what you paid](/check-a-quote/?make=Volkswagen&model=Golf%20GTI&job=other&note=Mk7%20extras)
+- **Whistle, rough idle, code P052E:** PCV / valve cover. Small to Moderate. [Tell us what you paid](/check-a-quote/?make=Volkswagen&model=Golf%20GTI&job=other&note=Whistle%2C%20rough%20idle%2C%20code%20P052E)
+- **Power loss at high mileage:** intake valve carbon after about 100,000 km. Moderate. [Tell us what you paid](/check-a-quote/?make=Volkswagen&model=Golf%20GTI&job=other&note=Power%20loss%20at%20high%20mileage)
+- **Knocks from the rear:** springs and dampers, "a common issue". Small. [Tell us what you paid](/check-a-quote/?make=Volkswagen&model=Golf%20GTI&job=other&note=Knocks%20from%20the%20rear)
+- **Fuel flap won't open:** the actuator, "still a common issue". Small. [Tell us what you paid](/check-a-quote/?make=Volkswagen&model=Golf%20GTI&job=other&note=Fuel%20flap%20won%27t%20open)
 
 ## What to ask the garage
 1. "Is it the mechatronic unit, or would a DSG fluid service and adaptation fix it?" Ask before agreeing to a new unit.
