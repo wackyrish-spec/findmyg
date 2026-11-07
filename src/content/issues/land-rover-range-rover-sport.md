@@ -2,57 +2,77 @@
 make: Land Rover
 model: Range Rover Sport
 title: "Range Rover Sport L494 known issues: what fails and what to ask in Dubai"
-description: "Air suspension, crank pulley, transfer case, DPF and AdBlue faults on the L494 Range Rover Sport (2013 to 2022), typical costs, and what to ask a Dubai garage."
+description: "Air suspension, crank pulley and crankshaft failures, AdBlue and DPF faults, and recalls on the L494 Range Rover Sport (2013 to 2022), how big each job is, and what to ask a Dubai garage."
 updated: "Nov 2026"
 author: "KnowsMyCar editorial"
 status: draft
+sourced_issues: 10
 ---
 
-The second-generation Range Rover Sport (L494, 2013 to 2022) shares a lot with the full-size L405, including its air suspension. Below are its most reported faults. Most detail comes from a European guide to the 3.0 SDV6 diesel. Petrol V6 and V8 cars share the chassis items but not the diesel ones.
+The second-generation Range Rover Sport (L494, 2013 to 2022) shares a lot with the full-size L405, including its air suspension. Below are its most reported faults, from UK buying guides, owners' forums, UAE price guides and official recalls.
 
-**About prices.** Most figures below are European, in euros, and not Dubai prices. For air suspension we have UAE prices, shown in AED. If you've had one of these done in Dubai, add what you paid in your review.
+**How we show cost.** Where UAE sources publish prices, we show them in AED. Elsewhere we show the size of the job. **Small:** a part or a software update, done in a morning. **Moderate:** a day's work or a costly part. **Major:** a big assembly or the engine comes apart, or the parts alone are very expensive. **Free:** recall work at the dealer.
 
 ## Car sitting low, "suspension fault" message
 **Trade name:** air suspension (compressor, air springs, height sensors).
-**How common:** our source calls it the most common high-cost failure. The compressor tends to wear at 80,000 to 140,000 km.
-**Cost:** in Europe, a compressor is €1,200 to 1,800 at a specialist against €2,000 to 2,800 at a dealer. In the UAE, a compressor is about AED 2,500 to 8,000 and an air spring AED 1,500 to 5,000 (ArabWheels, all makes).
+**What you notice:** the car losing height, a noisy compressor, a warning message.
+**How common:** the first item in Parkers' list of known faults. Parkers notes many compressor faults trace back to a blocked filter or bad wiring, which is a cheaper fix.
+**UAE cost:** compressor about AED 2,500 to 8,000, air spring AED 1,500 to 5,000 (ArabWheels, all makes).
+[Tell us what you paid](/dubai/land-rover/range-rover-sport/)
 
-## Knock from the front, wobbling pulley
-**Trade name:** crankshaft damper (the rubber in the crank pulley separates).
-**How common:** usually at 80,000 to 150,000 km. If ignored, the belt can come off.
-**Cost abroad:** €800 to 1,200 independent, €1,200 to 1,500 dealer.
+## V6 diesel: vibration, then loss of power
+**Trade name:** crankshaft failure (SDV6/TDV6).
+**How common:** Parkers calls it a "critical and expensive failure". An owner on RRSport.co.uk reports a seized crank at about 117,000 km; Land Rover paid for the engine as goodwill.
+**Cost:** Major. Usually a replacement engine.
+[Tell us what you paid](/dubai/land-rover/range-rover-sport/)
 
-## Whine that rises with speed
-**Trade name:** transfer case.
-**How common:** more often past 120,000 km, and on cars that tow.
-**Cost abroad:** €2,000 to 3,000 for a rebuild.
+## Wobbling crank pulley, vibration at the front
+**Trade name:** crankshaft damper (harmonic balancer).
+**How common:** an owner on Land Rover Forums reports it on a 2016 TDV6, and the wobble came back even after the damper was replaced, so ask the garage to find the cause.
+**Cost:** Moderate.
+[Tell us what you paid](/dubai/land-rover/range-rover-sport/)
 
-## Diesel only: warning lights after city driving
-- **"DPF full" or limp mode:** diesel particulate filter clogging from short trips. A forced regeneration costs €200 to 400. A new filter costs €1,500 to 3,000.
-- **Loss of power, warning light:** EGR valve or inlet manifold carbon. €600 to 900 for the valve, €1,200 to 1,500 for the manifold.
-- **AdBlue or emissions warning** (Euro 6 cars): NOx sensor €500 to 800, AdBlue injector €300 to 500.
+## Diesel: AdBlue and DPF warnings
+**Trade name:** AdBlue (SCR) system and diesel particulate filter faults.
+**How common:** Parkers puts them "top of the list for problems" on the V6 diesels. Short trips also thin the oil with diesel during filter regeneration.
+**Cost:** Small for a forced regeneration or a sensor, Major for a new filter.
+[Tell us what you paid](/dubai/land-rover/range-rover-sport/)
 
-Dubai driving matters here. Short trips in traffic are exactly what clogs a diesel's filter.
+## 2.0 SD4 diesel (pre-2019): rattle or engine damage
+**Trade name:** timing chain failure. Parkers says a retrofit is a fair-sized job if there's no other damage.
+**Cost:** Major.
+[Tell us what you paid](/dubai/land-rover/range-rover-sport/)
 
-## Screen freezing
-**Trade name:** InControl Touch Pro faults. €800 to 2,500 in Europe if hardware is needed. A UAE guide gives AED 4,000 to 7,000 for a Range Rover screen.
+## Screen crashes or freezes
+**Trade name:** infotainment faults. Parkers notes Apple CarPlay can crash the system, and owners rate the software poorly.
+**UAE cost:** a Range Rover screen is about AED 4,000 to 7,000 (CarSwitch). Try a software update first.
+[Tell us what you paid](/dubai/land-rover/range-rover-sport/)
 
-## 5.0 V8 supercharged (2014 to 2016)
-A US source reports supercharger belt and bearing wear, with a supercharger costing $6,000 to 8,000. The source sells car reports, so treat this as a guide only.
+## Petrol supercharged V6 and V8: rumble from the front
+**Trade name:** supercharger pulley and coupler wear. Parkers also lists a supercharger oil change every 40,000 miles (about 65,000 km). Parkers says parts are "not too expensive".
+**Cost:** Small to Moderate.
+[Tell us what you paid](/dubai/land-rover/range-rover-sport/)
 
-## Recall to check by VIN
-**Keyless door latches** that may not fully close: UK recall R/2015/119, cars built November 2012 to March 2015, about 65,000 worldwide. Free at the dealer.
+## Car won't lock
+**Trade name:** central locking (door lock) motor failure.
+**Cost:** not known yet.
+[Tell us what you paid](/dubai/land-rover/range-rover-sport/)
+
+## Recalls to check by VIN
+- **Doors unlatching** while moving (Auto Express lists it among 22 recalls).
+- **Crank pulley bolt** (Land Rover recall N276, 2019 model year 3.0 V6 and 5.0 V8 petrol): the bolt can fracture and cause engine failure.
+
+Recall work is free at the dealer.
 
 ## What to ask the garage
-1. "Is it the air spring, the compressor or a sensor, and does the other side need doing too?"
-2. For a front knock: "Have you checked the crank pulley?" It's cheaper to catch early.
+1. "Is it the air spring, the compressor, or just the compressor filter or wiring?"
+2. On a V6 diesel with a vibration: "Can you check the crank and the pulley before it gets worse?"
 3. On a diesel: "Can a forced regeneration clear the DPF before we replace it?"
-4. "Genuine, OEM or aftermarket parts, and what warranty?"
+4. "Is there an open recall on my VIN?"
 5. Get the fault codes and a written quote, with parts and labour split.
 
 ## Sources
-- [Car Checker, Range Rover Sport L494 3.0 SDV6](https://www.carchecker.pro/reports/range_rover_sport_l494_3.0_sdv6.html) (Oct 2026, partly AI-compiled)
-- [ArabWheels, air suspension in the UAE](https://www.arabwheels.ae/blog/air-suspension-in-uae-how-it-works-types-and-common-issues/) and [CarSwitch, Range Rover running costs](https://carswitch.com/newsroom/range-rover-price-in-uae-2026-used-vs-new-generation-guide-true-cost-of-owning-a-pre-owned-range-rover/)
-- [automonitor.io, Range Rover years to avoid](https://automonitor.io/blog/what-year-range-rover-to-avoid/)
-
-*Fixed one of these in Dubai? Find your garage on the [Range Rover Sport garages page](/dubai/land-rover/range-rover-sport/), review it, and add the price you paid.*
+- [Parkers, Range Rover Sport review and known faults](https://parkers.co.uk/land-rover/range-rover-sport/4x4/review) and [Auto Express, used Range Rover Sport (2013 to 2022)](https://autoexpress.co.uk/land-rover/range-rover-sport/104774/used-range-rover-sport-review)
+- Owners: [RRSport.co.uk crank failure thread](https://www.rrsport.co.uk/forum/post586027.html) and [Land Rover Forums, wobbly crank pulley](https://landroverforums.com/forum/range-rover-sport-l494-2013-present-61/2016-range-rover-sport-hse-td6-crankshaft-pulley-still-wobbly-after-replacement-127678/)
+- Recall: [NHTSA, Land Rover recall N276 crank pulley bolt](https://static.nhtsa.gov/odi/rcl/2019/RCMN-19V040-4882.pdf)
+- UAE prices: [ArabWheels](https://www.arabwheels.ae/blog/air-suspension-in-uae-how-it-works-types-and-common-issues/) and [CarSwitch](https://carswitch.com/newsroom/range-rover-price-in-uae-2026-used-vs-new-generation-guide-true-cost-of-owning-a-pre-owned-range-rover/)

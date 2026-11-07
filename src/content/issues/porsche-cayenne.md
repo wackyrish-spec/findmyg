@@ -2,55 +2,78 @@
 make: Porsche
 model: Cayenne
 title: "Porsche Cayenne 958 and 9Y0 known issues: what fails and what to ask in Dubai"
-description: "Transfer case, recalls and the 9Y0 owner list: what goes wrong on the 958 and 9Y0 Cayenne, typical costs, and what to ask a Dubai garage."
+description: "Transfer case, camshaft adjuster bolts, coolant leaks, air suspension and recalls on the 958 and 9Y0 Cayenne, how big each job is, and what to ask a Dubai garage."
 updated: "Nov 2026"
 author: "KnowsMyCar editorial"
 status: draft
+sourced_issues: 15
 ---
 
-The Cayenne is one of the most common out-of-warranty Porsches in Dubai. Below are the problems owners and official recalls report most for the second-generation 958 (2011 to 2018) and the current 9Y0 (2019 on). We list only what a source backs up, and we link every source.
+The Cayenne is one of the most common out-of-warranty Porsches in Dubai. Below are the problems that owners' forums, buyers' guides and official recalls report most for the 958 (2011 to 2018) and the 9Y0 (2019 on). We list only what a source backs up, and we link every source.
 
-**About prices.** We haven't found published Dubai prices for these jobs yet. Where a source gives a price, it's from abroad, and we say so. If you've had one of these fixed in Dubai, add what you paid in your review. It's how this page gets real local prices.
+**How we show cost.** We don't have Dubai prices for these jobs yet, so we show the size of the job. **Small:** a part or a software update, done in a morning. **Moderate:** a day's work or a costly part. **Major:** a big assembly or the engine comes apart, or the parts alone are very expensive. **Free:** recall work at the dealer. Owners' prices will replace these as reviews come in.
 
 ## Cayenne 958 (2011 to 2018)
 
-### Jerking or clicking on tight, slow turns
-**Trade name:** transfer case failure.
-**What you notice:** the car bucks, jerks or clicks when you turn the wheel fully at low speed, such as when parking, or it vibrates when accelerating.
-**How common:** common enough that Porsche extended the warranty on 2011 to 2018 all-wheel-drive cars. That extension ran from the delivery date, so most cars are now outside it. A US class action filed in 2024 was still open when our source last checked.
-**Cost:** no reliable figure published.
+### Lurching when accelerating, or jerking on tight, slow turns
+**Trade name:** transfer case (multi-plate clutch) failure.
+**How common:** "not uncommon" on petrol cars, reported from as early as 25,000 km. Porsche extended the warranty on it, but that extension has run out for most cars.
+**Cost:** Major.
+[Tell us what you paid](/dubai/porsche/cayenne/)
 
-### Brake pedal recall
-**Trade name:** brake pedal pivot pin.
-**What it is:** a retaining clip may be missing, so the pedal pin can work loose. US recall 16V-169 covered about 88,300 cars built 2011 to 2016.
-**Cost:** free at the dealer. Ask them to check your VIN.
+### Engine damage from loose camshaft adjuster bolts (V8, 2011 to early 2012)
+**Trade name:** Variocam (camshaft adjuster) bolt failure.
+**How common:** covered by a workshop campaign (WC-22) and a recall (AH08, US 17V-368). Owners report failures outside the recalled VIN range too.
+**Cost:** Free if your car is in the recall. Otherwise Moderate to replace the bolts before they fail, or Major if they fail.
+[Tell us what you paid](/dubai/porsche/cayenne/)
+
+### Burning oil (early S and Turbo)
+**Trade name:** oil separator in the valve cover (workshop bulletin WC-55, 2011 to 2013 S and Turbo).
+**Cost:** Moderate.
+[Tell us what you paid](/dubai/porsche/cayenne/)
+
+### Coolant level keeps dropping, no visible leak
+**Trade name:** coolant pipe and thermostat housing leaks (V8). Owners say early cars had glued pipe joints.
+**How common:** owners say one dealer called it "quite common". Dealers often find nothing on a pressure test at first.
+**Cost:** Moderate to Major, depending on which pipes.
+[Tell us what you paid](/dubai/porsche/cayenne/)
+
+### Car sitting low or the compressor running a lot
+**Trade name:** air suspension (struts, valve block, compressor).
+**Cost:** Moderate to Major, parts-heavy.
+[Tell us what you paid](/dubai/porsche/cayenne/)
+
+### Recalls to check by VIN
+- **Brake pedal pin clip** (AG02, US 16V-169, 2011 to 2016): the pedal pin can work loose.
+- **Headlamps can come loose** (AC01, 2011 to 2012 cars).
 
 ## Cayenne 9Y0 (2019 on)
 
-These come from a long-running owner list on Rennlist. It's owners' experience, not official data, and the list notes that fixes may or may not exist.
+These come from a long-running owner list on Rennlist. It's owners' experience, not official data, and fixes may or may not exist. Costs aren't known yet.
 
-- **Lurch when slowing and changing down** (early cars). Owners link it to the torque converter damper.
+- **Lurch when slowing and changing down** (early cars): owners link it to the torque converter damper.
 - **Shudder in 6th gear**, mainly on the V6. Fewer reports on 2022 and later cars.
-- **Check-engine light with loss of power.** Trade name: water pump shroud seal failure. It can damage the vacuum system too. V6 and V8.
-- **Check-engine light with a misfire.** Trade name: oil vapour (air-oil) separator failure. V6 and V8.
-- **Squealing brakes** on Porsche Surface Coated Brakes (PSCB). Owners say the only cure is standard discs and pads.
-- **Battery dying early** on early cars with the lithium (LiFePO4) battery. Owners say it was replaced under warranty.
+- **Check-engine light with loss of power:** water pump shroud seal failure, V6 and V8.
+- **Check-engine light with a misfire:** oil vapour (air-oil) separator failure, V6 and V8.
+- **Squealing brakes** on Porsche Surface Coated Brakes (PSCB).
+- **Battery dying early** on early cars with the lithium battery. Owners say it was replaced under warranty.
+
+[Tell us what you paid](/dubai/porsche/cayenne/)
 
 ### 9Y0 recalls to check by VIN
-- **Front upper control arm** (US 24V-533, 2024 cars, 2,475 cars): the arm can crack and affect steering.
-- **Rear trailing-arm nut** (US 21V-271 and 22V-040): the nut can crack, which knocks the rear alignment out. Signs are pulling or uneven rear tyre wear.
+- **Front upper control arm** (US 24V-533, 2024 cars): the arm can crack.
+- **Rear trailing-arm nut** (US 21V-271 and 22V-040): it can crack and knock the alignment out.
 
-Recall repairs are free. Recall numbers above are US campaigns, so a GCC car may be covered under a different number. Ask the dealer.
+Recall numbers here are US or Porsche campaign numbers. A GCC car may have its own, so ask the dealer.
 
 ## What to ask the garage
-1. "Can you plug it in and show me the fault codes before quoting?" A check-engine light on a 9Y0 can be several different parts.
-2. For a jerk on full lock: "Is this the transfer case, and have you replaced one on a 958 before?"
-3. "Is there an open recall on my VIN?" Independents can't do recall work, but a good one will tell you to check.
-4. "Genuine, OEM or aftermarket parts, and what warranty do you give on the work?"
-5. Get the quote in writing, with parts and labour split, before agreeing.
+1. "Can you show me the fault codes before quoting?"
+2. On a 2011 or 2012 V8: "Have the camshaft adjuster bolts been done?"
+3. For a lurch: "Is this the transfer case, and have you replaced one on a 958?"
+4. "Is there an open recall on my VIN?"
+5. "Genuine, OEM or aftermarket parts, and what warranty on the work?" Get it in writing, with parts and labour split.
 
 ## Sources
-- Recalls and transfer case: [carwhere.com, Cayenne known issues](https://carwhere.com/porsche/known-issues/cayenne) (updated Nov 2026)
-- 9Y0 owner list: [Rennlist, 9Y0 common problems](https://rennlist.com/forums/cayenne-9y0-2019/1408768-9y0-common-problems-and-failures.html) (Apr 2024)
-
-*Fixed one of these in Dubai? Find your garage on the [Cayenne garages page](/dubai/porsche/cayenne/), review it, and add the price you paid.*
+- [Rennlist: if you're thinking of buying a 958](https://rennlist.com/forums/cayenne-958/986048-if-you-re-thinking-of-buying-a-958-read-this-first.html), [958 service campaigns and recalls](https://rennlist.com/forums/cayenne-958-2011/1034083-958-service-campaigns-and-recalls.html), [high coolant consumption](https://rennlist.com/forums/cayenne-958-2011-2018/1128010-high-coolant-consumption.html), [9Y0 common problems](https://rennlist.com/forums/cayenne-9y0-2019/1408768-9y0-common-problems-and-failures.html)
+- [pcarwise, Cayenne buyer's guide 2011 to 2018](https://www.pcarwise.com/local-help/used-porsche-buyers-guide/porsche-cayenne-buying-guides/porsche-cayenne-buyers-guide-11-thru-18)
+- [carwhere, Cayenne known issues and recalls](https://carwhere.com/porsche/known-issues/cayenne)

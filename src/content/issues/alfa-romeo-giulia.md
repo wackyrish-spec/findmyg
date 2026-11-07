@@ -1,65 +1,66 @@
 ---
 make: Alfa Romeo
 model: Giulia
-title: "Alfa Romeo Giulia known issues: 2.0 Turbo and Quadrifoglio faults, and what to ask in Dubai"
-description: "Battery drain, turbo wastegates, water pumps, recalls and Quadrifoglio oil leaks on the Giulia (952, 2016 on), typical costs, and what to ask a Dubai garage."
+title: "Alfa Romeo Giulia known issues: leaks, software fixes and recalls, and what to ask in Dubai"
+description: "Timing cover oil leaks, coolant hose leaks, jerky stop-start, gearbox warnings and recalls on the Giulia (952, 2017 on), how big each job is, and what to ask a Dubai garage."
 updated: "Nov 2026"
 author: "KnowsMyCar editorial"
 status: draft
+sourced_issues: 9
 ---
 
-The Giulia (952, 2016 on) is one of the best-driving saloons of its era, and it has a short list of well-known faults. Here they are for the 2.0 Turbo and the 2.9 V6 Quadrifoglio, plus the recalls to check.
+The Giulia (952, 2017 on) is one of the best-driving saloons of its era. Most of its known faults are covered by Alfa Romeo's own service bulletins and recalls, and many are fixed with a software update. Here they are, with the bulletin numbers so your garage can look them up.
 
-**About prices.** We haven't found published Dubai prices for these jobs yet. The figures below are European, in euros, as a rough guide only. If you've had one of these fixed in Dubai, add what you paid in your review.
+**How we show cost.** We don't have Dubai prices for these jobs yet, so we show the size of the job. **Small:** a part or a software update, done in a morning. **Moderate:** a day's work or a costly part. **Major:** a big assembly or the engine comes apart, or the parts alone are very expensive. **Free:** recall work at the dealer. Owners' prices will replace these as reviews come in.
 
-## Giulia 2.0 Turbo
+## Oil leaking from the front of the engine (2.0 Turbo, 2020 to 2024)
+**Trade name:** timing cover oil leak.
+**How common:** Alfa issued service bulletin 09-013-25 (May 2025) for Giulias built up to May 2024. The cause is loose timing cover bolts.
+**Cost:** Small if re-tightening the bolts stops it, Moderate if the cover has to be resealed (about 6 hours' labour in the bulletin).
+[Tell us what you paid](/dubai/alfa-romeo/giulia/)
 
-### Battery flat after a week parked
-**Trade name:** 12V battery drain, often the IBS (intelligent battery sensor).
-**How common:** our source calls it the most widespread Giulia fault.
-**Cost abroad:** a revised sensor is about €100. Total bills reach €800 when batteries get replaced first.
+## Small coolant leak (early 2.0 Turbo)
+**Trade name:** turbo coolant hose O-ring (bulletin 09-005-17, 2017 cars built to January 2017). An earlier bulletin swapped a coolant hose zip-tie for a clip, so the hose can't be punctured.
+**Cost:** Small.
+[Tell us what you paid](/dubai/alfa-romeo/giulia/)
 
-### Rattle at idle, loss of boost
-**Trade name:** turbo wastegate actuator rod wear. Common codes: P0299, P0247, P0248.
-**How common:** usually at 50,000 to 100,000 km.
-**Cost abroad:** a replacement rod is €100 to 150. A new turbo is €2,500 to 3,000, so ask whether the rod alone will do.
+## Jerk when pulling away after stop-start
+**Trade name:** transmission control software (8-speed automatic). It was fixed by software in bulletin 21-032-17 and campaign T57 (2017 2.0 cars).
+**Cost:** Small (software).
+[Tell us what you paid](/dubai/alfa-romeo/giulia/)
 
-### Coolant level dropping, overheating
-**Trade name:** water pump / thermostat housing.
-**How common:** typically at 70,000 to 100,000 km.
-**Cost abroad:** €1,000 to 1,400 at an independent against €1,500 to 2,000 at a dealer.
+## "Automatic transmission failure" message, gear icons blinking (2017 to 2018)
+**Trade name:** electronic shift module fault, code U0103. The fix is a software reflash. One owner's warning was traced to a failing battery instead.
+**Cost:** Small. Ask for the battery to be tested first.
+[Tell us what you paid](/dubai/alfa-romeo/giulia/)
 
-### Clunk when selecting Drive or Reverse
-**Trade name:** engine mount wear, usually at 60,000 to 80,000 km. €400 to 600.
+## Stalling after refuelling, warning lights (early 2017 2.0)
+**Trade name:** engine software (bulletin 18-030-17, campaign T57).
+**Cost:** Small (software). Free under the campaign.
+[Tell us what you paid](/dubai/alfa-romeo/giulia/)
 
-### Other 2.0T faults
-- **Parking brake warning that comes and goes:** corroded wiring. The harness is €50 to 100. The caliper is €400 to 700 a side if the motor is damaged.
-- **Screen freezing** (2016 to 2019): Uconnect. A software update (€200 to 400) usually comes before a new unit (about €2,300).
-- **Warning light and power loss on short trips** (cars after September 2018): petrol particulate filter clogging. Cleaning €300 to 500.
-
-## Giulia Quadrifoglio
-
-- **Oil leaks or a burning smell:** valve cover and timing cover leaks, "reported regularly". The engine has to come out, so it costs €5,000 to 8,000 at a specialist and up to €12,000 at a dealer. This is where an independent specialist saves the most.
-- **Howl from the rear:** differential bearing wear on some cars after about 50,000 km. A diff is about €5,000 in parts.
-- **Harsh 1st to 2nd shift:** ZF 8-speed valve body. €1,500 to 2,500, or €200 to 500 if a reflash fixes it.
-- **Misfire for the first minute from cold:** often fixed by a reflash (€200 to 400) or coils (€150 to 200 each).
-- **Loss of boost:** wastegate solenoid or arm wear, €500 to 800.
+## Screen freezing, navigation dropping out
+**Trade name:** infotainment software (bulletin 08-041-17).
+**Cost:** Small (software).
+[Tell us what you paid](/dubai/alfa-romeo/giulia/)
 
 ## Recalls to check by VIN
-These are US campaigns. GCC cars may have their own numbers, so ask the dealer.
-- **Fuel pump** (25V-586, 2017 to 2019 Giulia and Quadrifoglio): the car can lose power or stall. The fix was still being developed in late 2025.
-- **Brake line clamp** (18V-828, 2017 to 2018 AWD), **brake pedal fastener** (2019 to 2020) and **seat-belt buckle sensor** (24V-510, 2017 to 2024).
-- **Catalytic converter overheating** after a misfire (2017 to 2018 2.0): a free software update.
+- **Catalytic converter overheating** after a misfire (2.0 cars, about 37,000 in the US): a fire risk.
+- **Front fuel line** (21V-878, recall Y91, 2020 to 2021 Giulia 2.0 and 2.9): a cracked sensor housing can leak fuel and cut power.
+- **Fuel pump** (25V-586, 2017 to 2019 Giulia and Quadrifoglio): the car can lose power or stall.
+- Also: **brake line clamp** (18V-828, 2017 to 2018 AWD), **brake pedal fastener** (2019 to 2020) and **seat-belt buckle sensor** (24V-510, 2017 to 2024).
+
+These are US recall numbers. GCC cars may have their own, so ask the dealer. Recall work is free.
 
 ## What to ask the garage
-1. For a flat battery: "Have you checked the IBS sensor and the parasitic drain before selling me a battery?"
-2. For a turbo rattle: "Is it the wastegate rod, or does the turbo really need replacing?"
-3. "Do you have Alfa-specific diagnostic software?"
+1. "Do you have Alfa-specific diagnostic software, and can you check for updates?" Many Giulia faults are fixed by a reflash.
+2. For a gearbox warning: "Have you tested the battery first?"
+3. For an oil leak at the front: "Is this the timing cover in bulletin 09-013-25, and will re-tightening fix it?"
 4. "Is there an open recall on my VIN?"
 5. Get a written quote, with parts and labour split, before agreeing.
 
 ## Sources
-- [Car Checker, Giulia 2.0 Turbo](https://www.carchecker.pro/reports/alfa_romeo_giulia_2.0_turbo.html) and [Giulia Quadrifoglio](https://www.carchecker.pro/reports/alfa_romeo_giulia_quadrifoglio.html) (partly AI-compiled)
-- Recalls: [REREV, Giulia years to avoid](https://rerev.com/years-to-avoid/vehicles/alfa-romeo-giulia/)
-
-*Fixed one of these in Dubai? Find your garage on the [Giulia garages page](/dubai/alfa-romeo/giulia/), review it, and add the price you paid.*
+- Alfa Romeo bulletins (NHTSA copies): [09-013-25 timing cover leak](https://static.nhtsa.gov/odi/tsbs/2025/MC-11019431-0001.pdf), [09-005-17 coolant hose O-ring](https://static.nhtsa.gov/odi/tsbs/2017/MC-10224721-9999.pdf), [campaign T57 software and drivability](https://static.nhtsa.gov/odi/inv/2024/INRD-PE24003-12461.pdf), [recall Y91 fuel line](https://static.nhtsa.gov/odi/rcl/2021/RCRIT-21V878-3011.pdf)
+- Press: [Jalopnik, every problem FCA has tried to fix on the Giulia](https://www.jalopnik.com/here-are-all-the-problems-that-fca-has-attempted-to-fix-1797069082/) (2017), [Carscoops, Giulia and Stelvio heat recalls](https://www.carscoops.com/2018/10/alfa-romeo-giulia-stelvio-engines-getting-hot-handle/) (2018), [Vehicle Service Pros, shift module reprogram](https://www.vehicleservicepros.com/tsbs/article/53092838/alfa-shift-reprogram-2020-05-18)
+- Owners: [TrueDelta, Giulia electrical repairs](https://www.truedelta.com/Alfa-Romeo-Giulia/electrical-problems-1346)
+- Recall list: [REREV, Giulia years to avoid](https://rerev.com/years-to-avoid/vehicles/alfa-romeo-giulia/)
