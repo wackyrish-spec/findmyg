@@ -42,8 +42,17 @@ function goodFor(text) {
   return out.slice(0, 2);
 }
 
+// Data's website_note: dead or hijacked sites lose their link; non-workshops are left out of lists.
+const BROKEN_SITE = /suspend|gambling|unrelated|default server|no content|check before/i;
+const NOT_WORKSHOP = /not (clearly )?a (repair )?workshop|parts (supplier|distributor)|distributor|retailer|transport company|showroom/i;
+const SITE_BASIS = (s) => s.basis === "website" || /self-description|on (the )?garage('s)? (own )?website/i.test(s.evidence || "");
 function norm(g) {
-  const specs = (g.specialties || [])
+  const note = g.website_note || "";
+  const website = g.website && !BROKEN_SITE.test(note) ? g.website : "";
+  // A specialty whose only basis is the garage's own website is "the garage says", never owner-backed or ranked.
+  const self_claims = [...(g.self_claims || []).map((c) => ({ ...c, url: c.url && BROKEN_SITE.test(note) ? "" : c.url })), ...(g.specialties || []).filter((s) => s.make && SITE_BASIS(s))
+    .map((s) => ({ make: s.make, models: (s.models || []).filter(Boolean), url: website, note: "" }))];
+  const specs = (g.specialties || []).filter((s) => !SITE_BASIS(s))
     .filter((s) => s.make)
     .map((s) => ({
       make: s.make,
@@ -54,8 +63,7 @@ function norm(g) {
       conf: CONF[s.confidence] || 1,
       evidence: s.evidence || "",
       mentions: s.mentions || 0,
-      // A garage describing itself on its own website is a self-claim, whatever basis the row carries.
-      basis: /self-description|on (the )?garage('s)? (own )?website/i.test(s.evidence || "") ? "website" : s.basis || "",
+      basis: s.basis || "",
     }))
     .sort((a, b) => b.conf - a.conf || b.mentions - a.mentions);
   const real = (s) => /reviews|community|founder/.test(s.basis) && s.conf >= 2;
@@ -77,6 +85,10 @@ function norm(g) {
     // NFKC turns styled Unicode names (e.g. bold maths letters from Maps listings) into plain text.
     name: String(g.name).normalize("NFKC").replace(/\s+/g, " ").trim(),
     slug: g.id || slugify(g.name),
+    website, self_claims,
+    sources: (g.sources || []).filter((u) => website || !g.website || !u.includes(g.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/.*$/, ""))),
+    focus: g.website_focus?.focus && website ? g.website_focus.focus : "",
+    notWorkshop: NOT_WORKSHOP.test(note) && !/workshop in/i.test(note),
     specs,
     ext,
     google,
@@ -113,8 +125,10 @@ export function waNumber(g) {
 const defaultRank = (a, b) =>
   a.isDealer - b.isDealer || (b.ownerCount >= 3) - (a.ownerCount >= 3) || b.hasEvidence - a.hasEvidence || b.topConf - a.topConf || a.name.localeCompare(b.name);
 
-export const GARAGES = (raw.garages || raw).filter((g) => g && g.name).map(norm).sort(defaultRank);
-export const BY_SLUG = Object.fromEntries(GARAGES.map((g) => [g.slug, g]));
+// Every garage keeps its page (slugs are frozen); non-workshops are left out of lists and search.
+export const ALL_GARAGES = (raw.garages || raw).filter((g) => g && g.name).map(norm).sort(defaultRank);
+export const GARAGES = ALL_GARAGES.filter((g) => !g.notWorkshop);
+export const BY_SLUG = Object.fromEntries(ALL_GARAGES.map((g) => [g.slug, g]));
 export const DATA_UPDATED = raw.updated || "";
 export const METHOD = raw.method || "";
 
@@ -226,8 +240,8 @@ export function isIndexable(key, evidenceCount) {
 }
 // Garage pages are indexed when they have real evidence for at least one specialty.
 // Indexable with evidence, owner reviews, or a person-checked summary of 20+ outside reviews read (PM spec, SEO input).
-export const garageIndexable = (g) => g.hasEvidence || g.ownerCount > 0
-  || (g.summary_checked === true && (g.reviews_read || g.price_signal?.reviews_read || 0) >= 20);
+export const garageIndexable = (g) => !g.notWorkshop && (g.hasEvidence || g.ownerCount > 0
+  || (g.summary_checked === true && (g.reviews_read || g.price_signal?.reviews_read || 0) >= 20));
 
 /* ---------- picker payload (kept small; shipped to the browser) ---------- */
 export function pickerCatalog() {
@@ -297,7 +311,7 @@ export const BENCHMARKS = [
 function benchPoints(g, b) {
   const pts = [];
   g.ownerReviews.forEach((r) => { if (r.price_paid > 0 && (r.job === b.name || b.re.test(`${r.job} ${r.job_note || ""}`))) pts.push({ src: "owners", make: r.car_make, model: r.car_model || "", low: r.price_paid, high: r.price_paid }); });
-  g.prices.forEach((p) => { if (b.job.includes(p.job) || (!p.job && b.re.test(p.item))) pts.push({ ...p, src: g.isDealer ? "dealer" : p.owner ? "reported" : "list" }); });
+  g.prices.forEach((p) => { if (b.job.includes(p.job) || (!p.job && b.re.test(p.item))) pts.push({ ...p, src: g.isDealer ? "dealer" : p.owner ? "reported" : /website/i.test(p.source) ? "site" : "list" }); });
   (g.priceTalk?.jobs || []).forEach((j) => { if (b.re.test(j.job || "") || b.job.includes(j.job)) pts.push({ src: "web", make: j.make, model: j.model || "", low: j.aed_low, high: j.aed_high }); });
   return pts;
 }
@@ -326,7 +340,7 @@ export function budgetTier(g, make) {
   const rank = lows.filter((v) => v < mine).length / lows.length;
   return rank < 1 / 3 ? "$" : rank < 2 / 3 ? "$$" : "$$$";
 }
-export const BENCH_SRC = { owners: "KnowsMyCar owners", list: "garage's price list", dealer: "dealer price list", reported: "owner on a forum", web: "reviews elsewhere" };
+export const BENCH_SRC = { owners: "KnowsMyCar owners", list: "garage's price list", site: "garage's website", dealer: "dealer price list", reported: "owner on a forum", web: "reviews elsewhere" };
 export const aedRange = (lo, hi) => lo === hi ? `AED ${Number(lo).toLocaleString("en-US")}` : `AED ${Number(lo).toLocaleString("en-US")} to ${Number(hi).toLocaleString("en-US")}`;
 
 // ---------- Search by problem (PM spec 12.3) ----------

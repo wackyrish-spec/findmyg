@@ -1,8 +1,8 @@
-import { GARAGES } from "../../../lib/data.js";
+import { ALL_GARAGES } from "../../../lib/data.js";
 import { card, png, pngResponse } from "../../../lib/og.js";
 
 export function getStaticPaths() {
-  return GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
+  return ALL_GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
 }
 
 export async function GET({ props: { g } }) {

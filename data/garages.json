@@ -11733,8 +11733,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: performance tuning focus",
+   "website_focus": {
+    "focus": "performance tuning",
+    "claims": [
+     "Chiptuning and ECU remapping"
+    ],
+    "source": "garage website",
+    "url": "http://www.chipcentric.me/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "rapido-garage-8e00",
@@ -11791,8 +11800,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all types of vehicles"
   },
   {
    "id": "green-land-hybrid-fast-auto-repairing-llc-7461",
@@ -11989,8 +11998,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all Makes"
   },
   {
    "id": "mrg-auto-garage-c756",
@@ -12105,8 +12114,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: website lists 12 makes"
   },
   {
    "id": "dx-garage-i-car-repair-garage-in-al-quoz-dubai-9675",
@@ -12166,8 +12175,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: any car"
   },
   {
    "id": "al-taief-garage-9638",
@@ -12903,8 +12912,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: any car"
   },
   {
    "id": "car-cafe-auto-repair-acc2",
@@ -13005,8 +13014,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all makes"
   },
   {
    "id": "r-one-performance-9a9a",
@@ -13056,8 +13065,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: performance/supercar focus",
+   "website_focus": {
+    "focus": "performance/supercar",
+    "claims": [
+     "Repair, tuning and diagnostics: BMW, Mercedes, Ferrari and supercars"
+    ],
+    "source": "garage website",
+    "url": "https://roneperformance.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "germanic-auto-general-repairing-5a99",
@@ -13118,8 +13136,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all makes"
   },
   {
    "id": "golden-horse-car-garage-al-quoz-6257",
@@ -13175,10 +13193,56 @@
     "https://golden-horse.ae/?utm_source=google_seo&utm_campaign=google_maps_s"
    ],
    "possible_matches": [],
-   "price_examples": [],
+   "price_examples": [
+    {
+     "item": "Oil change from AED 200",
+     "price_aed": 200,
+     "vat": "not stated",
+     "source": "garage website",
+     "url": "https://golden-horse.ae/?utm_source=google_seo&utm_campaign=google_maps_s",
+     "date": "2026-11",
+     "job": "minor_service",
+     "make": null,
+     "model": null,
+     "aed_low": 200,
+     "aed_high": 200,
+     "includes_parts": null,
+     "note": "published starting price"
+    },
+    {
+     "item": "Brake pad replacement from AED 150 (labour; parts likely extra)",
+     "price_aed": 150,
+     "vat": "not stated",
+     "source": "garage website",
+     "url": "https://golden-horse.ae/?utm_source=google_seo&utm_campaign=google_maps_s",
+     "date": "2026-11",
+     "job": "brake_pads_front",
+     "make": null,
+     "model": null,
+     "aed_low": 150,
+     "aed_high": 150,
+     "includes_parts": null,
+     "note": "published starting price"
+    },
+    {
+     "item": "Air conditioner recharge AED 200",
+     "price_aed": 200,
+     "vat": "not stated",
+     "source": "garage website",
+     "url": "https://golden-horse.ae/?utm_source=google_seo&utm_campaign=google_maps_s",
+     "date": "2026-11",
+     "job": "ac_regas",
+     "make": null,
+     "model": null,
+     "aed_low": 200,
+     "aed_high": 200,
+     "includes_parts": null,
+     "note": "published starting price"
+    }
+   ],
    "evidence_summary": "Its own website says it works on Alfa Romeo (not owner evidence).",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all types of vehicles"
   },
   {
    "id": "trd-auto-repairing-dubai-7380",
@@ -13287,8 +13351,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: German/European luxury focus",
+   "website_focus": {
+    "focus": "German/European luxury",
+    "claims": [
+     "German and European luxury specialist (4 branches, Dubai & Sharjah)"
+    ],
+    "source": "garage website",
+    "url": "https://gargashauto.ae/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "elite-one-stop-garage-9441",
@@ -13381,7 +13454,14 @@
     "Off-road & 4x4"
    ],
    "specialties": [],
-   "self_claims": [],
+   "self_claims": [
+    {
+     "make": "Jeep",
+     "models": [],
+     "url": "https://am-wrangler.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
    "is_specialist": false,
    "external_ratings": [
     {
@@ -13402,8 +13482,18 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: Jeep off-road focus",
+   "website_focus": {
+    "focus": "Jeep off-road",
+    "claims": [
+     "Jeep off-road parts and fitting"
+    ],
+    "source": "garage website",
+    "url": "https://am-wrangler.com/",
+    "as_of": "2026-11-07"
+   },
+   "website_note": "off-road parts distributor (Hurricane Performance suspension); Jeep focus"
   },
   {
    "id": "desire-auto-services-2332",
@@ -13456,7 +13546,8 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes_basis": "unknown: reviews not read yet",
+   "website_note": "hosting account suspended"
   },
   {
    "id": "heavy-duty-garage-e8be",
@@ -13480,7 +13571,14 @@
    "hours": "",
    "services": [],
    "specialties": [],
-   "self_claims": [],
+   "self_claims": [
+    {
+     "make": "Jeep",
+     "models": [],
+     "url": "http://hdgarage.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
    "is_specialist": false,
    "external_ratings": [
     {
@@ -13608,8 +13706,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: ALL MAKES"
   },
   {
    "id": "vip-german-auto-repairing-31de",
@@ -13715,8 +13813,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: ALL MAKES"
   },
   {
    "id": "wagenkenner-4b18",
@@ -13741,7 +13839,56 @@
    "hours": "",
    "services": [],
    "specialties": [],
-   "self_claims": [],
+   "self_claims": [
+    {
+     "make": "BMW",
+     "models": [],
+     "url": "http://www.wagenkenner.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Mercedes-Benz",
+     "models": [],
+     "url": "http://www.wagenkenner.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Audi",
+     "models": [],
+     "url": "http://www.wagenkenner.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Porsche",
+     "models": [],
+     "url": "http://www.wagenkenner.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Volkswagen",
+     "models": [],
+     "url": "http://www.wagenkenner.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Land Rover",
+     "models": [],
+     "url": "http://www.wagenkenner.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Jaguar",
+     "models": [],
+     "url": "http://www.wagenkenner.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Bentley",
+     "models": [],
+     "url": "http://www.wagenkenner.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
    "is_specialist": false,
    "external_ratings": [
     {
@@ -13762,8 +13909,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: European focus",
+   "website_focus": {
+    "focus": "European",
+    "claims": [
+     "European makes: BMW, Mercedes-Benz, Audi, Porsche, Volkswagen, MINI, Land Rover, Jaguar, Bentley, Volvo"
+    ],
+    "source": "garage website",
+    "url": "http://www.wagenkenner.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "garage-fba1",
@@ -13802,7 +13958,38 @@
     "Tyres"
    ],
    "specialties": [],
-   "self_claims": [],
+   "self_claims": [
+    {
+     "make": "Ferrari",
+     "models": [],
+     "url": "https://luxury-wheels.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Lamborghini",
+     "models": [],
+     "url": "https://luxury-wheels.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Rolls-Royce",
+     "models": [],
+     "url": "https://luxury-wheels.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Bentley",
+     "models": [],
+     "url": "https://luxury-wheels.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "McLaren",
+     "models": [],
+     "url": "https://luxury-wheels.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
    "is_specialist": false,
    "external_ratings": [
     {
@@ -13823,8 +14010,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: exotic focus",
+   "website_focus": {
+    "focus": "exotic",
+    "claims": [
+     "Luxury and exotic cars: Ferrari, Lamborghini, Rolls-Royce, Bentley, Porsche, McLaren"
+    ],
+    "source": "garage website",
+    "url": "https://luxury-wheels.ae/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "new-expert-excellent-auto-repairing-6a6e",
@@ -13878,8 +14074,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all makes"
   },
   {
    "id": "al-qusais-garage-34c0",
@@ -13926,8 +14122,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all type of vehicle service"
   },
   {
    "id": "speed-o-garage-0530",
@@ -13984,8 +14180,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: German, American, British brands (one-stop)"
   },
   {
    "id": "salute-auto-repair-452a",
@@ -14109,9 +14305,73 @@
    "services": [
     "Servicing"
    ],
-   "specialties": [],
-   "self_claims": [],
-   "is_specialist": false,
+   "specialties": [
+    {
+     "make": "Ford",
+     "models": [
+      "Mustang"
+     ],
+     "level": "model",
+     "confidence": "low",
+     "evidence": "Garage's own website says it specialises in Mustang; not yet confirmed by owner reviews",
+     "mentions": 0,
+     "basis": "website",
+     "car_family": "american"
+    },
+    {
+     "make": "Chevrolet",
+     "models": [
+      "Camaro"
+     ],
+     "level": "model",
+     "confidence": "low",
+     "evidence": "Garage's own website says it specialises in Camaro; not yet confirmed by owner reviews",
+     "mentions": 0,
+     "basis": "website",
+     "car_family": "american"
+    },
+    {
+     "make": "Dodge",
+     "models": [
+      "Charger",
+      "Challenger"
+     ],
+     "level": "model",
+     "confidence": "low",
+     "evidence": "Garage's own website says it specialises in Charger, Challenger; not yet confirmed by owner reviews",
+     "mentions": 0,
+     "basis": "website",
+     "car_family": "american"
+    }
+   ],
+   "self_claims": [
+    {
+     "make": "Ford",
+     "models": [
+      "Mustang"
+     ],
+     "url": "https://somersetperformance.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Chevrolet",
+     "models": [
+      "Camaro"
+     ],
+     "url": "https://somersetperformance.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Dodge",
+     "models": [
+      "Charger",
+      "Challenger"
+     ],
+     "url": "https://somersetperformance.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
+   "is_specialist": true,
    "external_ratings": [
     {
      "source": "Google",
@@ -14131,8 +14391,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: American muscle focus",
+   "website_focus": {
+    "focus": "American muscle",
+    "claims": [
+     "Mustang, Camaro, Charger and Challenger specialist"
+    ],
+    "source": "garage website",
+    "url": "https://somersetperformance.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "cit-vehicle-repairing-c87c",
@@ -14159,7 +14428,20 @@
     "Servicing"
    ],
    "specialties": [],
-   "self_claims": [],
+   "self_claims": [
+    {
+     "make": "Jeep",
+     "models": [],
+     "url": "http://citemirates.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Mitsubishi",
+     "models": [],
+     "url": "http://citemirates.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
    "is_specialist": false,
    "external_ratings": [
     {
@@ -14180,8 +14462,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all makes & models",
+   "website_focus": {
+    "focus": null,
+    "claims": [
+     "Jeep and Mitsubishi Pajero expertise"
+    ],
+    "source": "garage website",
+    "url": "http://citemirates.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "euro-haus-autocare-6135",
@@ -14242,8 +14533,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: European focus",
+   "website_focus": {
+    "focus": "European",
+    "claims": [
+     "European and exotic cars"
+    ],
+    "source": "garage website",
+    "url": "https://eurohausdubai.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "the-car-hub-auto-garage-llc-0a5e",
@@ -14557,8 +14857,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: every vehicle (general mechanical, electrical, hybrid, bodywork)"
   },
   {
    "id": "grand-city-auto-services-1583",
@@ -14609,8 +14909,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: luxury & all vehicle brands",
+   "website_focus": {
+    "focus": null,
+    "claims": [
+     "German/luxury focus: BMW, Mercedes, Range Rover, Porsche, Audi, VW"
+    ],
+    "source": "garage website",
+    "url": "https://grandcitygarage.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "omg-offroad-motorist-garage-22e8",
@@ -14717,8 +15026,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all car brands serviced"
   },
   {
    "id": "al-diyar-auto-repairing-02a1",
@@ -14814,7 +15123,8 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes_basis": "unknown: reviews not read yet",
+   "website_note": "4x4 parts and accessories retailer (Pedders, TJM); not clearly a workshop"
   },
   {
    "id": "selective-promech-garage-llc-7244",
@@ -14843,9 +15153,27 @@
     "Servicing",
     "Engine"
    ],
-   "specialties": [],
-   "self_claims": [],
-   "is_specialist": false,
+   "specialties": [
+    {
+     "make": "Porsche",
+     "models": [],
+     "level": "brand",
+     "confidence": "low",
+     "evidence": "Garage's own website says it specialises in Porsche; not yet confirmed by owner reviews",
+     "mentions": 0,
+     "basis": "website",
+     "car_family": "german"
+    }
+   ],
+   "self_claims": [
+    {
+     "make": "Porsche",
+     "models": [],
+     "url": "https://www.selectivepromech.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
+   "is_specialist": true,
    "external_ratings": [
     {
      "source": "Google",
@@ -14865,8 +15193,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: Porsche focus",
+   "website_focus": {
+    "focus": "Porsche",
+    "claims": [
+     "Independent Porsche specialist: diagnostics, servicing, PDK repair, performance"
+    ],
+    "source": "garage website",
+    "url": "https://www.selectivepromech.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "penta-seiara-auto-repairing-llc-f04d",
@@ -14909,10 +15246,26 @@
     "http://pentaseiara.com/"
    ],
    "possible_matches": [],
-   "price_examples": [],
+   "price_examples": [
+    {
+     "item": "minor services AED 1000 (package: fluids & top-ups, basic maintenance, A/C & electrical check)",
+     "price_aed": 1000,
+     "vat": "not stated",
+     "source": "garage website",
+     "url": "http://pentaseiara.com/",
+     "date": "2026-11",
+     "job": "minor_service",
+     "make": null,
+     "model": null,
+     "aed_low": 1000,
+     "aed_high": 1000,
+     "includes_parts": null,
+     "note": "site has unrelated spam content; treat with caution"
+    }
+   ],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all types of car maintenance"
   },
   {
    "id": "bholoo-garage-4ec1",
@@ -14966,8 +15319,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: lists 40+ makes serviced"
   },
   {
    "id": "land-rover-authorised-repairer-al-tayer-motors-3bf7",
@@ -15060,8 +15413,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: automatic transmission specialist, all makes",
+   "website_focus": {
+    "focus": null,
+    "claims": [
+     "Automatic transmission/gearbox specialist"
+    ],
+    "source": "garage website",
+    "url": "https://www.compass-at.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "car-service-bros-8bc9",
@@ -15108,8 +15470,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all types of vehicles"
   },
   {
    "id": "mercedes-r-us-6c5a",
@@ -15229,8 +15591,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: All Car Models"
   },
   {
    "id": "machinehead-4x4-5871",
@@ -15394,7 +15756,8 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes_basis": "unknown: reviews not read yet",
+   "website_note": "default server page, no content"
   },
   {
    "id": "elite-craft-autocare-and-repair-services-llc-53ae",
@@ -15445,8 +15808,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: All Brands"
   },
   {
    "id": "digitec-performance-center-llc-d1aa",
@@ -15508,8 +15871,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all brands"
   },
   {
    "id": "rebel-motorworks-german-auto-service-9a31",
@@ -15645,8 +16008,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: All makes"
   },
   {
    "id": "bmw-station-auto-general-repairing-fe6b",
@@ -15764,8 +16127,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: All Car Brands"
   },
   {
    "id": "radical-custom-e681",
@@ -15794,7 +16157,14 @@
     "Bodywork & paint"
    ],
    "specialties": [],
-   "self_claims": [],
+   "self_claims": [
+    {
+     "make": "Volvo",
+     "models": [],
+     "url": "http://www.radical-custom.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
    "is_specialist": false,
    "external_ratings": [
     {
@@ -15963,8 +16333,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: every make"
   },
   {
    "id": "tensai-tuning-7113",
@@ -15990,9 +16360,71 @@
     "Servicing",
     "Tuning & performance"
    ],
-   "specialties": [],
-   "self_claims": [],
-   "is_specialist": false,
+   "specialties": [
+    {
+     "make": "Nissan",
+     "models": [
+      "GT-R"
+     ],
+     "level": "model",
+     "confidence": "low",
+     "evidence": "Garage's own website says it specialises in GT-R; not yet confirmed by owner reviews",
+     "mentions": 0,
+     "basis": "website",
+     "car_family": "japanese_korean"
+    },
+    {
+     "make": "Mitsubishi",
+     "models": [
+      "Lancer"
+     ],
+     "level": "model",
+     "confidence": "low",
+     "evidence": "Garage's own website says it specialises in Lancer; not yet confirmed by owner reviews",
+     "mentions": 0,
+     "basis": "website",
+     "car_family": "japanese_korean"
+    },
+    {
+     "make": "Toyota",
+     "models": [
+      "Supra"
+     ],
+     "level": "model",
+     "confidence": "low",
+     "evidence": "Garage's own website says it specialises in Supra; not yet confirmed by owner reviews",
+     "mentions": 0,
+     "basis": "website",
+     "car_family": "japanese_korean"
+    }
+   ],
+   "self_claims": [
+    {
+     "make": "Nissan",
+     "models": [
+      "GT-R"
+     ],
+     "url": "http://www.tensai.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Mitsubishi",
+     "models": [
+      "Lancer"
+     ],
+     "url": "http://www.tensai.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Toyota",
+     "models": [
+      "Supra"
+     ],
+     "url": "http://www.tensai.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
+   "is_specialist": true,
    "external_ratings": [
     {
      "source": "Google",
@@ -16012,8 +16444,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: JDM performance focus",
+   "website_focus": {
+    "focus": "JDM performance",
+    "claims": [
+     "JDM tuning and parts: Nissan GT-R, Mitsubishi Lancer Evolution, Toyota Supra, GR Yaris"
+    ],
+    "source": "garage website",
+    "url": "http://www.tensai.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "raptor-power-auto-garage-43a9",
@@ -16182,8 +16623,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all vehicle brands"
   },
   {
    "id": "cars-auto-repairing-garage-a4dd",
@@ -16348,9 +16789,75 @@
    "dealer_for": null,
    "hours": "",
    "services": [],
-   "specialties": [],
-   "self_claims": [],
-   "is_specialist": false,
+   "specialties": [
+    {
+     "make": "BMW",
+     "models": [],
+     "level": "brand",
+     "confidence": "low",
+     "evidence": "Garage's own website says it specialises in BMW; not yet confirmed by owner reviews",
+     "mentions": 0,
+     "basis": "website",
+     "car_family": "german"
+    },
+    {
+     "make": "MINI",
+     "models": [],
+     "level": "brand",
+     "confidence": "low",
+     "evidence": "Garage's own website says it specialises in MINI; not yet confirmed by owner reviews",
+     "mentions": 0,
+     "basis": "website",
+     "car_family": "german"
+    },
+    {
+     "make": "Rolls-Royce",
+     "models": [],
+     "level": "brand",
+     "confidence": "low",
+     "evidence": "Garage's own website says it specialises in Rolls-Royce; not yet confirmed by owner reviews",
+     "mentions": 0,
+     "basis": "website",
+     "car_family": "british"
+    },
+    {
+     "make": "Mercedes-Benz",
+     "models": [],
+     "level": "brand",
+     "confidence": "low",
+     "evidence": "Garage's own website says it specialises in Mercedes-Benz; not yet confirmed by owner reviews",
+     "mentions": 0,
+     "basis": "website",
+     "car_family": "german"
+    }
+   ],
+   "self_claims": [
+    {
+     "make": "BMW",
+     "models": [],
+     "url": "https://ltautoservices.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "MINI",
+     "models": [],
+     "url": "https://ltautoservices.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Rolls-Royce",
+     "models": [],
+     "url": "https://ltautoservices.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Mercedes-Benz",
+     "models": [],
+     "url": "https://ltautoservices.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
+   "is_specialist": true,
    "external_ratings": [
     {
      "source": "Google",
@@ -16370,8 +16877,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: German/prestige focus",
+   "website_focus": {
+    "focus": "German/prestige",
+    "claims": [
+     "Specialising in BMW, MINI, Rolls-Royce, Mercedes and other German/prestige brands (since 1999)"
+    ],
+    "source": "garage website",
+    "url": "https://ltautoservices.ae/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "benchmark-auto-care-llc-al-qusais-dubai-fcb3",
@@ -16422,8 +16938,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: general maintenance, all needs"
   },
   {
    "id": "gentlemens-garage-auto-services-7768",
@@ -16506,7 +17022,14 @@
     "Bodywork & paint"
    ],
    "specialties": [],
-   "self_claims": [],
+   "self_claims": [
+    {
+     "make": "Mercedes-Benz",
+     "models": [],
+     "url": "https://cargarageautoservice.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
    "is_specialist": false,
    "external_ratings": [
     {
@@ -16527,8 +17050,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all makes and models",
+   "website_focus": {
+    "focus": null,
+    "claims": [
+     "Mercedes-Benz specialist"
+    ],
+    "source": "garage website",
+    "url": "https://cargarageautoservice.ae/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "fury-automotive-dubai-ced1",
@@ -16602,9 +17134,53 @@
    "services": [
     "Servicing"
    ],
-   "specialties": [],
-   "self_claims": [],
-   "is_specialist": false,
+   "specialties": [
+    {
+     "make": "Jeep",
+     "models": [
+      "Wrangler",
+      "Gladiator"
+     ],
+     "level": "model",
+     "confidence": "low",
+     "evidence": "Garage's own website says it specialises in Wrangler, Gladiator; not yet confirmed by owner reviews",
+     "mentions": 0,
+     "basis": "website",
+     "car_family": "american"
+    },
+    {
+     "make": "Nissan",
+     "models": [
+      "Patrol"
+     ],
+     "level": "model",
+     "confidence": "low",
+     "evidence": "Garage's own website says it specialises in Patrol; not yet confirmed by owner reviews",
+     "mentions": 0,
+     "basis": "website",
+     "car_family": "japanese_korean"
+    }
+   ],
+   "self_claims": [
+    {
+     "make": "Jeep",
+     "models": [
+      "Wrangler",
+      "Gladiator"
+     ],
+     "url": "https://www.xtreme4x4.me/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Nissan",
+     "models": [
+      "Patrol"
+     ],
+     "url": "https://www.xtreme4x4.me/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
+   "is_specialist": true,
    "external_ratings": [
     {
      "source": "Google",
@@ -16624,8 +17200,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: 4x4/off-road focus",
+   "website_focus": {
+    "focus": "4x4/off-road",
+    "claims": [
+     "Jeep and 4x4 builds, lifts, V8 conversions: Wrangler JL, Gladiator JT, Nissan Patrol Y62"
+    ],
+    "source": "garage website",
+    "url": "https://www.xtreme4x4.me/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "spark-star-garage-automotive-repair-11ae",
@@ -16722,8 +17307,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Its own website says it works on Alfa Romeo (not owner evidence).",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: German/European/American focus",
+   "website_focus": {
+    "focus": "German/European/American",
+    "claims": [
+     "German, European and American cars (Audi, BMW, Mercedes, Porsche, VW)"
+    ],
+    "source": "garage website",
+    "url": "https://snsauto.ae/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "msg-autocare-dubai-e7da",
@@ -16834,8 +17428,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all makes (35 brands, European/American/Japanese/Korean)"
   },
   {
    "id": "autova-expert-garage-llc-b4b5",
@@ -16883,8 +17477,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: luxury/performance focus",
+   "website_focus": {
+    "focus": "luxury/performance",
+    "claims": [
+     "Luxury and performance cars"
+    ],
+    "source": "garage website",
+    "url": "https://autova.ae/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "middle-east-auto-garage-2bd0",
@@ -17031,7 +17634,16 @@
     "Tuning & performance"
    ],
    "specialties": [],
-   "self_claims": [],
+   "self_claims": [
+    {
+     "make": "Nissan",
+     "models": [
+      "Patrol"
+     ],
+     "url": "http://www.zkmotorsports.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
    "is_specialist": false,
    "external_ratings": [
     {
@@ -17052,8 +17664,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: performance tuning focus",
+   "website_focus": {
+    "focus": "performance tuning",
+    "claims": [
+     "ECU tuning, engine building; Link ECU for Nissan TB48 (Patrol)"
+    ],
+    "source": "garage website",
+    "url": "http://www.zkmotorsports.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "rmb-garage-l-l-c-42e0",
@@ -17206,8 +17827,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: multi-brand: Japanese, Korean, American, European"
   },
   {
    "id": "carstars-garage-european-car-repairs-d2a0",
@@ -17268,8 +17889,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all makes and models",
+   "website_focus": {
+    "focus": "European",
+    "claims": [
+     "European specialists: Bentley, Rolls-Royce, Mercedes, BMW, VAG, Ferrari, Lamborghini"
+    ],
+    "source": "garage website",
+    "url": "http://www.carstars.ae/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "affordable-mechanics-4ea9",
@@ -17522,8 +18152,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all vehicles"
   },
   {
    "id": "blue-coastal-auto-workshop-538c",
@@ -17598,9 +18228,27 @@
     "Servicing",
     "Tuning & performance"
    ],
-   "specialties": [],
-   "self_claims": [],
-   "is_specialist": false,
+   "specialties": [
+    {
+     "make": "Nissan",
+     "models": [],
+     "level": "brand",
+     "confidence": "low",
+     "evidence": "Garage's own website says it specialises in Nissan; not yet confirmed by owner reviews",
+     "mentions": 0,
+     "basis": "website",
+     "car_family": "japanese_korean"
+    }
+   ],
+   "self_claims": [
+    {
+     "make": "Nissan",
+     "models": [],
+     "url": "http://kanzenmotorsports.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
+   "is_specialist": true,
    "external_ratings": [
     {
      "source": "Google",
@@ -17620,8 +18268,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: JDM restoration focus",
+   "website_focus": {
+    "focus": "JDM restoration",
+    "claims": [
+     "JDM restorations and tuning: Datsun Z, Skyline, Silvia"
+    ],
+    "source": "garage website",
+    "url": "http://kanzenmotorsports.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "bright-spark-auto-repairing-jebel-ali-715d",
@@ -17671,8 +18328,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: multi-brand automotive services (since 1993)"
   },
   {
    "id": "future-racing-14ab",
@@ -17823,8 +18480,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: gearbox repair, all makes",
+   "website_focus": {
+    "focus": null,
+    "claims": [
+     "Gearbox/automatic transmission and CVT specialist"
+    ],
+    "source": "garage website",
+    "url": "https://horanias.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "next-gen-auto-repair-llc-9049",
@@ -17885,8 +18551,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: luxury/German/American focus",
+   "website_focus": {
+    "focus": "luxury/German/American",
+    "claims": [
+     "Luxury, American and German brands: BMW, Mercedes, Lamborghini, Porsche, Ford, Bentley, Chevrolet, Land Rover"
+    ],
+    "source": "garage website",
+    "url": "https://nextgenautogarage.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "auto-doctor-7f38",
@@ -17943,10 +18618,35 @@
     "http://autodoctor.ae/"
    ],
    "possible_matches": [],
-   "price_examples": [],
+   "price_examples": [
+    {
+     "item": "Minor service from AED 399 + VAT",
+     "price_aed": 418.95,
+     "vat": "added 5% (399 + VAT)",
+     "source": "garage website",
+     "url": "http://autodoctor.ae/",
+     "date": "2026-11",
+     "job": "minor_service",
+     "make": null,
+     "model": null,
+     "aed_low": 418.95,
+     "aed_high": 418.95,
+     "includes_parts": null,
+     "note": "starting-from price, luxury garage"
+    }
+   ],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: luxury focus",
+   "website_focus": {
+    "focus": "luxury",
+    "claims": [
+     "Luxury car repair: Lamborghini, Mercedes, BMW, Ferrari, Rolls-Royce, Audi, Bentley"
+    ],
+    "source": "garage website",
+    "url": "http://autodoctor.ae/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "rage-performance-garage-2815",
@@ -18106,8 +18806,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: luxury focus",
+   "website_focus": {
+    "focus": "luxury",
+    "claims": [
+     "Luxury brands: Audi, BMW, Porsche, Range Rover, Lexus, Mercedes, Bentley, Cadillac, Rolls-Royce, GMC, Jaguar, VW"
+    ],
+    "source": "garage website",
+    "url": "https://orangeauto.ae/?utm_source=google&utm_medium=organic&utm_campaign=gmb-listing&utm_content=nadd-al-hamar-2",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "best-performance-garage-a919",
@@ -18222,8 +18931,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: European, American and Asian cars",
+   "website_focus": {
+    "focus": null,
+    "claims": [
+     "Premium auto repair for European cars"
+    ],
+    "source": "garage website",
+    "url": "https://ctogarage.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "tcw-b6d5",
@@ -18277,8 +18995,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: classic restoration focus",
+   "website_focus": {
+    "focus": "classic restoration",
+    "claims": [
+     "Classic car restoration"
+    ],
+    "source": "garage website",
+    "url": "https://www.thecollectorworkshop.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "spectrum-german-auto-garage-a930",
@@ -18330,8 +19057,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all brands (German expertise)"
   },
   {
    "id": "automoto-xtreme-workshop-023a",
@@ -19029,7 +19756,8 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes_basis": "unknown: reviews not read yet",
+   "website_note": "parts supplier (bus/truck), not a workshop"
   },
   {
    "id": "1-d12a",
@@ -19081,7 +19809,8 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes_basis": "unknown: reviews not read yet",
+   "website_note": "domain now serves unrelated gambling content"
   },
   {
    "id": "big-ben-auto-services-e706",
@@ -19186,8 +19915,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all vehicle types",
+   "website_focus": {
+    "focus": null,
+    "claims": [
+     "Experts in European cars"
+    ],
+    "source": "garage website",
+    "url": "http://www.autoeurospot.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "xclusv-luxury-auto-care-d4e1",
@@ -19513,8 +20251,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: German/luxury focus",
+   "website_focus": {
+    "focus": "German/luxury",
+    "claims": [
+     "Luxury & German car specialists"
+    ],
+    "source": "garage website",
+    "url": "https://www.enrichauto.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "german-car-services-trusted-car-maintenance-repair-in-al-quo-6f7d",
@@ -19568,8 +20315,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: German, American and Japanese brands"
   },
   {
    "id": "cool-runnings-garage--auto-repair-services-3f25",
@@ -19825,8 +20572,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all car maintenance (cars, bikes, hybrids)"
   },
   {
    "id": "volvo-repair-shop-pacific-auto-services-4e86",
@@ -19952,9 +20699,31 @@
    "dealer_for": null,
    "hours": "",
    "services": [],
-   "specialties": [],
-   "self_claims": [],
-   "is_specialist": false,
+   "specialties": [
+    {
+     "make": "Mitsubishi",
+     "models": [
+      "Pajero"
+     ],
+     "level": "model",
+     "confidence": "low",
+     "evidence": "Garage's own website says it specialises in Pajero; not yet confirmed by owner reviews",
+     "mentions": 0,
+     "basis": "website",
+     "car_family": "japanese_korean"
+    }
+   ],
+   "self_claims": [
+    {
+     "make": "Mitsubishi",
+     "models": [
+      "Pajero"
+     ],
+     "url": "http://www.dncautorepairs.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
+   "is_specialist": true,
    "external_ratings": [
     {
      "source": "Google",
@@ -19974,8 +20743,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: Pajero focus",
+   "website_focus": {
+    "focus": "Pajero",
+    "claims": [
+     "Mitsubishi Pajero specialist (Gen 3 & Gen 4): engine, timing belt, suspension, diagnostics, PPI"
+    ],
+    "source": "garage website",
+    "url": "http://www.dncautorepairs.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "carmend-auto-repairs-ac3b",
@@ -20020,8 +20798,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: luxury/exotic focus",
+   "website_focus": {
+    "focus": "luxury/exotic",
+    "claims": [
+     "Luxury European, German, British, exotic and classic cars"
+    ],
+    "source": "garage website",
+    "url": "https://carmend.ae/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "am-motorworks-143f",
@@ -20347,7 +21134,14 @@
     "Servicing"
    ],
    "specialties": [],
-   "self_claims": [],
+   "self_claims": [
+    {
+     "make": "BMW",
+     "models": [],
+     "url": "https://germanautoexpert.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
    "is_specialist": false,
    "external_ratings": [
     {
@@ -20368,8 +21162,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: German focus",
+   "website_focus": {
+    "focus": "German",
+    "claims": [
+     "German car brands; BMW PPI and iDrive repair"
+    ],
+    "source": "garage website",
+    "url": "https://germanautoexpert.ae/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "jad-garage-llc-2f48",
@@ -20416,8 +21219,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: European/EV focus",
+   "website_focus": {
+    "focus": "European/EV",
+    "claims": [
+     "European and EV car specialists (Mercedes, BMW, Audi, Porsche)"
+    ],
+    "source": "garage website",
+    "url": "http://www.jadgarage.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "fanak-auto-llc-9e2a",
@@ -20462,8 +21274,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: custom/restomod focus",
+   "website_focus": {
+    "focus": "custom/restomod",
+    "claims": [
+     "Custom builds, interiors, restomods"
+    ],
+    "source": "garage website",
+    "url": "http://fanak.ae/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "al-najm-al-sadiq-auto-repairing-garage-llc-64cb",
@@ -20724,8 +21545,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: luxury focus",
+   "website_focus": {
+    "focus": "luxury",
+    "claims": [
+     "Luxury car repair and service (Al Itqan Garage)"
+    ],
+    "source": "garage website",
+    "url": "http://aigautorepair.ae/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "station-one-autos-b408",
@@ -20792,8 +21622,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Its own website says it works on Alfa Romeo (not owner evidence).",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: luxury cars of every brand",
+   "website_focus": {
+    "focus": null,
+    "claims": [
+     "Luxury focus: BMW, Mercedes, Audi, Porsche, Rolls-Royce"
+    ],
+    "source": "garage website",
+    "url": "https://stationoneautos.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "jano-new-branch-2ca8",
@@ -20897,8 +21736,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: classic focus",
+   "website_focus": {
+    "focus": "classic",
+    "claims": [
+     "Classic and vintage car repair and trading"
+    ],
+    "source": "garage website",
+    "url": "https://finestcarshub.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "airwerks-garage-b204",
@@ -21116,8 +21964,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: supercar focus",
+   "website_focus": {
+    "focus": "supercar",
+    "claims": [
+     "Supercar care and customisation (rental company's workshop)"
+    ],
+    "source": "garage website",
+    "url": "https://papisupercars.com/auto-care-dubai/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "formula-performance-center-e519",
@@ -21197,9 +22054,27 @@
     "Engine",
     "Bodywork & paint"
    ],
-   "specialties": [],
-   "self_claims": [],
-   "is_specialist": false,
+   "specialties": [
+    {
+     "make": "BMW",
+     "models": [],
+     "level": "brand",
+     "confidence": "low",
+     "evidence": "Garage's own website says it specialises in BMW; not yet confirmed by owner reviews",
+     "mentions": 0,
+     "basis": "website",
+     "car_family": "german"
+    }
+   ],
+   "self_claims": [
+    {
+     "make": "BMW",
+     "models": [],
+     "url": "https://janobmwgarage.ae/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
+   "is_specialist": true,
    "external_ratings": [
     {
      "source": "Google",
@@ -21219,8 +22094,18 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: BMW focus",
+   "website_focus": {
+    "focus": "BMW",
+    "claims": [
+     "BMW and European specialist"
+    ],
+    "source": "garage website",
+    "url": "https://janobmwgarage.ae/",
+    "as_of": "2026-11-07"
+   },
+   "website_note": "Website describes a BMW workshop in Sharjah Industrial Area 12; Maps listing is Al Quoz 4, Dubai. Possibly two branches; check before showing the website link."
   },
   {
    "id": "swg-garage-8a51",
@@ -21411,7 +22296,34 @@
     "Tuning & performance"
    ],
    "specialties": [],
-   "self_claims": [],
+   "self_claims": [
+    {
+     "make": "Audi",
+     "models": [],
+     "url": "http://www.dastuning.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "BMW",
+     "models": [],
+     "url": "http://www.dastuning.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Mercedes-Benz",
+     "models": [],
+     "url": "http://www.dastuning.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    },
+    {
+     "make": "Volkswagen",
+     "models": [
+      "Golf GTI"
+     ],
+     "url": "http://www.dastuning.com/",
+     "note": "Garage's own website lists this make; not owner evidence"
+    }
+   ],
    "is_specialist": false,
    "external_ratings": [
     {
@@ -21432,8 +22344,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: German performance focus",
+   "website_focus": {
+    "focus": "German performance",
+    "claims": [
+     "Performance tuning and maintenance: Audi, BMW, Mercedes-AMG, VW (RS3, M2, E63, Golf GTI)"
+    ],
+    "source": "garage website",
+    "url": "http://www.dastuning.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "offroad-stallions-b0c8",
@@ -21532,8 +22453,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all types of car maintenance",
+   "website_focus": {
+    "focus": null,
+    "claims": [
+     "Luxury car service"
+    ],
+    "source": "garage website",
+    "url": "https://royalcarexperts.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "nexgen-garage-llc-9c73",
@@ -21828,8 +22758,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: ultra-luxury focus",
+   "website_focus": {
+    "focus": "ultra-luxury",
+    "claims": [
+     "Ultra-luxury and European: Ferrari, Porsche, Bentley, McLaren, BMW"
+    ],
+    "source": "garage website",
+    "url": "https://allanzismotorworks.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "royal-customs-f263",
@@ -21881,7 +22820,8 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes_basis": "unknown: reviews not read yet",
+   "website_note": "bespoke VIP vehicle builder, not a repair workshop"
   },
   {
    "id": "nostalgia-classic-cars-llc-0450",
@@ -21930,8 +22870,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: classic focus",
+   "website_focus": {
+    "focus": "classic",
+    "claims": [
+     "Classic car sales, restoration and appraisal"
+    ],
+    "source": "garage website",
+    "url": "http://nostalgiaclassiccars.ae/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "haus-of-benz-aa8b",
@@ -22143,8 +23092,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: luxury focus",
+   "website_focus": {
+    "focus": "luxury",
+    "claims": [
+     "Luxury: Ferrari, Lamborghini, Rolls-Royce, McLaren, Porsche, Bentley, Mercedes, BMW, Audi, Range Rover"
+    ],
+    "source": "garage website",
+    "url": "https://luxuryautocaredubai.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "custom-classic-garage-47b3",
@@ -22348,8 +23306,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: German, American and premium cars"
   },
   {
    "id": "g-performance-garage-78d1",
@@ -22394,8 +23352,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: performance tuning focus",
+   "website_focus": {
+    "focus": "performance tuning",
+    "claims": [
+     "Performance tuning, PPF, wrapping"
+    ],
+    "source": "garage website",
+    "url": "https://gperformancegarage.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "beverly-hills-auto-repairing-garage-914d",
@@ -22662,8 +23629,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: All Car Brands"
   },
   {
    "id": "ayan-hybrid-garage-d7b0",
@@ -22873,8 +23840,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: 40+ car brands (luxury focus)"
   },
   {
    "id": "autoshinka-service-a33b",
@@ -22934,8 +23901,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: multi-brand, all makes"
   },
   {
    "id": "all-terrain-garage-llc-20fb",
@@ -23130,7 +24097,8 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes_basis": "unknown: reviews not read yet",
+   "website_note": "car dealer showroom, not a workshop"
   },
   {
    "id": "gms-top-one-garage-llc-25c2",
@@ -23331,8 +24299,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: luxury/custom focus",
+   "website_focus": {
+    "focus": "luxury/custom",
+    "claims": [
+     "Luxury and custom projects (Brabus, Rolls-Royce, Range Rover, Patrol Y60, Shelby)"
+    ],
+    "source": "garage website",
+    "url": "https://www.sixtyseven.ae/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "octane-plus-ninety-four-auto-care-llc-51c4",
@@ -23435,8 +24412,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all brands (European, Japanese, American, Korean, Chinese)"
   },
   {
    "id": "automatic-gear-specialists-dubai-3bb9",
@@ -23581,8 +24558,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: performance tuning focus",
+   "website_focus": {
+    "focus": "performance tuning",
+    "claims": [
+     "Forced induction / turbo performance specialist (McLaren record)"
+    ],
+    "source": "garage website",
+    "url": "https://infinitperformance.ae/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "zarwa-auto-garage-9361",
@@ -23674,8 +24660,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: specialized in all brands"
   },
   {
    "id": "gmc-auto-services-first-class-garage-3692",
@@ -23780,8 +24766,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all makes & models",
+   "website_focus": {
+    "focus": null,
+    "claims": [
+     "Luxury European, American and exotic"
+    ],
+    "source": "garage website",
+    "url": "https://euroautosrepair.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "abduls-auto-garage-ca7f",
@@ -23921,8 +24916,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: German/luxury focus",
+   "website_focus": {
+    "focus": "German/luxury",
+    "claims": [
+     "Luxury and German car specialist (5 branches)"
+    ],
+    "source": "garage website",
+    "url": "http://germantechauto.ae/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "manar-al-madina-automotive-garage-e65c",
@@ -24018,7 +25022,8 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes_basis": "unknown: reviews not read yet",
+   "website_note": "cargo transport company, not a workshop"
   },
   {
    "id": "otozaar-4451",
@@ -24067,8 +25072,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: leading automotive brands, fleet repairs"
   },
   {
    "id": "classics-meister-vehicle-maintenance-llc-f17c",
@@ -24115,8 +25120,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: classic focus",
+   "website_focus": {
+    "focus": "classic",
+    "claims": [
+     "Mobile classic car garage"
+    ],
+    "source": "garage website",
+    "url": "https://www.classicsmeister.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "auto-fix-dubai-6b20",
@@ -24171,8 +25185,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: mobile garage services, all emirates"
   },
   {
    "id": "autogenic-premeum-car-services-c1f4",
@@ -24470,8 +25484,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: performance/luxury focus",
+   "website_focus": {
+    "focus": "performance/luxury",
+    "claims": [
+     "Performance and luxury vehicles"
+    ],
+    "source": "garage website",
+    "url": "http://www.hotpistonz.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "rapid-rev-mercedes-benz-service-center-7467",
@@ -24897,10 +25920,35 @@
     "https://dynostarworkshop.com/alfa-romeo-repair-dubai/"
    ],
    "possible_matches": [],
-   "price_examples": [],
+   "price_examples": [
+    {
+     "item": "Minor service AED 199 + VAT",
+     "price_aed": 208.95,
+     "vat": "added 5% (199 + VAT)",
+     "source": "garage website",
+     "url": "https://dynostarworkshop.com/",
+     "date": "2026-11",
+     "job": "minor_service",
+     "make": null,
+     "model": null,
+     "aed_low": 208.95,
+     "aed_high": 208.95,
+     "includes_parts": null,
+     "note": "special offer price"
+    }
+   ],
    "evidence_summary": "Its own website says it works on Alfa Romeo (not owner evidence).",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: European/luxury focus",
+   "website_focus": {
+    "focus": "European/luxury",
+    "claims": [
+     "Luxury and European car repair"
+    ],
+    "source": "garage website",
+    "url": "https://dynostarworkshop.com/",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "dubai-car-repair-web",
@@ -24941,8 +25989,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Its own website says it works on Alfa Romeo (not owner evidence).",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all kinds (BMW, Audi, Ford, Honda, Kia...)"
   },
   {
    "id": "meta-mechanics-web",
@@ -24983,8 +26031,8 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Its own website says it works on Alfa Romeo (not owner evidence).",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: all car brands"
   },
   {
    "id": "rst-werks-auto-services-web",

@@ -1,8 +1,8 @@
 ---
 import Base from "../../../layouts/Base.astro";
-import { GARAGES, JOBS, BENCHMARKS } from "../../../lib/data.js";
+import { ALL_GARAGES, JOBS, BENCHMARKS } from "../../../lib/data.js";
 export function getStaticPaths() {
-  return GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
+  return ALL_GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
 }
 const { g } = Astro.props;
 const googleOn = import.meta.env.PUBLIC_GOOGLE_SIGNIN === "1";

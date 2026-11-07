@@ -4,9 +4,9 @@ import Icon from "../../../components/Icon.astro";
 import HelpFeedback from "../../../components/HelpFeedback.astro";
 import { existsSync } from "node:fs";
 import { SITE } from "../../../lib/site.js";
-import { GARAGES, garageIndexable, slugify, DATA_UPDATED, benchmarks, BENCH_SRC, aedRange } from "../../../lib/data.js";
+import { ALL_GARAGES, garageIndexable, slugify, DATA_UPDATED, benchmarks, BENCH_SRC, aedRange } from "../../../lib/data.js";
 export function getStaticPaths() {
-  return GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
+  return ALL_GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
 }
 const { g } = Astro.props;
 const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(g.name + " " + (g.area || "") + " Dubai")}`;
@@ -250,7 +250,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
             {g.phone && <div><dt>Phone</dt><dd class="num"><a href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">{g.phone}</a></dd></div>}
             {g.hours && <div><dt>Hours</dt><dd>{g.hours}</dd></div>}
             {g.website && <div><dt>Website</dt><dd><a href={g.website} target="_blank" rel="noopener" style="overflow-wrap:anywhere">{g.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}</a></dd></div>}
-            {claimMakes.length > 0 && <div><dt>The garage says</dt><dd><div>Works on {claimMakes.join(", ")}{claimUrl && <> · <a href={claimUrl} target="_blank" rel="noopener nofollow">their website</a></>}</div>{claimNotes.map((n) => <div class="muted">{n}</div>)}<small class="muted">Their own claim, not owner evidence.</small></dd></div>}
+            {(claimMakes.length > 0 || g.focus) && <div><dt>The garage says</dt><dd>{g.focus && <div>{g.focus}</div>}{claimMakes.length > 0 && <div>Works on {claimMakes.join(", ")}{claimUrl && <> · <a href={claimUrl} target="_blank" rel="noopener nofollow">their website</a></>}</div>}{claimNotes.map((n) => <div class="muted">{n}</div>)}<small class="muted">Their own claim, not owner evidence.</small></dd></div>}
             {(g.services || []).length > 0 && <div><dt>Services</dt><dd>{g.services.join(", ")}</dd></div>}
           </dl>
           <p class="confirmed">Is something wrong or missing? <a href={`/add-a-garage/?fix=${g.slug}`}>Suggest a correction</a>.</p>
