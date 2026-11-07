@@ -4,7 +4,7 @@ import Icon from "../../../components/Icon.astro";
 import HelpFeedback from "../../../components/HelpFeedback.astro";
 import { existsSync } from "node:fs";
 import { SITE } from "../../../lib/site.js";
-import { communityThreads, groupReports, ALL_GARAGES, garageIndexable, slugify, DATA_UPDATED, benchmarks, BENCH_SRC, aedRange } from "../../../lib/data.js";
+import { foundingModel, communityThreads, groupReports, ALL_GARAGES, garageIndexable, slugify, DATA_UPDATED, benchmarks, BENCH_SRC, aedRange } from "../../../lib/data.js";
 export function getStaticPaths() {
   return ALL_GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
 }
@@ -155,7 +155,8 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
                   {r.called_before_extra && <span class="pos">Called before extra work</span>}
                   {r.would_return && <span class="pos">Would go back</span>}
                 </div>
-                <cite>{r.display_name || "KnowsMyCar owner"} · {fmtDate(r.created_at)}</cite>
+                <cite>{r.display_name || "KnowsMyCar owner"}{foundingModel(r) && <span class="fbadge">Founding {foundingModel(r)} owner</span>} · {fmtDate(r.created_at)}
+                  · <a class="shr" href={`https://wa.me/?text=${encodeURIComponent(`An owner review of ${g.name} on KnowsMyCar: ${new URL(`/shared/${r.id}/`, Astro.site)}?ref=wa-share`)}`} target="_blank" rel="noopener">Share</a></cite>
                 {r.garage_reply && (
                   <div class="greply"><b>Reply from {g.name}</b>{r.garage_reply_at && <span class="muted"> · {fmtDate(r.garage_reply_at)}</span>}<p>{r.garage_reply}</p></div>
                 )}

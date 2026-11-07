@@ -1,6 +1,6 @@
 ---
 import ListPage from "../../../../components/ListPage.astro";
-import { BRANDS, intro, isIndexable, splitBrand, dealerPrices, DEALER_NOTES, dealerVsIndie } from "../../../../lib/data.js";
+import { BRANDS, intro, isIndexable, splitBrand, dealerPrices, DEALER_NOTES, dealerVsIndie, modelOwners } from "../../../../lib/data.js";
 export function getStaticPaths() {
   return BRANDS.flatMap((b) => b.models.map((m) => ({ params: { make: b.slug, model: m.slug }, props: { b, m } })));
 }
@@ -27,6 +27,7 @@ const L = splitBrand([...m.garages, ...rest], b.make, m.model);
   dealerPrices={dealerPrices(b.make, m.model)}
   dealerNote={DEALER_NOTES[b.slug]}
   dvi={dealerVsIndie(b.make, m.model)}
+  owners={modelOwners(b.make, m.model)}
   dviNote={DEALER_NOTES[b.slug]}
   make={b.make}
   ogImage={`/og/dubai/${b.slug}/${m.slug}.png`}

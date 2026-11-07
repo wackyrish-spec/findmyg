@@ -444,3 +444,9 @@ footer .proof{margin:0 0 8px;font-weight:800}
 .mfilter select{font:inherit;padding:4px 8px;border-radius:8px}
 .tick{display:flex;gap:8px;align-items:flex-start;font-size:14px}
 .checked{font-size:13px;color:var(--muted);margin:0 0 8px}
+
+.ohub h2{font-size:22px}
+.olatest{list-style:none;padding:0;margin:8px 0 0;display:flex;flex-direction:column;gap:12px}
+.olatest p{margin:4px 0 0;font-size:14px}
+.fbadge{margin-left:6px;font-size:11px;font-weight:700;padding:1px 7px;border-radius:999px;background:#ffc93c;color:#111}
+.shr{font-size:12px}

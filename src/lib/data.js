@@ -467,3 +467,25 @@ export function dealerVsIndie(make, model) {
   return Object.values(by).filter((j) => j.indie.length).map((j) => ({ job: j.job, dealer: span(j.dealer), indie: span(j.indie) }))
     .sort((a, b) => !!b.dealer - !!a.dealer);
 }
+
+// ---------- Community (community-plan.md C1, C3, C7) ----------
+// Every approved owner review with its garage, oldest first.
+export const ALL_REVIEWS = ALL_GARAGES.flatMap((g) => g.ownerReviews.map((r) => ({ ...r, g })))
+  .sort((a, b) => String(a.created_at).localeCompare(String(b.created_at)));
+const modelKey = (make, model) => {
+  const b = BRANDS.find((x) => x.make === make);
+  const m = b?.models.find((x) => lc(model).includes(lc(x.model)));
+  return m ? `${make}|${m.model}` : "";
+};
+// C3: founding owner = one of the first 100 reviewers of that model (one badge per review, counted by review).
+const FOUNDING = new Map();
+(() => {
+  const seen = {};
+  ALL_REVIEWS.forEach((r) => { const k = modelKey(r.car_make, r.car_model); if (!k) return; seen[k] = (seen[k] || 0) + 1; if (seen[k] <= 100) FOUNDING.set(r.id, k.split("|")[1]); });
+})();
+export const foundingModel = (r) => FOUNDING.get(r.id) || "";
+// C1: owners' hub on a model page: how many owners of this model have shared a garage, and the latest few.
+export function modelOwners(make, model) {
+  const list = ALL_REVIEWS.filter((r) => modelKey(r.car_make, r.car_model) === `${make}|${model}` && !r.g.notWorkshop);
+  return { n: list.length, latest: list.slice(-3).reverse() };
+}

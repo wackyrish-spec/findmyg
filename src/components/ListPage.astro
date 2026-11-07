@@ -6,7 +6,7 @@ import Icon from "./Icon.astro";
 import { SITE } from "../lib/site.js";
 const {
   title, description, h1, lead, introText = null, garages, make = null, model = null,
-  noindex, crumbs = [], related = [], pathKey, ogImage, makeFilter = [], dvi = [], dviNote = null,
+  noindex, crumbs = [], related = [], pathKey, ogImage, makeFilter = [], dvi = [], dviNote = null, owners = null,
   notes = null, outside = [], others = [], othersLabel = "Also in Dubai, no reviews for your car yet", dealers = [], dealerPrices = [], dealerNote = null,
 } = Astro.props;
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
@@ -44,6 +44,17 @@ const itemList = {
     </div>
     {/* SEO rule (spec 12.4): one plain sentence above the list, the longer intro below it, in the HTML. */}
     {introText && <div class="intro" set:html={introText.split(/\n\n+/).map((p) => `<p>${p}</p>`).join("")} />}
+    {owners && (
+      <section class="card panel ohub">
+        <h2>{owners.n > 0 ? `${owners.n} ${model} ${owners.n === 1 ? "owner has" : "owners have"} shared their garage` : `Be one of the first ${model} owners to share your garage`}</h2>
+        {owners.latest.length > 0 ? (
+          <ul class="olatest">{owners.latest.map((r) => (
+            <li><span class="stars" aria-label={`${r.rating} out of 5`}>{"★".repeat(r.rating)}<span class="off">{"★".repeat(5 - r.rating)}</span></span>
+              <a href={`/garage/${r.g.slug}/#ownerRevs`}>{r.g.name}</a> <span class="muted">· {[r.car_model, r.car_year].filter(Boolean).join(" ")}{r.job ? ` · ${r.job}` : ""}</span>
+              <p>{String(r.body || "").length > 160 ? String(r.body).slice(0, 157).replace(/\s+\S*$/, "") + "..." : r.body}</p></li>))}</ul>
+        ) : <p class="sub">The first 100 {model} owners to review a garage get a founding owner badge.</p>}
+      </section>
+    )}
     {dvi.length > 0 && (
       <section class="card panel dvi">
         <h2>Dealer vs independent</h2>
