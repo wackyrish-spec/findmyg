@@ -73,12 +73,13 @@ def src_label(s, own=False):
 def paid(d):
     own = d.get("source_kind") == "owners"
     lo, hi = d["indep"]["low"], d["indep"]["high"]
-    dlo, dhi = d["dealer"]["low"], d["dealer"]["high"]
-    top = max(dhi, hi) * 1.05
+    dealer = d.get("dealer")
+    dlo, dhi = (dealer["low"], dealer["high"]) if dealer else (None, None)
+    top = max(dhi or 0, hi) * 1.05
     pct = lambda v: 100 * v / top
     s = []
-    s.append(f"""<div class="eyebrow">What owners paid · Dubai</div>
-<div style="margin-top:34px"><span class="chip">{e(d['code'])}</span></div>
+    s.append(f"""<div class="eyebrow">{'What owners paid' if own else 'What it costs'} · Dubai</div>
+{f'<div style="margin-top:34px"><span class="chip">{e(d["code"])}</span></div>' if d.get("code") else ""}
 <h1 style="margin-top:28px">{e(d['model'])}<br><em>{e(d['job'])}</em></h1>
 <div class="gap"></div>
 <div class="sub">{e(d['hook'])}</div>
@@ -91,14 +92,18 @@ def paid(d):
 <div class="gap"></div>
 <div class="note">{e(d['indep'].get('note',''))}</div><div style="height:50px"></div>""")
     fill = lambda a, b: f'left:{pct(a):.1f}%;width:{max(pct(b) - pct(a), 1.5):.1f}%'
+    dealer_row = (f'<div class="bar dealer"><div class="l"><span>Main dealer</span><span>AED {money(dlo)}–{money(dhi)}</span></div><div class="t"><div class="f" style="{fill(dlo, dhi)}"></div></div></div>'
+                  if dealer else
+                  '<div class="bar dealer"><div class="l"><span>Main dealer</span><span style="color:#9AA3B1">Not published</span></div><div class="t" style="background:transparent;border:3px dashed #3A414C"></div></div>')
     s.append(f"""<div class="eyebrow">Dealer vs independent</div>
 <h1 style="margin-top:24px;font-size:96px">The gap</h1>
 <div class="gap"></div>
 <div class="bars">
- <div class="bar dealer"><div class="l"><span>Main dealer</span><span>AED {money(dlo)}–{money(dhi)}</span></div><div class="t"><div class="f" style="{fill(dlo, dhi)}"></div></div></div>
+ {dealer_row}
  <div class="bar {'own' if own else 'indep'}"><div class="l"><span>Independent</span><span>AED {money(lo)}–{money(hi)}</span></div><div class="t"><div class="f" style="{fill(lo, hi)}"></div></div></div>
 </div>
-<div style="margin-top:40px;display:flex;flex-direction:column;gap:12px;align-items:flex-start">{src_label('Dealer: ' + d['dealer']['source'])}{src_label('Independent: ' + d['indep']['source'], own)}</div>
+<div style="margin-top:40px;display:flex;flex-direction:column;gap:12px;align-items:flex-start">{src_label('Dealer: ' + dealer['source']) if dealer else ''}{src_label('Independent: ' + d['indep']['source'], own)}</div>
+{f'<div class="sub" style="margin-top:30px">{e(d["dealer_note"])}</div>' if not dealer and d.get("dealer_note") else ''}
 <div class="gap"></div>""")
     pts = "".join(f"<li>{e(p)}</li>" for p in d["drivers"])
     s.append(f"""<div class="eyebrow">What moves the price</div>
@@ -126,7 +131,7 @@ def who(d):
         gens = "".join(f'<span class="g">{e(x)}</span>' for x in g.get("generations", []))
         s.append(f"""<div class="eyebrow">{e(g['area'])}</div>
 <h1 style="margin-top:24px;font-size:104px">{e(g['name'])}</h1>
-<div style="margin-top:24px;color:#9AA3B1;font:700 30px/1 MR">{e(g.get('handle',''))}</div>
+{f'<div style="margin-top:24px;color:#9AA3B1;font:700 30px/1 MR">{e(g["handle"])}</div>' if g.get("handle") else ""}
 <div class="gap"></div>
 <div style="display:flex;align-items:center;gap:22px"><span class="meter">{meter}</span><span style="font:800 52px/1 BC;text-transform:uppercase">{e(g.get('level_label',''))}</span></div>
 <div class="sub" style="margin-top:22px;color:#FFB400">{e(g['evidence'])}</div>

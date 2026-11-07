@@ -2,13 +2,13 @@
  {
   "template": "paid",
   "format": "post",
-  "model": "Cayenne S",
-  "code": "958",
-  "job": "Air suspension compressor",
-  "low": "2,400",
-  "high": "3,100",
-  "reports": 6,
-  "dealer": "7,800"
+  "model": "Range Rover",
+  "code": "L405",
+  "job": "Minor service",
+  "low": "2,500",
+  "high": "4,000",
+  "reports": 0,
+  "period": "CarSwitch, Jul 2026"
  },
  {
   "template": "who",
@@ -42,7 +42,7 @@
   "template": "quote",
   "format": "post",
   "garage": "Garage name",
-  "quote": "Quoted 1,800, paid 1,800. Showed me the old coil packs and explained why they failed in the heat.",
+  "quote": "[The owner's words, exactly as written in their review.]",
   "author": "Owner first name",
   "car": "Golf GTI 2008",
   "code": "MK5",
@@ -51,12 +51,13 @@
  {
   "template": "paid",
   "format": "story",
-  "model": "Land Cruiser",
-  "code": "LC200",
-  "job": "AC compressor",
-  "low": "1,900",
-  "high": "2,600",
-  "reports": 9
+  "model": "Range Rover",
+  "code": "L405",
+  "job": "Minor service",
+  "low": "2,500",
+  "high": "4,000",
+  "reports": 0,
+  "period": "CarSwitch, Jul 2026"
  },
  {
   "template": "garage",
