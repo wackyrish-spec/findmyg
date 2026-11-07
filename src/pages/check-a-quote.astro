@@ -17,6 +17,7 @@ const ready = !!(import.meta.env.PUBLIC_SUPABASE_URL && import.meta.env.PUBLIC_S
         <label class="fld" for="qcJob">Job<select id="qcJob" required><option value="">Choose</option>{BENCHMARKS.filter((b) => !b.pageOnly).map((b) => <option value={b.key}>{b.plain}</option>)}<option value="other">Other</option></select></label>
         <label class="fld" for="qcAed">Quoted price (AED, incl. VAT)<input id="qcAed" inputmode="numeric" required placeholder="e.g. 2400" /></label>
       </div>
+      <label class="fld" for="qcNote" id="qcNoteWrap" hidden>What's the job?<input id="qcNote" maxlength="80" placeholder="e.g. coolant pipe replacement" /></label>
       <div class="two">
         <label class="fld" for="qcSide">Quoted by<select id="qcSide"><option value="dealer">Main dealer</option><option value="independent">Independent garage</option></select></label>
         <label class="fld" for="qcMonth">When<input id="qcMonth" type="month" /></label>

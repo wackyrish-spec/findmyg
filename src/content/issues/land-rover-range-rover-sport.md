@@ -5,7 +5,7 @@ title: "Range Rover Sport L494 known issues: what fails and what to ask in Dubai
 description: "Air suspension, crank pulley and crankshaft failures, AdBlue and DPF faults, and recalls on the L494 Range Rover Sport (2013 to 2022), how big each job is, and what to ask a Dubai garage."
 updated: "Nov 2026"
 author: "KnowsMyCar editorial"
-status: draft
+status: published
 sourced_issues: 10
 ---
 
@@ -18,45 +18,45 @@ The second-generation Range Rover Sport (L494, 2013 to 2022) shares a lot with t
 **What you notice:** the car losing height, a noisy compressor, a warning message.
 **How common:** the first item in Parkers' list of known faults. Parkers notes many compressor faults trace back to a blocked filter or bad wiring, which is a cheaper fix.
 **UAE cost:** compressor about AED 2,500 to 8,000, air spring AED 1,500 to 5,000 (ArabWheels, all makes).
-[Tell us what you paid](/dubai/land-rover/range-rover-sport/)
+[Tell us what you paid](/check-a-quote/?make=Land%20Rover&model=Range%20Rover%20Sport&job=other&note=Car%20sitting%20low%2C%20%22suspension%20fault%22%20message)
 
 ## V6 diesel: vibration, then loss of power
 **Trade name:** crankshaft failure (SDV6/TDV6).
 **How common:** Parkers calls it a "critical and expensive failure". An owner on RRSport.co.uk reports a seized crank at about 117,000 km; Land Rover paid for the engine as goodwill.
 **Cost:** Major. Usually a replacement engine.
-[Tell us what you paid](/dubai/land-rover/range-rover-sport/)
+[Tell us what you paid](/check-a-quote/?make=Land%20Rover&model=Range%20Rover%20Sport&job=other&note=V6%20diesel%3A%20vibration%2C%20then%20loss%20of%20power)
 
 ## Wobbling crank pulley, vibration at the front
 **Trade name:** crankshaft damper (harmonic balancer).
 **How common:** an owner on Land Rover Forums reports it on a 2016 TDV6, and the wobble came back even after the damper was replaced, so ask the garage to find the cause.
 **Cost:** Moderate.
-[Tell us what you paid](/dubai/land-rover/range-rover-sport/)
+[Tell us what you paid](/check-a-quote/?make=Land%20Rover&model=Range%20Rover%20Sport&job=other&note=Wobbling%20crank%20pulley%2C%20vibration%20at%20the%20front)
 
 ## Diesel: AdBlue and DPF warnings
 **Trade name:** AdBlue (SCR) system and diesel particulate filter faults.
 **How common:** Parkers puts them "top of the list for problems" on the V6 diesels. Short trips also thin the oil with diesel during filter regeneration.
 **Cost:** Small for a forced regeneration or a sensor, Major for a new filter.
-[Tell us what you paid](/dubai/land-rover/range-rover-sport/)
+[Tell us what you paid](/check-a-quote/?make=Land%20Rover&model=Range%20Rover%20Sport&job=other&note=Diesel%3A%20AdBlue%20and%20DPF%20warnings)
 
 ## 2.0 SD4 diesel (pre-2019): rattle or engine damage
 **Trade name:** timing chain failure. Parkers says a retrofit is a fair-sized job if there's no other damage.
 **Cost:** Major.
-[Tell us what you paid](/dubai/land-rover/range-rover-sport/)
+[Tell us what you paid](/check-a-quote/?make=Land%20Rover&model=Range%20Rover%20Sport&job=other&note=2.0%20SD4%20diesel%20%28pre-2019%29%3A%20rattle%20or%20engine%20damage)
 
 ## Screen crashes or freezes
 **Trade name:** infotainment faults. Parkers notes Apple CarPlay can crash the system, and owners rate the software poorly.
 **UAE cost:** a Range Rover screen is about AED 4,000 to 7,000 (CarSwitch). Try a software update first.
-[Tell us what you paid](/dubai/land-rover/range-rover-sport/)
+[Tell us what you paid](/check-a-quote/?make=Land%20Rover&model=Range%20Rover%20Sport&job=other&note=Screen%20crashes%20or%20freezes)
 
 ## Petrol supercharged V6 and V8: rumble from the front
 **Trade name:** supercharger pulley and coupler wear. Parkers also lists a supercharger oil change every 40,000 miles (about 65,000 km). Parkers says parts are "not too expensive".
 **Cost:** Small to Moderate.
-[Tell us what you paid](/dubai/land-rover/range-rover-sport/)
+[Tell us what you paid](/check-a-quote/?make=Land%20Rover&model=Range%20Rover%20Sport&job=other&note=Petrol%20supercharged%20V6%20and%20V8%3A%20rumble%20from%20the%20front)
 
 ## Car won't lock
 **Trade name:** central locking (door lock) motor failure.
 **Cost:** not known yet.
-[Tell us what you paid](/dubai/land-rover/range-rover-sport/)
+[Tell us what you paid](/check-a-quote/?make=Land%20Rover&model=Range%20Rover%20Sport&job=other&note=Car%20won%27t%20lock)
 
 ## Recalls to check by VIN
 - **Doors unlatching** while moving (Auto Express lists it among 22 recalls).

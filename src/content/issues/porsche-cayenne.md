@@ -5,7 +5,7 @@ title: "Porsche Cayenne 958 and 9Y0 known issues: what fails and what to ask in 
 description: "Transfer case, camshaft adjuster bolts, coolant leaks, air suspension and recalls on the 958 and 9Y0 Cayenne, how big each job is, and what to ask a Dubai garage."
 updated: "Nov 2026"
 author: "KnowsMyCar editorial"
-status: draft
+status: published
 sourced_issues: 15
 ---
 
@@ -19,29 +19,29 @@ The Cayenne is one of the most common out-of-warranty Porsches in Dubai. Below a
 **Trade name:** transfer case (multi-plate clutch) failure.
 **How common:** "not uncommon" on petrol cars, reported from as early as 25,000 km. Porsche extended the warranty on it, but that extension has run out for most cars.
 **Cost:** Major.
-[Tell us what you paid](/dubai/porsche/cayenne/)
+[Tell us what you paid](/check-a-quote/?make=Porsche&model=Cayenne&job=other&note=Lurching%20when%20accelerating%2C%20or%20jerking%20on%20tight%2C%20slow%20turns)
 
 ### Engine damage from loose camshaft adjuster bolts (V8, 2011 to early 2012)
 **Trade name:** Variocam (camshaft adjuster) bolt failure.
 **How common:** covered by a workshop campaign (WC-22) and a recall (AH08, US 17V-368). Owners report failures outside the recalled VIN range too.
 **Cost:** Free if your car is in the recall. Otherwise Moderate to replace the bolts before they fail, or Major if they fail.
-[Tell us what you paid](/dubai/porsche/cayenne/)
+[Tell us what you paid](/check-a-quote/?make=Porsche&model=Cayenne&job=other&note=Engine%20damage%20from%20loose%20camshaft%20adjuster%20bolts%20%28V8%2C%202011%20to%20early%202012%29)
 
 ### Burning oil (early S and Turbo)
 **Trade name:** oil separator in the valve cover (workshop bulletin WC-55, 2011 to 2013 S and Turbo).
 **Cost:** Moderate.
-[Tell us what you paid](/dubai/porsche/cayenne/)
+[Tell us what you paid](/check-a-quote/?make=Porsche&model=Cayenne&job=other&note=Burning%20oil%20%28early%20S%20and%20Turbo%29)
 
 ### Coolant level keeps dropping, no visible leak
 **Trade name:** coolant pipe and thermostat housing leaks (V8). Owners say early cars had glued pipe joints.
 **How common:** owners say one dealer called it "quite common". Dealers often find nothing on a pressure test at first.
 **Cost:** Moderate to Major, depending on which pipes.
-[Tell us what you paid](/dubai/porsche/cayenne/)
+[Tell us what you paid](/check-a-quote/?make=Porsche&model=Cayenne&job=other&note=Coolant%20level%20keeps%20dropping%2C%20no%20visible%20leak)
 
 ### Car sitting low or the compressor running a lot
 **Trade name:** air suspension (struts, valve block, compressor).
 **Cost:** Moderate to Major, parts-heavy.
-[Tell us what you paid](/dubai/porsche/cayenne/)
+[Tell us what you paid](/check-a-quote/?make=Porsche&model=Cayenne&job=other&note=Car%20sitting%20low%20or%20the%20compressor%20running%20a%20lot)
 
 ### Recalls to check by VIN
 - **Brake pedal pin clip** (AG02, US 16V-169, 2011 to 2016): the pedal pin can work loose.
@@ -58,7 +58,7 @@ These come from a long-running owner list on Rennlist. It's owners' experience, 
 - **Squealing brakes** on Porsche Surface Coated Brakes (PSCB).
 - **Battery dying early** on early cars with the lithium battery. Owners say it was replaced under warranty.
 
-[Tell us what you paid](/dubai/porsche/cayenne/)
+[Tell us what you paid](/check-a-quote/?make=Porsche&model=Cayenne&job=other&note=Cayenne%209Y0%20%282019%20on%29)
 
 ### 9Y0 recalls to check by VIN
 - **Front upper control arm** (US 24V-533, 2024 cars): the arm can crack.

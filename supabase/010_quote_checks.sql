@@ -6,6 +6,7 @@ create table if not exists public.quote_checks (
   make       text not null check (char_length(make) <= 40),
   model      text check (char_length(model) <= 60),
   job        text not null check (char_length(job) <= 40),
+  job_note   text check (char_length(job_note) <= 80),
   aed        integer not null check (aed > 0 and aed < 1000000),
   side       text not null check (side in ('dealer', 'independent')),
   month      text check (month ~ '^\d{4}-\d{2}$'),

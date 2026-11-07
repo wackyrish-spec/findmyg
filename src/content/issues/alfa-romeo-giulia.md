@@ -5,7 +5,7 @@ title: "Alfa Romeo Giulia known issues: leaks, software fixes and recalls, and w
 description: "Timing cover oil leaks, coolant hose leaks, jerky stop-start, gearbox warnings and recalls on the Giulia (952, 2017 on), how big each job is, and what to ask a Dubai garage."
 updated: "Nov 2026"
 author: "KnowsMyCar editorial"
-status: draft
+status: published
 sourced_issues: 9
 ---
 
@@ -17,32 +17,32 @@ The Giulia (952, 2017 on) is one of the best-driving saloons of its era. Most of
 **Trade name:** timing cover oil leak.
 **How common:** Alfa issued service bulletin 09-013-25 (May 2025) for Giulias built up to May 2024. The cause is loose timing cover bolts.
 **Cost:** Small if re-tightening the bolts stops it, Moderate if the cover has to be resealed (about 6 hours' labour in the bulletin).
-[Tell us what you paid](/dubai/alfa-romeo/giulia/)
+[Tell us what you paid](/check-a-quote/?make=Alfa%20Romeo&model=Giulia&job=other&note=Oil%20leaking%20from%20the%20front%20of%20the%20engine%20%282.0%20Turbo%2C%202020%20to%202024%29)
 
 ## Small coolant leak (early 2.0 Turbo)
 **Trade name:** turbo coolant hose O-ring (bulletin 09-005-17, 2017 cars built to January 2017). An earlier bulletin swapped a coolant hose zip-tie for a clip, so the hose can't be punctured.
 **Cost:** Small.
-[Tell us what you paid](/dubai/alfa-romeo/giulia/)
+[Tell us what you paid](/check-a-quote/?make=Alfa%20Romeo&model=Giulia&job=other&note=Small%20coolant%20leak%20%28early%202.0%20Turbo%29)
 
 ## Jerk when pulling away after stop-start
 **Trade name:** transmission control software (8-speed automatic). It was fixed by software in bulletin 21-032-17 and campaign T57 (2017 2.0 cars).
 **Cost:** Small (software).
-[Tell us what you paid](/dubai/alfa-romeo/giulia/)
+[Tell us what you paid](/check-a-quote/?make=Alfa%20Romeo&model=Giulia&job=other&note=Jerk%20when%20pulling%20away%20after%20stop-start)
 
 ## "Automatic transmission failure" message, gear icons blinking (2017 to 2018)
 **Trade name:** electronic shift module fault, code U0103. The fix is a software reflash. One owner's warning was traced to a failing battery instead.
 **Cost:** Small. Ask for the battery to be tested first.
-[Tell us what you paid](/dubai/alfa-romeo/giulia/)
+[Tell us what you paid](/check-a-quote/?make=Alfa%20Romeo&model=Giulia&job=other&note=%22Automatic%20transmission%20failure%22%20message%2C%20gear%20icons%20blinking%20%282017%20to%202018%29)
 
 ## Stalling after refuelling, warning lights (early 2017 2.0)
 **Trade name:** engine software (bulletin 18-030-17, campaign T57).
 **Cost:** Small (software). Free under the campaign.
-[Tell us what you paid](/dubai/alfa-romeo/giulia/)
+[Tell us what you paid](/check-a-quote/?make=Alfa%20Romeo&model=Giulia&job=other&note=Stalling%20after%20refuelling%2C%20warning%20lights%20%28early%202017%202.0%29)
 
 ## Screen freezing, navigation dropping out
 **Trade name:** infotainment software (bulletin 08-041-17).
 **Cost:** Small (software).
-[Tell us what you paid](/dubai/alfa-romeo/giulia/)
+[Tell us what you paid](/check-a-quote/?make=Alfa%20Romeo&model=Giulia&job=other&note=Screen%20freezing%2C%20navigation%20dropping%20out)
 
 ## Recalls to check by VIN
 - **Catalytic converter overheating** after a misfire (2.0 cars, about 37,000 in the US): a fire risk.
