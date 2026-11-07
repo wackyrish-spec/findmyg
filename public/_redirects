@@ -1,3 +1,13 @@
+/dubai/job/ac-repair/  /dubai/problem/ac-not-cold/  301
+/dubai/job/ac-repair  /dubai/problem/ac-not-cold/  301
+/dubai/job/gearbox/  /dubai/problem/gearbox-jerks/  301
+/dubai/job/gearbox  /dubai/problem/gearbox-jerks/  301
+/dubai/job/brakes/  /dubai/problem/brakes-noise/  301
+/dubai/job/brakes  /dubai/problem/brakes-noise/  301
+/dubai/job/bodywork/  /dubai/problem/dents-scratches/  301
+/dubai/job/bodywork  /dubai/problem/dents-scratches/  301
+/dubai/job/servicing/  /dubai/problem/service-due/  301
+/dubai/job/servicing  /dubai/problem/service-due/  301
 # QR cards (brand/print): short links that keep where the visitor came from.
 /r/meet  /?src=qr-meet  302
 /r/:slug /review/:slug/?src=qr 302

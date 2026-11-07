@@ -365,3 +365,7 @@ export function familyGarages(family, limit = 6) {
   return { family: fam.slice(0, limit), all: all.slice(0, limit) };
 }
 
+
+// One URL per intent (PM): job pages that match one problem page 301 to it (public/_redirects).
+export const JOB_TO_PROBLEM = { "ac-repair": "ac-not-cold", gearbox: "gearbox-jerks", brakes: "brakes-noise", bodywork: "dents-scratches", servicing: "service-due" };
+export const jobUrl = (slug) => (JOB_TO_PROBLEM[slug] ? `/dubai/problem/${JOB_TO_PROBLEM[slug]}/` : `/dubai/job/${slug}/`);

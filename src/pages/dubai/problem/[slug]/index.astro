@@ -1,7 +1,7 @@
 ---
 // Search by problem (PM spec 12.3): common causes in one line, diagnosis first, then garages owners mention for this job.
 import ListPage from "../../../../components/ListPage.astro";
-import { PROBLEMS, problemGarages, intro, isIndexable, JOB_PAGES } from "../../../../lib/data.js";
+import { PROBLEMS, problemGarages, intro, isIndexable, JOB_PAGES, JOB_TO_PROBLEM } from "../../../../lib/data.js";
 export function getStaticPaths() {
   return PROBLEMS.map((p) => ({ params: { slug: p.slug }, props: { p } }));
 }
@@ -11,7 +11,7 @@ const list = problemGarages(p);
 const it = intro(key);
 const notes = Object.fromEntries(list.map(({ g, n }) => [g.slug, `Owners mention this job here (${n})`]));
 const thin = list.length < 3;
-const job = JOB_PAGES.find((j) => j.slug === p.job);
+const job = JOB_PAGES.find((j) => j.slug === p.job && !JOB_TO_PROBLEM[j.slug]);
 ---
 <ListPage
   title={it?.title || `${p.symptom} in Dubai: garages owners mention`}

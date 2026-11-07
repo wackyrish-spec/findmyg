@@ -1,10 +1,10 @@
 ---
 import ListPage from "../../components/ListPage.astro";
-import { GARAGES, BRANDS, AREAS, JOB_PAGES, splitGeneral } from "../../lib/data.js";
+import { GARAGES, BRANDS, AREAS, JOB_PAGES, splitGeneral, jobUrl } from "../../lib/data.js";
 const related = [
   ...BRANDS.slice(0, 12).map((b) => ({ name: `${b.make} specialists`, url: `/dubai/${b.slug}/` })),
   ...AREAS.map((a) => ({ name: `Garages in ${a.name}`, url: `/dubai/area/${a.slug}/` })),
-  ...JOB_PAGES.map((j) => ({ name: j.name, url: `/dubai/job/${j.slug}/` })),
+  ...JOB_PAGES.map((j) => ({ name: j.name, url: jobUrl(j.slug) })),
 ];
 const L = splitGeneral(GARAGES);
 ---

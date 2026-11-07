@@ -1,8 +1,8 @@
 ---
 import ListPage from "../../../../components/ListPage.astro";
-import { JOB_PAGES, intro, isIndexable, splitGeneral } from "../../../../lib/data.js";
+import { JOB_PAGES, intro, isIndexable, splitGeneral, JOB_TO_PROBLEM } from "../../../../lib/data.js";
 export function getStaticPaths() {
-  return JOB_PAGES.map((j) => ({ params: { job: j.slug }, props: { j } }));
+  return JOB_PAGES.filter((j) => !JOB_TO_PROBLEM[j.slug]).map((j) => ({ params: { job: j.slug }, props: { j } }));
 }
 const { j } = Astro.props;
 const key = `dubai/job/${j.slug}`;
