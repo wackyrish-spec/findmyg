@@ -17,7 +17,8 @@ export function getStaticPaths() {
 const { f, b, m } = Astro.props;
 const fm = f.frontmatter;
 const Content = f.Content;
-const published = fm.status === "published";
+// PM rule: indexed only when published with 3+ sourced issues (frontmatter sourced_issues, set by Research).
+const published = fm.status === "published" && Number(fm.sourced_issues || 0) >= 3;
 ---
 <Base title={fm.title || `${b.make} ${m.model} known issues: what fails and who fixes it in Dubai`} description={fm.description || `Common ${b.make} ${m.model} problems, what they cost at the dealer and at independents in Dubai, and which garages owners trust with them.`} noindex={!published}
   crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: b.make, url: `/dubai/${b.slug}/` }, { name: m.model, url: `/dubai/${b.slug}/${m.slug}/` }, { name: "Known issues" }]}>

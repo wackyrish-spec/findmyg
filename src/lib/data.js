@@ -395,7 +395,7 @@ export function communityLine(g, model = null) {
   const cm = g.community_mentions;
   const pos = cm?.threads_positive || 0, neg = cm?.threads_negative || 0;
   if (pos < 2 || neg * 3 >= pos) return "";
-  const src = (cm.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || ""));
+  const src = (cm.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "") && !/negative|mixed/i.test(x.sentiment || ""));
   const years = src.map((x) => Number(x.year)).filter((y) => y > 1990);
   const span = years.length ? (Math.min(...years) === Math.max(...years) ? ` · ${years[0]}` : ` · ${Math.min(...years)}–${Math.max(...years)}`) : "";
   const onModel = model ? src.filter((x) => (x.models || []).some((m) => String(m).toLowerCase() === model.toLowerCase())).length : 0;
@@ -407,15 +407,16 @@ export function communityThreads(g) {
   if (!cm || (cm.threads_positive || 0) < 1) return [];
   const now = new Date().getFullYear();
   // Legal: a title only when Data marks it title_ok; quotes credited to "an owner on <place>", never a username.
-  return (cm.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "")).map((x) => {
-    const type = (x.type || "").toLowerCase(), sub = (String(x.url).match(/reddit\.com\/r\/([A-Za-z0-9_]+)/) || [])[1];
-    const host = (() => { try { return new URL(x.url).hostname.replace(/^www\./, ""); } catch { return ""; } })();
+  // Data rules: never a negative or mixed source; a quote only with title_ok.
+  return (cm.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "") && !/negative|mixed/i.test(x.sentiment || "")).map((x) => {
+    const type = (x.type || "").toLowerCase(), sub = (String(x.site || "").match(/^r\/([A-Za-z0-9_]+)/) || String(x.url).match(/reddit\.com\/r\/([A-Za-z0-9_]+)/) || [])[1];
+    const host = x.site && !sub ? x.site : (() => { try { return new URL(x.url).hostname.replace(/^www\./, ""); } catch { return ""; } })();
     const place = sub ? `r/${sub}` : host;
     const kind = type === "reddit" || sub ? "Reddit thread" : type === "youtube" ? "YouTube video" : "Forum thread";
     return {
       url: x.url, year: Number(x.year) || null, old: Number(x.year) > 0 && now - Number(x.year) > 3,
       label: x.title_ok && x.title ? x.title : [kind, type === "youtube" ? "" : place, x.year].filter(Boolean).join(", "),
-      quote: x.quote && x.quote.split(/\s+/).length <= 25 ? x.quote : "",
+      quote: x.quote && x.title_ok && x.quote.split(/\s+/).length <= 25 ? x.quote : "",
       credit: `an owner on ${type === "youtube" ? "YouTube" : place || "a forum"}`,
     };
   }).sort((a, b) => (Number(b.year) || 0) - (Number(a.year) || 0));

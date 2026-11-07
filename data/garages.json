@@ -117,7 +117,8 @@
      "evidence": "15 of 60 Google reviews read mention Jeep (65% of reviews that name any make); most-mentioned models: Wrangler (5); Recommended for Jeep on Reddit r/dubai",
      "mentions": 15,
      "basis": "reviews+community",
-     "car_family": "american"
+     "car_family": "american",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -233,7 +234,61 @@
     }
    },
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "reviews or listing point to specific makes"
+   "works_on_all_makes_basis": "reviews or listing point to specific makes",
+   "community_mentions": {
+    "threads_total": 2,
+    "threads_positive": 2,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2018,
+     2024
+    ],
+    "positive_by_model": {
+     "Wrangler": 2
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Good garages for Jeep wrangler maintenance and mods?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1d0c4fb/good_garages_for_jeep_wrangler_maintenance_and/",
+      "year": 2024,
+      "makes": [
+       "Jeep"
+      ],
+      "models": [
+       "Wrangler"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "the good places I found were Ramy Automotive and Offroad Zone. Both are in Al Quoz area.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Can you recommend a good garage for Jeep?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/8n5r91/can_you_recommend_a_good_garage_for_jeep/",
+      "year": 2018,
+      "makes": [
+       "Jeep"
+      ],
+      "models": [
+       "Wrangler"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "They do good work and specialize in jeep wranglers.",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "car-garage-auto-mechanical-repair-7955",
@@ -285,7 +340,8 @@
      "evidence": "4 of 60 Google reviews read mention Nissan (36% of reviews that name any make); most-mentioned models: Pathfinder (2)",
      "mentions": 4,
      "basis": "reviews",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -453,7 +509,8 @@
      "evidence": "7 of 60 Google reviews read mention Lexus (41% of reviews that name any make); recommended for Lexus in 6 Reddit threads (2020-2026), described as run by an ex-Lexus technician; branches in Ras Al Khor and DIP; 5 more owners recommend it for Lexus (NX, GX) in 2 more Reddit threads (2024, 2026)",
      "mentions": 7,
      "basis": "reviews+community",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -734,7 +791,180 @@
     }
    },
    "works_on_all_makes": true,
-   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)"
+   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)",
+   "community_mentions": {
+    "threads_total": 9,
+    "threads_positive": 9,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2020,
+     2026
+    ],
+    "positive_by_model": {
+     "GX460": 1,
+     "ES": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Best lexus garage in dubai which is not going to",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1w60bh2/best_lexus_garage_in_dubai_which_is_not_going_to/",
+      "year": 2026,
+      "makes": [
+       "Lexus"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Seconded for Al Nahda Auto Balance in Ras Al Khor.",
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Good lexus garage specialist",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1uxdjx4/good_lexus_garage_specialist/",
+      "year": 2026,
+      "makes": [
+       "Lexus",
+       "GS"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Al nahda auto garage in ras al khor",
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Lexus gx460 garage mechanic shop recommendations",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ui3aaa/lexus_gx460_garage_mechanic_shop_recommendations/",
+      "year": 2026,
+      "makes": [
+       "Lexus",
+       "GX"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Al nahda auto garage, Ras al khor. V good",
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Lexus service advice",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jk6rag/lexus_service_advice/",
+      "year": 2025,
+      "makes": [
+       "Lexus",
+       "NX"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Al Nahdha in Ras Al Khor seems to have good reviews. I take mine to them",
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Lexus Specialist - Dubai",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bdjqnd/lexus_specialist_dubai/",
+      "year": 2024,
+      "makes": [
+       "Lexus"
+      ],
+      "models": [
+       "GX460"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "They specialize in Lexus from what I've seen and as the owner mentioned.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garage for lexus",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bowljq/garage_for_lexus/",
+      "year": 2024,
+      "makes": [
+       "Lexus",
+       "IS"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Would recommend Al Nahdha Auto Garage.",
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Any recommendations for lexus garage in dubai",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/192zp71/any_recommendations_for_lexus_garage_in_dubai/",
+      "year": 2024,
+      "makes": [
+       "Lexus",
+       "NX"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Recommendations to service a Lexus",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/1026n7l/recommendations_to_service_a_lexus/",
+      "year": 2023,
+      "makes": [
+       "Lexus"
+      ],
+      "models": [
+       "ES"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "They are quite specialized in Lexus, I always see so many ES models from Uber waiting for services.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Lexus is good affordable garage trustworthy",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/ju03j9/lexus_is_good_affordable_garage_trustworthy/",
+      "year": 2020,
+      "makes": [
+       "Lexus",
+       "IS"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Al Nahda Auto Garage in Ras al Khor. He's ex lexus guy. Really good!",
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "deutsches-auto-service-75f4",
@@ -786,7 +1016,8 @@
      "evidence": "Recommended for Mercedes-Benz on Reddit r/DubaiPetrolHeads",
      "mentions": 0,
      "basis": "community",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     },
     {
      "make": "Audi",
@@ -796,7 +1027,8 @@
      "evidence": "7 of 60 Google reviews read mention Audi (26% of reviews that name any make)",
      "mentions": 7,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     },
     {
      "make": "BMW",
@@ -806,7 +1038,8 @@
      "evidence": "6 of 60 Google reviews read mention BMW (22% of reviews that name any make)",
      "mentions": 6,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -945,7 +1178,83 @@
     }
    },
    "works_on_all_makes": true,
-   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)"
+   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)",
+   "community_mentions": {
+    "threads_total": 3,
+    "threads_positive": 2,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2020,
+     2024
+    ],
+    "positive_by_model": {
+     "Boxster": 1,
+     "Cayenne": 1,
+     "3 Series": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "First time servicing a Porsche, is this fair pricing?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1gddpek/first_time_servicing_a_porsche_is_this_fair/",
+      "year": 2024,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Boxster",
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Best place to inspect/service a BMW in Dubai",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/iuewie/best_place_to_inspectservice_a_bmw_in_dubai/",
+      "year": 2020,
+      "makes": [
+       "BMW"
+      ],
+      "models": [
+       "3 Series"
+      ],
+      "generations": [
+       "E90",
+       "E92"
+      ],
+      "sentiment": "positive",
+      "quote": "the service from them was absolutely brilliant",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Looking for a mercedes mechanic",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1p4fd4a/looking_for_a_mercedes_mechanic/",
+      "year": null,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "german-experts-car-maintenance-dubai-7ed4",
@@ -982,7 +1291,8 @@
      "evidence": "4 of 60 Google reviews read mention BMW (31% of reviews that name any make)",
      "mentions": 4,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -1091,7 +1401,94 @@
     }
    },
    "works_on_all_makes": true,
-   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)"
+   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)",
+   "community_mentions": {
+    "threads_total": 4,
+    "threads_positive": 0,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Best garage for Mercedes major service?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1mjecgf/best_garage_for_mercedes_major_service/",
+      "year": 2025,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "CLA"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Porsche Pre purchase Inspection",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/16ba73o/porsche_pre_purchase_inspection/",
+      "year": 2023,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [],
+      "generations": [
+       "911"
+      ],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/Golf_R",
+      "title": "Golf R Mk7 Dubai Garage",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/Golf_R/comments/1756vk7/golf_r_mk7_dubai_garage/",
+      "year": 2023,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf R"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Mercedes Garage Recommendations - Oil Service",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/16ijfxp/mercedes_garage_recommendations_oil_service/",
+      "year": 2023,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "E-Class"
+      ],
+      "generations": [
+       "W212"
+      ],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "orange-auto-8dde",
@@ -1142,7 +1539,8 @@
      "evidence": "3 of 60 Google reviews read mention Nissan (20% of reviews that name any make); most-mentioned models: Patrol (2); the garage's own listing name advertises Nissan",
      "mentions": 3,
      "basis": "reviews",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2026
     },
     {
      "make": "Mercedes-Benz",
@@ -1152,7 +1550,8 @@
      "evidence": "3 of 60 Google reviews read mention Mercedes-Benz (20% of reviews that name any make); the garage's own listing name advertises Mercedes-Benz",
      "mentions": 3,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     },
     {
      "make": "Porsche",
@@ -1290,7 +1689,43 @@
     }
    },
    "works_on_all_makes": true,
-   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)"
+   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2020,
+     2020
+    ],
+    "positive_by_model": {
+     "C-Class": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Where to take Out of warranty Mercedes for Service?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/gnj301/where_to_take_out_of_warranty_mercedes_for_service/",
+      "year": 2020,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "C-Class"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "very transparent in terms of cost of parts and which parts they use",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "dme-auto-repairing-874b",
@@ -1340,7 +1775,8 @@
      "evidence": "6 of 60 Google reviews read mention Mercedes-Benz (40% of reviews that name any make)",
      "mentions": 6,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     },
     {
      "make": "Audi",
@@ -1350,7 +1786,8 @@
      "evidence": "4 of 60 Google reviews read mention Audi (27% of reviews that name any make)",
      "mentions": 4,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2025
     }
    ],
    "self_claims": [],
@@ -1458,7 +1895,40 @@
     }
    },
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "reviews or listing point to specific makes"
+   "works_on_all_makes_basis": "reviews or listing point to specific makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 0,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Best BMW E46 Garage in Dubai / Sharjah ?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jowhnt/best_bmw_e46_garage_in_dubai_sharjah/",
+      "year": 2025,
+      "makes": [
+       "BMW"
+      ],
+      "models": [
+       "3 Series"
+      ],
+      "generations": [
+       "E46"
+      ],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "rover-auto-centre-llc-9bc1",
@@ -1500,7 +1970,8 @@
      "evidence": "23 of 60 Google reviews read mention Land Rover (100% of reviews that name any make); the garage's own listing name advertises Land Rover",
      "mentions": 23,
      "basis": "reviews",
-     "car_family": "british"
+     "car_family": "british",
+     "latest_year": 2025
     }
    ],
    "self_claims": [],
@@ -1639,7 +2110,8 @@
      "evidence": "11 of 60 Google reviews read mention Audi (44% of reviews that name any make); most-mentioned models: RS (3)",
      "mentions": 11,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2025
     },
     {
      "make": "Porsche",
@@ -1652,7 +2124,8 @@
      "evidence": "9 of 60 Google reviews read mention Porsche (36% of reviews that name any make); most-mentioned models: 911 (3), Cayenne (2)",
      "mentions": 9,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2021
     }
    ],
    "self_claims": [],
@@ -1796,7 +2269,132 @@
     }
    },
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "reviews or listing point to specific makes"
+   "works_on_all_makes_basis": "reviews or listing point to specific makes",
+   "community_mentions": {
+    "threads_total": 6,
+    "threads_positive": 3,
+    "threads_negative": 1,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2021,
+     2024
+    ],
+    "positive_by_model": {
+     "Golf GTI": 1,
+     "Cayenne": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Reliable, trustworthy garage in Dubai for Volkswagen Golf GTI",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1pfyc50/reliable_trustworthy_garage_in_dubai_for/",
+      "year": 2025,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf GTI"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Most trusted and reliable VW garage in Dubai",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1dqfqiw/most_trusted_and_reliable_vw_garage_in_dubai/",
+      "year": 2024,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garage for high end cars?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1fug704/garage_for_high_end_cars/",
+      "year": 2024,
+      "makes": [
+       "Porsche",
+       "Maserati",
+       "Bentley"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Could someone suggest a good and economical garage for servicing a second hand Volkswagen GTI",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/113mqyk/could_someone_suggest_a_good_and_economical/",
+      "year": 2023,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf GTI"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "DT - Deutsche Technik in Al Quoz. Specialist for VAG cars.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Trustworthy garages for maintenance on Porsches?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/mhrkx2/trustworthy_garages_for_maintenance_on_porsches/",
+      "year": 2021,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "DT does a decent job with german cars",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Best place to service a porsche",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/bwleda/best_place_to_service_a_porsche/",
+      "year": 2019,
+      "makes": [
+       "Porsche",
+       "Audi",
+       "Volkswagen"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "negative",
+      "quote": null,
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "subzero-motorsport-4b66",
@@ -1837,7 +2435,8 @@
      "evidence": "19 of 60 Google reviews read mention Nissan (90% of reviews that name any make); most-mentioned models: GT-R (16)",
      "mentions": 19,
      "basis": "reviews",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -1983,7 +2582,8 @@
      "evidence": "5 of 60 Google reviews read mention BMW (31% of reviews that name any make)",
      "mentions": 5,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2021
     }
    ],
    "self_claims": [],
@@ -2153,7 +2753,8 @@
      "evidence": "18 of 60 Google reviews read mention Porsche (69% of reviews that name any make); most-mentioned models: 911 (3)",
      "mentions": 18,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "self_claims": [
@@ -2359,7 +2960,111 @@
     }
    },
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "reviews or listing point to specific makes"
+   "works_on_all_makes_basis": "reviews or listing point to specific makes",
+   "community_mentions": {
+    "threads_total": 5,
+    "threads_positive": 3,
+    "threads_negative": 1,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2023,
+     2025
+    ],
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Independent Specialist for Macan Turbo, Timing Cover Bolt Upgrade?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1vog798/independent_specialist_for_macan_turbo_timing/",
+      "year": 2026,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Macan"
+      ],
+      "generations": [],
+      "sentiment": "negative",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garage recommendations for porsche",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1oho0e5/garage_recommendations_for_porsche/",
+      "year": 2025,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Alex Renner is quite famous for working on Porsches!",
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garage for high end cars?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1fug704/garage_for_high_end_cars/",
+      "year": 2024,
+      "makes": [
+       "Porsche",
+       "Maserati",
+       "Bentley"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "They provide aftermarket warranty as well under some conditions.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Porsche Pre purchase Inspection",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/16ba73o/porsche_pre_purchase_inspection/",
+      "year": 2023,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [],
+      "generations": [
+       "911"
+      ],
+      "sentiment": "positive",
+      "quote": "ARMotors have a long history as Porsche specialists and offer prepurchase inspection.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Trustworthy garages for maintenance on Porsches?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/mhrkx2/trustworthy_garages_for_maintenance_on_porsches/",
+      "year": 2021,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "offroad-zone-d37f",
@@ -2400,7 +3105,8 @@
      "evidence": "32 of 60 Google reviews read mention Jeep (97% of reviews that name any make); most-mentioned models: Wrangler (12); Recommended for Jeep on Reddit r/dubai",
      "mentions": 32,
      "basis": "reviews+community",
-     "car_family": "american"
+     "car_family": "american",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -2514,7 +3220,99 @@
     }
    },
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "reviews or listing point to specific makes"
+   "works_on_all_makes_basis": "reviews or listing point to specific makes",
+   "community_mentions": {
+    "threads_total": 4,
+    "threads_positive": 3,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2018,
+     2025
+    ],
+    "positive_by_model": {
+     "Wrangler": 3,
+     "JK": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Good quality and price Jeep Wrangler garage in Dubai ?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1m5sjng/good_quality_and_price_jeep_wrangler_garage_in/",
+      "year": 2025,
+      "makes": [
+       "Jeep"
+      ],
+      "models": [
+       "Wrangler",
+       "JK"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "offroad zone is known to be a one stop shop for all jeep needs",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Good garages for Jeep wrangler maintenance and mods?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1d0c4fb/good_garages_for_jeep_wrangler_maintenance_and/",
+      "year": 2024,
+      "makes": [
+       "Jeep"
+      ],
+      "models": [
+       "Wrangler"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "the good places I found were Ramy Automotive and Offroad Zone. Both are in Al Quoz area.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Can you recommend a good garage for Jeep?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/8n5r91/can_you_recommend_a_good_garage_for_jeep/",
+      "year": 2018,
+      "makes": [
+       "Jeep"
+      ],
+      "models": [
+       "Wrangler"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Offroad Zone or Ramy are quite good.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Good garage for Jeep Wrangler service/repair?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/6vawrv/good_garage_for_jeep_wrangler_servicerepair/",
+      "year": 2017,
+      "makes": [
+       "Jeep"
+      ],
+      "models": [
+       "Wrangler"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "silberarrows-7699",
@@ -2550,7 +3348,8 @@
      "evidence": "Garage name advertises Mercedes-Benz; reviews not yet analysed; Recommended for Mercedes-Benz on Reddit r/dubai; Described as a Mercedes-Benz specialist in Zawya press release (2012)",
      "mentions": 0,
      "basis": "listing name+community+community",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2025
     }
    ],
    "self_claims": [],
@@ -2595,10 +3394,212 @@
     "https://www.zawya.com/en/press-release/independent-mercedes-benz-service-centre-opens-in-dubai-vvsnn5pg"
    ],
    "possible_matches": [],
-   "price_examples": [],
+   "price_examples": [
+    {
+     "job": "minor_service",
+     "make": "Mercedes-Benz",
+     "model": "A / C / CLA / CLE",
+     "aed_low": 1247,
+     "aed_high": 1247,
+     "aed_original": 1188,
+     "vat": "published excl. VAT; 5% added",
+     "includes_parts": true,
+     "includes": "Service A per Daimler schedule, parts + labour",
+     "source": "garage's own price list",
+     "url": "https://mercedes-benz.silberarrows.com/service-pricing",
+     "as_of": "2026-11-07",
+     "note": "starting price ('from')"
+    },
+    {
+     "job": "minor_service",
+     "make": "Mercedes-Benz",
+     "model": "E / CLS",
+     "aed_low": 1247,
+     "aed_high": 1247,
+     "aed_original": 1188,
+     "vat": "published excl. VAT; 5% added",
+     "includes_parts": true,
+     "includes": "Service A per Daimler schedule, parts + labour",
+     "source": "garage's own price list",
+     "url": "https://mercedes-benz.silberarrows.com/service-pricing",
+     "as_of": "2026-11-07",
+     "note": "starting price ('from')"
+    },
+    {
+     "job": "minor_service",
+     "make": "Mercedes-Benz",
+     "model": "S / CL",
+     "aed_low": 1361,
+     "aed_high": 1361,
+     "aed_original": 1296,
+     "vat": "published excl. VAT; 5% added",
+     "includes_parts": true,
+     "includes": "Service A per Daimler schedule, parts + labour",
+     "source": "garage's own price list",
+     "url": "https://mercedes-benz.silberarrows.com/service-pricing",
+     "as_of": "2026-11-07",
+     "note": "starting price ('from')"
+    },
+    {
+     "job": "minor_service",
+     "make": "Mercedes-Benz",
+     "model": "G-Class",
+     "aed_low": 1764,
+     "aed_high": 1764,
+     "aed_original": 1680,
+     "vat": "published excl. VAT; 5% added",
+     "includes_parts": true,
+     "includes": "Service A per Daimler schedule, parts + labour",
+     "source": "garage's own price list",
+     "url": "https://mercedes-benz.silberarrows.com/service-pricing",
+     "as_of": "2026-11-07",
+     "note": "starting price ('from')"
+    },
+    {
+     "job": "minor_service",
+     "make": "Mercedes-Benz",
+     "model": "GLA / GLB / GLC",
+     "aed_low": 1247,
+     "aed_high": 1247,
+     "aed_original": 1188,
+     "vat": "published excl. VAT; 5% added",
+     "includes_parts": true,
+     "includes": "Service A per Daimler schedule, parts + labour",
+     "source": "garage's own price list",
+     "url": "https://mercedes-benz.silberarrows.com/service-pricing",
+     "as_of": "2026-11-07",
+     "note": "starting price ('from')"
+    },
+    {
+     "job": "minor_service",
+     "make": "Mercedes-Benz",
+     "model": "ML / GLE / GL / GLS",
+     "aed_low": 1361,
+     "aed_high": 1361,
+     "aed_original": 1296,
+     "vat": "published excl. VAT; 5% added",
+     "includes_parts": true,
+     "includes": "Service A per Daimler schedule, parts + labour",
+     "source": "garage's own price list",
+     "url": "https://mercedes-benz.silberarrows.com/service-pricing",
+     "as_of": "2026-11-07",
+     "note": "starting price ('from')"
+    }
+   ],
    "evidence_summary": "Recommended by owners for Mercedes-Benz on Reddit r/dubai.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 5,
+    "threads_positive": 3,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2024,
+     2025
+    ],
+    "positive_by_model": {
+     "CLA": 1,
+     "C-Class": 2
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Best garage for Mercedes major service?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1mjecgf/best_garage_for_mercedes_major_service/",
+      "year": 2025,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "CLA"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Looking for a Garage that specializes in Mercedes sensor issues",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jujdiy/looking_for_a_garage_that_specializes_in_mercedes/",
+      "year": 2025,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "C-Class"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "They're an independent Mercedes Benz specialist. Highly recommend them.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Any Good Mercedes Specialists?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1gtnka6/any_good_mercedes_specialists/",
+      "year": 2024,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "C-Class"
+      ],
+      "generations": [
+       "W205"
+      ],
+      "sentiment": "positive",
+      "quote": "Took my 2019 C300 to SilberArrows in Al Quoz for a major service. About AED 1,600 and they had it back the same day.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Best Mercedes Specialist in UAE?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/mij4nv/best_mercedes_specialist_in_uae/",
+      "year": 2021,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "AMG"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Where to take Out of warranty Mercedes for Service?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/gnj301/where_to_take_out_of_warranty_mercedes_for_service/",
+      "year": 2020,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "C-Class"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "premier-car-care-luxury-car-service-and-maintenance-46f0",
@@ -2647,7 +3648,8 @@
      "evidence": "13 of 60 Google reviews read mention Land Rover (54% of reviews that name any make); most-mentioned models: Range Rover (10)",
      "mentions": 13,
      "basis": "reviews",
-     "car_family": "british"
+     "car_family": "british",
+     "latest_year": 2023
     },
     {
      "make": "Jaguar",
@@ -2657,7 +3659,8 @@
      "evidence": "6 of 60 Google reviews read mention Jaguar (25% of reviews that name any make)",
      "mentions": 6,
      "basis": "reviews",
-     "car_family": "british"
+     "car_family": "british",
+     "latest_year": 2019
     }
    ],
    "self_claims": [],
@@ -2783,7 +3786,43 @@
     }
    },
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "reviews or listing point to specific makes"
+   "works_on_all_makes_basis": "reviews or listing point to specific makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2020,
+     2020
+    ],
+    "positive_by_model": {
+     "Range Rover": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Good garage for range rovers",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/j9nn1j/good_garage_for_range_rovers/",
+      "year": 2020,
+      "makes": [
+       "Land Rover"
+      ],
+      "models": [
+       "Range Rover"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "an independent garage the specialises in british cars",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "euro-experts-auto-services-1724",
@@ -2824,7 +3863,8 @@
      "evidence": "5 of 60 Google reviews read mention Land Rover (36% of reviews that name any make); most-mentioned models: Range Rover (4)",
      "mentions": 5,
      "basis": "reviews",
-     "car_family": "british"
+     "car_family": "british",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -2937,7 +3977,39 @@
     }
    },
    "works_on_all_makes": true,
-   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)"
+   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 0,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Range Rover - where would you get it serviced?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ovup32/range_rover_where_would_you_get_it_serviced/",
+      "year": 2025,
+      "makes": [
+       "Land Rover",
+       "BMW"
+      ],
+      "models": [
+       "Range Rover"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "vaahan-garage-jeep-dodge-ram-chrysler-specialists-4f32",
@@ -2979,7 +4051,8 @@
      "evidence": "26 of 60 Google reviews read mention Dodge (63% of reviews that name any make); most-mentioned models: Charger (6), Durango (4), Challenger (4); the garage's own listing name advertises Dodge",
      "mentions": 26,
      "basis": "reviews",
-     "car_family": "american"
+     "car_family": "american",
+     "latest_year": 2026
     },
     {
      "make": "Jeep",
@@ -2992,7 +4065,8 @@
      "evidence": "18 of 60 Google reviews read mention Jeep (44% of reviews that name any make); most-mentioned models: Grand Cherokee (8); the garage's own listing name advertises Jeep; Recommended for Jeep on Reddit r/DubaiPetrolHeads (Wrangler)",
      "mentions": 18,
      "basis": "reviews+community",
-     "car_family": "american"
+     "car_family": "american",
+     "latest_year": 2026
     },
     {
      "make": "Chrysler",
@@ -3002,7 +4076,8 @@
      "evidence": "5 of 60 Google reviews read mention Chrysler (12% of reviews that name any make); the garage's own listing name advertises Chrysler",
      "mentions": 5,
      "basis": "reviews",
-     "car_family": "american"
+     "car_family": "american",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -3131,7 +4206,103 @@
     }
    },
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "reviews or listing point to specific makes"
+   "works_on_all_makes_basis": "reviews or listing point to specific makes",
+   "community_mentions": {
+    "threads_total": 4,
+    "threads_positive": 3,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2025,
+     2026
+    ],
+    "positive_by_model": {
+     "Wrangler": 3,
+     "JL": 2,
+     "JK": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Need garage recommendations for Jeep Wrangler",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1vq8iff/need_garage_recommendations_for_jeep_wrangler/",
+      "year": 2026,
+      "makes": [
+       "Jeep"
+      ],
+      "models": [
+       "Wrangler",
+       "JK"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garage recommendation for jeep affordable parts",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1xe3z0n/garage_recommendation_for_jeep_affordable_parts/",
+      "year": 2026,
+      "makes": [
+       "Jeep"
+      ],
+      "models": [
+       "Wrangler",
+       "JL"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Vahan garage is pretty good",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Jeep Wrangler 2021 Garage recommendations",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1pjrrv0/jeep_wrangler_2021_garage_recommendations/",
+      "year": 2025,
+      "makes": [
+       "Jeep"
+      ],
+      "models": [
+       "Wrangler",
+       "JL"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Vahan Garage is the place you are looking for",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Good quality and price Jeep Wrangler garage in Dubai ?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1m5sjng/good_quality_and_price_jeep_wrangler_garage_in/",
+      "year": 2025,
+      "makes": [
+       "Jeep"
+      ],
+      "models": [
+       "Wrangler",
+       "JK"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Heard nothing but good reviews.",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "titan-performance-uae-9db1",
@@ -3180,7 +4351,8 @@
      "evidence": "8 of 60 Google reviews read mention Toyota (44% of reviews that name any make); most-mentioned models: Prado (2), Land Cruiser (2); recommended on Reddit r/DubaiPetrolHeads for modifying and maintaining a Land Cruiser",
      "mentions": 8,
      "basis": "reviews+community",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2026
     },
     {
      "make": "Ford",
@@ -3192,7 +4364,8 @@
      "evidence": "5 of 60 Google reviews read mention Ford (28% of reviews that name any make); most-mentioned models: Raptor (4)",
      "mentions": 5,
      "basis": "reviews",
-     "car_family": "american"
+     "car_family": "american",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -3327,7 +4500,65 @@
     }
    },
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "reviews or listing point to specific makes"
+   "works_on_all_makes_basis": "reviews or listing point to specific makes",
+   "community_mentions": {
+    "threads_total": 2,
+    "threads_positive": 2,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2025,
+     2026
+    ],
+    "positive_by_model": {
+     "Land Cruiser": 1,
+     "Patrol": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Land cruiser garage",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1q1qhbj/land_cruiser_garage/",
+      "year": 2026,
+      "makes": [
+       "Toyota",
+       "Land Cruiser"
+      ],
+      "models": [
+       "Land Cruiser"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "you want to mod and maintain the car based on that maybe try titan performance",
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Off-Road Garages - Recommendations Needed",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1mo0vkx/offroad_garages_recommendations_needed/",
+      "year": 2025,
+      "makes": [
+       "Nissan"
+      ],
+      "models": [
+       "Patrol"
+      ],
+      "generations": [
+       "Y62"
+      ],
+      "sentiment": "positive",
+      "quote": "titan is pricey but worth it.",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "al-taeif-honda-garage-fef2",
@@ -3364,7 +4595,8 @@
      "evidence": "18 of 60 Google reviews read mention Honda (100% of reviews that name any make); the garage's own listing name advertises Honda",
      "mentions": 18,
      "basis": "reviews",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -3519,7 +4751,8 @@
      "evidence": "4 of 60 Google reviews read mention Audi (33% of reviews that name any make); most-mentioned models: A6 (2)",
      "mentions": 4,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2018
     }
    ],
    "self_claims": [],
@@ -3680,7 +4913,8 @@
      "evidence": "6 of 60 Google reviews read mention Nissan (50% of reviews that name any make); most-mentioned models: Patrol (5)",
      "mentions": 6,
      "basis": "reviews",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2026
     },
     {
      "make": "Toyota",
@@ -3692,7 +4926,8 @@
      "evidence": "4 of 60 Google reviews read mention Toyota (33% of reviews that name any make); most-mentioned models: Land Cruiser (3)",
      "mentions": 4,
      "basis": "reviews",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -3856,7 +5091,8 @@
      "evidence": "2 of 60 Google reviews read mention Nissan (13% of reviews that name any make); the garage's own listing name advertises Nissan",
      "mentions": 2,
      "basis": "reviews",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2026
     },
     {
      "make": "BMW",
@@ -3866,7 +5102,8 @@
      "evidence": "2 of 60 Google reviews read mention BMW (13% of reviews that name any make); the garage's own listing name advertises BMW",
      "mentions": 2,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     },
     {
      "make": "Land Rover",
@@ -3878,7 +5115,8 @@
      "evidence": "2 of 60 Google reviews read mention Land Rover (13% of reviews that name any make); most-mentioned models: Range Rover (2); the garage's own listing name advertises Land Rover",
      "mentions": 2,
      "basis": "reviews",
-     "car_family": "british"
+     "car_family": "british",
+     "latest_year": 2026
     },
     {
      "make": "Audi",
@@ -3888,7 +5126,8 @@
      "evidence": "4 of 60 Google reviews read mention Audi (27% of reviews that name any make)",
      "mentions": 4,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     },
     {
      "make": "Toyota",
@@ -3908,7 +5147,8 @@
      "evidence": "1 of 60 Google reviews read mention Mercedes-Benz (7% of reviews that name any make); the garage's own listing name advertises Mercedes-Benz",
      "mentions": 1,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     },
     {
      "make": "Porsche",
@@ -3918,7 +5158,8 @@
      "evidence": "1 of 60 Google reviews read mention Porsche (7% of reviews that name any make); the garage's own listing name advertises Porsche",
      "mentions": 1,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -3967,7 +5208,23 @@
     "http://www.cardioauto.ae/"
    ],
    "possible_matches": [],
-   "price_examples": [],
+   "price_examples": [
+    {
+     "job": "minor_service",
+     "make": null,
+     "model": null,
+     "aed_low": 189,
+     "aed_high": 189,
+     "aed_original": 180,
+     "vat": "published excl. VAT; 5% added",
+     "includes_parts": true,
+     "includes": "engine oil minor service, all makes",
+     "source": "garage's own price list",
+     "url": "https://cardioauto.ae/minor-engine-oil-service-near-me-dubai/",
+     "as_of": "2026-11-07",
+     "note": "starting price ('from')"
+    }
+   ],
    "evidence_summary": "2 of 60 Google reviews we read mention Nissan work. 2 of 60 Google reviews we read mention BMW work. 2 of 60 Google reviews we read mention Land Rover work (mostly Range Rover). 4 of 60 Google reviews we read mention Audi work. 1 of 60 Google reviews we read mention Toyota work. 1 of 60 Google reviews we read mention Mercedes-Benz work. 1 of 60 Google reviews we read mention Porsche work.",
    "price_signal": {
     "reviews_read": 60,
@@ -4078,7 +5335,8 @@
      "evidence": "19 of 60 Google reviews read mention Mercedes-Benz (100% of reviews that name any make); the garage's own listing name advertises Mercedes-Benz",
      "mentions": 19,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -4179,7 +5437,43 @@
     }
    },
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "reviews or listing point to specific makes"
+   "works_on_all_makes_basis": "reviews or listing point to specific makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2025,
+     2025
+    ],
+    "positive_by_model": {
+     "CLA": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Best garage for Mercedes major service?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1mjecgf/best_garage_for_mercedes_major_service/",
+      "year": 2025,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "CLA"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "sss-garage-c333",
@@ -4221,7 +5515,8 @@
      "evidence": "32 of 60 Google reviews read mention Jeep (94% of reviews that name any make); most-mentioned models: Wrangler (13)",
      "mentions": 32,
      "basis": "reviews",
-     "car_family": "american"
+     "car_family": "american",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -4364,7 +5659,8 @@
      "evidence": "25 of 60 Google reviews read mention Tesla (100% of reviews that name any make); most-mentioned models: Model 3 (4)",
      "mentions": 25,
      "basis": "reviews",
-     "car_family": "american"
+     "car_family": "american",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -4511,7 +5807,8 @@
      "evidence": "10 of 60 Google reviews read mention Audi (67% of reviews that name any make); most-mentioned models: A6 (2)",
      "mentions": 10,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     },
     {
      "make": "Bentley",
@@ -4521,7 +5818,8 @@
      "evidence": "4 of 60 Google reviews read mention Bentley (27% of reviews that name any make)",
      "mentions": 4,
      "basis": "reviews",
-     "car_family": "british"
+     "car_family": "british",
+     "latest_year": 2026
     },
     {
      "make": "Porsche",
@@ -4710,7 +6008,8 @@
      "evidence": "4 of 60 Google reviews read mention Rolls-Royce (36% of reviews that name any make)",
      "mentions": 4,
      "basis": "reviews",
-     "car_family": "british"
+     "car_family": "british",
+     "latest_year": 2025
     },
     {
      "make": "Porsche",
@@ -4720,7 +6019,8 @@
      "evidence": "4 of 60 Google reviews read mention Porsche (36% of reviews that name any make)",
      "mentions": 4,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2024
     }
    ],
    "self_claims": [],
@@ -4864,7 +6164,8 @@
      "evidence": "Described as a Nissan specialist in Garage website reviews page (Patrol)",
      "mentions": 0,
      "basis": "community",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2026
     },
     {
      "make": "Dodge",
@@ -4914,7 +6215,45 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2026,
+     2026
+    ],
+    "positive_by_model": {
+     "Patrol": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Nissan Patrol Major Service",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1rpwv8r/nissan_patrol_major_service/",
+      "year": 2026,
+      "makes": [
+       "Nissan"
+      ],
+      "models": [
+       "Patrol"
+      ],
+      "generations": [
+       "Y62"
+      ],
+      "sentiment": "positive",
+      "quote": "they exclusively work on Patrols",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "posh-care-garage-d6c0",
@@ -4963,7 +6302,8 @@
      "evidence": "Recommended for Mercedes-Benz on Reddit r/dubai",
      "mentions": 0,
      "basis": "community",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2020
     },
     {
      "make": "Porsche",
@@ -4973,7 +6313,8 @@
      "evidence": "Porsche named in 4 of 8 recent Google reviews that name a make (60 read); also recommended for Porsche by one owner on Reddit (2021)",
      "mentions": 4,
      "basis": "reviews+community",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2021
     }
    ],
    "self_claims": [],
@@ -5031,6 +6372,61 @@
     "cheap": 0,
     "as_of": "2026-11-07",
     "jobs": []
+   },
+   "community_mentions": {
+    "threads_total": 2,
+    "threads_positive": 2,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2020,
+     2021
+    ],
+    "positive_by_model": {
+     "Cayenne": 1,
+     "C-Class": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Trustworthy garages for maintenance on Porsches?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/mhrkx2/trustworthy_garages_for_maintenance_on_porsches/",
+      "year": 2021,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "the guys working there are porsche experts, they won't rip you off or suggest anything the car does not need",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Where to take Out of warranty Mercedes for Service?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/gnj301/where_to_take_out_of_warranty_mercedes_for_service/",
+      "year": 2020,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "C-Class"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
    }
   },
   {
@@ -5115,7 +6511,36 @@
    "price_examples": [],
    "evidence_summary": "Recommended by owners for Mercedes-Benz on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Any good mercedes specialists",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1gtnka6/any_good_mercedes_specialists/",
+      "year": null,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "project-11-independent-porsche-specialists-2ca2",
@@ -5150,7 +6575,8 @@
      "evidence": "Porsche named in 31 of 60 recent Google reviews (every review that names a make), Cayenne 5 and 911 4; also recommended in 5 Reddit threads; Porsche-only workshop",
      "mentions": 31,
      "basis": "reviews+community",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -5280,6 +6706,206 @@
     "cheap": 0,
     "as_of": "2026-11-07",
     "jobs": []
+   },
+   "community_mentions": {
+    "threads_total": 10,
+    "threads_positive": 9,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2023,
+     2026
+    ],
+    "positive_by_model": {
+     "Macan": 1,
+     "Cayenne": 4,
+     "911": 1,
+     "Boxster": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Independent Specialist for Macan Turbo, Timing Cover Bolt Upgrade?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1vog798/independent_specialist_for_macan_turbo_timing/",
+      "year": 2026,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Macan"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Independent Porsche Specialist - Project11, no need to look further.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garage recommendations for Porsche",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1oho0e5/garage_recommendations_for_porsche/",
+      "year": 2025,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "try project 11 in al quoz",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Need advice about Porsche Servicing, stick with Al Nabooda or save and go for Project 11",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1njltdg/need_advice_about_porsche_servicing_stick_with_al/",
+      "year": 2025,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Need to find a reputable garage for a classic",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1k6215m/need_to_find_a_reputable_garage_for_a_classic/",
+      "year": 2025,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "911"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Call up Project 11 and check with them it's a specialized Porsche garage. Amazing team!",
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Cost effective and good garages for porsche",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1oc5nv7/cost_effective_and_good_garages_for_porsche/",
+      "year": 2025,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Project 11 is well known for Porsches and they do Porsches only.",
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "First time servicing a Porsche, is this fair pricing?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1gddpek/first_time_servicing_a_porsche_is_this_fair/",
+      "year": 2024,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Boxster",
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Project 11 are great! Super knowledgeable Porsche specialists and a lot of the staff are former Porsche/nabooda",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garage for high end cars?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1fug704/garage_for_high_end_cars/",
+      "year": 2024,
+      "makes": [
+       "Porsche",
+       "Maserati",
+       "Bentley"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "For Porsche check out project 11 in Al Quoz.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Porsche Pre purchase Inspection",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/16ba73o/porsche_pre_purchase_inspection/",
+      "year": 2023,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [],
+      "generations": [
+       "911"
+      ],
+      "sentiment": "positive",
+      "quote": "Project11, those guys are very good.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Best German car specialized garages and average service cost?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/16pwltb/best_german_car_specialized_garages_and_average/",
+      "year": 2023,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Project11 for Porsches. PPI is 950 AED. They have Cayenne everyday in the shop.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Best porsche garage in dubai",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1me56nh/best_porsche_garage_in_dubai/",
+      "year": null,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Try project 11 out. They are extremely qualified. Many ex Porsche mechanics there, work is good, Service quality good.",
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
    }
   },
   {
@@ -5318,7 +6944,8 @@
      "evidence": "Garage name advertises Land Rover (Range Rover); reviews not yet analysed; Described as a Land Rover specialist in Instagram",
      "mentions": 0,
      "basis": "listing name+community",
-     "car_family": "british"
+     "car_family": "british",
+     "latest_year": 2026
     },
     {
      "make": "Jaguar",
@@ -5365,7 +6992,83 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 3,
+    "threads_positive": 2,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2025,
+     2026
+    ],
+    "positive_by_model": {
+     "Range Rover Velar": 1,
+     "Range Rover Sport": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garages for Range Rover Velar?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1wq5k60/garages_for_range_rover_velar/",
+      "year": 2026,
+      "makes": [
+       "Land Rover"
+      ],
+      "models": [
+       "Range Rover Velar"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Waseem is also a good shout.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Looking for recommendations for a trustworthy Range Rover mechanic in Dubai",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1htenbn/looking_for_recommendations_for_a_trustworthy/",
+      "year": 2025,
+      "makes": [
+       "Land Rover"
+      ],
+      "models": [
+       "Range Rover Sport"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Waseem Range Rover Specialist in al quoz, bring it there for all my repairs. Guy is spot on.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Land Rover (LR4) - Service Shop Recommendations",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1iw4qmm/land_rover_lr4_service_shop_recommendations/",
+      "year": 2025,
+      "makes": [
+       "Land Rover"
+      ],
+      "models": [
+       "LR4",
+       "Range Rover"
+      ],
+      "generations": [
+       "L322"
+      ],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "coventry-jaguar-range-rover-garage-086c",
@@ -5404,7 +7107,8 @@
      "evidence": "Garage name advertises Land Rover (Range Rover); reviews not yet analysed; Recommended for Land Rover on Reddit r/DubaiPetrolHeads",
      "mentions": 0,
      "basis": "listing name+community",
-     "car_family": "british"
+     "car_family": "british",
+     "latest_year": 2026
     },
     {
      "make": "Jaguar",
@@ -5455,7 +7159,100 @@
    "price_examples": [],
    "evidence_summary": "Recommended by owners for Jaguar, Land Rover on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 4,
+    "threads_positive": 3,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2025,
+     2026
+    ],
+    "positive_by_model": {
+     "Range Rover Sport": 1,
+     "LR4": 1,
+     "Range Rover": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Trustworthy Land Rover specialist garage",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1vpwcjo/trustworthy_land_rover_specialist_garage/",
+      "year": 2026,
+      "makes": [
+       "Land Rover"
+      ],
+      "models": [
+       "Range Rover Sport"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "they're good on JLR cars",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garages for Range Rover Velar?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1wq5k60/garages_for_range_rover_velar/",
+      "year": 2026,
+      "makes": [
+       "Land Rover"
+      ],
+      "models": [
+       "Range Rover Velar"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Land Rover garages",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1lwo5ho/land_rover_garages/",
+      "year": 2025,
+      "makes": [
+       "Land Rover"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Jag & Range Rover specialists and very good in the enthusiast scene. Fair pricing as well.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Land Rover (LR4) - Service Shop Recommendations",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1iw4qmm/land_rover_lr4_service_shop_recommendations/",
+      "year": 2025,
+      "makes": [
+       "Land Rover"
+      ],
+      "models": [
+       "LR4",
+       "Range Rover"
+      ],
+      "generations": [
+       "L322"
+      ],
+      "sentiment": "positive",
+      "quote": "couldn't be happier with their work",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "starpit-german-cars--independent-porsche-specialist-7917",
@@ -5638,10 +7435,161 @@
     "https://carnity.com/forums/topic/5924-range-rover-sport-servicing-dubai/"
    ],
    "possible_matches": [],
-   "price_examples": [],
+   "price_examples": [
+    {
+     "job": "minor_service",
+     "make": "Land Rover",
+     "model": "Range Rover Vogue V8 2014+",
+     "aed_low": 1270,
+     "aed_high": 1270,
+     "aed_original": 1210,
+     "vat": "published excl. VAT; 5% added",
+     "includes_parts": true,
+     "includes": "fixed-price minor service menu",
+     "source": "garage's own price list",
+     "url": "https://www.a2b-garage.com/servicing/servicing-by-make/range-rover-servicing",
+     "as_of": "2026-11-07",
+     "note": ""
+    },
+    {
+     "job": "brake_pads_front",
+     "make": "Land Rover",
+     "model": "Range Rover Vogue V8 2014+",
+     "aed_low": 1528,
+     "aed_high": 1528,
+     "aed_original": 1455,
+     "vat": "published excl. VAT; 5% added",
+     "includes_parts": true,
+     "includes": "front pads + disc skimming (pads + new discs AED 2255 excl. VAT)",
+     "source": "garage's own price list",
+     "url": "https://www.a2b-garage.com/servicing/servicing-by-make/range-rover-servicing",
+     "as_of": "2026-11-07",
+     "note": ""
+    },
+    {
+     "job": "minor_service",
+     "make": "Land Rover",
+     "model": "Range Rover Sport Supercharged 2014+",
+     "aed_low": 1144,
+     "aed_high": 1144,
+     "aed_original": 1090,
+     "vat": "published excl. VAT; 5% added",
+     "includes_parts": true,
+     "includes": "fixed-price minor service menu",
+     "source": "garage's own price list",
+     "url": "https://www.a2b-garage.com/servicing/servicing-by-make/range-rover-servicing",
+     "as_of": "2026-11-07",
+     "note": ""
+    },
+    {
+     "job": "brake_pads_front",
+     "make": "Land Rover",
+     "model": "Range Rover Sport Supercharged 2014+",
+     "aed_low": 2042,
+     "aed_high": 2042,
+     "aed_original": 1945,
+     "vat": "published excl. VAT; 5% added",
+     "includes_parts": true,
+     "includes": "front pads + disc skimming (pads + new discs AED 2735 excl. VAT)",
+     "source": "garage's own price list",
+     "url": "https://www.a2b-garage.com/servicing/servicing-by-make/range-rover-servicing",
+     "as_of": "2026-11-07",
+     "note": ""
+    },
+    {
+     "job": "minor_service",
+     "make": "Land Rover",
+     "model": "Range Rover Sport V8 2010-2013",
+     "aed_low": 1155,
+     "aed_high": 1155,
+     "aed_original": 1100,
+     "vat": "published excl. VAT; 5% added",
+     "includes_parts": true,
+     "includes": "fixed-price minor service menu",
+     "source": "garage's own price list",
+     "url": "https://www.a2b-garage.com/servicing/servicing-by-make/range-rover-servicing",
+     "as_of": "2026-11-07",
+     "note": ""
+    },
+    {
+     "job": "brake_pads_front",
+     "make": "Land Rover",
+     "model": "Range Rover Sport V8 2010-2013",
+     "aed_low": 1528,
+     "aed_high": 1528,
+     "aed_original": 1455,
+     "vat": "published excl. VAT; 5% added",
+     "includes_parts": true,
+     "includes": "front pads + disc skimming (pads + new discs AED 2055 excl. VAT)",
+     "source": "garage's own price list",
+     "url": "https://www.a2b-garage.com/servicing/servicing-by-make/range-rover-servicing",
+     "as_of": "2026-11-07",
+     "note": ""
+    },
+    {
+     "job": "minor_service",
+     "make": "Land Rover",
+     "model": "Range Rover Vogue V8 2006-2009",
+     "aed_low": 982,
+     "aed_high": 982,
+     "aed_original": 935,
+     "vat": "published excl. VAT; 5% added",
+     "includes_parts": true,
+     "includes": "fixed-price minor service menu",
+     "source": "garage's own price list",
+     "url": "https://www.a2b-garage.com/servicing/servicing-by-make/range-rover-servicing",
+     "as_of": "2026-11-07",
+     "note": ""
+    },
+    {
+     "job": "brake_pads_front",
+     "make": "Land Rover",
+     "model": "Range Rover Vogue V8 2006-2009",
+     "aed_low": 1160,
+     "aed_high": 1160,
+     "aed_original": 1105,
+     "vat": "published excl. VAT; 5% added",
+     "includes_parts": true,
+     "includes": "front pads + disc skimming (pads + new discs AED 1625 excl. VAT)",
+     "source": "garage's own price list",
+     "url": "https://www.a2b-garage.com/servicing/servicing-by-make/range-rover-servicing",
+     "as_of": "2026-11-07",
+     "note": ""
+    }
+   ],
    "evidence_summary": "Recommended by owners for Land Rover on Carnity forum.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "forum",
+      "site": "Carnity",
+      "title": null,
+      "title_ok": false,
+      "url": "https://carnity.com/forums/topic/5924-range-rover-sport-servicing-dubai/",
+      "year": null,
+      "makes": [
+       "Land Rover",
+       "Range Rover Sport"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Give A2B garage in Al Quoz a try for servicing. They look after my sport and offer a good service at good prices.",
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "octane-car-service-web",
@@ -5675,7 +7623,8 @@
      "evidence": "Recommended for BMW in 4+ Reddit threads (2024-2026), incl. 7 Series, X5 pre-purchase checks and F10 5 Series owners; said to sponsor the BMW UAE Club; reported as pricey",
      "mentions": 0,
      "basis": "community",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "is_specialist": true,
@@ -5770,7 +7719,198 @@
    ],
    "evidence_summary": "Recommended by owners for BMW on Reddit r/DubaiPetrolHeads, Reddit r/dubai.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 9,
+    "threads_positive": 8,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2020,
+     2026
+    ],
+    "positive_by_model": {
+     "7 Series": 1,
+     "X4": 1,
+     "5 Series": 2,
+     "3 Series": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Recommendations for a good BMW specialist in Dubai – 2012 7 Series F02",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ssgkie/recommendations_for_a_good_bmw_specialist_in/",
+      "year": 2026,
+      "makes": [
+       "BMW"
+      ],
+      "models": [
+       "7 Series"
+      ],
+      "generations": [
+       "F02"
+      ],
+      "sentiment": "positive",
+      "quote": "I have had a good experience with Octane.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garage recommendations for BMW X4",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1vlgxkj/garage_recommendations_for_bmw_x4/",
+      "year": 2026,
+      "makes": [
+       "BMW"
+      ],
+      "models": [
+       "X4"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Octane Car Service in Al Qouz, I wouldn't take my BMW anywhere else",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Reliable garage for BMW",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jgh81g/reliable_garage_for_bmw/",
+      "year": 2025,
+      "makes": [
+       "BMW"
+      ],
+      "models": [
+       "5 Series"
+      ],
+      "generations": [
+       "F10"
+      ],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Looking for a trustworthy BMW (N55) specialist — tired of getting ripped off by garages",
+      "title_ok": false,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1pixwxk/looking_for_a_trustworthy_bmw_n55_specialist/",
+      "year": 2025,
+      "makes": [
+       "BMW"
+      ],
+      "models": [],
+      "generations": [
+       "N55"
+      ],
+      "sentiment": "positive",
+      "quote": "these guys know what they're doing",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Bmw x5 m50i 2020",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ouqq5l/bmw_x5_m50i_2020/",
+      "year": 2025,
+      "makes": [
+       "BMW",
+       "X5"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Octane Car service. The official BMW UAE Club sponsor.",
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Mercedes Garage Recommendations - Oil Service",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/16ijfxp/mercedes_garage_recommendations_oil_service/",
+      "year": 2023,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "E-Class"
+      ],
+      "generations": [
+       "W212"
+      ],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "BMW mechanic",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/hg5t9a/bmw_mechanic/",
+      "year": 2020,
+      "makes": [
+       "BMW"
+      ],
+      "models": [
+       "5 Series"
+      ],
+      "generations": [
+       "E60"
+      ],
+      "sentiment": "positive",
+      "quote": "It's the go to place for all UAE BMW Club members as well.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Best place to inspect/service a BMW in Dubai",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/iuewie/best_place_to_inspectservice_a_bmw_in_dubai/",
+      "year": 2020,
+      "makes": [
+       "BMW"
+      ],
+      "models": [
+       "3 Series"
+      ],
+      "generations": [
+       "E90",
+       "E92"
+      ],
+      "sentiment": "positive",
+      "quote": "Octane Car Service in Al Quoz. BMW Specialist. Ive been taking my E92 there for 3 years.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Save me from these predator car garages in dubai",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/1db5xpz/save_me_from_these_predator_car_garages_in_dubai/",
+      "year": null,
+      "makes": [
+       "BMW"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Octane in Al Quoz. They specialize in BMWs and our experience has been excellent with them. Always been super upfront about what needs to be…",
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "tunetown-auto-web",
@@ -5800,7 +7940,8 @@
      "evidence": "Recommended for BMW on Reddit r/DubaiPetrolHeads",
      "mentions": 0,
      "basis": "community",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "is_specialist": true,
@@ -5827,7 +7968,45 @@
    "price_examples": [],
    "evidence_summary": "Recommended by owners for BMW on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2026,
+     2026
+    ],
+    "positive_by_model": {
+     "7 Series": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Recommendations for a good BMW specialist in Dubai – 2012 7 Series F02",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ssgkie/recommendations_for_a_good_bmw_specialist_in/",
+      "year": 2026,
+      "makes": [
+       "BMW"
+      ],
+      "models": [
+       "7 Series"
+      ],
+      "generations": [
+       "F02"
+      ],
+      "sentiment": "positive",
+      "quote": "great and budget friendly",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "lap57-web",
@@ -5877,7 +8056,8 @@
      "evidence": "Recommended for BMW on Reddit r/DubaiPetrolHeads",
      "mentions": 0,
      "basis": "community",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2025
     },
     {
      "make": "Land Rover",
@@ -5887,7 +8067,8 @@
      "evidence": "Recommended for Land Rover on Reddit r/DubaiPetrolHeads",
      "mentions": 0,
      "basis": "community",
-     "car_family": "british"
+     "car_family": "british",
+     "latest_year": 2025
     }
    ],
    "is_specialist": true,
@@ -5927,7 +8108,61 @@
    "price_examples": [],
    "evidence_summary": "Recommended by owners for BMW, Land Rover, Porsche, Subaru on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 2,
+    "threads_positive": 2,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2025,
+     2025
+    ],
+    "positive_by_model": {
+     "Range Rover": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Range Rover - where would you get it serviced?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ovup32/range_rover_where_would_you_get_it_serviced/",
+      "year": 2025,
+      "makes": [
+       "Land Rover",
+       "BMW"
+      ],
+      "models": [
+       "Range Rover"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Knowledgeable people who have done great with my car.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garage recommendations",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1owordr/garage_recommendations/",
+      "year": null,
+      "makes": [
+       "Subaru",
+       "Porsche"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "XLR8, Lap57. Gone to both, they are some of the best guys in the scene for these cars. Lap57 is a Boxer specialist infact.",
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "xlr8-web",
@@ -5984,7 +8219,36 @@
    "price_examples": [],
    "evidence_summary": "Recommended by owners for Subaru on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garage recommendations",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1owordr/garage_recommendations/",
+      "year": null,
+      "makes": [
+       "Subaru"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "XLR8, Lap57. Gone to both, they are some of the best guys in the scene for these cars.",
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "quick-pro-auto-web",
@@ -6014,7 +8278,8 @@
      "evidence": "Recommended for Mercedes-Benz on Reddit r/DubaiPetrolHeads",
      "mentions": 0,
      "basis": "community",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2025
     },
     {
      "make": "Porsche",
@@ -6063,7 +8328,43 @@
    "price_examples": [],
    "evidence_summary": "Recommended by owners for Mercedes-Benz, Porsche, Volkswagen on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2025,
+     2025
+    ],
+    "positive_by_model": {
+     "CLA": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Best garage for Mercedes major service?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1mjecgf/best_garage_for_mercedes_major_service/",
+      "year": 2025,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "CLA"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "very genuine in their work and never tried to oversell",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "jzm-gulf-web",
@@ -6154,7 +8455,8 @@
      "evidence": "Recommended for Volkswagen on Reddit r/DubaiPetrolHeads",
      "mentions": 0,
      "basis": "community",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2024
     }
    ],
    "is_specialist": true,
@@ -6181,7 +8483,75 @@
    "price_examples": [],
    "evidence_summary": "Recommended by owners for Volkswagen on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 3,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2024,
+     2024
+    ],
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Reliable, trustworthy garage in Dubai for Volkswagen Golf GTI",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1pfyc50/reliable_trustworthy_garage_in_dubai_for/",
+      "year": 2025,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf GTI"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Most trusted and reliable VW garage in Dubai",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1dqfqiw/most_trusted_and_reliable_vw_garage_in_dubai/",
+      "year": 2024,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Precision is run by Vassu while not a mechanic himself he knows his stuff",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/Golf_R",
+      "title": "Golf R Mk7 Dubai Garage",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/Golf_R/comments/1756vk7/golf_r_mk7_dubai_garage/",
+      "year": 2023,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf R"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "pgr-web",
@@ -6211,7 +8581,8 @@
      "evidence": "Recommended for Volkswagen on Reddit r/DubaiPetrolHeads",
      "mentions": 0,
      "basis": "community",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "is_specialist": true,
@@ -6238,7 +8609,169 @@
    "price_examples": [],
    "evidence_summary": "Recommended by owners for Volkswagen on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 8,
+    "threads_positive": 7,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2023,
+     2026
+    ],
+    "positive_by_model": {
+     "Golf R": 4,
+     "Golf GTI": 3
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Can anyone suggest a good garage in Dubai experienced in VW Golf R",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1trqwlf/hey_guys_can_anyone_please_suggest_a_good_garage/",
+      "year": 2026,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf R"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "amazing guy very knowledgable, sorted me out on short notice",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garage Suggestions: Golf R running at 300K KMS and need a solid suggestion for garages for major servicing",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1vw8m3b/garage_suggestions_golf_r_running_at_300k_kms_and/",
+      "year": 2026,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf R"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Best in the game.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Reliable, trustworthy garage in Dubai for Volkswagen Golf GTI",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1pfyc50/reliable_trustworthy_garage_in_dubai_for/",
+      "year": 2025,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf GTI"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "PGR is the go-to but yes very busy",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Vw Golf GTI",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1kcimom/vw_golf_gti/",
+      "year": 2025,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf GTI",
+       "Golf R"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "get a PPI done at a Golf expert workshop like PGR",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Vw golf garage",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ji9oz9/vw_golf_garage/",
+      "year": 2025,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf GTI"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Most trusted and reliable VW garage in Dubai",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1dqfqiw/most_trusted_and_reliable_vw_garage_in_dubai/",
+      "year": 2024,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "PGR is run by Paolo which is arguably the best VW expert in Dubai",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/Golf_R",
+      "title": "Golf R Mk7 Dubai Garage",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/Golf_R/comments/1756vk7/golf_r_mk7_dubai_garage/",
+      "year": 2023,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf R"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Paulo is amazing and he knows in and out about VAG cars",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Could someone suggest a good and economical garage for servicing a second hand Volkswagen GTI",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/113mqyk/could_someone_suggest_a_good_and_economical/",
+      "year": 2023,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf GTI"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "king-drive-auto-repair-workshop-web",
@@ -6295,7 +8828,36 @@
    "price_examples": [],
    "evidence_summary": "Recommended by owners for Mercedes-Benz on Reddit r/dubai.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Mercedes repair",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/1ixr479/mercedes_repair/",
+      "year": null,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "King Drive Auto Repair Workshop near Festival City are really great and cheap!",
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "golden-motor-garage-web",
@@ -6352,7 +8914,36 @@
    "price_examples": [],
    "evidence_summary": "Recommended by owners for Mercedes-Benz on Reddit r/dubai.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Trusted mercedes repair shops",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/fmlb2w/trusted_mercedes_repair_shops/",
+      "year": null,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Golden Motor Garage in AlQusais, it's the best.",
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "lezof-web",
@@ -6384,7 +8975,8 @@
      "evidence": "Recommended for Nissan on Reddit r/DubaiPetrolHeads; mentioned by a Patrol owner as a candidate; weak evidence",
      "mentions": 0,
      "basis": "community",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2026
     }
    ],
    "is_specialist": true,
@@ -6412,7 +9004,45 @@
    "price_examples": [],
    "evidence_summary": "Recommended by owners for Nissan on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 1,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2026,
+     2026
+    ],
+    "positive_by_model": {
+     "Patrol": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Nissan Patrol Major Service",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1rpwv8r/nissan_patrol_major_service/",
+      "year": 2026,
+      "makes": [
+       "Nissan"
+      ],
+      "models": [
+       "Patrol"
+      ],
+      "generations": [
+       "Y62"
+      ],
+      "sentiment": "mixed",
+      "quote": "Lezof is pretty good for Y62",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "autotech-dxb-founder",
@@ -6457,7 +9087,8 @@
      "evidence": "The founder uses this garage for their own Alfa Romeos; recommended for Alfa by two owners on Reddit r/DubaiPetrolHeads (2026)",
      "mentions": 0,
      "basis": "founder+community",
-     "car_family": "european_other"
+     "car_family": "european_other",
+     "latest_year": 2026
     }
    ],
    "self_claims": [
@@ -6522,21 +9153,134 @@
     {
      "item": "Giulia/Stelvio 2.0, 10,000 km service",
      "price_aed": 1350,
-     "vat": "excluding VAT",
+     "vat": "published excl. VAT; 5% added",
      "source": "garage's own price list",
      "url": "https://www.autotechdxb.com/",
      "job": "minor_service",
      "make": "Alfa Romeo",
      "model": "Giulia/Stelvio 2.0",
-     "aed_low": 1350,
-     "aed_high": 1350,
+     "aed_low": 1418,
+     "aed_high": 1418,
      "includes_parts": true,
-     "as_of": "2026-11-06"
+     "as_of": "2026-11-06",
+     "aed_original": 1350
     }
    ],
    "evidence_summary": "Founder's pick for Alfa Romeo, also recommended by Alfa owners on Reddit.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 5,
+    "threads_positive": 5,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2024,
+     2026
+    ],
+    "positive_by_model": {
+     "Giulietta": 2,
+     "Giulia": 4,
+     "Stelvio": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Alfa Romeo Parts",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1vlfkf4/alfa_romeo_parts/",
+      "year": 2026,
+      "makes": [
+       "Alfa Romeo"
+      ],
+      "models": [
+       "Giulietta"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Auto tech all the way!",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Thoughts on alfa",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1uxld4d/thoughts_on_alfa/",
+      "year": 2026,
+      "makes": [
+       "Alfa Romeo"
+      ],
+      "models": [
+       "Giulia",
+       "Giulietta"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "AutoTech in Al Quoz specializes in Alfas, Italian cars and older European cars",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Alfa Romeo Giulia 2019 service in QuickFit Auto Center, Al Quoz",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1k6sik4/alfa_romeo_giulia_2019_service_in_quickfit_auto/",
+      "year": 2025,
+      "makes": [
+       "Alfa Romeo"
+      ],
+      "models": [
+       "Giulia"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Autotech they are the best in Alfa romeos",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Talk me out of buying an Alfa Romeo Giulia",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ip2ona/talk_me_out_of_buying_an_alfa_romeo_giulia/",
+      "year": 2025,
+      "makes": [
+       "Alfa Romeo"
+      ],
+      "models": [
+       "Giulia"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "they are a specialised Alfa garage in Street 28B - Al Quoz Industrial Area 3",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Alfa Stelvio Quadrifoglio",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bo76ay/alfa_stelvio_quadrifoglio/",
+      "year": 2024,
+      "makes": [
+       "Alfa Romeo"
+      ],
+      "models": [
+       "Stelvio",
+       "Giulia"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Autotech is an Alfa Specialist garage in Al Quoz",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "abdulla-ahli-workshop-founder",
@@ -6570,7 +9314,8 @@
      "evidence": "The founder uses this garage for their own Alfa Romeos; recommended by Alfa owners on AlfaOwner forum (2009, 2015) and Reddit (2021) as an independent run by an ex-Alfa mechanic",
      "mentions": 0,
      "basis": "founder+community",
-     "car_family": "european_other"
+     "car_family": "european_other",
+     "latest_year": 2023
     }
    ],
    "self_claims": [],
@@ -6635,7 +9380,100 @@
    "price_examples": [],
    "evidence_summary": "Founder's pick for Alfa Romeo, also recommended by Alfa owners on the AlfaOwner forum.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 4,
+    "threads_positive": 4,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2009,
+     2023
+    ],
+    "positive_by_model": {
+     "Giulia": 1,
+     "Giulietta": 1,
+     "147": 1,
+     "156": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Alfa romeo specialist abdulla ahli workshop",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/16927sd/alfa_romeo_specialist_abdulla_ahli_workshop/",
+      "year": 2023,
+      "makes": [
+       "Alfa Romeo",
+       "Giulia"
+      ],
+      "models": [
+       "Giulia"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "the independent Alfa specialist Abdulla Ahli Workshop in Al Qusais",
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Recommendation on Alfa Romeo mechanics?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/qi641y/recommendation_on_alfa_romeo_mechanics/",
+      "year": 2021,
+      "makes": [
+       "Alfa Romeo"
+      ],
+      "models": [
+       "Giulietta",
+       "147"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "The only garage that I know that only touches Alfas.",
+      "added_by": "data"
+     },
+     {
+      "type": "forum",
+      "site": "AlfaOwner",
+      "title": "Alfa Romeo Garage/Service Stations in the UAE",
+      "title_ok": true,
+      "url": "https://www.alfaowner.com/threads/alfa-romeo-garage-service-stations-in-the-uae.257043/",
+      "year": 2011,
+      "makes": [
+       "Alfa Romeo"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Highly recommended...ex Alfa mechanic.",
+      "added_by": "data"
+     },
+     {
+      "type": "forum",
+      "site": "AlfaOwner",
+      "title": "Maintenance in Dubai",
+      "title_ok": true,
+      "url": "https://www.alfaowner.com/threads/maintenance-in-dubai.165976/",
+      "year": 2009,
+      "makes": [
+       "Alfa Romeo"
+      ],
+      "models": [
+       "156"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "I do all maintenance of my car at the Abdulla Ahli Garage, mechanical issues and so on",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "800carguru-mobile-auto-repair-services-4a6b",
@@ -6972,7 +9810,38 @@
     }
    },
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "reviews or listing point to specific makes"
+   "works_on_all_makes_basis": "reviews or listing point to specific makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 0,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Trustworthy garages for maintenance on Porsches?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/mhrkx2/trustworthy_garages_for_maintenance_on_porsches/",
+      "year": 2021,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "agmc-1c86",
@@ -7423,7 +10292,38 @@
     }
    },
    "works_on_all_makes": true,
-   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)"
+   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 0,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Alfa Romeo Giulia 2019 service in QuickFit Auto Center, Al Quoz",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1k6sik4/alfa_romeo_giulia_2019_service_in_quickfit_auto/",
+      "year": 2025,
+      "makes": [
+       "Alfa Romeo"
+      ],
+      "models": [
+       "Giulia"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "superfix-auto-center-al-qusais-6dd6",
@@ -7763,7 +10663,8 @@
      "evidence": "3 of 60 Google reviews read mention Volkswagen (21% of reviews that name any make); most-mentioned models: Touareg (2)",
      "mentions": 3,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     },
     {
      "make": "Mercedes-Benz",
@@ -7775,7 +10676,8 @@
      "evidence": "3 of 60 Google reviews read mention Mercedes-Benz (21% of reviews that name any make); most-mentioned models: G-Class (3)",
      "mentions": 3,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -8456,7 +11358,39 @@
     }
    },
    "works_on_all_makes": true,
-   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)"
+   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2025,
+     2025
+    ],
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Land Rover garages",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1lwo5ho/land_rover_garages/",
+      "year": 2025,
+      "makes": [
+       "Land Rover"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "They let you get your parts and are reasonably priced.",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "gargash-auto-multi-brand-car-service-centre-e695",
@@ -8550,7 +11484,8 @@
      "evidence": "Recommended for Porsche in 4 Reddit threads (2019-2024) by separate owners, including 2 Cayenne threads; multi-brand workshop",
      "mentions": 0,
      "basis": "community",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2024
     }
    ],
    "self_claims": [
@@ -8736,7 +11671,173 @@
     }
    },
    "works_on_all_makes": true,
-   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)"
+   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)",
+   "community_mentions": {
+    "threads_total": 8,
+    "threads_positive": 7,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2019,
+     2024
+    ],
+    "positive_by_model": {
+     "Boxster": 2,
+     "Cayenne": 4,
+     "Range Rover": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "First time servicing a Porsche, is this fair pricing?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1gddpek/first_time_servicing_a_porsche_is_this_fair/",
+      "year": 2024,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Boxster",
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "I go to Max Garage in Al Quoz. They're good",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Porsche service center recommendations",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1btrflj/porsche_service_center_recommendations/",
+      "year": 2024,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Boxster"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "I ended up going to Max Garage, quite happy with them. Good service, reasonable prices and honest feedback.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Are these prices reasonablemajor service 120k km",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1cxakqh/are_these_prices_reasonablemajor_service_120k_km/",
+      "year": 2024,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Go to max garage. They know Porsches and German cars very well and will give you honest advice.",
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Best German car specialized garages and average service cost?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/16pwltb/best_german_car_specialized_garages_and_average/",
+      "year": 2023,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Very good and reasonable with German cars.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Trustworthy garages for maintenance on Porsches?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/mhrkx2/trustworthy_garages_for_maintenance_on_porsches/",
+      "year": 2021,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Good garage for range rovers",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/j9nn1j/good_garage_for_range_rovers/",
+      "year": 2020,
+      "makes": [
+       "Land Rover"
+      ],
+      "models": [
+       "Range Rover"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "one of the most reputable garages in Dubai",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Best place to inspect/service a BMW in Dubai",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/iuewie/best_place_to_inspectservice_a_bmw_in_dubai/",
+      "year": 2020,
+      "makes": [
+       "BMW"
+      ],
+      "models": [
+       "3 Series"
+      ],
+      "generations": [
+       "E90",
+       "E92"
+      ],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Best place to service a porsche",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/bwleda/best_place_to_service_a_porsche/",
+      "year": 2019,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Max Garage, I service all of my German cars there, fair pricing",
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "prime-auto-repair-llc-f6fc",
@@ -8921,7 +12022,8 @@
      "evidence": "6 of 60 Google reviews read mention Mercedes-Benz (25% of reviews that name any make); most-mentioned models: G-Class (2)",
      "mentions": 6,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -9085,7 +12187,8 @@
      "evidence": "5 of 60 Google reviews read mention BMW (23% of reviews that name any make)",
      "mentions": 5,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     },
     {
      "make": "Audi",
@@ -9095,7 +12198,8 @@
      "evidence": "5 of 60 Google reviews read mention Audi (23% of reviews that name any make)",
      "mentions": 5,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     },
     {
      "make": "Mercedes-Benz",
@@ -9115,7 +12219,8 @@
      "evidence": "Named for Porsche in 2 Reddit threads, one positive and one negative (Boxster owner); mixed",
      "mentions": 0,
      "basis": "community",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -9248,7 +12353,100 @@
     }
    },
    "works_on_all_makes": true,
-   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)"
+   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)",
+   "community_mentions": {
+    "threads_total": 4,
+    "threads_positive": 1,
+    "threads_negative": 2,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2021,
+     2021
+    ],
+    "positive_by_model": {
+     "Cayenne": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "First time servicing a Porsche, is this fair pricing?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1gddpek/first_time_servicing_a_porsche_is_this_fair/",
+      "year": 2024,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Boxster",
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "negative",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Porsche service center recommendations",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1btrflj/porsche_service_center_recommendations/",
+      "year": 2024,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Boxster"
+      ],
+      "generations": [],
+      "sentiment": "negative",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Mercedes Garage Recommendations - Oil Service",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/16ijfxp/mercedes_garage_recommendations_oil_service/",
+      "year": 2023,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "E-Class"
+      ],
+      "generations": [
+       "W212"
+      ],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Trustworthy garages for maintenance on Porsches?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/mhrkx2/trustworthy_garages_for_maintenance_on_porsches/",
+      "year": 2021,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "emg-performance-513c",
@@ -9288,7 +12486,8 @@
      "evidence": "3 of 60 Google reviews read mention Toyota (33% of reviews that name any make)",
      "mentions": 3,
      "basis": "reviews",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -9605,7 +12804,8 @@
      "evidence": "4 of 60 Google reviews read mention Audi (21% of reviews that name any make)",
      "mentions": 4,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2025
     }
    ],
    "self_claims": [],
@@ -9766,7 +12966,8 @@
      "evidence": "3 of 60 Google reviews read mention Chevrolet (30% of reviews that name any make)",
      "mentions": 3,
      "basis": "reviews",
-     "car_family": "american"
+     "car_family": "american",
+     "latest_year": 2025
     },
     {
      "make": "BMW",
@@ -9776,7 +12977,8 @@
      "evidence": "3 of 60 Google reviews read mention BMW (30% of reviews that name any make)",
      "mentions": 3,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2023
     }
    ],
    "self_claims": [],
@@ -9929,7 +13131,8 @@
      "evidence": "3 of 60 Google reviews read mention Ford (21% of reviews that name any make); most-mentioned models: Mustang (2)",
      "mentions": 3,
      "basis": "reviews",
-     "car_family": "american"
+     "car_family": "american",
+     "latest_year": 2026
     },
     {
      "make": "Toyota",
@@ -9939,7 +13142,8 @@
      "evidence": "3 of 60 Google reviews read mention Toyota (21% of reviews that name any make)",
      "mentions": 3,
      "basis": "reviews",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -10039,7 +13243,43 @@
     }
    },
    "works_on_all_makes": true,
-   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)"
+   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2025,
+     2025
+    ],
+    "positive_by_model": {
+     "Cayenne": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garage recommendations for Porsche",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1oho0e5/garage_recommendations_for_porsche/",
+      "year": 2025,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "I second Dexol in Al Quoz. Wouldn't go elsewhere for transmissions.",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "german-auto-care-0a7a",
@@ -10090,7 +13330,8 @@
      "evidence": "6 of 60 Google reviews read mention BMW (29% of reviews that name any make); most-mentioned models: X5 (2)",
      "mentions": 6,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -10836,7 +14077,8 @@
      "evidence": "4 of 60 Google reviews read mention Nissan (27% of reviews that name any make); most-mentioned models: Patrol (2)",
      "mentions": 4,
      "basis": "reviews",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2025
     }
    ],
    "self_claims": [],
@@ -11118,7 +14360,8 @@
      "evidence": "5 of 60 Google reviews read mention Porsche (22% of reviews that name any make); most-mentioned models: Cayenne (3)",
      "mentions": 5,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -11287,7 +14530,8 @@
      "evidence": "3 of 60 Google reviews read mention Porsche (43% of reviews that name any make)",
      "mentions": 3,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     },
     {
      "make": "Volkswagen",
@@ -11297,7 +14541,8 @@
      "evidence": "3 of 60 Google reviews read mention Volkswagen (43% of reviews that name any make)",
      "mentions": 3,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -11439,7 +14684,8 @@
      "evidence": "6 of 60 Google reviews read mention Jeep (27% of reviews that name any make); most-mentioned models: Wrangler (3)",
      "mentions": 6,
      "basis": "reviews",
-     "car_family": "american"
+     "car_family": "american",
+     "latest_year": 2022
     },
     {
      "make": "Toyota",
@@ -11451,7 +14697,8 @@
      "evidence": "5 of 60 Google reviews read mention Toyota (23% of reviews that name any make); most-mentioned models: Prado (3)",
      "mentions": 5,
      "basis": "reviews",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2023
     }
    ],
    "self_claims": [],
@@ -11575,7 +14822,43 @@
     }
    },
    "works_on_all_makes": true,
-   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)"
+   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2017,
+     2017
+    ],
+    "positive_by_model": {
+     "Wrangler": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Good garage for Jeep Wrangler service/repair?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/6vawrv/good_garage_for_jeep_wrangler_servicerepair/",
+      "year": 2017,
+      "makes": [
+       "Jeep"
+      ],
+      "models": [
+       "Wrangler"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "I use Icon Auto Garage. Reliable.",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "autobahn-auto-service-3a32",
@@ -11626,7 +14909,8 @@
      "evidence": "6 of 60 Google reviews read mention Land Rover (29% of reviews that name any make); most-mentioned models: Range Rover (5)",
      "mentions": 6,
      "basis": "reviews",
-     "car_family": "british"
+     "car_family": "british",
+     "latest_year": 2025
     },
     {
      "make": "BMW",
@@ -11636,7 +14920,8 @@
      "evidence": "5 of 60 Google reviews read mention BMW (24% of reviews that name any make)",
      "mentions": 5,
      "basis": "reviews",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "self_claims": [],
@@ -11752,7 +15037,38 @@
     }
    },
    "works_on_all_makes": true,
-   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)"
+   "works_on_all_makes_basis": "reviews (6+ makes, none dominant)",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 0,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Reliable, trustworthy garage in Dubai for Volkswagen Golf GTI",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1pfyc50/reliable_trustworthy_garage_in_dubai_for/",
+      "year": 2025,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf GTI"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "chipcentric-performance-c48c",
@@ -13110,7 +16426,8 @@
      "confidence": "medium",
      "evidence": "Recommended for Range Rover by one owner on Reddit (2020); weak evidence",
      "mentions": 0,
-     "basis": "community"
+     "basis": "community",
+     "latest_year": 2020
     }
    ],
    "self_claims": [],
@@ -13148,7 +16465,38 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": true,
-   "works_on_all_makes_basis": "garage website: all makes"
+   "works_on_all_makes_basis": "garage website: all makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 0,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Good garage for range rovers",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/j9nn1j/good_garage_for_range_rovers/",
+      "year": 2020,
+      "makes": [
+       "Land Rover"
+      ],
+      "models": [
+       "Range Rover"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "r-one-performance-9a9a",
@@ -14092,6 +17440,74 @@
     "source": "garage website",
     "url": "http://www.wagenkenner.com/",
     "as_of": "2026-11-07"
+   },
+   "community_mentions": {
+    "threads_total": 3,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2024,
+     2024
+    ],
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Reliable, trustworthy garage in Dubai for Volkswagen Golf GTI",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1pfyc50/reliable_trustworthy_garage_in_dubai_for/",
+      "year": 2025,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf GTI"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Porsche service center recommendations",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1btrflj/porsche_service_center_recommendations/",
+      "year": 2024,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Boxster"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Most trusted and reliable VW garage in Dubai",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1dqfqiw/most_trusted_and_reliable_vw_garage_in_dubai/",
+      "year": 2024,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "great for service and maintenance",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
    }
   },
   {
@@ -15398,6 +18814,37 @@
     "source": "garage website",
     "url": "https://www.selectivepromech.com/",
     "as_of": "2026-11-07"
+   },
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 0,
+    "threads_negative": 1,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garages for Range Rover Velar?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1wq5k60/garages_for_range_rover_velar/",
+      "year": 2026,
+      "makes": [
+       "Land Rover"
+      ],
+      "models": [
+       "Range Rover Velar"
+      ],
+      "generations": [],
+      "sentiment": "negative",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
    }
   },
   {
@@ -15755,7 +19202,38 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 0,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Where to take Out of warranty Mercedes for Service?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/gnj301/where_to_take_out_of_warranty_mercedes_for_service/",
+      "year": 2020,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "C-Class"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "xclusive-auto-repairing-dubai-open-24-hours-29d7",
@@ -15905,7 +19383,8 @@
      "evidence": "Garage name advertises Mercedes-Benz; reviews not yet analysed",
      "mentions": 0,
      "basis": "listing name",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2021
     }
    ],
    "self_claims": [],
@@ -15930,7 +19409,43 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2021,
+     2021
+    ],
+    "positive_by_model": {
+     "AMG": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Best Mercedes Specialist in UAE?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/mij4nv/best_mercedes_specialist_in_uae/",
+      "year": 2021,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "AMG"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Very good but pricey.",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "mts-german-garage-llc-c6fb",
@@ -16231,7 +19746,45 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": true,
-   "works_on_all_makes_basis": "garage website: All makes"
+   "works_on_all_makes_basis": "garage website: All makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2025,
+     2025
+    ],
+    "positive_by_model": {
+     "5 Series": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Reliable garage for BMW",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jgh81g/reliable_garage_for_bmw/",
+      "year": 2025,
+      "makes": [
+       "BMW"
+      ],
+      "models": [
+       "5 Series"
+      ],
+      "generations": [
+       "F10"
+      ],
+      "sentiment": "positive",
+      "quote": "I have been using them for more than 10yrs now.",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "bmw-station-auto-general-repairing-fe6b",
@@ -17327,7 +20880,39 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes_basis": "unknown: reviews not read yet",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 0,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Need garage recommendations for Jeep Wrangler",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1vq8iff/need_garage_recommendations_for_jeep_wrangler/",
+      "year": 2026,
+      "makes": [
+       "Jeep"
+      ],
+      "models": [
+       "Wrangler",
+       "JK"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "xtreme-4x4-e1d0",
@@ -19227,6 +22812,39 @@
     "source": "garage website",
     "url": "https://www.thecollectorworkshop.com/",
     "as_of": "2026-11-07"
+   },
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 0,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Any Good Mercedes Specialists?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1gtnka6/any_good_mercedes_specialists/",
+      "year": 2024,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "C-Class"
+      ],
+      "generations": [
+       "W205"
+      ],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
    }
   },
   {
@@ -21076,7 +24694,45 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes_basis": "unknown: reviews not read yet",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2025,
+     2025
+    ],
+    "positive_by_model": {
+     "5 Series": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Reliable garage for BMW",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jgh81g/reliable_garage_for_bmw/",
+      "year": 2025,
+      "makes": [
+       "BMW"
+      ],
+      "models": [
+       "5 Series"
+      ],
+      "generations": [
+       "F10"
+      ],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "dubai-garage-0023",
@@ -21451,6 +25107,42 @@
     "source": "garage website",
     "url": "http://www.jadgarage.com/",
     "as_of": "2026-11-07"
+   },
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2025,
+     2025
+    ],
+    "positive_by_model": {
+     "CLA": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Best garage for Mercedes major service?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1mjecgf/best_garage_for_mercedes_major_service/",
+      "year": 2025,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "CLA"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "they do a good job with high end cars",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
    }
   },
   {
@@ -22285,7 +25977,8 @@
      "evidence": "Garage's own website says it specialises in BMW; not yet confirmed by owner reviews",
      "mentions": 0,
      "basis": "website",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "self_claims": [
@@ -22327,7 +26020,43 @@
     "url": "https://janobmwgarage.ae/",
     "as_of": "2026-11-07"
    },
-   "website_note": "Website describes a BMW workshop in Sharjah Industrial Area 12; Maps listing is Al Quoz 4, Dubai. Possibly two branches; check before showing the website link."
+   "website_note": "Website describes a BMW workshop in Sharjah Industrial Area 12; Maps listing is Al Quoz 4, Dubai. Possibly two branches; check before showing the website link.",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2026,
+     2026
+    ],
+    "positive_by_model": {
+     "X4": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garage recommendations for BMW X4",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1vlgxkj/garage_recommendations_for_bmw_x4/",
+      "year": 2026,
+      "makes": [
+       "BMW"
+      ],
+      "models": [
+       "X4"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "swg-garage-8a51",
@@ -26058,7 +29787,38 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes_basis": "unknown: reviews not read yet",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 0,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Nissan Owners, Where do you service your car (other than dealership)",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1wvmw52/nissan_owners_where_do_you_service_your_car_other/",
+      "year": 2026,
+      "makes": [
+       "Nissan"
+      ],
+      "models": [
+       "Kicks"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "super-ajmal-auto-repairing-garage-8fd7",
@@ -26370,7 +30130,34 @@
    "price_examples": [],
    "evidence_summary": "Its own website says it specialises in Alfa Romeo and Ford EcoBoost (not owner evidence).",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 0,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Save me from these predator car garages in dubai",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1db5xnb/save_me_from_these_predator_car_garages_in_dubai/",
+      "year": 2024,
+      "makes": [],
+      "models": [],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "amf-auto-services-porschegarageae-web",
@@ -26502,7 +30289,8 @@
      "evidence": "Recommended as a dealer alternative for Land Cruiser by 3 owners in 2 Reddit threads (2023, 2026); multi-brand UAE chain, not Toyota-only",
      "mentions": 0,
      "basis": "community",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2026
     },
     {
      "make": "Lexus",
@@ -26512,7 +30300,8 @@
      "evidence": "Recommended for Lexus/Japanese cars by 4 owners in 3 Reddit threads (2023-2024); 2 owners say it overcharges (mixed)",
      "mentions": 0,
      "basis": "community",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2024
     }
    ],
    "is_specialist": true,
@@ -26629,7 +30418,112 @@
    "price_examples": [],
    "evidence_summary": "Recommended by Land Cruiser owners on Reddit as a dealer alternative.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 5,
+    "threads_positive": 3,
+    "threads_negative": 1,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2023,
+     2026
+    ],
+    "positive_by_model": {
+     "Land Cruiser": 2
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/UaeCarEnthusiasts",
+      "title": "2011 land cruiser 57 v8 225k km toyota quoted aed",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/UaeCarEnthusiasts/comments/1uxz8rt/2011_land_cruiser_57_v8_225k_km_toyota_quoted_aed/",
+      "year": 2026,
+      "makes": [
+       "Toyota",
+       "Land Cruiser"
+      ],
+      "models": [
+       "Land Cruiser"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "You should take it to dynatrade, they will replace with original parts with oem level work quality",
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Lexus specialist dubai",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bdjqnd/lexus_specialist_dubai/",
+      "year": 2024,
+      "makes": [
+       "Lexus"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "negative",
+      "quote": null,
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Any recommendations for lexus garage in dubai",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/192zp71/any_recommendations_for_lexus_garage_in_dubai/",
+      "year": 2024,
+      "makes": [
+       "Toyota",
+       "Lexus"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Land cruiser owners where do you get your car",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/13hcsro/land_cruiser_owners_where_do_you_get_your_car/",
+      "year": 2023,
+      "makes": [
+       "Toyota",
+       "Land Cruiser"
+      ],
+      "models": [
+       "Land Cruiser"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Dynatrade is a fantastic dealer alternative.",
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Lexus garage",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/136cu2r/lexus_garage/",
+      "year": 2023,
+      "makes": [
+       "Lexus"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "mag-auto-services-web",
@@ -26662,7 +30556,8 @@
      "evidence": "Recommended on Reddit r/DubaiPetrolHeads for Land Cruiser maintenance and Prado major work (same owner, two threads, 2026); weak evidence",
      "mentions": 0,
      "basis": "community",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2026
     }
    ],
    "is_specialist": true,
@@ -26711,7 +30606,65 @@
    "price_examples": [],
    "evidence_summary": "Recommended by a Land Cruiser/Prado owner on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 2,
+    "threads_positive": 2,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2026,
+     2026
+    ],
+    "positive_by_model": {
+     "Prado": 1,
+     "Land Cruiser": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "LC150 Prado : recommended garages?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1qxcl9o/lc150_prado_recommended_garages/",
+      "year": 2026,
+      "makes": [
+       "Toyota"
+      ],
+      "models": [
+       "Prado"
+      ],
+      "generations": [
+       "LC150"
+      ],
+      "sentiment": "positive",
+      "quote": "take my Prado there for any major works",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Land cruiser garage",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1q1qhbj/land_cruiser_garage/",
+      "year": 2026,
+      "makes": [
+       "Toyota",
+       "Land Cruiser"
+      ],
+      "models": [
+       "Land Cruiser"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Just for routine maintenance and fixing I take mine to MAG auto garage",
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "auto-whiz-garage-web",
@@ -26749,7 +30702,8 @@
      "evidence": "Recommended for Lexus (LX owner) on Reddit r/DubaiPetrolHeads; weak evidence (one owner); general multi-brand workshop",
      "mentions": 0,
      "basis": "community",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2025
     },
     {
      "make": "Toyota",
@@ -26761,7 +30715,8 @@
      "evidence": "Recommended by one owner in a Reddit Land Cruiser servicing thread",
      "mentions": 0,
      "basis": "community",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2023
     }
    ],
    "is_specialist": true,
@@ -26802,7 +30757,98 @@
    "price_examples": [],
    "evidence_summary": "Recommended by a Lexus owner on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 4,
+    "threads_positive": 3,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2023,
+     2024
+    ],
+    "positive_by_model": {
+     "Golf GTI": 1,
+     "Land Cruiser": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Lexus service advice",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jk6rag/lexus_service_advice/",
+      "year": 2025,
+      "makes": [
+       "Lexus",
+       "LX"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garage for high end cars?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1fug704/garage_for_high_end_cars/",
+      "year": 2024,
+      "makes": [
+       "Porsche",
+       "Maserati",
+       "Bentley"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "They are very honest and straight forward",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Could someone suggest a good and economical garage for servicing a second hand Volkswagen GTI",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/113mqyk/could_someone_suggest_a_good_and_economical/",
+      "year": 2023,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf GTI"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "You wont regret it, as i've had a great experience there.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Land cruiser owners where do you get your car",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/13hcsro/land_cruiser_owners_where_do_you_get_your_car/",
+      "year": 2023,
+      "makes": [
+       "Toyota",
+       "Land Cruiser"
+      ],
+      "models": [
+       "Land Cruiser"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Would totally recommend trying autowhiz garage in al qouz dubai. They are amazing at what they do.",
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "focus-auto-service-web",
@@ -26834,7 +30880,8 @@
      "evidence": "Recommended for Lexus GX servicing and electrical work on Reddit r/DubaiPetrolHeads (one owner); website now markets luxury and sports cars; also recommended by 2 owners in a 2023 r/dubai Lexus thread",
      "mentions": 0,
      "basis": "community",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2024
     },
     {
      "make": "Toyota",
@@ -26846,7 +30893,8 @@
      "evidence": "Named by one owner in a Reddit Land Cruiser servicing thread",
      "mentions": 0,
      "basis": "community",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2023
     }
    ],
    "is_specialist": true,
@@ -26908,7 +30956,119 @@
    "price_examples": [],
    "evidence_summary": "Recommended by a Lexus GX owner on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 5,
+    "threads_positive": 2,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2024,
+     2024
+    ],
+    "positive_by_model": {
+     "Boxster": 1,
+     "Cayenne": 1,
+     "GX460": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Best BMW E46 Garage in Dubai / Sharjah ?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jowhnt/best_bmw_e46_garage_in_dubai_sharjah/",
+      "year": 2025,
+      "makes": [
+       "BMW"
+      ],
+      "models": [
+       "3 Series"
+      ],
+      "generations": [
+       "E46"
+      ],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "First time servicing a Porsche, is this fair pricing?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1gddpek/first_time_servicing_a_porsche_is_this_fair/",
+      "year": 2024,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Boxster",
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Lexus Specialist - Dubai",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bdjqnd/lexus_specialist_dubai/",
+      "year": 2024,
+      "makes": [
+       "Lexus"
+      ],
+      "models": [
+       "GX460"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Great service with a passion for cars.",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Land cruiser owners where do you get your car",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/13hcsro/land_cruiser_owners_where_do_you_get_your_car/",
+      "year": 2023,
+      "makes": [
+       "Toyota",
+       "Land Cruiser"
+      ],
+      "models": [
+       "Land Cruiser"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Lexus garage",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/136cu2r/lexus_garage/",
+      "year": 2023,
+      "makes": [
+       "Lexus"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "jas-motors-garage-web",
@@ -26940,7 +31100,8 @@
      "evidence": "Recommended for Porsche in 4 Reddit threads (2019, 2021, 2025), including by a Cayenne owner who says its staff are mostly ex-dealer Porsche technicians; Porsche classic club tags it on Instagram",
      "mentions": 0,
      "basis": "community",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2025
     }
    ],
    "is_specialist": true,
@@ -27003,7 +31164,93 @@
    "price_examples": [],
    "evidence_summary": "Recommended by Porsche owners, including a Cayenne owner, on Reddit.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 4,
+    "threads_positive": 3,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2019,
+     2025
+    ],
+    "positive_by_model": {
+     "Cayenne": 2
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Garage recommendations for Porsche",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1oho0e5/garage_recommendations_for_porsche/",
+      "year": 2025,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "they know their stuff when it comes to Porsches since they're mostly ex-Al Nabooda technicians",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Need to find a reputable garage for a classic",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1k6215m/need_to_find_a_reputable_garage_for_a_classic/",
+      "year": 2025,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "tinyfish"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Trustworthy garages for maintenance on Porsches?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/mhrkx2/trustworthy_garages_for_maintenance_on_porsches/",
+      "year": 2021,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Jas motors is where I take my Cayman to",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/dubai",
+      "title": "Best place to service a porsche",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/dubai/comments/bwleda/best_place_to_service_a_porsche/",
+      "year": 2019,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "i've been using JAS since years. very affordable and am completely satisfied with their attention to detail",
+      "added_by": "tinyfish"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   },
   {
    "id": "7-cylinders-automotives-garage-web",
@@ -27035,7 +31282,8 @@
      "evidence": "Called a BMW specialist on Reddit r/DubaiPetrolHeads by a 320i owner who uses it; weak evidence (one owner)",
      "mentions": 0,
      "basis": "community",
-     "car_family": "german"
+     "car_family": "german",
+     "latest_year": 2026
     }
    ],
    "is_specialist": true,
@@ -27064,7 +31312,402 @@
    "price_examples": [],
    "evidence_summary": "Recommended by a BMW owner on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "community_mentions": {
+    "threads_total": 1,
+    "threads_positive": 1,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2026,
+     2026
+    ],
+    "positive_by_model": {
+     "7 Series": 1
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Recommendations for a good BMW specialist in Dubai – 2012 7 Series F02",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ssgkie/recommendations_for_a_good_bmw_specialist_in/",
+      "year": 2026,
+      "makes": [
+       "BMW"
+      ],
+      "models": [
+       "7 Series"
+      ],
+      "generations": [
+       "F02"
+      ],
+      "sentiment": "positive",
+      "quote": "they are specialist in BMW",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
+  },
+  {
+   "id": "werks-motorsport-web",
+   "name": "Werks Motorsport",
+   "listing_name": "Werks Motorsport",
+   "emirate": "Dubai",
+   "area": "Dubai Investments Park",
+   "address": "",
+   "lat": null,
+   "lng": null,
+   "phone": "+971 4 880 3350",
+   "whatsapp": "",
+   "website": "https://www.werksmotorsport.com/",
+   "maps_url": "",
+   "google_place_id": null,
+   "categories": [],
+   "business_type": "workshop",
+   "dealer_for": null,
+   "hours": "",
+   "services": [],
+   "specialties": [
+    {
+     "make": "Volkswagen",
+     "models": [],
+     "level": "brand",
+     "confidence": "medium",
+     "evidence": "Recommended for Volkswagen in several r/DubaiPetrolHeads threads",
+     "mentions": 0,
+     "basis": "community",
+     "car_family": "german",
+     "latest_year": 2026
+    },
+    {
+     "make": "Audi",
+     "models": [],
+     "level": "brand",
+     "confidence": "medium",
+     "evidence": "Recommended for Audi in several r/DubaiPetrolHeads threads",
+     "mentions": 0,
+     "basis": "community",
+     "car_family": "german"
+    }
+   ],
+   "is_specialist": true,
+   "external_ratings": [],
+   "review_summary": "Not yet matched to a Google Maps listing. Owners on r/DubaiPetrolHeads recommend it for VW and Audi (Golf GTI/R, S3).",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://www.werksmotorsport.com/"
+   ],
+   "self_claims": [],
+   "possible_matches": [],
+   "price_examples": [],
+   "evidence_summary": "Owners on r/DubaiPetrolHeads recommend it for VW and Audi (Golf GTI/R, S3).",
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "website: VW, Audi, SEAT, Skoda (VAG) specialist",
+   "added_by": "data community sweep 2026-11-07",
+   "community_mentions": {
+    "threads_total": 8,
+    "threads_positive": 7,
+    "threads_negative": 1,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2023,
+     2026
+    ],
+    "positive_by_model": {
+     "Golf R": 2,
+     "Golf GTI": 3,
+     "Cayenne": 2
+    },
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Can anyone suggest a good garage in Dubai experienced in VW Golf R",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1trqwlf/hey_guys_can_anyone_please_suggest_a_good_garage/",
+      "year": 2026,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf R"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Werks Motorsport or PGR. Both VW specialists",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Reliable, trustworthy garage in Dubai for Volkswagen Golf GTI",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1pfyc50/reliable_trustworthy_garage_in_dubai_for/",
+      "year": 2025,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf GTI"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Vw Golf GTI",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1kcimom/vw_golf_gti/",
+      "year": 2025,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf GTI",
+       "Golf R"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Vw golf garage",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ji9oz9/vw_golf_garage/",
+      "year": 2025,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf GTI"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Need advice about Porsche Servicing, stick with Al Nabooda or save and go for Project 11",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1njltdg/need_advice_about_porsche_servicing_stick_with_al/",
+      "year": 2025,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "they did all the service only with original Audi replacements, quick and professional",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Most trusted and reliable VW garage in Dubai",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1dqfqiw/most_trusted_and_reliable_vw_garage_in_dubai/",
+      "year": 2024,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "mixed",
+      "quote": "bit pricey but Nick is incredible with VW/Audis",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Could someone suggest a good and economical garage for servicing a second hand Volkswagen GTI",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/113mqyk/could_someone_suggest_a_good_and_economical/",
+      "year": 2023,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf GTI"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "I get all my work on my s3 done through them",
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Best German car specialized garages and average service cost?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/16pwltb/best_german_car_specialized_garages_and_average/",
+      "year": 2023,
+      "makes": [
+       "Porsche"
+      ],
+      "models": [
+       "Cayenne"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "Seems like consensus is Werksmotorsport in Dubai",
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
+  },
+  {
+   "id": "takumi-motoren-web",
+   "name": "Takumi Motoren",
+   "listing_name": "Takumi Motoren",
+   "emirate": "Dubai",
+   "area": "Dubai Investments Park 2",
+   "address": "",
+   "lat": null,
+   "lng": null,
+   "phone": "+971 50 705 5682",
+   "whatsapp": "",
+   "website": "https://takumi-motoren.com/",
+   "maps_url": "",
+   "google_place_id": null,
+   "categories": [],
+   "business_type": "workshop",
+   "dealer_for": null,
+   "hours": "",
+   "services": [],
+   "specialties": [],
+   "is_specialist": false,
+   "external_ratings": [],
+   "review_summary": "Not yet matched to a Google Maps listing. Multi-brand workshop in DIP 2; named in owner threads for German cars and Jeep.",
+   "reviews_analysed": 0,
+   "sources": [
+    "https://takumi-motoren.com/"
+   ],
+   "self_claims": [],
+   "possible_matches": [],
+   "price_examples": [],
+   "evidence_summary": "Multi-brand workshop in DIP 2; named in owner threads for German cars and Jeep.",
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "website: repair and maintenance for all major brands",
+   "added_by": "data community sweep 2026-11-07",
+   "community_mentions": {
+    "threads_total": 5,
+    "threads_positive": 0,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": null,
+    "positive_by_model": {},
+    "as_of": "2026-11-07",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Vw golf garage",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ji9oz9/vw_golf_garage/",
+      "year": 2025,
+      "makes": [
+       "Volkswagen"
+      ],
+      "models": [
+       "Golf GTI"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Land Rover garages",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1lwo5ho/land_rover_garages/",
+      "year": 2025,
+      "makes": [
+       "Land Rover"
+      ],
+      "models": [],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Best garage for Mercedes major service?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1mjecgf/best_garage_for_mercedes_major_service/",
+      "year": 2025,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "CLA"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Looking for a Garage that specializes in Mercedes sensor issues",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jujdiy/looking_for_a_garage_that_specializes_in_mercedes/",
+      "year": 2025,
+      "makes": [
+       "Mercedes-Benz"
+      ],
+      "models": [
+       "C-Class"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Good quality and price Jeep Wrangler garage in Dubai ?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1m5sjng/good_quality_and_price_jeep_wrangler_garage_in/",
+      "year": 2025,
+      "makes": [
+       "Jeep"
+      ],
+      "models": [
+       "Wrangler",
+       "JK"
+      ],
+      "generations": [],
+      "sentiment": "neutral",
+      "quote": null,
+      "added_by": "data"
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
   }
  ],
  "car_families": {

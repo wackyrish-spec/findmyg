@@ -261,7 +261,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
           )}
         </section>
         <section class="card panel"><h2 style="font-size:22px">Workshop facts</h2>
-          <p class="checked">Checked: {new Date(g.google?.asOf || DATA_UPDATED || Date.now()).toLocaleDateString("en-GB", { month: "short", year: "numeric" })} · <a href={`/add-a-garage/?fix=${g.slug}&closed=1`}>Closed or moved? Tell us</a></p>
+          <p class="checked">Checked: {new Date(g.checked_at || g.google?.asOf || DATA_UPDATED || Date.now()).toLocaleDateString("en-GB", { month: "short", year: "numeric" })} · <a href={`/add-a-garage/?fix=${g.slug}&closed=1`}>Closed or moved? Tell us</a></p>
           {g.closed && <p class="note">This garage is marked as closed.</p>}
           <dl class="facts">
             {g.address && <div><dt>Address</dt><dd>{g.address}</dd></div>}
