@@ -60,7 +60,7 @@ const fmtDay = (d) => (d ? new Date(d).toLocaleDateString("en-GB", { day: "numer
 const evidenced = g.hasEvidence || g.ownerCount > 0;
 ---
 <Base
-  title={`${g.name}${top ? ` · ${top.make} specialist` : ""} in ${g.area || "Dubai"}`}
+  title={`${g.name} reviews: what owners say${g.area ? ` · ${g.area}` : ""}`}
   description={desc}
   noindex={!garageIndexable(g)}
   jsonld={[ld]}

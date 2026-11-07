@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
-import { BRANDS, AREAS, JOB_PAGES, GARAGES } from "../lib/data.js";
+import { BRANDS, AREAS, GARAGES, PROBLEMS } from "../lib/data.js";
 const evidenceGarages = GARAGES.filter((g) => g.hasEvidence).length;
 const site = {
   "@context": "https://schema.org", "@type": "WebSite", name: "KnowsMyCar", url: Astro.site?.toString(),
@@ -16,13 +16,14 @@ const org = {
     <h1>Find the garage that <em>knows your car</em></h1>
     <p>Dubai's independent specialists, matched to your brand, model and chassis code. Every match shows the reviews behind it. Free, with no paid listings.</p>
     <div class="picker" id="hp">
-      <label class="label" for="hpIn">What do you drive?</label>
-      <div class="pickrow"><input id="hpIn" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="hpList" placeholder="Brand, model or chassis code, e.g. Cayenne 958, Golf GTI Mk5, E90" />
+      <label class="label" for="hpIn">Your car, a garage or a problem</label>
+      <div class="pickrow"><input id="hpIn" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="hpList" placeholder="Car, garage or problem, e.g. Cayenne 958, AC not cold" />
         <button class="btn primary" type="button" id="hpGo"><Icon name="search" /><span>Find specialists</span></button></div>
       <div class="sugg" id="hpList" role="listbox" hidden></div>
     </div>
     <div class="tries">Try {["Cayenne 958", "Golf GTI Mk5", "Alfa Romeo 147", "E90 335i", "G-Wagon", "LC200", "Patrol Y62", "Range Rover"].map((t) => <button type="button" data-try={t}>{t}</button>)}</div>
-    <div class="tries">Or by problem: {JOB_PAGES.slice(0, 6).map((j) => <a class="pill" href={`/dubai/job/${j.slug}/`}>{j.plain}</a>)}</div>
+    <div class="tries">Or by problem: {PROBLEMS.slice(0, 6).map((p) => <a class="pill" href={`/dubai/problem/${p.slug}/`}>{p.label}</a>)}</div>
+    <p class="revcta">Used a garage recently? <button type="button" class="linkbtn" data-reviewcta>Review a garage you've used</button></p>
   </div></section>
   <div class="wrap">
     <section class="blk"><div class="blkhead"><div><h2>Specialist garages in Dubai by car brand</h2><p>{evidenceGarages} garages have specialties backed by reviews or owner recommendations.</p></div><a class="btn sm" href="/dubai/">All {GARAGES.length} garages</a></div>

@@ -1,0 +1,28 @@
+---
+// Search by problem (PM spec 12.3): common causes in one line, diagnosis first, then garages owners mention for this job.
+import ListPage from "../../../../components/ListPage.astro";
+import { PROBLEMS, problemGarages, intro, isIndexable, JOB_PAGES } from "../../../../lib/data.js";
+export function getStaticPaths() {
+  return PROBLEMS.map((p) => ({ params: { slug: p.slug }, props: { p } }));
+}
+const { p } = Astro.props;
+const key = `dubai/problem/${p.slug}`;
+const list = problemGarages(p);
+const it = intro(key);
+const notes = Object.fromEntries(list.map(({ g, n }) => [g.slug, `Owners mention this job here (${n})`]));
+const thin = list.length < 3;
+const job = JOB_PAGES.find((j) => j.slug === p.job);
+---
+<ListPage
+  title={it?.title || `${p.label}? Garages in Dubai owners mention for it`}
+  description={it?.description || `${p.label} in Dubai: common causes, why to ask for a diagnosis first, and garages owners mention for this job.`}
+  h1={it?.h1 || p.label}
+  lead={`Common causes: ${p.causes} Ask for a diagnosis before agreeing to replace parts.${thin ? " Few reviews mention this job yet, so start with a specialist for your car." : " Set your car to bring the garages that know it to the top."}`}
+  introText={it?.text}
+  garages={list.map((x) => x.g)}
+  notes={notes}
+  othersLabel={"Also listed"}
+  noindex={!isIndexable(key, list.length)}
+  crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: "Problems" }, { name: p.label }]}
+  related={[...(job ? [{ name: `All ${job.name.toLowerCase()} garages`, url: `/dubai/job/${job.slug}/` }] : []), ...PROBLEMS.filter((x) => x.slug !== p.slug).map((x) => ({ name: x.label, url: `/dubai/problem/${x.slug}/` }))]}
+/>

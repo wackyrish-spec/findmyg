@@ -37,10 +37,49 @@ function paintCar() {
   }
   $$("[data-carlabel]").forEach((e) => (e.textContent = car ? carLabel(car) : "not set"));
 }
+// Covered / close / not yet (PM spec 12.1).
 function pageFor(c) {
   const p = DATA.pages[c.make];
-  if (!p) return "/dubai/";
-  return (c.model && p.models[c.model]) || p.url;
+  if (!p) return `/car-not-covered/?make=${encodeURIComponent(c.make)}${c.model ? `&model=${encodeURIComponent(c.model)}` : ""}`;
+  if (c.model && p.models[c.model]) return p.models[c.model];
+  return c.model ? `${p.url}?close=${encodeURIComponent(c.model)}` : p.url;
+}
+
+/* ---------- one search box: cars, garages, areas, problems ---------- */
+let IDX = null, IDXP = null;
+const loadIdx = () => IDXP || (IDXP = fetch("/search-index.json").then((r) => r.json()).catch(() => ({ garages: [], areas: [] })));
+const norm = (s) => s.toLowerCase().normalize("NFKD").replace(/[^a-z0-9 ]+/g, " ").replace(/\s+/g, " ").trim();
+// Typo-tolerant word match: prefix, or one edit away for words of 4+ letters.
+function near(a, b) {
+  if (b.startsWith(a)) return true;
+  if (a.length < 4) return false;
+  // A typo while still typing: compare with the same-length start of the word.
+  if (a.length >= 5 && b.length > a.length + 1) b = b.slice(0, a.length);
+  if (Math.abs(a.length - b.length) > 1) return false;
+  let i = 0, j = 0, e = 0;
+  while (i < a.length && j < b.length) {
+    if (a[i] === b[j]) { i++; j++; continue; }
+    if (++e > 1) return false;
+    if (a.length > b.length) i++; else if (b.length > a.length) j++; else { i++; j++; }
+  }
+  return e + (a.length - i) + (b.length - j) <= 1;
+}
+function searchOthers(q) {
+  const nq = norm(q), toks = nq.split(" ").filter(Boolean);
+  if (!toks.length) return [];
+  const out = [];
+  (DATA.problems || []).forEach((p) => {
+    const hay = norm(`${p.label} ${p.syn}`), words = hay.split(" ");
+    if (hay.includes(nq) || toks.every((t) => t.length > 1 && words.some((w) => near(t, w)))) out.push({ type: "problem", label: p.label, slug: p.slug });
+  });
+  if (IDX && IDX.garages) {
+    IDX.garages.forEach((g) => {
+      const words = norm(g.n).split(" ");
+      if (toks.every((t) => words.some((w) => near(t, w)))) out.push({ type: "garage", label: g.n, slug: g.s, sub: g.d ? "Main dealer" : g.a });
+    });
+    IDX.areas.forEach((a) => { if (toks.every((t) => norm(a.n).split(" ").some((w) => near(t, w)))) out.push({ type: "area", label: a.n, slug: a.s }); });
+  }
+  return [...out.filter((x) => x.type === "problem").slice(0, 3), ...out.filter((x) => x.type === "garage").slice(0, 5), ...out.filter((x) => x.type === "area").slice(0, 2)];
 }
 
 /* ---------- search ---------- */
@@ -51,7 +90,7 @@ function searchCars(q) {
   const out = [];
   BRANDS.forEach((b) => {
     const bl = b.toLowerCase();
-    if (bl.startsWith(q) || toks.every((t) => bl.includes(t))) out.push({ make: b, model: "", code: "", years: "", score: 3, brandOnly: true });
+    if (bl.startsWith(q) || toks.every((t) => bl.split(" ").some((w) => w.startsWith(t)))) out.push({ make: b, model: "", code: "", years: "", score: 3, brandOnly: true });
   });
   DATA.rows.forEach((c) => {
     const hay = [c.make, c.model, c.code, c.aliases].join(" ").toLowerCase();
@@ -60,31 +99,45 @@ function searchCars(q) {
     for (const t of toks) {
       if (c.code && c.code.toLowerCase() === t) s += 5;
       else if (words.includes(t)) s += 3;
-      else if (hay.includes(t)) s += 1;
+      else if (words.some((w) => w.startsWith(t))) s += 1;
       else { s = -1; break; }
     }
     if (s > 0) out.push({ ...c, score: s });
   });
   return out.sort((a, b) => b.score - a.score).slice(0, 8);
 }
-function wirePicker(root, onPick) {
+function wirePicker(root, onPick, all = false) {
   const inp = $("input", root), list = $(".sugg", root);
   let items = [], act = -1;
+  const find = (v) => all ? [...searchCars(v).slice(0, 5).map((c) => ({ ...c, type: "car" })), ...searchOthers(v)] : searchCars(v);
+  const head = { car: "Cars", problem: "Problems", garage: "Garages", area: "Areas" };
   const draw = () => {
     if (!items.length) {
       if (inp.value.trim().length >= 2) { list.innerHTML = `<p class="nomatch">No match yet. Try the make or model name, like "Cayenne" or "Giulietta", or <a href="/add-a-garage/">tell us your car</a>.</p>`; list.hidden = false; }
       else list.hidden = true;
       inp.setAttribute("aria-expanded", "false"); return;
     }
-    list.innerHTML = items.map((c, i) => `<button type="button" role="option" class="${i === act ? "act" : ""}" data-i="${i}"><span>${c.brandOnly ? `${esc(c.make)} <span class="muted">· any model</span>` : `${esc(c.make)} ${esc(c.model)} ${c.code ? `<span class="code">${esc(c.code)}</span>` : ""}`}</span><small>${esc(c.years || "")}</small></button>`).join("");
+    list.innerHTML = items.map((c, i) => {
+      const h = all && (i === 0 || items[i - 1].type !== c.type) ? `<p class="sgh">${head[c.type || "car"]}</p>` : "";
+      const body = c.type && c.type !== "car"
+        ? `<span>${esc(c.label)}</span><small>${esc(c.sub || "")}</small>`
+        : `<span>${c.brandOnly ? `${esc(c.make)} <span class="muted">· any model</span>` : `${esc(c.make)} ${esc(c.model)} ${c.code ? `<span class="code">${esc(c.code)}</span>` : ""}`}</span><small>${esc(c.years || "")}</small>`;
+      return `${h}<button type="button" role="option" class="${i === act ? "act" : ""}" data-i="${i}">${body}</button>`;
+    }).join("");
     list.hidden = false; inp.setAttribute("aria-expanded", "true");
   };
   const choose = (c) => {
+    if (c.type === "garage") { location.href = `/garage/${c.slug}/`; return; }
+    if (c.type === "area") { location.href = `/dubai/area/${c.slug}/`; return; }
+    if (c.type === "problem") { location.href = `/dubai/problem/${c.slug}/`; return; }
     const yr = (inp.value.match(/\b(19[89]\d|20[0-3]\d)\b/) || [])[1] || "";
     setCar({ make: c.make, model: c.model || "", code: c.code || "", year: yr });
     items = []; draw(); inp.value = carLabel(car); onPick(car);
   };
-  inp.addEventListener("input", () => { items = searchCars(inp.value); act = items.length ? 0 : -1; draw(); });
+  inp.addEventListener("input", () => {
+    items = find(inp.value); act = items.length ? 0 : -1; draw();
+    if (all && !IDX) loadIdx().then((x) => { IDX = x; items = find(inp.value); act = items.length ? 0 : -1; draw(); });
+  });
   inp.addEventListener("keydown", (e) => {
     if (e.key === "ArrowDown") { act = Math.min(items.length - 1, act + 1); draw(); e.preventDefault(); }
     else if (e.key === "ArrowUp") { act = Math.max(0, act - 1); draw(); e.preventDefault(); }
@@ -93,7 +146,7 @@ function wirePicker(root, onPick) {
   });
   list.addEventListener("click", (e) => { const b = e.target.closest("[data-i]"); if (b) choose(items[+b.dataset.i]); });
   document.addEventListener("click", (e) => { if (!root.contains(e.target)) { items = []; list.hidden = true; } }, true);
-  return { inp, run: () => { if (items[act]) choose(items[act]); else { items = searchCars(inp.value); act = 0; if (items.length === 1) choose(items[0]); else draw(); } } };
+  return { inp, run: () => { if (items[act]) choose(items[act]); else { items = find(inp.value); act = 0; if (items.length === 1) choose(items[0]); else draw(); } } };
 }
 
 /* ---------- dialog ---------- */
@@ -227,7 +280,7 @@ document.addEventListener("click", (e) => {
 
 const hp = $("#hp");
 if (hp) {
-  const p = wirePicker(hp, (c) => { location.href = pageFor(c); });
+  const p = wirePicker(hp, (c) => { location.href = pageFor(c); }, true);
   $("#hpGo")?.addEventListener("click", () => (p.inp.value.trim() ? p.run() : car ? (location.href = pageFor(car)) : p.inp.focus()));
   if (car) p.inp.value = carLabel(car);
 }
@@ -320,3 +373,23 @@ if (fb && SB_URL && SB_KEY) {
   $(".fbmore", fb).addEventListener("submit", (e) => { e.preventDefault(); send(false, $("input", e.target).value.trim()); e.target.hidden = true; $(".fbthanks", fb).hidden = false; });
 }
 
+/* ---------- "close" answer: brand page without model-specific evidence ---------- */
+{
+  const close = new URLSearchParams(location.search).get("close"), box = $("#results");
+  if (close && box) {
+    const n = document.createElement("div");
+    n.className = "card closenote";
+    n.textContent = `No ${close.slice(0, 40)}-specific evidence yet. These are ${box.dataset.make || "brand"} specialists, which is the next best thing.`;
+    box.parentNode.insertBefore(n, box);
+  }
+}
+
+
+// Home: "Review a garage you've used" points the one search box at garage names.
+document.querySelector("[data-reviewcta]")?.addEventListener("click", () => {
+  const i = document.getElementById("hpIn");
+  if (!i) return;
+  i.placeholder = "Type the garage's name";
+  i.value = ""; i.focus();
+  i.scrollIntoView({ block: "center", behavior: "smooth" });
+});

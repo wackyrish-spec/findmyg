@@ -7,7 +7,7 @@ import { SITE } from "../lib/site.js";
 const {
   title, description, h1, lead, introText = null, garages, make = null, model = null,
   noindex, crumbs = [], related = [], pathKey, ogImage,
-  outside = [], others = [], othersLabel = "Also in Dubai, no reviews for your car yet", dealers = [], dealerPrices = [], dealerNote = null,
+  notes = null, outside = [], others = [], othersLabel = "Also in Dubai, no reviews for your car yet", dealers = [], dealerPrices = [], dealerNote = null,
 } = Astro.props;
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const shareText = `${h1}, on ${SITE.name}: ${pageUrl}?ref=wa-share`;
@@ -36,7 +36,7 @@ const itemList = {
       <span class="muted" style="font-size:13px">{garages.length} with evidence{others.length ? ` · ${others.length} more listed` : ""}</span>
     </div>
     <div class="results" id="results" data-make={make || ""} data-model={model || ""}>
-      {garages.map((g) => <GarageCard g={g} make={make} model={model} />)}
+      {garages.map((g) => <GarageCard g={g} make={make} model={model} note={notes?.[g.slug]} />)}
       {garages.length === 0 && <div class="card empty">No garages with owner evidence here yet.{others.length > 0 ? " Some are listed below." : ""} Know a good one? <a href="/add-a-garage/">Tell us about it</a>.</div>}
     </div>
     {thin && (

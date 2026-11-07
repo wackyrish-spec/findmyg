@@ -1,7 +1,7 @@
 // Loads data/garages.json at build time and builds the indexes every page uses.
 import raw from "../../data/garages.json";
 import intros from "../content/intros.json";
-import { CATALOG } from "./catalog.js";
+import { CATALOG, EXTRA_FAMILIES } from "./catalog.js";
 import { loadReviews, ownerStats } from "./reviews.js";
 
 const REVIEWS = await loadReviews();
@@ -237,7 +237,9 @@ export function pickerCatalog() {
   BRANDS.forEach((b) => {
     pages[b.make] = { url: `/${CITY.slug}/${b.slug}/`, models: Object.fromEntries(b.models.map((md) => [md.model, `/${CITY.slug}/${b.slug}/${md.slug}/`])) };
   });
-  return { rows, pages };
+  // Problems for the one search box (PM spec 12.3): label, slug and synonyms only.
+  const problems = PROBLEMS.map((p) => ({ slug: p.slug, label: p.label, syn: p.syn }));
+  return { rows, pages, problems };
 }
 
 // Cost signal from reviews on other sites (Data's price pass): counts only, no review text.
@@ -324,3 +326,40 @@ export function budgetTier(g, make) {
 }
 export const BENCH_SRC = { owners: "KnowsMyCar owners", list: "garage's price list", dealer: "dealer price list", reported: "owner on a forum", web: "reviews elsewhere" };
 export const aedRange = (lo, hi) => lo === hi ? `AED ${Number(lo).toLocaleString("en-US")}` : `AED ${Number(lo).toLocaleString("en-US")} to ${Number(hi).toLocaleString("en-US")}`;
+
+// ---------- Search by problem (PM spec 12.3) ----------
+// Everyday symptoms, each with a one-line list of common causes (never a verdict) and Data's problem_counts key.
+export const PROBLEMS = [
+  { slug: "ac-not-cold", label: "AC not cold", key: "ac", job: "ac-repair", syn: "ac aircon air con a/c not cold warm air ac smell ac smells ac gas", causes: "Low gas, a leak, a failing compressor or a blocked condenser." },
+  { slug: "warning-light", label: "Warning light on", key: "warning_light", job: "electrical", syn: "check engine engine light warning light dashboard light dash light", causes: "Anything from a loose fuel cap or a sensor to a serious engine fault. A scan reads the fault code." },
+  { slug: "gearbox-jerks", label: "Gearbox jerks or slips", key: "gearbox", job: "gearbox", syn: "gearbox transmission jerk jerks jerking slipping slips dsg harsh shift", causes: "Old fluid, a software issue, worn clutches or a valve body fault." },
+  { slug: "noise-over-bumps", label: "Noise over bumps", key: "suspension", job: "suspension", syn: "knock knocking clunk bumps sagging suspension air suspension rattle", causes: "Worn bushes, links or shock absorbers, or an air suspension leak." },
+  { slug: "wont-start", label: "Won't start", key: "battery", job: "electrical", syn: "won't start wont start not starting dead battery battery no crank", causes: "Usually the battery. Sometimes the starter, the alternator or the immobiliser." },
+  { slug: "overheating", label: "Overheating", key: "overheating", job: "engine", syn: "overheat overheating temperature coolant hot engine", causes: "Low coolant, a leak, or a failing fan, thermostat or water pump." },
+  { slug: "brakes-noise", label: "Brakes squeak or grind", key: "brakes", job: "brakes", syn: "brake brakes squeak squeal grind grinding vibration when braking", causes: "Worn pads or discs, or a sticking calliper." },
+  { slug: "oil-leak", label: "Oil leak", key: "oil_leak", job: "engine", syn: "oil leak leaking drip drips oil under car", causes: "A gasket, a seal or the oil pan. A leak test finds the source." },
+  { slug: "steering", label: "Steering pulls or feels heavy", key: "steering", job: "suspension", syn: "steering pulls pulling alignment heavy steering wheel shakes", causes: "Wheel alignment, tyres, or the power steering fluid or pump." },
+  { slug: "service-due", label: "Service due", key: "service", job: "servicing", syn: "service servicing oil change maintenance minor service major service", causes: "Routine oil, filters and checks at the interval in your service book." },
+  { slug: "dents-scratches", label: "Dents or scratches", key: "bodywork", job: "bodywork", syn: "dent dents scratch scratches paint accident bumper body", causes: "Bodywork and paint repair, from a small touch-up to accident work." },
+  { slug: "buying-used", label: "Buying a used car", key: "pre_purchase", job: null, syn: "ppi pre purchase pre-purchase inspection used car check buying a car", causes: "A pre-purchase inspection before you pay, to catch hidden faults." },
+];
+export const PROBLEM_MIN = 2; // Data: 2+ reviews mentioning the job is enough to list a garage under it.
+export function problemGarages(p) {
+  return GARAGES.filter((g) => !g.isDealer && g.contactable && !g.outsideDubai && (g.problem_counts?.counts?.[p.key] || 0) >= PROBLEM_MIN)
+    .map((g) => ({ g, n: g.problem_counts.counts[p.key] }))
+    .sort((a, b) => b.n - a.n || a.g.name.localeCompare(b.g.name));
+}
+
+// ---------- Covered / close / not yet (PM spec 12.1) ----------
+const FAMILIES = { ...(raw.car_families || {}), ...EXTRA_FAMILIES };
+export const FAMILY_LABEL = { japanese_korean: "Japanese and Korean cars", german: "German cars", european_other: "European cars", american: "American cars", british: "British cars", chinese: "Chinese cars" };
+export const MAKE_FAMILY = Object.fromEntries(Object.entries(FAMILIES).flatMap(([f, makes]) => makes.map((m) => [m, f])));
+// Garages owners trust with a whole family (evidence for any make in it), then all-makes workshops.
+export function familyGarages(family, limit = 6) {
+  const makes = new Set(FAMILIES[family] || []);
+  const fam = makes.size ? GARAGES.filter((g) => !g.isDealer && g.contactable && !g.outsideDubai && g.hasEvidence && g.specs.some((s) => makes.has(s.make))) : [];
+  const all = GARAGES.filter((g) => !g.isDealer && g.contactable && !g.outsideDubai && g.works_on_all_makes === true && !fam.includes(g))
+    .sort((a, b) => (b.hasEvidence - a.hasEvidence) || (b.google?.count || 0) - (a.google?.count || 0));
+  return { family: fam.slice(0, limit), all: all.slice(0, limit) };
+}
+

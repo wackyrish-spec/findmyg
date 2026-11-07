@@ -2,7 +2,7 @@
 import { specFor, LEVELS, DATA_UPDATED, benchmarks, budgetTier, BENCH_SRC } from "../lib/data.js";
 const fmt = (d) => (d ? new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "");
 import Icon from "./Icon.astro";
-const { g, make = null, model = null, plain = false } = Astro.props;
+const { g, make = null, model = null, plain = false, note = null } = Astro.props;
 const claim = plain && make ? (g.self_claims || []).find((c) => c.make === make) : null;
 const spec = make ? specFor(g, make, model) : null;
 const level = spec ? spec.conf : 0;
@@ -38,6 +38,7 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
       {g.goodFor.map((x) => <span class="goodfor">Good for: {x}</span>)}
       {g.isDealer ? <span class="dealer">Main dealer</span> : g.business_type && g.business_type !== "workshop" && <span class="biztag">Also sells parts</span>}
     </div>
+    {note && <p class="pnote">{note}</p>}
     <div class="matchslot">
       {spec && (
         <><span class={`match l${level}`}><span class="meter">{[1, 2, 3].map((i) => <i class={i <= level ? "on" : ""}></i>)}</span>{LEVELS[level]}{model && !spec.modelHit ? ` (${make})` : ""}</span>{spec.mentions > 0 && <span class="mcount"> · from {spec.mentions} {/community/.test(spec.basis || "") && !/reviews/.test(spec.basis || "") ? (spec.mentions === 1 ? "community post" : "community posts") : (spec.mentions === 1 ? "review" : "reviews")}</span>}</>
