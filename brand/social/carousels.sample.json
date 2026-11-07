@@ -1,0 +1,20 @@
+[
+ {"kind": "paid", "name": "paid-cayenne-airsus", "model": "Cayenne", "code": "958", "job": "Air suspension compressor",
+  "hook": "The dealer quote vs what independents charge, from published figures.",
+  "source_kind": "published",
+  "indep": {"low": 2400, "high": 3100, "source": "Published by 3 Dubai specialists, Nov 2026", "note": "Parts and labour. Price for an aftermarket compressor; OE parts sit at the top of the range."},
+  "dealer": {"low": 7200, "high": 8400, "source": "Dealer quote shared by an owner"},
+  "drivers": ["OE part or aftermarket", "Whether the relay and dryer are replaced too", "Diagnosis fee, often waived if they do the job", "One air spring leaking can kill the compressor: ask them to check"]},
+ {"kind": "who", "name": "who-cayenne", "make": "Porsche", "model": "Cayenne",
+  "hook": "4 garages Cayenne owners rate, from what they wrote in their reviews.",
+  "garages": [
+   {"name": "Garage name one", "handle": "@garagehandle", "area": "Al Quoz 3", "level": 3, "level_label": "Strong match", "evidence": "18 of 60 Google reviews mention Porsche", "generations": ["955/957", "958"]},
+   {"name": "Garage name two", "handle": "@garagehandle", "area": "Ras Al Khor", "level": 3, "level_label": "Strong match", "evidence": "12 Google reviews mention Cayenne", "generations": ["958", "9Y0"]},
+   {"name": "Garage name three", "handle": "@garagehandle", "area": "Al Qusais", "level": 2, "level_label": "Good match", "evidence": "6 Google reviews mention Porsche", "generations": ["955/957"]}
+  ]},
+ {"kind": "poll", "name": "poll-958-airsus", "code": "958", "question": "AED 3,000 for a 958 air suspension compressor. Fair?",
+  "detail": "At an independent, parts and labour.", "ask": "Got a Porsche quote? Send it to us. We'll compare it with what owners paid."},
+ {"kind": "verdict", "name": "verdict-l405-service", "model": "Range Rover", "code": "L405", "job": "Major service",
+  "quote": 9000, "quote_from": "a follower's quote, dealer", "range": [3200, 4500], "source": "published independent prices", "source_kind": "published",
+  "verdict": "over", "why": "About double what independents publish for the same service. Ask what's included: plugs, filters and fluids should all be itemised."}
+]
