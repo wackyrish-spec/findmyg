@@ -4,7 +4,7 @@ title: "Terms of use"
 
 *Last updated: {{updated}}*
 
-These terms apply when you use knowsmycar.ae ("KnowsMyCar"), run by {{operator}} in Dubai ("we"). By using the site you agree to them. If you don't agree, please don't use the site.
+These terms apply when you use knowsmycar.com ("KnowsMyCar"), run by {{operator}} in Dubai ("we"). By using the site you agree to them. If you don't agree, please don't use the site.
 
 **1. What KnowsMyCar is**
 A free guide to independent garages in Dubai, based on reviews from car owners and on public information. We aren't a garage, we don't book or carry out work, and we don't take payments. Any deal you make is between you and the garage.

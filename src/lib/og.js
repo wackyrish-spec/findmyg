@@ -54,7 +54,7 @@ export function card({ eyebrow = "", title, chips = [], stat = null, meterInfo =
     h("div", { position: "absolute", left: 0, top: 0, width: 12, height: 630, background: AMBER }),
     h("div", { justifyContent: "space-between", alignItems: "center" },
       logo(34),
-      h("div", { fontFamily: "MR", fontWeight: 700, fontSize: 22, color: MUTED }, "knowsmycar.ae")),
+      h("div", { fontFamily: "MR", fontWeight: 700, fontSize: 22, color: MUTED }, "knowsmycar.com")),
     h("div", { flex: 1, flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "0 180px" },
       eyebrow && h("div", { fontFamily: "MR", fontWeight: 800, fontSize: 24, letterSpacing: 3, color: AMBER, textTransform: "uppercase" }, eyebrow),
       h("div", { fontFamily: "BC", fontWeight: 800, fontSize: tsize, lineHeight: 0.95, color: WHITE, textTransform: "uppercase", marginTop: 14, justifyContent: "center", textAlign: "center" }, title),
