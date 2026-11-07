@@ -1,0 +1,30 @@
+---
+// Known issues by model (PM spec 14): /dubai/{make}/{model}/issues/. Content is markdown in src/content/issues/,
+// written by Research and Rishal. Frontmatter: make, model, title, description, updated, status (draft | published).
+// Drafts build but stay noindex; nothing is generated for models without a file.
+import Base from "../../../../../layouts/Base.astro";
+import { BRANDS, slugify } from "../../../../../lib/data.js";
+export function getStaticPaths() {
+  const files = Object.values(import.meta.glob("../../../../../content/issues/*.md", { eager: true }));
+  return files.flatMap((f) => {
+    const fm = f.frontmatter || {};
+    const b = BRANDS.find((x) => x.make === fm.make);
+    const m = b?.models.find((x) => x.model === fm.model || x.slug === slugify(fm.model));
+    if (!b || !m) return [];
+    return [{ params: { make: b.slug, model: m.slug }, props: { f, b, m } }];
+  });
+}
+const { f, b, m } = Astro.props;
+const fm = f.frontmatter;
+const Content = f.Content;
+const published = fm.status === "published";
+---
+<Base title={fm.title || `${b.make} ${m.model} known issues: what fails and who fixes it in Dubai`} description={fm.description || `Common ${b.make} ${m.model} problems, what they cost at the dealer and at independents in Dubai, and which garages owners trust with them.`} noindex={!published}
+  crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: b.make, url: `/dubai/${b.slug}/` }, { name: m.model, url: `/dubai/${b.slug}/${m.slug}/` }, { name: "Known issues" }]}>
+  <article class="wrap prose issues" style="padding-block:20px 56px;max-width:760px">
+    <h1>{fm.h1 || `${b.make} ${m.model} known issues`}</h1>
+    {fm.updated && <p class="muted">Updated {fm.updated}{fm.author ? ` · ${fm.author}` : ""}</p>}
+    <Content />
+    <p><a class="btn primary" href={`/dubai/${b.slug}/${m.slug}/`}>See {b.make} {m.model} specialists</a></p>
+  </article>
+</Base>

@@ -1,5 +1,6 @@
 ---
 import Base from "../../../layouts/Base.astro";
+import { SITE } from "../../../lib/site.js";
 import { ALL_GARAGES, JOBS, BENCHMARKS } from "../../../lib/data.js";
 export function getStaticPaths() {
   return ALL_GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
@@ -12,7 +13,7 @@ const supabaseReady = !!(import.meta.env.PUBLIC_SUPABASE_URL && import.meta.env.
   <div class="wrap" style="padding-block:20px 56px;max-width:680px">
     <h1 style="font-size:42px;text-transform:uppercase">Review {g.name}</h1>
     <p class="muted">About a minute. Your review helps the next owner of the same car.</p>
-    {!supabaseReady && <div class="note" style="margin:12px 0">Reviews open soon. Sign-in and saving go live once the review database is connected.</div>}
+    {!supabaseReady && <div class="note" style="margin:12px 0">Online reviews aren't switched on yet. <a href={`mailto:${SITE.emailHello}?subject=${encodeURIComponent(`Review: ${g.name}`)}&body=${encodeURIComponent("Car (make, model, year):\nJob:\nWhat it cost (AED):\nHow it went:\n")}`}>Email us your review</a> and we'll add it after checking.</div>}
     <form class="f card panel" id="reviewForm" data-garage={g.slug} data-ready={supabaseReady ? "1" : ""} novalidate>
       <div class="label">Your car</div>
       <div class="two">

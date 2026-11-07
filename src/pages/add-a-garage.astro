@@ -1,13 +1,13 @@
 ---
 import Base from "../layouts/Base.astro";
+import { SITE } from "../lib/site.js";
 const ready = !!(import.meta.env.PUBLIC_SUPABASE_URL && import.meta.env.PUBLIC_SUPABASE_ANON_KEY);
 ---
 <Base title="Add a garage or suggest a correction" description="Know a great specialist in Dubai that's missing from KnowsMyCar? Tell us." noindex={true} crumbs={[{ name: "Add a garage" }]}>
   <div class="wrap" style="padding-block:20px 56px;max-width:680px">
     <h1 id="sgTitle" style="font-size:42px;text-transform:uppercase">Add a garage</h1>
     <p class="muted" id="sgLead">Tell us about a specialist that's missing and which cars they're good with. We check every suggestion before it appears.</p>
-    {ready ? (
-      <form class="card panel notify" id="sgForm">
+    <form class="card panel notify" id="sgForm" data-mail={SITE.emailHello}>
         <input type="hidden" name="garage_slug" />
         <label class="fld" for="sgName">Garage name<input id="sgName" name="name" maxlength="120" /></label>
         <div class="two">
@@ -16,12 +16,10 @@ const ready = !!(import.meta.env.PUBLIC_SUPABASE_URL && import.meta.env.PUBLIC_S
         </div>
         <label class="fld" for="sgDetails">What should we know?<textarea id="sgDetails" name="details" required minlength="5" maxlength="1000" rows="4"></textarea></label>
         <label class="fld" for="sgContact">Email or WhatsApp, if you'd like a reply (optional)<input id="sgContact" name="contact" maxlength="200" /></label>
+        <label class="tick"><input type="checkbox" name="is_owner" /> This is my garage (we check before changing anything)</label>
         <div class="err" hidden></div>
-        <button class="btn primary" type="submit">Send</button>
+        <button class="btn primary" type="submit">{ready ? "Send" : "Send by email"}</button>
         <p class="okmsg" hidden>Thanks, we'll check it within a few days.</p>
       </form>
-    ) : (
-      <p>Email us at the address on the <a href="/right-of-reply/">For garages</a> page.</p>
-    )}
   </div>
 </Base>

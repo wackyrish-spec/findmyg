@@ -337,16 +337,25 @@ if (sg) {
     $("#sgLead").textContent = "Tell us what's wrong or missing on this garage's page: phone, hours, address, or the cars they work on.";
     sg.elements.name.closest("label").hidden = true;
   }
+  if (new URLSearchParams(location.search).get("closed")) { sg.elements.details.value = "This garage has closed or moved. "; $("#sgTitle").textContent = "Closed or moved?"; }
   sg.addEventListener("submit", async (e) => {
     e.preventDefault();
     const d = new FormData(sg), err = sg.querySelector(".err"), v = (k) => (d.get(k) || "").toString().trim() || null;
     if ((v("details") || "").length < 5) { err.textContent = "Add a few words so we know what to check."; err.hidden = false; return; }
     err.hidden = true;
+    const owner = !!sg.elements.is_owner?.checked;
+    // Until the database is connected, hand the same message to email (never a "coming soon" dead end).
+    if (!SB_URL || !SB_KEY) {
+      const body = [["Garage", v("name") || v("garage_slug")], ["Area", v("area")], ["Cars", v("cars")], ["Details", v("details")], ["This is my garage", owner ? "yes" : ""], ["Reply to", v("contact")]]
+        .filter(([, x]) => x).map(([k, x]) => `${k}: ${x}`).join("\n");
+      location.href = `mailto:${sg.dataset.mail}?subject=${encodeURIComponent(fix ? `Correction: ${fix}` : "New garage")}&body=${encodeURIComponent(body)}`;
+      return;
+    }
     const r = attribution();
     try {
       const res = await fetch(`${SB_URL}/rest/v1/garage_suggestions`, {
         method: "POST", headers: { apikey: SB_KEY, "Content-Type": "application/json", Prefer: "return=minimal" },
-        body: JSON.stringify({ kind: fix ? "fix" : "new", garage_slug: v("garage_slug"), name: v("name"), area: v("area"), cars: v("cars"), details: v("details"), contact: v("contact"), ref: r.ref || r.utm_source || null }),
+        body: JSON.stringify({ kind: fix ? "fix" : "new", garage_slug: v("garage_slug"), name: v("name"), area: v("area"), cars: v("cars"), details: v("details"), contact: v("contact"), is_owner: owner, ref: r.ref || r.utm_source || null }),
       });
       if (!res.ok) throw new Error(res.status);
       sg.querySelector("button[type=submit]").hidden = true; sg.querySelector(".okmsg").hidden = false;
@@ -392,4 +401,59 @@ document.querySelector("[data-reviewcta]")?.addEventListener("click", () => {
   i.placeholder = "Type the garage's name";
   i.value = ""; i.focus();
   i.scrollIntoView({ block: "center", behavior: "smooth" });
+});
+
+
+/* ---------- 13.2 "Did you go to X?": 2 to 30 days after a contact click, on this device only ---------- */
+(() => {
+  if ($("#reviewForm") || $("#mentionForm")) return;
+  const DAY = 864e5, now = Date.now(), asked = store.get("asked", {});
+  const c = store.get("contacts", []).find((x) => now - x.t >= 2 * DAY && now - x.t <= 30 * DAY && !asked[x.slug]);
+  if (!c) return;
+  loadIdx().then((idx) => {
+    const g = (idx.garages || []).find((x) => x.s === c.slug);
+    if (!g) return;
+    const bar = document.createElement("div");
+    bar.className = "followup";
+    bar.innerHTML = `<span>Did you go to <b>${esc(g.n)}</b>?</span> <a class="btn sm primary" href="/review/${esc(c.slug)}/">Yes, review it</a> <button class="btn sm" type="button" data-no>Not yet</button>`;
+    const done = () => { asked[c.slug] = now; store.set("asked", asked); bar.hidden = true; };
+    bar.querySelector("[data-no]").onclick = done;
+    bar.querySelector("a").onclick = () => {
+      // Pre-fill the review form with the saved car (review.js reads this draft).
+      if (car) { try { const k = `gg:draft:${c.slug}`, d = JSON.parse(localStorage.getItem(k) || "{}");
+        localStorage.setItem(k, JSON.stringify({ ...d, rMake: d.rMake || car.make, rModel: d.rModel || [car.model, car.code].filter(Boolean).join(" "), rYear: d.rYear || car.year || "" })); } catch {} }
+      done();
+    };
+    document.querySelector("main .wrap, .wrap")?.prepend(bar);
+  });
+})();
+
+/* ---------- 13.3 problem pages: filter by make ---------- */
+const mf = $("#makeFilter");
+if (mf) mf.addEventListener("change", () => {
+  const m = mf.value;
+  $$("#results .gcard").forEach((el) => { el.hidden = !!m && !JSON.parse(el.dataset.specs || "[]").some((s) => s[0] === m); });
+  const n = $$("#results .gcard:not([hidden])").length, o = $("#makeFilterOut");
+  if (o) o.innerHTML = m ? (n ? `${n} for ${esc(m)}` : `None for ${esc(m)} yet. A ${esc(m)} specialist is the better start: <a href="${esc(mf.selectedOptions[0].dataset.url || "/dubai/")}">see ${esc(m)} garages</a>.`) : "";
+});
+
+/* ---------- 13.4 "Near me": browser location, client-side only, never stored ---------- */
+const nb = $("#nearBtn");
+if (nb) nb.addEventListener("click", () => {
+  const out = $("#nearOut");
+  const fallback = () => { if (out) { out.hidden = false; out.innerHTML = `Location is off. <a href="/#areas">Pick an area instead</a>.`; } };
+  if (!navigator.geolocation) return fallback();
+  nb.disabled = true;
+  navigator.geolocation.getCurrentPosition((p) => {
+    const { latitude: la, longitude: lo } = p.coords, R = Math.PI / 180;
+    const dist = (el) => { const [a, b] = (el.dataset.ll || "").split(",").map(Number); if (!a) return 1e9;
+      const x = (b - lo) * R * Math.cos(((a + la) / 2) * R), y = (a - la) * R; return 6371 * Math.hypot(x, y); };
+    const box = $("#results");
+    $$(".gcard", box).map((el) => ({ el, d: dist(el) })).sort((a, b) => a.d - b.d).forEach(({ el, d }) => {
+      box.appendChild(el);
+      let t = $(".kmaway", el); if (!t && d < 1e9) { t = document.createElement("span"); t.className = "kmaway"; $(".meta", el)?.appendChild(t); }
+      if (t) t.textContent = d < 1e9 ? `${d < 10 ? d.toFixed(1) : Math.round(d)} km away` : "";
+    });
+    nb.disabled = false; nb.textContent = "Sorted by distance";
+  }, () => { nb.disabled = false; fallback(); }, { timeout: 8000, maximumAge: 6e5 });
 });

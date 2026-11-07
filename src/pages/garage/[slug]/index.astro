@@ -4,7 +4,7 @@ import Icon from "../../../components/Icon.astro";
 import HelpFeedback from "../../../components/HelpFeedback.astro";
 import { existsSync } from "node:fs";
 import { SITE } from "../../../lib/site.js";
-import { ALL_GARAGES, garageIndexable, slugify, DATA_UPDATED, benchmarks, BENCH_SRC, aedRange } from "../../../lib/data.js";
+import { communityThreads, groupReports, ALL_GARAGES, garageIndexable, slugify, DATA_UPDATED, benchmarks, BENCH_SRC, aedRange } from "../../../lib/data.js";
 export function getStaticPaths() {
   return ALL_GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
 }
@@ -16,6 +16,8 @@ const claimMakes = [...new Set((g.self_claims || []).map((c) => c.make + ((c.mod
 const claimUrl = (g.self_claims || []).find((c) => c.url)?.url || "";
 const claimNotes = [...new Set((g.self_claims || []).map((c) => c.note).filter((n) => n && !/^Garage's own website lists/i.test(n)))];
 const SB = import.meta.env.PUBLIC_SUPABASE_URL;
+const threads = g.isDealer ? [] : communityThreads(g);
+const groups = g.isDealer ? 0 : groupReports(g);
 // Real photo if we have one with the garage's OK (public/photos/<slug>.jpg); otherwise a branded header.
 const photo = existsSync(`public/photos/${g.slug}.jpg`) ? `/photos/${g.slug}.jpg` : null;
 const mono = (g.name.match(/[A-Za-z0-9]+/g) || ["G"]).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
@@ -103,6 +105,19 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
     <div class="gbody">
       <div>
         {evidenced && <section class="card panel matchpanel" id="matchPanel" hidden></section>}
+
+        {!g.isDealer && (
+          <section class="card panel community" id="community"><h2>What owner communities say</h2>
+            {threads.length > 0 ? <>
+              <p class="sub">{threads.length} {threads.length === 1 ? "thread" : "threads"}{threads[0].year ? `, latest ${threads[0].year}` : ""}. Owners recommending this garage, unprompted.</p>
+              <ul class="threads">{threads.slice(0, 8).map((t) => (
+                <li><a href={t.url} target="_blank" rel="noopener nofollow">{t.label}</a>{t.old && <span class="oldtag">{t.year}, older</span>}
+                  {t.quote && <q>{t.quote}</q>}{t.quote && <small class="muted"> {t.credit}</small>}</li>))}</ul>
+            </> : <p class="sub">No owner threads found for this garage yet.</p>}
+            {groups > 0 && <p class="sub">Also mentioned in {groups} Facebook {groups === 1 ? "group" : "groups"}, reported by owners.</p>}
+            <p class="grouptip"><a href={`/mention/${g.slug}/`}>Seen this garage recommended in a group? Tell us</a></p>
+          </section>
+        )}
 
         {g.review_summary && (
           <section class="card panel summary"><h2>What reviewers say</h2>
@@ -245,6 +260,8 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
           )}
         </section>
         <section class="card panel"><h2 style="font-size:22px">Workshop facts</h2>
+          <p class="checked">Checked: {new Date(g.google?.asOf || DATA_UPDATED || Date.now()).toLocaleDateString("en-GB", { month: "short", year: "numeric" })} · <a href={`/add-a-garage/?fix=${g.slug}&closed=1`}>Closed or moved? Tell us</a></p>
+          {g.closed && <p class="note">This garage is marked as closed.</p>}
           <dl class="facts">
             {g.address && <div><dt>Address</dt><dd>{g.address}</dd></div>}
             {g.phone && <div><dt>Phone</dt><dd class="num"><a href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">{g.phone}</a></dd></div>}

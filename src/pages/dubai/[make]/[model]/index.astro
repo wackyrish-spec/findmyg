@@ -1,11 +1,13 @@
 ---
 import ListPage from "../../../../components/ListPage.astro";
-import { BRANDS, intro, isIndexable, splitBrand, dealerPrices, DEALER_NOTES } from "../../../../lib/data.js";
+import { BRANDS, intro, isIndexable, splitBrand, dealerPrices, DEALER_NOTES, dealerVsIndie } from "../../../../lib/data.js";
 export function getStaticPaths() {
   return BRANDS.flatMap((b) => b.models.map((m) => ({ params: { make: b.slug, model: m.slug }, props: { b, m } })));
 }
 const { b, m } = Astro.props;
 const key = `dubai/${b.slug}/${m.slug}`;
+const issueFiles = Object.values(import.meta.glob("../../../../content/issues/*.md", { eager: true }));
+const hasIssues = issueFiles.some((f) => f.frontmatter?.make === b.make && f.frontmatter?.model === m.model);
 const it = intro(key);
 // Model specialists first, then brand specialists with evidence; unreviewed garages collapsed.
 const rest = b.garages.filter((g) => !m.garages.includes(g));
@@ -24,10 +26,12 @@ const L = splitBrand([...m.garages, ...rest], b.make, m.model);
   dealers={L.dealers}
   dealerPrices={dealerPrices(b.make, m.model)}
   dealerNote={DEALER_NOTES[b.slug]}
+  dvi={dealerVsIndie(b.make, m.model)}
+  dviNote={DEALER_NOTES[b.slug]}
   make={b.make}
   ogImage={`/og/dubai/${b.slug}/${m.slug}.png`}
   model={m.model}
   noindex={!isIndexable(key, m.evidenceCount)}
   crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: b.make, url: `/dubai/${b.slug}/` }, { name: m.model }]}
-  related={b.models.filter((x) => x.slug !== m.slug).map((x) => ({ name: `${b.make} ${x.model}`, url: `/dubai/${b.slug}/${x.slug}/` }))}
+  related={[...(hasIssues ? [{ name: `${m.model} known issues`, url: `/dubai/${b.slug}/${m.slug}/issues/` }] : []), ...b.models.filter((x) => x.slug !== m.slug).map((x) => ({ name: `${b.make} ${x.model}`, url: `/dubai/${b.slug}/${x.slug}/` }))]}
 />

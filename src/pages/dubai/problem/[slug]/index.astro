@@ -1,7 +1,7 @@
 ---
 // Search by problem (PM spec 12.3): common causes in one line, diagnosis first, then garages owners mention for this job.
 import ListPage from "../../../../components/ListPage.astro";
-import { PROBLEMS, problemGarages, intro, isIndexable, JOB_PAGES, JOB_TO_PROBLEM } from "../../../../lib/data.js";
+import { BRANDS, PROBLEMS, problemGarages, intro, isIndexable, JOB_PAGES, JOB_TO_PROBLEM } from "../../../../lib/data.js";
 export function getStaticPaths() {
   return PROBLEMS.map((p) => ({ params: { slug: p.slug }, props: { p } }));
 }
@@ -11,6 +11,9 @@ const list = problemGarages(p);
 const it = intro(key);
 const notes = Object.fromEntries(list.map(({ g, n }) => [g.slug, `Owners mention this job here (${n})`]));
 const thin = list.length < 3;
+// Spec 13.3: filter by make (most useful on "Buying a used car?"); makes come from the listed garages' specialties.
+const listed = new Set(list.flatMap(({ g }) => g.specs.map((x) => x.make)));
+const makeFilter = BRANDS.filter((b) => listed.has(b.make)).map((b) => ({ make: b.make, url: `/dubai/${b.slug}/` })).sort((a, b) => a.make.localeCompare(b.make));
 const job = JOB_PAGES.find((j) => j.slug === p.job && !JOB_TO_PROBLEM[j.slug]);
 ---
 <ListPage
@@ -21,6 +24,7 @@ const job = JOB_PAGES.find((j) => j.slug === p.job && !JOB_TO_PROBLEM[j.slug]);
   introText={it?.text || `Garages usually call this job ${p.trade}. The list shows independent garages where owners mention it in their reviews, with how many mention it.${thin ? " Few reviews mention this job yet, so a specialist for your make is often the better start." : " Set your car to bring the garages that know it to the top."}`}
   garages={list.map((x) => x.g)}
   notes={notes}
+  makeFilter={makeFilter}
   othersLabel={"Also listed"}
   noindex={!isIndexable(key, list.length)}
   crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: "Problems" }, { name: p.symptom }]}

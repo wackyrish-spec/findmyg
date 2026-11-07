@@ -1,5 +1,5 @@
 ---
-import { specFor, LEVELS, DATA_UPDATED, benchmarks, budgetTier, BENCH_SRC } from "../lib/data.js";
+import { communityLine, specFor, LEVELS, DATA_UPDATED, benchmarks, budgetTier, BENCH_SRC } from "../lib/data.js";
 const fmt = (d) => (d ? new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "");
 import Icon from "./Icon.astro";
 const { g, make = null, model = null, plain = false, note = null } = Astro.props;
@@ -10,6 +10,7 @@ const bench = (g.hasEvidence || g.ownerCount > 0) && !g.isDealer ? benchmarks(g,
 const tier = bench.length ? budgetTier(g, make) : "";
 // Dealer anchor in the "Main dealer for comparison" strip: same job (and model, when on a model page).
 const dmin = g.isDealer && make ? benchmarks(g, make, model).find((b) => b.slug === "minor-service") : null;
+const cline = !g.isDealer ? communityLine(g, model) : "";
 const checked = fmt(g.google?.asOf || DATA_UPDATED);
 const brandLines = g.specs.slice(0, 3);
 // Compact spec payload for the browser to re-rank by the visitor's saved car.
@@ -29,7 +30,7 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
   </div>
 </article>
 ) : (
-<article class="card gcard" data-garage={g.slug} data-specs={payload}>
+<article class="card gcard" data-garage={g.slug} data-specs={payload} data-ll={g.lat && g.lng ? `${Number(g.lat).toFixed(4)},${Number(g.lng).toFixed(4)}` : ""}>
   <div class="main">
     <div class="gtop"><h3><a href={`/garage/${g.slug}/`}>{g.name}</a></h3></div>
     <div class="meta">
@@ -44,6 +45,7 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
         <><span class={`match l${level}`}><span class="meter">{[1, 2, 3].map((i) => <i class={i <= level ? "on" : ""}></i>)}</span>{LEVELS[level]}{model && !spec.modelHit ? ` (${make})` : ""}</span>{spec.mentions > 0 && <span class="mcount"> · from {spec.mentions} {/community/.test(spec.basis || "") && !/reviews/.test(spec.basis || "") ? (spec.mentions === 1 ? "community post" : "community posts") : (spec.mentions === 1 ? "review" : "reviews")}</span>}</>
       )}
     </div>
+    {cline && <div class="cline"><a href={`/garage/${g.slug}/#community`}>{cline}</a></div>}
     {/* One plain line on the card; the full evidence lives on the garage page. */}
     <div class="evid">
       {g.summary[0] && (g.hasEvidence || g.ownerCount > 0) ? <span class="esum">{g.summary[0]}</span>

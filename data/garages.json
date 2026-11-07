@@ -450,7 +450,7 @@
      ],
      "level": "brand",
      "confidence": "medium",
-     "evidence": "7 of 60 Google reviews read mention Lexus (41% of reviews that name any make); recommended for Lexus in 6 Reddit threads (2020-2026), described as run by an ex-Lexus technician; branches in Ras Al Khor and DIP",
+     "evidence": "7 of 60 Google reviews read mention Lexus (41% of reviews that name any make); recommended for Lexus in 6 Reddit threads (2020-2026), described as run by an ex-Lexus technician; branches in Ras Al Khor and DIP; 5 more owners recommend it for Lexus (NX, GX) in 2 more Reddit threads (2024, 2026)",
      "mentions": 7,
      "basis": "reviews+community",
      "car_family": "japanese_korean"
@@ -555,6 +555,59 @@
       "Lexus",
       "GS"
      ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/192zp71/any_recommendations_for_lexus_garage_in_dubai/",
+     "date": "2024-01",
+     "rating": null,
+     "excerpt": "changed some parts with them recently for my NX300 for literally 1/3rd of cost quoted by Al Futtaim",
+     "mentions": [
+      "Lexus",
+      "NX"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/192zp71/any_recommendations_for_lexus_garage_in_dubai/",
+     "date": "2024-01",
+     "rating": null,
+     "excerpt": "+1 they are good",
+     "mentions": [
+      "Lexus"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ui3aaa/lexus_gx460_garage_mechanic_shop_recommendations/",
+     "date": "2026-06",
+     "rating": null,
+     "excerpt": "Al nahda auto garage, Ras al khor. V good",
+     "mentions": [
+      "Lexus",
+      "GX"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ui3aaa/lexus_gx460_garage_mechanic_shop_recommendations/",
+     "date": "2026-06",
+     "rating": null,
+     "excerpt": "+1 on al nahdha.",
+     "mentions": [
+      "Lexus",
+      "GX"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ui3aaa/lexus_gx460_garage_mechanic_shop_recommendations/",
+     "date": "2026-06",
+     "rating": null,
+     "excerpt": "Al Nahdha Auto Garage. Been having my Lexus maintained with them.",
+     "mentions": [
+      "Lexus"
+     ]
     }
    ],
    "review_summary": "Google rating 4.6 from 1545 reviews. In the 60 most relevant reviews we read, customers mostly bring Lexus; praise centres on knowledgeable staff, honest, fast turnaround. 5 of 60 were 1–2 stars. Repeatedly recommended for Lexus (LX, GX, IS) on Reddit.",
@@ -567,7 +620,9 @@
     "https://www.reddit.com/r/dubai/comments/ju03j9/lexus_is_good_affordable_garage_trustworthy/",
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bowljq/garage_for_lexus/",
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jk6rag/lexus_service_advice/",
-    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1uxdjx4/good_lexus_garage_specialist/"
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1uxdjx4/good_lexus_garage_specialist/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/192zp71/any_recommendations_for_lexus_garage_in_dubai/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1ui3aaa/lexus_gx460_garage_mechanic_shop_recommendations/"
    ],
    "possible_matches": [],
    "price_examples": [
@@ -2639,13 +2694,25 @@
      "url": "https://www.google.com/maps/search/?api=1&query=Premier%20Car%20Care%20Luxury%20Car%20Service%20and%20Maintenance&query_place_id=ChIJfxHBunhpXz4R8EZOGJCDnIM",
      "date": "2026-04",
      "mentions": []
+    },
+    {
+     "source": "Reddit r/dubai",
+     "url": "https://www.reddit.com/r/dubai/comments/j9nn1j/good_garage_for_range_rovers/",
+     "date": "2020-10",
+     "rating": null,
+     "excerpt": "if you're looking for an independent garage the specialises in british cars",
+     "mentions": [
+      "Land Rover",
+      "Range Rover"
+     ]
     }
    ],
    "review_summary": "Google rating 4.7 from 495 reviews. In the 60 most relevant reviews we read, customers mostly bring Land Rover; praise centres on knowledgeable staff, fast turnaround, fair prices. 6 of 60 were 1–2 stars.",
    "reviews_analysed": 60,
    "sources": [
     "https://www.google.com/maps/search/?api=1&query=Premier%20Car%20Care%20Luxury%20Car%20Service%20and%20Maintenance&query_place_id=ChIJfxHBunhpXz4R8EZOGJCDnIM",
-    "https://premier-carcare.com/"
+    "https://premier-carcare.com/",
+    "https://www.reddit.com/r/dubai/comments/j9nn1j/good_garage_for_range_rovers/"
    ],
    "possible_matches": [],
    "price_examples": [],
@@ -12189,7 +12256,7 @@
    "lng": 55.3912176,
    "phone": "+97142670522",
    "whatsapp": "",
-   "website": "",
+   "website": "https://altaiefgarage.ae",
    "maps_url": "https://www.google.com/maps/search/?api=1&query=Al%20Taief%20Garage&query_place_id=ChIJP6oPqiJcXz4ROJYZHfWrAVg",
    "google_place_id": "ChIJP6oPqiJcXz4ROJYZHfWrAVg",
    "categories": [
@@ -12210,7 +12277,38 @@
     "Bodywork & paint"
    ],
    "specialties": [],
-   "self_claims": [],
+   "self_claims": [
+    {
+     "make": "Honda",
+     "models": [],
+     "url": "https://altaiefgarage.ae",
+     "note": "Garage's own site/profile lists this make; not owner evidence"
+    },
+    {
+     "make": "Toyota",
+     "models": [],
+     "url": "https://altaiefgarage.ae",
+     "note": "Garage's own site/profile lists this make; not owner evidence"
+    },
+    {
+     "make": "Lexus",
+     "models": [],
+     "url": "https://altaiefgarage.ae",
+     "note": "Garage's own site/profile lists this make; not owner evidence"
+    },
+    {
+     "make": "Nissan",
+     "models": [],
+     "url": "https://altaiefgarage.ae",
+     "note": "Garage's own site/profile lists this make; not owner evidence"
+    },
+    {
+     "make": "Mitsubishi",
+     "models": [],
+     "url": "https://altaiefgarage.ae",
+     "note": "Garage's own site/profile lists this make; not owner evidence"
+    }
+   ],
    "is_specialist": false,
    "external_ratings": [
     {
@@ -12230,8 +12328,18 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: Japanese/JDM focus",
+   "website_focus": {
+    "focus": "Japanese/JDM",
+    "claims": [
+     "Japanese and JDM vehicles: Toyota, Honda, Lexus, Nissan, Mitsubishi",
+     "Also listed online as \"Al Taeif Honda Garage\""
+    ],
+    "source": "garage website",
+    "url": "https://altaiefgarage.ae",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "advance-auto-repairing-services-llc-6aa8",
@@ -12992,9 +13100,21 @@
     "Bodywork & paint",
     "Diagnostics"
    ],
-   "specialties": [],
+   "specialties": [
+    {
+     "make": "Land Rover",
+     "models": [
+      "Range Rover"
+     ],
+     "level": "brand",
+     "confidence": "medium",
+     "evidence": "Recommended for Range Rover by one owner on Reddit (2020); weak evidence",
+     "mentions": 0,
+     "basis": "community"
+    }
+   ],
    "self_claims": [],
-   "is_specialist": false,
+   "is_specialist": true,
    "external_ratings": [
     {
      "source": "Google",
@@ -13004,12 +13124,25 @@
      "as_of": "2026-11-06"
     }
    ],
-   "external_reviews": [],
+   "external_reviews": [
+    {
+     "source": "Reddit r/dubai",
+     "url": "https://www.reddit.com/r/dubai/comments/j9nn1j/good_garage_for_range_rovers/",
+     "date": "2020-10",
+     "rating": null,
+     "excerpt": "GT Auto center",
+     "mentions": [
+      "Land Rover",
+      "Range Rover"
+     ]
+    }
+   ],
    "review_summary": "Google rating 4.2 from 278 reviews. Reviews not yet analysed.",
    "reviews_analysed": 0,
    "sources": [
     "https://www.google.com/maps/search/?api=1&query=GT%20Auto%20Centre%20LLC&query_place_id=ChIJC2O_NMVrXz4RCkWKYzUTx2s",
-    "https://www.gtautocentre.com/"
+    "https://www.gtautocentre.com/",
+    "https://www.reddit.com/r/dubai/comments/j9nn1j/good_garage_for_range_rovers/"
    ],
    "possible_matches": [],
    "price_examples": [],
@@ -13731,7 +13864,38 @@
    "hours": "",
    "services": [],
    "specialties": [],
-   "self_claims": [],
+   "self_claims": [
+    {
+     "make": "Mercedes-Benz",
+     "models": [],
+     "url": "https://www.linkedin.com/company/vip-german-auto-repairing",
+     "note": "Garage's own site/profile lists this make; not owner evidence"
+    },
+    {
+     "make": "BMW",
+     "models": [],
+     "url": "https://www.linkedin.com/company/vip-german-auto-repairing",
+     "note": "Garage's own site/profile lists this make; not owner evidence"
+    },
+    {
+     "make": "Audi",
+     "models": [],
+     "url": "https://www.linkedin.com/company/vip-german-auto-repairing",
+     "note": "Garage's own site/profile lists this make; not owner evidence"
+    },
+    {
+     "make": "Volkswagen",
+     "models": [],
+     "url": "https://www.linkedin.com/company/vip-german-auto-repairing",
+     "note": "Garage's own site/profile lists this make; not owner evidence"
+    },
+    {
+     "make": "Land Rover",
+     "models": [],
+     "url": "https://www.linkedin.com/company/vip-german-auto-repairing",
+     "note": "Garage's own site/profile lists this make; not owner evidence"
+    }
+   ],
    "is_specialist": false,
    "external_ratings": [
     {
@@ -13751,8 +13915,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "company profile: German makes plus Land Rover",
+   "website_focus": {
+    "focus": "German",
+    "claims": [
+     "German makes (Mercedes, BMW, Audi, VW) plus a dedicated Land Rover team"
+    ],
+    "source": "company LinkedIn page",
+    "url": "https://www.linkedin.com/company/vip-german-auto-repairing",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "carmate-auto-care-dubai-3b37",
@@ -14604,7 +14777,7 @@
    "lng": 55.359064999999994,
    "phone": "+97143363500",
    "whatsapp": "",
-   "website": "",
+   "website": "https://yperformance1.com",
    "maps_url": "https://www.google.com/maps/search/?api=1&query=Top%20Speed%20Performance&query_place_id=ChIJ_____6pnXz4RRWPP2Nozo6I",
    "google_place_id": "ChIJ_____6pnXz4RRWPP2Nozo6I",
    "categories": [
@@ -14618,7 +14791,20 @@
     "Tuning & performance"
    ],
    "specialties": [],
-   "self_claims": [],
+   "self_claims": [
+    {
+     "make": "Nissan",
+     "models": [],
+     "url": "https://yperformance1.com",
+     "note": "Garage's own site/profile lists this make; not owner evidence"
+    },
+    {
+     "make": "Infiniti",
+     "models": [],
+     "url": "https://yperformance1.com",
+     "note": "Garage's own site/profile lists this make; not owner evidence"
+    }
+   ],
    "is_specialist": false,
    "external_ratings": [
     {
@@ -14638,8 +14824,17 @@
    "possible_matches": [],
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
-   "works_on_all_makes": null,
-   "works_on_all_makes_basis": "unknown: reviews not read yet"
+   "works_on_all_makes": false,
+   "works_on_all_makes_basis": "garage website: JDM performance focus",
+   "website_focus": {
+    "focus": "JDM performance (YPerformance)",
+    "claims": [
+     "Performance parts and garage: Nissan Patrol TB48/Y60, Infiniti, Nissan Z, Honda Civic Type R"
+    ],
+    "source": "garage website",
+    "url": "https://yperformance1.com",
+    "as_of": "2026-11-07"
+   }
   },
   {
    "id": "challenger-y63-garage-45b5",
@@ -15365,7 +15560,34 @@
     "https://www.landrover-uae.com/en/dealer-locator?utm_source=GMB&utm_medium=organic&utm_campaign=LRAESC008"
    ],
    "possible_matches": [],
-   "price_examples": [],
+   "price_examples": [
+    {
+     "job": "major_service",
+     "make": "Land Rover",
+     "model": "Defender",
+     "aed_low": 8950,
+     "aed_high": 8950,
+     "vat": "unknown",
+     "includes_parts": true,
+     "source": "owner-reported (Reddit)",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1vg37sc/land_rover_defender_p300_2024_major_service/",
+     "as_of": "2026-08",
+     "note": "owner quote, excludes brake pads; Defender P300 2024"
+    },
+    {
+     "job": "minor_service",
+     "make": "Land Rover",
+     "model": "Defender",
+     "aed_low": 4000,
+     "aed_high": 4000,
+     "vat": "unknown",
+     "includes_parts": true,
+     "source": "owner-reported (Reddit)",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1vg37sc/land_rover_defender_p300_2024_major_service/",
+     "as_of": "2026-08",
+     "note": "owner said minor is 'almost 4k'; Defender P300 2024"
+    }
+   ],
    "evidence_summary": "Official Land Rover dealer service centre, shown as a price reference.",
    "works_on_all_makes": false,
    "works_on_all_makes_basis": "dealer"
@@ -26286,8 +26508,8 @@
      "make": "Lexus",
      "models": [],
      "level": "brand",
-     "confidence": "low",
-     "evidence": "Suggested for a Lexus GX on Reddit, but another owner said its quote was barely below the dealer's; mixed",
+     "confidence": "medium",
+     "evidence": "Recommended for Lexus/Japanese cars by 4 owners in 3 Reddit threads (2023-2024); 2 owners say it overcharges (mixed)",
      "mentions": 0,
      "basis": "community",
      "car_family": "japanese_korean"
@@ -26335,6 +26557,48 @@
      "mentions": [
       "Lexus"
      ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/192zp71/any_recommendations_for_lexus_garage_in_dubai/",
+     "date": "2024-01",
+     "rating": null,
+     "excerpt": "apart from Al futtaim, i only trust Dynatrade",
+     "mentions": [
+      "Toyota",
+      "Lexus"
+     ]
+    },
+    {
+     "source": "Reddit r/DubaiPetrolHeads",
+     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/192zp71/any_recommendations_for_lexus_garage_in_dubai/",
+     "date": "2024-01",
+     "rating": null,
+     "excerpt": "DynaTrade seems to be good with Japanese cars.",
+     "mentions": [
+      "Toyota",
+      "Lexus"
+     ]
+    },
+    {
+     "source": "Reddit r/dubai",
+     "url": "https://www.reddit.com/r/dubai/comments/136cu2r/lexus_garage/",
+     "date": "2023-05",
+     "rating": null,
+     "excerpt": "Dynatrade ...",
+     "mentions": [
+      "Lexus"
+     ]
+    },
+    {
+     "source": "Reddit r/dubai",
+     "url": "https://www.reddit.com/r/dubai/comments/136cu2r/lexus_garage/",
+     "date": "2023-05",
+     "rating": null,
+     "excerpt": "Overcharging freaks.",
+     "mentions": [
+      "Lexus"
+     ]
     }
    ],
    "review_summary": "Large UAE multi-brand workshop chain often named by Land Cruiser owners as the dealer alternative; one Lexus owner found it nearly as pricey as the dealer. Not yet matched to a Google Maps listing.",
@@ -26343,7 +26607,9 @@
     "https://dynatrade-uae.com/brands/lexus-repair-service/",
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/13hcsro/land_cruiser_owners_where_do_you_get_your_car/",
     "https://www.reddit.com/r/UaeCarEnthusiasts/comments/1uxz8rt/2011_land_cruiser_57_v8_225k_km_toyota_quoted_aed/",
-    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bdjqnd/lexus_specialist_dubai/"
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bdjqnd/lexus_specialist_dubai/",
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/192zp71/any_recommendations_for_lexus_garage_in_dubai/",
+    "https://www.reddit.com/r/dubai/comments/136cu2r/lexus_garage/"
    ],
    "self_claims": [
     {
@@ -26565,7 +26831,7 @@
      ],
      "level": "model",
      "confidence": "medium",
-     "evidence": "Recommended for Lexus GX servicing and electrical work on Reddit r/DubaiPetrolHeads; weak evidence (one owner); website now markets luxury and sports cars",
+     "evidence": "Recommended for Lexus GX servicing and electrical work on Reddit r/DubaiPetrolHeads (one owner); website now markets luxury and sports cars; also recommended by 2 owners in a 2023 r/dubai Lexus thread",
      "mentions": 0,
      "basis": "community",
      "car_family": "japanese_korean"
@@ -26607,6 +26873,26 @@
       "Toyota",
       "Land Cruiser"
      ]
+    },
+    {
+     "source": "Reddit r/dubai",
+     "url": "https://www.reddit.com/r/dubai/comments/136cu2r/lexus_garage/",
+     "date": "2023-05",
+     "rating": null,
+     "excerpt": "focus auto service al quoz",
+     "mentions": [
+      "Lexus"
+     ]
+    },
+    {
+     "source": "Reddit r/dubai",
+     "url": "https://www.reddit.com/r/dubai/comments/136cu2r/lexus_garage/",
+     "date": "2023-05",
+     "rating": null,
+     "excerpt": "This",
+     "mentions": [
+      "Lexus"
+     ]
     }
    ],
    "review_summary": "Independent workshop recommended on Reddit by a Lexus GX owner for servicing and electrical work. Its website now markets luxury and sports cars. Not yet matched to a Google Maps listing.",
@@ -26614,7 +26900,8 @@
    "sources": [
     "https://focusauto.ae/",
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bdjqnd/lexus_specialist_dubai/",
-    "https://www.reddit.com/r/DubaiPetrolHeads/comments/13hcsro/land_cruiser_owners_where_do_you_get_your_car/"
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/13hcsro/land_cruiser_owners_where_do_you_get_your_car/",
+    "https://www.reddit.com/r/dubai/comments/136cu2r/lexus_garage/"
    ],
    "self_claims": [],
    "possible_matches": [],

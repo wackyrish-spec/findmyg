@@ -6,7 +6,7 @@ import Icon from "./Icon.astro";
 import { SITE } from "../lib/site.js";
 const {
   title, description, h1, lead, introText = null, garages, make = null, model = null,
-  noindex, crumbs = [], related = [], pathKey, ogImage,
+  noindex, crumbs = [], related = [], pathKey, ogImage, makeFilter = [], dvi = [], dviNote = null,
   notes = null, outside = [], others = [], othersLabel = "Also in Dubai, no reviews for your car yet", dealers = [], dealerPrices = [], dealerNote = null,
 } = Astro.props;
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
@@ -31,15 +31,32 @@ const itemList = {
     <div class="bar">
       <button class="btn sm" type="button" data-setcar>Your car: <span data-carlabel>not set</span></button>
       <a class="btn sm wa" href={`https://wa.me/?text=${encodeURIComponent(shareText)}`} target="_blank" rel="noopener"><Icon name="wa" />Share this list</a>
+      {garages.some((g) => g.lat && g.lng) && <button class="btn sm" type="button" id="nearBtn">Near me</button>}
+      {makeFilter.length > 0 && <label class="mfilter" for="makeFilter">Your car's make <select id="makeFilter"><option value="">Any make</option>{makeFilter.map((m) => <option value={m.make} data-url={m.url}>{m.make}</option>)}</select></label>}
       <span class="grow"></span>
       <span class="muted" style="font-size:13px">{garages.length} with evidence{others.length ? ` · ${others.length} more listed` : ""}</span>
     </div>
+    <p class="muted nearout" id="nearOut" hidden></p>
+    {makeFilter.length > 0 && <p class="muted" id="makeFilterOut" aria-live="polite"></p>}
     <div class="results" id="results" data-make={make || ""} data-model={model || ""}>
       {garages.map((g) => <GarageCard g={g} make={make} model={model} note={notes?.[g.slug]} />)}
       {garages.length === 0 && <div class="card empty">No garages with owner evidence here yet.{others.length > 0 ? " Some are listed below." : ""} Know a good one? <a href="/add-a-garage/">Tell us about it</a>.</div>}
     </div>
     {/* SEO rule (spec 12.4): one plain sentence above the list, the longer intro below it, in the HTML. */}
     {introText && <div class="intro" set:html={introText.split(/\n\n+/).map((p) => `<p>${p}</p>`).join("")} />}
+    {dvi.length > 0 && (
+      <section class="card panel dvi">
+        <h2>Dealer vs independent</h2>
+        <p class="sub">What the same job costs at the main dealer and at independents{model ? ` for the ${model}` : ""}. AED, VAT included.</p>
+        <table class="ptable"><thead><tr><th>Job</th><th class="num">Main dealer</th><th class="num">Independents</th></tr></thead><tbody>
+          {dvi.map((r) => {
+            const f = (x) => x ? (x.lo === x.hi ? x.lo.toLocaleString("en-US") : `${x.lo.toLocaleString("en-US")} to ${x.hi.toLocaleString("en-US")}`) : "";
+            return <tr><td>{r.job}</td><td class="num">{r.dealer ? <>from {f(r.dealer)}</> : <span class="muted">not collected yet</span>}</td><td class="num">{f(r.indie)} <span class="muted">({r.indie.n})</span></td></tr>;
+          })}
+        </tbody></table>
+        <p class="muted" style="font-size:12px;margin:8px 0 0">Dealer: published price lists and owner reports. Independents: garages' own price lists and owner reports. Prices vary by model year and what's included.{dviNote && <> {dviNote.text} <a href={dviNote.url} target="_blank" rel="noopener nofollow">Source: {dviNote.source}</a></>}</p>
+      </section>
+    )}
     {thin && (
       <form class="card panel notify" id="notifyForm" data-page={Astro.url.pathname} data-make={make || ""} data-model={model || ""}>
         <h2>Your car isn't covered well yet?</h2>

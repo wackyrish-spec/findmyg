@@ -1,5 +1,6 @@
 // Loads data/garages.json at build time and builds the indexes every page uses.
 import raw from "../../data/garages.json";
+import { readFileSync, existsSync } from "node:fs";
 import intros from "../content/intros.json";
 import { CATALOG, EXTRA_FAMILIES } from "./catalog.js";
 import { loadReviews, ownerStats } from "./reviews.js";
@@ -60,8 +61,10 @@ function norm(g) {
       models: (s.models || []).filter(Boolean),
       level: s.level || "brand",
       confidence: s.confidence || "low",
-      conf: CONF[s.confidence] || 1,
-      evidence: s.evidence || "",
+      // Spec 13.1: evidence older than 3 years counts one step lower and shows its year.
+      year: Number(s.latest_year) || null,
+      conf: Math.max(1, (CONF[s.confidence] || 1) - (Number(s.latest_year) && new Date().getFullYear() - Number(s.latest_year) > 3 ? 1 : 0)),
+      evidence: (s.evidence || "") + (Number(s.latest_year) && new Date().getFullYear() - Number(s.latest_year) > 3 ? ` (latest ${s.latest_year})` : ""),
       mentions: s.mentions || 0,
       basis: s.basis || "",
     }))
@@ -89,6 +92,7 @@ function norm(g) {
     sources: (g.sources || []).filter((u) => website || !g.website || !u.includes(g.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/.*$/, ""))),
     focus: g.website_focus?.focus && website ? g.website_focus.focus : "",
     notWorkshop: NOT_WORKSHOP.test(note) && !/workshop in/i.test(note),
+    closed: g.closed === true || /CLOSED/i.test(g.business_status || ""),
     specs,
     ext,
     google,
@@ -127,7 +131,7 @@ const defaultRank = (a, b) =>
 
 // Every garage keeps its page (slugs are frozen); non-workshops are left out of lists and search.
 export const ALL_GARAGES = (raw.garages || raw).filter((g) => g && g.name).map(norm).sort(defaultRank);
-export const GARAGES = ALL_GARAGES.filter((g) => !g.notWorkshop);
+export const GARAGES = ALL_GARAGES.filter((g) => !g.notWorkshop && !g.closed);
 export const BY_SLUG = Object.fromEntries(ALL_GARAGES.map((g) => [g.slug, g]));
 export const DATA_UPDATED = raw.updated || "";
 export const METHOD = raw.method || "";
@@ -240,7 +244,7 @@ export function isIndexable(key, evidenceCount) {
 }
 // Garage pages are indexed when they have real evidence for at least one specialty.
 // Indexable with evidence, owner reviews, or a person-checked summary of 20+ outside reviews read (PM spec, SEO input).
-export const garageIndexable = (g) => !g.notWorkshop && (g.hasEvidence || g.ownerCount > 0
+export const garageIndexable = (g) => !g.notWorkshop && !g.closed && (g.hasEvidence || g.ownerCount > 0
   || (g.summary_checked === true && (g.reviews_read || g.price_signal?.reviews_read || 0) >= 20));
 
 /* ---------- picker payload (kept small; shipped to the browser) ---------- */
@@ -383,3 +387,83 @@ export function familyGarages(family, limit = 6) {
 // One URL per intent (PM): job pages that match one problem page 301 to it (public/_redirects).
 export const JOB_TO_PROBLEM = { "ac-repair": "ac-not-cold", gearbox: "gearbox-jerks", brakes: "brakes-noise", bodywork: "dents-scratches", servicing: "service-due" };
 export const jobUrl = (slug) => (JOB_TO_PROBLEM[slug] ? `/dubai/problem/${JOB_TO_PROBLEM[slug]}/` : `/dubai/job/${slug}/`);
+
+// ---------- Owner-community mentions (PM spec 12.7) ----------
+// Line for cards: needs 2+ positive threads, held back when negatives are a third or more of positives.
+export const groupReports = (g) => Number(g.community_mentions?.group_reports) || 0;
+export function communityLine(g, model = null) {
+  const cm = g.community_mentions;
+  const pos = cm?.threads_positive || 0, neg = cm?.threads_negative || 0;
+  if (pos < 2 || neg * 3 >= pos) return "";
+  const src = (cm.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || ""));
+  const years = src.map((x) => Number(x.year)).filter((y) => y > 1990);
+  const span = years.length ? (Math.min(...years) === Math.max(...years) ? ` · ${years[0]}` : ` · ${Math.min(...years)}–${Math.max(...years)}`) : "";
+  const onModel = model ? src.filter((x) => (x.models || []).some((m) => String(m).toLowerCase() === model.toLowerCase())).length : 0;
+  return onModel >= 2 ? `Recommended in ${onModel} ${model} threads${span}` : `Recommended in ${pos} owner threads${span}`;
+}
+// Threads for the garage page, newest first; older than 5 years are flagged.
+export function communityThreads(g) {
+  const cm = g.community_mentions;
+  if (!cm || (cm.threads_positive || 0) < 1) return [];
+  const now = new Date().getFullYear();
+  // Legal: a title only when Data marks it title_ok; quotes credited to "an owner on <place>", never a username.
+  return (cm.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "")).map((x) => {
+    const type = (x.type || "").toLowerCase(), sub = (String(x.url).match(/reddit\.com\/r\/([A-Za-z0-9_]+)/) || [])[1];
+    const host = (() => { try { return new URL(x.url).hostname.replace(/^www\./, ""); } catch { return ""; } })();
+    const place = sub ? `r/${sub}` : host;
+    const kind = type === "reddit" || sub ? "Reddit thread" : type === "youtube" ? "YouTube video" : "Forum thread";
+    return {
+      url: x.url, year: Number(x.year) || null, old: Number(x.year) > 0 && now - Number(x.year) > 3,
+      label: x.title_ok && x.title ? x.title : [kind, type === "youtube" ? "" : place, x.year].filter(Boolean).join(", "),
+      quote: x.quote && x.quote.split(/\s+/).length <= 25 ? x.quote : "",
+      credit: `an owner on ${type === "youtube" ? "YouTube" : place || "a forum"}`,
+    };
+  }).sort((a, b) => (Number(b.year) || 0) - (Number(a.year) || 0));
+}
+
+// ---------- Niche (PM spec 14) ----------
+// Our marques lead the home page; everyday makes stay reachable through search with the honest fallback.
+export const OUR_MARQUES = ["Porsche", "Land Rover", "Mercedes-Benz", "BMW", "Audi", "Volkswagen", "Alfa Romeo", "Jaguar", "MINI", "Nissan", "Toyota", "Lexus",
+  "Ford", "Chevrolet", "Dodge", "Jeep", "Maserati", "Ferrari", "Lamborghini", "Bentley", "Rolls-Royce", "Aston Martin", "McLaren", "Volvo"];
+export const DVI_MAKES = ["Porsche", "Land Rover", "Mercedes-Benz"];
+const JOB_NAME = { minor_service: "Minor service", oil_service: "Oil and filter", brake_pads_front: "Front brake pads", brake_pads_axle: "Brake pads, one axle",
+  brake_repair: "Brakes", ac_regas: "AC regas", major_service: "Major service", pre_purchase_inspection: "Pre-purchase inspection" };
+function readCsv(path) {
+  if (!existsSync(path)) return [];
+  const rows = [], text = readFileSync(path, "utf8");
+  let row = [], cur = "", q = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (q) { if (ch === '"' && text[i + 1] === '"') { cur += '"'; i++; } else if (ch === '"') q = false; else cur += ch; }
+    else if (ch === '"') q = true; else if (ch === ",") { row.push(cur); cur = ""; }
+    else if (ch === "\n") { row.push(cur); rows.push(row); row = []; cur = ""; } else if (ch !== "\r") cur += ch;
+  }
+  if (cur || row.length) { row.push(cur); rows.push(row); }
+  const [head, ...body] = rows;
+  return body.filter((r) => r.length > 1).map((r) => Object.fromEntries(head.map((h, i) => [h, r[i] ?? ""])));
+}
+const PRICE_BENCH = readCsv("data/price-benchmarks.csv");
+// "Dealer vs independent" for one model: same job on both sides; dealer side may be missing (then a cited note).
+export function dealerVsIndie(make, model) {
+  if (!DVI_MAKES.includes(make)) return [];
+  const m = lc(model);
+  // Row fits when it names this model (Range Rover rows naming Sport, Evoque or Velar belong to those pages), or is make-wide.
+  const fits = (r) => {
+    if (r.make !== make) return false;
+    const rm = lc(r.model);
+    if (!rm) return true;
+    const at = rm.indexOf(m);
+    return at >= 0 && !/^\s*(sport|evoque|velar)\b/.test(rm.slice(at + m.length));
+  };
+  const by = {};
+  PRICE_BENCH.filter(fits).forEach((r) => {
+    const lo = Number(r.aed_low), hi = Number(r.aed_high) || lo;
+    if (!(lo > 0)) return;
+    const side = r.business_type === "dealer" ? "dealer" : "indie";
+    const j = (by[r.job] ||= { job: JOB_NAME[r.job] || r.job, dealer: [], indie: [] });
+    j[side].push({ lo, hi, model: r.model, src: r.source });
+  });
+  const span = (xs) => xs.length ? { lo: Math.round(Math.min(...xs.map((x) => x.lo))), hi: Math.round(Math.max(...xs.map((x) => x.hi))), n: xs.length } : null;
+  return Object.values(by).filter((j) => j.indie.length).map((j) => ({ job: j.job, dealer: span(j.dealer), indie: span(j.indie) }))
+    .sort((a, b) => !!b.dealer - !!a.dealer);
+}

@@ -1,0 +1,34 @@
+---
+// "Seen this garage recommended in a group?" (spec 12.7, Legal): signed-in, one report per account per garage,
+// group name only. Checked by hand before it counts. Shown apart from the owner-thread count.
+import Base from "../../../layouts/Base.astro";
+import { ALL_GARAGES } from "../../../lib/data.js";
+import { SITE } from "../../../lib/site.js";
+export function getStaticPaths() {
+  return ALL_GARAGES.filter((g) => !g.isDealer).map((g) => ({ params: { slug: g.slug }, props: { g } }));
+}
+const { g } = Astro.props;
+const ready = !!(import.meta.env.PUBLIC_SUPABASE_URL && import.meta.env.PUBLIC_SUPABASE_ANON_KEY);
+const mail = `mailto:${SITE.emailHello}?subject=${encodeURIComponent(`Group mention: ${g.name}`)}&body=${encodeURIComponent(`Garage: ${g.name} (${g.slug})\nGroup name: \n`)}`;
+---
+<Base title={`Seen ${g.name} recommended in a group?`} description="Tell us which owner group recommended this garage." noindex={true} crumbs={[{ name: g.name, url: `/garage/${g.slug}/` }, { name: "Group mention" }]}>
+  <div class="wrap" style="padding-block:20px 56px;max-width:620px">
+    <h1 style="font-size:36px;text-transform:uppercase">Seen {g.name} recommended in a group?</h1>
+    <p class="muted">Tell us the group's name only, never a member's name or what they wrote. We check it before it counts, and it shows as "Also mentioned in N Facebook groups, reported by owners".</p>
+    {ready ? (
+      <form class="f card panel" id="mentionForm" data-garage={g.slug} novalidate>
+        <label class="fld" for="mGroup">Group name<input id="mGroup" maxlength="120" required placeholder="e.g. Porsche Club UAE" /></label>
+        <label class="fld" for="mType">Where<select id="mType"><option value="facebook">Facebook group</option><option value="whatsapp">WhatsApp group</option><option value="other">Other</option></select></label>
+        <div id="mSignin" hidden>
+          <label class="fld" for="mEmail">Your email<input id="mEmail" type="email" autocomplete="email" placeholder="you@example.com" /><small>We email you a sign-in link so each report comes from a real person. One report per person per garage. Your email is never shown.</small></label>
+        </div>
+        <div class="err" id="mErr" hidden></div>
+        <button class="btn primary" type="submit" id="mGo">Send</button>
+        <p class="okmsg" id="mOk" hidden></p>
+      </form>
+    ) : (
+      <div class="card panel"><p>Email us the group's name and we'll check it.</p><a class="btn primary" href={mail}>Email the group name</a></div>
+    )}
+  </div>
+  <script>import "../../../scripts/mention.js";</script>
+</Base>

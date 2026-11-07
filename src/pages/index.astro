@@ -1,7 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
-import { BRANDS, AREAS, GARAGES, PROBLEMS } from "../lib/data.js";
+import { BRANDS, AREAS, GARAGES, PROBLEMS, OUR_MARQUES } from "../lib/data.js";
 const evidenceGarages = GARAGES.filter((g) => g.hasEvidence).length;
 const site = {
   "@context": "https://schema.org", "@type": "WebSite", name: "KnowsMyCar", url: Astro.site?.toString(),
@@ -27,7 +27,7 @@ const org = {
   </div></section>
   <div class="wrap">
     <section class="blk"><div class="blkhead"><div><h2>Specialist garages in Dubai by car brand</h2><p>{evidenceGarages} garages have specialties backed by reviews or owner recommendations.</p></div><a class="btn sm" href="/dubai/">All {GARAGES.length} garages</a></div>
-      <div class="brands">{BRANDS.slice(0, 18).map((b) => (
+      <div class="brands">{BRANDS.filter((b) => OUR_MARQUES.includes(b.make)).slice(0, 18).map((b) => (
         <a class="brand" href={`/dubai/${b.slug}/`}><b>{b.make}</b><small>{b.garages.length} garage{b.garages.length > 1 ? "s" : ""}{b.evidenceCount ? ` · ${b.evidenceCount} with strong evidence` : ""}</small></a>
       ))}</div></section>
     <section class="blk"><div class="blkhead"><div><h2>Why KnowsMyCar</h2><p>Booking apps hide the workshop. Google stars don't know your car. The real knowledge is scattered across forum threads.</p></div><a class="btn sm" href="/how-it-works/">How it works</a></div>
@@ -36,7 +36,7 @@ const org = {
         <div class="card"><span class="n">02</span><h3>What owners paid</h3><p>Owners add the job, the price and whether the bill matched the quote, so the next person knows what's fair.</p></div>
         <div class="card"><span class="n">03</span><h3>Two kinds of review</h3><p>KnowsMyCar owner reviews and what the internet says are shown separately and never blended.</p></div>
       </div></section>
-    <section class="blk" style="padding-bottom:48px"><div class="blkhead"><h2>Car garages in Dubai by area</h2></div>
+    <section class="blk" id="areas" style="padding-bottom:48px"><div class="blkhead"><h2>Car garages in Dubai by area</h2></div>
       <div class="linkgrid">{AREAS.map((a) => <a class="pill" href={`/dubai/area/${a.slug}/`}>{a.name} · {a.garages.length}</a>)}</div></section>
   </div>
 </Base>
