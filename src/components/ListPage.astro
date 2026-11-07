@@ -65,7 +65,7 @@ const itemList = {
             return <tr><td>{r.job}</td><td class="num">{r.dealer ? <>from {f(r.dealer)}</> : <span class="muted">not collected yet</span>}</td><td class="num">{f(r.indie)} <span class="muted">({r.indie.n})</span></td></tr>;
           })}
         </tbody></table>
-        <p class="muted" style="font-size:12px;margin:8px 0 0">Dealer: published price lists and owner reports. Independents: garages' own price lists and owner reports. Prices vary by model year and what's included.{dviNote && <> {dviNote.text} <a href={dviNote.url} target="_blank" rel="noopener nofollow">Source: {dviNote.source}</a></>}</p>
+        <p class="muted" style="font-size:12px;margin:8px 0 0">Dealer: published price lists and owner reports. Independents: garages' own price lists and owner reports. Prices vary by model year and what's included. <a href="/check-a-quote/">Got a dealer quote? Check it</a>.{dviNote && <> {dviNote.text} <a href={dviNote.url} target="_blank" rel="noopener nofollow">Source: {dviNote.source}</a></>}</p>
       </section>
     )}
     {thin && (

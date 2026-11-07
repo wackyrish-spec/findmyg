@@ -86,7 +86,7 @@ function searchOthers(q) {
 function searchCars(q) {
   q = q.toLowerCase().replace(/\b(19[89]\d|20[0-3]\d)\b/, "").trim();
   if (!q) return [];
-  const toks = q.split(/[\s,]+/).filter(Boolean);
+  const toks = q.split(/[\s,-]+/).filter(Boolean);
   const out = [];
   BRANDS.forEach((b) => {
     const bl = b.toLowerCase();
@@ -457,3 +457,7 @@ if (nb) nb.addEventListener("click", () => {
     nb.disabled = false; nb.textContent = "Sorted by distance";
   }, () => { nb.disabled = false; fallback(); }, { timeout: 8000, maximumAge: 6e5 });
 });
+
+/* ---------- C5 quote check: car picker ---------- */
+const qc = $("#qcCar");
+if (qc) wirePicker(qc, () => {});

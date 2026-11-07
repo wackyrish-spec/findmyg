@@ -490,3 +490,15 @@ export function modelOwners(make, model) {
   const list = ALL_REVIEWS.filter((r) => modelKey(r.car_make, r.car_model) === `${make}|${model}` && !r.g.notWorkshop);
   return { n: list.length, latest: list.slice(-3).reverse() };
 }
+
+// ---------- C5 "Got a dealer quote? Check it" (spec 15) ----------
+// Price points per job for the quote check: figures only, make-specific (generic all-makes prices are left out).
+export function quotePoints() {
+  const out = [];
+  BENCHMARKS.filter((b) => !b.pageOnly).forEach((b) => ALL_GARAGES.forEach((g) => benchPoints(g, b).forEach((p) => {
+    const lo = Number(p.low), hi = Number(p.high) || lo;
+    if (!(lo > 0) || !p.make || p.src === "web") return;
+    out.push({ j: b.key, mk: p.make, md: p.model || "", v: Math.round((lo + hi) / 2), d: p.src === "dealer" || g.isDealer ? 1 : 0 });
+  })));
+  return out;
+}
