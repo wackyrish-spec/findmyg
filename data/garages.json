@@ -4903,9 +4903,9 @@
      "models": [],
      "level": "brand",
      "confidence": "medium",
-     "evidence": "Recommended for Porsche by one owner on Reddit (2021, Cayenne thread); weak evidence",
-     "mentions": 0,
-     "basis": "community",
+     "evidence": "Porsche named in 4 of 8 recent Google reviews that name a make (60 read); also recommended for Porsche by one owner on Reddit (2021)",
+     "mentions": 4,
+     "basis": "reviews+community",
      "car_family": "german"
     }
    ],
@@ -4944,7 +4944,7 @@
     }
    ],
    "review_summary": "Google rating 4.8 from 216 reviews. Google reviews not yet analysed; recommended by owners on Reddit r/dubai.",
-   "reviews_analysed": 0,
+   "reviews_analysed": 60,
    "sources": [
     "https://www.google.com/maps/search/?api=1&query=POSH%20CARE%20GARAGE&query_place_id=ChIJCxqgD_5pXz4RwNaywo7WajM",
     "https://www.poshcaregarages.com/",
@@ -4955,7 +4955,16 @@
    "price_examples": [],
    "evidence_summary": "Recommended by owners for Mercedes-Benz on Reddit r/dubai.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 11,
+    "fair": 6,
+    "expensive": 0,
+    "cheap": 0,
+    "as_of": "2026-11-07",
+    "jobs": []
+   }
   },
   {
    "id": "bi-salam-autotech-d2af",
@@ -5070,10 +5079,10 @@
       "911"
      ],
      "level": "brand",
-     "confidence": "medium",
-     "evidence": "Recommended for Porsche in 5 Reddit threads (2023-2025) by separate owners, including Cayenne GTS and 911 buyers; Porsche-only workshop",
-     "mentions": 0,
-     "basis": "listing name+community",
+     "confidence": "high",
+     "evidence": "Porsche named in 31 of 60 recent Google reviews (every review that names a make), Cayenne 5 and 911 4; also recommended in 5 Reddit threads; Porsche-only workshop",
+     "mentions": 31,
+     "basis": "reviews+community",
      "car_family": "german"
     }
    ],
@@ -5167,7 +5176,7 @@
     }
    ],
    "review_summary": "Google rating 4.9 from 197 reviews. Google reviews not yet analysed; recommended by Porsche owners in two Reddit r/DubaiPetrolHeads threads, including for a Cayenne.",
-   "reviews_analysed": 0,
+   "reviews_analysed": 60,
    "sources": [
     "https://www.google.com/maps/search/?api=1&query=Project%2011%20Independent%20Porsche%20Specialists&query_place_id=ChIJOcnpqQVrXz4RoixX07edtl4",
     "http://www.project11.ae/",
@@ -5195,7 +5204,16 @@
    ],
    "evidence_summary": "Recommended by owners for Porsche on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 9,
+    "fair": 3,
+    "expensive": 0,
+    "cheap": 0,
+    "as_of": "2026-11-07",
+    "jobs": []
+   }
   },
   {
    "id": "waseem-range-rover-specialist-af4a",
@@ -5411,12 +5429,14 @@
    "specialties": [
     {
      "make": "Porsche",
-     "models": [],
+     "models": [
+      "Cayenne"
+     ],
      "level": "brand",
-     "confidence": "medium",
-     "evidence": "Garage name advertises Porsche; reviews not yet analysed; Described as a Porsche specialist in Garage website",
-     "mentions": 0,
-     "basis": "listing name+community",
+     "confidence": "high",
+     "evidence": "Porsche named in 28 of 60 recent Google reviews (28 of 29 that name a make), Cayenne 6",
+     "mentions": 28,
+     "basis": "reviews",
      "car_family": "german"
     }
    ],
@@ -5457,7 +5477,7 @@
     }
    ],
    "review_summary": "Google rating 4.8 from 110 reviews. Google reviews not yet analysed; recommended by owners on Garage website.",
-   "reviews_analysed": 0,
+   "reviews_analysed": 60,
    "sources": [
     "https://www.google.com/maps/search/?api=1&query=Starpit%20German%20Cars-%20Independent%20Porsche%20Specialist&query_place_id=ChIJf59Xa-RbXz4RF3krsGJffSw",
     "https://starpitgermancars.com/",
@@ -5467,7 +5487,16 @@
    "price_examples": [],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": false,
-   "works_on_all_makes_basis": "listing names specific makes"
+   "works_on_all_makes_basis": "listing names specific makes",
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 11,
+    "fair": 5,
+    "expensive": 2,
+    "cheap": 2,
+    "as_of": "2026-11-07",
+    "jobs": []
+   }
   },
   {
    "id": "a2b-garage-136e",
@@ -6330,8 +6359,8 @@
    "phone": "+971522472941",
    "whatsapp": "+971522472941",
    "website": "https://www.autotechdxb.com/",
-   "maps_url": "https://maps.google.com/?q=25.115546270166476,55.21806872059701",
-   "google_place_id": null,
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
+   "google_place_id": "ChIJH39WzJZpXz4RcMOAhrjLiUs",
    "categories": [],
    "business_type": "workshop",
    "dealer_for": null,
@@ -6385,7 +6414,15 @@
    ],
    "possible_matches": [],
    "is_specialist": true,
-   "external_ratings": [],
+   "external_ratings": [
+    {
+     "source": "Google",
+     "rating": 4.9,
+     "count": 52,
+     "url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
+     "as_of": "2026-11-07"
+    }
+   ],
    "external_reviews": [
     {
      "source": "Reddit r/DubaiPetrolHeads",
@@ -24956,13 +24993,13 @@
    "emirate": "Dubai",
    "area": "Al Khawaneej",
    "address": "Warehouse 6, Al Ttay, Al Khawaneej, Dubai",
-   "lat": null,
-   "lng": null,
+   "lat": 25.2339169,
+   "lng": 55.5592134,
    "phone": "+971506170746",
    "whatsapp": "",
    "website": "https://rstwerks.com/",
-   "maps_url": "",
-   "google_place_id": null,
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=RST%20Werks%20Dubai&query_place_id=ChIJX5XMFYWL9T4REGyBJutwBps",
+   "google_place_id": "ChIJX5XMFYWL9T4REGyBJutwBps",
    "categories": [],
    "business_type": "workshop",
    "dealer_for": null,
@@ -25032,7 +25069,15 @@
     }
    ],
    "is_specialist": false,
-   "external_ratings": [],
+   "external_ratings": [
+    {
+     "source": "Google",
+     "rating": 5.0,
+     "count": 65,
+     "url": "https://www.google.com/maps/search/?api=1&query=RST%20Werks%20Dubai&query_place_id=ChIJX5XMFYWL9T4REGyBJutwBps",
+     "as_of": "2026-11-07"
+    }
+   ],
    "external_reviews": [
     {
      "source": "Reddit r/DubaiPetrolHeads",
@@ -25164,13 +25209,13 @@
    "emirate": "Dubai",
    "area": "Nad Al Hamar",
    "address": "Opposite Belhasa Driving Center, Nad Al Hamar, Dubai (second Dubai branch: 6th Street, Al Quoz Industrial 1)",
-   "lat": null,
-   "lng": null,
+   "lat": 25.1846657,
+   "lng": 55.3792473,
    "phone": "+97142845931",
    "whatsapp": "+97142845931",
    "website": "https://dynatrade-uae.com/",
-   "maps_url": "https://www.google.com/maps/search/?api=1&query=Dynatrade%20Auto%20Service%20Nad%20Al%20Hamar%20Dubai",
-   "google_place_id": null,
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=Dynatrade%20Auto%20Car%20Repair%20%26%20Service%20Centre%2C%20Nad%20Al%20Hamar%20Dubai&query_place_id=ChIJafR4vh9nXz4RHtxa6SoXOqA",
+   "google_place_id": "ChIJafR4vh9nXz4RHtxa6SoXOqA",
    "categories": [],
    "business_type": "workshop (multi-brand chain)",
    "dealer_for": null,
@@ -25201,7 +25246,15 @@
     }
    ],
    "is_specialist": true,
-   "external_ratings": [],
+   "external_ratings": [
+    {
+     "source": "Google",
+     "rating": 4.8,
+     "count": 7012,
+     "url": "https://www.google.com/maps/search/?api=1&query=Dynatrade%20Auto%20Car%20Repair%20%26%20Service%20Centre%2C%20Nad%20Al%20Hamar%20Dubai&query_place_id=ChIJafR4vh9nXz4RHtxa6SoXOqA",
+     "as_of": "2026-11-07"
+    }
+   ],
    "external_reviews": [
     {
      "source": "Reddit r/DubaiPetrolHeads",
@@ -25271,13 +25324,13 @@
    "emirate": "Dubai",
    "area": "Umm Ramool",
    "address": "18B Street, off 17th Street, Umm Ramool, Dubai",
-   "lat": null,
-   "lng": null,
+   "lat": 25.2351514,
+   "lng": 55.3703071,
    "phone": "+971506874307",
    "whatsapp": "",
    "website": "https://magautoservices.com/",
-   "maps_url": "https://www.google.com/maps/search/?api=1&query=MAG%20Auto%20Services%20Umm%20Ramool%20Dubai",
-   "google_place_id": null,
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
+   "google_place_id": "ChIJ4_8LSNNdXz4REw-y73SKdi8",
    "categories": [],
    "business_type": "workshop",
    "dealer_for": null,
@@ -25299,7 +25352,15 @@
     }
    ],
    "is_specialist": true,
-   "external_ratings": [],
+   "external_ratings": [
+    {
+     "source": "Google",
+     "rating": 4.8,
+     "count": 178,
+     "url": "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
+     "as_of": "2026-11-07"
+    }
+   ],
    "external_reviews": [
     {
      "source": "Reddit r/DubaiPetrolHeads",
