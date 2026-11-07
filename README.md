@@ -93,4 +93,4 @@ Without Supabase settings the site still builds, with no owner reviews and the f
 
 ### QR short links
 
-`public/_redirects` sends `/r/<slug>` to that garage's review form (tagged `ref=qr`) and `/r/meet` to the home page. Printed cards use garage slugs, so never rename a slug in `data/garages.json` once its card is printed.
+`public/_redirects` sends `/r/<slug>` to that garage's review form (tagged `ref=qr`) and `/r/meet` to the home page. `/this-week` forwards (with its ?ref= tag) to the brand-of-the-week page set by `thisWeek` in `src/lib/site.js` (or the PUBLIC_THIS_WEEK env var). Printed cards use garage slugs, so never rename a slug in `data/garages.json` once its card is printed.

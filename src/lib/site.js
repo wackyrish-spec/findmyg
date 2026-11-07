@@ -11,4 +11,6 @@ export const SITE = {
   emailPrivacy: import.meta.env.PUBLIC_EMAIL_PRIVACY || "privacy@knowsmycar.ae",
   // Sitewide noindex until launch. Set PUBLIC_INDEXING=on in Cloudflare on launch day.
   indexing: import.meta.env.PUBLIC_INDEXING === "on",
+  // Brand of the week for /this-week (Instagram link-in-bio). Change this one value each Monday.
+  thisWeek: import.meta.env.PUBLIC_THIS_WEEK || "/dubai/porsche/",
 };

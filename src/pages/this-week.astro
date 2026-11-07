@@ -1,0 +1,27 @@
+---
+// Link-in-bio: forwards to the current brand-of-the-week page and keeps ?ref= / utm tags.
+import { SITE } from "../lib/site.js";
+const to = SITE.thisWeek;
+---
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, follow" />
+  <title>{SITE.name}: this week</title>
+  <link rel="canonical" href={new URL(to, Astro.site).toString()} />
+  <noscript><meta http-equiv="refresh" content={`0; url=${to}`} /></noscript>
+  <script is:inline define:vars={{ to }}>
+    try {
+      // Keep first-touch attribution, the same way site.js does on other pages.
+      const q = new URLSearchParams(location.search), r = {};
+      ["ref", "utm_source", "utm_medium", "utm_campaign"].forEach((k) => { const v = q.get(k); if (v) r[k] = v.slice(0, 80); });
+      if (!r.ref && q.get("src")) r.ref = q.get("src").slice(0, 80);
+      if (!sessionStorage.getItem("gg:ref")) sessionStorage.setItem("gg:ref", JSON.stringify(r));
+    } catch {}
+    location.replace(to + location.search);
+  </script>
+</head>
+<body><p><a href={to}>Go to this week's brand</a></p></body>
+</html>
