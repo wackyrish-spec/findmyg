@@ -419,3 +419,6 @@ footer .proof{margin:0 0 8px;font-weight:800}
 .ptalk{margin:4px 0 0;font-size:13px;font-weight:700}.ptalk.pos b,.ptalk.pos{color:var(--pos)}.ptalk.neg b,.ptalk.neg{color:var(--neg)}.ptalk.mid{color:var(--warn)}.ptalk .muted{font-weight:500}
 .benchline{margin:4px 0 0;font-size:13px;color:var(--ink)}.bench{margin-bottom:12px}.bench h3{margin:0 0 2px}
 .tier{display:inline-block;margin-right:6px;padding:1px 6px;border-radius:6px;background:var(--soft);border:1px solid var(--line);font:700 12px/1.4 var(--f-mono);color:var(--pos)}
+.helpfb{margin-top:16px;display:flex;flex-direction:column;gap:8px}.helpfb .fbq{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.helpfb .fbmore{display:flex;gap:8px;align-items:end;flex-wrap:wrap}.helpfb .fbmore .fld{flex:1;min-width:200px}
+.nomatch{margin:0;padding:11px 14px;font-size:14px;color:var(--muted)}
+.evid .esum{font-weight:500}.seeev{font-size:13px;font-weight:800;white-space:nowrap}

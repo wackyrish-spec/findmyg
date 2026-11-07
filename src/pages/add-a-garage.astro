@@ -1,9 +1,27 @@
 ---
 import Base from "../layouts/Base.astro";
+const ready = !!(import.meta.env.PUBLIC_SUPABASE_URL && import.meta.env.PUBLIC_SUPABASE_ANON_KEY);
 ---
 <Base title="Add a garage or suggest a correction" description="Know a great specialist in Dubai that's missing from KnowsMyCar? Tell us." noindex={true} crumbs={[{ name: "Add a garage" }]}>
   <div class="wrap" style="padding-block:20px 56px;max-width:680px">
-    <h1 style="font-size:42px;text-transform:uppercase">Add a garage</h1>
-    <p class="muted">Tell us about a specialist that's missing, or a correction to a listing. This form goes live together with owner reviews, very soon.</p>
+    <h1 id="sgTitle" style="font-size:42px;text-transform:uppercase">Add a garage</h1>
+    <p class="muted" id="sgLead">Tell us about a specialist that's missing and which cars they're good with. We check every suggestion before it appears.</p>
+    {ready ? (
+      <form class="card panel notify" id="sgForm">
+        <input type="hidden" name="garage_slug" />
+        <label class="fld" for="sgName">Garage name<input id="sgName" name="name" maxlength="120" /></label>
+        <div class="two">
+          <label class="fld" for="sgArea">Area<input id="sgArea" name="area" maxlength="80" placeholder="e.g. Al Quoz 3" /></label>
+          <label class="fld" for="sgCars">Cars they're good with<input id="sgCars" name="cars" maxlength="200" placeholder="e.g. Porsche Cayenne, Macan" /></label>
+        </div>
+        <label class="fld" for="sgDetails">What should we know?<textarea id="sgDetails" name="details" required minlength="5" maxlength="1000" rows="4"></textarea></label>
+        <label class="fld" for="sgContact">Email or WhatsApp, if you'd like a reply (optional)<input id="sgContact" name="contact" maxlength="200" /></label>
+        <div class="err" hidden></div>
+        <button class="btn primary" type="submit">Send</button>
+        <p class="okmsg" hidden>Thanks, we'll check it within a few days.</p>
+      </form>
+    ) : (
+      <p>Email us at the address on the <a href="/right-of-reply/">For garages</a> page.</p>
+    )}
   </div>
 </Base>

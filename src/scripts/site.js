@@ -71,7 +71,11 @@ function wirePicker(root, onPick) {
   const inp = $("input", root), list = $(".sugg", root);
   let items = [], act = -1;
   const draw = () => {
-    if (!items.length) { list.hidden = true; inp.setAttribute("aria-expanded", "false"); return; }
+    if (!items.length) {
+      if (inp.value.trim().length >= 2) { list.innerHTML = `<p class="nomatch">No match yet. Try the make or model name, like "Cayenne" or "Giulietta", or <a href="/add-a-garage/">tell us your car</a>.</p>`; list.hidden = false; }
+      else list.hidden = true;
+      inp.setAttribute("aria-expanded", "false"); return;
+    }
     list.innerHTML = items.map((c, i) => `<button type="button" role="option" class="${i === act ? "act" : ""}" data-i="${i}"><span>${c.brandOnly ? `${esc(c.make)} <span class="muted">· any model</span>` : `${esc(c.make)} ${esc(c.model)} ${c.code ? `<span class="code">${esc(c.code)}</span>` : ""}`}</span><small>${esc(c.years || "")}</small></button>`).join("");
     list.hidden = false; inp.setAttribute("aria-expanded", "true");
   };
@@ -269,4 +273,50 @@ document.querySelectorAll(".reportForm").forEach((f) => f.addEventListener("subm
     f.querySelector(".okmsg").hidden = false;
   } catch { err.textContent = "Something went wrong. Please try again."; err.hidden = false; }
 }));
+
+/* ---------- add a garage / suggest a correction ---------- */
+const sg = $("#sgForm");
+if (sg) {
+  const fix = new URLSearchParams(location.search).get("fix");
+  if (fix) {
+    sg.elements.garage_slug.value = fix.slice(0, 120);
+    $("#sgTitle").textContent = "Suggest a correction";
+    $("#sgLead").textContent = "Tell us what's wrong or missing on this garage's page: phone, hours, address, or the cars they work on.";
+    sg.elements.name.closest("label").hidden = true;
+  }
+  sg.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const d = new FormData(sg), err = sg.querySelector(".err"), v = (k) => (d.get(k) || "").toString().trim() || null;
+    if ((v("details") || "").length < 5) { err.textContent = "Add a few words so we know what to check."; err.hidden = false; return; }
+    err.hidden = true;
+    const r = attribution();
+    try {
+      const res = await fetch(`${SB_URL}/rest/v1/garage_suggestions`, {
+        method: "POST", headers: { apikey: SB_KEY, "Content-Type": "application/json", Prefer: "return=minimal" },
+        body: JSON.stringify({ kind: fix ? "fix" : "new", garage_slug: v("garage_slug"), name: v("name"), area: v("area"), cars: v("cars"), details: v("details"), contact: v("contact"), ref: r.ref || r.utm_source || null }),
+      });
+      if (!res.ok) throw new Error(res.status);
+      sg.querySelector("button[type=submit]").hidden = true; sg.querySelector(".okmsg").hidden = false;
+    } catch { err.textContent = "Something went wrong. Please try again."; err.hidden = false; }
+  });
+}
+
+/* ---------- "Did this help?" ---------- */
+const fb = $("#helpFb");
+if (fb && SB_URL && SB_KEY) {
+  fb.hidden = false;
+  const send = async (helped, note) => {
+    const r = attribution();
+    try { await fetch(`${SB_URL}/rest/v1/feedback`, { method: "POST", keepalive: true, headers: { apikey: SB_KEY, "Content-Type": "application/json", Prefer: "return=minimal" },
+      body: JSON.stringify({ page: location.pathname.slice(0, 200), helped, note: note ? note.slice(0, 300) : null, ref: r.ref || r.utm_source || null }) }); } catch {}
+  };
+  fb.addEventListener("click", (e) => {
+    const b = e.target.closest("[data-help]"); if (!b) return;
+    const yes = b.dataset.help === "yes";
+    fb.dataset.helped = yes ? "1" : "0";
+    $(".fbq", fb).hidden = true;
+    if (yes) { send(true); $(".fbthanks", fb).hidden = false; } else $(".fbmore", fb).hidden = false;
+  });
+  $(".fbmore", fb).addEventListener("submit", (e) => { e.preventDefault(); send(false, $("input", e.target).value.trim()); e.target.hidden = true; $(".fbthanks", fb).hidden = false; });
+}
 

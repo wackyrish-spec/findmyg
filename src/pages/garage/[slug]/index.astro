@@ -1,6 +1,7 @@
 ---
 import Base from "../../../layouts/Base.astro";
 import Icon from "../../../components/Icon.astro";
+import HelpFeedback from "../../../components/HelpFeedback.astro";
 import { existsSync } from "node:fs";
 import { SITE } from "../../../lib/site.js";
 import { GARAGES, garageIndexable, slugify, DATA_UPDATED, benchmarks, BENCH_SRC, aedRange } from "../../../lib/data.js";
@@ -10,6 +11,10 @@ export function getStaticPaths() {
 const { g } = Astro.props;
 const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(g.name + " " + (g.area || "") + " Dubai")}`;
 const top = g.specs[0];
+// Self-claims, shown once: the makes, one link, and any distinct notes.
+const claimMakes = [...new Set((g.self_claims || []).map((c) => c.make + ((c.models || []).length ? ` (${c.models.join(", ")})` : "")).filter(Boolean))];
+const claimUrl = (g.self_claims || []).find((c) => c.url)?.url || "";
+const claimNotes = [...new Set((g.self_claims || []).map((c) => c.note).filter((n) => n && !/^Garage's own website lists/i.test(n)))];
 const SB = import.meta.env.PUBLIC_SUPABASE_URL;
 // Real photo if we have one with the garage's OK (public/photos/<slug>.jpg); otherwise a branded header.
 const photo = existsSync(`public/photos/${g.slug}.jpg`) ? `/photos/${g.slug}.jpg` : null;
@@ -204,7 +209,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
           </section>
         )}
 
-        <section class="card panel theirs"><h2>Around the web</h2>
+        <section class="card panel theirs" id="evidence"><h2>Around the web</h2>
           <p class="sub">What other sites show, in our own words, with links to the originals. Shown separately and never mixed into KnowsMyCar ratings or ranking.</p>
           {g.summary.map((x) => <p style="margin:0 0 8px">{x}</p>)}
           <div class="srclist">
@@ -245,13 +250,13 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
             {g.phone && <div><dt>Phone</dt><dd class="num"><a href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">{g.phone}</a></dd></div>}
             {g.hours && <div><dt>Hours</dt><dd>{g.hours}</dd></div>}
             {g.website && <div><dt>Website</dt><dd><a href={g.website} target="_blank" rel="noopener" style="overflow-wrap:anywhere">{g.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}</a></dd></div>}
-            {(g.self_claims || []).length > 0 && <div><dt>The garage says</dt><dd>{g.self_claims.map((c) => <div>{c.note || `Works on ${c.make}${(c.models || []).length ? ` (${c.models.join(", ")})` : ""}`}{c.url && <> · <a href={c.url} target="_blank" rel="noopener nofollow">their website</a></>}</div>)}<small class="muted">Their own claim, not owner evidence.</small></dd></div>}
+            {claimMakes.length > 0 && <div><dt>The garage says</dt><dd><div>Works on {claimMakes.join(", ")}{claimUrl && <> · <a href={claimUrl} target="_blank" rel="noopener nofollow">their website</a></>}</div>{claimNotes.map((n) => <div class="muted">{n}</div>)}<small class="muted">Their own claim, not owner evidence.</small></dd></div>}
             {(g.services || []).length > 0 && <div><dt>Services</dt><dd>{g.services.join(", ")}</dd></div>}
           </dl>
           <p class="confirmed">Is something wrong or missing? <a href={`/add-a-garage/?fix=${g.slug}`}>Suggest a correction</a>.</p>
         </section>
         <section class="card panel">
-          <details class="enth" open={false}><summary>For enthusiasts: the evidence</summary>
+          <details class="enth" open={false}><summary>See the evidence</summary>
             <div class="enthlist">
               {g.specs.map((s) => (
                 <div><span><b>{s.make}</b>{s.models.length > 0 && <> · {s.models.map((m) => <span class="code">{m}</span>)}</>} <span class={`conf c${s.conf}`}>{s.confidence}</span></span>
@@ -265,6 +270,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
       </div>
     </div>
   </div>
+  <div class="wrap"><HelpFeedback /></div>
   <div class="stickybar" id="sticky">
     {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
     {g.phone && <a class="btn primary" href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call"><Icon name="phone" />Call</a>}

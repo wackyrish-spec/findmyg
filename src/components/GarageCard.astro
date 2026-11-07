@@ -43,20 +43,13 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
         <><span class={`match l${level}`}><span class="meter">{[1, 2, 3].map((i) => <i class={i <= level ? "on" : ""}></i>)}</span>{LEVELS[level]}{model && !spec.modelHit ? ` (${make})` : ""}</span>{spec.mentions > 0 && <span class="mcount"> · from {spec.mentions} {/community/.test(spec.basis || "") && !/reviews/.test(spec.basis || "") ? (spec.mentions === 1 ? "community post" : "community posts") : (spec.mentions === 1 ? "review" : "reviews")}</span>}</>
       )}
     </div>
+    {/* One plain line on the card; the full evidence lives on the garage page. */}
     <div class="evid">
-      {spec ? spec.evidence || `${make} specialist` : brandLines.length ? brandLines.map((s, i) => (<>{i > 0 && <span class="sep">|</span>}{s.make}{s.models.length ? ` (${s.models.slice(0, 2).join(", ")})` : ""} <span class={`conf c${s.conf}`}>{s.confidence}</span></>)) : <span class="muted">No specialty found yet</span>}
+      {g.summary[0] && (g.hasEvidence || g.ownerCount > 0) ? <span class="esum">{g.summary[0]}</span>
+        : spec ? spec.evidence || `${make} specialist`
+        : brandLines.length ? brandLines.map((s, i) => (<>{i > 0 && <span class="sep">|</span>}{s.make}</>)) : <span class="muted">No specialty found yet</span>}
+      {" "}<a class="seeev" href={`/garage/${g.slug}/#evidence`}>See the evidence</a>
     </div>
-    {g.summary[0] && (g.hasEvidence || g.ownerCount > 0) && <p class="esum">{g.summary[0]}</p>}
-    <details class="enth">
-      <summary>For enthusiasts</summary>
-      <div class="enthlist">
-        {g.specs.map((s) => (
-          <div><span><b>{s.make}</b>{s.models.length > 0 && <> · {s.models.map((m) => <span class="code">{m}</span>)}</>} <span class={`conf c${s.conf}`}>{s.confidence}</span></span>
-          <span class="muted">{s.evidence}{s.basis ? ` (source: ${s.basis})` : ""}</span></div>
-        ))}
-        {(g.categories || []).length > 0 && <div class="muted">Listed as: {g.categories.slice(0, 6).join(", ")}</div>}
-      </div>
-    </details>
   </div>
   <div class="stats">
     <div class="statrow">
@@ -68,7 +61,7 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
       : g.priceTalk && !g.isDealer && <p class={`ptalk ${g.priceTalk.tone}`}>{g.priceTalk.label}</p>}
     <div class="acts">
       {g.waNumber && <button class="btn wa sm" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
-      {!g.waNumber && g.phone && <a class="btn sm" href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">Call</a>}
+      {!g.waNumber && g.phone && <a class="btn sm primary" href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">Call</a>}
       <a class="btn sm" href={maps} target="_blank" rel="noopener" data-track="directions">Directions</a>
       <a class="btn sm primary" href={`/garage/${g.slug}/`}>View</a>
     </div>

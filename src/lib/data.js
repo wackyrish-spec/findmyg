@@ -19,6 +19,8 @@ export const AREA_GROUPS = [
 ];
 
 // Job pages for people who search by problem, not by car.
+// Garages outside Dubai are listed in their own group, never ranked in Dubai lists.
+const OUTSIDE = /abu dhabi|sharjah|ajman|al ain|ras al khaimah|\brak\b|fujairah|umm al quwain/i;
 export const JOBS = [
   { slug: "servicing", name: "Servicing", plain: "Regular servicing and oil changes", re: /oil change|tune up|servic|maintenance/i },
   { slug: "ac-repair", name: "AC repair", plain: "Car AC not cold", re: /air conditioning|\bac\b/i },
@@ -52,7 +54,8 @@ function norm(g) {
       conf: CONF[s.confidence] || 1,
       evidence: s.evidence || "",
       mentions: s.mentions || 0,
-      basis: s.basis || "",
+      // A garage describing itself on its own website is a self-claim, whatever basis the row carries.
+      basis: /self-description|on (the )?garage('s)? (own )?website/i.test(s.evidence || "") ? "website" : s.basis || "",
     }))
     .sort((a, b) => b.conf - a.conf || b.mentions - a.mentions);
   const real = (s) => /reviews|community|founder/.test(s.basis) && s.conf >= 2;
@@ -81,6 +84,7 @@ function norm(g) {
     // Product spec: a garage ranks only if owners can reach or find it.
     contactable: !!(g.phone || g.whatsapp || g.maps_url || (g.lat && g.lng)),
     founderPick: specs.some((s) => s.basis === "founder"),
+    outsideDubai: OUTSIDE.test(`${g.area || ""} ${g.city || ""} ${g.address || ""}`) || (g.specialties || []).some((s) => /not Dubai/i.test(s.evidence || "")),
     hasEvidence: g.business_type !== "dealer" && specs.some(real),
     topConf: Math.max(0, ...specs.map((s) => s.conf)),
     areaGroup,
@@ -131,7 +135,7 @@ const lc = (x) => String(x || "").toLowerCase();
 const ownerFor = (g, make, model) =>
   g.ownerReviews.some((r) => lc(r.car_make) === lc(make) && (!model || lc(r.car_model).includes(lc(model))));
 const realFor = (g, make, model) => {
-  if (g.isDealer || !g.contactable) return false;
+  if (g.isDealer || !g.contactable || g.outsideDubai) return false;
   if (ownerFor(g, make, model)) return true;
   const s = specFor(g, make, model);
   return !!s && /reviews|community|founder/.test(s.basis) && s.conf >= 2 && (!model || s.modelHit);
@@ -159,14 +163,14 @@ export const DEALER_NOTES = {
   "land-rover": { text: "Agency servicing on a Range Rover typically costs 30 to 50% more than independents.", source: "CarSwitch, Jul 2026", url: "https://carswitch.com/newsroom/range-rover-price-in-uae-2026-used-vs-new-generation-guide-true-cost-of-owning-a-pre-owned-range-rover/" },
 };
 export function splitBrand(garages, make, model) {
-  const ranked = [], others = [], dealers = [];
-  garages.forEach((g) => (g.isDealer ? dealers : realFor(g, make, model) || (model && realFor(g, make)) ? ranked : others).push(g));
-  return { ranked, others: ranked.length < OTHERS_MIN ? others : [], dealers };
+  const ranked = [], others = [], dealers = [], outside = [];
+  garages.forEach((g) => (g.isDealer ? dealers : g.outsideDubai ? outside : realFor(g, make, model) || (model && realFor(g, make)) ? ranked : others).push(g));
+  return { ranked, others: ranked.length < OTHERS_MIN ? others : [], dealers, outside };
 }
 export function splitGeneral(garages) {
-  const ok = garages.filter((g) => !g.isDealer);
+  const ok = garages.filter((g) => !g.isDealer && !g.outsideDubai);
   const ranks = (g) => g.contactable && (g.hasEvidence || g.ownerCount > 0);
-  return { ranked: ok.filter(ranks), others: ok.filter((g) => !ranks(g)), dealers: [] };
+  return { ranked: ok.filter(ranks), others: ok.filter((g) => !ranks(g)), dealers: [], outside: garages.filter((g) => !g.isDealer && g.outsideDubai) };
 }
 
 function rankFor(make, model) {
