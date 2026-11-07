@@ -28,7 +28,6 @@ const itemList = {
       <p>{lead}</p>
       <div class="resort" id="resort" hidden></div>
     </div></div>
-    {introText && <div class="intro" set:html={introText.split(/\n\n+/).map((p) => `<p>${p}</p>`).join("")} />}
     <div class="bar">
       <button class="btn sm" type="button" data-setcar>Your car: <span data-carlabel>not set</span></button>
       <a class="btn sm wa" href={`https://wa.me/?text=${encodeURIComponent(shareText)}`} target="_blank" rel="noopener"><Icon name="wa" />Share this list</a>
@@ -39,6 +38,8 @@ const itemList = {
       {garages.map((g) => <GarageCard g={g} make={make} model={model} note={notes?.[g.slug]} />)}
       {garages.length === 0 && <div class="card empty">No garages with owner evidence here yet.{others.length > 0 ? " Some are listed below." : ""} Know a good one? <a href="/add-a-garage/">Tell us about it</a>.</div>}
     </div>
+    {/* SEO rule (spec 12.4): one plain sentence above the list, the longer intro below it, in the HTML. */}
+    {introText && <div class="intro" set:html={introText.split(/\n\n+/).map((p) => `<p>${p}</p>`).join("")} />}
     {thin && (
       <form class="card panel notify" id="notifyForm" data-page={Astro.url.pathname} data-make={make || ""} data-model={model || ""}>
         <h2>Your car isn't covered well yet?</h2>

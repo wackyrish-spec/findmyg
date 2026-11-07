@@ -14,15 +14,15 @@ const thin = list.length < 3;
 const job = JOB_PAGES.find((j) => j.slug === p.job);
 ---
 <ListPage
-  title={it?.title || `${p.label}? Garages in Dubai owners mention for it`}
-  description={it?.description || `${p.label} in Dubai: common causes, why to ask for a diagnosis first, and garages owners mention for this job.`}
-  h1={it?.h1 || p.label}
-  lead={`Common causes: ${p.causes} Ask for a diagnosis before agreeing to replace parts.${thin ? " Few reviews mention this job yet, so start with a specialist for your car." : " Set your car to bring the garages that know it to the top."}`}
-  introText={it?.text}
+  title={it?.title || `${p.symptom} in Dubai: garages owners mention`}
+  description={it?.description || `${p.symptom} in Dubai? Common causes, why to ask for a diagnosis first, and garages owners mention for ${p.trade}.`}
+  h1={it?.h1 || `${p.symptom} in Dubai`}
+  lead={`Common causes are ${p.causes.charAt(0).toLowerCase()}${p.causes.slice(1).replace(/\.$/, "")}, so ask for a diagnosis before you agree to replace parts.`}
+  introText={it?.text || `Garages usually call this job ${p.trade}. The list shows independent garages where owners mention it in their reviews, with how many mention it.${thin ? " Few reviews mention this job yet, so a specialist for your make is often the better start." : " Set your car to bring the garages that know it to the top."}`}
   garages={list.map((x) => x.g)}
   notes={notes}
   othersLabel={"Also listed"}
   noindex={!isIndexable(key, list.length)}
-  crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: "Problems" }, { name: p.label }]}
+  crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: "Problems" }, { name: p.symptom }]}
   related={[...(job ? [{ name: `All ${job.name.toLowerCase()} garages`, url: `/dubai/job/${job.slug}/` }] : []), ...PROBLEMS.filter((x) => x.slug !== p.slug).map((x) => ({ name: x.label, url: `/dubai/problem/${x.slug}/` }))]}
 />

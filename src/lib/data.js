@@ -225,7 +225,9 @@ export function isIndexable(key, evidenceCount) {
   return evidenceCount >= 3 && !!(i && i.text && i.approved);
 }
 // Garage pages are indexed when they have real evidence for at least one specialty.
-export const garageIndexable = (g) => g.hasEvidence || g.ownerCount > 0;
+// Indexable with evidence, owner reviews, or a person-checked summary of 20+ outside reviews read (PM spec, SEO input).
+export const garageIndexable = (g) => g.hasEvidence || g.ownerCount > 0
+  || (g.summary_checked === true && (g.reviews_read || g.price_signal?.reviews_read || 0) >= 20);
 
 /* ---------- picker payload (kept small; shipped to the browser) ---------- */
 export function pickerCatalog() {
@@ -330,18 +332,18 @@ export const aedRange = (lo, hi) => lo === hi ? `AED ${Number(lo).toLocaleString
 // ---------- Search by problem (PM spec 12.3) ----------
 // Everyday symptoms, each with a one-line list of common causes (never a verdict) and Data's problem_counts key.
 export const PROBLEMS = [
-  { slug: "ac-not-cold", label: "AC not cold", key: "ac", job: "ac-repair", syn: "ac aircon air con a/c not cold warm air ac smell ac smells ac gas", causes: "Low gas, a leak, a failing compressor or a blocked condenser." },
-  { slug: "warning-light", label: "Warning light on", key: "warning_light", job: "electrical", syn: "check engine engine light warning light dashboard light dash light", causes: "Anything from a loose fuel cap or a sensor to a serious engine fault. A scan reads the fault code." },
-  { slug: "gearbox-jerks", label: "Gearbox jerks or slips", key: "gearbox", job: "gearbox", syn: "gearbox transmission jerk jerks jerking slipping slips dsg harsh shift", causes: "Old fluid, a software issue, worn clutches or a valve body fault." },
-  { slug: "noise-over-bumps", label: "Noise over bumps", key: "suspension", job: "suspension", syn: "knock knocking clunk bumps sagging suspension air suspension rattle", causes: "Worn bushes, links or shock absorbers, or an air suspension leak." },
-  { slug: "wont-start", label: "Won't start", key: "battery", job: "electrical", syn: "won't start wont start not starting dead battery battery no crank", causes: "Usually the battery. Sometimes the starter, the alternator or the immobiliser." },
-  { slug: "overheating", label: "Overheating", key: "overheating", job: "engine", syn: "overheat overheating temperature coolant hot engine", causes: "Low coolant, a leak, or a failing fan, thermostat or water pump." },
-  { slug: "brakes-noise", label: "Brakes squeak or grind", key: "brakes", job: "brakes", syn: "brake brakes squeak squeal grind grinding vibration when braking", causes: "Worn pads or discs, or a sticking calliper." },
-  { slug: "oil-leak", label: "Oil leak", key: "oil_leak", job: "engine", syn: "oil leak leaking drip drips oil under car", causes: "A gasket, a seal or the oil pan. A leak test finds the source." },
-  { slug: "steering", label: "Steering pulls or feels heavy", key: "steering", job: "suspension", syn: "steering pulls pulling alignment heavy steering wheel shakes", causes: "Wheel alignment, tyres, or the power steering fluid or pump." },
-  { slug: "service-due", label: "Service due", key: "service", job: "servicing", syn: "service servicing oil change maintenance minor service major service", causes: "Routine oil, filters and checks at the interval in your service book." },
-  { slug: "dents-scratches", label: "Dents or scratches", key: "bodywork", job: "bodywork", syn: "dent dents scratch scratches paint accident bumper body", causes: "Bodywork and paint repair, from a small touch-up to accident work." },
-  { slug: "buying-used", label: "Buying a used car", key: "pre_purchase", job: null, syn: "ppi pre purchase pre-purchase inspection used car check buying a car", causes: "A pre-purchase inspection before you pay, to catch hidden faults." },
+  { slug: "ac-not-cold", symptom: "Car AC not cold", trade: "AC repair or AC regas", label: "AC not cold", key: "ac", job: "ac-repair", syn: "ac aircon air con a/c not cold warm air ac smell ac smells ac gas", causes: "Low gas, a leak, a failing compressor or a blocked condenser." },
+  { slug: "warning-light", symptom: "Car warning light on", trade: "diagnostics (a code read)", label: "Warning light on", key: "warning_light", job: "electrical", syn: "check engine engine light warning light dashboard light dash light", causes: "Anything from a loose fuel cap or a sensor to a serious engine fault. A scan reads the fault code." },
+  { slug: "gearbox-jerks", symptom: "Car gearbox jerking or slipping", trade: "gearbox or transmission repair", label: "Gearbox jerks or slips", key: "gearbox", job: "gearbox", syn: "gearbox transmission jerk jerks jerking slipping slips dsg harsh shift", causes: "Old fluid, a software issue, worn clutches or a valve body fault." },
+  { slug: "noise-over-bumps", symptom: "Car knocking over bumps", trade: "suspension repair", label: "Noise over bumps", key: "suspension", job: "suspension", syn: "knock knocking clunk bumps sagging suspension air suspension rattle", causes: "Worn bushes, links or shock absorbers, or an air suspension leak." },
+  { slug: "wont-start", symptom: "Car won't start", trade: "battery and electrical repair", label: "Won't start", key: "battery", job: "electrical", syn: "won't start wont start not starting dead battery battery no crank", causes: "Usually the battery. Sometimes the starter, the alternator or the immobiliser." },
+  { slug: "overheating", symptom: "Car overheating", trade: "cooling system repair", label: "Overheating", key: "overheating", job: "engine", syn: "overheat overheating temperature coolant hot engine", causes: "Low coolant, a leak, or a failing fan, thermostat or water pump." },
+  { slug: "brakes-noise", symptom: "Car brakes squeaking or grinding", trade: "brake repair", label: "Brakes squeak or grind", key: "brakes", job: "brakes", syn: "brake brakes squeak squeal grind grinding vibration when braking", causes: "Worn pads or discs, or a sticking calliper." },
+  { slug: "oil-leak", symptom: "Car leaking oil", trade: "oil leak repair", label: "Oil leak", key: "oil_leak", job: "engine", syn: "oil leak leaking drip drips oil under car", causes: "A gasket, a seal or the oil pan. A leak test finds the source." },
+  { slug: "steering", symptom: "Car steering pulling or heavy", trade: "steering and wheel alignment", label: "Steering pulls or feels heavy", key: "steering", job: "suspension", syn: "steering pulls pulling alignment heavy steering wheel shakes", causes: "Wheel alignment, tyres, or the power steering fluid or pump." },
+  { slug: "service-due", symptom: "Car service due", trade: "car servicing", label: "Service due", key: "service", job: "servicing", syn: "service servicing oil change maintenance minor service major service", causes: "Routine oil, filters and checks at the interval in your service book." },
+  { slug: "dents-scratches", symptom: "Car dents and scratches", trade: "bodywork and paint", label: "Dents or scratches", key: "bodywork", job: "bodywork", syn: "dent dents scratch scratches paint accident bumper body", causes: "Bodywork and paint repair, from a small touch-up to accident work." },
+  { slug: "buying-used", symptom: "Checking a used car before you buy", trade: "a pre-purchase inspection (PPI)", label: "Buying a used car", key: "pre_purchase", job: null, syn: "ppi pre purchase pre-purchase inspection used car check buying a car", causes: "A pre-purchase inspection before you pay, to catch hidden faults." },
 ];
 export const PROBLEM_MIN = 2; // Data: 2+ reviews mentioning the job is enough to list a garage under it.
 export function problemGarages(p) {

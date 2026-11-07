@@ -10,10 +10,10 @@ const L = splitGeneral(j.garages);
 const it = intro(key);
 ---
 <ListPage
-  title={it?.title || `${j.name} in Dubai: independent garages`}
+  title={it?.title || `${j.plain} in Dubai: independent garages`}
   description={it?.description || `${j.plain}? Independent garages in Dubai for ${j.name.toLowerCase()}, and the car brands each one knows best.`}
-  h1={it?.h1 || `${j.name} in Dubai`}
-  lead={`${j.plain}. Garages with review evidence come first. Set your car to find the ones that know it.`}
+  h1={it?.h1 || `${j.plain} in Dubai`}
+  lead={`Independent garages for ${j.name.toLowerCase()}, with the ones owners back in reviews first.`}
   introText={it?.text}
   garages={L.ranked}
   others={L.others}
