@@ -21,7 +21,7 @@ export const AREA_GROUPS = [
 
 // Job pages for people who search by problem, not by car.
 // Garages outside Dubai are listed in their own group, never ranked in Dubai lists.
-const OUTSIDE = /abu dhabi|sharjah|ajman|al ain|ras al khaimah|\brak\b|fujairah|umm al quwain/i;
+const OUTSIDE = /abu dhabi|sharjah|ajman|al ain|musaff?ah|mussafah|ras al khaimah|\brak\b|fujairah|umm al quwain/i;
 export const JOBS = [
   { slug: "servicing", name: "Servicing", plain: "Regular servicing and oil changes", re: /oil change|tune up|servic|maintenance/i },
   { slug: "ac-repair", name: "AC repair", plain: "Car AC not cold", re: /air conditioning|\bac\b/i },
@@ -47,6 +47,16 @@ function goodFor(text) {
 const BROKEN_SITE = /suspend|gambling|unrelated|default server|no content|check before/i;
 const NOT_WORKSHOP = /not (clearly )?a (repair )?workshop|parts (supplier|distributor)|distributor|retailer|transport company|showroom/i;
 const SITE_BASIS = (s) => s.basis === "website" || /self-description|on (the )?garage('s)? (own )?website/i.test(s.evidence || "");
+// Rough drive time from Downtown Dubai: straight-line distance x 1.3 for roads at about 60 km/h, rounded to 5 minutes.
+const DRIVE_DEFAULT = { Sharjah: 30, Ajman: 40, "Abu Dhabi": 90, Musaffah: 90 };
+function driveFromDowntown(g) {
+  const la = Number(g.lat), lo = Number(g.lng);
+  if (la && lo) {
+    const R = Math.PI / 180, x = (lo - 55.2744) * R * Math.cos(((la + 25.1972) / 2) * R), y = (la - 25.1972) * R;
+    return Math.max(15, Math.round((6371 * Math.hypot(x, y) * 1.3) / 60 * 60 / 5) * 5);
+  }
+  return DRIVE_DEFAULT[g.emirate] || DRIVE_DEFAULT[g.area] || null;
+}
 function norm(g) {
   const note = g.website_note || "";
   const website = g.website && !BROKEN_SITE.test(note) ? g.website : "";
@@ -92,6 +102,9 @@ function norm(g) {
     sources: (g.sources || []).filter((u) => website || !g.website || !u.includes(g.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/.*$/, ""))),
     focus: g.website_focus?.focus && website ? g.website_focus.focus : "",
     notWorkshop: NOT_WORKSHOP.test(note) && !/workshop in/i.test(note),
+    // PM: curated specialists in Sharjah, Ajman or Musaffah rank on Dubai brand and model pages, labelled "Worth the drive".
+    worthDrive: g.worth_the_drive === true,
+    driveMin: g.worth_the_drive === true ? driveFromDowntown(g) : null,
     closed: g.closed === true || /CLOSED/i.test(g.business_status || ""),
     specs,
     ext,
@@ -100,7 +113,7 @@ function norm(g) {
     // Product spec: a garage ranks only if owners can reach or find it.
     contactable: !!(g.phone || g.whatsapp || g.maps_url || (g.lat && g.lng)),
     founderPick: specs.some((s) => s.basis === "founder"),
-    outsideDubai: OUTSIDE.test(`${g.area || ""} ${g.city || ""} ${g.address || ""}`) || (g.specialties || []).some((s) => /not Dubai/i.test(s.evidence || "")),
+    outsideDubai: (g.emirate && !/dubai/i.test(g.emirate)) || OUTSIDE.test(`${g.area || ""} ${g.city || ""} ${g.address || ""}`) || (g.specialties || []).some((s) => /not Dubai/i.test(s.evidence || "")),
     hasEvidence: g.business_type !== "dealer" && specs.some(real),
     topConf: Math.max(0, ...specs.map((s) => s.conf)),
     areaGroup,
@@ -153,7 +166,7 @@ const lc = (x) => String(x || "").toLowerCase();
 const ownerFor = (g, make, model) =>
   g.ownerReviews.some((r) => lc(r.car_make) === lc(make) && (!model || lc(r.car_model).includes(lc(model))));
 const realFor = (g, make, model) => {
-  if (g.isDealer || !g.contactable || g.outsideDubai) return false;
+  if (g.isDealer || !g.contactable || (g.outsideDubai && !g.worthDrive)) return false;
   if (ownerFor(g, make, model)) return true;
   const s = specFor(g, make, model);
   return !!s && /reviews|community|founder/.test(s.basis) && s.conf >= 2 && (!model || s.modelHit);
@@ -182,7 +195,7 @@ export const DEALER_NOTES = {
 };
 export function splitBrand(garages, make, model) {
   const ranked = [], others = [], dealers = [], outside = [];
-  garages.forEach((g) => (g.isDealer ? dealers : g.outsideDubai ? outside : realFor(g, make, model) || (model && realFor(g, make)) ? ranked : others).push(g));
+  garages.forEach((g) => (g.isDealer ? dealers : g.outsideDubai && !g.worthDrive ? outside : realFor(g, make, model) || (model && realFor(g, make)) ? ranked : others).push(g));
   return { ranked, others: ranked.length < OTHERS_MIN ? others : [], dealers, outside };
 }
 export function splitGeneral(garages) {
@@ -365,9 +378,11 @@ export const PROBLEMS = [
 ];
 export const PROBLEM_MIN = 2; // Data: 2+ reviews mentioning the job is enough to list a garage under it.
 export function problemGarages(p) {
-  return GARAGES.filter((g) => !g.isDealer && g.contactable && !g.outsideDubai && (g.problem_counts?.counts?.[p.key] || 0) >= PROBLEM_MIN)
-    .map((g) => ({ g, n: g.problem_counts.counts[p.key] }))
-    .sort((a, b) => b.n - a.n || a.g.name.localeCompare(b.g.name));
+  // Pre-purchase inspections also count owner threads that recommend the garage for one (Data: pre_purchase_positive).
+  const ppi = (g) => (p.key === "pre_purchase" ? Number(g.community_mentions?.pre_purchase_positive) || 0 : 0);
+  return GARAGES.filter((g) => !g.isDealer && g.contactable && !g.outsideDubai && ((g.problem_counts?.counts?.[p.key] || 0) >= PROBLEM_MIN || ppi(g) >= 2))
+    .map((g) => ({ g, n: g.problem_counts?.counts?.[p.key] || 0, t: ppi(g) }))
+    .sort((a, b) => b.n + b.t - (a.n + a.t) || a.g.name.localeCompare(b.g.name));
 }
 
 // ---------- Covered / close / not yet (PM spec 12.1) ----------

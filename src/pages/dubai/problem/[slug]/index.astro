@@ -9,7 +9,7 @@ const { p } = Astro.props;
 const key = `dubai/problem/${p.slug}`;
 const list = problemGarages(p);
 const it = intro(key);
-const notes = Object.fromEntries(list.map(({ g, n }) => [g.slug, `Owners mention this job here (${n})`]));
+const notes = Object.fromEntries(list.map(({ g, n, t }) => [g.slug, [n >= 2 ? `Owners mention this job here (${n})` : "", t >= 2 ? `Recommended for pre-purchase checks in ${t} owner threads` : ""].filter(Boolean).join(" · ")]));
 const thin = list.length < 3;
 // Spec 13.3: filter by make (most useful on "Buying a used car?"); makes come from the listed garages' specialties.
 const listed = new Set(list.flatMap(({ g }) => g.specs.map((x) => x.make)));
