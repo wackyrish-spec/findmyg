@@ -14,7 +14,7 @@ const related = [
 ];
 ---
 <ListPage
-  title={it?.title || `${b.make} service and repair in Dubai: independent specialists`}
+  title={it?.title || (`${b.make} service and repair in Dubai: independent specialists`.length <= 61 ? `${b.make} service and repair in Dubai: independent specialists` : `${b.make} service and repair in Dubai`)}
   description={it?.description || `Independent ${b.make} specialists in Dubai, ranked by how many owners vouch for them, with the evidence for each.`}
   h1={it?.h1 || `${b.make} specialists in Dubai`}
   lead={`Independent garages that work on ${b.make}, ranked by evidence from owner reviews.`}

@@ -112,7 +112,7 @@ const itemList = {
     {faq.length > 0 && (
       <section class="card panel faq">
         <h2>Questions owners ask</h2>
-        {faq.map((f) => <><h3>{f.q}</h3><p>{f.a}</p></>)}
+        {faq.map((f) => <><h3>{f.q}</h3><p set:html={f.a} /></>)}
       </section>
     )}
     <HelpFeedback />

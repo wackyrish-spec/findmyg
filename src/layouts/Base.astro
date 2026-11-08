@@ -12,7 +12,8 @@ const {
   ogImage = "/og/default.png",
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
-const fullTitle = title.includes(SITE.name) ? title : `${title} | ${SITE.name}`;
+// SEO rule: titles stay near 60 characters, so the brand suffix is added only to titles of 47 characters or less.
+const fullTitle = title.includes(SITE.name) || title.length > 47 ? title : `${title} | ${SITE.name}`;
 // Until launch the whole site is noindex (SITE.indexing), whatever the page says.
 const robotsNo = noindex || !SITE.indexing;
 const ogUrl = new URL(ogImage, Astro.site).toString();
