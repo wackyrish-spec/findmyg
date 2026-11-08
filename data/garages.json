@@ -2986,7 +2986,14 @@
      "latest_year": 2021
     }
    ],
-   "self_claims": [],
+   "self_claims": [
+    {
+     "claim": "German car specialist: BMW, Mercedes, Porsche, Audi, VW (Al Quoz 3)",
+     "source": "garage website",
+     "url": "https://profixautocare.com/",
+     "as_of": "2026-11-08"
+    }
+   ],
    "is_specialist": true,
    "external_ratings": [
     {
@@ -6802,7 +6809,7 @@
    "lat": 25.1768895,
    "lng": 55.3373777,
    "phone": "+971566080951",
-   "whatsapp": "",
+   "whatsapp": "+971566080951",
    "website": "https://topchallenger.ae/",
    "maps_url": "https://www.google.com/maps/search/?api=1&query=Top%20Challenger%20Car%20Auto%20Services%20LLC&query_place_id=ChIJ-ezMwCVnXz4RfN_ePgSGB4k",
    "google_place_id": "ChIJ-ezMwCVnXz4RfN_ePgSGB4k",
@@ -6811,7 +6818,7 @@
    ],
    "business_type": "workshop",
    "dealer_for": null,
-   "hours": "",
+   "hours": "Sun-Wed 09:00-13:00, 15:00-21:00; Thu 09:00-13:00, 15:00-21:30; Sat 09:30-13:00, 15:00-21:00; Fri closed",
    "services": [
     "Servicing"
    ],
@@ -6842,7 +6849,14 @@
      "car_family": "american"
     }
    ],
-   "self_claims": [],
+   "self_claims": [
+    {
+     "claim": "Works only on Nissan Patrol Y62 (engine, gearbox, suspension, AC); second workshop in Mussafah, Abu Dhabi",
+     "source": "garage website",
+     "url": "https://topchallenger.ae/",
+     "as_of": "2026-11-08"
+    }
+   ],
    "is_specialist": true,
    "external_ratings": [
     {
@@ -11446,11 +11460,11 @@
       "4C",
       "Quadrifoglio"
      ],
-     "level": "model",
+     "level": "brand",
      "confidence": "high",
-     "evidence": "The founder uses this garage for their own Alfa Romeos; recommended for Alfa by two owners on Reddit r/DubaiPetrolHeads (2026)",
-     "mentions": 0,
-     "basis": "founder+community",
+     "evidence": "21 of 52 Google reviews read mention Alfa Romeo (100% of reviews that name any make); The founder uses this garage for their own Alfa Romeos; recommended for Alfa by two owners on Reddit r/DubaiPetrolHeads (2026)",
+     "mentions": 21,
+     "basis": "reviews+founder+community",
      "car_family": "european_other",
      "latest_year": 2026
     }
@@ -11482,10 +11496,131 @@
      "rating": 4.9,
      "count": 52,
      "url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
-     "as_of": "2026-11-07"
+     "as_of": "2026-11-08"
     }
    ],
    "external_reviews": [
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
+     "date": "2026-08",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
+     "date": "2025-04",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
+     "date": "2024-03",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
+     "date": "2025-05",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
+     "date": "2025-02",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
+     "date": "2023-11",
+     "mentions": [
+      "Alfa Romeo",
+      "Nissan"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
+     "date": "2023-09",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
+     "date": "2023-10",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
+     "date": "2023-09",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
+     "date": "2023-09",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
+     "date": "2025-04",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
+     "date": "2023-09",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
+     "date": "2022-03",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
+     "date": "2023-10",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
+     "date": "2026-10",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
     {
      "source": "Reddit r/DubaiPetrolHeads",
      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1uxld4d/thoughts_on_alfa/",
@@ -11507,9 +11642,10 @@
      ]
     }
    ],
-   "review_summary": "Founder's pick for Alfa Romeo. Alfa-only workshop (classic and modern) and Squadra Tuning appointed garage for the Middle East, per its own site. Google reviews not yet analysed.",
-   "reviews_analysed": 0,
+   "review_summary": "Google rating 4.9 from 52 reviews. In the 52 most relevant reviews we read, customers mostly bring Alfa Romeo; praise centres on knowledgeable staff, fast turnaround, honesty.",
+   "reviews_analysed": 52,
    "sources": [
+    "https://www.google.com/maps/search/?api=1&query=Autotech%20Dubai&query_place_id=ChIJH39WzJZpXz4RcMOAhrjLiUs",
     "https://www.autotechdxb.com/",
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/1uxld4d/thoughts_on_alfa/"
    ],
@@ -11530,7 +11666,7 @@
      "aed_original": 1350
     }
    ],
-   "evidence_summary": "Founder's pick for Alfa Romeo, also recommended by Alfa owners on Reddit.",
+   "evidence_summary": "21 of 52 Google reviews we read mention Alfa Romeo work (mostly Giulia, Stelvio). Founder's pick for Alfa Romeo, also recommended by Alfa owners on Reddit.",
    "works_on_all_makes": false,
    "works_on_all_makes_basis": "listing names specific makes",
    "community_mentions": {
@@ -11650,7 +11786,60 @@
      }
     ],
     "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
-   }
+   },
+   "model_mentions": {
+    "source": "Google reviews read",
+    "reviews_read": 52,
+    "as_of": "2026-11-08",
+    "counts": {
+     "Alfa Romeo": {
+      "156": 1,
+      "4C": 1,
+      "Stelvio": 2,
+      "Spider": 1
+     },
+     "Nissan": {
+      "Pathfinder": 1
+     }
+    }
+   },
+   "review_themes": {
+    "source": "Google reviews read",
+    "reviews_read": 52,
+    "low_rated_read": 0,
+    "as_of": "2026-11-08",
+    "praise_counts": {
+     "fast": 5,
+     "knows_its_stuff": 9,
+     "honest": 5,
+     "fair_price": 1
+    },
+    "complaint_counts": {},
+    "complaint_counts_public": false,
+    "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+   },
+   "problem_counts": {
+    "source": "Google reviews read",
+    "reviews_read": 52,
+    "as_of": "2026-11-08",
+    "counts": {
+     "service": 2,
+     "brakes": 2,
+     "gearbox": 1
+    }
+   },
+   "price_signal": {
+    "reviews_read": 52,
+    "price_mentions": 4,
+    "fair": 1,
+    "expensive": 1,
+    "cheap": 0,
+    "as_of": "2026-11-08",
+    "jobs": []
+   },
+   "checked_at": "2026-11-08",
+   "closed": false,
+   "business_status": "operational"
   },
   {
    "id": "abdulla-ahli-workshop-founder",
@@ -17979,7 +18168,23 @@
     "https://mrgauto.com/"
    ],
    "possible_matches": [],
-   "price_examples": [],
+   "price_examples": [
+    {
+     "job": "minor_service",
+     "make": "Mercedes-Benz",
+     "model": null,
+     "aed_low": 419,
+     "aed_high": 419,
+     "aed_original": 399,
+     "vat": "published excl. VAT; 5% added",
+     "includes_parts": true,
+     "includes": "minor service (Service A) with diagnostics, safety checks, car wash, tyre rotation",
+     "source": "garage's own website (blog/offer)",
+     "url": "https://mrgauto.com/mercedes-service-dubai-a-practical-guide-to-keeping-your-mercedes-in-top-condition/",
+     "as_of": "2026-11-08",
+     "note": "garage blog offer, Aug 2026"
+    }
+   ],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": null,
    "works_on_all_makes_basis": "unknown: reviews not read yet"
@@ -21105,7 +21310,23 @@
     "https://eurohausdubai.com/"
    ],
    "possible_matches": [],
-   "price_examples": [],
+   "price_examples": [
+    {
+     "job": "minor_service",
+     "make": null,
+     "model": null,
+     "aed_low": 199,
+     "aed_high": 199,
+     "aed_original": 199,
+     "vat": "VAT not stated",
+     "includes_parts": true,
+     "includes": "engine oil + oil filter + filter cleaning + fluid top-up + check",
+     "source": "garage's own website (blog/offer)",
+     "url": "https://eurohausdubai.com/blogs/Car-Service-Cost-in-Dubai-Minor-vs-Major-Car-Service-2026-Guide",
+     "as_of": "2026-11-08",
+     "note": "starting price ('from'), garage blog, all makes"
+    }
+   ],
    "evidence_summary": "Reviews not yet analysed.",
    "works_on_all_makes": false,
    "works_on_all_makes_basis": "garage website: European focus",
@@ -36557,29 +36778,31 @@
    ],
    "specialties": [
     {
+     "make": "Ford",
+     "models": [
+      "Focus ST"
+     ],
+     "level": "brand",
+     "confidence": "medium",
+     "evidence": "7 of 60 Google reviews read mention Ford (58% of reviews that name any make); Own website says Ford EcoBoost is one of its two specialist makes",
+     "mentions": 7,
+     "basis": "reviews+website",
+     "car_family": "american",
+     "latest_year": 2024
+    },
+    {
      "make": "Alfa Romeo",
      "models": [
       "Giulia",
       "Stelvio"
      ],
      "level": "brand",
-     "confidence": "low",
-     "evidence": "Own website and Instagram say Alfa Romeo is one of its two specialist makes (Giorgio-platform Giulia/Stelvio focus); owner reviews not yet analysed",
-     "mentions": 0,
-     "basis": "website",
-     "car_family": "european_other"
-    },
-    {
-     "make": "Ford",
-     "models": [
-      "Focus ST"
-     ],
-     "level": "brand",
-     "confidence": "low",
-     "evidence": "Own website says Ford EcoBoost is one of its two specialist makes; owner reviews not yet analysed",
-     "mentions": 0,
-     "basis": "website",
-     "car_family": "american"
+     "confidence": "medium",
+     "evidence": "4 of 60 Google reviews read mention Alfa Romeo (33% of reviews that name any make); most-mentioned models: Giulia (2); Own website and Instagram say Alfa Romeo is one of its two specialist makes (Giorgio-platform Giulia/Stelvio focus)",
+     "mentions": 4,
+     "basis": "reviews+website",
+     "car_family": "european_other",
+     "latest_year": 2026
     }
    ],
    "self_claims": [
@@ -36616,13 +36839,113 @@
    "external_ratings": [
     {
      "source": "Google",
-     "rating": 5.0,
+     "rating": 5,
      "count": 65,
      "url": "https://www.google.com/maps/search/?api=1&query=RST%20Werks%20Dubai&query_place_id=ChIJX5XMFYWL9T4REGyBJutwBps",
-     "as_of": "2026-11-07"
+     "as_of": "2026-11-08"
     }
    ],
    "external_reviews": [
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=RST%20Werks%20Dubai&query_place_id=ChIJX5XMFYWL9T4REGyBJutwBps",
+     "date": "2026-10",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=RST%20Werks%20Dubai&query_place_id=ChIJX5XMFYWL9T4REGyBJutwBps",
+     "date": "2026-04",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=RST%20Werks%20Dubai&query_place_id=ChIJX5XMFYWL9T4REGyBJutwBps",
+     "date": "2024-09",
+     "mentions": [
+      "Ford"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=RST%20Werks%20Dubai&query_place_id=ChIJX5XMFYWL9T4REGyBJutwBps",
+     "date": "2024-11",
+     "mentions": [
+      "Ford"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=RST%20Werks%20Dubai&query_place_id=ChIJX5XMFYWL9T4REGyBJutwBps",
+     "date": "2023-10",
+     "mentions": [
+      "Ford"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=RST%20Werks%20Dubai&query_place_id=ChIJX5XMFYWL9T4REGyBJutwBps",
+     "date": "2024-09",
+     "mentions": [
+      "Audi",
+      "Ford",
+      "Nissan",
+      "Renault",
+      "Toyota"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=RST%20Werks%20Dubai&query_place_id=ChIJX5XMFYWL9T4REGyBJutwBps",
+     "date": "2023-10",
+     "mentions": [
+      "Ford"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=RST%20Werks%20Dubai&query_place_id=ChIJX5XMFYWL9T4REGyBJutwBps",
+     "date": "2024-10",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=RST%20Werks%20Dubai&query_place_id=ChIJX5XMFYWL9T4REGyBJutwBps",
+     "date": "2024-03",
+     "mentions": [
+      "Ford"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=RST%20Werks%20Dubai&query_place_id=ChIJX5XMFYWL9T4REGyBJutwBps",
+     "date": "2023-11",
+     "mentions": [
+      "Ford"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=RST%20Werks%20Dubai&query_place_id=ChIJX5XMFYWL9T4REGyBJutwBps",
+     "date": "2026-11",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=RST%20Werks%20Dubai&query_place_id=ChIJX5XMFYWL9T4REGyBJutwBps",
+     "date": "2026-10",
+     "mentions": [
+      "Alfa Romeo"
+     ]
+    },
     {
      "source": "Reddit r/DubaiPetrolHeads",
      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1db5xnb/save_me_from_these_predator_car_garages_in_dubai/",
@@ -36632,9 +36955,10 @@
      "mentions": []
     }
    ],
-   "review_summary": "Small enthusiast-owned workshop in Al Khawaneej focused on Alfa Romeo and Ford EcoBoost cars. About 61 Google reviews (per its site); not yet matched to a Maps listing or analysed.",
-   "reviews_analysed": 0,
+   "review_summary": "Google rating 5 from 65 reviews. In the 60 most relevant reviews we read, customers mostly bring Ford; praise centres on fair prices, knowledgeable staff, honesty.",
+   "reviews_analysed": 60,
    "sources": [
+    "https://www.google.com/maps/search/?api=1&query=RST%20Werks%20Dubai&query_place_id=ChIJX5XMFYWL9T4REGyBJutwBps",
     "https://rstwerks.com/",
     "https://rstwerks.com/services/alfa-romeo/",
     "https://www.instagram.com/rstwerks/",
@@ -36642,7 +36966,7 @@
    ],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "Its own website says it specialises in Alfa Romeo and Ford EcoBoost (not owner evidence).",
+   "evidence_summary": "7 of 60 Google reviews we read mention Ford work (mostly Focus ST). Also Alfa Romeo (4). Its own website says it specialises in Alfa Romeo and Ford EcoBoost (not owner evidence).",
    "works_on_all_makes": false,
    "works_on_all_makes_basis": "listing names specific makes",
    "community_mentions": {
@@ -36672,7 +36996,70 @@
      }
     ],
     "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
-   }
+   },
+   "model_mentions": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "as_of": "2026-11-08",
+    "counts": {
+     "Alfa Romeo": {
+      "Giulia": 2
+     },
+     "Audi": {
+      "A8": 1
+     },
+     "Toyota": {
+      "FJ Cruiser": 1
+     },
+     "Ford": {
+      "Edge": 1
+     }
+    }
+   },
+   "review_themes": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "low_rated_read": 0,
+    "as_of": "2026-11-08",
+    "praise_counts": {
+     "fast": 10,
+     "communicates": 3,
+     "knows_its_stuff": 12,
+     "honest": 12,
+     "fair_price": 16,
+     "explains": 10
+    },
+    "complaint_counts": {},
+    "complaint_counts_public": false,
+    "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+   },
+   "problem_counts": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "as_of": "2026-11-08",
+    "counts": {
+     "gearbox": 7,
+     "service": 15,
+     "overheating": 1,
+     "oil_leak": 2,
+     "bodywork": 1,
+     "suspension": 2,
+     "steering": 1,
+     "brakes": 1
+    }
+   },
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 26,
+    "fair": 16,
+    "expensive": 1,
+    "cheap": 1,
+    "as_of": "2026-11-08",
+    "jobs": []
+   },
+   "checked_at": "2026-11-08",
+   "closed": false,
+   "business_status": "operational"
   },
   {
    "id": "amf-auto-services-porschegarageae-web",
@@ -36979,7 +37366,23 @@
     }
    ],
    "possible_matches": [],
-   "price_examples": [],
+   "price_examples": [
+    {
+     "job": "minor_service",
+     "make": null,
+     "model": null,
+     "aed_low": 149,
+     "aed_high": 149,
+     "aed_original": 149,
+     "vat": "VAT not stated",
+     "includes_parts": true,
+     "includes": "lube service: engine oil + oil filter + visual inspection",
+     "source": "garage's own price list (offer)",
+     "url": "https://dynatrade-uae.com/offers/",
+     "as_of": "2026-11-08",
+     "note": "starting price ('from', T&C apply), all makes"
+    }
+   ],
    "evidence_summary": "4 of 60 Google reviews we read mention Toyota work (mostly Land Cruiser). Recommended by Land Cruiser owners on Reddit as a dealer alternative.",
    "works_on_all_makes": false,
    "works_on_all_makes_basis": "listing names specific makes",
@@ -37215,13 +37618,24 @@
       "Land Cruiser",
       "Prado"
      ],
-     "level": "model",
-     "confidence": "medium",
-     "evidence": "Recommended on Reddit r/DubaiPetrolHeads for Land Cruiser maintenance and Prado major work (same owner, two threads, 2026); weak evidence",
-     "mentions": 0,
-     "basis": "community",
+     "level": "brand",
+     "confidence": "high",
+     "evidence": "11 of 60 Google reviews read mention Toyota (79% of reviews that name any make); Recommended on Reddit r/DubaiPetrolHeads for Land Cruiser maintenance and Prado major work (same owner, two threads, 2026); weak evidence",
+     "mentions": 11,
+     "basis": "reviews+community",
      "car_family": "japanese_korean",
      "latest_year": 2026
+    },
+    {
+     "make": "Honda",
+     "models": [],
+     "level": "brand",
+     "confidence": "low",
+     "evidence": "3 of 60 Google reviews read mention Honda (21% of reviews that name any make)",
+     "mentions": 3,
+     "basis": "reviews",
+     "car_family": "japanese_korean",
+     "latest_year": 2025
     }
    ],
    "is_specialist": true,
@@ -37231,10 +37645,123 @@
      "rating": 4.8,
      "count": 178,
      "url": "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
-     "as_of": "2026-11-07"
+     "as_of": "2026-11-08"
     }
    ],
    "external_reviews": [
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
+     "date": "2026-06",
+     "mentions": [
+      "Suzuki"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
+     "date": "2026-01",
+     "mentions": [
+      "Toyota"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
+     "date": "2026-02",
+     "mentions": [
+      "Toyota"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
+     "date": "2025-05",
+     "mentions": [
+      "Honda",
+      "Toyota"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
+     "date": "2025-08",
+     "mentions": [
+      "Toyota"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
+     "date": "2024-08",
+     "mentions": [
+      "Toyota"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
+     "date": "2023-11",
+     "mentions": [
+      "Toyota"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
+     "date": "2025-09",
+     "mentions": [
+      "Honda"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
+     "date": "2023-06",
+     "mentions": [
+      "Toyota"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
+     "date": "2024-05",
+     "mentions": [
+      "Toyota"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
+     "date": "2023-06",
+     "mentions": [
+      "Honda"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
+     "date": "2022-03",
+     "mentions": [
+      "Toyota"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
+     "date": "2022-03",
+     "mentions": [
+      "Toyota"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
+     "date": "2022-03",
+     "mentions": [
+      "Toyota"
+     ]
+    },
     {
      "source": "Reddit r/DubaiPetrolHeads",
      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1q1qhbj/land_cruiser_garage/",
@@ -37258,9 +37785,10 @@
      ]
     }
    ],
-   "review_summary": "Umm Ramool general workshop that a Land Cruiser and Prado owner uses for maintenance and major work. Not yet matched to a Google Maps listing.",
-   "reviews_analysed": 0,
+   "review_summary": "Google rating 4.8 from 178 reviews. In the 60 most relevant reviews we read, customers mostly bring Toyota; praise centres on fair prices, fast turnaround, knowledgeable staff.",
+   "reviews_analysed": 60,
    "sources": [
+    "https://www.google.com/maps/search/?api=1&query=M%20A%20G%20AUTO%20SERVICES%20Dubai&query_place_id=ChIJ4_8LSNNdXz4REw-y73SKdi8",
     "https://garagefinderuae.com/garage/m-a-g-auto-services-al-garhoud/",
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/1q1qhbj/land_cruiser_garage/",
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/1qxcl9o/lc150_prado_recommended_garages/"
@@ -37268,7 +37796,7 @@
    "self_claims": [],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "Recommended by a Land Cruiser/Prado owner on Reddit r/DubaiPetrolHeads.",
+   "evidence_summary": "11 of 60 Google reviews we read mention Toyota work (mostly Land Cruiser, Prado). Also Honda (3). Recommended by a Land Cruiser/Prado owner on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
    "works_on_all_makes_basis": "listing names specific makes",
    "community_mentions": {
@@ -37330,7 +37858,61 @@
      }
     ],
     "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
-   }
+   },
+   "model_mentions": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "as_of": "2026-11-08",
+    "counts": {
+     "Suzuki": {
+      "Swift": 1
+     },
+     "Toyota": {},
+     "Honda": {}
+    }
+   },
+   "review_themes": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "low_rated_read": 2,
+    "as_of": "2026-11-08",
+    "praise_counts": {
+     "knows_its_stuff": 19,
+     "honest": 10,
+     "communicates": 1,
+     "fair_price": 20,
+     "fast": 20,
+     "explains": 2
+    },
+    "complaint_counts": {},
+    "complaint_counts_public": false,
+    "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+   },
+   "problem_counts": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "as_of": "2026-11-08",
+    "counts": {
+     "service": 2,
+     "brakes": 1,
+     "suspension": 2,
+     "oil_leak": 1,
+     "overheating": 1,
+     "ac": 1
+    }
+   },
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 25,
+    "fair": 19,
+    "expensive": 0,
+    "cheap": 0,
+    "as_of": "2026-11-08",
+    "jobs": []
+   },
+   "checked_at": "2026-11-08",
+   "closed": false,
+   "business_status": "operational"
   },
   {
    "id": "auto-whiz-garage-web",
@@ -37339,13 +37921,13 @@
    "emirate": "Dubai",
    "area": "Al Quoz Industrial 3",
    "address": "Warehouse 1, Al Quoz Industrial 3, Dubai",
-   "lat": null,
-   "lng": null,
+   "lat": 25.1604195,
+   "lng": 55.2391675,
    "phone": "+971521167166",
    "whatsapp": "+971521167166",
    "website": "https://autowhizgarage.com/",
-   "maps_url": "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage%20Al%20Quoz%20Dubai",
-   "google_place_id": null,
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage&query_place_id=ChIJMR1BdrppXz4R6mDTmHE6Oo4",
+   "google_place_id": "ChIJMR1BdrppXz4R6mDTmHE6Oo4",
    "categories": [],
    "business_type": "workshop",
    "dealer_for": null,
@@ -37359,13 +37941,24 @@
    ],
    "specialties": [
     {
+     "make": "Mercedes-Benz",
+     "models": [],
+     "level": "brand",
+     "confidence": "medium",
+     "evidence": "5 of 60 Google reviews read mention Mercedes-Benz (38% of reviews that name any make)",
+     "mentions": 5,
+     "basis": "reviews",
+     "car_family": "german",
+     "latest_year": 2026
+    },
+    {
      "make": "Lexus",
      "models": [
       "LX"
      ],
      "level": "brand",
      "confidence": "medium",
-     "evidence": "Recommended for Lexus (LX owner) on Reddit r/DubaiPetrolHeads; weak evidence (one owner); general multi-brand workshop",
+     "evidence": "Recommended for Lexus (LX owner) on Reddit r/DubaiPetrolHeads; weak evidence (one owner); general multi-brand workshop; not confirmed in the 60 Google reviews read (0 mention it)",
      "mentions": 0,
      "basis": "community",
      "car_family": "japanese_korean",
@@ -37378,7 +37971,7 @@
      ],
      "level": "model",
      "confidence": "low",
-     "evidence": "Recommended by one owner in a Reddit Land Cruiser servicing thread",
+     "evidence": "Recommended by one owner in a Reddit Land Cruiser servicing thread; not confirmed in the 60 Google reviews read (0 mention it)",
      "mentions": 0,
      "basis": "community",
      "car_family": "japanese_korean",
@@ -37386,8 +37979,120 @@
     }
    ],
    "is_specialist": true,
-   "external_ratings": [],
+   "external_ratings": [
+    {
+     "source": "Google",
+     "rating": 4.8,
+     "count": 1196,
+     "url": "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage&query_place_id=ChIJMR1BdrppXz4R6mDTmHE6Oo4",
+     "as_of": "2026-11-08"
+    }
+   ],
    "external_reviews": [
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage&query_place_id=ChIJMR1BdrppXz4R6mDTmHE6Oo4",
+     "date": "2026-09",
+     "mentions": [
+      "Ford"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage&query_place_id=ChIJMR1BdrppXz4R6mDTmHE6Oo4",
+     "date": "2026-07",
+     "mentions": [
+      "Mercedes-Benz"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage&query_place_id=ChIJMR1BdrppXz4R6mDTmHE6Oo4",
+     "date": "2026-06",
+     "mentions": [
+      "Mercedes-Benz"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage&query_place_id=ChIJMR1BdrppXz4R6mDTmHE6Oo4",
+     "date": "2026-10",
+     "mentions": [
+      "Mercedes-Benz"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage&query_place_id=ChIJMR1BdrppXz4R6mDTmHE6Oo4",
+     "date": "2026-07",
+     "mentions": [
+      "Volvo"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage&query_place_id=ChIJMR1BdrppXz4R6mDTmHE6Oo4",
+     "date": "2025-12",
+     "mentions": [
+      "MG"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage&query_place_id=ChIJMR1BdrppXz4R6mDTmHE6Oo4",
+     "date": "2025-09",
+     "mentions": [
+      "Ford"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage&query_place_id=ChIJMR1BdrppXz4R6mDTmHE6Oo4",
+     "date": "2026-07",
+     "mentions": [
+      "Nissan"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage&query_place_id=ChIJMR1BdrppXz4R6mDTmHE6Oo4",
+     "date": "2025-09",
+     "mentions": [
+      "Chevrolet"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage&query_place_id=ChIJMR1BdrppXz4R6mDTmHE6Oo4",
+     "date": "2025-10",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage&query_place_id=ChIJMR1BdrppXz4R6mDTmHE6Oo4",
+     "date": "2025-10",
+     "mentions": [
+      "Dodge"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage&query_place_id=ChIJMR1BdrppXz4R6mDTmHE6Oo4",
+     "date": "2025-12",
+     "mentions": [
+      "Mercedes-Benz"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage&query_place_id=ChIJMR1BdrppXz4R6mDTmHE6Oo4",
+     "date": "2025-02",
+     "mentions": [
+      "Mercedes-Benz"
+     ]
+    },
     {
      "source": "Reddit r/DubaiPetrolHeads",
      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jk6rag/lexus_service_advice/",
@@ -37411,9 +38116,10 @@
      ]
     }
    ],
-   "review_summary": "Busy general workshop in Al Quoz 3 that a Lexus LX owner and a Land Cruiser owner recommend on Reddit. Not yet matched to a Google Maps listing.",
-   "reviews_analysed": 0,
+   "review_summary": "Google rating 4.8 from 1196 reviews. In the 60 most relevant reviews we read, customers mostly bring Mercedes-Benz; praise centres on honesty, fast turnaround, explaining the work.",
+   "reviews_analysed": 60,
    "sources": [
+    "https://www.google.com/maps/search/?api=1&query=Auto%20Whiz%20Garage&query_place_id=ChIJMR1BdrppXz4R6mDTmHE6Oo4",
     "https://autowhizgarage.com/",
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/1jk6rag/lexus_service_advice/",
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/13hcsro/land_cruiser_owners_where_do_you_get_your_car/"
@@ -37421,7 +38127,7 @@
    "self_claims": [],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "Recommended by a Lexus owner on Reddit r/DubaiPetrolHeads.",
+   "evidence_summary": "5 of 60 Google reviews we read mention Mercedes-Benz work. Recommended by a Lexus owner on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
    "works_on_all_makes_basis": "listing names specific makes",
    "community_mentions": {
@@ -37517,7 +38223,75 @@
      }
     ],
     "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
-   }
+   },
+   "model_mentions": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "as_of": "2026-11-08",
+    "counts": {
+     "Ford": {
+      "Mustang": 1
+     },
+     "Volvo": {
+      "XC90": 1
+     },
+     "Nissan": {
+      "370Z": 1
+     },
+     "Dodge": {
+      "Charger": 1
+     },
+     "Mercedes-Benz": {
+      "C-Class": 1
+     }
+    }
+   },
+   "review_themes": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "low_rated_read": 5,
+    "as_of": "2026-11-08",
+    "praise_counts": {
+     "fast": 14,
+     "honest": 22,
+     "fair_price": 9,
+     "explains": 14,
+     "communicates": 7,
+     "knows_its_stuff": 8
+    },
+    "complaint_counts": {
+     "overcharged": 1,
+     "poor_communication": 1
+    },
+    "complaint_counts_public": false,
+    "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+   },
+   "problem_counts": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "as_of": "2026-11-08",
+    "counts": {
+     "service": 11,
+     "brakes": 4,
+     "ac": 2,
+     "battery": 1,
+     "suspension": 1,
+     "overheating": 1
+    }
+   },
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 15,
+    "fair": 8,
+    "expensive": 1,
+    "cheap": 1,
+    "as_of": "2026-11-08",
+    "jobs": []
+   },
+   "maps_matched_by": "apify name search 2026-11-08",
+   "checked_at": "2026-11-08",
+   "closed": false,
+   "business_status": "operational"
   },
   {
    "id": "focus-auto-service-web",
@@ -37526,13 +38300,13 @@
    "emirate": "Dubai",
    "area": "Dubai Investments Park",
    "address": "Warehouse 39-1, Dubai Investments Park, Dubai (older listings also show Al Quoz Industrial 3)",
-   "lat": null,
-   "lng": null,
+   "lat": 24.9693647,
+   "lng": 55.1697364,
    "phone": "+971522998360",
    "whatsapp": "",
    "website": "https://focusauto.ae/",
-   "maps_url": "https://www.google.com/maps/search/?api=1&query=Focus%20Auto%20Service%20Dubai%20Investments%20Park",
-   "google_place_id": null,
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=Focus%20Auto&query_place_id=ChIJmU5qYuZrXz4ROrrd2xXMn7M",
+   "google_place_id": "ChIJmU5qYuZrXz4ROrrd2xXMn7M",
    "categories": [],
    "business_type": "workshop",
    "dealer_for": null,
@@ -37540,17 +38314,39 @@
    "services": [],
    "specialties": [
     {
+     "make": "Audi",
+     "models": [],
+     "level": "brand",
+     "confidence": "medium",
+     "evidence": "4 of 60 Google reviews read mention Audi (31% of reviews that name any make)",
+     "mentions": 4,
+     "basis": "reviews",
+     "car_family": "german",
+     "latest_year": 2025
+    },
+    {
      "make": "Lexus",
      "models": [
       "GX"
      ],
      "level": "model",
      "confidence": "medium",
-     "evidence": "Recommended for Lexus GX servicing and electrical work on Reddit r/DubaiPetrolHeads (one owner); website now markets luxury and sports cars; also recommended by 2 owners in a 2023 r/dubai Lexus thread",
+     "evidence": "Recommended for Lexus GX servicing and electrical work on Reddit r/DubaiPetrolHeads (one owner); website now markets luxury and sports cars; also recommended by 2 owners in a 2023 r/dubai Lexus thread; not confirmed in the 60 Google reviews read (0 mention it)",
      "mentions": 0,
      "basis": "community",
      "car_family": "japanese_korean",
      "latest_year": 2024
+    },
+    {
+     "make": "Volkswagen",
+     "models": [],
+     "level": "brand",
+     "confidence": "low",
+     "evidence": "3 of 60 Google reviews read mention Volkswagen (23% of reviews that name any make)",
+     "mentions": 3,
+     "basis": "reviews",
+     "car_family": "german",
+     "latest_year": 2025
     },
     {
      "make": "Toyota",
@@ -37559,16 +38355,128 @@
      ],
      "level": "model",
      "confidence": "low",
-     "evidence": "Named by one owner in a Reddit Land Cruiser servicing thread",
-     "mentions": 0,
+     "evidence": "Named by one owner in a Reddit Land Cruiser servicing thread; not confirmed in the 60 Google reviews read (1 mention it)",
+     "mentions": 1,
      "basis": "community",
      "car_family": "japanese_korean",
      "latest_year": 2023
     }
    ],
    "is_specialist": true,
-   "external_ratings": [],
+   "external_ratings": [
+    {
+     "source": "Google",
+     "rating": 4.5,
+     "count": 187,
+     "url": "https://www.google.com/maps/search/?api=1&query=Focus%20Auto&query_place_id=ChIJmU5qYuZrXz4ROrrd2xXMn7M",
+     "as_of": "2026-11-08"
+    }
+   ],
    "external_reviews": [
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Focus%20Auto&query_place_id=ChIJmU5qYuZrXz4ROrrd2xXMn7M",
+     "date": "2025-07",
+     "mentions": [
+      "Mercedes-Benz"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Focus%20Auto&query_place_id=ChIJmU5qYuZrXz4ROrrd2xXMn7M",
+     "date": "2024-01",
+     "mentions": [
+      "Audi"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Focus%20Auto&query_place_id=ChIJmU5qYuZrXz4ROrrd2xXMn7M",
+     "date": "2025-09",
+     "mentions": [
+      "Audi"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Focus%20Auto&query_place_id=ChIJmU5qYuZrXz4ROrrd2xXMn7M",
+     "date": "2025-07",
+     "mentions": [
+      "Volkswagen"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Focus%20Auto&query_place_id=ChIJmU5qYuZrXz4ROrrd2xXMn7M",
+     "date": "2023-03",
+     "mentions": [
+      "Mitsubishi"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Focus%20Auto&query_place_id=ChIJmU5qYuZrXz4ROrrd2xXMn7M",
+     "date": "2024-05",
+     "mentions": [
+      "Infiniti"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Focus%20Auto&query_place_id=ChIJmU5qYuZrXz4ROrrd2xXMn7M",
+     "date": "2022-10",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Focus%20Auto&query_place_id=ChIJmU5qYuZrXz4ROrrd2xXMn7M",
+     "date": "2023-04",
+     "mentions": [
+      "Ford"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Focus%20Auto&query_place_id=ChIJmU5qYuZrXz4ROrrd2xXMn7M",
+     "date": "2023-10",
+     "mentions": [
+      "Audi"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Focus%20Auto&query_place_id=ChIJmU5qYuZrXz4ROrrd2xXMn7M",
+     "date": "2018-07",
+     "mentions": [
+      "Volkswagen"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Focus%20Auto&query_place_id=ChIJmU5qYuZrXz4ROrrd2xXMn7M",
+     "date": "2021-12",
+     "mentions": [
+      "Audi"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Focus%20Auto&query_place_id=ChIJmU5qYuZrXz4ROrrd2xXMn7M",
+     "date": "2018-05",
+     "mentions": [
+      "Volkswagen"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Focus%20Auto&query_place_id=ChIJmU5qYuZrXz4ROrrd2xXMn7M",
+     "date": "2023-01",
+     "mentions": [
+      "Toyota"
+     ]
+    },
     {
      "source": "Reddit r/DubaiPetrolHeads",
      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bdjqnd/lexus_specialist_dubai/",
@@ -37612,9 +38520,10 @@
      ]
     }
    ],
-   "review_summary": "Independent workshop recommended on Reddit by a Lexus GX owner for servicing and electrical work. Its website now markets luxury and sports cars. Not yet matched to a Google Maps listing.",
-   "reviews_analysed": 0,
+   "review_summary": "Google rating 4.5 from 187 reviews. In the 60 most relevant reviews we read, customers mostly bring Audi; praise centres on fair prices, honesty, fast turnaround.",
+   "reviews_analysed": 60,
    "sources": [
+    "https://www.google.com/maps/search/?api=1&query=Focus%20Auto&query_place_id=ChIJmU5qYuZrXz4ROrrd2xXMn7M",
     "https://focusauto.ae/",
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bdjqnd/lexus_specialist_dubai/",
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/13hcsro/land_cruiser_owners_where_do_you_get_your_car/",
@@ -37639,7 +38548,7 @@
      "note": "seasonal offer on homepage banner; may expire"
     }
    ],
-   "evidence_summary": "Recommended by a Lexus GX owner on Reddit r/DubaiPetrolHeads.",
+   "evidence_summary": "4 of 60 Google reviews we read mention Audi work. Also Volkswagen (3). Recommended by a Lexus GX owner on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
    "works_on_all_makes_basis": "listing names specific makes",
    "community_mentions": {
@@ -37777,7 +38686,82 @@
      }
     ],
     "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
-   }
+   },
+   "model_mentions": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "as_of": "2026-11-08",
+    "counts": {
+     "Audi": {
+      "Q7": 1,
+      "A6": 1
+     },
+     "Volkswagen": {
+      "Passat": 1,
+      "Golf": 1
+     },
+     "Mitsubishi": {
+      "Pajero": 1
+     },
+     "Ford": {
+      "Mustang": 1
+     },
+     "Toyota": {
+      "Land Cruiser": 1
+     }
+    }
+   },
+   "review_themes": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "low_rated_read": 14,
+    "as_of": "2026-11-08",
+    "praise_counts": {
+     "fast": 10,
+     "fair_price": 13,
+     "honest": 11,
+     "knows_its_stuff": 10,
+     "explains": 2,
+     "communicates": 4
+    },
+    "complaint_counts": {
+     "upsell": 2,
+     "overcharged": 4,
+     "didnt_fix": 1,
+     "slow": 2
+    },
+    "complaint_counts_public": false,
+    "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+   },
+   "problem_counts": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "as_of": "2026-11-08",
+    "counts": {
+     "gearbox": 5,
+     "oil_leak": 7,
+     "battery": 1,
+     "bodywork": 1,
+     "service": 8,
+     "steering": 1,
+     "pre_purchase": 1,
+     "brakes": 3,
+     "overheating": 1
+    }
+   },
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 32,
+    "fair": 12,
+    "expensive": 7,
+    "cheap": 1,
+    "as_of": "2026-11-08",
+    "jobs": []
+   },
+   "maps_matched_by": "apify name search 2026-11-08",
+   "checked_at": "2026-11-08",
+   "closed": false,
+   "business_status": "operational"
   },
   {
    "id": "jas-motors-garage-web",
