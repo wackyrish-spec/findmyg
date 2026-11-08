@@ -6,7 +6,7 @@ import Icon from "./Icon.astro";
 import { SITE } from "../lib/site.js";
 const {
   title, description, h1, lead, introText = null, garages, make = null, model = null,
-  noindex, crumbs = [], related = [], pathKey, ogImage, makeFilter = [], dvi = [], dviNote = null, owners = null,
+  noindex, crumbs = [], related = [], pathKey, ogImage, makeFilter = [], dvi = [], dviNote = null, owners = null, faq = [],
   notes = null, outside = [], others = [], othersLabel = "Also in Dubai, no reviews for your car yet", dealers = [], dealerPrices = [], dealerNote = null,
 } = Astro.props;
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
@@ -108,6 +108,12 @@ const itemList = {
         )}
         {dealerPrices.length === 0 && dealerNote && <p class="dnote">{dealerNote.text} <a href={dealerNote.url} target="_blank" rel="noopener nofollow">Source: {dealerNote.source}</a></p>}
       </details>
+    )}
+    {faq.length > 0 && (
+      <section class="card panel faq">
+        <h2>Questions owners ask</h2>
+        {faq.map((f) => <><h3>{f.q}</h3><p>{f.a}</p></>)}
+      </section>
     )}
     <HelpFeedback />
     {related.length > 0 && (

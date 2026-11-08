@@ -14,11 +14,12 @@ const related = [
 ];
 ---
 <ListPage
-  title={it?.title || `${b.make} service in Dubai: independent specialists`}
+  title={it?.title || `${b.make} service and repair in Dubai: independent specialists`}
   description={it?.description || `Independent ${b.make} specialists in Dubai, ranked by how many owners vouch for them, with the evidence for each.`}
   h1={it?.h1 || `${b.make} specialists in Dubai`}
   lead={`Independent garages that work on ${b.make}, ranked by evidence from owner reviews.`}
   introText={it?.text}
+  faq={it?.faq || []}
   garages={L.ranked}
   others={L.others}
   outside={L.outside}
