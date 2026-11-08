@@ -10655,7 +10655,9 @@
    "maps_matched_by": "apify name search 2026-11-08",
    "checked_at": "2026-11-08",
    "closed": false,
-   "business_status": "operational"
+   "business_status": "operational",
+   "worth_the_drive": true,
+   "worth_the_drive_basis": "PM 2026-11-08: single-marque Porsche specialist, strong evidence"
   },
   {
    "id": "precision-power-auto-garage-web",
@@ -41589,6 +41591,223 @@
       ],
       "sentiment": "positive",
       "quote": "If you want quality and clean place then Mavericks Performance, they know exactly what they do",
+      "added_by": "data",
+      "topics": []
+     }
+    ],
+    "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+   }
+  },
+  {
+   "id": "sama-salalah-auto-web",
+   "name": "Sama Salalah Auto Maintenance Workshop",
+   "listing_name": "Sama Salalah Auto Maint. W.Shop",
+   "emirate": "Sharjah",
+   "area": "Muweilah Industrial, Sharjah",
+   "address": "Muweilah branch, Sharjah (another branch listed in Rolla)",
+   "lat": null,
+   "lng": null,
+   "phone": "+971 52 608 0169",
+   "whatsapp": "",
+   "website": "https://samasala.com/",
+   "maps_url": "",
+   "google_place_id": null,
+   "categories": [],
+   "business_type": "workshop",
+   "dealer_for": null,
+   "hours": "",
+   "services": [],
+   "specialties": [
+    {
+     "make": "Nissan",
+     "models": [
+      "Patrol"
+     ],
+     "level": "model",
+     "confidence": "medium",
+     "evidence": "Owners on r/DubaiPetrolHeads (2026) recommend it for Patrol Y62 and Nissan; one owner says it is Nissan-certified. Several mentions come from the same commenter.",
+     "mentions": 0,
+     "basis": "community",
+     "car_family": "japanese_korean",
+     "latest_year": 2026
+    }
+   ],
+   "is_specialist": true,
+   "external_ratings": [],
+   "review_summary": "Not yet matched to a Google Maps listing. Nissan specialist in Sharjah that Patrol owners on r/DubaiPetrolHeads recommend; worth the drive from Dubai.",
+   "reviews_analysed": 60,
+   "sources": [
+    "https://samasala.com/"
+   ],
+   "self_claims": [],
+   "price_examples": [],
+   "evidence_summary": "Nissan specialist (Patrol Y62, VVEL timing) in Sharjah; owner-recommended.",
+   "works_on_all_makes": true,
+   "works_on_all_makes_basis": "garage website: multi-brand, Nissan/Toyota/Hyundai-certified technicians",
+   "added_by": "data community sweep 2026-11-08 (Patrol, worth the drive)",
+   "model_mentions": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "as_of": "2026-11-08",
+    "counts": {
+     "BMW": {
+      "X6": 1
+     }
+    }
+   },
+   "review_themes": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "low_rated_read": 3,
+    "as_of": "2026-11-08",
+    "praise_counts": {
+     "knows_its_stuff": 4,
+     "fast": 12,
+     "honest": 12,
+     "fair_price": 6,
+     "communicates": 2,
+     "explains": 1
+    },
+    "complaint_counts": {},
+    "complaint_counts_public": false,
+    "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+   },
+   "problem_counts": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "as_of": "2026-11-08",
+    "counts": {
+     "gearbox": 1,
+     "ac": 1
+    }
+   },
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 17,
+    "fair": 6,
+    "expensive": 3,
+    "cheap": 2,
+    "as_of": "2026-11-08",
+    "jobs": []
+   },
+   "closed": false,
+   "external_reviews": [
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Expert%20Touch%20Garage&query_place_id=ChIJb8eo1elpXz4RDfOqLqLfm18",
+     "date": "2026-10",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Expert%20Touch%20Garage&query_place_id=ChIJb8eo1elpXz4RDfOqLqLfm18",
+     "date": "2023-10",
+     "mentions": [
+      "Nissan"
+     ]
+    }
+   ],
+   "worth_the_drive": true,
+   "worth_the_drive_basis": "PM 2026-11-08: Nissan/Patrol specialist with 2+ positive owner threads (r/DubaiPetrolHeads 2026)",
+   "community_mentions": {
+    "threads_total": 4,
+    "threads_positive": 3,
+    "threads_negative": 0,
+    "threads_negative_public": false,
+    "group_reports": 0,
+    "years": [
+     2026,
+     2026
+    ],
+    "positive_by_model": {
+     "Patrol": 2,
+     "X-Trail": 1
+    },
+    "pre_purchase_positive": 0,
+    "as_of": "2026-11-08",
+    "sources": [
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "New Patrol Owner Advice // Y62 [2015]",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1teor2b/new_patrol_owner_advice_y62_2015/",
+      "year": 2026,
+      "makes": [
+       "Nissan"
+      ],
+      "models": [
+       "Patrol"
+      ],
+      "generations": [
+       "Y62"
+      ],
+      "sentiment": "positive",
+      "quote": "They are Nissan certified as well and do many of the dealer's warranty and recall jobs for them.",
+      "added_by": "data",
+      "topics": []
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Patrol owners (Y61/Y62), where do you take your car for service in AD and Dubai?",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1xlsbf6/patrol_owners_y61y62_where_do_you_take_your_car/",
+      "year": 2026,
+      "makes": [
+       "Nissan"
+      ],
+      "models": [
+       "Patrol"
+      ],
+      "generations": [
+       "Y61",
+       "Y62"
+      ],
+      "sentiment": "positive",
+      "quote": null,
+      "added_by": "data",
+      "topics": []
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Suggestion which is better garage for my Nissan x trail 2018",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1vf8td2/suggestion_which_is_better_garage_for_my_nissan_x/",
+      "year": 2026,
+      "makes": [
+       "Nissan"
+      ],
+      "models": [
+       "X-Trail"
+      ],
+      "generations": [],
+      "sentiment": "positive",
+      "quote": "They know their stuff.",
+      "added_by": "data",
+      "topics": []
+     },
+     {
+      "type": "reddit",
+      "site": "r/DubaiPetrolHeads",
+      "title": "Patrol Y62 Specialists? (Dubai)",
+      "title_ok": true,
+      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1tpz59m/patrol_y62_specialists_dubai/",
+      "year": 2026,
+      "makes": [
+       "Nissan"
+      ],
+      "models": [
+       "Patrol"
+      ],
+      "generations": [
+       "Y62"
+      ],
+      "sentiment": "neutral",
+      "quote": null,
       "added_by": "data",
       "topics": []
      }

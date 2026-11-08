@@ -46,14 +46,16 @@ function goodFor(text) {
 // Data's website_note: dead or hijacked sites lose their link; non-workshops are left out of lists.
 const BROKEN_SITE = /suspend|gambling|unrelated|default server|no content|check before/i;
 const NOT_WORKSHOP = /not (clearly )?a (repair )?workshop|parts (supplier|distributor)|distributor|retailer|transport company|showroom/i;
-const SITE_BASIS = (s) => s.basis === "website" || /self-description|on (the )?garage('s)? (own )?website/i.test(s.evidence || "");
-// Rough drive time from Downtown Dubai: straight-line distance x 1.3 for roads at about 60 km/h, rounded to 5 minutes.
+// Website-only claims: basis "website", or a self-description with no review, community or founder basis behind it.
+const SITE_BASIS = (s) => s.basis === "website" || (!/reviews|community|founder/.test(s.basis || "") && /self-description|on (the )?garage('s)? (own )?website/i.test(s.evidence || ""));
+// Rough drive time from Downtown Dubai: road distance about 1.2x straight line, 60 km/h for the first 20 km, 100 km/h after, plus 10 min traffic.
 const DRIVE_DEFAULT = { Sharjah: 30, Ajman: 40, "Abu Dhabi": 90, Musaffah: 90 };
 function driveFromDowntown(g) {
   const la = Number(g.lat), lo = Number(g.lng);
   if (la && lo) {
     const R = Math.PI / 180, x = (lo - 55.2744) * R * Math.cos(((la + 25.1972) / 2) * R), y = (la - 25.1972) * R;
-    return Math.max(15, Math.round((6371 * Math.hypot(x, y) * 1.3) / 60 * 60 / 5) * 5);
+    const km = 6371 * Math.hypot(x, y) * 1.2; // road distance, roughly
+    return Math.max(15, Math.round((10 + Math.min(km, 20) / 60 * 60 + Math.max(0, km - 20) / 100 * 60) / 5) * 5);
   }
   return DRIVE_DEFAULT[g.emirate] || DRIVE_DEFAULT[g.area] || null;
 }
