@@ -1,8 +1,9 @@
 ---
 import Base from "../../../layouts/Base.astro";
-import { GARAGES, JOBS } from "../../../lib/data.js";
+import { SITE } from "../../../lib/site.js";
+import { ALL_GARAGES, JOBS, BENCHMARKS } from "../../../lib/data.js";
 export function getStaticPaths() {
-  return GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
+  return ALL_GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
 }
 const { g } = Astro.props;
 const googleOn = import.meta.env.PUBLIC_GOOGLE_SIGNIN === "1";
@@ -12,7 +13,7 @@ const supabaseReady = !!(import.meta.env.PUBLIC_SUPABASE_URL && import.meta.env.
   <div class="wrap" style="padding-block:20px 56px;max-width:680px">
     <h1 style="font-size:42px;text-transform:uppercase">Review {g.name}</h1>
     <p class="muted">About a minute. Your review helps the next owner of the same car.</p>
-    {!supabaseReady && <div class="note" style="margin:12px 0">Reviews open soon. Sign-in and saving go live once the review database is connected.</div>}
+    {!supabaseReady && <div class="note" style="margin:12px 0">Online reviews aren't switched on yet. <a href={`mailto:${SITE.emailHello}?subject=${encodeURIComponent(`Review: ${g.name}`)}&body=${encodeURIComponent("Car (make, model, year):\nJob:\nWhat it cost (AED):\nHow it went:\n")}`}>Email us your review</a> and we'll add it after checking.</div>}
     <form class="f card panel" id="reviewForm" data-garage={g.slug} data-ready={supabaseReady ? "1" : ""} novalidate>
       <div class="label">Your car</div>
       <div class="two">
@@ -21,10 +22,15 @@ const supabaseReady = !!(import.meta.env.PUBLIC_SUPABASE_URL && import.meta.env.
       </div>
       <label class="fld" for="rYear">Year<input id="rYear" inputmode="numeric" maxlength="4" placeholder="2014" /></label>
       <div class="label">The job</div>
-      <label class="fld" for="rJob">Type of job<select id="rJob" required><option value="">Choose</option>{JOBS.map((j) => <option value={j.name}>{j.name}</option>)}<option value="Other">Other (describe below)</option></select></label>
+      <label class="fld" for="rJob">Type of job<select id="rJob" required><option value="">Choose</option>{BENCHMARKS.map((b) => <option value={b.name}>{b.plain}</option>)}{JOBS.map((j) => <option value={j.name}>{j.name}</option>)}<option value="Other">Other (describe below)</option></select></label>
       <label class="fld" for="rJobNote">What exactly was done<input id="rJobNote" maxlength="120" placeholder="e.g. air suspension compressor replaced" /><small>Optional, unless you chose Other.</small></label>
+      <fieldset class="fld" id="rIncl" hidden style="border:0;padding:0;margin:0"><legend style="margin-bottom:5px">What was included?</legend>
+        {BENCHMARKS.filter((b) => b.includes.length).map((b) => (
+          <div class="seg" data-incl-for={b.name} hidden>{b.includes.map((x, i) => <label for={`inc-${b.slug}-${i}`}><input type="checkbox" name="incl" id={`inc-${b.slug}-${i}`} value={x} />{x}</label>)}</div>
+        ))}
+        <small id="rPaidHint" hidden>Your price helps the next owner know what's fair.</small></fieldset>
       <div class="two">
-        <label class="fld" for="rPaid">Total paid (AED)<input id="rPaid" inputmode="numeric" placeholder="2400" /></label>
+        <label class="fld" for="rPaid">Total paid (AED, including VAT)<input id="rPaid" inputmode="numeric" placeholder="2400" /></label>
         <fieldset class="fld" style="border:0;padding:0;margin:0"><legend style="margin-bottom:5px">Final bill vs quote</legend>
           <div class="seg"><label for="q1"><input type="radio" name="qvf" id="q1" value="same" />Same</label><label for="q2"><input type="radio" name="qvf" id="q2" value="higher" />Higher</label><label for="q3"><input type="radio" name="qvf" id="q3" value="lower" />Lower</label></div></fieldset>
       </div>
@@ -34,13 +40,16 @@ const supabaseReady = !!(import.meta.env.PUBLIC_SUPABASE_URL && import.meta.env.
       <label class="fld" for="rRating">Overall rating<select id="rRating" required><option value="">Choose</option><option value="5">5 · Excellent</option><option value="4">4 · Good</option><option value="3">3 · OK</option><option value="2">2 · Poor</option><option value="1">1 · Bad</option></select></label>
       <div class="seg"><label for="c1"><input type="checkbox" id="c1" />Showed me the old parts</label><label for="c2"><input type="checkbox" id="c2" />Called before extra work</label><label for="c3"><input type="checkbox" id="c3" />Would go back</label></div>
       <label class="fld" for="rText">Your review<textarea id="rText" required placeholder="What was wrong, what they did, and how they dealt with you"></textarea><small>At least 40 characters.</small></label>
-      <label class="fld" for="rName">Name shown with your review<input id="rName" maxlength="40" placeholder="e.g. Rishal, or a nickname" /><small>Optional. Leave blank to show "GarageGuide owner".</small></label>
+      <label class="fld" for="rName">Name shown with your review<input id="rName" maxlength="40" placeholder="e.g. Rishal, or a nickname" /><small>Optional. Leave blank to show "KnowsMyCar owner".</small></label>
       <label class="fld" for="rWa">WhatsApp number (private)<input id="rWa" type="tel" inputmode="tel" maxlength="20" placeholder="+971 50 123 4567" /><small>Optional. Never shown. Only used if we need to check your review with you.</small></label>
+      <label class="fld" for="rPhoto" id="rPhotoWrap" hidden>Add a photo (optional)<input id="rPhoto" type="file" accept="image/*" /><small>Your car at the garage, the work done, or the bill. Cover number plates and personal details. Location data is removed.</small></label>
       <div class="signin" id="rSignin" hidden>
         {googleOn && <button class="btn" type="button" id="rGoogle">Continue with Google</button>}
         {googleOn && <p class="muted" style="margin:8px 0;font-size:13px">or get a sign-in link by email:</p>}
         <label class="fld" for="rEmail">Your email<input id="rEmail" type="email" autocomplete="email" placeholder="you@example.com" /><small>We email you a sign-in link so each review comes from a real owner. Your email is never shown.</small></label>
       </div>
+      <label class="agree" for="rTrue"><input type="checkbox" id="rTrue" required /> <span>This review is true and is my own experience, and it follows the <a href="/review-guidelines/" target="_blank">review guidelines</a>.</span></label>
+      <p class="muted" style="font-size:13px;margin:0">Your email and WhatsApp number stay private. See our <a href="/privacy/" target="_blank">privacy policy</a>.</p>
       <div class="err" id="rErr" hidden></div>
       <button class="btn primary" type="submit" id="rGo" disabled={!supabaseReady}>{supabaseReady ? "Submit review" : "Reviews open soon"}</button>
     </form>

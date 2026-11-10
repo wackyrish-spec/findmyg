@@ -1,37 +1,42 @@
 ---
 import Base from "../layouts/Base.astro";
 import Icon from "../components/Icon.astro";
-import { BRANDS, AREAS, JOB_PAGES, GARAGES } from "../lib/data.js";
+import { BRANDS, AREAS, GARAGES, PROBLEMS, OUR_MARQUES } from "../lib/data.js";
 const evidenceGarages = GARAGES.filter((g) => g.hasEvidence).length;
 const site = {
-  "@context": "https://schema.org", "@type": "WebSite", name: "GarageGuide", url: Astro.site?.toString(),
+  "@context": "https://schema.org", "@type": "WebSite", name: "KnowsMyCar", url: Astro.site?.toString(),
+};
+const org = {
+  "@context": "https://schema.org", "@type": "Organization", name: "KnowsMyCar", url: Astro.site?.toString(),
+  logo: new URL("/brand/logo-a-primary.png", Astro.site).toString(),
 };
 ---
-<Base title="GarageGuide: find the Dubai garage that knows your car" description="Free guide to Dubai's independent specialist garages. Pick your car by brand, model or chassis code and see which garages owners trust with it." jsonld={[site]}>
+<Base title="KnowsMyCar: find the Dubai garage that knows your car" description="Free guide to Dubai's independent specialist garages. Pick your car by brand, model or chassis code and see which garages owners trust with it." jsonld={[site, org]}>
   <section class="hero"><div class="wrap">
     <h1>Find the garage that <em>knows your car</em></h1>
     <p>Dubai's independent specialists, matched to your brand, model and chassis code. Every match shows the reviews behind it. Free, with no paid listings.</p>
     <div class="picker" id="hp">
-      <label class="label" for="hpIn">What do you drive?</label>
-      <div class="pickrow"><input id="hpIn" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="hpList" placeholder="Brand, model or chassis code, e.g. Cayenne 958, Golf GTI Mk5, E90" />
+      <label class="label" for="hpIn">Your car, a garage or a problem</label>
+      <div class="pickrow"><input id="hpIn" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="hpList" placeholder="Car, garage or problem, e.g. Cayenne 958, AC not cold" />
         <button class="btn primary" type="button" id="hpGo"><Icon name="search" /><span>Find specialists</span></button></div>
       <div class="sugg" id="hpList" role="listbox" hidden></div>
     </div>
     <div class="tries">Try {["Cayenne 958", "Golf GTI Mk5", "Alfa Romeo 147", "E90 335i", "G-Wagon", "LC200", "Patrol Y62", "Range Rover"].map((t) => <button type="button" data-try={t}>{t}</button>)}</div>
-    <div class="tries">Or by problem: {JOB_PAGES.slice(0, 6).map((j) => <a class="pill" href={`/dubai/job/${j.slug}/`}>{j.plain}</a>)}</div>
+    <div class="tries">Or by problem: {PROBLEMS.slice(0, 6).map((p) => <a class="pill" href={`/dubai/problem/${p.slug}/`}>{p.label}</a>)}</div>
+    <p class="revcta"><a href="/check-a-quote/">Got a dealer quote? Check it</a> · Used a garage recently? <button type="button" class="linkbtn" data-reviewcta>Review a garage you've used</button></p>
   </div></section>
   <div class="wrap">
-    <section class="blk"><div class="blkhead"><div><h2>Specialists by brand</h2><p>{evidenceGarages} garages have specialties backed by reviews or owner recommendations.</p></div><a class="btn sm" href="/dubai/">All {GARAGES.length} garages</a></div>
-      <div class="brands">{BRANDS.slice(0, 18).map((b) => (
+    <section class="blk"><div class="blkhead"><div><h2>Specialist garages in Dubai by car brand</h2><p>{evidenceGarages} garages have specialties backed by reviews or owner recommendations.</p></div><a class="btn sm" href="/dubai/">All {GARAGES.length} garages</a></div>
+      <div class="brands">{BRANDS.filter((b) => OUR_MARQUES.includes(b.make)).slice(0, 18).map((b) => (
         <a class="brand" href={`/dubai/${b.slug}/`}><b>{b.make}</b><small>{b.garages.length} garage{b.garages.length > 1 ? "s" : ""}{b.evidenceCount ? ` · ${b.evidenceCount} with strong evidence` : ""}</small></a>
       ))}</div></section>
-    <section class="blk"><div class="blkhead"><div><h2>Why GarageGuide</h2><p>Booking apps hide the workshop. Google stars don't know your car. The real knowledge is scattered across forum threads.</p></div><a class="btn sm" href="/how-it-works/">How it works</a></div>
+    <section class="blk"><div class="blkhead"><div><h2>Why KnowsMyCar</h2><p>Booking apps hide the workshop. Google stars don't know your car. The real knowledge is scattered across forum threads.</p></div><a class="btn sm" href="/how-it-works/">How it works</a></div>
       <div class="gap">
         <div class="card"><span class="n">01</span><h3>Match for your car</h3><p>We count which brands and models come up in each garage's reviews, so a Cayenne owner sees who really works on Cayennes.</p></div>
         <div class="card"><span class="n">02</span><h3>What owners paid</h3><p>Owners add the job, the price and whether the bill matched the quote, so the next person knows what's fair.</p></div>
-        <div class="card"><span class="n">03</span><h3>Two kinds of review</h3><p>GarageGuide owner reviews and what the internet says are shown separately and never blended.</p></div>
+        <div class="card"><span class="n">03</span><h3>Two kinds of review</h3><p>KnowsMyCar owner reviews and what the internet says are shown separately and never blended.</p></div>
       </div></section>
-    <section class="blk" style="padding-bottom:48px"><div class="blkhead"><h2>Garages by area</h2></div>
+    <section class="blk" id="areas" style="padding-bottom:48px"><div class="blkhead"><h2>Car garages in Dubai by area</h2></div>
       <div class="linkgrid">{AREAS.map((a) => <a class="pill" href={`/dubai/area/${a.slug}/`}>{a.name} · {a.garages.length}</a>)}</div></section>
   </div>
 </Base>

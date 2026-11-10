@@ -1,7 +1,8 @@
 // Loads data/garages.json at build time and builds the indexes every page uses.
 import raw from "../../data/garages.json";
+import { readFileSync, existsSync } from "node:fs";
 import intros from "../content/intros.json";
-import { CATALOG } from "./catalog.js";
+import { CATALOG, EXTRA_FAMILIES } from "./catalog.js";
 import { loadReviews, ownerStats } from "./reviews.js";
 
 const REVIEWS = await loadReviews();
@@ -19,6 +20,8 @@ export const AREA_GROUPS = [
 ];
 
 // Job pages for people who search by problem, not by car.
+// Garages outside Dubai are listed in their own group, never ranked in Dubai lists.
+const OUTSIDE = /abu dhabi|sharjah|ajman|al ain|musaff?ah|mussafah|ras al khaimah|\brak\b|fujairah|umm al quwain/i;
 export const JOBS = [
   { slug: "servicing", name: "Servicing", plain: "Regular servicing and oil changes", re: /oil change|tune up|servic|maintenance/i },
   { slug: "ac-repair", name: "AC repair", plain: "Car AC not cold", re: /air conditioning|\bac\b/i },
@@ -40,8 +43,29 @@ function goodFor(text) {
   return out.slice(0, 2);
 }
 
+// Data's website_note: dead or hijacked sites lose their link; non-workshops are left out of lists.
+const BROKEN_SITE = /suspend|gambling|unrelated|default server|no content|check before/i;
+const NOT_WORKSHOP = /not (clearly )?a (repair )?workshop|parts (supplier|distributor)|distributor|retailer|transport company|showroom/i;
+// Website-only claims: basis "website", or a self-description with no review, community or founder basis behind it.
+const SITE_BASIS = (s) => s.basis === "website" || (!/reviews|community|founder/.test(s.basis || "") && /self-description|on (the )?garage('s)? (own )?website/i.test(s.evidence || ""));
+// Rough drive time from Downtown Dubai: road distance about 1.2x straight line, 60 km/h for the first 20 km, 100 km/h after, plus 10 min traffic.
+const DRIVE_DEFAULT = { Sharjah: 30, Ajman: 40, "Abu Dhabi": 90, Musaffah: 90 };
+function driveFromDowntown(g) {
+  const la = Number(g.lat), lo = Number(g.lng);
+  if (la && lo) {
+    const R = Math.PI / 180, x = (lo - 55.2744) * R * Math.cos(((la + 25.1972) / 2) * R), y = (la - 25.1972) * R;
+    const km = 6371 * Math.hypot(x, y) * 1.2; // road distance, roughly
+    return Math.max(15, Math.round((10 + Math.min(km, 20) / 60 * 60 + Math.max(0, km - 20) / 100 * 60) / 5) * 5);
+  }
+  return DRIVE_DEFAULT[g.emirate] || DRIVE_DEFAULT[g.area] || null;
+}
 function norm(g) {
-  const specs = (g.specialties || [])
+  const note = g.website_note || "";
+  const website = g.website && !BROKEN_SITE.test(note) ? g.website : "";
+  // A specialty whose only basis is the garage's own website is "the garage says", never owner-backed or ranked.
+  const self_claims = [...(g.self_claims || []).map((c) => ({ ...c, url: c.url && BROKEN_SITE.test(note) ? "" : c.url })), ...(g.specialties || []).filter((s) => s.make && SITE_BASIS(s))
+    .map((s) => ({ make: s.make, models: (s.models || []).filter(Boolean), url: website, note: "" }))];
+  const specs = (g.specialties || []).filter((s) => !SITE_BASIS(s))
     .filter((s) => s.make)
     .map((s) => ({
       make: s.make,
@@ -49,8 +73,10 @@ function norm(g) {
       models: (s.models || []).filter(Boolean),
       level: s.level || "brand",
       confidence: s.confidence || "low",
-      conf: CONF[s.confidence] || 1,
-      evidence: s.evidence || "",
+      // Spec 13.1: evidence older than 3 years counts one step lower and shows its year.
+      year: Number(s.latest_year) || null,
+      conf: Math.max(1, (CONF[s.confidence] || 1) - (Number(s.latest_year) && new Date().getFullYear() - Number(s.latest_year) > 3 ? 1 : 0)),
+      evidence: (s.evidence || "") + (Number(s.latest_year) && new Date().getFullYear() - Number(s.latest_year) > 3 ? ` (latest ${s.latest_year})` : ""),
       mentions: s.mentions || 0,
       basis: s.basis || "",
     }))
@@ -71,7 +97,17 @@ function norm(g) {
   const text = [...(g.categories || []), ...(g.services || [])].join(" | ");
   return {
     ...g,
+    // NFKC turns styled Unicode names (e.g. bold maths letters from Maps listings) into plain text.
+    name: String(g.name).normalize("NFKC").replace(/\s+/g, " ").trim(),
     slug: g.id || slugify(g.name),
+    website, self_claims,
+    sources: (g.sources || []).filter((u) => website || !g.website || !u.includes(g.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/.*$/, ""))),
+    focus: g.website_focus?.focus && website ? g.website_focus.focus : "",
+    notWorkshop: NOT_WORKSHOP.test(note) && !/workshop in/i.test(note),
+    // PM: curated specialists in Sharjah, Ajman or Musaffah rank on Dubai brand and model pages, labelled "Worth the drive".
+    worthDrive: g.worth_the_drive === true,
+    driveMin: g.worth_the_drive === true ? driveFromDowntown(g) : null,
+    closed: g.closed === true || /CLOSED/i.test(g.business_status || ""),
     specs,
     ext,
     google,
@@ -79,6 +115,7 @@ function norm(g) {
     // Product spec: a garage ranks only if owners can reach or find it.
     contactable: !!(g.phone || g.whatsapp || g.maps_url || (g.lat && g.lng)),
     founderPick: specs.some((s) => s.basis === "founder"),
+    outsideDubai: (g.emirate && !/dubai/i.test(g.emirate)) || OUTSIDE.test(`${g.area || ""} ${g.city || ""} ${g.address || ""}`) || (g.specialties || []).some((s) => /not Dubai/i.test(s.evidence || "")),
     hasEvidence: g.business_type !== "dealer" && specs.some(real),
     topConf: Math.max(0, ...specs.map((s) => s.conf)),
     areaGroup,
@@ -86,6 +123,8 @@ function norm(g) {
     jobs: JOBS.filter((j) => j.re.test(text)).map((j) => j.slug),
     goodFor: goodFor(text),
     waNumber: waNumber(g),
+    priceTalk: priceTalk(g.price_signal),
+    prices: normPrices(g.price_examples),
     ownerReviews: REVIEWS[g.id || slugify(g.name)] || [],
     own: ownerStats(REVIEWS[g.id || slugify(g.name)]),
     ownerCount: (REVIEWS[g.id || slugify(g.name)] || []).length,
@@ -105,8 +144,11 @@ export function waNumber(g) {
 const defaultRank = (a, b) =>
   a.isDealer - b.isDealer || (b.ownerCount >= 3) - (a.ownerCount >= 3) || b.hasEvidence - a.hasEvidence || b.topConf - a.topConf || a.name.localeCompare(b.name);
 
-export const GARAGES = (raw.garages || raw).filter((g) => g && g.name).map(norm).sort(defaultRank);
-export const BY_SLUG = Object.fromEntries(GARAGES.map((g) => [g.slug, g]));
+// Every garage keeps its page (slugs are frozen); non-workshops are left out of lists and search.
+// Records Data marks as duplicate_of another are skipped; public/_redirects sends their old URLs to the kept garage.
+export const ALL_GARAGES = (raw.garages || raw).filter((g) => g && g.name && !g.duplicate_of).map(norm).sort(defaultRank);
+export const GARAGES = ALL_GARAGES.filter((g) => !g.notWorkshop && !g.closed);
+export const BY_SLUG = Object.fromEntries(ALL_GARAGES.map((g) => [g.slug, g]));
 export const DATA_UPDATED = raw.updated || "";
 export const METHOD = raw.method || "";
 
@@ -123,11 +165,11 @@ export function specFor(g, make, model) {
 }
 export const levelOf = (spec) => (spec ? spec.conf : 0);
 const lc = (x) => String(x || "").toLowerCase();
-// An owner review on GarageGuide for this car is evidence too.
+// An owner review on KnowsMyCar for this car is evidence too.
 const ownerFor = (g, make, model) =>
   g.ownerReviews.some((r) => lc(r.car_make) === lc(make) && (!model || lc(r.car_model).includes(lc(model))));
 const realFor = (g, make, model) => {
-  if (g.isDealer || !g.contactable) return false;
+  if (g.isDealer || !g.contactable || (g.outsideDubai && !g.worthDrive)) return false;
   if (ownerFor(g, make, model)) return true;
   const s = specFor(g, make, model);
   return !!s && /reviews|community|founder/.test(s.basis) && s.conf >= 2 && (!model || s.modelHit);
@@ -155,14 +197,14 @@ export const DEALER_NOTES = {
   "land-rover": { text: "Agency servicing on a Range Rover typically costs 30 to 50% more than independents.", source: "CarSwitch, Jul 2026", url: "https://carswitch.com/newsroom/range-rover-price-in-uae-2026-used-vs-new-generation-guide-true-cost-of-owning-a-pre-owned-range-rover/" },
 };
 export function splitBrand(garages, make, model) {
-  const ranked = [], others = [], dealers = [];
-  garages.forEach((g) => (g.isDealer ? dealers : realFor(g, make, model) || (model && realFor(g, make)) ? ranked : others).push(g));
-  return { ranked, others: ranked.length < OTHERS_MIN ? others : [], dealers };
+  const ranked = [], others = [], dealers = [], outside = [];
+  garages.forEach((g) => (g.isDealer ? dealers : g.outsideDubai && !g.worthDrive ? outside : realFor(g, make, model) || (model && realFor(g, make)) ? ranked : others).push(g));
+  return { ranked, others: ranked.length < OTHERS_MIN ? others : [], dealers, outside };
 }
 export function splitGeneral(garages) {
-  const ok = garages.filter((g) => !g.isDealer);
+  const ok = garages.filter((g) => !g.isDealer && !g.outsideDubai);
   const ranks = (g) => g.contactable && (g.hasEvidence || g.ownerCount > 0);
-  return { ranked: ok.filter(ranks), others: ok.filter((g) => !ranks(g)), dealers: [] };
+  return { ranked: ok.filter(ranks), others: ok.filter((g) => !ranks(g)), dealers: [], outside: garages.filter((g) => !g.isDealer && g.outsideDubai) };
 }
 
 function rankFor(make, model) {
@@ -206,16 +248,20 @@ export const JOB_PAGES = JOBS.map((j) => {
 
 /* ---------- indexing rule (research doc section 14) ----------
    A list page is indexed only with 3+ garages that have real evidence AND an approved intro. */
+// Only approved entries are used. An entry may also carry title, description and h1
+// overrides for its page (SEO spec, "On-page SEO for go-live").
 export function intro(key) {
   const i = intros[key];
-  return i && i.text ? i : null;
+  return i && i.approved ? i : null;
 }
 export function isIndexable(key, evidenceCount) {
   const i = intros[key];
   return evidenceCount >= 3 && !!(i && i.text && i.approved);
 }
 // Garage pages are indexed when they have real evidence for at least one specialty.
-export const garageIndexable = (g) => g.hasEvidence || g.ownerCount > 0;
+// Indexable with evidence, owner reviews, or a person-checked summary of 20+ outside reviews read (PM spec, SEO input).
+export const garageIndexable = (g) => !g.notWorkshop && !g.closed && (g.hasEvidence || g.ownerCount > 0
+  || (g.summary_checked === true && (g.reviews_read || g.price_signal?.reviews_read || 0) >= 20));
 
 /* ---------- picker payload (kept small; shipped to the browser) ---------- */
 export function pickerCatalog() {
@@ -227,5 +273,250 @@ export function pickerCatalog() {
   BRANDS.forEach((b) => {
     pages[b.make] = { url: `/${CITY.slug}/${b.slug}/`, models: Object.fromEntries(b.models.map((md) => [md.model, `/${CITY.slug}/${b.slug}/${md.slug}/`])) };
   });
-  return { rows, pages };
+  // Problems for the one search box (PM spec 12.3): label, slug and synonyms only.
+  const problems = PROBLEMS.map((p) => ({ slug: p.slug, label: p.label, syn: p.syn }));
+  return { rows, pages, problems };
+}
+
+// Cost signal from reviews on other sites (Data's price pass): counts only, no review text.
+// Shown when 5+ reviews mention price; typical prices only for jobs with 3+ sources. Never used for ranking.
+export function priceTalk(ps) {
+  if (!ps || !(ps.price_mentions >= 5)) return null;
+  const n = ps.price_mentions, exp = ps.expensive || 0, fair = ps.fair || 0, cheap = ps.cheap || 0;
+  const pos = fair + cheap;
+  const label = exp / n >= 0.5 ? `Reviewers often call it expensive (${exp} of ${n} who mentioned price)`
+    : pos / n >= 0.6 && exp / n < 0.25 ? `Reviewers call prices fair (${pos} of ${n} who mentioned price)`
+    : `Mixed views on price (${n} reviewers mentioned it)`;
+  const tone = exp / n >= 0.5 ? "neg" : pos / n >= 0.6 && exp / n < 0.25 ? "pos" : "mid";
+  const jobs = (ps.jobs || []).filter((j) => j.sources >= 3 && j.aed_low > 0)
+    .map((j) => ({ ...j, aed_high: Math.max(j.aed_high || j.aed_low, j.aed_low) }));
+  return { label, tone, n, read: ps.reviews_read || null, asOf: ps.as_of || "", jobs };
+}
+
+// Price points a garage publishes or owners reported elsewhere (Data's price_examples), normalised.
+// Accepts old rows ({item, price_aed: 1350 | "840–1,575"}) and new rows ({job, make, model, aed_low, aed_high, includes_parts}).
+export function normPrices(list) {
+  return (list || []).map((p) => {
+    let low = Number(p.aed_low), high = Number(p.aed_high);
+    if (!(low > 0)) {
+      const nums = String(p.price_aed ?? "").replace(/,/g, "").match(/\d+(\.\d+)?/g) || [];
+      low = Number(nums[0]); high = Number(nums[1] || nums[0]);
+    }
+    if (!(low > 0)) return null;
+    if (!(high >= low)) high = low;
+    const source = p.source || "";
+    // Store AED including VAT: add 5% when the source says it excludes VAT.
+    const exVat = /excl/i.test(p.vat || "");
+    if (exVat) { low *= 1.05; high *= 1.05; }
+    return { item: (p.item || "").replace(/\s+/g, " ").trim(), job: p.job || "", make: p.make || "", model: p.model || "",
+      low: Math.round(low), high: Math.round(high), vat: p.vat && p.vat !== "unknown" ? p.vat : "", vatNote: exVat ? "VAT added" : /incl/i.test(p.vat || "") ? "incl. VAT" : "",
+      from: /starting|from/i.test(source) || p.from === true,
+      parts: p.includes_parts === true ? "parts included" : p.includes_parts === false ? "labour only" : "",
+      source, owner: /owner/i.test(source), url: p.url || "", asOf: p.as_of || p.date || "" };
+  }).filter(Boolean);
+}
+
+// Cost benchmark (PM decision, research/cost-benchmark-decision.md): three everyday jobs, compared per car make.
+// Prices are AED including VAT. Minor service is the headline number on result cards.
+export const BENCHMARKS = [
+  { slug: "minor-service", key: "minor_service", name: "Minor service", plain: "Minor service (oil and filter)", job: ["minor_service", "oil_service"], re: /minor service|oil (and|&) filter|oil change|\b10,?000 ?km service|small service/i,
+    includes: ["Oil and filter", "Air filter", "Cabin filter"] },
+  { slug: "front-brake-pads", key: "brake_pads_front", name: "Front brake pads", plain: "Front brake pads, fitted", job: ["brake_pads_front", "brake_pads_axle"], re: /brake pad/i,
+    includes: ["Pads only", "Discs too", "Sensors too"] },
+  { slug: "ac-regas", key: "ac_regas", name: "AC re-gas", plain: "AC re-gas and leak check", job: ["ac_regas"], re: /re-?gas|ac gas|refrigerant/i,
+    includes: ["Re-gas only", "Leak repair"] },
+  { slug: "diagnostic", key: "diagnostic", name: "Diagnostic check", plain: "Diagnostic check (warning-light scan)", job: ["diagnostic"], re: /diagnos|warning.light scan|obd/i,
+    includes: [], pageOnly: true },
+];
+function benchPoints(g, b) {
+  const pts = [];
+  g.ownerReviews.forEach((r) => { if (r.price_paid > 0 && (r.job === b.name || b.re.test(`${r.job} ${r.job_note || ""}`))) pts.push({ src: "owners", make: r.car_make, model: r.car_model || "", low: r.price_paid, high: r.price_paid }); });
+  g.prices.forEach((p) => { if (b.job.includes(p.job) || (!p.job && b.re.test(p.item))) pts.push({ ...p, src: g.isDealer ? "dealer" : p.owner ? "reported" : /website/i.test(p.source) ? "site" : "list" }); });
+  (g.priceTalk?.jobs || []).forEach((j) => { if (b.re.test(j.job || "") || b.job.includes(j.job)) pts.push({ src: "web", make: j.make, model: j.model || "", low: j.aed_low, high: j.aed_high }); });
+  return pts;
+}
+export function benchmarks(g, make = null, model = null) {
+  return BENCHMARKS.map((b) => {
+    let pts = benchPoints(g, b).filter((p) => !make || !p.make || lc(p.make) === lc(make));
+    if (model) { const m = pts.filter((p) => lc(p.model).includes(lc(model))); if (m.length) pts = m; }
+    if (!pts.length) return null;
+    // Owner prices win once there are 3+; otherwise the garage's list, then owner reports online, then reviews elsewhere.
+    const own = pts.filter((p) => p.src === "owners");
+    const src = own.length >= 3 ? "owners" : ["dealer", "list", "reported", "owners", "web"].find((s) => pts.some((p) => p.src === s));
+    let use = pts.filter((p) => p.src === src);
+    // Prefer rows filed under the main job key (e.g. minor_service over a plain oil_service).
+    if (use.some((p) => p.job === b.job[0])) use = use.filter((p) => !p.job || p.job === b.job[0]);
+    const one = (k) => { const v = [...new Set(use.map((p) => p[k] || ""))]; return v.length === 1 ? v[0] : ""; };
+    return { ...b, src, n: use.length, low: Math.min(...use.map((p) => p.low)), high: Math.max(...use.map((p) => p.high)),
+      from: use.some((p) => p.from), make: one("make"), car: [one("make"), one("model")].filter(Boolean).join(" "), vatNote: one("vatNote"), parts: one("parts") };
+  }).filter(Boolean);
+}
+// Budget tier for a make: only when 3+ independents have a minor-service price for it.
+export function budgetTier(g, make) {
+  if (!make || g.isDealer) return "";
+  const lows = GARAGES.filter((x) => !x.isDealer).map((x) => benchmarks(x, make).find((b) => b.slug === "minor-service")?.low).filter((v) => v > 0).sort((a, b) => a - b);
+  const mine = benchmarks(g, make).find((b) => b.slug === "minor-service")?.low;
+  if (lows.length < 3 || !mine) return "";
+  const rank = lows.filter((v) => v < mine).length / lows.length;
+  return rank < 1 / 3 ? "$" : rank < 2 / 3 ? "$$" : "$$$";
+}
+export const BENCH_SRC = { owners: "KnowsMyCar owners", list: "garage's price list", site: "garage's website", dealer: "dealer price list", reported: "owner on a forum", web: "reviews elsewhere" };
+export const aedRange = (lo, hi) => lo === hi ? `AED ${Number(lo).toLocaleString("en-US")}` : `AED ${Number(lo).toLocaleString("en-US")} to ${Number(hi).toLocaleString("en-US")}`;
+
+// ---------- Search by problem (PM spec 12.3) ----------
+// Everyday symptoms, each with a one-line list of common causes (never a verdict) and Data's problem_counts key.
+export const PROBLEMS = [
+  { slug: "ac-not-cold", symptom: "Car AC not cold", trade: "AC repair or AC regas", label: "AC not cold", key: "ac", job: "ac-repair", syn: "ac aircon air con a/c not cold warm air ac smell ac smells ac gas", causes: "Low gas, a leak, a failing compressor or a blocked condenser." },
+  { slug: "warning-light", symptom: "Car warning light on", trade: "diagnostics (a code read)", label: "Warning light on", key: "warning_light", job: "electrical", syn: "check engine engine light warning light dashboard light dash light", causes: "Anything from a loose fuel cap or a sensor to a serious engine fault. A scan reads the fault code." },
+  { slug: "gearbox-jerks", symptom: "Car gearbox jerking or slipping", trade: "gearbox or transmission repair", label: "Gearbox jerks or slips", key: "gearbox", job: "gearbox", syn: "gearbox transmission jerk jerks jerking slipping slips dsg harsh shift", causes: "Old fluid, a software issue, worn clutches or a valve body fault." },
+  { slug: "noise-over-bumps", symptom: "Car knocking over bumps", trade: "suspension repair", label: "Noise over bumps", key: "suspension", job: "suspension", syn: "knock knocking clunk bumps sagging suspension air suspension rattle", causes: "Worn bushes, links or shock absorbers, or an air suspension leak." },
+  { slug: "wont-start", symptom: "Car won't start", trade: "battery and electrical repair", label: "Won't start", key: "battery", job: "electrical", syn: "won't start wont start not starting dead battery battery no crank", causes: "Usually the battery. Sometimes the starter, the alternator or the immobiliser." },
+  { slug: "overheating", symptom: "Car overheating", trade: "cooling system repair", label: "Overheating", key: "overheating", job: "engine", syn: "overheat overheating temperature coolant hot engine", causes: "Low coolant, a leak, or a failing fan, thermostat or water pump." },
+  { slug: "brakes-noise", symptom: "Car brakes squeaking or grinding", trade: "brake repair", label: "Brakes squeak or grind", key: "brakes", job: "brakes", syn: "brake brakes squeak squeal grind grinding vibration when braking", causes: "Worn pads or discs, or a sticking calliper." },
+  { slug: "oil-leak", symptom: "Car leaking oil", trade: "oil leak repair", label: "Oil leak", key: "oil_leak", job: "engine", syn: "oil leak leaking drip drips oil under car", causes: "A gasket, a seal or the oil pan. A leak test finds the source." },
+  { slug: "steering", symptom: "Car steering pulling or heavy", trade: "steering and wheel alignment", label: "Steering pulls or feels heavy", key: "steering", job: "suspension", syn: "steering pulls pulling alignment heavy steering wheel shakes", causes: "Wheel alignment, tyres, or the power steering fluid or pump." },
+  { slug: "service-due", symptom: "Car service due", trade: "car servicing", label: "Service due", key: "service", job: "servicing", syn: "service servicing oil change maintenance minor service major service", causes: "Routine oil, filters and checks at the interval in your service book." },
+  { slug: "dents-scratches", symptom: "Car dents and scratches", trade: "bodywork and paint", label: "Dents or scratches", key: "bodywork", job: "bodywork", syn: "dent dents scratch scratches paint accident bumper body", causes: "Bodywork and paint repair, from a small touch-up to accident work." },
+  { slug: "buying-used", symptom: "Checking a used car before you buy", trade: "a pre-purchase inspection (PPI)", label: "Buying a used car", key: "pre_purchase", job: null, syn: "ppi pre purchase pre-purchase inspection used car check buying a car", causes: "A pre-purchase inspection before you pay, to catch hidden faults." },
+];
+export const PROBLEM_MIN = 2; // Data: 2+ reviews mentioning the job is enough to list a garage under it.
+export function problemGarages(p) {
+  // Pre-purchase inspections also count owner threads that recommend the garage for one (Data: pre_purchase_positive).
+  const ppi = (g) => (p.key === "pre_purchase" ? Number(g.community_mentions?.pre_purchase_positive) || 0 : 0);
+  return GARAGES.filter((g) => !g.isDealer && g.contactable && !g.outsideDubai && ((g.problem_counts?.counts?.[p.key] || 0) >= PROBLEM_MIN || ppi(g) >= 2))
+    .map((g) => ({ g, n: g.problem_counts?.counts?.[p.key] || 0, t: ppi(g) }))
+    .sort((a, b) => b.n + b.t - (a.n + a.t) || a.g.name.localeCompare(b.g.name));
+}
+
+// ---------- Covered / close / not yet (PM spec 12.1) ----------
+const FAMILIES = { ...(raw.car_families || {}), ...EXTRA_FAMILIES };
+export const FAMILY_LABEL = { japanese_korean: "Japanese and Korean cars", german: "German cars", european_other: "European cars", american: "American cars", british: "British cars", chinese: "Chinese cars" };
+export const MAKE_FAMILY = Object.fromEntries(Object.entries(FAMILIES).flatMap(([f, makes]) => makes.map((m) => [m, f])));
+// Garages owners trust with a whole family (evidence for any make in it), then all-makes workshops.
+export function familyGarages(family, limit = 6) {
+  const makes = new Set(FAMILIES[family] || []);
+  const fam = makes.size ? GARAGES.filter((g) => !g.isDealer && g.contactable && !g.outsideDubai && g.hasEvidence && g.specs.some((s) => makes.has(s.make))) : [];
+  const all = GARAGES.filter((g) => !g.isDealer && g.contactable && !g.outsideDubai && g.works_on_all_makes === true && !fam.includes(g))
+    .sort((a, b) => (b.hasEvidence - a.hasEvidence) || (b.google?.count || 0) - (a.google?.count || 0));
+  return { family: fam.slice(0, limit), all: all.slice(0, limit) };
+}
+
+
+// One URL per intent (PM): job pages that match one problem page 301 to it (public/_redirects).
+export const JOB_TO_PROBLEM = { "ac-repair": "ac-not-cold", gearbox: "gearbox-jerks", brakes: "brakes-noise", bodywork: "dents-scratches", servicing: "service-due" };
+export const jobUrl = (slug) => (JOB_TO_PROBLEM[slug] ? `/dubai/problem/${JOB_TO_PROBLEM[slug]}/` : `/dubai/job/${slug}/`);
+
+// ---------- Owner-community mentions (PM spec 12.7) ----------
+// Line for cards: needs 2+ positive threads, held back when negatives are a third or more of positives.
+export const groupReports = (g) => Number(g.community_mentions?.group_reports) || 0;
+export function communityLine(g, model = null) {
+  const cm = g.community_mentions;
+  const pos = cm?.threads_positive || 0, neg = cm?.threads_negative || 0;
+  if (pos < 2 || neg * 3 >= pos) return "";
+  const src = (cm.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "") && !/negative|mixed/i.test(x.sentiment || ""));
+  const years = src.map((x) => Number(x.year)).filter((y) => y > 1990);
+  const span = years.length ? (Math.min(...years) === Math.max(...years) ? ` · ${years[0]}` : ` · ${Math.min(...years)}–${Math.max(...years)}`) : "";
+  const onModel = model ? src.filter((x) => (x.models || []).some((m) => String(m).toLowerCase() === model.toLowerCase())).length : 0;
+  return onModel >= 2 ? `Recommended in ${onModel} ${model} threads${span}` : `Recommended in ${pos} owner threads${span}`;
+}
+// Threads for the garage page, newest first; older than 5 years are flagged.
+export function communityThreads(g) {
+  const cm = g.community_mentions;
+  if (!cm || (cm.threads_positive || 0) < 1) return [];
+  const now = new Date().getFullYear();
+  // Legal: a title only when Data marks it title_ok; quotes credited to "an owner on <place>", never a username.
+  // Data rules: never a negative or mixed source; a quote only with title_ok.
+  return (cm.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "") && !/negative|mixed/i.test(x.sentiment || "")).map((x) => {
+    const type = (x.type || "").toLowerCase(), sub = (String(x.site || "").match(/^r\/([A-Za-z0-9_]+)/) || String(x.url).match(/reddit\.com\/r\/([A-Za-z0-9_]+)/) || [])[1];
+    const host = x.site && !sub ? x.site : (() => { try { return new URL(x.url).hostname.replace(/^www\./, ""); } catch { return ""; } })();
+    const place = sub ? `r/${sub}` : host;
+    const kind = type === "reddit" || sub ? "Reddit thread" : type === "youtube" ? "YouTube video" : "Forum thread";
+    return {
+      url: x.url, year: Number(x.year) || null, old: Number(x.year) > 0 && now - Number(x.year) > 3,
+      label: x.title_ok && x.title ? x.title : [kind, type === "youtube" ? "" : place, x.year].filter(Boolean).join(", "),
+      quote: x.quote && x.title_ok && x.quote.split(/\s+/).length <= 25 ? x.quote : "",
+      credit: `an owner on ${type === "youtube" ? "YouTube" : place || "a forum"}`,
+    };
+  }).sort((a, b) => (Number(b.year) || 0) - (Number(a.year) || 0));
+}
+
+// ---------- Niche (PM spec 14) ----------
+// Our marques lead the home page; everyday makes stay reachable through search with the honest fallback.
+export const OUR_MARQUES = ["Porsche", "Land Rover", "Mercedes-Benz", "BMW", "Audi", "Volkswagen", "Alfa Romeo", "Jaguar", "MINI", "Nissan", "Toyota", "Lexus",
+  "Ford", "Chevrolet", "Dodge", "Jeep", "Maserati", "Ferrari", "Lamborghini", "Bentley", "Rolls-Royce", "Aston Martin", "McLaren", "Volvo"];
+export const DVI_MAKES = ["Porsche", "Land Rover", "Mercedes-Benz"];
+const JOB_NAME = { minor_service: "Minor service", oil_service: "Oil and filter", brake_pads_front: "Front brake pads", brake_pads_axle: "Brake pads, one axle",
+  brake_repair: "Brakes", ac_regas: "AC regas", major_service: "Major service", pre_purchase_inspection: "Pre-purchase inspection" };
+function readCsv(path) {
+  if (!existsSync(path)) return [];
+  const rows = [], text = readFileSync(path, "utf8");
+  let row = [], cur = "", q = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (q) { if (ch === '"' && text[i + 1] === '"') { cur += '"'; i++; } else if (ch === '"') q = false; else cur += ch; }
+    else if (ch === '"') q = true; else if (ch === ",") { row.push(cur); cur = ""; }
+    else if (ch === "\n") { row.push(cur); rows.push(row); row = []; cur = ""; } else if (ch !== "\r") cur += ch;
+  }
+  if (cur || row.length) { row.push(cur); rows.push(row); }
+  const [head, ...body] = rows;
+  return body.filter((r) => r.length > 1).map((r) => Object.fromEntries(head.map((h, i) => [h, r[i] ?? ""])));
+}
+const PRICE_BENCH = readCsv("data/price-benchmarks.csv");
+// "Dealer vs independent" for one model: same job on both sides; dealer side may be missing (then a cited note).
+export function dealerVsIndie(make, model) {
+  if (!DVI_MAKES.includes(make)) return [];
+  const m = lc(model);
+  // Row fits when it names this model (Range Rover rows naming Sport, Evoque or Velar belong to those pages), or is make-wide.
+  const fits = (r) => {
+    if (r.make !== make) return false;
+    const rm = lc(r.model);
+    if (!rm) return true;
+    const at = rm.indexOf(m);
+    return at >= 0 && !/^\s*(sport|evoque|velar)\b/.test(rm.slice(at + m.length));
+  };
+  const by = {};
+  PRICE_BENCH.filter(fits).forEach((r) => {
+    const lo = Number(r.aed_low), hi = Number(r.aed_high) || lo;
+    if (!(lo > 0)) return;
+    const side = r.business_type === "dealer" ? "dealer" : "indie";
+    const j = (by[r.job] ||= { job: JOB_NAME[r.job] || r.job, dealer: [], indie: [] });
+    j[side].push({ lo, hi, model: r.model, src: r.source });
+  });
+  const span = (xs) => xs.length ? { lo: Math.round(Math.min(...xs.map((x) => x.lo))), hi: Math.round(Math.max(...xs.map((x) => x.hi))), n: xs.length } : null;
+  return Object.values(by).filter((j) => j.indie.length).map((j) => ({ job: j.job, dealer: span(j.dealer), indie: span(j.indie) }))
+    .sort((a, b) => !!b.dealer - !!a.dealer);
+}
+
+// ---------- Community (community-plan.md C1, C3, C7) ----------
+// Every approved owner review with its garage, oldest first.
+export const ALL_REVIEWS = ALL_GARAGES.flatMap((g) => g.ownerReviews.map((r) => ({ ...r, g })))
+  .sort((a, b) => String(a.created_at).localeCompare(String(b.created_at)));
+const modelKey = (make, model) => {
+  const b = BRANDS.find((x) => x.make === make);
+  const m = b?.models.find((x) => lc(model).includes(lc(x.model)));
+  return m ? `${make}|${m.model}` : "";
+};
+// C3: founding owner = one of the first 100 reviewers of that model (one badge per review, counted by review).
+const FOUNDING = new Map();
+(() => {
+  const seen = {};
+  ALL_REVIEWS.forEach((r) => { const k = modelKey(r.car_make, r.car_model); if (!k) return; seen[k] = (seen[k] || 0) + 1; if (seen[k] <= 100) FOUNDING.set(r.id, k.split("|")[1]); });
+})();
+export const foundingModel = (r) => FOUNDING.get(r.id) || "";
+// C1: owners' hub on a model page: how many owners of this model have shared a garage, and the latest few.
+export function modelOwners(make, model) {
+  const list = ALL_REVIEWS.filter((r) => modelKey(r.car_make, r.car_model) === `${make}|${model}` && !r.g.notWorkshop);
+  return { n: list.length, latest: list.slice(-3).reverse() };
+}
+
+// ---------- C5 "Got a dealer quote? Check it" (spec 15) ----------
+// Price points per job for the quote check: figures only, make-specific (generic all-makes prices are left out).
+export function quotePoints() {
+  const out = [];
+  BENCHMARKS.filter((b) => !b.pageOnly).forEach((b) => ALL_GARAGES.forEach((g) => benchPoints(g, b).forEach((p) => {
+    const lo = Number(p.low), hi = Number(p.high) || lo;
+    if (!(lo > 0) || !p.make || p.src === "web") return;
+    out.push({ j: b.key, mk: p.make, md: p.model || "", v: Math.round((lo + hi) / 2), d: p.src === "dealer" || g.isDealer ? 1 : 0 });
+  })));
+  return out;
 }

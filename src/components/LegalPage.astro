@@ -1,0 +1,20 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../lib/site.js";
+// Renders a page from src/content/legal/*.md, filling {{settings}} from site.js.
+const { doc, description } = Astro.props;
+const fill = (s) => s
+  .replaceAll("{{operator}}", SITE.operator)
+  .replaceAll("{{updated}}", SITE.legalUpdated)
+  .replaceAll("{{emailPrivacy}}", `<a href="mailto:${SITE.emailPrivacy}">${SITE.emailPrivacy}</a>`)
+  .replaceAll("{{emailReply}}", `<a href="mailto:${SITE.emailReply}">${SITE.emailReply}</a>`)
+  .replaceAll("{{emailHello}}", `<a href="mailto:${SITE.emailHello}">${SITE.emailHello}</a>`);
+const html = fill(await doc.compiledContent());
+const title = doc.frontmatter.title;
+---
+<Base title={title} description={description} crumbs={[{ name: title }]}>
+  <article class="wrap legal">
+    <h1>{title}</h1>
+    <div set:html={html} />
+  </article>
+</Base>

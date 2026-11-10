@@ -1,0 +1,17 @@
+/dubai/job/ac-repair/  /dubai/problem/ac-not-cold/  301
+/dubai/job/ac-repair  /dubai/problem/ac-not-cold/  301
+/dubai/job/gearbox/  /dubai/problem/gearbox-jerks/  301
+/dubai/job/gearbox  /dubai/problem/gearbox-jerks/  301
+/dubai/job/brakes/  /dubai/problem/brakes-noise/  301
+/dubai/job/brakes  /dubai/problem/brakes-noise/  301
+/dubai/job/bodywork/  /dubai/problem/dents-scratches/  301
+/dubai/job/bodywork  /dubai/problem/dents-scratches/  301
+/dubai/job/servicing/  /dubai/problem/service-due/  301
+/dubai/job/servicing  /dubai/problem/service-due/  301
+# QR cards (brand/print): short links that keep where the visitor came from.
+# Duplicates merged by Data (duplicate_of): old URLs and printed QR codes go to the kept garage.
+/r/alfa-romeo-specialist-workshop-b823  /review/abdulla-ahli-workshop-founder/?src=qr  301
+/review/alfa-romeo-specialist-workshop-b823/  /review/abdulla-ahli-workshop-founder/  301
+/garage/alfa-romeo-specialist-workshop-b823/  /garage/abdulla-ahli-workshop-founder/  301
+/r/meet  /?src=qr-meet  302
+/r/:slug /review/:slug/?src=qr 302

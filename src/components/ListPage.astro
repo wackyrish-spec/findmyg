@@ -1,11 +1,17 @@
 ---
 import Base from "../layouts/Base.astro";
 import GarageCard from "./GarageCard.astro";
+import HelpFeedback from "./HelpFeedback.astro";
+import Icon from "./Icon.astro";
+import { SITE } from "../lib/site.js";
 const {
   title, description, h1, lead, introText = null, garages, make = null, model = null,
-  noindex, crumbs = [], related = [], pathKey,
-  others = [], othersLabel = "Also in Dubai, no reviews for your car yet", dealers = [], dealerPrices = [], dealerNote = null,
+  noindex, crumbs = [], related = [], pathKey, ogImage, makeFilter = [], dvi = [], dviNote = null, owners = null, faq = [],
+  notes = null, outside = [], others = [], othersLabel = "Also in Dubai, no reviews for your car yet", dealers = [], dealerPrices = [], dealerNote = null,
 } = Astro.props;
+const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const shareText = `${h1}, on ${SITE.name}: ${pageUrl}?ref=wa-share`;
+const thin = garages.length < 3;
 const itemList = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -15,23 +21,67 @@ const itemList = {
   })),
 };
 ---
-<Base title={title} description={description} noindex={noindex} jsonld={[itemList]} crumbs={crumbs}>
+<Base title={title} description={description} noindex={noindex} jsonld={[itemList]} crumbs={crumbs} ogImage={ogImage}>
   <div class="wrap">
     <div class="rhead"><div>
       <h1>{h1}</h1>
       <p>{lead}</p>
       <div class="resort" id="resort" hidden></div>
     </div></div>
-    {introText && <div class="intro" set:html={introText.split(/\n\n+/).map((p) => `<p>${p}</p>`).join("")} />}
     <div class="bar">
       <button class="btn sm" type="button" data-setcar>Your car: <span data-carlabel>not set</span></button>
+      <a class="btn sm wa" href={`https://wa.me/?text=${encodeURIComponent(shareText)}`} target="_blank" rel="noopener"><Icon name="wa" />Share this list</a>
+      {garages.some((g) => g.lat && g.lng) && <button class="btn sm" type="button" id="nearBtn">Near me</button>}
+      {makeFilter.length > 0 && <label class="mfilter" for="makeFilter">Your car's make <select id="makeFilter"><option value="">Any make</option>{makeFilter.map((m) => <option value={m.make} data-url={m.url}>{m.make}</option>)}</select></label>}
       <span class="grow"></span>
       <span class="muted" style="font-size:13px">{garages.length} with evidence{others.length ? ` · ${others.length} more listed` : ""}</span>
     </div>
+    <p class="muted nearout" id="nearOut" hidden></p>
+    {makeFilter.length > 0 && <p class="muted" id="makeFilterOut" aria-live="polite"></p>}
     <div class="results" id="results" data-make={make || ""} data-model={model || ""}>
-      {garages.map((g) => <GarageCard g={g} make={make} model={model} />)}
+      {garages.map((g) => <GarageCard g={g} make={make} model={model} note={notes?.[g.slug]} />)}
       {garages.length === 0 && <div class="card empty">No garages with owner evidence here yet.{others.length > 0 ? " Some are listed below." : ""} Know a good one? <a href="/add-a-garage/">Tell us about it</a>.</div>}
     </div>
+    {/* SEO rule (spec 12.4): one plain sentence above the list, the longer intro below it, in the HTML. */}
+    {introText && <div class="intro" set:html={introText.split(/\n\n+/).map((p) => `<p>${p}</p>`).join("")} />}
+    {owners && (
+      <section class="card panel ohub">
+        <h2>{owners.n > 0 ? `${owners.n} ${model} ${owners.n === 1 ? "owner has" : "owners have"} shared their garage` : `Be one of the first ${model} owners to share your garage`}</h2>
+        {owners.latest.length > 0 ? (
+          <ul class="olatest">{owners.latest.map((r) => (
+            <li><span class="stars" aria-label={`${r.rating} out of 5`}>{"★".repeat(r.rating)}<span class="off">{"★".repeat(5 - r.rating)}</span></span>
+              <a href={`/garage/${r.g.slug}/#ownerRevs`}>{r.g.name}</a> <span class="muted">· {[r.car_model, r.car_year].filter(Boolean).join(" ")}{r.job ? ` · ${r.job}` : ""}</span>
+              <p>{String(r.body || "").length > 160 ? String(r.body).slice(0, 157).replace(/\s+\S*$/, "") + "..." : r.body}</p></li>))}</ul>
+        ) : <p class="sub">The first 100 {model} owners to review a garage get a founding owner badge.</p>}
+      </section>
+    )}
+    {dvi.length > 0 && (
+      <section class="card panel dvi">
+        <h2>Dealer vs independent</h2>
+        <p class="sub">What the same job costs at the main dealer and at independents{model ? ` for the ${model}` : ""}. AED, VAT included.</p>
+        <table class="ptable"><thead><tr><th>Job</th><th class="num">Main dealer</th><th class="num">Independents</th></tr></thead><tbody>
+          {dvi.map((r) => {
+            const f = (x) => x ? (x.lo === x.hi ? x.lo.toLocaleString("en-US") : `${x.lo.toLocaleString("en-US")} to ${x.hi.toLocaleString("en-US")}`) : "";
+            return <tr><td>{r.job}</td><td class="num">{r.dealer ? <>from {f(r.dealer)}</> : <span class="muted">not collected yet</span>}</td><td class="num">{f(r.indie)} <span class="muted">({r.indie.n})</span></td></tr>;
+          })}
+        </tbody></table>
+        <p class="muted" style="font-size:12px;margin:8px 0 0">Dealer: published price lists and owner reports. Independents: garages' own price lists and owner reports. Prices vary by model year and what's included. <a href="/check-a-quote/">Got a dealer quote? Check it</a>.{dviNote && <> {dviNote.text} <a href={dviNote.url} target="_blank" rel="noopener nofollow">Source: {dviNote.source}</a></>}</p>
+      </section>
+    )}
+    {thin && (
+      <form class="card panel notify" id="notifyForm" data-page={Astro.url.pathname} data-make={make || ""} data-model={model || ""}>
+        <h2>Your car isn't covered well yet?</h2>
+        <p class="sub">Leave your email and we'll tell you once, when owners have reviewed enough garages for it. Nothing else.</p>
+        <div class="two">
+          <label class="fld" for="nEmail">Email<input id="nEmail" type="email" required autocomplete="email" placeholder="you@example.com" /></label>
+          <label class="fld" for="nCar">Your car<input id="nCar" maxlength="80" placeholder={model ? `${make} ${model}` : make ? `${make} ...` : "e.g. Alfa Romeo Giulia"} /></label>
+        </div>
+        <p class="muted" style="font-size:12px;margin:0">See our <a href="/privacy/">privacy policy</a>.</p>
+        <div class="err" id="nErr" hidden></div>
+        <button class="btn primary" type="submit">Tell me when it's covered</button>
+        <p class="okmsg" id="nOk" hidden>Thanks, we'll email you once.</p>
+      </form>
+    )}
     {others.length > 0 && (
       <details class="more card">
         <summary>{othersLabel} <span class="muted">({others.length})</span></summary>
@@ -39,11 +89,18 @@ const itemList = {
         <div class="plainlist">{others.map((g) => <GarageCard g={g} plain make={make} />)}</div>
       </details>
     )}
+    {outside.length > 0 && (
+      <details class="more card">
+        <summary>Outside Dubai <span class="muted">({outside.length})</span></summary>
+        <p class="sub">Garages in other emirates. Not ranked in Dubai lists.</p>
+        <div class="plainlist">{outside.map((g) => <GarageCard g={g} plain make={make} />)}</div>
+      </details>
+    )}
     {dealers.length > 0 && (
       <details class="more card">
         <summary>Main dealer for comparison <span class="muted">({dealers.length})</span></summary>
         <p class="sub">Franchised dealers, shown for price and service comparison. Not ranked.</p>
-        <div class="plainlist">{dealers.map((g) => <GarageCard g={g} plain />)}</div>
+        <div class="plainlist">{dealers.map((g) => <GarageCard g={g} plain make={make} model={model} />)}</div>
         {dealerPrices.length > 0 && (
           <table class="ptable"><thead><tr><th>Job</th><th class="num">Dealer quotes (AED)</th></tr></thead><tbody>
             {dealerPrices.map((p) => <tr><td>{p.job} <span class="muted">({p.n} reports)</span></td><td class="num">{p.min === p.max ? p.min.toLocaleString("en-US") : `${p.min.toLocaleString("en-US")} to ${p.max.toLocaleString("en-US")}`}</td></tr>)}
@@ -52,6 +109,13 @@ const itemList = {
         {dealerPrices.length === 0 && dealerNote && <p class="dnote">{dealerNote.text} <a href={dealerNote.url} target="_blank" rel="noopener nofollow">Source: {dealerNote.source}</a></p>}
       </details>
     )}
+    {faq.length > 0 && (
+      <section class="card panel faq">
+        <h2>Questions owners ask</h2>
+        {faq.map((f) => <><h3>{f.q}</h3><p set:html={f.a} /></>)}
+      </section>
+    )}
+    <HelpFeedback />
     {related.length > 0 && (
       <section class="blk" style="padding-top:0;padding-bottom:48px">
         <div class="blkhead"><h2>Related</h2></div>

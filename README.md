@@ -1,4 +1,4 @@
-# GarageGuide (findmyg)
+# KnowsMyCar (findmyg)
 
 A free, SEO-first guide to Dubai's independent specialist garages: "find the garage that knows your car".
 
@@ -44,7 +44,7 @@ Set `SITE_URL` (for example `https://garageguide.ae`) when building for producti
 
 ### Listing rules
 
-- Ranked results only include garages with evidence: a specialty backed by reviews or the community (medium or high confidence), or a GarageGuide owner review for that car.
+- Ranked results only include garages with evidence: a specialty backed by reviews or the community (medium or high confidence), or a KnowsMyCar owner review for that car.
 - Garages without evidence keep their own page ("Listed, no owner reviews yet"), but never rank. On brand and model pages they appear in a collapsed "Also in Dubai" section only when fewer than 5 garages rank. Area, job and all-garage pages always list them collapsed.
 - Main dealers (`business_type: "dealer"`, marque in `dealer_for`) never rank and never count as evidence. They appear only in a collapsed "Main dealer for comparison" strip on their marque's brand and model pages.
 
@@ -54,7 +54,7 @@ A brand, model, area or job page is only indexed by Google when it has **3+ gara
 
 ### Reviews
 
-Ratings from Google and other sites are shown under "What the internet says" and never mixed into GarageGuide ratings. `aggregateRating` schema is built only from GarageGuide's own approved owner reviews.
+Ratings from Google and other sites are shown under "What the internet says" and never mixed into KnowsMyCar ratings. `aggregateRating` schema is built only from KnowsMyCar's own approved owner reviews.
 
 Owner reviews live in Supabase:
 
@@ -68,7 +68,7 @@ Without Supabase settings the site still builds, with no owner reviews and the f
 
 ### Supabase (owner reviews and sign-in)
 
-1. SQL editor → run `supabase/schema.sql`, then `supabase/002_review_rules.sql` (6-month review limit, private WhatsApp field).
+1. SQL editor → run `supabase/schema.sql`, then `supabase/002_review_rules.sql` (6-month review limit, private WhatsApp field) and `supabase/003_contacts.sql` (contact-click tracking and "tell me when my car is covered" sign-ups; read them in the table editor) and `supabase/004_reports_and_replies.sql` ("Report this review" reports, and the `garage_reply` / `garage_reply_at` columns you fill in to publish a garage's reply), and `supabase/005_review_photos.sql` (optional owner photo with a review: you see it in Storage → review-photos, and it shows only once the review is approved), and `supabase/006_benchmark_includes.sql` ("What was included?" ticks for the everyday cost jobs), and `supabase/007_suggestions_feedback.sql` (add-a-garage suggestions and "Did this help?" feedback).
 2. Authentication → URL configuration: set Site URL to the live domain and add `https://<domain>/**` to Redirect URLs.
 3. Optional, Google sign-in: create an OAuth client in Google Cloud (Web application, redirect URI `https://<project>.supabase.co/auth/v1/callback`), paste its ID and secret into Authentication → Providers → Google, then set `PUBLIC_GOOGLE_SIGNIN=1` in Cloudflare. Email sign-in links work without this.
 4. Project settings → API: copy the Project URL and the anon (publishable) key. Both are public. Never put the service role key in this repo or in Cloudflare.
@@ -77,10 +77,20 @@ Without Supabase settings the site still builds, with no owner reviews and the f
 
 1. Workers & Pages → Create → Pages → connect the GitHub repo.
 2. Build command `npm run build`, output directory `dist`.
-3. Environment variables: `SITE_URL`, `PUBLIC_SUPABASE_URL`, `PUBLIC_SUPABASE_ANON_KEY`, optional `PUBLIC_GOOGLE_SIGNIN` (see `.env.example`).
+3. Environment variables: `SITE_URL`, `PUBLIC_SUPABASE_URL`, `PUBLIC_SUPABASE_ANON_KEY`, optional `PUBLIC_GOOGLE_SIGNIN`, and on launch day `PUBLIC_INDEXING=on` (until then every page is noindex and robots.txt blocks crawlers). Legal operator name and contact emails: `PUBLIC_OPERATOR_NAME`, `PUBLIC_EMAIL_HELLO`, `PUBLIC_EMAIL_REPLY`, `PUBLIC_EMAIL_PRIVACY` (see `src/lib/site.js`).
 4. Settings → Builds → Deploy hooks: create one and copy its URL.
 
 ### Rebuild when a review is approved
 
 - Supabase → Database → Webhooks: on `reviews` UPDATE, HTTP POST to the deploy hook URL.
 - GitHub repo → Settings → Secrets → Actions: add `CF_DEPLOY_HOOK` with the same URL for the nightly rebuild.
+
+## Content
+
+- Site name, proof line and contact details: `src/lib/site.js`.
+- Legal pages (`/privacy/`, `/terms/`, `/review-guidelines/`, `/right-of-reply/`) come from the legal drafts: `node scripts/legal-import.mjs <legal folder>` rewrites `src/content/legal/*.md`.
+- Share images: `/og/...png`, built at build time from `src/lib/og.js` (fonts in `brand/fonts`).
+
+### QR short links
+
+`public/_redirects` sends `/r/<slug>` to that garage's review form (tagged `ref=qr`) and `/r/meet` to the home page. `/this-week` forwards (with its ?ref= tag) to the brand-of-the-week page set by `thisWeek` in `src/lib/site.js` (or the PUBLIC_THIS_WEEK env var). Printed cards use garage slugs, so never rename a slug in `data/garages.json` once its card is printed.

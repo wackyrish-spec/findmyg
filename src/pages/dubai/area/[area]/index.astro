@@ -7,15 +7,17 @@ export function getStaticPaths() {
 const { a } = Astro.props;
 const key = `dubai/area/${a.slug}`;
 const L = splitGeneral(a.garages);
+const it = intro(key);
 ---
 <ListPage
-  title={`Car garages in ${a.name}, Dubai`}
-  description={`Independent garages in ${a.name}, Dubai, with the car brands each one specialises in.`}
-  h1={`Garages in ${a.name}`}
-  lead={`Independent garages in ${a.name} with owner evidence first. Set your car to see which ones know it best.`}
-  introText={intro(key)?.text}
+  title={it?.title || `Car garages in ${a.name}, Dubai`}
+  description={it?.description || `Independent garages in ${a.name}, Dubai, with the car brands each one specialises in.`}
+  h1={it?.h1 || `Garages in ${a.name}`}
+  lead={`Independent garages in ${a.name}, with the ones owners back in reviews first.`}
+  introText={it?.text}
   garages={L.ranked}
   others={L.others}
+  outside={L.outside}
   othersLabel={`Also in ${a.name}, no reviews yet`}
   noindex={!isIndexable(key, a.evidenceCount)}
   crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: a.name }]}

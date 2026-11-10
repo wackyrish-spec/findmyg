@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { pickerCatalog } from "../lib/data.js";
+import { SITE } from "../lib/site.js";
 
 const {
   title,
@@ -8,9 +9,14 @@ const {
   noindex = false,
   jsonld = [],
   crumbs = [],
+  ogImage = "/og/default.png",
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).toString();
-const fullTitle = title.includes("GarageGuide") ? title : `${title} | GarageGuide`;
+// SEO rule: titles stay near 60 characters, so the brand suffix is added only to titles of 47 characters or less.
+const fullTitle = title.includes(SITE.name) || title.length > 47 ? title : `${title} | ${SITE.name}`;
+// Until launch the whole site is noindex (SITE.indexing), whatever the page says.
+const robotsNo = noindex || !SITE.indexing;
+const ogUrl = new URL(ogImage, Astro.site).toString();
 const picker = pickerCatalog();
 const crumbLd = crumbs.length
   ? {
@@ -34,21 +40,31 @@ const ld = [...jsonld, ...(crumbLd ? [crumbLd] : [])];
   <title>{fullTitle}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
-  {noindex && <meta name="robots" content="noindex, follow" />}
+  {robotsNo && <meta name="robots" content="noindex, follow" />}
   <meta property="og:title" content={fullTitle} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="GarageGuide" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <meta property="og:site_name" content={SITE.name} />
+  <meta property="og:image" content={ogUrl} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content={ogUrl} />
+  <meta name="theme-color" content="#14171C" />
+  <link rel="icon" href="/brand/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/brand/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Manrope:wght@500;600;700;800&display=swap" />
   {ld.map((x) => <script type="application/ld+json" set:html={JSON.stringify(x)} />)}
 </head>
 <body>
   <header class="top"><div class="wrap">
-    <a class="logo" href="/"><i></i><span>Garage<b>Guide</b></span></a>
+    <a class="logo" href="/" aria-label={`${SITE.name} home`}><picture>
+      <source srcset="/brand/logo-a-on-dark.svg" media="(prefers-color-scheme: dark)" />
+      <img src="/brand/logo-a-primary.svg" alt={SITE.name} height="28" />
+    </picture></a>
     <nav class="main">
       <a href="/dubai/">All garages</a>
       <a href="/how-it-works/">How it works</a>
@@ -63,8 +79,16 @@ const ld = [...jsonld, ...(crumbLd ? [crumbLd] : [])];
   )}
   <main><slot /></main>
   <footer><div class="wrap">
-    <span>GarageGuide · Find the garage that knows your car. Free, no paid listings.</span>
-    <span><a href="/how-it-works/">How specialties are decided</a></span>
+    <p class="proof">{SITE.proof}</p>
+    <nav class="flinks" aria-label="Footer">
+      <a href="/about/">About</a>
+      <a href="/how-it-works/">How it works</a>
+      <a href="/review-guidelines/">Review guidelines</a>
+      <a href="/right-of-reply/">For garages</a>
+      <a href="/privacy/">Privacy</a>
+      <a href="/terms/">Terms</a>
+    </nav>
+    <span class="muted">{SITE.name} · {SITE.tagline}.</span>
   </div></footer>
   <dialog id="dlg"><div class="dhead"><h2 id="dlgTitle"></h2><button class="iconbtn" type="button" id="dlgX" aria-label="Close">✕</button></div><div class="dbody" id="dlgBody"></div></dialog>
   <script type="application/json" id="picker-data" set:html={JSON.stringify(picker)} />

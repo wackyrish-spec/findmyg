@@ -1,0 +1,19 @@
+---
+// C7 share card page: one approved owner review, with its own preview image for WhatsApp and Instagram.
+import Base from "../../../layouts/Base.astro";
+import { ALL_REVIEWS } from "../../../lib/data.js";
+export function getStaticPaths() {
+  return ALL_REVIEWS.filter((r) => r.id != null).map((r) => ({ params: { id: String(r.id) }, props: { r } }));
+}
+const { r } = Astro.props;
+const car = [r.car_make, r.car_model, r.car_year].filter(Boolean).join(" ");
+---
+<Base title={`${car} owner review of ${r.g.name}`} description={`A ${car} owner on how ${r.g.name} handled their car.`} noindex={true} ogImage={`/og/review/${r.id}.png`}
+  crumbs={[{ name: r.g.name, url: `/garage/${r.g.slug}/` }, { name: "Owner review" }]}>
+  <div class="wrap" style="padding-block:20px 56px;max-width:640px">
+    <h1 style="font-size:36px;text-transform:uppercase">{car} owner on {r.g.name}</h1>
+    <p><span class="stars" aria-label={`${r.rating} out of 5`}>{"★".repeat(r.rating)}<span class="off">{"★".repeat(5 - r.rating)}</span></span> {r.job}{r.price_paid > 0 ? ` · paid AED ${Number(r.price_paid).toLocaleString("en-US")}` : ""}</p>
+    <p>{r.body}</p>
+    <p><a class="btn primary" href={`/garage/${r.g.slug}/`}>See {r.g.name}</a> <a class="btn" href={`/review/${r.g.slug}/`}>Review your own garage</a></p>
+  </div>
+</Base>

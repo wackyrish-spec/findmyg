@@ -1,0 +1,77 @@
+/* KnowsMyCar tokens v1. Generated from brand/tokens.json. Same variable names as src/styles/global.css. */
+:root{
+  --bg:#F5F7FB;
+  --surface:#FFFFFF;
+  --soft:#EEF2F8;
+  --ink:#14171C;
+  --muted:#5B6370;
+  --line:#E1E6EE;
+  --blue:#1F5BFF;
+  --blue-ink:#FFFFFF;
+  --blue-soft:#E8EFFF;
+  --signal:#FFB400;
+  --signal-ink:#14171C;
+  --signal-soft:#FFF3D1;
+  --signal-text:#8A5A00;
+  --pos:#12804C;
+  --pos-soft:#E4F4EA;
+  --warn:#A4620C;
+  --warn-soft:#FBF0DC;
+  --neg:#BF3A28;
+  --star:#F2A516;
+  --wa:#25D366;
+  --wa-ink:#14171C;
+  --f-display:"Barlow Condensed", "Arial Narrow", system-ui, sans-serif;
+  --f-body:"Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --f-arabic:"IBM Plex Sans Arabic", system-ui, sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1116;
+  --surface:#161A21;
+  --soft:#1C222B;
+  --ink:#E8ECF2;
+  --muted:#9AA3B1;
+  --line:#272E39;
+  --blue:#6B8FFF;
+  --blue-ink:#0E1116;
+  --blue-soft:#18233D;
+  --signal:#FFB400;
+  --signal-ink:#14171C;
+  --signal-soft:#2A2412;
+  --signal-text:#FFD166;
+  --pos:#3FBF82;
+  --pos-soft:#14291F;
+  --warn:#E0A54A;
+  --warn-soft:#2C2414;
+  --neg:#F07A66;
+  --star:#FFB400;
+  --wa:#25D366;
+  --wa-ink:#14171C;
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0E1116;
+  --surface:#161A21;
+  --soft:#1C222B;
+  --ink:#E8ECF2;
+  --muted:#9AA3B1;
+  --line:#272E39;
+  --blue:#6B8FFF;
+  --blue-ink:#0E1116;
+  --blue-soft:#18233D;
+  --signal:#FFB400;
+  --signal-ink:#14171C;
+  --signal-soft:#2A2412;
+  --signal-text:#FFD166;
+  --pos:#3FBF82;
+  --pos-soft:#14291F;
+  --warn:#E0A54A;
+  --warn-soft:#2C2414;
+  --neg:#F07A66;
+  --star:#FFB400;
+  --wa:#25D366;
+  --wa-ink:#14171C;
+  color-scheme:dark;
+}

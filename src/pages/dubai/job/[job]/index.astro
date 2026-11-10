@@ -1,21 +1,23 @@
 ---
 import ListPage from "../../../../components/ListPage.astro";
-import { JOB_PAGES, intro, isIndexable, splitGeneral } from "../../../../lib/data.js";
+import { JOB_PAGES, intro, isIndexable, splitGeneral, JOB_TO_PROBLEM } from "../../../../lib/data.js";
 export function getStaticPaths() {
-  return JOB_PAGES.map((j) => ({ params: { job: j.slug }, props: { j } }));
+  return JOB_PAGES.filter((j) => !JOB_TO_PROBLEM[j.slug]).map((j) => ({ params: { job: j.slug }, props: { j } }));
 }
 const { j } = Astro.props;
 const key = `dubai/job/${j.slug}`;
 const L = splitGeneral(j.garages);
+const it = intro(key);
 ---
 <ListPage
-  title={`${j.name} in Dubai: independent garages`}
-  description={`${j.plain}? Independent garages in Dubai for ${j.name.toLowerCase()}, and the car brands each one knows best.`}
-  h1={`${j.name} in Dubai`}
-  lead={`${j.plain}. Garages with review evidence come first. Set your car to find the ones that know it.`}
-  introText={intro(key)?.text}
+  title={it?.title || `${j.plain} in Dubai: independent garages`}
+  description={it?.description || `${j.plain}? Independent garages in Dubai for ${j.name.toLowerCase()}, and the car brands each one knows best.`}
+  h1={it?.h1 || `${j.plain} in Dubai`}
+  lead={`Independent garages for ${j.name.toLowerCase()}, with the ones owners back in reviews first.`}
+  introText={it?.text}
   garages={L.ranked}
   others={L.others}
+  outside={L.outside}
   othersLabel={"Also listed, no reviews yet"}
   noindex={!isIndexable(key, j.evidenceCount)}
   crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: j.name }]}

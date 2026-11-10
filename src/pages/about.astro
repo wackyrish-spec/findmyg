@@ -1,0 +1,23 @@
+---
+import Base from "../layouts/Base.astro";
+import { SITE } from "../lib/site.js";
+---
+<Base title={`About ${SITE.name}`} description={`${SITE.name} is a free, independent guide to Dubai's specialist garages, built on reviews from owners of the same car.`} crumbs={[{ name: "About" }]}>
+  <article class="wrap legal">
+    <h1>About {SITE.name}</h1>
+    <p>Ask in any Dubai car group who to trust with your car and you get the same answer: it depends on the car. A garage that's brilliant with Land Cruisers may never have opened a Cayenne. {SITE.name} exists to answer one question: <b>which garage knows my car?</b></p>
+    <p>It was started by a Dubai owner who restores older cars, an Alfa Romeo, a Porsche Cayenne and a Golf GTI among them, and who found the right specialist for each one by asking other owners. This site is that conversation, written down.</p>
+    <h2>How it works</h2>
+    <ul>
+      <li><b>Owners review garages for their own car.</b> Every review says which car, which job and what it cost, and a person checks it before it goes live.</li>
+      <li><b>Specialties come from evidence.</b> A garage is listed as knowing a brand or model only when owner reviews or community recommendations back it. See <a href="/how-it-works/">how we decide</a>.</li>
+      <li><b>Founder's picks are labelled.</b> When a recommendation comes from our own experience, it says so.</li>
+    </ul>
+    <h2>Independent</h2>
+    <p>{SITE.proof} Garages can't pay to be listed, ranked or to have reviews changed or removed. {SITE.name} is free and makes no money today. If that ever changes, this page will say how.</p>
+    <h2>Garages</h2>
+    <p>Garages can reply to reviews and correct their details for free. See <a href="/right-of-reply/">for garages</a>.</p>
+    <h2>Contact</h2>
+    <p><a href={`mailto:${SITE.emailHello}`}>{SITE.emailHello}</a></p>
+  </article>
+</Base>

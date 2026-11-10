@@ -1,0 +1,31 @@
+---
+// C5 "Got a dealer quote? Check it" (spec 15, Legal rules in community-plan 9): figures only. No garage name, no customer
+// details, no image. Every submission goes to the human queue. A comparison shows only with 3+ data points.
+import Base from "../layouts/Base.astro";
+import { BENCHMARKS } from "../lib/data.js";
+const ready = !!(import.meta.env.PUBLIC_SUPABASE_URL && import.meta.env.PUBLIC_SUPABASE_ANON_KEY);
+---
+<Base title="Got a dealer quote? Check it" description="Type in the job and the price you were quoted. See what owners and independents in Dubai pay for the same job on your model." noindex={true} crumbs={[{ name: "Check a quote" }]}>
+  <div class="wrap" style="padding-block:20px 56px;max-width:680px">
+    <h1 style="font-size:42px;text-transform:uppercase">Got a dealer quote? Check it</h1>
+    <p class="muted">Type the job and the price. We show where it sits against prices we have for the same job on your model. Figures only: no garage name, no photo of the quote.</p>
+    <form class="card panel notify" id="qcForm" data-ready={ready ? "1" : ""} novalidate>
+      <div class="picker" id="qcCar"><label class="label" for="qcIn">Your car</label>
+        <div class="pickrow"><input id="qcIn" autocomplete="off" role="combobox" aria-expanded="false" placeholder="e.g. Cayenne 958, Range Rover Sport" /></div>
+        <div class="sugg" role="listbox" hidden></div></div>
+      <div class="two">
+        <label class="fld" for="qcJob">Job<select id="qcJob" required><option value="">Choose</option>{BENCHMARKS.filter((b) => !b.pageOnly).map((b) => <option value={b.key}>{b.plain}</option>)}<option value="other">Other</option></select></label>
+        <label class="fld" for="qcAed">Quoted price (AED, incl. VAT)<input id="qcAed" inputmode="numeric" required placeholder="e.g. 2400" /></label>
+      </div>
+      <label class="fld" for="qcNote" id="qcNoteWrap" hidden>What's the job?<input id="qcNote" maxlength="80" placeholder="e.g. coolant pipe replacement" /></label>
+      <div class="two">
+        <label class="fld" for="qcSide">Quoted by<select id="qcSide"><option value="dealer">Main dealer</option><option value="independent">Independent garage</option></select></label>
+        <label class="fld" for="qcMonth">When<input id="qcMonth" type="month" /></label>
+      </div>
+      <div class="err" id="qcErr" hidden></div>
+      <button class="btn primary" type="submit">Check my quote</button>
+    </form>
+    <section class="card panel" id="qcOut" hidden aria-live="polite"></section>
+  </div>
+  <script>import "../scripts/quote.js";</script>
+</Base>

@@ -1,31 +1,39 @@
 ---
 import ListPage from "../../../../components/ListPage.astro";
-import { BRANDS, intro, isIndexable, splitBrand, dealerPrices, DEALER_NOTES } from "../../../../lib/data.js";
+import { BRANDS, intro, isIndexable, splitBrand, dealerPrices, DEALER_NOTES, dealerVsIndie, modelOwners } from "../../../../lib/data.js";
 export function getStaticPaths() {
   return BRANDS.flatMap((b) => b.models.map((m) => ({ params: { make: b.slug, model: m.slug }, props: { b, m } })));
 }
 const { b, m } = Astro.props;
 const key = `dubai/${b.slug}/${m.slug}`;
+const issueFiles = Object.values(import.meta.glob("../../../../content/issues/*.md", { eager: true }));
+const hasIssues = issueFiles.some((f) => f.frontmatter?.make === b.make && f.frontmatter?.model === m.model);
 const it = intro(key);
 // Model specialists first, then brand specialists with evidence; unreviewed garages collapsed.
 const rest = b.garages.filter((g) => !m.garages.includes(g));
 const L = splitBrand([...m.garages, ...rest], b.make, m.model);
 ---
 <ListPage
-  title={`${b.make} ${m.model} specialist garages in Dubai`}
-  description={`Where to fix a ${b.make} ${m.model} in Dubai: independent garages that owners recommend for the ${m.model}, with the evidence for each.`}
-  h1={`${b.make} ${m.model} specialists in Dubai`}
+  title={it?.title || `${b.make} ${m.model} service and repair in Dubai`}
+  description={it?.description || `Where to fix a ${b.make} ${m.model} in Dubai: independent garages that owners recommend for the ${m.model}, with the evidence for each.`}
+  h1={it?.h1 || `${b.make} ${m.model} specialists in Dubai`}
   lead={`Garages owners recommend for the ${m.model} come first, followed by other ${b.make} specialists with review evidence.`}
   introText={it?.text}
+  faq={it?.faq || []}
   garages={L.ranked}
   others={L.others}
+  outside={L.outside}
   othersLabel={`Also in Dubai, no reviews for your ${m.model} yet`}
   dealers={L.dealers}
   dealerPrices={dealerPrices(b.make, m.model)}
   dealerNote={DEALER_NOTES[b.slug]}
+  dvi={dealerVsIndie(b.make, m.model)}
+  owners={modelOwners(b.make, m.model)}
+  dviNote={DEALER_NOTES[b.slug]}
   make={b.make}
+  ogImage={`/og/dubai/${b.slug}/${m.slug}.png`}
   model={m.model}
   noindex={!isIndexable(key, m.evidenceCount)}
   crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: b.make, url: `/dubai/${b.slug}/` }, { name: m.model }]}
-  related={b.models.filter((x) => x.slug !== m.slug).map((x) => ({ name: `${b.make} ${x.model}`, url: `/dubai/${b.slug}/${x.slug}/` }))}
+  related={[...(hasIssues ? [{ name: `${m.model} known issues`, url: `/dubai/${b.slug}/${m.slug}/issues/` }] : []), ...b.models.filter((x) => x.slug !== m.slug).map((x) => ({ name: `${b.make} ${x.model}`, url: `/dubai/${b.slug}/${x.slug}/` }))]}
 />
