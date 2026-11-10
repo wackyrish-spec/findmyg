@@ -1,0 +1,13 @@
+---
+import GuidePage from "../../../../components/GuidePage.astro";
+import { BRANDS } from "../../../../lib/data.js";
+import { GUIDES } from "../../../../lib/guides.js";
+export function getStaticPaths() {
+  return GUIDES.filter((g) => !g.model).flatMap((g) => {
+    const b = BRANDS.find((x) => x.slug === g.make);
+    return b ? [{ params: { make: b.slug }, props: { g, b } }] : [];
+  });
+}
+const { g, b } = Astro.props;
+---
+<GuidePage g={g} b={b} />

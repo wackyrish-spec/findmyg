@@ -382,7 +382,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.7 from 1651 reviews. In the 60 most relevant reviews we read, customers mostly bring Nissan praise centres on knowledgeable staff, honest, fair prices.",
+      "review_summary": "Google rating 4.7 from 1651 reviews. In the 60 most relevant reviews we read, customers mostly bring Nissan; praise centres on knowledgeable staff, honest, fair prices.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Car%20Garage%20Auto%20Mechanical%20Repair&query_place_id=ChIJj9UX7Y1nXz4RVXkM9FsIdDs",
@@ -670,7 +670,7 @@
           ]
         }
       ],
-      "review_summary": "Google rating 4.6 from 1545 reviews. In the 60 most relevant reviews we read, customers mostly bring Lexus praise centres on knowledgeable staff, honest, fast turnaround. Repeatedly recommended for Lexus (LX, GX, IS) on Reddit.",
+      "review_summary": "Google rating 4.6 from 1545 reviews. In the 60 most relevant reviews we read, customers mostly bring Lexus; praise centres on knowledgeable staff, honest, fast turnaround. Repeatedly recommended for Lexus (LX, GX, IS) on Reddit.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Al%20Nahdha%20Auto%20Garage&query_place_id=ChIJ1594y_5mXz4R8xE2PLN56gg",
@@ -852,6 +852,7 @@
         ],
         "positive_by_model": {
           "GX460": 1,
+          "NX": 1,
           "ES": 1,
           "Tiida": 1,
           "Range Rover": 1
@@ -948,6 +949,25 @@
           {
             "type": "reddit",
             "site": "r/DubaiPetrolHeads",
+            "title": "Any recommendations for Lexus garage in Dubai?",
+            "title_ok": true,
+            "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/192zp71/any_recommendations_for_lexus_garage_in_dubai/",
+            "year": 2024,
+            "makes": [
+              "Lexus"
+            ],
+            "models": [
+              "NX"
+            ],
+            "generations": [],
+            "sentiment": "positive",
+            "quote": "I changed some parts with them recently for my NX300",
+            "added_by": "data",
+            "topics": []
+          },
+          {
+            "type": "reddit",
+            "site": "r/DubaiPetrolHeads",
             "title": "Garage for lexus",
             "title_ok": true,
             "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1bowljq/garage_for_lexus/",
@@ -960,23 +980,6 @@
             "generations": [],
             "sentiment": "positive",
             "quote": "Would recommend Al Nahdha Auto Garage.",
-            "added_by": "tinyfish"
-          },
-          {
-            "type": "reddit",
-            "site": "r/DubaiPetrolHeads",
-            "title": "Any recommendations for lexus garage in dubai",
-            "title_ok": true,
-            "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/192zp71/any_recommendations_for_lexus_garage_in_dubai/",
-            "year": 2024,
-            "makes": [
-              "Lexus",
-              "NX"
-            ],
-            "models": [],
-            "generations": [],
-            "sentiment": "positive",
-            "quote": null,
             "added_by": "tinyfish"
           },
           {
@@ -1163,7 +1166,7 @@
           ]
         }
       ],
-      "review_summary": "Google rating 4.7 from 1277 reviews. In the 60 most relevant reviews we read, customers mostly bring Mercedes-Benz praise centres on knowledgeable staff, honest, fast turnaround.",
+      "review_summary": "Google rating 4.7 from 1277 reviews. In the 60 most relevant reviews we read, customers mostly bring Mercedes-Benz; praise centres on knowledgeable staff, honest, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Deutsches%20Auto%20Service&query_place_id=ChIJnSbVwN5rXz4R9HVEf8CvBYc",
@@ -1405,7 +1408,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.4 from 860 reviews. In the 60 most relevant reviews we read, customers mostly bring BMW praise centres on knowledgeable staff, honest, fast turnaround.",
+      "review_summary": "Google rating 4.4 from 860 reviews. In the 60 most relevant reviews we read, customers mostly bring BMW; praise centres on knowledgeable staff, honest, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=German%20Experts%20Car%20Maintenance%20Dubai&query_place_id=ChIJJ1RC-2JpXz4R1H5u7qSaeD0",
@@ -1693,7 +1696,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.8 from 788 reviews. In the 60 most relevant reviews we read, customers mostly bring Nissan, Mercedes-Benz, Porsche praise centres on knowledgeable staff, fast turnaround, fair prices.",
+      "review_summary": "Google rating 4.8 from 788 reviews. In the 60 most relevant reviews we read, customers mostly bring Nissan, Mercedes-Benz, Porsche; praise centres on knowledgeable staff, fast turnaround, fair prices.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Orange%20Auto%20-%20BMW%20Mercedes%20Porsche%20GMC%20Nissan%20Mitsubishi%20Toyota%20Repair%20Dubai&query_place_id=ChIJ2YfpDX1nXz4R3o1zW5bd7Is",
@@ -1949,7 +1952,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.7 from 696 reviews. In the 60 most relevant reviews we read, customers mostly bring Mercedes-Benz praise centres on knowledgeable staff, good communication, honest.",
+      "review_summary": "Google rating 4.7 from 696 reviews. In the 60 most relevant reviews we read, customers mostly bring Mercedes-Benz; praise centres on knowledgeable staff, good communication, honest.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=DME%20Auto%20Repairing%20-%20BOSCH%20Car%20Service&query_place_id=ChIJEYjBj9RrXz4RS4ea8jRcja4",
@@ -2133,7 +2136,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.4 from 695 reviews. In the 60 most relevant reviews we read, customers mostly bring Land Rover praise centres on knowledgeable staff, fast turnaround, good communication.",
+      "review_summary": "Google rating 4.4 from 695 reviews. In the 60 most relevant reviews we read, customers mostly bring Land Rover; praise centres on knowledgeable staff, fast turnaround, good communication.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=ROVER%20AUTO%20CENTRE%20L.L.C.&query_place_id=ChIJ6cBHQv1rXz4RwZvoz7EMnyc",
@@ -2313,7 +2316,7 @@
           ]
         }
       ],
-      "review_summary": "Google rating 4.6 from 678 reviews. In the 60 most relevant reviews we read, customers mostly bring Audi, Porsche praise centres on knowledgeable staff, honest, fast turnaround.",
+      "review_summary": "Google rating 4.6 from 678 reviews. In the 60 most relevant reviews we read, customers mostly bring Audi, Porsche; praise centres on knowledgeable staff, honest, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Deutsche%20Technik%20Dubai&query_place_id=ChIJsQKT8tNrXz4RCfoyT9hKDKE",
@@ -3027,7 +3030,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.5 from 642 reviews. In the 60 most relevant reviews we read, customers mostly bring BMW praise centres on knowledgeable staff, fast turnaround, fair prices.",
+      "review_summary": "Google rating 4.5 from 642 reviews. In the 60 most relevant reviews we read, customers mostly bring BMW; praise centres on knowledgeable staff, fast turnaround, fair prices.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Profix%20Auto%20Care%20Garage&query_place_id=ChIJtwrqNfprXz4RBDBv53WLlac",
@@ -3288,7 +3291,7 @@
           ]
         }
       ],
-      "review_summary": "Google rating 4.7 from 632 reviews. In the 60 most relevant reviews we read, customers mostly bring Porsche praise centres on knowledgeable staff, honest, good communication.",
+      "review_summary": "Google rating 4.7 from 632 reviews. In the 60 most relevant reviews we read, customers mostly bring Porsche; praise centres on knowledgeable staff, honest, good communication.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=ARMotors%20%5BARM%C2%AE%20-%20Alex%20Renner%20Motors%20Garage%20LLC%5D&query_place_id=ChIJq6qqqk5yXz4RxtjClPYInYM",
@@ -3630,7 +3633,7 @@
           ]
         }
       ],
-      "review_summary": "Google rating 4.7 from 606 reviews. In the 60 most relevant reviews we read, customers mostly bring Jeep praise centres on knowledgeable staff, honest, good communication.",
+      "review_summary": "Google rating 4.7 from 606 reviews. In the 60 most relevant reviews we read, customers mostly bring Jeep; praise centres on knowledgeable staff, honest, good communication.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=OffRoad-Zone&query_place_id=ChIJx6JLx4FpXz4Rf9PicjHYhLk",
@@ -4369,7 +4372,7 @@
           ]
         }
       ],
-      "review_summary": "Google rating 4.7 from 495 reviews. In the 60 most relevant reviews we read, customers mostly bring Land Rover praise centres on knowledgeable staff, fast turnaround, fair prices.",
+      "review_summary": "Google rating 4.7 from 495 reviews. In the 60 most relevant reviews we read, customers mostly bring Land Rover; praise centres on knowledgeable staff, fast turnaround, fair prices.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Premier%20Car%20Care%20Luxury%20Car%20Service%20and%20Maintenance&query_place_id=ChIJfxHBunhpXz4R8EZOGJCDnIM",
@@ -4561,7 +4564,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.8 from 484 reviews. In the 60 most relevant reviews we read, customers mostly bring Land Rover praise centres on knowledgeable staff, honest, clear explanations.",
+      "review_summary": "Google rating 4.8 from 484 reviews. In the 60 most relevant reviews we read, customers mostly bring Land Rover; praise centres on knowledgeable staff, honest, clear explanations.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Euro%20Experts%20Auto%20Services&query_place_id=ChIJnVX52bJrXz4RJBdAR1O9ves",
@@ -4794,7 +4797,7 @@
           "excerpt_removed": "legal"
         }
       ],
-      "review_summary": "Google rating 4.8 from 473 reviews. In the 60 most relevant reviews we read, customers mostly bring Dodge, Jeep, Chrysler praise centres on knowledgeable staff, honest, clear explanations.",
+      "review_summary": "Google rating 4.8 from 473 reviews. In the 60 most relevant reviews we read, customers mostly bring Dodge, Jeep, Chrysler; praise centres on knowledgeable staff, honest, clear explanations.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Vaahan%20Garage%20Jeep%2C%20Dodge%2C%20Ram%2C%20Chrysler%20specialists.&query_place_id=ChIJYWLbliZnXz4RMk_xi1gu9ms",
@@ -5083,7 +5086,7 @@
           ]
         }
       ],
-      "review_summary": "Google rating 4.3 from 448 reviews. In the 60 most relevant reviews we read, customers mostly bring Toyota praise centres on knowledgeable staff, good communication, fast turnaround.",
+      "review_summary": "Google rating 4.3 from 448 reviews. In the 60 most relevant reviews we read, customers mostly bring Toyota; praise centres on knowledgeable staff, good communication, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Titan%20Performance%20UAE&query_place_id=ChIJp1GJX65nXz4RsZ0_JuAXAsk",
@@ -5305,7 +5308,7 @@
           ]
         }
       ],
-      "review_summary": "Google rating 4.2 from 424 reviews. In the 60 most relevant reviews we read, customers mostly bring Honda praise centres on knowledgeable staff, fair prices, honest.",
+      "review_summary": "Google rating 4.2 from 424 reviews. In the 60 most relevant reviews we read, customers mostly bring Honda; praise centres on knowledgeable staff, fair prices, honest.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Al%20Taeif%20Honda%20Garage&query_place_id=ChIJXXXbVT1cXz4R8v7uBRlTQOk"
@@ -5639,7 +5642,7 @@
           ]
         }
       ],
-      "review_summary": "Google rating 4.7 from 411 reviews. In the 60 most relevant reviews we read, customers mostly bring Nissan, Toyota praise centres on knowledgeable staff, good communication, fast turnaround.",
+      "review_summary": "Google rating 4.7 from 411 reviews. In the 60 most relevant reviews we read, customers mostly bring Nissan, Toyota; praise centres on knowledgeable staff, good communication, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=RK%20Custom%20-%20Best%20offroad%20Modification%20Garage%20in%20Dubai&query_place_id=ChIJh5B4GBBnXz4RLpVyRBcQOXA",
@@ -6043,7 +6046,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.8 from 335 reviews. In the 60 most relevant reviews we read, customers mostly bring Mercedes-Benz praise centres on knowledgeable staff, honest, fast turnaround.",
+      "review_summary": "Google rating 4.8 from 335 reviews. In the 60 most relevant reviews we read, customers mostly bring Mercedes-Benz; praise centres on knowledgeable staff, honest, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Al%20Maraghi%20Mercedes%20Service%20Center&query_place_id=ChIJPWO3zgJpXz4Rm8TYZw-vfAw",
@@ -6229,7 +6232,7 @@
           ]
         }
       ],
-      "review_summary": "Google rating 4.4 from 327 reviews. In the 60 most relevant reviews we read, customers mostly bring Jeep praise centres on knowledgeable staff, fast turnaround, fair prices.",
+      "review_summary": "Google rating 4.4 from 327 reviews. In the 60 most relevant reviews we read, customers mostly bring Jeep; praise centres on knowledgeable staff, fast turnaround, fair prices.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=SSS%20Garage&query_place_id=ChIJe5LwMhRcXz4RM8N2yB3HjSQ",
@@ -6369,7 +6372,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.3 from 313 reviews. In the 60 most relevant reviews we read, customers mostly bring Tesla praise centres on knowledgeable staff, good communication, fast turnaround.",
+      "review_summary": "Google rating 4.3 from 313 reviews. In the 60 most relevant reviews we read, customers mostly bring Tesla; praise centres on knowledgeable staff, good communication, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Technical%20Resources%20General%20Auto%20Services%20Centre%20LLC%20Dubai&query_place_id=ChIJKS6i8wJrXz4R_8R9J4zMvGk",
@@ -6540,7 +6543,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.9 from 305 reviews. In the 60 most relevant reviews we read, customers mostly bring Audi praise centres on knowledgeable staff, fast turnaround, honest.",
+      "review_summary": "Google rating 4.9 from 305 reviews. In the 60 most relevant reviews we read, customers mostly bring Audi; praise centres on knowledgeable staff, fast turnaround, honest.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=PRO.CTO&query_place_id=ChIJS0soa95pXz4Rn77eimd3-TM",
@@ -8765,7 +8768,7 @@
           ],
           "level": "brand",
           "confidence": "high",
-          "evidence": "Porsche named in 28 of 60 recent Google reviews (28 of 29 that name a make), Cayenne 6",
+          "evidence": "Porsche; named in 28 of 60 recent Google reviews (28 of 29 that name a make), Cayenne 6",
           "mentions": 28,
           "basis": "reviews",
           "car_family": "german"
@@ -9302,7 +9305,7 @@
           ],
           "level": "brand",
           "confidence": "high",
-          "evidence": "25 of 40 Google reviews read mention BMW (100% of reviews that name any make) Recommended for BMW in 4+ Reddit threads (2024-2026), incl. 7 Series, X5 pre-purchase checks and F10 5 Series owners said to sponsor the BMW UAE Club.",
+          "evidence": "25 of 40 Google reviews read mention BMW (100% of reviews that name any make); Recommended for BMW in 4+ Reddit threads (2024-2026), incl. 7 Series, X5 pre-purchase checks and F10 5 Series owners; said to sponsor the BMW UAE Club.",
           "mentions": 25,
           "basis": "reviews+community",
           "car_family": "german",
@@ -10100,21 +10103,45 @@
       "works_on_all_makes": false,
       "works_on_all_makes_basis": "listing names specific makes",
       "community_mentions": {
-        "threads_total": 2,
-        "threads_positive": 2,
+        "threads_total": 3,
+        "threads_positive": 3,
         "threads_negative": 0,
         "threads_negative_public": false,
         "group_reports": 0,
         "years": [
           2025,
-          2025
+          2026
         ],
         "positive_by_model": {
+          "Skyline": 1,
+          "GT-R": 1,
+          "R33": 1,
           "Range Rover": 1
         },
         "pre_purchase_positive": 0,
         "as_of": "2026-11-10",
         "sources": [
+          {
+            "type": "reddit",
+            "site": "r/DubaiPetrolHeads",
+            "title": "Buying GTST R33 any recommendation on the best JDM Garage, mechanically and electrical work?",
+            "title_ok": true,
+            "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1qgd8oz/buying_gtst_r33_any_recommendation_on_the_best/",
+            "year": 2026,
+            "makes": [
+              "Nissan"
+            ],
+            "models": [
+              "Skyline",
+              "GT-R",
+              "R33"
+            ],
+            "generations": [],
+            "sentiment": "positive",
+            "quote": null,
+            "added_by": "data",
+            "topics": []
+          },
           {
             "type": "reddit",
             "site": "r/DubaiPetrolHeads",
@@ -10889,15 +10916,15 @@
       "name": "Precision Power Auto Garage",
       "listing_name": "Precision Power Auto Garage",
       "emirate": "Dubai",
-      "area": "Dubai",
-      "address": "",
-      "lat": null,
-      "lng": null,
-      "phone": "",
+      "area": "Al Quoz Industrial 4",
+      "address": "Street 22, 15B St, Al Quoz Industrial 4",
+      "lat": 25.1178312,
+      "lng": 55.2357516,
+      "phone": "+971 52 472 5875",
       "whatsapp": "",
-      "website": "",
-      "maps_url": "",
-      "google_place_id": null,
+      "website": "http://www.precisionpower.ae/",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Precision%20Power%20Auto%20Garage&query_place_id=ChIJqzIFSFtpXz4RqQexfNIogw4",
+      "google_place_id": "ChIJqzIFSFtpXz4RqQexfNIogw4",
       "categories": [],
       "business_type": "workshop",
       "dealer_for": null,
@@ -10906,18 +10933,29 @@
       "specialties": [
         {
           "make": "Volkswagen",
-          "models": [],
-          "level": "brand",
+          "models": [
+            "Golf GTI",
+            "Golf R"
+          ],
+          "level": "model",
           "confidence": "medium",
-          "evidence": "Recommended for Volkswagen on Reddit r/DubaiPetrolHeads",
+          "evidence": "Owners name it for Golf R/GTI in 4 Reddit threads (2023-2026), incl. Golf pre-purchase checks",
           "mentions": 0,
           "basis": "community",
           "car_family": "german",
-          "latest_year": 2024
+          "latest_year": 2026
         }
       ],
       "is_specialist": true,
-      "external_ratings": [],
+      "external_ratings": [
+        {
+          "source": "Google",
+          "rating": 4.9,
+          "count": 156,
+          "url": "https://www.google.com/maps/search/?api=1&query=Precision%20Power%20Auto%20Garage&query_place_id=ChIJqzIFSFtpXz4RqQexfNIogw4",
+          "as_of": "2026-11-10"
+        }
+      ],
       "external_reviews": [
         {
           "source": "Reddit r/DubaiPetrolHeads",
@@ -10930,7 +10968,7 @@
           ]
         }
       ],
-      "review_summary": "Not yet matched to a Google Maps listing. Recommended by owners on Reddit r/DubaiPetrolHeads.",
+      "review_summary": "Recommended by owners on Reddit r/DubaiPetrolHeads.",
       "reviews_analysed": 0,
       "sources": [
         "https://www.reddit.com/r/DubaiPetrolHeads/comments/1dqfqiw/most_trusted_and_reliable_vw_garage_in_dubai/"
@@ -10942,19 +10980,44 @@
       "works_on_all_makes": false,
       "works_on_all_makes_basis": "listing names specific makes",
       "community_mentions": {
-        "threads_total": 3,
-        "threads_positive": 1,
+        "threads_total": 4,
+        "threads_positive": 2,
         "threads_negative": 0,
         "threads_negative_public": false,
         "group_reports": 0,
         "years": [
           2024,
-          2024
+          2026
         ],
-        "positive_by_model": {},
+        "positive_by_model": {
+          "Golf R": 1,
+          "Golf GTI": 1
+        },
         "pre_purchase_positive": 0,
         "as_of": "2026-11-10",
         "sources": [
+          {
+            "type": "reddit",
+            "site": "r/DubaiPetrolHeads",
+            "title": "Golf R (Mk7)",
+            "title_ok": true,
+            "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1w42h1x/golf_r_mk7/",
+            "year": 2026,
+            "makes": [
+              "Volkswagen"
+            ],
+            "models": [
+              "Golf R",
+              "Golf GTI"
+            ],
+            "generations": [
+              "Mk7"
+            ],
+            "sentiment": "positive",
+            "quote": "These guys know their Golfs or any other car on the MQB platform",
+            "added_by": "data",
+            "topics": []
+          },
           {
             "type": "reddit",
             "site": "r/DubaiPetrolHeads",
@@ -10987,7 +11050,7 @@
             "models": [],
             "generations": [],
             "sentiment": "positive",
-            "quote": "Precision is run by Vassu while not a mechanic himself he knows his stuff",
+            "quote": null,
             "added_by": "data",
             "topics": []
           },
@@ -11012,22 +11075,24 @@
           }
         ],
         "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
-      }
+      },
+      "feature_id": "0x3e5f695b480532ab:0xe8328d27cb107a9",
+      "checked_at": "2026-11-10"
     },
     {
       "id": "pgr-web",
       "name": "PGR",
-      "listing_name": "PGR",
+      "listing_name": "PGR Auto Repairing",
       "emirate": "Dubai",
-      "area": "Dubai",
-      "address": "",
-      "lat": null,
-      "lng": null,
-      "phone": "",
+      "area": "Dubai Investment Park 2",
+      "address": "Dubai Investment Park 2",
+      "lat": 24.9687324,
+      "lng": 55.1917532,
+      "phone": "+971 58 938 2060",
       "whatsapp": "",
       "website": "",
-      "maps_url": "",
-      "google_place_id": null,
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=PGR%20Auto%20Repairing&query_place_id=ChIJYfvp5-1rXz4RXIL3cH8HOGY",
+      "google_place_id": "ChIJYfvp5-1rXz4RXIL3cH8HOGY",
       "categories": [],
       "business_type": "workshop",
       "dealer_for": null,
@@ -11036,10 +11101,13 @@
       "specialties": [
         {
           "make": "Volkswagen",
-          "models": [],
-          "level": "brand",
+          "models": [
+            "Golf GTI",
+            "Golf R"
+          ],
+          "level": "model",
           "confidence": "medium",
-          "evidence": "Recommended for Volkswagen on Reddit r/DubaiPetrolHeads",
+          "evidence": "Owners recommend it for Golf R and Golf GTI in 6+ r/DubaiPetrolHeads threads (2023-2026), incl. pre-purchase checks",
           "mentions": 0,
           "basis": "community",
           "car_family": "german",
@@ -11047,7 +11115,15 @@
         }
       ],
       "is_specialist": true,
-      "external_ratings": [],
+      "external_ratings": [
+        {
+          "source": "Google",
+          "rating": 4.9,
+          "count": 166,
+          "url": "https://www.google.com/maps/search/?api=1&query=PGR%20Auto%20Repairing&query_place_id=ChIJYfvp5-1rXz4RXIL3cH8HOGY",
+          "as_of": "2026-11-10"
+        }
+      ],
       "external_reviews": [
         {
           "source": "Reddit r/DubaiPetrolHeads",
@@ -11060,7 +11136,7 @@
           ]
         }
       ],
-      "review_summary": "Not yet matched to a Google Maps listing. Recommended by owners on Reddit r/DubaiPetrolHeads.",
+      "review_summary": "Recommended by owners on Reddit r/DubaiPetrolHeads.",
       "reviews_analysed": 0,
       "sources": [
         "https://www.reddit.com/r/DubaiPetrolHeads/comments/1dqfqiw/most_trusted_and_reliable_vw_garage_in_dubai/"
@@ -11072,8 +11148,8 @@
       "works_on_all_makes": false,
       "works_on_all_makes_basis": "listing names specific makes",
       "community_mentions": {
-        "threads_total": 8,
-        "threads_positive": 7,
+        "threads_total": 10,
+        "threads_positive": 9,
         "threads_negative": 0,
         "threads_negative_public": false,
         "group_reports": 0,
@@ -11082,8 +11158,8 @@
           2026
         ],
         "positive_by_model": {
-          "Golf R": 4,
-          "Golf GTI": 3
+          "Golf R": 6,
+          "Golf GTI": 4
         },
         "pre_purchase_positive": 0,
         "as_of": "2026-11-10",
@@ -11123,6 +11199,47 @@
             "generations": [],
             "sentiment": "positive",
             "quote": "Best in the game.",
+            "added_by": "data",
+            "topics": []
+          },
+          {
+            "type": "reddit",
+            "site": "r/DubaiPetrolHeads",
+            "title": "Golf R (Mk7)",
+            "title_ok": true,
+            "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1w42h1x/golf_r_mk7/",
+            "year": 2026,
+            "makes": [
+              "Volkswagen"
+            ],
+            "models": [
+              "Golf R",
+              "Golf GTI"
+            ],
+            "generations": [
+              "Mk7"
+            ],
+            "sentiment": "positive",
+            "quote": "These guys know their Golfs or any other car on the MQB platform",
+            "added_by": "data",
+            "topics": []
+          },
+          {
+            "type": "reddit",
+            "site": "r/DubaiPetrolHeads",
+            "title": "Mechanic for volkswagen golf r",
+            "title_ok": true,
+            "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1xc10m3/mechanic_for_volkswagen_golf_r/",
+            "year": 2026,
+            "makes": [
+              "Volkswagen"
+            ],
+            "models": [
+              "Golf R"
+            ],
+            "generations": [],
+            "sentiment": "positive",
+            "quote": "i keep hearing about PGR in DIP & Werks Motorsport in the Golf GTI/R communities",
             "added_by": "data",
             "topics": []
           },
@@ -11241,7 +11358,9 @@
           }
         ],
         "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
-      }
+      },
+      "feature_id": "0x3e5f6bede7e9fb61:0x6638077f70f7825c",
+      "checked_at": "2026-11-10"
     },
     {
       "id": "king-drive-auto-repair-workshop-web",
@@ -12440,7 +12559,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.4 from 12596 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, fast turnaround, clear explanations.",
+      "review_summary": "Google rating 4.4 from 12596 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, fast turnaround, clear explanations.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=800CarGuru%20Mobile%20Auto%20Repair%20Services&query_place_id=ChIJN-vdBq5sXz4Ra0pdMyHzdU8",
@@ -12636,7 +12755,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.1 from 4236 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, honest, fast turnaround.",
+      "review_summary": "Google rating 4.1 from 4236 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, honest, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Royal%20Swiss%20Auto%20Service%20Center%2C%20AL%20Quoz%2C%20Dubai&query_place_id=ChIJSwBkwmVrXz4RHqi9I9XOPAc",
@@ -12856,7 +12975,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.9 from 2951 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on fast turnaround, knowledgeable staff, clear explanations.",
+      "review_summary": "Google rating 4.9 from 2951 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on fast turnaround, knowledgeable staff, clear explanations.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=800MotorGuru%20Auto%20Repair%20Services&query_place_id=ChIJjy6Va5lhXz4RJARIUgMOUqY",
@@ -13106,7 +13225,7 @@
           ]
         }
       ],
-      "review_summary": "Google rating 4.3 from 1639 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on fast turnaround, knowledgeable staff, honest.",
+      "review_summary": "Google rating 4.3 from 1639 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on fast turnaround, knowledgeable staff, honest.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Quick%20Fit%20Auto%20Center&query_place_id=ChIJC_XtVL9rXz4RKIFQTiDi7dw",
@@ -13296,7 +13415,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.8 from 1624 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, fair prices, fast turnaround.",
+      "review_summary": "Google rating 4.8 from 1624 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, fair prices, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Superfix%20Auto%20Center%20Al%20Qusais&query_place_id=ChIJ6TtnJGVdXz4R1m0QrPEqeNc",
@@ -13431,7 +13550,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.7 from 1430 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, honest, fast turnaround.",
+      "review_summary": "Google rating 4.7 from 1430 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, honest, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Royal%20Tech%20Auto%20Services&query_place_id=ChIJBSPRMztpXz4ReXpa0qaiZ5c",
@@ -13614,7 +13733,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.8 from 1221 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, clear explanations, good communication.",
+      "review_summary": "Google rating 4.8 from 1221 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, clear explanations, good communication.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Carzilla%20Auto%20Service%20-%20Luxury%20Car%20Garage%20in%20Dubai&query_place_id=ChIJ656i_G5rXz4RHEFDtfsDAj4",
@@ -14034,7 +14153,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.6 from 1006 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, fast turnaround, good communication.",
+      "review_summary": "Google rating 4.6 from 1006 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, fast turnaround, good communication.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=EVS%20Electric%20Vehicle%20Services.&query_place_id=ChIJ7_9EIelrXz4RzK_T7Vrb-sw",
@@ -14163,7 +14282,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.2 from 1000 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, honest, fair prices.",
+      "review_summary": "Google rating 4.2 from 1000 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, honest, fair prices.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=%F0%9D%99%8B%F0%9D%99%A4%F0%9D%99%AC%F0%9D%99%9A%F0%9D%99%A7%F0%9D%99%A9%F0%9D%99%9A%F0%9D%99%98%F0%9D%99%9D%20%F0%9D%98%BC%F0%9D%99%AA%F0%9D%99%A9%F0%9D%99%A4%20%F0%9D%99%8E%F0%9D%99%9A%F0%9D%99%A7%F0%9D%99%AB%F0%9D%99%9E%F0%9D%99%98%F0%9D%99%9A%F0%9D%99%A8&query_place_id=ChIJhSZfvntpXz4RwtYKQDhFdp0",
@@ -14480,7 +14599,7 @@
           ]
         }
       ],
-      "review_summary": "Google rating 4.5 from 847 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, good communication, honest.",
+      "review_summary": "Google rating 4.5 from 847 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, good communication, honest.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Max%20Garage&query_place_id=ChIJsX-6hOhrXz4RgAC7nXsq4V8",
@@ -14896,7 +15015,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.9 from 788 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, honest, fast turnaround.",
+      "review_summary": "Google rating 4.9 from 788 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, honest, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Prime%20Auto%20Repair%20LLC&query_place_id=ChIJ471R8XBrXz4R_PYvcKNATIE",
@@ -15052,7 +15171,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.9 from 727 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, fast turnaround, honest.",
+      "review_summary": "Google rating 4.9 from 727 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, fast turnaround, honest.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=%F0%9D%90%93%F0%9D%90%A1%F0%9D%90%9E%20%F0%9D%90%82%F0%9D%90%9A%F0%9D%90%AB%20%F0%9D%90%8B%F0%9D%90%9A%F0%9D%90%9B%20%F0%9D%90%80%F0%9D%90%AE%F0%9D%90%AD%F0%9D%90%A8%20%F0%9D%90%91%F0%9D%90%9E%F0%9D%90%A9%F0%9D%90%9A%F0%9D%90%A2%F0%9D%90%AB%20%F0%9D%90%82%F0%9D%90%9E%F0%9D%90%A7%F0%9D%90%AD%F0%9D%90%9E%F0%9D%90%AB&query_place_id=ChIJPSl29utpXz4ReABULcQ414U",
@@ -15207,7 +15326,7 @@
           "models": [],
           "level": "brand",
           "confidence": "low",
-          "evidence": "",
+          "evidence": "Owner evidence for Porsche.",
           "mentions": 0,
           "basis": "community",
           "car_family": "german",
@@ -15271,7 +15390,7 @@
           ]
         }
       ],
-      "review_summary": "Google rating 4.4 from 719 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, fast turnaround, honest.",
+      "review_summary": "Google rating 4.4 from 719 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, fast turnaround, honest.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Munich%20Motor%20Works&query_place_id=ChIJK0Kb8n9pXz4RNjYLALnh5Ig",
@@ -15540,7 +15659,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.6 from 706 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, fast turnaround, clear explanations.",
+      "review_summary": "Google rating 4.6 from 706 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, fast turnaround, clear explanations.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=EMG%20Performance&query_place_id=ChIJQdE8KNZpXz4RPFHRQUNZOsg",
@@ -15696,7 +15815,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 3.9 from 705 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, fast turnaround, honest.",
+      "review_summary": "Google rating 3.9 from 705 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, fast turnaround, honest.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Royal%20Swiss%20Auto%20Service%20Center%20Al%20Quoz%2C%20Dubai.%20Best%20Luxury%20Car%20Service%20Center%20UAE.&query_place_id=ChIJiaCwBn5rXz4R1dXIBegi8cs",
@@ -15860,7 +15979,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.4 from 653 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, fast turnaround, fair prices.",
+      "review_summary": "Google rating 4.4 from 653 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, fast turnaround, fair prices.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=The%20Gearbox%20%E2%80%93%20Automotive%20Repair%20%26%20Maintenance%20Garage&query_place_id=ChIJI1osA2drXz4RCGsIsB5HQoU",
@@ -16200,7 +16319,7 @@
           ]
         }
       ],
-      "review_summary": "Google rating 4.9 from 563 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, clear explanations, honest.",
+      "review_summary": "Google rating 4.9 from 563 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, clear explanations, honest.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Dexol%20Al%20Quoz%20%D8%AF%D9%8A%D9%83%D8%B3%D9%88%D9%84%20-%20Best%20Automatic%20Transmission%20Service%20%7C%20Torque%20Converter%20%7C%20Valve%20body%20%7C%20Mobil1%20Quick%20Service&query_place_id=ChIJ4y7WLF9pXz4R-TKy3v4OvXY",
@@ -16388,7 +16507,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.5 from 559 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, honest, fast turnaround.",
+      "review_summary": "Google rating 4.5 from 559 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, honest, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=German%20Auto%20Care&query_place_id=ChIJAZejvUFpXz4RegqLuIyt6TQ",
@@ -16538,7 +16657,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.8 from 541 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, fast turnaround, honest.",
+      "review_summary": "Google rating 4.8 from 541 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, fast turnaround, honest.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Bosch%20Car%20Service%20-%20Auto%20Hub%20Performance%20Garage&query_place_id=ChIJC9Fm3SJpXz4RiLmWZDkn_eg",
@@ -16704,7 +16823,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 3.9 from 524 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, honest, fast turnaround.",
+      "review_summary": "Google rating 3.9 from 524 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, honest, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=The%20Mechanic%20Auto%20Center&query_place_id=ChIJA6eFMV9pXz4Rk7D2OdYgSS0",
@@ -16854,7 +16973,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.6 from 521 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, fast turnaround, good communication.",
+      "review_summary": "Google rating 4.6 from 521 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, fast turnaround, good communication.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=AutoFix%20Multibrand%20Car%20Service%20Center%20-%20Al%20Quoz&query_place_id=ChIJE6Rm3FhpXz4RY6daGktVnCg",
@@ -16988,7 +17107,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.7 from 511 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, honest, fast turnaround.",
+      "review_summary": "Google rating 4.7 from 511 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, honest, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Power%20House%20Auto%20Garage%20%26%20Car%20Wash&query_place_id=ChIJf46EeEtzXz4RVLxcJoQQW1I",
@@ -17133,7 +17252,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.2 from 484 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, fast turnaround, honest.",
+      "review_summary": "Google rating 4.2 from 484 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, fast turnaround, honest.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Sunshine%20Auto%20Repair%20Workshop%20Dubai%20%7C%20Car%20Garage%20in%20Al%20Qusais%20%7C%20Mobile%20Mechanic%20Services&query_place_id=ChIJF-FBXBZcXz4RItDFnYq-hgU",
@@ -17269,7 +17388,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.6 from 469 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, honest, fast turnaround.",
+      "review_summary": "Google rating 4.6 from 469 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, honest, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Check%20Point%20Car%20Garage&query_place_id=ChIJmQJBZuRrXz4R63HMyCg1T0g",
@@ -17458,7 +17577,7 @@
           ]
         }
       ],
-      "review_summary": "Google rating 4.7 from 447 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, fast turnaround, fair prices.",
+      "review_summary": "Google rating 4.7 from 447 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, fast turnaround, fair prices.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Kings%20Auto%20Garage%20-%20Car%20Repair%20Near%20me%20Dubai%20-%20AC%20Repair%20-%20ECU%20Repair%20-%20Engine%20Change%20-%20Oil%20%26%20Filter%20Change&query_place_id=ChIJbTBYTA1pXz4RCq9YuZAAqDI",
@@ -17638,7 +17757,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.5 from 443 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, good communication, fast turnaround.",
+      "review_summary": "Google rating 4.5 from 443 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, good communication, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Performance%20Tuning%20LLC&query_place_id=ChIJlbTPsn9pXz4R5fRrh9ZhoYY",
@@ -17793,7 +17912,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.4 from 422 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, good communication, honest.",
+      "review_summary": "Google rating 4.4 from 422 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, good communication, honest.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Icon%20Auto%20Offroad%20Garage&query_place_id=ChIJk3QUk5FpXz4Rr3eCokkAZPw",
@@ -18018,7 +18137,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.8 from 413 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, honest, fast turnaround.",
+      "review_summary": "Google rating 4.8 from 413 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, honest, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Autobahn%20Auto%20Service%20-%20Car%20Repair%20in%20Dubai%20%7C%20German%20and%20European%20Car%20Workshop&query_place_id=ChIJJ-EKZsFrXz4RMjph7MbM1vQ",
@@ -19058,7 +19177,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.9 from 341 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, fast turnaround, honest.",
+      "review_summary": "Google rating 4.9 from 341 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, fast turnaround, honest.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=GiCar%20Auto%20Repair&query_place_id=ChIJd1RyGvhdXz4R98eTTGJQXLs",
@@ -19187,7 +19306,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.5 from 335 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, fast turnaround, honest.",
+      "review_summary": "Google rating 4.5 from 335 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, fast turnaround, honest.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Luxury%20Auto%20Service%20Centre&query_place_id=ChIJmyj3dsJpXz4R2VVv7yuNG_A",
@@ -19310,7 +19429,7 @@
           "mentions": []
         }
       ],
-      "review_summary": "Google rating 4.9 from 326 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, honest, fast turnaround.",
+      "review_summary": "Google rating 4.9 from 326 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, honest, fast turnaround.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=CARE%20auto%20Repair&query_place_id=ChIJ_W-M7mRnXz4R0NnOjZ4U9vw",
@@ -19454,7 +19573,7 @@
           ]
         }
       ],
-      "review_summary": "Google rating 4.3 from 306 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes praise centres on knowledgeable staff, fast turnaround, good communication.",
+      "review_summary": "Google rating 4.3 from 306 reviews. In the 60 most relevant reviews we read, customers bring a wide mix of makes; praise centres on knowledgeable staff, fast turnaround, good communication.",
       "reviews_analysed": 60,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Avenue%20Auto%20Services&query_place_id=ChIJ_QNjzL5pXz4RE083cWE9_CU",
@@ -20188,6 +20307,21 @@
           "includes": "engine oil + filters (oil service)",
           "source": "garage's own website",
           "url": "https://golden-horse.ae/services/bmw/bmw-oil-change/",
+          "as_of": "2026-11-10",
+          "note": "starting price ('from'); BMW-specific page"
+        },
+        {
+          "job": "brake_pads_front",
+          "make": "BMW",
+          "model": null,
+          "aed_low": 199.5,
+          "aed_high": 199.5,
+          "aed_original": 190,
+          "vat": "published excl. VAT; 5% added",
+          "includes_parts": null,
+          "includes": "brake pad replacement; axle and parts/labour split not stated",
+          "source": "garage's own website",
+          "url": "https://golden-horse.ae/services/bmw/bmw-brake-pad-replacement/",
           "as_of": "2026-11-10",
           "note": "starting price ('from'); BMW-specific page"
         }
@@ -20974,16 +21108,18 @@
         "as_of": "2026-11-07"
       },
       "community_mentions": {
-        "threads_total": 3,
-        "threads_positive": 1,
-        "threads_negative": 0,
+        "threads_total": 4,
+        "threads_positive": 2,
+        "threads_negative": 1,
         "threads_negative_public": false,
         "group_reports": 0,
         "years": [
-          2024,
+          2018,
           2024
         ],
-        "positive_by_model": {},
+        "positive_by_model": {
+          "Passat": 1
+        },
         "pre_purchase_positive": 0,
         "as_of": "2026-11-10",
         "sources": [
@@ -21039,6 +21175,25 @@
             "generations": [],
             "sentiment": "positive",
             "quote": "great for service and maintenance",
+            "added_by": "data",
+            "topics": []
+          },
+          {
+            "type": "reddit",
+            "site": "r/dubai",
+            "title": "Which is the best and budget VW garage/workshop in Dubai?",
+            "title_ok": true,
+            "url": "https://www.reddit.com/r/dubai/comments/905jgf/which_is_the_best_and_budget_vw_garageworkshop_in/",
+            "year": 2018,
+            "makes": [
+              "Volkswagen"
+            ],
+            "models": [
+              "Passat"
+            ],
+            "generations": [],
+            "sentiment": "mixed",
+            "quote": null,
             "added_by": "data",
             "topics": []
           }
@@ -24883,7 +25038,7 @@
           "mentions": 4,
           "basis": "reviews+website",
           "car_family": "japanese_korean",
-          "latest_year": 2018
+          "latest_year": 2026
         },
         {
           "make": "Mitsubishi",
@@ -25068,7 +25223,49 @@
       },
       "checked_at": "2026-11-08",
       "closed": false,
-      "business_status": "operational"
+      "business_status": "operational",
+      "community_mentions": {
+        "threads_total": 1,
+        "threads_positive": 1,
+        "threads_negative": 0,
+        "threads_negative_public": false,
+        "group_reports": 0,
+        "years": [
+          2026,
+          2026
+        ],
+        "positive_by_model": {
+          "Skyline": 1,
+          "GT-R": 1,
+          "R33": 1
+        },
+        "pre_purchase_positive": 0,
+        "as_of": "2026-11-10",
+        "sources": [
+          {
+            "type": "reddit",
+            "site": "r/DubaiPetrolHeads",
+            "title": "Buying GTST R33 any recommendation on the best JDM Garage, mechanically and electrical work?",
+            "title_ok": true,
+            "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1qgd8oz/buying_gtst_r33_any_recommendation_on_the_best/",
+            "year": 2026,
+            "makes": [
+              "Nissan"
+            ],
+            "models": [
+              "Skyline",
+              "GT-R",
+              "R33"
+            ],
+            "generations": [],
+            "sentiment": "positive",
+            "quote": "Kanzen/Tensai/Lap 57 either of them should do a good job",
+            "added_by": "data",
+            "topics": []
+          }
+        ],
+        "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
+      }
     },
     {
       "id": "raptor-power-auto-garage-43a9",
@@ -27755,14 +27952,17 @@
       "specialties": [
         {
           "make": "Nissan",
-          "models": [],
-          "level": "brand",
-          "confidence": "low",
-          "evidence": "Garage's own website says it specialises in Nissan; not confirmed in the 60 Google reviews read (1 mention it)",
+          "models": [
+            "GT-R",
+            "Skyline"
+          ],
+          "level": "model",
+          "confidence": "medium",
+          "evidence": "Two owners on r/DubaiPetrolHeads (2026) name it for Skyline/GT-R; independent motoring media (Motive) feature its GT-R work; 1 of 60 Google reviews names a GT-R",
           "mentions": 1,
-          "basis": "website",
+          "basis": "community+reviews",
           "car_family": "japanese_korean",
-          "latest_year": 2022
+          "latest_year": 2026
         }
       ],
       "self_claims": [
@@ -27846,22 +28046,46 @@
         "as_of": "2026-11-07"
       },
       "community_mentions": {
-        "threads_total": 2,
-        "threads_positive": 1,
+        "threads_total": 3,
+        "threads_positive": 2,
         "threads_negative": 1,
         "threads_negative_public": false,
         "group_reports": 0,
         "years": [
           2019,
-          2019
+          2026
         ],
         "positive_by_model": {
+          "Skyline": 1,
+          "GT-R": 1,
+          "R33": 1,
           "Tiida": 1,
           "Range Rover": 1
         },
         "pre_purchase_positive": 0,
         "as_of": "2026-11-10",
         "sources": [
+          {
+            "type": "reddit",
+            "site": "r/DubaiPetrolHeads",
+            "title": "Buying GTST R33 any recommendation on the best JDM Garage, mechanically and electrical work?",
+            "title_ok": true,
+            "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1qgd8oz/buying_gtst_r33_any_recommendation_on_the_best/",
+            "year": 2026,
+            "makes": [
+              "Nissan"
+            ],
+            "models": [
+              "Skyline",
+              "GT-R",
+              "R33"
+            ],
+            "generations": [],
+            "sentiment": "positive",
+            "quote": "Kanzen, home of GTRs",
+            "added_by": "data",
+            "topics": []
+          },
           {
             "type": "reddit",
             "site": "r/dubai",
@@ -37545,7 +37769,7 @@
           "models": [],
           "level": "brand",
           "confidence": "medium",
-          "evidence": "Recommended for Lexus/Japanese cars by 4 owners in 3 Reddit threads (2023-2024) not confirmed in the 60 Google reviews read (0 mention it)",
+          "evidence": "Recommended for Lexus/Japanese cars by 4 owners in 3 Reddit threads (2023-2024); not confirmed in the 60 Google reviews read (0 mention it)",
           "mentions": 0,
           "basis": "community",
           "car_family": "japanese_korean",
@@ -37745,7 +37969,8 @@
         ],
         "positive_by_model": {
           "Patrol": 1,
-          "Land Cruiser": 2
+          "Land Cruiser": 2,
+          "NX": 1
         },
         "pre_purchase_positive": 0,
         "as_of": "2026-11-10",
@@ -37796,21 +38021,42 @@
           {
             "type": "reddit",
             "site": "r/UaeCarEnthusiasts",
-            "title": "2011 land cruiser 57 v8 225k km toyota quoted aed",
+            "title": "2011 Land Cruiser 5.7 V8 (225k km) - Toyota quoted AED 22.5k for the major service. Looking for advice.",
             "title_ok": true,
             "url": "https://www.reddit.com/r/UaeCarEnthusiasts/comments/1uxz8rt/2011_land_cruiser_57_v8_225k_km_toyota_quoted_aed/",
             "year": 2026,
             "makes": [
-              "Toyota",
-              "Land Cruiser"
+              "Toyota"
             ],
             "models": [
               "Land Cruiser"
             ],
+            "generations": [
+              "LC200"
+            ],
+            "sentiment": "positive",
+            "quote": "they will replace with original parts with oem level work quality",
+            "added_by": "data",
+            "topics": []
+          },
+          {
+            "type": "reddit",
+            "site": "r/DubaiPetrolHeads",
+            "title": "Any recommendations for Lexus garage in Dubai?",
+            "title_ok": true,
+            "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/192zp71/any_recommendations_for_lexus_garage_in_dubai/",
+            "year": 2024,
+            "makes": [
+              "Lexus"
+            ],
+            "models": [
+              "NX"
+            ],
             "generations": [],
             "sentiment": "positive",
-            "quote": "You should take it to dynatrade, they will replace with original parts with oem level work quality",
-            "added_by": "tinyfish"
+            "quote": "DynaTrade seems to be good with Japanese cars.",
+            "added_by": "data",
+            "topics": []
           },
           {
             "type": "reddit",
@@ -37825,23 +38071,6 @@
             "models": [],
             "generations": [],
             "sentiment": "negative",
-            "quote": null,
-            "added_by": "tinyfish"
-          },
-          {
-            "type": "reddit",
-            "site": "r/DubaiPetrolHeads",
-            "title": "Any recommendations for lexus garage in dubai",
-            "title_ok": true,
-            "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/192zp71/any_recommendations_for_lexus_garage_in_dubai/",
-            "year": 2024,
-            "makes": [
-              "Toyota",
-              "Lexus"
-            ],
-            "models": [],
-            "generations": [],
-            "sentiment": "positive",
             "quote": null,
             "added_by": "tinyfish"
           },
@@ -39726,9 +39955,9 @@
       "works_on_all_makes_basis": "website: VW, Audi, SEAT, Skoda (VAG) specialist",
       "added_by": "data community sweep 2026-11-07",
       "community_mentions": {
-        "threads_total": 9,
-        "threads_positive": 8,
-        "threads_negative": 1,
+        "threads_total": 12,
+        "threads_positive": 11,
+        "threads_negative": 2,
         "threads_negative_public": false,
         "group_reports": 0,
         "years": [
@@ -39736,8 +39965,8 @@
           2026
         ],
         "positive_by_model": {
-          "Golf R": 2,
-          "Golf GTI": 3,
+          "Golf R": 5,
+          "Golf GTI": 4,
           "Cayenne": 2
         },
         "pre_purchase_positive": 0,
@@ -39759,6 +39988,47 @@
             "generations": [],
             "sentiment": "positive",
             "quote": "Werks Motorsport or PGR. Both VW specialists",
+            "added_by": "data",
+            "topics": []
+          },
+          {
+            "type": "reddit",
+            "site": "r/DubaiPetrolHeads",
+            "title": "Golf R (Mk7)",
+            "title_ok": true,
+            "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1w42h1x/golf_r_mk7/",
+            "year": 2026,
+            "makes": [
+              "Volkswagen"
+            ],
+            "models": [
+              "Golf R",
+              "Golf GTI"
+            ],
+            "generations": [
+              "Mk7"
+            ],
+            "sentiment": "positive",
+            "quote": "These guys know their Golfs or any other car on the MQB platform",
+            "added_by": "data",
+            "topics": []
+          },
+          {
+            "type": "reddit",
+            "site": "r/DubaiPetrolHeads",
+            "title": "Mechanic for volkswagen golf r",
+            "title_ok": true,
+            "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1xc10m3/mechanic_for_volkswagen_golf_r/",
+            "year": 2026,
+            "makes": [
+              "Volkswagen"
+            ],
+            "models": [
+              "Golf R"
+            ],
+            "generations": [],
+            "sentiment": "positive",
+            "quote": null,
             "added_by": "data",
             "topics": []
           },
@@ -39909,6 +40179,25 @@
             "generations": [],
             "sentiment": "positive",
             "quote": "Seems like consensus is Werksmotorsport in Dubai",
+            "added_by": "data",
+            "topics": []
+          },
+          {
+            "type": "reddit",
+            "site": "r/DubaiPetrolHeads",
+            "title": "Volkswagen GOLF R Engine",
+            "title_ok": true,
+            "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/16tnavq/volkswagen_golf_r_engine/",
+            "year": 2023,
+            "makes": [
+              "Volkswagen"
+            ],
+            "models": [
+              "Golf R"
+            ],
+            "generations": [],
+            "sentiment": "mixed",
+            "quote": null,
             "added_by": "data",
             "topics": []
           }
@@ -41891,18 +42180,19 @@
       "works_on_all_makes_basis": "reviews or listing point to specific makes",
       "added_by": "data community sweep 2026-11-08",
       "community_mentions": {
-        "threads_total": 1,
-        "threads_positive": 1,
+        "threads_total": 2,
+        "threads_positive": 2,
         "threads_negative": 0,
         "threads_negative_public": false,
         "group_reports": 0,
         "years": [
-          2019,
+          2018,
           2019
         ],
         "positive_by_model": {
           "Tiida": 1,
-          "Range Rover": 1
+          "Range Rover": 1,
+          "Passat": 1
         },
         "pre_purchase_positive": 0,
         "as_of": "2026-11-10",
@@ -41925,6 +42215,25 @@
             "generations": [],
             "sentiment": "positive",
             "quote": "We use Oakdale in Al Quoz 4 for our ageing Range Rover and they've been really good.",
+            "added_by": "data",
+            "topics": []
+          },
+          {
+            "type": "reddit",
+            "site": "r/dubai",
+            "title": "Which is the best and budget VW garage/workshop in Dubai?",
+            "title_ok": true,
+            "url": "https://www.reddit.com/r/dubai/comments/905jgf/which_is_the_best_and_budget_vw_garageworkshop_in/",
+            "year": 2018,
+            "makes": [
+              "Volkswagen"
+            ],
+            "models": [
+              "Passat"
+            ],
+            "generations": [],
+            "sentiment": "positive",
+            "quote": "oakdale is the fastest, most responsive and fastest I've found so far",
             "added_by": "data",
             "topics": []
           }

@@ -1,5 +1,6 @@
 ---
 import ListPage from "../../../components/ListPage.astro";
+import { GUIDES } from "../../../lib/guides.js";
 import { CATALOG } from "../../../lib/catalog.js";
 import { BRANDS, commonProblems, intro, isIndexable, splitBrand, dealerPrices, DEALER_NOTES } from "../../../lib/data.js";
 export function getStaticPaths() {
@@ -15,6 +16,7 @@ const modelChips = [...b.models].sort((x, y) => y.evidenceCount - x.evidenceCoun
   .map((m) => ({ model: m.model, url: `/dubai/${b.slug}/${m.slug}/`,
     codes: [...new Set(CATALOG.filter((c) => c.make === b.make && c.code && lc(c.model) === lc(m.model)).map((c) => c.code))].slice(0, 3).join("/") }));
 const related = [
+  ...GUIDES.filter((x) => x.make === b.slug && x.live).map((x) => ({ name: x.model ? `${(b.models.find((m) => m.slug === x.model) || { model: x.model }).model} costs` : `${b.make} costs`, url: x.url })),
   ...b.models.map((m) => ({ name: `${b.make} ${m.model}`, url: `/dubai/${b.slug}/${m.slug}/` })),
   ...BRANDS.filter((x) => x.slug !== b.slug).slice(0, 8).map((x) => ({ name: `${x.make} specialists`, url: `/dubai/${x.slug}/` })),
 ];

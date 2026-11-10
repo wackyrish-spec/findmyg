@@ -1,3 +1,4 @@
+import { GUIDES } from "../lib/guides.js";
 import { slugify } from "../lib/data.js";
 import { BRANDS, AREAS, JOB_PAGES, GARAGES, isIndexable, garageIndexable, JOB_TO_PROBLEM, PROBLEMS, problemGarages } from "../lib/data.js";
 
@@ -16,6 +17,7 @@ export function GET({ site }) {
     const fm = f.frontmatter || {}, b = BRANDS.find((x) => x.make === fm.make);
     if (b && fm.status === "published" && Number(fm.sourced_issues || 0) >= 3) urls.push(`/dubai/${b.slug}/${(b.models.find((x) => x.model === fm.model) || { slug: slugify(fm.model) }).slug}/issues/`);
   });
+  GUIDES.filter((g) => g.live).forEach((g) => urls.push(g.url));
   GARAGES.filter(garageIndexable).forEach((g) => urls.push(`/garage/${g.slug}/`));
   const body = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((p) => `  <url><loc>${u(p)}</loc></url>`).join("\n")}\n</urlset>\n`;
   return new Response(body, { headers: { "Content-Type": "application/xml" } });
