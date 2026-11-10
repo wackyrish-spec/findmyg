@@ -85,7 +85,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
       </div>
       <h1>{g.name}</h1></div>
       <div class="gacts">
-        {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
+        {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name} title={g.waConfirmed ? undefined : "WhatsApp (number from the garage's listing)"}><Icon name="wa" />{g.waConfirmed ? "WhatsApp" : "Try WhatsApp"}</button>}
         {g.phone && <a class={`btn${g.waNumber ? "" : " primary"}`} href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call"><Icon name="phone" />Call</a>}
         <a class="btn" href={maps} target="_blank" rel="noopener" data-track="directions"><Icon name="nav" />Directions</a>
       </div>
@@ -294,7 +294,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
   </div>
   <div class="wrap"><HelpFeedback /></div>
   <div class="stickybar" id="sticky">
-    {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
+    {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name} title={g.waConfirmed ? undefined : "WhatsApp (number from the garage's listing)"}><Icon name="wa" />{g.waConfirmed ? "WhatsApp" : "Try WhatsApp"}</button>}
     {g.phone && <a class="btn primary" href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call"><Icon name="phone" />Call</a>}
     <a class="btn" href={maps} target="_blank" rel="noopener" data-track="directions"><Icon name="nav" />Directions</a>
   </div>

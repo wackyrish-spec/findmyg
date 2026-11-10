@@ -123,6 +123,8 @@ function norm(g) {
     jobs: JOBS.filter((j) => j.re.test(text)).map((j) => j.slug),
     goodFor: goodFor(text),
     waNumber: waNumber(g),
+    // Data/Legal 10 Nov: most numbers are a UAE mobile from the garage's own listing, not a confirmed WhatsApp line.
+    waConfirmed: !!g.whatsapp && !/listing|phone/i.test(g.whatsapp_basis || ""),
     priceTalk: priceTalk(g.price_signal),
     prices: normPrices(g.price_examples),
     ownerReviews: REVIEWS[g.id || slugify(g.name)] || [],

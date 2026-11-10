@@ -64,8 +64,8 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
     {bench.length > 0 ? <p class="benchline">{tier && <span class="tier" title="Compared with other independents for this make">{tier}</span>}Minor service from <b>AED {Number(bench[0].low).toLocaleString("en-US")}</b>{bench[0].car.replace(make || "", "").trim() ? ` (${bench[0].car.replace(make || "", "").trim()})` : ""} <span class="muted">· {BENCH_SRC[bench[0].src]}</span></p>
       : g.priceTalk?.label && !g.isDealer && <p class={`ptalk ${g.priceTalk.tone}`}>{g.priceTalk.label}</p>}
     <div class="acts">
-      {g.waNumber && <button class="btn wa sm" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
-      {!g.waNumber && g.phone && <a class="btn sm primary" href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">Call</a>}
+      {g.waNumber && <button class="btn wa sm" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name} title={g.waConfirmed ? undefined : "WhatsApp (number from the garage's listing)"}><Icon name="wa" />{g.waConfirmed ? "WhatsApp" : "Try WhatsApp"}</button>}
+      {(!g.waNumber || !g.waConfirmed) && g.phone && <a class={`btn sm${g.waNumber ? "" : " primary"}`} href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">Call</a>}
       <a class="btn sm" href={maps} target="_blank" rel="noopener" data-track="directions">Directions</a>
       <a class="btn sm primary" href={`/garage/${g.slug}/`}>View</a>
     </div>
