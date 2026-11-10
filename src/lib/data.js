@@ -492,7 +492,8 @@ export function dealerVsIndie(make, model) {
   const by = {};
   PRICE_BENCH.filter(fits).forEach((r) => {
     const lo = Number(r.aed_low), hi = Number(r.aed_high) || lo;
-    if (!(lo > 0)) return;
+    // Labour-only prices aren't comparable with a dealer's all-in price, so they stay out of the table.
+    if (!(lo > 0) || /labou?r only/i.test(Object.values(r).join(" "))) return;
     const side = r.business_type === "dealer" ? "dealer" : "indie";
     const j = (by[r.job] ||= { job: JOB_NAME[r.job] || r.job, dealer: [], indie: [] });
     j[side].push({ lo, hi, model: r.model, src: r.source });
