@@ -1,0 +1,19 @@
+[
+ {
+  "kind": "verdict",
+  "name": "sample-verdict-l405",
+  "model": "Range Rover",
+  "code": "L405",
+  "job": "Minor service",
+  "quote": 6500,
+  "quote_from": "example quote, not real",
+  "range": [
+   2500,
+   4000
+  ],
+  "source": "CarSwitch, Jul 2026",
+  "source_kind": "published",
+  "verdict": "over",
+  "why": "Well above what independents are published at for the same service. Ask what's included: plugs, filters and fluids should all be itemised."
+ }
+]

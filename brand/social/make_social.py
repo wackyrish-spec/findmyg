@@ -55,7 +55,7 @@ def paid_t(d):
 <h1 style="margin-top:28px">{e(d['model'])}<br><em>{e(d['job'])}</em></h1>
 <div class="gap"></div>
 <div class="big"><small>AED</small>{e(d['low'])}–{e(d['high'])}</div>
-<div class="sub" style="margin-top:22px">from {e(str(d['reports']))} owner reports <span class="muted">· {e(d.get('period','last 12 months'))}</span></div>"""
+<div class="sub" style="margin-top:22px">{f"from {d['reports']} owner reports" if d.get('reports') else "Published figure"} <span class="muted">· {e(d.get('period','last 12 months'))}</span></div>"""
     if d.get("dealer"):
         s += f'<div class="sub muted" style="margin-top:10px;font-size:32px">Main dealer quote: AED {e(d["dealer"])}</div>'
     return s + '<div style="height:56px"></div>'
