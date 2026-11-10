@@ -145,7 +145,8 @@ const defaultRank = (a, b) =>
   a.isDealer - b.isDealer || (b.ownerCount >= 3) - (a.ownerCount >= 3) || b.hasEvidence - a.hasEvidence || b.topConf - a.topConf || a.name.localeCompare(b.name);
 
 // Every garage keeps its page (slugs are frozen); non-workshops are left out of lists and search.
-export const ALL_GARAGES = (raw.garages || raw).filter((g) => g && g.name).map(norm).sort(defaultRank);
+// Records Data marks as duplicate_of another are skipped; public/_redirects sends their old URLs to the kept garage.
+export const ALL_GARAGES = (raw.garages || raw).filter((g) => g && g.name && !g.duplicate_of).map(norm).sort(defaultRank);
 export const GARAGES = ALL_GARAGES.filter((g) => !g.notWorkshop && !g.closed);
 export const BY_SLUG = Object.fromEntries(ALL_GARAGES.map((g) => [g.slug, g]));
 export const DATA_UPDATED = raw.updated || "";

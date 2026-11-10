@@ -9297,10 +9297,10 @@
       "5 Series"
      ],
      "level": "brand",
-     "confidence": "medium",
-     "evidence": "Recommended for BMW in 4+ Reddit threads (2024-2026), incl. 7 Series, X5 pre-purchase checks and F10 5 Series owners; said to sponsor the BMW UAE Club; reported as pricey",
-     "mentions": 0,
-     "basis": "community",
+     "confidence": "high",
+     "evidence": "25 of 40 Google reviews read mention BMW (100% of reviews that name any make); Recommended for BMW in 4+ Reddit threads (2024-2026), incl. 7 Series, X5 pre-purchase checks and F10 5 Series owners; said to sponsor the BMW UAE Club; reported as pricey",
+     "mentions": 25,
+     "basis": "reviews+community",
      "car_family": "german",
      "latest_year": 2026
     }
@@ -9316,6 +9316,126 @@
     }
    ],
    "external_reviews": [
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Octane%20Car%20Service&query_place_id=ChIJA1Gr8H5pXz4RYiwh8vHIwLI",
+     "date": "2026-08",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Octane%20Car%20Service&query_place_id=ChIJA1Gr8H5pXz4RYiwh8vHIwLI",
+     "date": "2026-05",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Octane%20Car%20Service&query_place_id=ChIJA1Gr8H5pXz4RYiwh8vHIwLI",
+     "date": "2026-04",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Octane%20Car%20Service&query_place_id=ChIJA1Gr8H5pXz4RYiwh8vHIwLI",
+     "date": "2026-05",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Octane%20Car%20Service&query_place_id=ChIJA1Gr8H5pXz4RYiwh8vHIwLI",
+     "date": "2023-04",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Octane%20Car%20Service&query_place_id=ChIJA1Gr8H5pXz4RYiwh8vHIwLI",
+     "date": "2026-05",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Octane%20Car%20Service&query_place_id=ChIJA1Gr8H5pXz4RYiwh8vHIwLI",
+     "date": "2024-12",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Octane%20Car%20Service&query_place_id=ChIJA1Gr8H5pXz4RYiwh8vHIwLI",
+     "date": "2024-12",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Octane%20Car%20Service&query_place_id=ChIJA1Gr8H5pXz4RYiwh8vHIwLI",
+     "date": "2023-07",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Octane%20Car%20Service&query_place_id=ChIJA1Gr8H5pXz4RYiwh8vHIwLI",
+     "date": "2022-07",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Octane%20Car%20Service&query_place_id=ChIJA1Gr8H5pXz4RYiwh8vHIwLI",
+     "date": "2023-07",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Octane%20Car%20Service&query_place_id=ChIJA1Gr8H5pXz4RYiwh8vHIwLI",
+     "date": "2023-10",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Octane%20Car%20Service&query_place_id=ChIJA1Gr8H5pXz4RYiwh8vHIwLI",
+     "date": "2019-03",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Octane%20Car%20Service&query_place_id=ChIJA1Gr8H5pXz4RYiwh8vHIwLI",
+     "date": "2025-05",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Octane%20Car%20Service&query_place_id=ChIJA1Gr8H5pXz4RYiwh8vHIwLI",
+     "date": "2024-05",
+     "mentions": [
+      "BMW"
+     ]
+    },
     {
      "source": "Reddit r/DubaiPetrolHeads",
      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1vlgxkj/garage_recommendations_for_bmw_x4/",
@@ -9380,9 +9500,10 @@
      ]
     }
    ],
-   "review_summary": "Recommended by owners on Reddit r/DubaiPetrolHeads.",
-   "reviews_analysed": 0,
+   "review_summary": "Google rating 4.7 from 281 reviews. In the 40 most relevant reviews we read, customers mostly bring BMW; praise centres on honesty, knowledgeable staff, fast turnaround.",
+   "reviews_analysed": 40,
    "sources": [
+    "https://www.google.com/maps/search/?api=1&query=Octane%20Car%20Service&query_place_id=ChIJA1Gr8H5pXz4RYiwh8vHIwLI",
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/1vlgxkj/garage_recommendations_for_bmw_x4/",
     "https://www.octanecs.com/",
     "https://www.reddit.com/r/dubai/comments/1db5xpz/save_me_from_these_predator_car_garages_in_dubai/",
@@ -9403,7 +9524,7 @@
      "date": "2025-11"
     }
    ],
-   "evidence_summary": "Recommended by owners for BMW on Reddit r/DubaiPetrolHeads, Reddit r/dubai.",
+   "evidence_summary": "25 of 40 Google reviews we read mention BMW work (mostly 7 Series, X5). Recommended by owners for BMW on Reddit r/DubaiPetrolHeads, Reddit r/dubai.",
    "works_on_all_makes": false,
    "works_on_all_makes_basis": "listing names specific makes",
    "community_mentions": {
@@ -9647,7 +9768,70 @@
     "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
    },
    "feature_id": "0x3e5f697ef0ab5103:0xb2c0c8f1f2212c62",
-   "checked_at": "2026-11-10"
+   "checked_at": "2026-11-10",
+   "model_mentions": {
+    "source": "Google reviews read",
+    "reviews_read": 40,
+    "as_of": "2026-11-10",
+    "counts": {
+     "BMW": {
+      "M3": 1,
+      "E46": 2,
+      "X5": 3,
+      "7 Series": 1,
+      "M4": 2,
+      "X3": 1
+     },
+     "Jeep": {
+      "Grand Cherokee": 1
+     }
+    }
+   },
+   "review_themes": {
+    "source": "Google reviews read",
+    "reviews_read": 40,
+    "low_rated_read": 2,
+    "as_of": "2026-11-10",
+    "praise_counts": {
+     "fast": 6,
+     "fair_price": 2,
+     "knows_its_stuff": 10,
+     "honest": 12,
+     "explains": 1
+    },
+    "complaint_counts": {
+     "overcharged": 1,
+     "poor_communication": 1
+    },
+    "complaint_counts_public": false,
+    "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+   },
+   "problem_counts": {
+    "source": "Google reviews read",
+    "reviews_read": 40,
+    "as_of": "2026-11-10",
+    "counts": {
+     "pre_purchase": 5,
+     "overheating": 1,
+     "oil_leak": 2,
+     "suspension": 1,
+     "service": 2,
+     "brakes": 1,
+     "warning_light": 1,
+     "bodywork": 1
+    }
+   },
+   "price_signal": {
+    "reviews_read": 40,
+    "price_mentions": 15,
+    "fair": 2,
+    "expensive": 5,
+    "cheap": 0,
+    "as_of": "2026-11-10",
+    "jobs": []
+   },
+   "closed": false,
+   "business_status": "operational"
   },
   {
    "id": "tunetown-auto-web",
@@ -11359,11 +11543,11 @@
      "models": [
       "Patrol"
      ],
-     "level": "model",
+     "level": "brand",
      "confidence": "medium",
-     "evidence": "Recommended for Nissan on Reddit r/DubaiPetrolHeads; mentioned by a Patrol owner as a candidate; weak evidence",
-     "mentions": 0,
-     "basis": "community",
+     "evidence": "3 of 60 Google reviews read mention Nissan (75% of reviews that name any make); Recommended for Nissan on Reddit r/DubaiPetrolHeads; mentioned by a Patrol owner as a candidate; weak evidence",
+     "mentions": 3,
+     "basis": "reviews+community",
      "car_family": "japanese_korean",
      "latest_year": 2026
     }
@@ -11380,6 +11564,38 @@
    ],
    "external_reviews": [
     {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Lezof%20Auto%20Services&query_place_id=ChIJ0xdd9BxnXz4Rl_ts47-Escw",
+     "date": "2026-10",
+     "mentions": [
+      "Nissan"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Lezof%20Auto%20Services&query_place_id=ChIJ0xdd9BxnXz4Rl_ts47-Escw",
+     "date": "2026-08",
+     "mentions": [
+      "Nissan"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Lezof%20Auto%20Services&query_place_id=ChIJ0xdd9BxnXz4Rl_ts47-Escw",
+     "date": "2026-08",
+     "mentions": [
+      "Land Rover"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Lezof%20Auto%20Services&query_place_id=ChIJ0xdd9BxnXz4Rl_ts47-Escw",
+     "date": "2025-11",
+     "mentions": [
+      "Nissan"
+     ]
+    },
+    {
      "source": "Reddit r/DubaiPetrolHeads",
      "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/1rpwv8r/nissan_patrol_major_service/",
      "date": null,
@@ -11391,15 +11607,16 @@
      ]
     }
    ],
-   "review_summary": "Recommended by owners on Reddit r/DubaiPetrolHeads.",
-   "reviews_analysed": 0,
+   "review_summary": "Google rating 4.2 from 4181 reviews. In the 60 most relevant reviews we read, customers mostly bring Nissan; praise centres on fast turnaround, fair prices, honesty.",
+   "reviews_analysed": 60,
    "sources": [
+    "https://www.google.com/maps/search/?api=1&query=Lezof%20Auto%20Services&query_place_id=ChIJ0xdd9BxnXz4Rl_ts47-Escw",
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/1rpwv8r/nissan_patrol_major_service/"
    ],
    "self_claims": [],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "Recommended by owners for Nissan on Reddit r/DubaiPetrolHeads.",
+   "evidence_summary": "3 of 60 Google reviews we read mention Nissan work (mostly Patrol). Recommended by owners for Nissan on Reddit r/DubaiPetrolHeads.",
    "works_on_all_makes": false,
    "works_on_all_makes_basis": "listing names specific makes",
    "community_mentions": {
@@ -11462,7 +11679,66 @@
     "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
    },
    "feature_id": "0x3e5f671cf45d17d3:0xccb184bfe36cfb97",
-   "checked_at": "2026-11-10"
+   "checked_at": "2026-11-10",
+   "model_mentions": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "as_of": "2026-11-10",
+    "counts": {
+     "Nissan": {
+      "Patrol": 1
+     },
+     "Land Rover": {
+      "Range Rover": 1
+     }
+    }
+   },
+   "review_themes": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "low_rated_read": 17,
+    "as_of": "2026-11-10",
+    "praise_counts": {
+     "fair_price": 10,
+     "fast": 14,
+     "honest": 8,
+     "knows_its_stuff": 6,
+     "explains": 2
+    },
+    "complaint_counts": {
+     "poor_communication": 5,
+     "slow": 2,
+     "overcharged": 2,
+     "upsell": 1
+    },
+    "complaint_counts_public": false,
+    "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+   },
+   "problem_counts": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "as_of": "2026-11-10",
+    "counts": {
+     "steering": 11,
+     "gearbox": 2,
+     "service": 7,
+     "bodywork": 3,
+     "ac": 2,
+     "brakes": 3,
+     "oil_leak": 1
+    }
+   },
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 22,
+    "fair": 10,
+    "expensive": 2,
+    "cheap": 0,
+    "as_of": "2026-11-10",
+    "jobs": []
+   },
+   "closed": false,
+   "business_status": "operational"
   },
   {
    "id": "autotech-dxb-founder",
@@ -11890,13 +12166,13 @@
    "emirate": "Dubai",
    "area": "Al Qusais Industrial 1",
    "address": "Warehouse 7, 5 Halab Street, Al Qusais Industrial 1, Dubai",
-   "lat": null,
-   "lng": null,
+   "lat": 25.2885324,
+   "lng": 55.385006999999995,
    "phone": "+971505852304",
    "whatsapp": "+971505852304",
    "website": "",
-   "maps_url": "https://www.google.com/maps/search/?api=1&query=Abdulla%20Ahli%20Workshop%20Al%20Qusais%20Industrial%201%20Dubai",
-   "google_place_id": null,
+   "maps_url": "https://www.google.com/maps/search/?api=1&query=Alfa%20Romeo%20Specialist%20Workshop&query_place_id=ChIJlc0R8xVcXz4RI7iQiyOE6Z4",
+   "google_place_id": "ChIJlc0R8xVcXz4RI7iQiyOE6Z4",
    "categories": [],
    "business_type": "workshop",
    "dealer_for": null,
@@ -11912,9 +12188,9 @@
      ],
      "level": "brand",
      "confidence": "high",
-     "evidence": "The founder uses this garage for their own Alfa Romeos; recommended by Alfa owners on AlfaOwner forum (2009, 2015) and Reddit (2021) as an independent run by an ex-Alfa mechanic",
-     "mentions": 0,
-     "basis": "founder+community",
+     "evidence": "The founder uses this garage for their own Alfa Romeos; recommended by Alfa owners on AlfaOwner forum (2009, 2015) and Reddit (2021) as an independent run by an ex-Alfa mechanic; 3 of 14 Google reviews read mention Alfa Romeo (100% of reviews that name any make)",
+     "mentions": 3,
+     "basis": "founder+community+reviews",
      "car_family": "european_other",
      "latest_year": 2023
     }
@@ -11922,61 +12198,51 @@
    "self_claims": [],
    "possible_matches": [],
    "is_specialist": true,
-   "external_ratings": [],
+   "external_ratings": [
+    {
+     "source": "Google",
+     "rating": 4.4,
+     "count": 14,
+     "url": "https://www.google.com/maps/search/?api=1&query=Alfa%20Romeo%20Specialist%20Workshop&query_place_id=ChIJlc0R8xVcXz4RI7iQiyOE6Z4",
+     "as_of": "2026-11-08"
+    }
+   ],
    "external_reviews": [
     {
-     "source": "AlfaOwner forum",
-     "url": "https://www.alfaowner.com/threads/alfa-romeo-garage-service-stations-in-the-uae.257043/",
-     "date": "2015-11",
-     "rating": null,
-     "excerpt": "Al Ahli Garage (Recommended Independent Garage) ... Location: Al Qusais, Dubai ... Highly recommended...ex Alfa mechanic.",
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Alfa%20Romeo%20Specialist%20Workshop&query_place_id=ChIJlc0R8xVcXz4RI7iQiyOE6Z4",
+     "date": "2024-09",
      "mentions": [
       "Alfa Romeo"
      ]
     },
     {
-     "source": "AlfaOwner forum",
-     "url": "https://www.alfaowner.com/threads/maintenance-in-dubai.165976/",
-     "date": "2009-04",
-     "rating": null,
-     "excerpt": "I do all maintenance of my car at the Abdulla Ahli Garage",
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Alfa%20Romeo%20Specialist%20Workshop&query_place_id=ChIJlc0R8xVcXz4RI7iQiyOE6Z4",
+     "date": "2024-03",
      "mentions": [
       "Alfa Romeo"
      ]
     },
     {
-     "source": "Reddit r/DubaiPetrolHeads",
-     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/16927sd/alfa_romeo_specialist_abdulla_ahli_workshop/",
-     "date": "2023-09",
-     "rating": null,
-     "excerpt": "the independent Alfa specialist Abdulla Ahli Workshop in Al Qusais",
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Alfa%20Romeo%20Specialist%20Workshop&query_place_id=ChIJlc0R8xVcXz4RI7iQiyOE6Z4",
+     "date": "2017-08",
      "mentions": [
-      "Alfa Romeo",
-      "Giulia"
-     ]
-    },
-    {
-     "source": "Reddit r/DubaiPetrolHeads",
-     "url": "https://www.reddit.com/r/DubaiPetrolHeads/comments/qi641y/recommendation_on_alfa_romeo_mechanics/",
-     "date": "2021-10",
-     "rating": null,
-     "excerpt": "The only garage that I know that only touches Alfas ... It is the only place I take my 147",
-     "mentions": [
-      "Alfa Romeo",
-      "147",
-      "Giulietta"
+      "Alfa Romeo"
      ]
     }
    ],
-   "review_summary": "Founder's pick for Alfa Romeo. Long-standing independent in Al Qusais Industrial 1 that Alfa owners on the AlfaOwner forum have recommended since 2009, run by an ex-Alfa mechanic. Google reviews not yet analysed.",
-   "reviews_analysed": 0,
+   "review_summary": "Founder's pick for Alfa Romeo. Long-standing independent in Al Qusais Industrial 1, run by an ex-Alfa mechanic, recommended by Alfa owners on the AlfaOwner forum since 2009. Google rating 4.4 from 14 reviews; the reviews that name a make are all Alfa Romeo.",
+   "reviews_analysed": 14,
    "sources": [
     "https://2gis.ae/dubai/firm/70000001006568356",
     "https://yandex.ru/maps/org/abdulla_ahli_workshop/48042783644/",
     "https://www.alfaowner.com/threads/alfa-romeo-garage-service-stations-in-the-uae.257043/",
     "https://www.alfaowner.com/threads/maintenance-in-dubai.165976/",
     "https://www.reddit.com/r/DubaiPetrolHeads/comments/16927sd/alfa_romeo_specialist_abdulla_ahli_workshop/",
-    "https://www.reddit.com/r/DubaiPetrolHeads/comments/qi641y/recommendation_on_alfa_romeo_mechanics/"
+    "https://www.reddit.com/r/DubaiPetrolHeads/comments/qi641y/recommendation_on_alfa_romeo_mechanics/",
+    "https://www.google.com/maps/search/?api=1&query=Alfa%20Romeo%20Specialist%20Workshop&query_place_id=ChIJlc0R8xVcXz4RI7iQiyOE6Z4"
    ],
    "price_examples": [],
    "evidence_summary": "Founder's pick for Alfa Romeo, also recommended by Alfa owners on the AlfaOwner forum.",
@@ -12079,7 +12345,45 @@
     ],
     "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
    },
-   "possible_duplicate_of": "alfa-romeo-specialist-workshop-b823"
+   "model_mentions": {
+    "source": "Google reviews read",
+    "reviews_read": 14,
+    "as_of": "2026-11-08",
+    "counts": {
+     "Alfa Romeo": {}
+    }
+   },
+   "price_signal": {
+    "reviews_read": 14,
+    "price_mentions": 0,
+    "fair": 0,
+    "expensive": 0,
+    "cheap": 0,
+    "as_of": "2026-11-08",
+    "jobs": []
+   },
+   "review_themes": {
+    "source": "Google reviews read",
+    "reviews_read": 14,
+    "low_rated_read": 2,
+    "as_of": "2026-11-08",
+    "praise_counts": {},
+    "complaint_counts": {},
+    "complaint_counts_public": false,
+    "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+   },
+   "problem_counts": {
+    "source": "Google reviews read",
+    "reviews_read": 14,
+    "as_of": "2026-11-08",
+    "counts": {}
+   },
+   "checked_at": "2026-11-08",
+   "business_status": "operational",
+   "closed": false,
+   "maps_listing_name": "Alfa Romeo Specialist Workshop",
+   "maps_matched_by": "same address as Maps listing \"Alfa Romeo Specialist Workshop\" (5 Halab St); no Maps listing under the Abdulla Ahli name; merged 2026-11-10",
+   "phone_alt": "+971507031076"
   },
   {
    "id": "800carguru-mobile-auto-repair-services-4a6b",
@@ -36370,7 +36674,7 @@
    "checked_at": "2026-11-08",
    "closed": false,
    "business_status": "operational",
-   "possible_duplicate_of": "abdulla-ahli-workshop-founder"
+   "duplicate_of": "abdulla-ahli-workshop-founder"
   },
   {
    "id": "kamal-gearbox-repair-8f99",
@@ -42558,15 +42862,28 @@
    "services": [],
    "specialties": [
     {
+     "make": "Jeep",
+     "models": [
+      "Wrangler"
+     ],
+     "level": "brand",
+     "confidence": "medium",
+     "evidence": "4 of 60 Google reviews read mention Jeep (36% of reviews that name any make); most-mentioned models: Wrangler (3)",
+     "mentions": 4,
+     "basis": "reviews",
+     "car_family": "american",
+     "latest_year": 2026
+    },
+    {
      "make": "Nissan",
      "models": [
       "Patrol"
      ],
-     "level": "model",
+     "level": "brand",
      "confidence": "medium",
-     "evidence": "Owner on r/DubaiPetrolHeads (2026) recommends it for Patrol Y61/Y62; site shows Patrol Y61 engine and suspension builds",
-     "mentions": 0,
-     "basis": "community",
+     "evidence": "3 of 60 Google reviews read mention Nissan (27% of reviews that name any make); most-mentioned models: Patrol (2); Owner on r/DubaiPetrolHeads (2026) recommends it for Patrol Y61/Y62; site shows Patrol Y61 engine and suspension builds",
+     "mentions": 3,
+     "basis": "reviews+community",
      "car_family": "japanese_korean",
      "latest_year": 2026
     },
@@ -42577,31 +42894,33 @@
      ],
      "level": "model",
      "confidence": "low",
-     "evidence": "Garage website/Instagram: off-road builds for Toyota FJ, Jeep, Patrol",
-     "mentions": 0,
+     "evidence": "Garage website/Instagram: off-road builds for Toyota FJ, Jeep, Patrol; not confirmed in the 60 Google reviews read (2 mention it)",
+     "mentions": 2,
      "basis": "website",
-     "car_family": "japanese_korean"
+     "car_family": "japanese_korean",
+     "latest_year": 2026
     }
    ],
    "is_specialist": true,
    "external_ratings": [
     {
      "source": "Google",
-     "rating": 5.0,
+     "rating": 5,
      "count": 154,
      "url": "https://www.google.com/maps/search/?api=1&query=Mavericks%20Performance%20Garage&query_place_id=ChIJIbdoZXpnXz4RgnhFM50JX7A",
      "as_of": "2026-11-10"
     }
    ],
-   "review_summary": "Off-road and performance garage in Ras Al Khor; an owner recommends it for Patrol (pricier, but clear and good quality).",
-   "reviews_analysed": 0,
+   "review_summary": "Google rating 5 from 154 reviews. In the 60 most relevant reviews we read, customers mostly bring Jeep; praise centres on knowledgeable staff, fair prices, honesty.",
+   "reviews_analysed": 60,
    "sources": [
+    "https://www.google.com/maps/search/?api=1&query=Mavericks%20Performance%20Garage&query_place_id=ChIJIbdoZXpnXz4RgnhFM50JX7A",
     "https://mavericksperformance.ae/"
    ],
    "self_claims": [],
    "possible_matches": [],
    "price_examples": [],
-   "evidence_summary": "Off-road build and performance garage (Patrol Y61, Jeep, FJ); owner-recommended for Patrol.",
+   "evidence_summary": "4 of 60 Google reviews we read mention Jeep work (mostly Wrangler). Also Nissan (3). Off-road build and performance garage (Patrol Y61, Jeep, FJ); owner-recommended for Patrol.",
    "works_on_all_makes": true,
    "works_on_all_makes_basis": "garage website: lists Toyota, Nissan, Ford, Land Rover, Jeep, Mercedes, Lexus, BMW and more",
    "added_by": "data community sweep 2026-11-08 (Patrol)",
@@ -42647,7 +42966,166 @@
     "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
    },
    "feature_id": "0x3e5f677a6568b721:0xb05f099d33457882",
-   "checked_at": "2026-11-10"
+   "checked_at": "2026-11-10",
+   "model_mentions": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "as_of": "2026-11-10",
+    "counts": {
+     "Nissan": {
+      "Patrol": 2
+     },
+     "Jeep": {
+      "Wrangler": 3
+     },
+     "BMW": {
+      "X5": 1
+     },
+     "Toyota": {
+      "Fortuner": 1
+     },
+     "Mitsubishi": {
+      "Pajero": 1
+     },
+     "Chevrolet": {
+      "Tahoe": 1
+     }
+    }
+   },
+   "review_themes": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "low_rated_read": 0,
+    "as_of": "2026-11-10",
+    "praise_counts": {
+     "knows_its_stuff": 12,
+     "fair_price": 12,
+     "fast": 10,
+     "honest": 11,
+     "explains": 3,
+     "communicates": 3
+    },
+    "complaint_counts": {},
+    "complaint_counts_public": false,
+    "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+   },
+   "problem_counts": {
+    "source": "Google reviews read",
+    "reviews_read": 60,
+    "as_of": "2026-11-10",
+    "counts": {
+     "ac": 2,
+     "suspension": 2,
+     "steering": 2,
+     "service": 4,
+     "brakes": 1,
+     "bodywork": 1,
+     "overheating": 1
+    }
+   },
+   "price_signal": {
+    "reviews_read": 60,
+    "price_mentions": 13,
+    "fair": 9,
+    "expensive": 1,
+    "cheap": 0,
+    "as_of": "2026-11-10",
+    "jobs": []
+   },
+   "closed": false,
+   "business_status": "operational",
+   "external_reviews": [
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Mavericks%20Performance%20Garage&query_place_id=ChIJIbdoZXpnXz4RgnhFM50JX7A",
+     "date": "2026-01",
+     "mentions": [
+      "Jeep",
+      "Nissan"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Mavericks%20Performance%20Garage&query_place_id=ChIJIbdoZXpnXz4RgnhFM50JX7A",
+     "date": "2025-07",
+     "mentions": [
+      "BMW"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Mavericks%20Performance%20Garage&query_place_id=ChIJIbdoZXpnXz4RgnhFM50JX7A",
+     "date": "2025-12",
+     "mentions": [
+      "Nissan"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Mavericks%20Performance%20Garage&query_place_id=ChIJIbdoZXpnXz4RgnhFM50JX7A",
+     "date": "2026-07",
+     "mentions": [
+      "Mitsubishi",
+      "Toyota"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Mavericks%20Performance%20Garage&query_place_id=ChIJIbdoZXpnXz4RgnhFM50JX7A",
+     "date": "2025-02",
+     "mentions": [
+      "Chevrolet"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Mavericks%20Performance%20Garage&query_place_id=ChIJIbdoZXpnXz4RgnhFM50JX7A",
+     "date": "2026-10",
+     "mentions": [
+      "Toyota"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Mavericks%20Performance%20Garage&query_place_id=ChIJIbdoZXpnXz4RgnhFM50JX7A",
+     "date": "2024-12",
+     "mentions": [
+      "Jeep"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Mavericks%20Performance%20Garage&query_place_id=ChIJIbdoZXpnXz4RgnhFM50JX7A",
+     "date": "2025-11",
+     "mentions": [
+      "Jeep"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Mavericks%20Performance%20Garage&query_place_id=ChIJIbdoZXpnXz4RgnhFM50JX7A",
+     "date": "2026-02",
+     "mentions": [
+      "Jeep"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Mavericks%20Performance%20Garage&query_place_id=ChIJIbdoZXpnXz4RgnhFM50JX7A",
+     "date": "2025-10",
+     "mentions": [
+      "Mercedes-Benz"
+     ]
+    },
+    {
+     "source": "Google",
+     "url": "https://www.google.com/maps/search/?api=1&query=Mavericks%20Performance%20Garage&query_place_id=ChIJIbdoZXpnXz4RgnhFM50JX7A",
+     "date": "2025-01",
+     "mentions": [
+      "Nissan"
+     ]
+    }
+   ]
   },
   {
    "id": "sama-salalah-auto-web",
