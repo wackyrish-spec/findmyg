@@ -57,12 +57,12 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
   </div>
   <div class="stats">
     <div class="statrow">
-      {g.own ? <div class="stat"><b>{g.own.avg.toFixed(1)}</b><small>Owners · {g.own.n}</small></div> : <p class="noown">No owner reviews yet</p>}
+      {g.own ? <div class="stat"><b>{g.own.avg.toFixed(1)}</b><small>Owners · {g.own.n}</small></div> : null}
 
     </div>
     {g.google && <p class="gfact">{Number(g.google.rating).toFixed(1)} on <a href={g.google.url || maps} target="_blank" rel="noopener nofollow">Google</a>, {(g.google.count || 0).toLocaleString("en-US")} reviews{checked ? `, checked ${checked}` : ""}</p>}
     {bench.length > 0 ? <p class="benchline">{tier && <span class="tier" title="Compared with other independents for this make">{tier}</span>}Minor service from <b>AED {Number(bench[0].low).toLocaleString("en-US")}</b>{bench[0].car.replace(make || "", "").trim() ? ` (${bench[0].car.replace(make || "", "").trim()})` : ""} <span class="muted">· {BENCH_SRC[bench[0].src]}</span></p>
-      : g.priceTalk && !g.isDealer && <p class={`ptalk ${g.priceTalk.tone}`}>{g.priceTalk.label}</p>}
+      : g.priceTalk?.label && !g.isDealer && <p class={`ptalk ${g.priceTalk.tone}`}>{g.priceTalk.label}</p>}
     <div class="acts">
       {g.waNumber && <button class="btn wa sm" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
       {!g.waNumber && g.phone && <a class="btn sm primary" href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">Call</a>}

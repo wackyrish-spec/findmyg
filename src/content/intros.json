@@ -1,109 +1,164 @@
 {
-  "_how": "Key is the page path without slashes at the ends. A page is indexed only with 3+ evidenced garages AND approved: true. Optional title, description and h1 override the page templates. Prices in text are published third-party or garage figures, linked and labelled; owner-reported prices replace them over time.",
-  "dubai/porsche": {
-    "approved": true,
-    "title": "Porsche service and repair in Dubai: independent specialists",
-    "description": "Independent Porsche garages in Dubai that owners trust, by model: 911, Cayenne and more. See what owners paid and WhatsApp the garage.",
-    "h1": "Porsche specialists in Dubai",
-    "text": "You don't need the dealer to look after a Porsche in Dubai. A handful of independent garages here know these cars properly, and the list below shows which ones owners actually trust, for which model, and what they paid.\n\nI restore older cars, a Cayenne among them, and I've learned the hard way that \"we do all German cars\" isn't the same as knowing a Porsche. A real specialist has Porsche diagnostics, knows the 996 and 997 IMS and bore-scoring stories without looking them up, and can tell whether your Cayenne's air suspension needs a compressor or just a relay.\n\nFor a rough idea before you call: one independent's published guide puts routine maintenance (oil, pads, filters) at AED 500 to 1,500 (<a href=\"https://myzdegree.com/blog/the-ultimate-guide-to-porsche-maintenance-and-repair-costs-in-dubai\" rel=\"nofollow\">Z Degree</a>). That is a garage's own figure, so treat it as a starting point. Owner-reported prices appear on each garage as reviews come in.\n\nPick your model to see who has done your exact job, then message them on WhatsApp with your car already filled in. Been to one? Tell the next owner how it went. It takes two minutes."
-  },
-  "dubai/volkswagen/golf-gti": {
-    "approved": false,
-    "text": ""
-  },
-  "dubai/alfa-romeo": {
-    "approved": false,
-    "text": ""
-  },
-  "dubai/porsche/cayenne": {
-    "approved": true,
-    "title": "Porsche Cayenne service and repair in Dubai",
-    "description": "Which Dubai garages know the Cayenne (955, 957, 958, 9Y0)? Owner-backed specialists for air suspension, coolant and AC, with prices owners paid.",
-    "h1": "Porsche Cayenne garages in Dubai",
-    "text": "The Cayenne is a great Dubai car until something on it fails and the dealer quote arrives. These are the independent garages Cayenne owners rate, for the 955 and 957 (2002 to 2010), the 958 (2010 to 2017) and the 9Y0 (2018 on).\n\nI look after a Cayenne myself, so I know the jobs that come up again and again here: air suspension on the 957 and 958 (the heat is hard on it), the plastic coolant pipes on the older V8s, the transfer case on the 955 and 957, and AC that gives up in July.\n\nAir suspension is the big one. Published independent prices for luxury SUVs run AED 1,500 to 5,000 per air spring and AED 2,500 to 8,000 for a compressor, depending on genuine or aftermarket parts (<a href=\"https://www.arabwheels.ae/blog/air-suspension-in-uae-how-it-works-types-and-common-issues/\" rel=\"nofollow\">ArabWheels, Jul 2026</a>). Those are general figures, not Cayenne quotes, and owner-reported Cayenne prices appear on each garage as reviews come in.\n\nChoose your generation to narrow the list, check whether the final bill matched the quote, and send the garage your car on WhatsApp in one tap."
-  },
-  "dubai/porsche/911": {
-    "approved": true,
-    "title": "Porsche 911 service and repair in Dubai",
-    "description": "Dubai garages 911 owners vouch for, 996 and 997 to 992: IMS, bore scoring, cooling and AC. What owners paid, and WhatsApp in one tap.",
-    "h1": "Porsche 911 specialists in Dubai",
-    "text": "A 911 deserves a garage that has had one apart before. These are the independent Dubai specialists 911 owners vouch for, from the 996 (1998 to 2005) and 997 (2005 to 2012) to the 991 and 992.\n\nOn the water-cooled cars the questions are well known: the IMS bearing and bore scoring on the 996 and early 997, rear main seal weeps, radiators packed with sand, and AC condensers that cook in our summers. A real specialist will tell you which of those your car actually needs rather than doing them all at once.\n\nFor scale, one independent's published guide puts routine maintenance at AED 500 to 1,500 and an engine overhaul at AED 10,000 to 25,000 (<a href=\"https://myzdegree.com/blog/the-ultimate-guide-to-porsche-maintenance-and-repair-costs-in-dubai\" rel=\"nofollow\">Z Degree</a>). Those are a garage's own Porsche-wide figures, not 911 quotes. Owner-reported 911 prices appear on each garage as reviews come in.\n\nPick your generation, see how many owners vouch for each garage and whether the bill matched the quote, then message them on WhatsApp with your car already filled in."
-  },
-  "dubai/nissan/patrol": {
-    "approved": true,
-    "title": "Nissan Patrol service and repair in Dubai",
-    "description": "Dubai garages that know the Nissan Patrol, Y61 and Y62: gearbox, AC and suspension after the dunes. Owner reviews, prices and WhatsApp contact.",
-    "h1": "Nissan Patrol garages in Dubai",
-    "text": "The Patrol is built to last, but it still needs a garage that knows it, especially if you take it into the dunes. These are the independent garages Dubai Patrol owners trust, for the Y61 Super Safari and the Y62 (2010 on).\n\nMost Patrol visits are about the gearbox, AC, suspension after a season of sand, and servicing on a car that does big kilometres. On the Y61, finding someone who still knows the TB48 and can source parts matters as much as price.\n\nWe don't quote prices here until owners report them, because most published Patrol prices are garage promotions, not what owners actually paid. Each garage shows what owners paid and whether the quote held as reviews come in, with the main dealer at the bottom for comparison only.\n\nChoose your generation, see who has done your job, and send them your car and problem on WhatsApp in one tap."
-  },
-  "dubai/land-rover": {
-    "approved": true,
-    "title": "Land Rover service and repair in Dubai",
-    "description": "Independent Land Rover and Range Rover garages in Dubai, ranked by owner evidence. Air suspension, electrics, AC, and what owners paid.",
-    "h1": "Land Rover specialists in Dubai",
-    "text": "Out of warranty, a Land Rover doesn't have to mean dealer prices. Plenty of independent garages in Dubai work on Range Rovers, Sports, Discoveries and Defenders every day, and this list shows which ones owners actually rate.\n\nLand Rovers here mostly come in for the same few things: air suspension, coolant leaks, electrical faults and AC. Those are jobs where a specialist with the right diagnostic kit saves you money, because a generic garage tends to replace parts until the light goes off.\n\nHow much? One market guide puts main-dealer servicing at 30 to 50% more than an independent specialist for a 2019 Range Rover (<a href=\"https://carswitch.com/newsroom/range-rover-price-in-uae-2026-used-vs-new-generation-guide-true-cost-of-owning-a-pre-owned-range-rover/\" rel=\"nofollow\">CarSwitch, Jul 2026</a>). For air suspension, published independent prices run AED 1,500 to 5,000 per air spring (<a href=\"https://www.arabwheels.ae/blog/air-suspension-in-uae-how-it-works-types-and-common-issues/\" rel=\"nofollow\">ArabWheels, Jul 2026</a>).\n\nThe garages below are ranked by owner evidence for your model. Main dealers sit at the bottom for comparison, never in the ranking. Pick your model and message the garage on WhatsApp with your car already filled in."
-  },
-  "dubai/land-rover/range-rover": {
-    "approved": true,
-    "title": "Range Rover service and repair in Dubai",
-    "description": "Dubai garages owners trust with the Range Rover (L322, L405): air suspension, coolant leaks, timing chains. Prices owners paid, dealer for comparison.",
-    "h1": "Range Rover garages in Dubai",
-    "text": "If the dealer quote for your Range Rover made you wince, you're in good company. These are the independent garages Dubai owners trust with the full-size Range Rover, from the L322 (2002 to 2012) to the L405 (2013 to 2021).\n\nThe common jobs are well known: air suspension (bags, compressor, valve block), coolant leaks, timing chains, and electrical faults that need proper Land Rover diagnostics. A specialist will usually tell you which part has actually failed, which is where most of the saving comes from.\n\nOne market guide's rough prices for an L405 at an independent: AED 2,500 to 4,000 for a minor service, 6,000 to 12,000 for a major service, and 3,500 to 6,000 for an air suspension compressor. The same guide puts dealer servicing 30 to 50% higher (<a href=\"https://carswitch.com/newsroom/range-rover-price-in-uae-2026-used-vs-new-generation-guide-true-cost-of-owning-a-pre-owned-range-rover/\" rel=\"nofollow\">CarSwitch, Jul 2026</a>). Owner-reported prices appear on each garage as reviews come in.\n\nChoose your generation, check whether owners' bills matched their quotes, and send the garage your car and the problem on WhatsApp in one tap."
-  },
-  "dubai/mercedes-benz": {
-    "approved": true,
-    "title": "Mercedes service and repair in Dubai: independent specialists",
-    "description": "Independent Mercedes-Benz garages in Dubai that owners recommend, by model. Airmatic, 7G-Tronic, AC and electrics, with what owners paid.",
-    "h1": "Mercedes-Benz specialists in Dubai",
-    "text": "Mercedes has more independent specialists in our listings than any other brand, which makes choosing harder, not easier. This list shows the ones owners actually recommend, for which models, and what they paid.\n\nThe jobs that bring Mercedes owners to an independent are usually the expensive ones: Airmatic suspension, 7G-Tronic gearbox faults, AC, and the electrical warnings that start once a car is a few years old. A good specialist has Mercedes diagnostic software and will explain what has failed before replacing anything.\n\nAs a rough guide, one Dubai garage publishes AED 800 to 2,500 for a minor service and 3,500 to 10,000 or more for a major service on luxury cars (<a href=\"https://www.almadinagarage.com/?p=16353\" rel=\"nofollow\">Al Madina Garage, Feb 2026</a>). That is a garage's own figure across brands, so owner-reported Mercedes prices on each garage are the better guide as they come in.\n\nGarages are ranked by owner evidence for your model, from the C-Class and E-Class to the S-Class and G-Class. Main dealers sit at the bottom for comparison. Pick your model and message the garage on WhatsApp with your car already in the message.",
-    "faq": [
-      {
-        "q": "Do I have to service my Mercedes at the dealer to keep the warranty?",
-        "a": "Generally no. Since 2016 the UAE Ministry of Economy's position is that a dealer shouldn't cancel your warranty just because an approved independent workshop did the servicing. Stick to the manufacturer's service schedule, keep every receipt, and read your own warranty terms. If a dealer refuses a claim on these grounds, you can complain to the Ministry's consumer protection department. (<a href=\"https://www.khaleejtimes.com/uae/legal/uae-will-i-lose-warranty-if-my-car-is-serviced-from-a-workshop-thats-not-affiliated-to-the-dealer\" rel=\"nofollow\">Khaleej Times</a>)"
-      },
-      {
-        "q": "What should a good independent Mercedes garage have?",
-        "a": "Mercedes diagnostic software (XENTRY or equivalent), experience with your model's weak spots such as Airmatic and the 7G-Tronic gearbox, and quotes that say whether parts are genuine, OEM or aftermarket."
-      },
-      {
-        "q": "How much does a Mercedes service cost in Dubai?",
-        "a": "It depends on the model and service level (A or B), so we show what owners actually paid on each garage page, with the date and the job, instead of a single headline price."
-      }
-    ]
-  },
-  "dubai/bmw": {
-    "approved": true,
-    "title": "BMW service and repair in Dubai: independent specialists",
-    "description": "Independent BMW garages in Dubai, ranked by owner evidence, from E-series to G-series. Cooling, gaskets, N54 and N55 jobs, and what owners paid.",
-    "h1": "BMW specialists in Dubai",
-    "text": "For a BMW out of warranty, a good independent specialist is often the difference between keeping the car and selling it. These are the Dubai garages BMW owners recommend, from E-series classics to the latest G-series.\n\nOur heat is hard on BMWs. Cooling systems, water pumps, oil filter housing and valve cover gaskets, and the occasional turbo or fuel pump on the N54 and N55 engines are the jobs owners bring in most. A real specialist has BMW software to code new parts, not just fit them.\n\nAs a rough guide, one Dubai garage publishes AED 800 to 2,500 for a minor service and 3,500 to 10,000 or more for a major service on luxury cars (<a href=\"https://www.almadinagarage.com/?p=16353\" rel=\"nofollow\">Al Madina Garage, Feb 2026</a>). That is a garage's own figure across brands, so owner-reported BMW prices on each garage are the better guide as they come in.\n\nPick your car, from a 3 Series to an X5, and see who has done your exact job. If you've had your BMW fixed in Dubai, add a review. It takes two minutes.",
-    "faq": [
-      {
-        "q": "Do I have to service my BMW at the dealer to keep the warranty?",
-        "a": "Generally no. Since 2016 the UAE Ministry of Economy's position is that a dealer shouldn't cancel your warranty just because an approved independent workshop did the servicing. Stick to the manufacturer's service schedule, keep every receipt, and read your own warranty terms. If a dealer refuses a claim on these grounds, you can complain to the Ministry's consumer protection department. (<a href=\"https://www.khaleejtimes.com/uae/legal/uae-will-i-lose-warranty-if-my-car-is-serviced-from-a-workshop-thats-not-affiliated-to-the-dealer\" rel=\"nofollow\">Khaleej Times</a>)"
-      },
-      {
-        "q": "What should a good independent BMW garage have?",
-        "a": "BMW diagnostic software that can read and code modules, experience with your engine (N54, N55, B48, B58 and so on), and clear quotes that list parts as genuine, OEM or aftermarket. The garages below show what owners say about each of these."
-      },
-      {
-        "q": "How much does a BMW service cost in Dubai?",
-        "a": "It depends on the model and the job, so we show what owners actually paid on each garage page, with the date and the job, instead of a single headline price."
-      }
-    ]
-  },
-  "dubai/toyota/land-cruiser": {
-    "approved": true,
-    "title": "Land Cruiser service and repair in Dubai",
-    "description": "Dubai garages Land Cruiser owners trust, LC100 to LC300: AC, suspension after the desert, gearbox and big services. What owners paid, WhatsApp in one tap.",
-    "h1": "Toyota Land Cruiser garages in Dubai",
-    "text": "The Land Cruiser will run forever if it's looked after, and you don't need the dealer to do that. These are the independent Dubai garages Land Cruiser owners trust, for the LC100 (1998 to 2007), the LC200 (2007 to 2021) and the LC300.\n\nMost Land Cruiser visits here are the same handful of jobs: AC that can't keep up in August, suspension and bushes after desert weekends, gearbox servicing on high-kilometre cars, and the big regular services. These are honest, strong cars, so a good garage will tell you what can wait as well as what can't.\n\nWe don't quote prices here until owners report them. Each garage shows what owners paid and whether the quote held as reviews come in, with the dealer at the bottom for comparison.\n\nChoose your generation, then message the garage on WhatsApp with your car already filled in."
-  },
-  "dubai/audi": {
-    "approved": true,
-    "title": "Audi service and repair in Dubai: independent specialists",
-    "description": "Got a dealer quote for your Audi? Independent Dubai garages owners trust, from A3 and A4 to Q7 and RS: DSG/S tronic, cooling, AC and electrics.",
-    "h1": "Audi specialists in Dubai",
-    "text": "An Audi out of warranty doesn't have to go back to the dealer for every job. These are the independent Dubai garages Audi owners recommend, from the A3 and A4 to the Q5, Q7 and the RS models.\n\nThe jobs that bring Audi owners to an independent are mostly the same ones every summer: cooling systems and water pumps that struggle in the heat, S tronic and DSG gearbox faults, oil leaks and timing chains on the 2.0 TFSI, AC, and electrical warnings that need proper VAG diagnostics rather than a generic scanner.\n\nMany of the garages that know Audis also know Volkswagen, Skoda and Porsche, because they share engines and gearboxes, so a good VAG specialist is often the right call. We don't quote prices here until owners report them; each garage shows what owners paid and whether the quote held as reviews come in.\n\nPick your model, see who has done your exact job, and message the garage on WhatsApp with your car already filled in. Main dealers sit at the bottom for comparison only."
-  }
+ "_how": "Key is the page path without slashes at the ends. A page is indexed only with 3+ evidenced garages AND approved: true. Optional title, description and h1 override the page templates. Prices in text are published third-party or garage figures, linked and labelled; owner-reported prices replace them over time.",
+ "dubai/porsche": {
+  "approved": true,
+  "title": "Porsche service and repair in Dubai: independent specialists",
+  "description": "Independent Porsche garages in Dubai that owners trust, by model: 911, Cayenne and more. See what owners paid and WhatsApp the garage.",
+  "h1": "Porsche specialists in Dubai",
+  "text": "You don't need the dealer to look after a Porsche in Dubai. A handful of independent garages here know these cars properly, and the list below shows which ones owners actually trust, for which model, and what they paid.\n\nI restore older cars, a Cayenne among them, and I've learned the hard way that \"we do all German cars\" isn't the same as knowing a Porsche. A real specialist has Porsche diagnostics, knows the 996 and 997 IMS and bore-scoring stories without looking them up, and can tell whether your Cayenne's air suspension needs a compressor or just a relay.\n\nFor a rough idea before you call: one independent's published guide puts routine maintenance (oil, pads, filters) at AED 500 to 1,500 (<a href=\"https://myzdegree.com/blog/the-ultimate-guide-to-porsche-maintenance-and-repair-costs-in-dubai\" rel=\"nofollow\">Z Degree</a>). That is a garage's own figure, so treat it as a starting point. Owner-reported prices appear on each garage as reviews come in.\n\nPick your model to see who has done your exact job, then message them on WhatsApp with your car already filled in. Been to one? Tell the next owner how it went. It takes two minutes."
+ },
+ "dubai/porsche/cayenne": {
+  "approved": true,
+  "title": "Porsche Cayenne service and repair in Dubai",
+  "description": "Which Dubai garages know the Cayenne (955, 957, 958, 9Y0)? Owner-backed specialists for air suspension, coolant and AC, with prices owners paid.",
+  "h1": "Porsche Cayenne garages in Dubai",
+  "text": "The Cayenne is a great Dubai car until something on it fails and the dealer quote arrives. These are the independent garages Cayenne owners rate, for the 955 and 957 (2002 to 2010), the 958 (2010 to 2017) and the 9Y0 (2018 on).\n\nI look after a Cayenne myself, so I know the jobs that come up again and again here: air suspension on the 957 and 958 (the heat is hard on it), the plastic coolant pipes on the older V8s, the transfer case on the 955 and 957, and AC that gives up in July.\n\nAir suspension is the big one. Published independent prices for luxury SUVs run AED 1,500 to 5,000 per air spring and AED 2,500 to 8,000 for a compressor, depending on genuine or aftermarket parts (<a href=\"https://www.arabwheels.ae/blog/air-suspension-in-uae-how-it-works-types-and-common-issues/\" rel=\"nofollow\">ArabWheels, Jul 2026</a>). Those are general figures, not Cayenne quotes, and owner-reported Cayenne prices appear on each garage as reviews come in.\n\nChoose your generation to narrow the list, check whether the final bill matched the quote, and send the garage your car on WhatsApp in one tap."
+ },
+ "dubai/porsche/911": {
+  "approved": true,
+  "title": "Porsche 911 service and repair in Dubai",
+  "description": "Dubai garages 911 owners vouch for, 996 and 997 to 992: IMS, bore scoring, cooling and AC. What owners paid, and WhatsApp in one tap.",
+  "h1": "Porsche 911 specialists in Dubai",
+  "text": "A 911 deserves a garage that has had one apart before. These are the independent Dubai specialists 911 owners vouch for, from the 996 (1998 to 2005) and 997 (2005 to 2012) to the 991 and 992.\n\nOn the water-cooled cars the questions are well known: the IMS bearing and bore scoring on the 996 and early 997, rear main seal weeps, radiators packed with sand, and AC condensers that cook in our summers. A real specialist will tell you which of those your car actually needs rather than doing them all at once.\n\nFor scale, one independent's published guide puts routine maintenance at AED 500 to 1,500 and an engine overhaul at AED 10,000 to 25,000 (<a href=\"https://myzdegree.com/blog/the-ultimate-guide-to-porsche-maintenance-and-repair-costs-in-dubai\" rel=\"nofollow\">Z Degree</a>). Those are a garage's own Porsche-wide figures, not 911 quotes. Owner-reported 911 prices appear on each garage as reviews come in.\n\nPick your generation, see how many owners vouch for each garage and whether the bill matched the quote, then message them on WhatsApp with your car already filled in."
+ },
+ "dubai/nissan/patrol": {
+  "approved": true,
+  "title": "Nissan Patrol service and repair in Dubai",
+  "description": "Dubai garages that know the Nissan Patrol, Y61 and Y62: gearbox, AC and suspension after the dunes. Owner reviews, prices and WhatsApp contact.",
+  "h1": "Nissan Patrol garages in Dubai",
+  "text": "The Patrol is built to last, but it still needs a garage that knows it, especially if you take it into the dunes. These are the independent garages Dubai Patrol owners trust, for the Y61 Super Safari and the Y62 (2010 on).\n\nMost Patrol visits are about the gearbox, AC, suspension after a season of sand, and servicing on a car that does big kilometres. On the Y61, finding someone who still knows the TB48 and can source parts matters as much as price.\n\nWe don't quote prices here until owners report them, because most published Patrol prices are garage promotions, not what owners actually paid. Each garage shows what owners paid and whether the quote held as reviews come in, with the main dealer at the bottom for comparison only.\n\nChoose your generation, see who has done your job, and send them your car and problem on WhatsApp in one tap."
+ },
+ "dubai/land-rover": {
+  "approved": true,
+  "title": "Land Rover service and repair in Dubai",
+  "description": "Independent Land Rover and Range Rover garages in Dubai, ranked by owner evidence. Air suspension, electrics, AC, and what owners paid.",
+  "h1": "Land Rover specialists in Dubai",
+  "text": "Out of warranty, a Land Rover doesn't have to mean dealer prices. Plenty of independent garages in Dubai work on Range Rovers, Sports, Discoveries and Defenders every day, and this list shows which ones owners actually rate.\n\nLand Rovers here mostly come in for the same few things: air suspension, coolant leaks, electrical faults and AC. Those are jobs where a specialist with the right diagnostic kit saves you money, because a generic garage tends to replace parts until the light goes off.\n\nHow much? One market guide puts main-dealer servicing at 30 to 50% more than an independent specialist for a 2019 Range Rover (<a href=\"https://carswitch.com/newsroom/range-rover-price-in-uae-2026-used-vs-new-generation-guide-true-cost-of-owning-a-pre-owned-range-rover/\" rel=\"nofollow\">CarSwitch, Jul 2026</a>). For air suspension, published independent prices run AED 1,500 to 5,000 per air spring (<a href=\"https://www.arabwheels.ae/blog/air-suspension-in-uae-how-it-works-types-and-common-issues/\" rel=\"nofollow\">ArabWheels, Jul 2026</a>).\n\nThe garages below are ranked by owner evidence for your model. Main dealers sit at the bottom for comparison, never in the ranking. Pick your model and message the garage on WhatsApp with your car already filled in."
+ },
+ "dubai/land-rover/range-rover": {
+  "approved": true,
+  "title": "Range Rover service and repair in Dubai",
+  "description": "Dubai garages owners trust with the Range Rover (L322, L405): air suspension, coolant leaks, timing chains. Prices owners paid, dealer for comparison.",
+  "h1": "Range Rover garages in Dubai",
+  "text": "If the dealer quote for your Range Rover made you wince, you're in good company. These are the independent garages Dubai owners trust with the full-size Range Rover, from the L322 (2002 to 2012) to the L405 (2013 to 2021).\n\nThe common jobs are well known: air suspension (bags, compressor, valve block), coolant leaks, timing chains, and electrical faults that need proper Land Rover diagnostics. A specialist will usually tell you which part has actually failed, which is where most of the saving comes from.\n\nOne market guide's rough prices for an L405 at an independent: AED 2,500 to 4,000 for a minor service, 6,000 to 12,000 for a major service, and 3,500 to 6,000 for an air suspension compressor. The same guide puts dealer servicing 30 to 50% higher (<a href=\"https://carswitch.com/newsroom/range-rover-price-in-uae-2026-used-vs-new-generation-guide-true-cost-of-owning-a-pre-owned-range-rover/\" rel=\"nofollow\">CarSwitch, Jul 2026</a>). Owner-reported prices appear on each garage as reviews come in.\n\nChoose your generation, check whether owners' bills matched their quotes, and send the garage your car and the problem on WhatsApp in one tap."
+ },
+ "dubai/mercedes-benz": {
+  "approved": true,
+  "title": "Mercedes service and repair in Dubai: independent specialists",
+  "description": "Independent Mercedes-Benz garages in Dubai that owners recommend, by model. Airmatic, 7G-Tronic, AC and electrics, with what owners paid.",
+  "h1": "Mercedes-Benz specialists in Dubai",
+  "text": "Mercedes has more independent specialists in our listings than any other brand, which makes choosing harder, not easier. This list shows the ones owners actually recommend, for which models, and what they paid.\n\nThe jobs that bring Mercedes owners to an independent are usually the expensive ones: Airmatic suspension, 7G-Tronic gearbox faults, AC, and the electrical warnings that start once a car is a few years old. A good specialist has Mercedes diagnostic software and will explain what has failed before replacing anything.\n\nAs a rough guide, one Dubai garage publishes AED 800 to 2,500 for a minor service and 3,500 to 10,000 or more for a major service on luxury cars (<a href=\"https://www.almadinagarage.com/?p=16353\" rel=\"nofollow\">Al Madina Garage, Feb 2026</a>). That is a garage's own figure across brands, so owner-reported Mercedes prices on each garage are the better guide as they come in.\n\nGarages are ranked by owner evidence for your model, from the C-Class and E-Class to the S-Class and G-Class. Main dealers sit at the bottom for comparison. Pick your model and message the garage on WhatsApp with your car already in the message.",
+  "faq": [
+   {
+    "q": "Do I have to service my Mercedes at the dealer to keep the warranty?",
+    "a": "Generally no. Since 2016 the UAE Ministry of Economy's position is that a dealer shouldn't cancel your warranty just because an approved independent workshop did the servicing. Stick to the manufacturer's service schedule, keep every receipt, and read your own warranty terms. If a dealer refuses a claim on these grounds, you can complain to the Ministry's consumer protection department. (<a href=\"https://www.khaleejtimes.com/uae/legal/uae-will-i-lose-warranty-if-my-car-is-serviced-from-a-workshop-thats-not-affiliated-to-the-dealer\" rel=\"nofollow\">Khaleej Times</a>)"
+   },
+   {
+    "q": "What should a good independent Mercedes garage have?",
+    "a": "Mercedes diagnostic software (XENTRY or equivalent), experience with your model's weak spots such as Airmatic and the 7G-Tronic gearbox, and quotes that say whether parts are genuine, OEM or aftermarket."
+   },
+   {
+    "q": "How much does a Mercedes service cost in Dubai?",
+    "a": "It depends on the model and service level (A or B), so we show what owners actually paid on each garage page, with the date and the job, instead of a single headline price."
+   }
+  ]
+ },
+ "dubai/bmw": {
+  "approved": true,
+  "title": "BMW service and repair in Dubai: independent specialists",
+  "description": "Independent BMW garages in Dubai, ranked by owner evidence, from E-series to G-series. Cooling, gaskets, N54 and N55 jobs, and what owners paid.",
+  "h1": "BMW specialists in Dubai",
+  "text": "For a BMW out of warranty, a good independent specialist is often the difference between keeping the car and selling it. These are the Dubai garages BMW owners recommend, from E-series classics to the latest G-series.\n\nOur heat is hard on BMWs. Cooling systems, water pumps, oil filter housing and valve cover gaskets, and the occasional turbo or fuel pump on the N54 and N55 engines are the jobs owners bring in most. A real specialist has BMW software to code new parts, not just fit them.\n\nAs a rough guide, one Dubai garage publishes AED 800 to 2,500 for a minor service and 3,500 to 10,000 or more for a major service on luxury cars (<a href=\"https://www.almadinagarage.com/?p=16353\" rel=\"nofollow\">Al Madina Garage, Feb 2026</a>). That is a garage's own figure across brands, so owner-reported BMW prices on each garage are the better guide as they come in.\n\nPick your car, from a 3 Series to an X5, and see who has done your exact job. If you've had your BMW fixed in Dubai, add a review. It takes two minutes.",
+  "faq": [
+   {
+    "q": "Do I have to service my BMW at the dealer to keep the warranty?",
+    "a": "Generally no. Since 2016 the UAE Ministry of Economy's position is that a dealer shouldn't cancel your warranty just because an approved independent workshop did the servicing. Stick to the manufacturer's service schedule, keep every receipt, and read your own warranty terms. If a dealer refuses a claim on these grounds, you can complain to the Ministry's consumer protection department. (<a href=\"https://www.khaleejtimes.com/uae/legal/uae-will-i-lose-warranty-if-my-car-is-serviced-from-a-workshop-thats-not-affiliated-to-the-dealer\" rel=\"nofollow\">Khaleej Times</a>)"
+   },
+   {
+    "q": "What should a good independent BMW garage have?",
+    "a": "BMW diagnostic software that can read and code modules, experience with your engine (N54, N55, B48, B58 and so on), and clear quotes that list parts as genuine, OEM or aftermarket. The garages below show what owners say about each of these."
+   },
+   {
+    "q": "How much does a BMW service cost in Dubai?",
+    "a": "It depends on the model and the job, so we show what owners actually paid on each garage page, with the date and the job, instead of a single headline price."
+   }
+  ]
+ },
+ "dubai/toyota/land-cruiser": {
+  "approved": true,
+  "title": "Land Cruiser service and repair in Dubai",
+  "description": "Dubai garages Land Cruiser owners trust, LC100 to LC300: AC, suspension after the desert, gearbox and big services. What owners paid, WhatsApp in one tap.",
+  "h1": "Toyota Land Cruiser garages in Dubai",
+  "text": "The Land Cruiser will run forever if it's looked after, and you don't need the dealer to do that. These are the independent Dubai garages Land Cruiser owners trust, for the LC100 (1998 to 2007), the LC200 (2007 to 2021) and the LC300.\n\nMost Land Cruiser visits here are the same handful of jobs: AC that can't keep up in August, suspension and bushes after desert weekends, gearbox servicing on high-kilometre cars, and the big regular services. These are honest, strong cars, so a good garage will tell you what can wait as well as what can't.\n\nWe don't quote prices here until owners report them. Each garage shows what owners paid and whether the quote held as reviews come in, with the dealer at the bottom for comparison.\n\nChoose your generation, then message the garage on WhatsApp with your car already filled in."
+ },
+ "dubai/audi": {
+  "approved": true,
+  "title": "Audi service and repair in Dubai: independent specialists",
+  "description": "Got a dealer quote for your Audi? Independent Dubai garages owners trust, from A3 and A4 to Q7 and RS: DSG/S tronic, cooling, AC and electrics.",
+  "h1": "Audi specialists in Dubai",
+  "text": "An Audi out of warranty doesn't have to go back to the dealer for every job. These are the independent Dubai garages Audi owners recommend, from the A3 and A4 to the Q5, Q7 and the RS models.\n\nThe jobs that bring Audi owners to an independent are mostly the same ones every summer: cooling systems and water pumps that struggle in the heat, S tronic and DSG gearbox faults, oil leaks and timing chains on the 2.0 TFSI, AC, and electrical warnings that need proper VAG diagnostics rather than a generic scanner.\n\nMany of the garages that know Audis also know Volkswagen, Skoda and Porsche, because they share engines and gearboxes, so a good VAG specialist is often the right call. We don't quote prices here until owners report them; each garage shows what owners paid and whether the quote held as reviews come in.\n\nPick your model, see who has done your exact job, and message the garage on WhatsApp with your car already filled in. Main dealers sit at the bottom for comparison only."
+ },
+ "dubai/problem/buying-used": {
+  "approved": true,
+  "title": "Car inspection before buying in Dubai: garages owners trust",
+  "description": "Buying a used car in Dubai? Get an independent pre-purchase inspection first. Garages owners trust to check a used Range Rover, Land Cruiser, Patrol or BMW.",
+  "h1": "Car inspection before you buy, in Dubai",
+  "text": "Before you hand over the money for a used car, have someone independent look at it. A pre-purchase inspection costs far less than the first big repair a seller forgot to mention, and in Dubai the heat, the sand and long gaps between services leave marks you can't see on a test drive.\n\nA proper inspection is more than a scan for fault codes. A good garage checks service history against the car, looks for accident repairs and flood or sand damage, tests the AC under load, and knows the weak spots of that model: air suspension on a Range Rover, the gearbox on a Patrol, cooling on a BMW.\n\nThe garages below are ones owners mention for inspections. Set your car to bring the specialists for that model to the top, then send them the listing on WhatsApp and ask what their check covers before you book."
+ },
+ "dubai/problem/ac-not-cold": {
+  "approved": true,
+  "title": "Car AC repair in Dubai: AC not cold? Garages owners trust",
+  "description": "Car AC not cold in Dubai? Ask for a diagnosis before a regas. Independent garages owners trust for AC repair, by car brand and model.",
+  "h1": "Car AC not cold in Dubai",
+  "text": "When your car AC stops blowing cold in Dubai, it isn't a comfort problem, it's an emergency. The quick fix many places offer is a regas, but if there's a leak or a failing compressor the gas is gone again within weeks and you pay twice.\n\nAsk for a diagnosis first: a leak test, a pressure check and a look at the compressor, condenser and fans. Cars that sit in the sun all day, and older German and British cars in particular, often need more than gas. A garage that knows your model will know where its AC usually fails.\n\nThe list shows independent garages owners mention for AC work. Set your car to put the ones that know it first, check what owners paid, and message the garage on WhatsApp with your car and the symptom already filled in."
+ },
+ "dubai/jeep": {
+  "approved": true,
+  "title": "Jeep service and repair in Dubai: independent specialists",
+  "description": "Got a dealer quote for your Jeep? Independent Dubai garages owners trust for the Wrangler and Grand Cherokee: oil leaks, steering, lifts, suspension and AC.",
+  "h1": "Jeep specialists in Dubai",
+  "text": "Jeeps in Dubai get used the way they were meant to be, so they need a garage that knows them rather than one that just does oil changes. These are the independent garages Jeep owners recommend, for the Wrangler (JK and JL) and the Grand Cherokee.\n\nThe usual jobs: oil cooler and filter housing leaks on the 3.6 Pentastar, steering wobble after lifts or bigger tyres, suspension and alignment after off-road weekends, and AC. Many owners also want a garage that can fit and set up modifications properly.\n\nWe don't quote prices here until owners report them. Each garage shows what owners paid and whether the quote held as reviews come in. Pick your model and message the garage on WhatsApp with your Jeep already filled in."
+ },
+ "dubai/volkswagen": {
+  "approved": true,
+  "title": "Volkswagen service and repair in Dubai: independent specialists",
+  "description": "Got a dealer quote for your VW? Independent Dubai garages owners trust for the Golf, GTI, Golf R, Tiguan and Touareg: DSG, coils, cooling and AC.",
+  "h1": "Volkswagen specialists in Dubai",
+  "text": "A Volkswagen out of warranty doesn't need the dealer for every job. These are the independent Dubai garages VW owners recommend, from the Golf, GTI and Golf R to the Tiguan, Teramont and Touareg.\n\nI run a Mk5 GTI myself, so I know the jobs that come up most here: DSG gearbox servicing and mechatronic faults, ignition coils, cooling systems that struggle in the summer, carbon build-up on direct-injection engines, and AC. Many of the best VW garages also know Audi, Skoda and Porsche, because they share engines and gearboxes.\n\nWe don't quote prices here until owners report them. Each garage shows what owners paid and whether the quote held. Pick your model, see who has done your exact job, and message the garage on WhatsApp with your car already filled in."
+ },
+ "dubai/toyota/prado": {
+  "approved": true,
+  "title": "Toyota Prado service and repair in Dubai",
+  "description": "Dubai garages Prado owners trust, from the 120 to the new 250: AC, suspension after the desert, gearbox and big services. What owners paid, WhatsApp in one tap.",
+  "h1": "Toyota Prado garages in Dubai",
+  "text": "The Prado is built to last, and a good independent can keep it that way without dealer prices. These are the Dubai garages Prado owners trust, for the 120 series (2002 to 2009), the 150 (2009 to 2023) and the new 250.\n\nMost Prado visits here are the same jobs: AC that struggles in summer, suspension and bushes after desert weekends, gearbox servicing on high-kilometre cars, and the big regular services. Buying a used one? Get it inspected first.\n\nGot a dealer quote? Find the independent who knows your model. Each garage shows what owners paid as reviews come in, with the dealer for comparison.\n\nChoose your generation, then message the garage on WhatsApp with your car already filled in."
+ },
+ "dubai/lexus/lx": {
+  "approved": true,
+  "title": "Lexus LX service and repair in Dubai",
+  "description": "Dubai garages Lexus LX owners trust, LX470 to LX600: height-control suspension, AC and big services, out of warranty. What owners paid, WhatsApp in one tap.",
+  "h1": "Lexus LX garages in Dubai",
+  "text": "The LX shares its bones with the Land Cruiser, so out of warranty you don't need the dealer for most of what it needs. These are the Dubai independents LX owners trust, for the LX470, LX570 and LX600.\n\nThe jobs that come up most here are the height-control suspension, AC, and the big regular services.\n\nGot a dealer quote? Find the independent who knows your model. Each garage shows what owners paid as reviews come in, with the dealer for comparison. Message the garage on WhatsApp with your car already filled in."
+ },
+ "dubai/lexus/gx": {
+  "approved": true,
+  "title": "Lexus GX service and repair in Dubai",
+  "description": "Dubai garages Lexus GX owners trust, GX470 to GX550: rear air suspension, AC and big services, out of warranty. What owners paid, WhatsApp in one tap.",
+  "h1": "Lexus GX garages in Dubai",
+  "text": "The GX is a Prado underneath, which means plenty of independent Dubai garages know it well. These are the ones GX owners trust, for the GX470, GX460 and GX550.\n\nThe jobs that come up most here are the rear air suspension, AC, and the big regular services.\n\nGot a dealer quote? Find the independent who knows your model. Each garage shows what owners paid as reviews come in, with the dealer for comparison. Message the garage on WhatsApp with your car already filled in."
+ },
+ "dubai/nissan/gt-r": {
+  "approved": true,
+  "title": "Nissan GT-R service and repair in Dubai",
+  "description": "Dubai independent specialists GT-R owners trust: R35 gearbox servicing, brakes, fluids and big services, out of warranty. What owners paid, WhatsApp in one tap.",
+  "h1": "Nissan GT-R specialists in Dubai",
+  "text": "The R35 GT-R isn't a car for any garage. Its dual-clutch gearbox, fluids and brakes need someone who has done them before. These are the independent Dubai specialists GT-R owners trust.\n\nThe jobs that come up most: gearbox fluid and clutch servicing, brake pads and discs, and the regular fluid changes the R35 needs more often in our heat. Many owners also want a garage that can set up and maintain a tuned car properly.\n\nGot a dealer quote? Find the independent who knows your model. Each garage shows what owners paid as reviews come in, with the dealer for comparison. Message the garage on WhatsApp with your car already filled in."
+ },
+ "dubai/bmw/7-series": {
+  "approved": true,
+  "title": "BMW 7 Series service and repair in Dubai",
+  "description": "Dubai garages BMW 7 Series owners trust, F01 to G70: air suspension, oil leaks, electrics and services, out of warranty. What owners paid, WhatsApp in one tap.",
+  "h1": "BMW 7 Series garages in Dubai",
+  "text": "A 7 Series out of warranty can bring big dealer quotes, and a BMW independent can often do the same work for less. These are the Dubai garages 7 Series owners trust, for the F01/F02, G11/G12 and G70.\n\nThe jobs that come up most here are air suspension, oil leaks, electrics and warning lights, and regular servicing.\n\nGot a dealer quote? Find the independent who knows your model. Each garage shows what owners paid as reviews come in, with the dealer for comparison. Message the garage on WhatsApp with your car already filled in."
+ }
 }

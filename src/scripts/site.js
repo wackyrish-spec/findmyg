@@ -267,6 +267,9 @@ function track(slug, kind) {
 
 /* ---------- events ---------- */
 document.addEventListener("click", (e) => {
+  const pm = e.target.closest("[data-pickmodel]");
+  // Model chip on a brand page: remember the car (keeps the year/code if it's the same model), then follow the link.
+  if (pm) { if (!(car && car.make === pm.dataset.make && car.model === pm.dataset.pickmodel)) store.set("car", { make: pm.dataset.make, model: pm.dataset.pickmodel }); return; }
   const t = e.target.closest("[data-setcar],#mycarBtn,[data-wa],[data-track],[data-try]");
   if (!t) return;
   if (t.matches("[data-setcar],#mycarBtn")) carDialog();
