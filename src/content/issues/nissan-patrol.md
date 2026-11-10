@@ -2,7 +2,7 @@
 make: Nissan
 model: Patrol
 title: "Nissan Patrol Y62 and Y61 problems and known issues in Dubai"
-description: "Gearbox shudder, HBMC suspension, desert wear, overheating and recalls on the Y62 Patrol and the Y61 Super Safari: how big each job is, and what to ask a Dubai garage."
+description: "Y62 gearbox shudder, HBMC suspension, desert wear and recalls, plus Y61 Super Safari overheating: how big each job is and what to ask a Dubai garage."
 updated: "Nov 2026"
 author: "KnowsMyCar editorial"
 status: published
