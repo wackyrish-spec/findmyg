@@ -1,0 +1,5 @@
+# The pages.dev copies (production and previews) must never be indexed: knowsmycar.com is the only public address.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex

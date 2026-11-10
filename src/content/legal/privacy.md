@@ -4,7 +4,7 @@ title: "Privacy"
 
 *Last updated: {{updated}}*
 
-KnowsMyCar is a free guide to independent garages in Dubai. It's run by {{operator}}, an individual based in Dubai ("we"). This page explains what we collect, why, and what you can ask us to do. Questions: {{emailPrivacy}}.
+KnowsMyCar is a free guide to independent garages in Dubai. It's run by {{operator}}, based in Dubai ("we"). This page explains what we collect, why, and what you can ask us to do. Questions: {{emailPrivacy}}.
 
 **The short version**
 - You can browse without an account. We don't use advertising trackers and we don't sell data.

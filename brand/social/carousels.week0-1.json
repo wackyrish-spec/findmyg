@@ -1,0 +1,119 @@
+[
+ {
+  "kind": "paid",
+  "name": "w0-sun15-dealer-vs-independent",
+  "model": "Range Rover",
+  "code": "L405",
+  "job": "Minor service",
+  "hook": "Is the dealer really that much more? The one gap that's been published.",
+  "source_kind": "published",
+  "indep": {
+   "low": 2500,
+   "high": 4000,
+   "source": "CarSwitch, Jul 2026",
+   "note": "2019 Range Rover Vogue at an independent specialist."
+  },
+  "dealer": {
+   "low": 3250,
+   "high": 6000,
+   "source": "CarSwitch, Jul 2026: dealer 30 to 50% higher"
+  },
+  "drivers": [
+   "Dealers in Dubai don't publish their prices",
+   "OE parts or quality aftermarket",
+   "What's included: plugs, filters and fluids should be itemised",
+   "Ask for the old parts back"
+  ],
+  "sample": false
+ },
+ {
+  "kind": "who",
+  "name": "w1-thu19-who-cayenne",
+  "make": "Porsche",
+  "model": "Cayenne",
+  "hook": "4 garages Cayenne owners rate, from what they wrote in reviews and on Reddit.",
+  "garages": [
+   {
+    "name": "Deutsche Technik",
+    "handle": "",
+    "area": "Al Quoz Industrial 3",
+    "level": 2,
+    "level_label": "Good match",
+    "evidence": "9 of 60 Google reviews we read mention Porsche",
+    "generations": [
+     "Cayenne",
+     "911"
+    ]
+   },
+   {
+    "name": "Project 11",
+    "handle": "",
+    "area": "Al Quoz Industrial 2",
+    "level": 2,
+    "level_label": "Good match",
+    "evidence": "Porsche-only workshop, recommended in 5 Reddit threads",
+    "generations": [
+     "Cayenne",
+     "911"
+    ]
+   },
+   {
+    "name": "JAS Motors",
+    "handle": "",
+    "area": "Al Quoz Industrial 1",
+    "level": 2,
+    "level_label": "Good match",
+    "evidence": "Recommended in 4 Reddit threads, incl. by a Cayenne owner",
+    "generations": [
+     "Cayenne"
+    ]
+   },
+   {
+    "name": "Max Garage",
+    "handle": "",
+    "area": "Al Quoz Industrial 3",
+    "level": 2,
+    "level_label": "Good match",
+    "evidence": "Recommended in 4 Reddit threads, 2 about Cayennes",
+    "generations": [
+     "Cayenne",
+     "Boxster"
+    ]
+   }
+  ],
+  "sample": false
+ },
+ {
+  "kind": "poll",
+  "name": "w1-fri20-poll-airsus",
+  "code": "Cayenne",
+  "question": "What did you pay for an air suspension compressor?",
+  "detail": "Published independent prices for luxury SUVs: AED 2,500 to 8,000 (ArabWheels, Jul 2026).",
+  "ask": "Got a Porsche quote? Send it to us. We'll compare it with what owners paid.",
+  "sample": false
+ },
+ {
+  "kind": "paid",
+  "name": "w1-sun22-porsche-servicing",
+  "model": "Porsche",
+  "code": "",
+  "job": "Routine maintenance (oil, pads, filters)",
+  "hook": "What Porsche servicing costs at Dubai independents, from published figures.",
+  "source_kind": "published",
+  "indep": {
+   "low": 500,
+   "high": 1500,
+   "source": "Z Degree (a Dubai independent's own guide)",
+   "note": "A garage's own Porsche-wide figure. Treat it as a starting point."
+  },
+  "dealer": null,
+  "dealer_note": "Not published. Dubai dealers don't list prices. Send us your dealer quote.",
+  "drivers": [
+   "Which model and engine: a 911 isn't a Macan",
+   "Genuine Porsche parts or OE-equivalent",
+   "Whether brakes or fluids are due at the same time",
+   "Diagnosis with Porsche software (PIWIS) or a generic scanner"
+  ],
+  "sample": false
+ }
+]
