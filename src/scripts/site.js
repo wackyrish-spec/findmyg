@@ -464,3 +464,18 @@ if (nb) nb.addEventListener("click", () => {
 /* ---------- C5 quote check: car picker ---------- */
 const qc = $("#qcCar");
 if (qc) wirePicker(qc, () => {});
+
+/* ---------- demand log (Rishal 10 Nov): which uncovered cars people look for; no personal data ---------- */
+// Logged when the picker or search lands someone on "not covered" (state C) or a brand page for a model we
+// don't cover yet (state B, ?close=model). Read back as counts only via coverage_top() (012_car_demand.sql).
+(() => {
+  const q = new URLSearchParams(location.search);
+  let row = null;
+  if (location.pathname.startsWith("/car-not-covered") && q.get("make")) row = { make: q.get("make"), model: q.get("model"), state: "C" };
+  else if (q.get("close") && $("#results")?.dataset.make) row = { make: $("#results").dataset.make, model: q.get("close"), state: "B" };
+  if (!row || !SB_URL || !SB_KEY) return;
+  row = { make: row.make.slice(0, 40), model: (row.model || "").slice(0, 60) || null, state: row.state, page: location.pathname };
+  const key = "gg:dem:" + [row.make, row.model, row.state].join("|");
+  try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, "1"); } catch {}
+  fetch(`${SB_URL}/rest/v1/car_demand`, { method: "POST", keepalive: true, headers: { apikey: SB_KEY, "Content-Type": "application/json", Prefer: "return=minimal" }, body: JSON.stringify(row) }).catch(() => {});
+})();
