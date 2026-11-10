@@ -463,3 +463,6 @@ footer .proof{margin:0 0 8px;font-weight:800}
 .beenhere{border:1px dashed var(--line,#ccc);border-radius:12px;padding:14px}
 .beenhere p{margin:0 0 10px}
 .beenhere .acts{display:flex;flex-wrap:wrap;gap:8px}
+/* Dealer vs independent: price ranges are long; give both price columns room and let them wrap */
+.dvi .ptable th:first-child{width:34%}
+.dvi .ptable td.num,.dvi .ptable th.num{width:auto;white-space:normal}
