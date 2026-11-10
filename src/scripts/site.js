@@ -465,7 +465,7 @@ if (nb) nb.addEventListener("click", () => {
 const qc = $("#qcCar");
 if (qc) wirePicker(qc, () => {});
 
-/* ---------- demand log (Rishal 10 Nov): which uncovered cars people look for; no personal data ---------- */
+/* ---------- demand log (10 Nov): which uncovered cars people look for; no personal data ---------- */
 // Logged when the picker or search lands someone on "not covered" (state C) or a brand page for a model we
 // don't cover yet (state B, ?close=model). Read back as counts only via coverage_top() (012_car_demand.sql).
 (() => {
