@@ -68,10 +68,17 @@ function searchOthers(q) {
   const nq = norm(q), toks = nq.split(" ").filter(Boolean);
   if (!toks.length) return [];
   const out = [];
-  (DATA.problems || []).forEach((p) => {
+  // Problems: forgiving match (users type sentences like "my car won't start" or "brakes squeaking").
+  // Filler words are ignored, word endings are trimmed, typos allowed; best match first.
+  const STOP = new Set("my the a an is it its car cars vehicle when in on of and to with problem problems issue issues dubai please help why what".split(" "));
+  const stem = (w) => w.replace(/(ing|ed|es|s)$/, "");
+  const ptoks = toks.filter((t) => !STOP.has(t) && t.length > 1);
+  if (ptoks.length) (DATA.problems || []).map((p) => {
     const hay = norm(`${p.label} ${p.syn}`), words = hay.split(" ");
-    if (hay.includes(nq) || toks.every((t) => t.length > 1 && words.some((w) => near(t, w)))) out.push({ type: "problem", label: p.label, slug: p.slug });
-  });
+    const hit = ptoks.filter((t) => words.some((w) => near(t, w) || near(stem(t), w) || (stem(t).length >= 4 && stem(w).startsWith(stem(t))))).length;
+    return { p, score: hay.includes(ptoks.join(" ")) ? 99 : hit / ptoks.length };
+  }).filter((x) => x.score >= 0.6).sort((a, b) => b.score - a.score)
+    .forEach(({ p }) => out.push({ type: "problem", label: p.label, slug: p.slug }));
   if (IDX && IDX.garages) {
     IDX.garages.forEach((g) => {
       const words = norm(g.n).split(" ");
@@ -113,7 +120,9 @@ function wirePicker(root, onPick, all = false) {
   const head = { car: "Cars", problem: "Problems", garage: "Garages", area: "Areas" };
   const draw = () => {
     if (!items.length) {
-      if (inp.value.trim().length >= 2) { list.innerHTML = `<p class="nomatch">No match yet. Try the make or model name, like "Cayenne" or "Giulietta", or <a href="/add-a-garage/">tell us your car</a>.</p>`; list.hidden = false; }
+      if (inp.value.trim().length >= 2) {
+        const chips = all ? `<p class="sgh">Common problems</p><div class="nmchips">${(DATA.problems || []).slice(0, 6).map((p) => `<a class="pill" href="/dubai/problem/${p.slug}/">${esc(p.label)}</a>`).join("")}</div>` : "";
+        list.innerHTML = `<p class="nomatch">No match yet. Try the make or model name, like "Cayenne" or "Giulietta", or <a href="/add-a-garage/">tell us your car</a>.</p>${chips}`; list.hidden = false; }
       else list.hidden = true;
       inp.setAttribute("aria-expanded", "false"); return;
     }
