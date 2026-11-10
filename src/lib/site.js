@@ -3,8 +3,8 @@ export const SITE = {
   name: "KnowsMyCar",
   tagline: "Find the garage that knows your car",
   proof: "Independent. No paid listings. Every specialist backed by owner reviews.",
-  // Legal operator and contact details: Rishal to confirm before the legal pages go live.
-  operator: import.meta.env.PUBLIC_OPERATOR_NAME || "[operator full name]",
+  // Legal operator: Rishal chose "KnowsMyCar" (2026-11-10).
+  operator: import.meta.env.PUBLIC_OPERATOR_NAME || "KnowsMyCar",
   legalUpdated: "6 November 2026",
   emailHello: import.meta.env.PUBLIC_EMAIL_HELLO || "hello@knowsmycar.com",
   emailReply: import.meta.env.PUBLIC_EMAIL_REPLY || "reply@knowsmycar.com",
