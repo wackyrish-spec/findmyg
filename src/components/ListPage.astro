@@ -6,7 +6,7 @@ import Icon from "./Icon.astro";
 import { SITE } from "../lib/site.js";
 const {
   title, description, h1, lead, introText = null, garages, make = null, model = null,
-  noindex, crumbs = [], related = [], pathKey, ogImage, makeFilter = [], dvi = [], dviNote = null, owners = null, faq = [],
+  noindex, crumbs = [], related = [], pathKey, ogImage, makeFilter = [], dvi = [], dviNote = null, modelChips = [], problems = [], owners = null, faq = [],
   notes = null, outside = [], others = [], othersLabel = "Also in Dubai, no reviews for your car yet", dealers = [], dealerPrices = [], dealerNote = null,
 } = Astro.props;
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
@@ -26,6 +26,12 @@ const itemList = {
     <div class="rhead"><div>
       <h1>{h1}</h1>
       <p>{lead}</p>
+      {modelChips.length > 0 && (
+        <nav class="mchips" aria-label={`Which ${make} do you drive?`}>
+          <span class="label">Which {make} do you drive?</span>
+          {modelChips.map((c) => <a class="pill" href={c.url} data-pickmodel={c.model} data-make={make}>{c.model}{c.codes && <span class="muted"> {c.codes}</span>}</a>)}
+        </nav>
+      )}
       <div class="resort" id="resort" hidden></div>
     </div></div>
     <div class="bar">
@@ -116,6 +122,12 @@ const itemList = {
       </section>
     )}
     <HelpFeedback />
+    {problems.length > 0 && (
+      <section class="card panel related">
+        <h2 style="font-size:20px">Common problems</h2>
+        <div class="linkgrid">{problems.map((r) => <a class="pill" href={r.url}>{r.name}</a>)}</div>
+      </section>
+    )}
     {related.length > 0 && (
       <section class="blk" style="padding-top:0;padding-bottom:48px">
         <div class="blkhead"><h2>Related</h2></div>

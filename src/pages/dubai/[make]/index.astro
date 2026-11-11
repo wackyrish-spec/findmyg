@@ -1,6 +1,8 @@
 ---
 import ListPage from "../../../components/ListPage.astro";
-import { BRANDS, intro, isIndexable, splitBrand, dealerPrices, DEALER_NOTES } from "../../../lib/data.js";
+import { GUIDES } from "../../../lib/guides.js";
+import { CATALOG } from "../../../lib/catalog.js";
+import { BRANDS, commonProblems, intro, isIndexable, splitBrand, dealerPrices, DEALER_NOTES } from "../../../lib/data.js";
 export function getStaticPaths() {
   return BRANDS.map((b) => ({ params: { make: b.slug }, props: { b } }));
 }
@@ -8,7 +10,13 @@ const { b } = Astro.props;
 const key = `dubai/${b.slug}`;
 const it = intro(key);
 const L = splitBrand(b.garages, b.make);
+// Engagement fix 2 (PM, 10 Nov): "Which {make} do you drive?" chips under the H1, best-covered models first.
+const lc = (x) => String(x || "").toLowerCase();
+const modelChips = [...b.models].sort((x, y) => y.evidenceCount - x.evidenceCount || y.garages.length - x.garages.length).slice(0, 12)
+  .map((m) => ({ model: m.model, url: `/dubai/${b.slug}/${m.slug}/`,
+    codes: [...new Set(CATALOG.filter((c) => c.make === b.make && c.code && lc(c.model) === lc(m.model)).map((c) => c.code))].slice(0, 3).join("/") }));
 const related = [
+  ...GUIDES.filter((x) => x.make === b.slug && x.live).map((x) => ({ name: x.model ? `${(b.models.find((m) => m.slug === x.model) || { model: x.model }).model} costs` : `${b.make} costs`, url: x.url })),
   ...b.models.map((m) => ({ name: `${b.make} ${m.model}`, url: `/dubai/${b.slug}/${m.slug}/` })),
   ...BRANDS.filter((x) => x.slug !== b.slug).slice(0, 8).map((x) => ({ name: `${x.make} specialists`, url: `/dubai/${x.slug}/` })),
 ];
@@ -28,6 +36,8 @@ const related = [
   dealerPrices={dealerPrices(b.make)}
   dealerNote={DEALER_NOTES[b.slug]}
   make={b.make}
+  modelChips={modelChips}
+  problems={commonProblems(b.garages, b.make)}
   ogImage={`/og/dubai/${b.slug}.png`}
   noindex={!isIndexable(key, b.evidenceCount)}
   crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: b.make }]}

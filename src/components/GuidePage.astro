@@ -1,0 +1,24 @@
+---
+import Base from "../layouts/Base.astro";
+import { GUIDES } from "../lib/guides.js";
+const { g, b, m = null } = Astro.props;
+const { fm, f } = g;
+const Content = f.Content;
+const pageUrl = new URL(g.url, Astro.site).toString();
+const article = { "@context": "https://schema.org", "@type": "Article", headline: fm.h1 || fm.title, description: fm.description,
+  dateModified: g.updated, datePublished: g.updated, mainEntityOfPage: pageUrl, author: { "@type": "Organization", name: "KnowsMyCar" },
+  publisher: { "@type": "Organization", name: "KnowsMyCar" } };
+const faqLd = g.faq.length ? [{ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: g.faq.map((x) => ({ "@type": "Question", name: x.q, acceptedAnswer: { "@type": "Answer", text: x.a } })) }] : [];
+// Cross-links: a model guide links its brand guide and vice versa.
+const siblings = GUIDES.filter((x) => x !== g && x.make === g.make && x.live);
+const crumbs = [{ name: "Dubai", url: "/dubai/" }, { name: b.make, url: `/dubai/${b.slug}/` }, ...(m ? [{ name: m.model, url: `/dubai/${b.slug}/${m.slug}/` }] : []), { name: "Service cost" }];
+---
+<Base title={fm.title} description={fm.description} noindex={!g.live} jsonld={[article, ...faqLd]} crumbs={crumbs}>
+  <article class="wrap prose issues" style="padding-block:20px 56px;max-width:760px">
+    <h1>{fm.h1 || fm.title}</h1>
+    <p class="muted">Updated {new Date(g.updated).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</p>
+    <Content />
+    {siblings.length > 0 && <p>More costs: {siblings.map((x, i) => <>{i > 0 && " · "}<a href={x.url}>{x.fm.h1 || x.fm.title}</a></>)}</p>}
+    <p><a class="btn primary" href={m ? `/dubai/${b.slug}/${m.slug}/` : `/dubai/${b.slug}/`}>See {m ? `${b.make} ${m.model}` : b.make} specialists</a> <a class="btn" href="/check-a-quote/">Check a quote</a></p>
+  </article>
+</Base>

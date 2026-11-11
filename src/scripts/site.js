@@ -68,10 +68,17 @@ function searchOthers(q) {
   const nq = norm(q), toks = nq.split(" ").filter(Boolean);
   if (!toks.length) return [];
   const out = [];
-  (DATA.problems || []).forEach((p) => {
+  // Problems: forgiving match (users type sentences like "my car won't start" or "brakes squeaking").
+  // Filler words are ignored, word endings are trimmed, typos allowed; best match first.
+  const STOP = new Set("my the a an is it its car cars vehicle when in on of and to with problem problems issue issues dubai please help why what".split(" "));
+  const stem = (w) => w.replace(/(ing|ed|es|s)$/, "");
+  const ptoks = toks.filter((t) => !STOP.has(t) && t.length > 1);
+  if (ptoks.length) (DATA.problems || []).map((p) => {
     const hay = norm(`${p.label} ${p.syn}`), words = hay.split(" ");
-    if (hay.includes(nq) || toks.every((t) => t.length > 1 && words.some((w) => near(t, w)))) out.push({ type: "problem", label: p.label, slug: p.slug });
-  });
+    const hit = ptoks.filter((t) => words.some((w) => near(t, w) || near(stem(t), w) || (stem(t).length >= 4 && stem(w).startsWith(stem(t))))).length;
+    return { p, score: hay.includes(ptoks.join(" ")) ? 99 : hit / ptoks.length };
+  }).filter((x) => x.score >= 0.6).sort((a, b) => b.score - a.score)
+    .forEach(({ p }) => out.push({ type: "problem", label: p.label, slug: p.slug }));
   if (IDX && IDX.garages) {
     IDX.garages.forEach((g) => {
       const words = norm(g.n).split(" ");
@@ -113,7 +120,9 @@ function wirePicker(root, onPick, all = false) {
   const head = { car: "Cars", problem: "Problems", garage: "Garages", area: "Areas" };
   const draw = () => {
     if (!items.length) {
-      if (inp.value.trim().length >= 2) { list.innerHTML = `<p class="nomatch">No match yet. Try the make or model name, like "Cayenne" or "Giulietta", or <a href="/add-a-garage/">tell us your car</a>.</p>`; list.hidden = false; }
+      if (inp.value.trim().length >= 2) {
+        const chips = all ? `<p class="sgh">Common problems</p><div class="nmchips">${(DATA.problems || []).slice(0, 6).map((p) => `<a class="pill" href="/dubai/problem/${p.slug}/">${esc(p.label)}</a>`).join("")}</div>` : "";
+        list.innerHTML = `<p class="nomatch">No match yet. Try the make or model name, like "Cayenne" or "Giulietta", or <a href="/add-a-garage/">tell us your car</a>.</p>${chips}`; list.hidden = false; }
       else list.hidden = true;
       inp.setAttribute("aria-expanded", "false"); return;
     }
@@ -267,6 +276,9 @@ function track(slug, kind) {
 
 /* ---------- events ---------- */
 document.addEventListener("click", (e) => {
+  const pm = e.target.closest("[data-pickmodel]");
+  // Model chip on a brand page: remember the car (keeps the year/code if it's the same model), then follow the link.
+  if (pm) { if (!(car && car.make === pm.dataset.make && car.model === pm.dataset.pickmodel)) store.set("car", { make: pm.dataset.make, model: pm.dataset.pickmodel }); return; }
   const t = e.target.closest("[data-setcar],#mycarBtn,[data-wa],[data-track],[data-try]");
   if (!t) return;
   if (t.matches("[data-setcar],#mycarBtn")) carDialog();
@@ -461,3 +473,32 @@ if (nb) nb.addEventListener("click", () => {
 /* ---------- C5 quote check: car picker ---------- */
 const qc = $("#qcCar");
 if (qc) wirePicker(qc, () => {});
+
+/* ---------- demand log (10 Nov): which uncovered cars people look for; no personal data ---------- */
+// Logged when the picker or search lands someone on "not covered" (state C) or a brand page for a model we
+// don't cover yet (state B, ?close=model). Read back as counts only via coverage_top() (012_car_demand.sql).
+(() => {
+  const q = new URLSearchParams(location.search);
+  let row = null;
+  if (location.pathname.startsWith("/car-not-covered") && q.get("make")) row = { make: q.get("make"), model: q.get("model"), state: "C" };
+  else if (q.get("close") && $("#results")?.dataset.make) row = { make: $("#results").dataset.make, model: q.get("close"), state: "B" };
+  if (!row || !SB_URL || !SB_KEY) return;
+  row = { make: row.make.slice(0, 40), model: (row.model || "").slice(0, 60) || null, state: row.state, page: location.pathname };
+  const key = "gg:dem:" + [row.make, row.model, row.state].join("|");
+  try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, "1"); } catch {}
+  fetch(`${SB_URL}/rest/v1/car_demand`, { method: "POST", keepalive: true, headers: { apikey: SB_KEY, "Content-Type": "application/json", Prefer: "return=minimal" }, body: JSON.stringify(row) }).catch(() => {});
+})();
+
+/* ---------- page counter (11 Nov: the team reads visits without a dashboard) ---------- */
+// One row per page view on the live domain: path, referring site, ?ref tag, first page of the visit, mobile or not.
+// No cookies, no ids; the "first page" flag lives in sessionStorage for this tab only.
+(() => {
+  if (!SB_URL || !SB_KEY || location.hostname !== "knowsmycar.com" || navigator.webdriver) return;
+  let landing = false;
+  try { landing = !sessionStorage.getItem("gg:seen"); sessionStorage.setItem("gg:seen", "1"); } catch {}
+  let refHost = null;
+  try { const h = document.referrer && new URL(document.referrer).hostname; if (h && h !== location.hostname) refHost = h.replace(/^www\./, "").slice(0, 100); } catch {}
+  const r = attribution();
+  fetch(`${SB_URL}/rest/v1/page_views`, { method: "POST", keepalive: true, headers: { apikey: SB_KEY, "Content-Type": "application/json", Prefer: "return=minimal" },
+    body: JSON.stringify({ path: location.pathname.slice(0, 200), ref_host: refHost, ref_tag: (r.ref || r.utm_source || "").slice(0, 80) || null, landing, mobile: matchMedia("(max-width: 700px)").matches }) }).catch(() => {});
+})();

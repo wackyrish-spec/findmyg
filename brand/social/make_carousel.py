@@ -61,7 +61,7 @@ def frame(inner, i=None, n=None, sample=True, h=1350, foot=True):
     stamp = '<span class="stamp">SAMPLE DATA</span>' if sample else ""
     pad = "padding-top:200px;padding-bottom:260px;" if h == 1920 else ""
     footer = ('<div class="foot"><span>Independent. No paid listings. Not affiliated with any car maker.</span>'
-              '<b>knowsmycar.ae</b></div>') if foot else ""
+              '<b>knowsmycar.com</b></div>') if foot else ""
     return (f'<div class="c" style="--h:{h}px;{pad}"><div class="top"><div class="logo">{LOGO}</div>'
             f'<div style="display:flex;gap:18px;align-items:center">{stamp}{count}</div></div>'
             f'<div style="height:64px"></div>{inner}{footer}</div>')

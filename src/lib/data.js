@@ -123,6 +123,8 @@ function norm(g) {
     jobs: JOBS.filter((j) => j.re.test(text)).map((j) => j.slug),
     goodFor: goodFor(text),
     waNumber: waNumber(g),
+    // Data/Legal 10 Nov: most numbers are a UAE mobile from the garage's own listing, not a confirmed WhatsApp line.
+    waConfirmed: !!g.whatsapp && !/listing|phone/i.test(g.whatsapp_basis || ""),
     priceTalk: priceTalk(g.price_signal),
     prices: normPrices(g.price_examples),
     ownerReviews: REVIEWS[g.id || slugify(g.name)] || [],
@@ -147,6 +149,20 @@ const defaultRank = (a, b) =>
 // Every garage keeps its page (slugs are frozen); non-workshops are left out of lists and search.
 // Records Data marks as duplicate_of another are skipped; public/_redirects sends their old URLs to the kept garage.
 export const ALL_GARAGES = (raw.garages || raw).filter((g) => g && g.name && !g.duplicate_of).map(norm).sort(defaultRank);
+// Legal guard (PM + Legal, 10 Nov): no negatives from outside sources in any published text. Same pattern as
+// Data's pipeline/legal_strip.py. A hit fails the build and names the garage and field, so it can't reach the live site.
+const LEGAL_NEG = /pricey|pricy|expensive|overpric|over-pric|overcharg|over-charg|\bslow\b|delays?\b|rip ?-?off|scam|\bavoid|complain|terrible|horrible|worst|rude|do not use|don'?t use|not fixed|unresolved|upsell|\bfail|1[–-]2 stars?|negative|\bmixed\b|bad (service|experience)|poor (service|work|communication)/i;
+(() => {
+  const hits = [];
+  (raw.garages || raw).filter((g) => g && g.name && !g.duplicate_of).forEach((g) => {
+    const f = [["review_summary", g.review_summary], ...[].concat(g.evidence_summary || []).map((t, i) => [`evidence_summary[${i}]`, t]),
+      ...(g.specialties || []).map((x, i) => [`specialties[${i}].evidence`, x.evidence]),
+      ...(g.external_reviews || []).map((x, i) => [`external_reviews[${i}].excerpt`, x.excerpt]),
+      ...((g.community_mentions || {}).sources || []).map((x, i) => [`community_mentions.sources[${i}].quote`, x.quote])];
+    f.forEach(([k, t]) => { const m = t && String(t).match(LEGAL_NEG); if (m) hits.push(`${g.id || g.name} ${k}: "${m[0]}" in "${String(t).slice(0, 90)}"`); });
+  });
+  if (hits.length) throw new Error(`Legal guard: ${hits.length} outside-source negative(s) in published text. Run Data's legal_strip.py, then rebuild.\n` + hits.join("\n"));
+})();
 export const GARAGES = ALL_GARAGES.filter((g) => !g.notWorkshop && !g.closed);
 export const BY_SLUG = Object.fromEntries(ALL_GARAGES.map((g) => [g.slug, g]));
 export const DATA_UPDATED = raw.updated || "";
@@ -284,10 +300,9 @@ export function priceTalk(ps) {
   if (!ps || !(ps.price_mentions >= 5)) return null;
   const n = ps.price_mentions, exp = ps.expensive || 0, fair = ps.fair || 0, cheap = ps.cheap || 0;
   const pos = fair + cheap;
-  const label = exp / n >= 0.5 ? `Reviewers often call it expensive (${exp} of ${n} who mentioned price)`
-    : pos / n >= 0.6 && exp / n < 0.25 ? `Reviewers call prices fair (${pos} of ${n} who mentioned price)`
-    : `Mixed views on price (${n} reviewers mentioned it)`;
-  const tone = exp / n >= 0.5 ? "neg" : pos / n >= 0.6 && exp / n < 0.25 ? "pos" : "mid";
+  // Legal (spec 11e/12.4): outside-source price talk is shown only when it's positive; "expensive" counts stay internal.
+  const label = pos / n >= 0.6 && exp / n < 0.25 ? `Reviewers call prices fair (${pos} of ${n} who mentioned price)` : null;
+  const tone = label ? "pos" : "";
   const jobs = (ps.jobs || []).filter((j) => j.sources >= 3 && j.aed_low > 0)
     .map((j) => ({ ...j, aed_high: Math.max(j.aed_high || j.aed_low, j.aed_low) }));
   return { label, tone, n, read: ps.reviews_read || null, asOf: ps.as_of || "", jobs };
@@ -372,7 +387,7 @@ export const PROBLEMS = [
   { slug: "noise-over-bumps", symptom: "Car knocking over bumps", trade: "suspension repair", label: "Noise over bumps", key: "suspension", job: "suspension", syn: "knock knocking clunk bumps sagging suspension air suspension rattle", causes: "Worn bushes, links or shock absorbers, or an air suspension leak." },
   { slug: "wont-start", symptom: "Car won't start", trade: "battery and electrical repair", label: "Won't start", key: "battery", job: "electrical", syn: "won't start wont start not starting dead battery battery no crank", causes: "Usually the battery. Sometimes the starter, the alternator or the immobiliser." },
   { slug: "overheating", symptom: "Car overheating", trade: "cooling system repair", label: "Overheating", key: "overheating", job: "engine", syn: "overheat overheating temperature coolant hot engine", causes: "Low coolant, a leak, or a failing fan, thermostat or water pump." },
-  { slug: "brakes-noise", symptom: "Car brakes squeaking or grinding", trade: "brake repair", label: "Brakes squeak or grind", key: "brakes", job: "brakes", syn: "brake brakes squeak squeal grind grinding vibration when braking", causes: "Worn pads or discs, or a sticking calliper." },
+  { slug: "brakes-noise", symptom: "Car brakes squeaking or grinding", trade: "brake repair", label: "Brakes squeak or grind", key: "brakes", job: "brakes", syn: "brake brakes squeak squeal grind grinding vibration when braking noise noisy", causes: "Worn pads or discs, or a sticking calliper." },
   { slug: "oil-leak", symptom: "Car leaking oil", trade: "oil leak repair", label: "Oil leak", key: "oil_leak", job: "engine", syn: "oil leak leaking drip drips oil under car", causes: "A gasket, a seal or the oil pan. A leak test finds the source." },
   { slug: "steering", symptom: "Car steering pulling or heavy", trade: "steering and wheel alignment", label: "Steering pulls or feels heavy", key: "steering", job: "suspension", syn: "steering pulls pulling alignment heavy steering wheel shakes", causes: "Wheel alignment, tyres, or the power steering fluid or pump." },
   { slug: "service-due", symptom: "Car service due", trade: "car servicing", label: "Service due", key: "service", job: "servicing", syn: "service servicing oil change maintenance minor service major service", causes: "Routine oil, filters and checks at the interval in your service book." },
@@ -477,7 +492,8 @@ export function dealerVsIndie(make, model) {
   const by = {};
   PRICE_BENCH.filter(fits).forEach((r) => {
     const lo = Number(r.aed_low), hi = Number(r.aed_high) || lo;
-    if (!(lo > 0)) return;
+    // Labour-only prices aren't comparable with a dealer's all-in price, so they stay out of the table.
+    if (!(lo > 0) || /labou?r only/i.test(Object.values(r).join(" "))) return;
     const side = r.business_type === "dealer" ? "dealer" : "indie";
     const j = (by[r.job] ||= { job: JOB_NAME[r.job] || r.job, dealer: [], indie: [] });
     j[side].push({ lo, hi, model: r.model, src: r.source });
@@ -519,4 +535,15 @@ export function quotePoints() {
     out.push({ j: b.key, mk: p.make, md: p.model || "", v: Math.round((lo + hi) / 2), d: p.src === "dealer" || g.isDealer ? 1 : 0 });
   })));
   return out;
+}
+
+// SEO (10 Nov): "Common problems" row on brand and model pages, car-framed anchors to problem pages.
+// Problems ranked by how many of this page's garages owners mention for them; problem pages with an approved intro first.
+export function commonProblems(garages, car, issuesUrl = null) {
+  const on = new Set(garages.map((g) => g.slug));
+  const rows = PROBLEMS.map((p) => ({ p, n: problemGarages(p).filter(({ g }) => on.has(g.slug)).length, live: !!intro(`dubai/problem/${p.slug}`) }))
+    .filter((x) => x.n > 0 || x.live)
+    .sort((a, b) => b.live - a.live || b.n - a.n).slice(0, 6)
+    .map(({ p }) => ({ name: p.slug === "buying-used" ? `${car}: buying used` : `${car} ${p.label.charAt(0).toLowerCase()}${p.label.slice(1)}`.replace(/ ac /i, " AC "), url: `/dubai/problem/${p.slug}/` }));
+  return issuesUrl ? [{ name: `${car} known issues`, url: issuesUrl }, ...rows] : rows;
 }

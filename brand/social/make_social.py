@@ -47,7 +47,7 @@ blockquote::before{{content:"“";display:block;font:800 220px/.6 BC;color:#FFB4
 """
 
 def foot(sample):
-    return '<div class="foot"><span>Independent. No paid listings. Not affiliated with any car maker.</span><b>knowsmycar.ae</b></div>'
+    return '<div class="foot"><span>Independent. No paid listings. Not affiliated with any car maker.</span><b>knowsmycar.com</b></div>'
 
 def paid_t(d):
     s = f"""<div class="eyebrow">What owners paid · Dubai</div>

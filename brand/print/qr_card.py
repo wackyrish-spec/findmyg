@@ -3,7 +3,7 @@
 python3 brand/print/qr_card.py --slug armotors --name "ARMotors" --known "Porsche" --known "Cayenne 958" --out brand/print/out
 python3 brand/print/qr_card.py --generic --out brand/print/out     # cars-and-coffee handout, QR to the home page
 
-QR target: https://knowsmycar.ae/review/<slug>/?src=qr  (the review form for that garage).
+QR target: https://knowsmycar.com/review/<slug>/?src=qr  (the review form for that garage).
 Needs: pip install segno ; Playwright (pre-installed) for the PDF step.
 """
 import argparse, html, io, os, subprocess, pathlib
@@ -12,7 +12,7 @@ import segno
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 FONTS = (ROOT / "fonts").as_uri()
 LOGO_DARK = (ROOT / "logo" / "logo-a-on-dark.svg").read_text()
-SITE = "https://knowsmycar.ae"
+SITE = "https://knowsmycar.com"
 
 def qr_svg(url):
     q = segno.make(url, error="m")
