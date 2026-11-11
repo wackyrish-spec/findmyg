@@ -64,26 +64,47 @@ function near(a, b) {
   }
   return e + (a.length - i) + (b.length - j) <= 1;
 }
+const PSTOP = new Set("my the a an is it its car cars vehicle when in on of and to with problem problems issue issues dubai please help why what i im getting get got has have keeps keep very bit".split(" "));
+const pstem = (w) => w.replace(/(ing|ed|es|s)$/, "");
+const problemWords = (q) => norm(q).split(" ").filter((t) => t && !PSTOP.has(t) && t.length > 1);
+// Problems: forgiving match (users type sentences like "my car won't start" or "brakes squeaking").
+// Filler words are ignored, word endings are trimmed, typos allowed; best match first.
+function problemScores(q) {
+  const ptoks = problemWords(q);
+  if (!ptoks.length) return [];
+  return (DATA.problems || []).map((p) => {
+    const hay = norm(`${p.label} ${p.syn}`), words = hay.split(" ");
+    const hit = ptoks.filter((t) => words.some((w) => near(t, w) || near(pstem(t), w) || (pstem(t).length >= 4 && pstem(w).startsWith(pstem(t))))).length;
+    return { p, score: hay.includes(ptoks.join(" ")) ? 99 : hit / ptoks.length };
+  }).filter((x) => x.score > 0).sort((a, b) => b.score - a.score);
+}
+// Edit distance of 2 or less.
+function lev2(a, b) {
+  if (Math.abs(a.length - b.length) > 2) return false;
+  let prev = [...Array(b.length + 1).keys()];
+  for (let i = 1; i <= a.length; i++) {
+    const cur = [i];
+    for (let j = 1; j <= b.length; j++) cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    prev = cur;
+  }
+  return prev[b.length] <= 2;
+}
 function searchOthers(q) {
   const nq = norm(q), toks = nq.split(" ").filter(Boolean);
   if (!toks.length) return [];
   const out = [];
   // Problems: forgiving match (users type sentences like "my car won't start" or "brakes squeaking").
   // Filler words are ignored, word endings are trimmed, typos allowed; best match first.
-  const STOP = new Set("my the a an is it its car cars vehicle when in on of and to with problem problems issue issues dubai please help why what".split(" "));
-  const stem = (w) => w.replace(/(ing|ed|es|s)$/, "");
-  const ptoks = toks.filter((t) => !STOP.has(t) && t.length > 1);
-  if (ptoks.length) (DATA.problems || []).map((p) => {
-    const hay = norm(`${p.label} ${p.syn}`), words = hay.split(" ");
-    const hit = ptoks.filter((t) => words.some((w) => near(t, w) || near(stem(t), w) || (stem(t).length >= 4 && stem(w).startsWith(stem(t))))).length;
-    return { p, score: hay.includes(ptoks.join(" ")) ? 99 : hit / ptoks.length };
-  }).filter((x) => x.score >= 0.6).sort((a, b) => b.score - a.score)
+  problemScores(q).filter((x) => x.score >= 0.6)
     .forEach(({ p }) => out.push({ type: "problem", label: p.label, slug: p.slug }));
   if (IDX && IDX.garages) {
-    IDX.garages.forEach((g) => {
+    const gm = (fn) => IDX.garages.forEach((g) => {
       const words = norm(g.n).split(" ");
-      if (toks.every((t) => words.some((w) => near(t, w)))) out.push({ type: "garage", label: g.n, slug: g.s, sub: g.d ? "Main dealer" : g.a });
+      if (toks.every((t) => words.some((w) => fn(t, w)))) out.push({ type: "garage", label: g.n, slug: g.s, sub: g.d ? "Main dealer" : g.a });
     });
+    gm(near);
+    // Nothing found: allow two wrong letters in longer words ("octain" finds Octane).
+    if (!out.some((x) => x.type === "garage")) gm((t, w) => near(t, w) || (t.length >= 6 && lev2(t, w.slice(0, t.length + 1))));
     IDX.areas.forEach((a) => { if (toks.every((t) => norm(a.n).split(" ").some((w) => near(t, w)))) out.push({ type: "area", label: a.n, slug: a.s }); });
   }
   return [...out.filter((x) => x.type === "problem").slice(0, 3), ...out.filter((x) => x.type === "garage").slice(0, 5), ...out.filter((x) => x.type === "area").slice(0, 2)];
@@ -98,6 +119,7 @@ function searchCars(q) {
   BRANDS.forEach((b) => {
     const bl = b.toLowerCase();
     if (bl.startsWith(q) || toks.every((t) => bl.split(" ").some((w) => w.startsWith(t)))) out.push({ make: b, model: "", code: "", years: "", score: 3, brandOnly: true });
+    else if (toks.every((t) => bl.split(" ").some((w) => near(t, w)))) out.push({ make: b, model: "", code: "", years: "", score: 2, brandOnly: true });
   });
   DATA.rows.forEach((c) => {
     const hay = [c.make, c.model, c.code, c.aliases].join(" ").toLowerCase();
@@ -107,22 +129,85 @@ function searchCars(q) {
       if (c.code && c.code.toLowerCase() === t) s += 5;
       else if (words.includes(t)) s += 3;
       else if (words.some((w) => w.startsWith(t))) s += 1;
+      else if (t.length >= 4 && words.some((w) => near(t, w))) s += 1; // one typo: "porshe cayene"
       else { s = -1; break; }
     }
     if (s > 0) out.push({ ...c, score: s });
   });
   return out.sort((a, b) => b.score - a.score).slice(0, 8);
 }
+// Nothing matched: send unknown cars to the honest "not covered" page (logs demand), and unknown problems
+// to the closest problems we do cover, plus a one-line "tell us what's wrong" that logs the words (feedback table).
+const OTHER_MAKES = "kia hyundai honda mazda chevrolet chevy ford gmc dodge ram chrysler mitsubishi suzuki mg geely chery haval great wall tesla volvo peugeot renault citroen skoda seat infiniti cadillac lincoln genesis subaru isuzu changan jetour byd fiat opel buick mini jaguar maserati bentley rolls royce ferrari lamborghini mclaren aston martin acura polestar lucid rivian tank exeed gac hongqi jac".split(" ");
+const PROBLEM_RX = /leak|nois|sound|start|smok|overheat|vibrat|shak|light|warn|squeal|squeak|grind|jerk|slip|smell|stall|fail|broke|dead|drain|rattl|knock|stuck|rough|delay|wobbl|drip|cold|\bac\b|brake|gear|engine|clutch|tyre|tire|battery|steer|suspens|\boil\b|coolant|wont|won t|doesn|not work/;
+const GARAGE_RX = /\b(garage|garages|auto|autos|motors|motor|service|services|workshop|care|centre|center|llc|repair|repairs|tuning|performance)\b/;
+function noMatch(v, all) {
+  const raw = v.trim().replace(/\b(19[89]\d|20[0-3]\d)\b/, "").trim().slice(0, 120), n = norm(raw), words = raw.split(/\s+/).filter(Boolean);
+  const chips = (list) => `<div class="nmchips">${list.map((p) => `<a class="pill" href="/dubai/problem/${p.slug}/">${esc(p.label)}</a>`).join("")}</div>`;
+  const common = all ? `<p class="sgh">Common problems</p>${chips((DATA.problems || []).slice(0, 6))}` : "";
+  const notify = (make, model) => `/car-not-covered/?make=${encodeURIComponent(make)}${model ? `&model=${encodeURIComponent(model)}` : ""}`;
+  // Not Latin script (e.g. Arabic): we only index English names.
+  if (!n) return `<p class="nomatch">Try searching in English, like "BMW", "Patrol" or "brakes".</p>${common}`;
+  // Covered make, unknown model ("BMW i3"): the brand page says the model isn't covered yet.
+  const brand = BRANDS.find((b) => n.startsWith(norm(b) + " ") || n === norm(b));
+  if (brand) {
+    const model = words.slice(norm(brand).split(" ").length).join(" ");
+    return `<p class="nomatch">We have no ${esc(model || "model")}-specific evidence yet. <a href="${pageFor({ make: brand, model })}">See ${esc(brand)} specialists</a> or <a href="${notify(brand, model)}">get told when it's covered</a>.</p>${common}`;
+  }
+  // A make we don't cover ("Kia Sportage").
+  const other = OTHER_MAKES.find((m) => n === m || n.startsWith(m + " "));
+  if (other) {
+    const make = words.slice(0, 1).join(" "), model = words.slice(1).join(" ");
+    return `<p class="nomatch">We don't cover ${esc(make)} yet. We only list garages with owner evidence for a car. <a href="${notify(make, model)}">Tell me when it's covered</a>.</p>${common}`;
+  }
+  // Looks like a garage name we don't list.
+  if (all && GARAGE_RX.test(n)) return `<p class="nomatch">We don't list that garage. Know it? <a href="/add-a-garage/">Suggest a garage</a>.</p>${common}`;
+  // Looks like a problem we have no page for ("sunroof leaking", "gearbox jerks").
+  const close = problemScores(raw).slice(0, 3).map((x) => x.p);
+  if (all && (PROBLEM_RX.test(n) || (problemWords(raw).length >= 2 && close.length))) {
+    return `<p class="nomatch">We don't have a page for that problem yet.${close.length ? " These are the closest:" : ""}</p>${close.length ? chips(close) : ""}
+      <form class="nmtell" data-tell><label class="sr" for="tellIn">Tell us what's wrong</label><input id="tellIn" maxlength="200" placeholder="Tell us what's wrong" value="${esc(raw)}"><button class="btn sm" type="submit">Send</button></form>
+      <p class="nomatch" style="padding-top:0">Got a quote already? <a href="/check-a-quote/">Check a dealer quote</a>.</p>`;
+  }
+  // Anything else: a car we couldn't match.
+  return `<p class="nomatch">We couldn't match that car. Try the make or model, like "Cayenne" or "Giulietta". Not listed? <a href="${notify(words[0] || raw, words.slice(1).join(" "))}">Tell me when it's covered</a>.</p>${common}`;
+}
+document.addEventListener("submit", (e) => {
+  const f = e.target.closest("[data-tell]"); if (!f) return;
+  e.preventDefault();
+  const note = ($("input", f).value || "").trim().slice(0, 200);
+  if (note && SB_URL && SB_KEY) fetch(`${SB_URL}/rest/v1/feedback`, { method: "POST", keepalive: true, headers: { apikey: SB_KEY, "Content-Type": "application/json", Prefer: "return=minimal" },
+    body: JSON.stringify({ page: "search:problem", helped: false, note, ref: "problem-demand" }) }).catch(() => {});
+  f.outerHTML = `<p class="nomatch okmsg">Thanks. We'll use this to choose the next problem guides.</p>`;
+});
 function wirePicker(root, onPick, all = false) {
   const inp = $("input", root), list = $(".sugg", root);
   let items = [], act = -1;
-  const find = (v) => all ? [...searchCars(v).slice(0, 5).map((c) => ({ ...c, type: "car" })), ...searchOthers(v)] : searchCars(v);
+  // Car plus problem ("Cayenne coolant leak"): match the car word on its own, and the rest as a problem.
+  const mixed = (v) => {
+    const w = v.trim().split(/\s+/);
+    if (w.length < 2) return null;
+    for (let i = 0; i < w.length; i++) {
+      if (w[i].length < 3) continue;
+      const cars = searchCars(w[i]).filter((c) => !c.brandOnly || w.length === 2);
+      if (cars.length) {
+        const probs = problemScores(w.filter((_, j) => j !== i).join(" ")).filter((x) => x.score >= 0.5).slice(0, 3)
+          .map(({ p }) => ({ type: "problem", label: p.label, slug: p.slug }));
+        if (probs.length) return [...cars.slice(0, 2).map((c) => ({ ...c, type: "car" })), ...probs];
+      }
+    }
+    return null;
+  };
+  const find = (v) => {
+    if (!all) return searchCars(v);
+    const r = [...searchCars(v).slice(0, 5).map((c) => ({ ...c, type: "car" })), ...searchOthers(v)];
+    return r.length ? r : (mixed(v) || []);
+  };
   const head = { car: "Cars", problem: "Problems", garage: "Garages", area: "Areas" };
   const draw = () => {
     if (!items.length) {
       if (inp.value.trim().length >= 2) {
-        const chips = all ? `<p class="sgh">Common problems</p><div class="nmchips">${(DATA.problems || []).slice(0, 6).map((p) => `<a class="pill" href="/dubai/problem/${p.slug}/">${esc(p.label)}</a>`).join("")}</div>` : "";
-        list.innerHTML = `<p class="nomatch">No match yet. Try the make or model name, like "Cayenne" or "Giulietta", or <a href="/add-a-garage/">tell us your car</a>.</p>${chips}`; list.hidden = false; }
+        list.innerHTML = noMatch(inp.value, all); list.hidden = false; }
       else list.hidden = true;
       inp.setAttribute("aria-expanded", "false"); return;
     }
