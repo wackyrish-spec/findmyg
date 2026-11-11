@@ -2,6 +2,43 @@
 // [make, model, chassis code, years, aliases (lower case, space separated)]
 // Models found in data/garages.json are added automatically at build time.
 const ROWS = [
+  // Classic generations (PM missing-car spec, 11 Nov): recognised by the search, flagged so the page says
+  // honestly that we have no generation-specific evidence yet. 6th field marks them.
+  ["BMW", "3 Series", "E21", "1975–1983", "e21 320i 323i", 1],
+  ["BMW", "3 Series", "E30", "1982–1994", "e30 325i 318i 318is m3", 1],
+  ["BMW", "3 Series", "E36", "1990–2000", "e36 328i 325i m3", 1],
+  ["BMW", "5 Series", "E28", "1981–1988", "e28 535i m5", 1],
+  ["BMW", "5 Series", "E34", "1988–1996", "e34 525i 535i 540i m5", 1],
+  ["BMW", "5 Series", "E39", "1995–2003", "e39 528i 530i 540i m5", 1],
+  ["BMW", "6 Series", "E24", "1976–1989", "e24 635csi m6 m635", 1],
+  ["Mercedes-Benz", "E-Class", "W123", "1976–1986", "w123 230e 280e 300d", 1],
+  ["Mercedes-Benz", "E-Class", "W124", "1984–1997", "w124 300e e320 e500 500e", 1],
+  ["Mercedes-Benz", "190E", "W201", "1982–1993", "w201 190 190e cosworth", 1],
+  ["Mercedes-Benz", "SL", "R107", "1971–1989", "r107 450sl 560sl 280sl", 1],
+  ["Mercedes-Benz", "SL", "R129", "1989–2001", "r129 sl500 sl600 500sl", 1],
+  ["Mercedes-Benz", "S-Class", "W126", "1979–1991", "w126 560sel 500sel 300se", 1],
+  ["Mercedes-Benz", "S-Class", "W140", "1991–1998", "w140 s500 s600", 1],
+  ["Mercedes-Benz", "G-Class", "W463 classic", "1990–2018", "w460 w461 g500 g55 old g wagon gclass", 1],
+  ["Porsche", "911", "930", "1975–1989", "930 turbo g-series g series carrera 3.2", 1],
+  ["Porsche", "911", "964", "1989–1994", "964 carrera 2 4", 1],
+  ["Porsche", "911", "993", "1994–1998", "993 carrera air cooled aircooled", 1],
+  ["Porsche", "944", "", "1982–1991", "944 turbo s2", 1],
+  ["Porsche", "928", "", "1977–1995", "928 s4 gts", 1],
+  ["Porsche", "Boxster", "986", "1996–2004", "986 boxster s", 1],
+  ["Volkswagen", "Golf", "Mk1", "1974–1983", "mk1 golf 1 gti rabbit", 1],
+  ["Volkswagen", "Golf", "Mk2", "1983–1992", "mk2 golf 2 gti", 1],
+  ["Volkswagen", "Golf", "Mk3", "1991–1999", "mk3 golf 3 vr6 gti", 1],
+  ["Volkswagen", "Golf", "Mk4", "1997–2004", "mk4 golf 4 r32 gti", 1],
+  ["Alfa Romeo", "Giulia", "105", "1962–1977", "105 gtv gt junior spider duetto", 1],
+  ["Alfa Romeo", "Alfetta", "116", "1972–1987", "116 gtv6 alfetta", 1],
+  ["Alfa Romeo", "GTV", "916", "1994–2004", "916 gtv spider", 1],
+  ["Toyota", "Land Cruiser", "FJ40", "1960–1984", "40 series fj40 bj40 lc40", 1],
+  ["Toyota", "Land Cruiser", "LC60", "1980–1990", "60 series fj60 fj62 lc60", 1],
+  ["Toyota", "Land Cruiser", "LC80", "1990–1997", "80 series fzj80 lc80", 1],
+  ["Nissan", "Patrol", "Y60", "1987–1997", "y60 gq safari td42", 1],
+  ["Land Rover", "Defender", "Classic", "1983–2016", "defender 90 110 td5 tdci 300tdi puma", 1],
+  ["Land Rover", "Range Rover", "Classic", "1970–1996", "range rover classic rrc", 1],
+  ["Land Rover", "Range Rover", "P38", "1994–2002", "p38 p38a", 1],
   ["Porsche", "911", "996", "1998–2005", "carrera 996 turbo"],
   ["Porsche", "911", "997", "2005–2012", "997.1 997.2 carrera s gt3"],
   ["Porsche", "911", "991", "2012–2019", "991.1 991.2 gt3"],
@@ -26,6 +63,8 @@ const ROWS = [
   ["Mercedes-Benz", "C-Class", "W204", "2007–2014", "c63 amg m156 c200"],
   ["Mercedes-Benz", "C-Class", "W205", "2014–2021", "c63s c300"],
   ["Mercedes-Benz", "S-Class", "W222", "2013–2020", "s500 s560 airmatic"],
+  ["Mercedes-Benz", "E-Class", "W212", "2009–2016", "w212 e350 e63 e250"],
+  ["Mercedes-Benz", "E-Class", "W211", "2002–2009", "w211 e55 e500"],
   ["Mercedes-Benz", "E-Class", "W213", "2016–2023", "e300 e63"],
   ["Toyota", "Land Cruiser", "LC100", "1998–2007", "lc 100 series"],
   ["Toyota", "Land Cruiser", "LC200", "2007–2021", "lc lc200 200 series vxr gxr"],
@@ -364,6 +403,6 @@ const ROWS = [
 // De-duplicated: a curated row (with a chassis code) wins over the plain everyday row for the same model.
 const seen = new Set(ROWS.filter((r) => r[2]).map((r) => `${r[0]}|${r[1]}`));
 export const CATALOG = ROWS.filter((r) => r[2] || !seen.has(`${r[0]}|${r[1]}`) && (seen.add(`${r[0]}|${r[1]}`), true))
-  .map(([make, model, code, years, aliases]) => ({ make, model, code, years, aliases }));
+  .map(([make, model, code, years, aliases, classic]) => ({ make, model, code, years, aliases, ...(classic ? { classic: 1 } : {}) }));
 // Car families for the "close" answer when a make has no specialists yet (Data's car_families, plus Chinese makes).
 export const EXTRA_FAMILIES = { chinese: ["MG", "Geely", "Chery", "Jetour", "Haval", "Changan", "GAC", "Hongqi", "BYD"] };

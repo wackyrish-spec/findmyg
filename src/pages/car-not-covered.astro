@@ -2,32 +2,19 @@
 // "Not yet" answer: honest, one next step (notify). No all-makes or family lists (Rishal 10 Nov: keep it specialised). noindex.
 import Base from "../layouts/Base.astro";
 ---
-<Base title="Your car isn't covered yet" description="No specialists for your car yet. Garages owners trust with similar cars, and a way to hear when yours is covered." noindex={true} crumbs={[{ name: "Your car" }]}>
-  <div class="wrap" style="padding-block:20px 56px">
+<Base title="Your car isn't covered yet" description="We don't cover your car yet. Tell us you want it and it moves up our list." noindex={true} crumbs={[{ name: "Your car" }]}>
+  <div class="wrap" id="ncPage" style="padding-block:20px 56px;max-width:720px">
     <h1 id="ncTitle" style="font-size:40px;text-transform:uppercase">We don't cover your car yet</h1>
-    <p class="muted" id="ncLead">We only list garages that owners vouch for with your exact car, and we haven't found enough yet. Leave your email and we'll tell you once when we do.</p>
-    <form class="card panel notify" id="notifyForm" data-page="/car-not-covered/" data-make="" data-model="">
-      <h2>Tell me when my car is covered</h2>
-      <p class="sub">Leave your email and we'll tell you once, when owners have reviewed garages for it. Nothing else. Know a good one? <a href="/add-a-garage/">Suggest a garage</a>.</p>
-      <div class="two">
-        <label class="fld" for="nEmail">Email<input id="nEmail" type="email" required autocomplete="email" placeholder="you@example.com" /></label>
-        <label class="fld" for="nCar">Your car<input id="nCar" maxlength="80" placeholder="e.g. MG ZS 2023" /></label>
+    <p class="muted" id="ncLead">We only list garages that owners vouch for with your car. Tell us you want it, and it moves up our list.</p>
+    <div class="card panel wantbox" id="ncWant" hidden></div>
+    <details class="card panel ncpick" id="ncPick">
+      <summary id="ncPickSum">Not quite your car?</summary>
+      <div class="ncpickrow">
+        <label class="fld" for="ncMake">Make<select id="ncMake"></select></label>
+        <label class="fld" for="ncModel">Model<select id="ncModel" disabled></select></label>
+        <label class="fld" for="ncYear">Year (optional)<input id="ncYear" inputmode="numeric" maxlength="4" placeholder="e.g. 2019" /></label>
       </div>
-      <p class="muted" style="font-size:12px;margin:0">See our <a href="/privacy/">privacy policy</a>.</p>
-      <div class="err" id="nErr" hidden></div>
-      <button class="btn primary" type="submit">Tell me when it's covered</button>
-      <p class="okmsg" id="nOk" hidden>Thanks, we'll email you once.</p>
-    </form>
+    </details>
+    <p class="muted" id="ncSuggest" hidden>Know a great <span id="ncSuggestMake"></span> specialist? <a href="/add-a-garage/">Suggest a garage</a>.</p>
   </div>
 </Base>
-<script is:inline>
-  (() => {
-    const q = new URLSearchParams(location.search), make = (q.get("make") || "").slice(0, 40), model = (q.get("model") || "").slice(0, 40);
-    const car = [make, model].filter(Boolean).join(" ");
-    if (car) {
-      document.getElementById("ncTitle").textContent = `We don't cover the ${car} yet`;
-      const f = document.getElementById("notifyForm"); f.dataset.make = make; f.dataset.model = model;
-      document.getElementById("nCar").value = car;
-    }
-  })();
-</script>

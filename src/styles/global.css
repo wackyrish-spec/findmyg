@@ -477,3 +477,12 @@ footer .proof{margin:0 0 8px;font-weight:800}
 .sugg .nmtell button{width:auto;flex:none;min-height:44px;padding:8px 16px;border:0;border-radius:10px;background:var(--blue);color:var(--blue-ink);font-weight:700;justify-content:center}
 .sugg .nmtell button:hover{background:var(--blue)}.nmtell input{min-height:44px;flex:1 1 auto}
 .btn.outline{border-color:var(--blue);color:var(--blue);background:var(--surface)}
+.closenote p{margin:0 0 10px;font-weight:500}.closenote{font-weight:400}
+.wantbox .btn{min-height:44px}.wantok{margin:0 0 10px;font-weight:700;color:var(--pos)}
+.wantrow{display:flex;gap:8px;margin-top:6px}.wantrow input{flex:1 1 auto;min-width:0}.wantfine{font-size:12px;margin:8px 0 0}
+.wantmail .fld{font-weight:500}
+.ncpick{margin-top:14px}.ncpick summary{cursor:pointer;font-weight:700;min-height:28px}
+.ncpickrow{display:grid;grid-template-columns:1fr 1fr 140px;gap:10px;margin-top:12px}
+@media (max-width:560px){.ncpickrow{grid-template-columns:1fr}.wantbox .wantbtn{width:100%}}
+#ncSuggest{margin-top:14px}
+.is-close #resort{display:none}.closenote{margin-top:12px}
