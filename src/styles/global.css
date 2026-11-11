@@ -486,3 +486,4 @@ footer .proof{margin:0 0 8px;font-weight:800}
 @media (max-width:560px){.ncpickrow{grid-template-columns:1fr}.wantbox .wantbtn{width:100%}}
 #ncSuggest{margin-top:14px}
 .is-close #resort{display:none}.closenote{margin-top:12px}
+.wantrow .btn{white-space:nowrap;flex:none}
