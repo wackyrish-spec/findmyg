@@ -476,3 +476,4 @@ footer .proof{margin:0 0 8px;font-weight:800}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .sugg .nmtell button{width:auto;flex:none;min-height:44px;padding:8px 16px;border:0;border-radius:10px;background:var(--blue);color:var(--blue-ink);font-weight:700;justify-content:center}
 .sugg .nmtell button:hover{background:var(--blue)}.nmtell input{min-height:44px;flex:1 1 auto}
+.btn.outline{border-color:var(--blue);color:var(--blue);background:var(--surface)}

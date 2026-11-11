@@ -23,7 +23,7 @@ const org = {
     </div>
     <div class="tries" aria-label="Example cars"><span class="trylab">Try a car</span><div class="tryrow">{["Cayenne 958", "E90 335i", "Patrol Y62", "Range Rover"].map((t) => <button type="button" class="chip" data-try={t}>{t}</button>)}</div></div>
     <div class="tries" aria-label="Common problems"><span class="trylab">Or a problem</span><div class="tryrow">{PROBLEMS.slice(0, 4).map((p) => <a class="chip" href={`/dubai/problem/${p.slug}/`}>{p.label}</a>)}</div></div>
-    <div class="herocta"><a class="btn primary" href="/check-a-quote/">Check a dealer quote</a><button type="button" class="btn" data-reviewcta>Review a garage</button></div>
+    <div class="herocta"><a class="btn outline" href="/check-a-quote/">Check a dealer quote</a><button type="button" class="btn" data-reviewcta>Review a garage</button></div>
   </div></section>
   <div class="wrap">
     <section class="blk"><div class="blkhead"><div><h2>Specialist garages in Dubai by car brand</h2><p>{evidenceGarages} garages have specialties backed by reviews or owner recommendations.</p></div><a class="btn sm" href="/dubai/">All {GARAGES.length} garages</a></div>
