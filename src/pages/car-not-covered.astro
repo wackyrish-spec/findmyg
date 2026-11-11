@@ -1,26 +1,11 @@
 ---
-// "Not yet" answer (PM spec 12.1): any car gets an honest page, never an empty list. noindex.
+// "Not yet" answer: honest, one next step (notify). No all-makes or family lists (Rishal 10 Nov: keep it specialised). noindex.
 import Base from "../layouts/Base.astro";
-import GarageCard from "../components/GarageCard.astro";
-import { familyGarages, FAMILY_LABEL, MAKE_FAMILY } from "../lib/data.js";
-const fams = Object.keys(FAMILY_LABEL).map((f) => ({ f, label: FAMILY_LABEL[f], ...familyGarages(f) }));
-const allMakes = familyGarages("__none__").all;
 ---
 <Base title="Your car isn't covered yet" description="No specialists for your car yet. Garages owners trust with similar cars, and a way to hear when yours is covered." noindex={true} crumbs={[{ name: "Your car" }]}>
   <div class="wrap" style="padding-block:20px 56px">
-    <h1 id="ncTitle" style="font-size:40px;text-transform:uppercase">No specialists for your car yet</h1>
-    <p class="muted" id="ncLead">We haven't found garages with owner evidence for your car yet. Here's the next best thing.</p>
-    <script type="application/json" id="nc-families" set:html={JSON.stringify(MAKE_FAMILY)} />
-    {fams.filter((x) => x.family.length > 0).map((x) => (
-      <section class="blk" data-family={x.f} hidden>
-        <div class="blkhead"><h2>Garages owners trust with {x.label}</h2></div>
-        <div class="results">{x.family.map((g) => <GarageCard g={g} />)}</div>
-      </section>
-    ))}
-    <section class="blk" id="ncAll">
-      <div class="blkhead"><div><h2>Workshops that work on all makes</h2><p class="sub">Reviews show they take most brands. Not specialists, but a reasonable place to start.</p></div></div>
-      <div class="results">{allMakes.map((g) => <GarageCard g={g} />)}</div>
-    </section>
+    <h1 id="ncTitle" style="font-size:40px;text-transform:uppercase">We don't cover your car yet</h1>
+    <p class="muted" id="ncLead">We only list garages that owners vouch for with your exact car, and we haven't found enough yet. Leave your email and we'll tell you once when we do.</p>
     <form class="card panel notify" id="notifyForm" data-page="/car-not-covered/" data-make="" data-model="">
       <h2>Tell me when my car is covered</h2>
       <p class="sub">Leave your email and we'll tell you once, when owners have reviewed garages for it. Nothing else. Know a good one? <a href="/add-a-garage/">Suggest a garage</a>.</p>
@@ -40,12 +25,9 @@ const allMakes = familyGarages("__none__").all;
     const q = new URLSearchParams(location.search), make = (q.get("make") || "").slice(0, 40), model = (q.get("model") || "").slice(0, 40);
     const car = [make, model].filter(Boolean).join(" ");
     if (car) {
-      document.getElementById("ncTitle").textContent = `No specialists for your ${car} yet`;
+      document.getElementById("ncTitle").textContent = `We don't cover the ${car} yet`;
       const f = document.getElementById("notifyForm"); f.dataset.make = make; f.dataset.model = model;
       document.getElementById("nCar").value = car;
     }
-    let fam = {}; try { fam = JSON.parse(document.getElementById("nc-families").textContent); } catch {}
-    const sec = document.querySelector(`[data-family="${fam[make] || ""}"]`);
-    if (sec) sec.hidden = false;
   })();
 </script>
