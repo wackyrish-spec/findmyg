@@ -4,7 +4,7 @@ url: /dubai/land-rover/range-rover/service-cost/
 title: "Range Rover service cost in Dubai: dealer vs independent"
 description: "Range Rover and Defender minor service and brakes in Dubai: independent menus from AED 982 vs an owner's dealer Defender quote of about AED 4,000. Sources and dates shown."
 h1: "Range Rover and Defender service cost in Dubai: dealer vs independent"
-status: approved by Marketer, 10 Nov 2026
+status: approved by Marketer and SEO (Britfix rows checked against CSV, 98 rows), 10 Nov 2026
 data_source: data/price-benchmarks.csv (rows as of Aug to Nov 2026)
 links_to: /dubai/land-rover/range-rover/, /dubai/land-rover/, /dubai/problem/buying-used/, /check-a-quote/
 schema: Article + FAQPage (3 FAQs below); no Review/AggregateRating markup
@@ -12,6 +12,8 @@ review_by: 28 Feb 2027
 ---
 
 **Short answer:** an independent Land Rover specialist in Dubai publishes a fixed-price Range Rover minor service at AED 982 to 1,270 including VAT, depending on the model and year. Land Rover dealers don't publish service prices. The one dealer figure we have is an owner's quote of "almost AED 4,000" for a 2024 Defender minor service. One market guide puts dealer servicing at 30 to 50% more than an independent for a 2019 Range Rover.
+
+**Got a dealer quote?** [Check it here](/check-a-quote/) against what independents publish and what other owners paid.
 
 ## Minor service (AED, including VAT)
 
@@ -26,6 +28,16 @@ review_by: 28 Feb 2027
 
 **For comparison:** one market guide puts a 2019 Range Rover Vogue minor service at AED 2,500 to 4,000 at an independent specialist, with the dealer 30 to 50% higher ([CarSwitch, Jul 2026](https://carswitch.com/newsroom/range-rover-price-in-uae-2026-used-vs-new-generation-guide-true-cost-of-owning-a-pre-owned-range-rover/)). That's well above A2B's menu. Packages differ, so the only fair comparison is an itemised quote for your car.
 
+## Major service (AED)
+
+| Model | Independent: Britfix, Al Quoz 4 | Source |
+|---|---|---|
+| Range Rover Sport | 1,450 | [Britfix's Range Rover page](https://britfix.ae/brands/range-rover), Nov 2026 |
+| Range Rover Velar | 1,300 | Britfix, Nov 2026 |
+| Range Rover Evoque | 1,150 | Britfix, Nov 2026 |
+
+*Britfix doesn't say whether these include VAT, or which model years they cover, so ask both before you compare. A major service adds more filters, plugs and fluids to the minor service, so check the list.*
+
 ## Front brakes (AED, including VAT)
 
 | Model | Pads + disc skim | Pads + new discs |
@@ -36,6 +48,8 @@ review_by: 28 Feb 2027
 | Range Rover Sport Supercharged, 2014 on | 2,042 | about 2,872 |
 
 Source: [A2B Garage's price menu](https://www.a2b-garage.com/servicing/servicing-by-make/range-rover-servicing), Nov 2026, VAT added at 5%.
+
+Britfix publishes front pads only, fitted, for the Range Rover Sport and Velar at AED 450 to 650 per axle, VAT not stated ([Britfix](https://britfix.ae/services/brake-pads), Nov 2026). Pads alone aren't the same job as pads with discs, so compare like with like.
 
 ## Defender: what an owner was quoted at the dealer
 

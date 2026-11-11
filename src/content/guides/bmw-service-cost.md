@@ -4,7 +4,7 @@ url: /dubai/bmw/service-cost/
 title: "BMW service cost in Dubai: independent garage prices"
 description: "BMW minor service, front brake pads and AC re-gas in Dubai: what independent garages publish, from AED 249. BMW dealers don't publish prices. Sources and dates shown."
 h1: "BMW service cost in Dubai: what independent garages charge"
-status: approved by Marketer, 10 Nov 2026
+status: approved by Marketer and SEO (figures re-checked against CSV, 91 rows), 10 Nov 2026
 data_source: data/price-benchmarks.csv (BMW rows as of 10 Nov 2026)
 links_to: /dubai/bmw/, /dubai/problem/ac-not-cold/, /check-a-quote/
 schema: Article + FAQPage (3 FAQs below); no Review/AggregateRating markup
@@ -12,6 +12,8 @@ review_by: 28 Feb 2027, or sooner if Data finds a dealer price (then switch the 
 ---
 
 **Short answer:** independent garages in Dubai publish a BMW minor service (oil, filter and checks) at about AED 250 to 750, depending on the garage, the engine and what's included. Front brake pads, fitted, run about AED 200 to 715 per axle, and an AC re-gas about AED 150 to 700. BMW dealers in the UAE don't publish service prices, so the only way to compare with the dealer is to get their quote in writing and set it next to these.
+
+**Got a dealer quote?** [Check it here](/check-a-quote/) against what independents publish and what other owners paid.
 
 ## Minor service (oil, filter, checks)
 
@@ -47,6 +49,8 @@ On a BMW, the pad price is rarely the whole story. New discs and a new wear sens
 Newer BMWs use R1234yf gas, which costs much more than the older R134a. That alone explains most of the difference between quotes. If your AC is weak again within weeks of a re-gas, there's a leak: see [AC not cold? Garages owners trust](/dubai/problem/ac-not-cold/).
 
 ## Dealer or independent?
+
+**The one dealer figure we have is old.** In 2022, one owner on r/dubai said the BMW dealer (AGMC) quoted AED 2,200 over the phone for an oil service on a 2017 530, outside a service package ([thread](https://www.reddit.com/r/dubai/comments/vhz4wt/bmw_service_contracts/)). It's a single, four-year-old quote, so treat it as a rough marker, not today's dealer price. If you have a recent dealer quote, [check it here](/check-a-quote/).
 
 - **Under warranty or BMW Approved:** stay with the dealer for anything warranty-related, and check your terms before servicing elsewhere.
 - **Out of warranty:** an independent with BMW diagnostic software (to code new parts and reset the service) does routine work for much less. Ask for an itemised quote.

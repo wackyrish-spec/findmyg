@@ -13,6 +13,8 @@ review_by: 31 Dec 2026 (dealer prices are a Q4 2026 promo that ends then)
 
 **Short answer:** in November 2026 the Porsche dealer in Al Quoz advertises a minor service at starting prices of AED 1,535 to 2,265 including VAT, depending on the model. Independent Porsche specialists in Dubai publish the same job at about AED 640 to 1,500, depending on the model and engine. Across the models, the independent price works out at about 40% to 70% of the dealer's starting price.
 
+**Got a dealer quote?** [Check it here](/check-a-quote/) against what independents publish and what other owners paid.
+
 I look after a Cayenne myself, and the one thing I'd tell any Porsche owner out of warranty is this: you have a choice. Here are the published numbers, by model, with where each one came from.
 
 ## Minor service by model (AED)
