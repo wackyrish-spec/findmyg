@@ -2,9 +2,15 @@
 -- team_inbox(days): everything visitors send us that someone on the team must read or act on, in one call.
 -- Readable with the site's public key, so it returns NO personal data: never an email, phone, WhatsApp number,
 -- display name, account id, review text, or the free-text "details" of a suggestion or report.
-drop function if exists public.suggestions_inbox(int);
-drop function if exists public.reports_inbox(int);
-drop function if exists public.problem_demand(int);
+
+-- Free text can hold contact details a visitor typed by mistake: strip anything that looks like an email
+-- or a phone number (7+ digits, spaces and dashes allowed) and cut to 200 characters.
+create or replace function public.redact_pii(t text) returns text
+language sql immutable set search_path = public as $$
+  select left(regexp_replace(regexp_replace(t, '[^[:space:]@]+@[^[:space:]@]+', '[removed]', 'g'),
+                             '\+?[0-9]([ ().-]*[0-9]){6,}', '[removed]', 'g'), 200);
+$$;
+revoke all on function public.redact_pii(text) from public;
 
 create or replace function public.team_inbox(days int default 14)
 returns table (source text, created_at timestamptz, subject text, status text, content jsonb)
@@ -12,9 +18,9 @@ language sql stable security definer set search_path = public as $$
   with w as (select now() - make_interval(days => least(greatest(days, 1), 365)) as since)
   select * from (
     -- Add a garage / suggest a correction
-    select 'garage_suggestion' as source, s.created_at, coalesce(s.garage_slug, left(s.name, 120)) as subject, 'unread' as status,
-           jsonb_build_object('kind', case s.kind when 'new' then 'add' else 'correction' end, 'name', left(s.name, 120),
-             'area', left(s.area, 80), 'cars', left(s.cars, 200), 'is_owner', s.is_owner, 'has_contact', s.contact is not null) as content
+    select 'garage_suggestion' as source, s.created_at, coalesce(s.garage_slug, redact_pii(s.name)) as subject, 'unread' as status,
+           jsonb_build_object('kind', case s.kind when 'new' then 'add' else 'correction' end, 'name', redact_pii(s.name),
+             'area', redact_pii(s.area), 'cars', redact_pii(s.cars), 'is_owner', s.is_owner, 'has_contact', s.contact is not null) as content
     from garage_suggestions s, w where s.created_at >= w.since
     union all
     -- Report this review
@@ -24,26 +30,26 @@ language sql stable security definer set search_path = public as $$
     union all
     -- "Did this help?" answers: every "no", and any answer with a note. Also the search box "Tell us what's wrong".
     select case when f.ref = 'problem-demand' then 'problem_search' else 'feedback' end, f.created_at, f.page, 'unread',
-           jsonb_build_object('helped', f.helped, 'note', left(f.note, 200))
+           jsonb_build_object('helped', f.helped, 'note', redact_pii(f.note))
     from feedback f, w where f.created_at >= w.since and (f.helped = false or f.note is not null)
     union all
     -- Owner reviews: pending ones need approving before they show. No name, no text.
     select 'review', v.created_at, v.garage_slug, v.status,
-           jsonb_build_object('car', concat_ws(' ', v.car_year::text, v.car_make, v.car_model), 'rating', v.rating, 'job', v.job,
+           jsonb_build_object('car', concat_ws(' ', v.car_year::text, v.car_make, v.car_model), 'rating', v.rating, 'job', redact_pii(v.job),
              'price_paid', v.price_paid, 'dealer_quote', v.dealer_quote, 'chars', char_length(v.body), 'has_photo', v.photo_path is not null)
     from reviews v, w where v.created_at >= w.since
     union all
     -- "Seen this garage recommended in a group?"
-    select 'group_mention', g.created_at, g.garage_slug, g.status, jsonb_build_object('group_type', g.group_type, 'group_name', left(g.group_name, 120))
+    select 'group_mention', g.created_at, g.garage_slug, g.status, jsonb_build_object('group_type', g.group_type, 'group_name', redact_pii(g.group_name))
     from group_mentions g, w where g.created_at >= w.since
     union all
     -- Quote checks: pending until approved
     select 'quote_check', q.created_at, concat_ws(' ', q.make, q.model), q.status,
-           jsonb_build_object('job', q.job, 'job_note', left(q.job_note, 80), 'aed', q.aed, 'side', q.side, 'month', q.month)
+           jsonb_build_object('job', q.job, 'job_note', redact_pii(q.job_note), 'aed', q.aed, 'side', q.side, 'month', q.month)
     from quote_checks q, w where q.created_at >= w.since
     union all
     -- "Tell me when my car is covered": the car only, never the email
-    select 'coverage_request', c.created_at, left(c.car, 80), 'waiting', jsonb_build_object('page', c.page)
+    select 'coverage_request', c.created_at, redact_pii(c.car), 'waiting', jsonb_build_object('page', c.page)
     from coverage_requests c, w where c.created_at >= w.since
     union all
     -- Uncovered cars people looked for: top 30, counted
