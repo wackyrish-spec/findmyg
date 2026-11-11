@@ -23,7 +23,7 @@ const org = {
     </div>
     <div class="tries">Try {["Cayenne 958", "Golf GTI Mk5", "Alfa Romeo 147", "E90 335i", "G-Wagon", "LC200", "Patrol Y62", "Range Rover"].map((t) => <button type="button" data-try={t}>{t}</button>)}</div>
     <div class="tries">Or by problem: {PROBLEMS.slice(0, 6).map((p) => <a class="pill" href={`/dubai/problem/${p.slug}/`}>{p.label}</a>)}</div>
-    <p class="revcta"><a href="/check-a-quote/">Got a dealer quote? Check it</a> · Used a garage recently? <button type="button" class="linkbtn" data-reviewcta>Review a garage you've used</button></p>
+    <p class="revcta"><a href="/check-a-quote/">Got a dealer quote? Check it</a><br>Used a garage recently? <button type="button" class="linkbtn" data-reviewcta>Review it</button></p>
   </div></section>
   <div class="wrap">
     <section class="blk"><div class="blkhead"><div><h2>Specialist garages in Dubai by car brand</h2><p>{evidenceGarages} garages have specialties backed by reviews or owner recommendations.</p></div><a class="btn sm" href="/dubai/">All {GARAGES.length} garages</a></div>
