@@ -488,3 +488,17 @@ if (qc) wirePicker(qc, () => {});
   try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, "1"); } catch {}
   fetch(`${SB_URL}/rest/v1/car_demand`, { method: "POST", keepalive: true, headers: { apikey: SB_KEY, "Content-Type": "application/json", Prefer: "return=minimal" }, body: JSON.stringify(row) }).catch(() => {});
 })();
+
+/* ---------- page counter (11 Nov: the team reads visits without a dashboard) ---------- */
+// One row per page view on the live domain: path, referring site, ?ref tag, first page of the visit, mobile or not.
+// No cookies, no ids; the "first page" flag lives in sessionStorage for this tab only.
+(() => {
+  if (!SB_URL || !SB_KEY || location.hostname !== "knowsmycar.com" || navigator.webdriver) return;
+  let landing = false;
+  try { landing = !sessionStorage.getItem("gg:seen"); sessionStorage.setItem("gg:seen", "1"); } catch {}
+  let refHost = null;
+  try { const h = document.referrer && new URL(document.referrer).hostname; if (h && h !== location.hostname) refHost = h.replace(/^www\./, "").slice(0, 100); } catch {}
+  const r = attribution();
+  fetch(`${SB_URL}/rest/v1/page_views`, { method: "POST", keepalive: true, headers: { apikey: SB_KEY, "Content-Type": "application/json", Prefer: "return=minimal" },
+    body: JSON.stringify({ path: location.pathname.slice(0, 200), ref_host: refHost, ref_tag: (r.ref || r.utm_source || "").slice(0, 80) || null, landing, mobile: matchMedia("(max-width: 700px)").matches }) }).catch(() => {});
+})();
