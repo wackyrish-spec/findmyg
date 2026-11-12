@@ -3,6 +3,7 @@ slug: mercedes-benz-service-cost
 url: /dubai/mercedes-benz/service-cost/
 title: "Mercedes service cost in Dubai: independent garage prices"
 description: "Mercedes Service A and B, brake pads and AC re-gas in Dubai: independent garage prices by model, from AED 249. Dealers don't publish prices. Sources shown."
+price_fact: "Independent garages publish a Mercedes Service A from about AED 250 to 1,250 for most models; Mercedes dealers don't publish service prices."
 h1: "Mercedes service cost in Dubai: what independent garages charge"
 status: approved by Marketer and SEO (figures re-checked against CSV, 91 rows), 10 Nov 2026
 data_source: data/price-benchmarks.csv (Mercedes-Benz rows as of 10 Nov 2026)

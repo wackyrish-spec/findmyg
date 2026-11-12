@@ -3,6 +3,7 @@ slug: bmw-service-cost
 url: /dubai/bmw/service-cost/
 title: "BMW service cost in Dubai: independent garage prices"
 description: "BMW minor service, front brake pads and AC re-gas in Dubai: what independent garages publish, from AED 249. BMW dealers don't publish prices. Sources and dates shown."
+price_fact: "Independent garages publish a BMW minor service at about AED 250 to 750; BMW dealers in the UAE don't publish service prices."
 h1: "BMW service cost in Dubai: what independent garages charge"
 status: approved by Marketer and SEO (figures re-checked against CSV, 91 rows), 10 Nov 2026
 data_source: data/price-benchmarks.csv (BMW rows as of 10 Nov 2026)

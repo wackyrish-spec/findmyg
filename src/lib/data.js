@@ -576,18 +576,18 @@ export function priceFact(make, model) {
   return lo === hi ? `Independent garages publish ${aed(lo)} for a ${job} (${best[1].length} sourced prices).`
     : `Published independent prices for a ${job} run from ${aed(lo)} to ${aed(hi)} (${best[1].length} sourced prices).`;
 }
-export function brandAnswer(b, ranked) {
+export function brandAnswer(b, ranked, fact) {
   const n = ranked.length, areas = topAreas(ranked);
   if (!n) return null;
   const first = `${plural(n, `independent ${b.make} garage`, `independent ${b.make} garages`)} in Dubai ${n === 1 ? "has" : "have"} owner reviews or recommendations behind ${n === 1 ? "it" : "them"}${areas ? `, mostly in ${areas}` : ""}.`;
   const models = [...b.models].filter((m) => m.evidenceCount > 0).sort((x, y) => y.evidenceCount - x.evidenceCount).slice(0, 3).map((m) => m.model);
-  return `${first} ${priceFact(b.make) || (models.length ? `The best-covered ${models.length === 1 ? "model is" : "models are"} the ${listAnd(models)}.` : "")}`.trim();
+  return `${first} ${fact || priceFact(b.make) || (models.length ? `Most owner evidence is for the ${listAnd(models)}.` : "")}`.trim();
 }
-export function modelAnswer(b, m, ranked) {
-  const n = ranked.length, k = m.evidenceCount, areas = topAreas(ranked), name = m.model.startsWith(b.make) ? m.model : `${b.make} ${m.model}`;
+export function modelAnswer(b, m, ranked, fact) {
+  const n = ranked.length, k = m.evidenceCount, areas = topAreas(ranked), name = m.model.startsWith(b.make) || /^(Range Rover|Land Cruiser)/.test(m.model) ? m.model : `${b.make} ${m.model}`;
   if (!n) return null;
   const first = k > 0
     ? `${plural(k, "independent garage", "independent garages")} in Dubai ${k === 1 ? "is" : "are"} recommended by owners for the ${name} specifically${n > k ? `, among ${n} ${b.make} specialists with evidence` : ""}${areas ? `, mostly in ${areas}` : ""}.`
     : `No Dubai garage has ${m.model}-specific owner evidence yet; the ${plural(n, `${b.make} specialist`, `${b.make} specialists`)} below${areas ? `, mostly in ${areas},` : ""} ${n === 1 ? "is" : "are"} the closest.`;
-  return `${first} ${priceFact(b.make, m.model) || ""}`.trim();
+  return `${first} ${fact || priceFact(b.make, m.model) || ""}`.trim();
 }
