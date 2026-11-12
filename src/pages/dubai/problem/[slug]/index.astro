@@ -15,12 +15,14 @@ const thin = list.length < 3;
 const listed = new Set(list.flatMap(({ g }) => g.specs.map((x) => x.make)));
 const makeFilter = BRANDS.filter((b) => listed.has(b.make)).map((b) => ({ make: b.make, url: `/dubai/${b.slug}/` })).sort((a, b) => a.make.localeCompare(b.make));
 const job = JOB_PAGES.find((j) => j.slug === p.job && !JOB_TO_PROBLEM[j.slug]);
+const NO_CAUSE = ["buying-used", "service-due", "dents-scratches"];
+const causeLine = NO_CAUSE.includes(p.slug) || /^(Usually|Often|Most)/.test(p.causes) ? p.causes : `Common causes: ${p.causes.charAt(0).toLowerCase()}${p.causes.slice(1)}`;
 ---
 <ListPage
   title={it?.title || `${p.symptom} in Dubai: garages owners mention`}
   description={it?.description || `${p.symptom} in Dubai? Common causes, why to ask for a diagnosis first, and garages owners mention for ${p.trade}.`}
   h1={it?.h1 || `${p.symptom} in Dubai`}
-  answer={`${list.length >= 3 ? `${list.length} independent garages in Dubai have owners mentioning ${p.trade} in their reviews. ` : ""}Common causes are ${p.causes.charAt(0).toLowerCase()}${p.causes.slice(1).replace(/\.$/, "")}, so ask for a diagnosis before you agree to replace parts.`}
+  answer={`${list.length >= 3 ? `${list.length} independent garages in Dubai have owners mentioning ${p.trade} in their reviews. ` : ""}${causeLine}`}
   lead={`Common causes are ${p.causes.charAt(0).toLowerCase()}${p.causes.slice(1).replace(/\.$/, "")}, so ask for a diagnosis before you agree to replace parts.`}
   introText={it?.text || `Garages usually call this job ${p.trade}. The list shows independent garages where owners mention it in their reviews, with how many mention it.${thin ? " Few reviews mention this job yet, so a specialist for your make is often the better start." : " Set your car to bring the garages that know it to the top."}`}
   garages={list.map((x) => x.g)}
