@@ -2,6 +2,7 @@
 import raw from "../../data/garages.json";
 import { readFileSync, existsSync } from "node:fs";
 import intros from "../content/intros.json";
+import dataUpdated from "../content/data-updated.json";
 import { CATALOG, EXTRA_FAMILIES } from "./catalog.js";
 import { loadReviews, ownerStats } from "./reviews.js";
 
@@ -165,7 +166,8 @@ const LEGAL_NEG = /pricey|pricy|expensive|overpric|over-pric|overcharg|over-char
 })();
 export const GARAGES = ALL_GARAGES.filter((g) => !g.notWorkshop && !g.closed);
 export const BY_SLUG = Object.fromEntries(ALL_GARAGES.map((g) => [g.slug, g]));
-export const DATA_UPDATED = raw.updated || "";
+// The day the garage data last changed (never the build date): the newer of the file's own stamp and the CTO's sync stamp.
+export const DATA_UPDATED = [raw.updated, dataUpdated.date].filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d || "")).sort().pop() || "";
 export const METHOD = raw.method || "";
 
 /* ---------- brand and model indexes ---------- */
@@ -546,4 +548,46 @@ export function commonProblems(garages, car, issuesUrl = null) {
     .sort((a, b) => b.live - a.live || b.n - a.n).slice(0, 6)
     .map(({ p }) => ({ name: p.slug === "buying-used" ? `${car}: buying used` : `${car} ${p.label.charAt(0).toLowerCase()}${p.label.slice(1)}`.replace(/ ac /i, " AC "), url: `/dubai/problem/${p.slug}/` }));
   return issuesUrl ? [{ name: `${car} known issues`, url: issuesUrl }, ...rows] : rows;
+}
+
+// ---------- AI-visibility (SEO, 12 Nov): a short direct answer and an honest "Updated" date for list pages ----------
+export const fmtDate = (d) => new Date(`${d}T00:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" });
+const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+const listAnd = (xs) => xs.length <= 1 ? xs.join("") : `${xs.slice(0, -1).join(", ")} and ${xs[xs.length - 1]}`;
+// Where most of a list's garages are: top one or two area groups.
+export function topAreas(garages) {
+  const by = {};
+  garages.forEach((g) => { if (g.areaGroup) by[g.areaGroup] = (by[g.areaGroup] || 0) + 1; });
+  const top = Object.entries(by).sort((a, b) => b[1] - a[1]);
+  if (!top.length) return "";
+  return top.length > 1 && top[1][1] >= 2 ? `${top[0][0]} and ${top[1][0]}` : top[0][0];
+}
+// Published independent price range for the commonest job with 3+ sourced prices (price-benchmarks.csv). Null if we lack it.
+export function priceFact(make, model) {
+  const rows = PRICE_BENCH.filter((r) => r.make === make && r.business_type !== "dealer" && Number(r.aed_low) > 0
+    && (!model || lc(r.model).includes(lc(model))) && !/labou?r only/i.test(Object.values(r).join(" ")));
+  const by = {};
+  rows.forEach((r) => (by[r.job] ||= []).push(r));
+  const best = Object.entries(by).filter(([, xs]) => xs.length >= 3).sort((a, b) => (b[0] === "minor_service") - (a[0] === "minor_service") || b[1].length - a[1].length)[0];
+  if (!best) return null;
+  const lo = Math.round(Math.min(...best[1].map((r) => Number(r.aed_low)))), hi = Math.round(Math.max(...best[1].map((r) => Number(r.aed_high) || Number(r.aed_low))));
+  const job = (JOB_NAME[best[0]] || best[0].replace(/_/g, " ")).toLowerCase();
+  const aed = (n) => `AED ${n.toLocaleString("en-US")}`;
+  return lo === hi ? `Independent garages publish ${aed(lo)} for a ${job} (${best[1].length} sourced prices).`
+    : `Published independent prices for a ${job} run from ${aed(lo)} to ${aed(hi)} (${best[1].length} sourced prices).`;
+}
+export function brandAnswer(b, ranked) {
+  const n = ranked.length, areas = topAreas(ranked);
+  if (!n) return null;
+  const first = `${plural(n, `independent ${b.make} garage`, `independent ${b.make} garages`)} in Dubai ${n === 1 ? "has" : "have"} owner reviews or recommendations behind ${n === 1 ? "it" : "them"}${areas ? `, mostly in ${areas}` : ""}.`;
+  const models = [...b.models].filter((m) => m.evidenceCount > 0).sort((x, y) => y.evidenceCount - x.evidenceCount).slice(0, 3).map((m) => m.model);
+  return `${first} ${priceFact(b.make) || (models.length ? `The best-covered ${models.length === 1 ? "model is" : "models are"} the ${listAnd(models)}.` : "")}`.trim();
+}
+export function modelAnswer(b, m, ranked) {
+  const n = ranked.length, k = m.evidenceCount, areas = topAreas(ranked), name = m.model.startsWith(b.make) ? m.model : `${b.make} ${m.model}`;
+  if (!n) return null;
+  const first = k > 0
+    ? `${plural(k, "independent garage", "independent garages")} in Dubai ${k === 1 ? "is" : "are"} recommended by owners for the ${name} specifically${n > k ? `, among ${n} ${b.make} specialists with evidence` : ""}${areas ? `, mostly in ${areas}` : ""}.`
+    : `No Dubai garage has ${m.model}-specific owner evidence yet; the ${plural(n, `${b.make} specialist`, `${b.make} specialists`)} below${areas ? `, mostly in ${areas},` : ""} ${n === 1 ? "is" : "are"} the closest.`;
+  return `${first} ${priceFact(b.make, m.model) || ""}`.trim();
 }

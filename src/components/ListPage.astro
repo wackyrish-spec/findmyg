@@ -4,28 +4,40 @@ import GarageCard from "./GarageCard.astro";
 import HelpFeedback from "./HelpFeedback.astro";
 import Icon from "./Icon.astro";
 import { SITE } from "../lib/site.js";
+import { DATA_UPDATED, fmtDate } from "../lib/data.js";
 const {
   title, description, h1, lead, introText = null, garages, make = null, model = null,
-  noindex, crumbs = [], related = [], pathKey, ogImage, makeFilter = [], dvi = [], dviNote = null, modelChips = [], problems = [], owners = null, faq = [],
+  noindex, crumbs = [], related = [], pathKey, ogImage, makeFilter = [], dvi = [], dviNote = null, modelChips = [], problems = [], owners = null, faq = [], answer = null,
   notes = null, outside = [], others = [], othersLabel = "Also in Dubai, no reviews for your car yet", dealers = [], dealerPrices = [], dealerNote = null,
 } = Astro.props;
 const pageUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const shareText = `${h1}, on ${SITE.name}: ${pageUrl}?ref=wa-share`;
 const thin = garages.length < 3;
+const abs = (u) => new URL(u, Astro.site).toString();
+// Schema from our own data only: no ratings, no review counts (legal: never Google ratings in markup).
 const itemList = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: h1,
+  numberOfItems: Math.min(garages.length, 30),
   itemListElement: garages.slice(0, 30).map((g, i) => ({
-    "@type": "ListItem", position: i + 1, url: new URL(`/garage/${g.slug}/`, Astro.site).toString(), name: g.name,
+    "@type": "ListItem", position: i + 1,
+    item: { "@type": "AutoRepair", "@id": abs(`/garage/${g.slug}/`), name: g.name, url: abs(`/garage/${g.slug}/`),
+      address: { "@type": "PostalAddress", ...(g.area ? { addressLocality: g.area } : {}), addressRegion: "Dubai", addressCountry: "AE" } },
   })),
 };
+const strip = (h) => String(h).replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+const webPage = { "@context": "https://schema.org", "@type": "CollectionPage", url: pageUrl, name: h1, ...(answer ? { description: answer } : {}),
+  ...(DATA_UPDATED ? { dateModified: DATA_UPDATED } : {}), publisher: { "@type": "Organization", name: SITE.name, url: abs("/") } };
+const faqLd = faq.length ? { "@context": "https://schema.org", "@type": "FAQPage",
+  mainEntity: faq.map((f) => ({ "@type": "Question", name: strip(f.q), acceptedAnswer: { "@type": "Answer", text: strip(f.a) } })) } : null;
 ---
-<Base title={title} description={description} noindex={noindex} jsonld={[itemList]} crumbs={crumbs} ogImage={ogImage}>
+<Base title={title} description={description} noindex={noindex} jsonld={[webPage, itemList, ...(faqLd ? [faqLd] : [])]} crumbs={crumbs} ogImage={ogImage}>
   <div class="wrap">
     <div class="rhead"><div>
       <h1>{h1}</h1>
-      <p>{lead}</p>
+      <p class="answer">{answer || lead}</p>
+      {DATA_UPDATED && <p class="muted upd">Updated <time datetime={DATA_UPDATED}>{fmtDate(DATA_UPDATED)}</time></p>}
       {modelChips.length > 0 && (
         <nav class="mchips" aria-label={`Which ${make} do you drive?`}>
           <span class="label">Which {make} do you drive?</span>

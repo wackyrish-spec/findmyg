@@ -1,7 +1,7 @@
 ---
 import ListPage from "../../../../components/ListPage.astro";
 import { guideFor } from "../../../../lib/guides.js";
-import { BRANDS, intro, isIndexable, splitBrand, dealerPrices, DEALER_NOTES, dealerVsIndie, modelOwners, commonProblems } from "../../../../lib/data.js";
+import { BRANDS, intro, isIndexable, splitBrand, dealerPrices, DEALER_NOTES, dealerVsIndie, modelOwners, commonProblems, modelAnswer } from "../../../../lib/data.js";
 export function getStaticPaths() {
   return BRANDS.flatMap((b) => b.models.map((m) => ({ params: { make: b.slug, model: m.slug }, props: { b, m } })));
 }
@@ -19,6 +19,7 @@ const L = splitBrand([...m.garages, ...rest], b.make, m.model);
   description={it?.description || `Where to fix a ${b.make} ${m.model} in Dubai: independent garages that owners recommend for the ${m.model}, with the evidence for each.`}
   h1={it?.h1 || `${b.make} ${m.model} specialists in Dubai`}
   lead={`Garages owners recommend for the ${m.model} come first, followed by other ${b.make} specialists with review evidence.`}
+  answer={modelAnswer(b, m, L.ranked)}
   introText={it?.text}
   faq={it?.faq || []}
   garages={L.ranked}
