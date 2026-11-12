@@ -1,12 +1,12 @@
 // /llms.txt (SEO, 12 Nov): a short plain-Markdown map of the site for AI models. Only indexable pages are listed.
 import { GUIDES } from "../lib/guides.js";
-import { BRANDS, PROBLEMS, problemGarages, isIndexable, slugify, DATA_UPDATED, GARAGES } from "../lib/data.js";
+import { BRANDS, PROBLEMS, problemGarages, isIndexable, modelIndexable, slugify, DATA_UPDATED, GARAGES } from "../lib/data.js";
 import { SITE } from "../lib/site.js";
 
 export function GET({ site }) {
   const u = (p) => new URL(p, site).toString();
   const brands = BRANDS.filter((b) => isIndexable(`dubai/${b.slug}`, b.evidenceCount));
-  const models = BRANDS.flatMap((b) => b.models.filter((m) => isIndexable(`dubai/${b.slug}/${m.slug}`, m.evidenceCount)).map((m) => ({ b, m })));
+  const models = BRANDS.flatMap((b) => b.models.filter((m) => modelIndexable(`dubai/${b.slug}/${m.slug}`, b.evidenceCount, m.evidenceCount)).map((m) => ({ b, m })));
   const issues = Object.values(import.meta.glob("../content/issues/*.md", { eager: true })).map((f) => {
     const fm = f.frontmatter || {}, b = BRANDS.find((x) => x.make === fm.make);
     if (!b || fm.status !== "published" || Number(fm.sourced_issues || 0) < 3) return null;

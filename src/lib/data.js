@@ -276,6 +276,10 @@ export function isIndexable(key, evidenceCount) {
   const i = intros[key];
   return evidenceCount >= 3 && !!(i && i.text && i.approved);
 }
+// SEO index rules, 12 Nov 2026 (seo/index-rules.md). Models: a covered brand, 1+ model-evidenced garage, own approved intro.
+export const modelIndexable = (key, brandEv, modelEv) => brandEv >= 3 && modelEv >= 1 && !!(intros[key]?.approved && intros[key]?.text);
+// Areas: 10+ garages listed, 5+ evidenced and contactable, approved intro.
+export const areaIndexable = (key, a) => a.garages.length >= 10 && a.evidenceCount >= 5 && !!(intros[key]?.approved && intros[key]?.text);
 // Garage pages are indexed when they have real evidence for at least one specialty.
 // Indexable with evidence, owner reviews, or a person-checked summary of 20+ outside reviews read (PM spec, SEO input).
 export const garageIndexable = (g) => !g.notWorkshop && !g.closed && (g.hasEvidence || g.ownerCount > 0

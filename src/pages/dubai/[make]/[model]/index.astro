@@ -1,7 +1,7 @@
 ---
 import ListPage from "../../../../components/ListPage.astro";
 import { guideFor } from "../../../../lib/guides.js";
-import { BRANDS, intro, isIndexable, splitBrand, dealerPrices, DEALER_NOTES, dealerVsIndie, modelOwners, commonProblems, modelAnswer } from "../../../../lib/data.js";
+import { BRANDS, intro, modelIndexable, splitBrand, dealerPrices, DEALER_NOTES, dealerVsIndie, modelOwners, commonProblems, modelAnswer } from "../../../../lib/data.js";
 export function getStaticPaths() {
   return BRANDS.flatMap((b) => b.models.map((m) => ({ params: { make: b.slug, model: m.slug }, props: { b, m } })));
 }
@@ -36,7 +36,7 @@ const L = splitBrand([...m.garages, ...rest], b.make, m.model);
   ogImage={`/og/dubai/${b.slug}/${m.slug}.png`}
   model={m.model}
   problems={commonProblems([...m.garages, ...rest], m.model.startsWith(b.make) ? m.model : `${b.make} ${m.model}`.replace(/^Land Rover (Range Rover)/, "$1"), hasIssues ? `/dubai/${b.slug}/${m.slug}/issues/` : null)}
-  noindex={!isIndexable(key, m.evidenceCount)}
+  noindex={!modelIndexable(key, b.evidenceCount, m.evidenceCount)}
   crumbs={[{ name: "Dubai", url: "/dubai/" }, { name: b.make, url: `/dubai/${b.slug}/` }, { name: m.model }]}
   related={[...(hasIssues ? [{ name: `${m.model} known issues`, url: `/dubai/${b.slug}/${m.slug}/issues/` }] : []), ...(guideFor(b.slug, m.slug) ? [{ name: `${m.model} costs`, url: guideFor(b.slug, m.slug).url }] : []), ...b.models.filter((x) => x.slug !== m.slug).map((x) => ({ name: `${b.make} ${x.model}`, url: `/dubai/${b.slug}/${x.slug}/` }))]}
 />
