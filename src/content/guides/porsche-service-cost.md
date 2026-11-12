@@ -3,6 +3,7 @@ slug: porsche-service-cost
 url: /dubai/porsche/service-cost/
 title: "Porsche service cost in Dubai: dealer vs independent"
 description: "Macan, 911, Panamera and Cayenne minor service and brakes in Dubai: dealer from AED 1,535 (Q4 2026 price list) vs independents from AED 638. Sources and dates shown."
+price_fact: "Independent Porsche specialists publish a minor service at about AED 640 to 1,500, against dealer starting prices of AED 1,535 to 2,265 (November 2026)."
 h1: "Porsche service cost in Dubai: dealer vs independent"
 status: approved by Marketer, 10 Nov 2026
 data_source: data/price-benchmarks.csv (rows as of 6 to 8 Nov 2026)

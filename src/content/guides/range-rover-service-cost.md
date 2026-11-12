@@ -3,6 +3,7 @@ slug: range-rover-service-cost
 url: /dubai/land-rover/range-rover/service-cost/
 title: "Range Rover service cost in Dubai: dealer vs independent"
 description: "Range Rover and Defender minor service and brakes in Dubai: independent menus from AED 982 vs an owner's dealer Defender quote of about AED 4,000. Sources and dates shown."
+price_fact: "An independent specialist publishes a fixed-price Range Rover minor service at AED 982 to 1,270 including VAT; Land Rover dealers don't publish service prices."
 h1: "Range Rover and Defender service cost in Dubai: dealer vs independent"
 status: approved by Marketer and SEO (Britfix rows checked against CSV, 98 rows), 10 Nov 2026
 data_source: data/price-benchmarks.csv (rows as of Aug to Nov 2026)

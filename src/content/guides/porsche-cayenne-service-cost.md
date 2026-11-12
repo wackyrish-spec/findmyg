@@ -3,6 +3,7 @@ slug: porsche-cayenne-service-cost
 url: /dubai/porsche/cayenne/service-cost/
 title: "Porsche Cayenne service cost in Dubai: dealer vs independent"
 description: "Cayenne E2 and E3 minor service, oil and brakes in Dubai: dealer from AED 1,590 (Q4 2026 price list) vs independents from AED 699. Sources and dates shown."
+price_fact: "Independent specialists publish a Cayenne minor service from about AED 700 to 1,575, against dealer starting prices of AED 1,590 to 1,960 (November 2026)."
 h1: "Porsche Cayenne service cost in Dubai: dealer vs independent"
 status: approved by Marketer and SEO (Britfix rows checked against CSV, 98 rows), 10 Nov 2026
 data_source: data/price-benchmarks.csv (rows as of 6 to 10 Nov 2026)

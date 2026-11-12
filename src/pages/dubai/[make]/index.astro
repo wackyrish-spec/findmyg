@@ -1,8 +1,8 @@
 ---
 import ListPage from "../../../components/ListPage.astro";
-import { GUIDES } from "../../../lib/guides.js";
+import { GUIDES, guideFor } from "../../../lib/guides.js";
 import { CATALOG } from "../../../lib/catalog.js";
-import { BRANDS, commonProblems, intro, isIndexable, splitBrand, dealerPrices, DEALER_NOTES } from "../../../lib/data.js";
+import { BRANDS, commonProblems, intro, isIndexable, splitBrand, dealerPrices, DEALER_NOTES, brandAnswer } from "../../../lib/data.js";
 export function getStaticPaths() {
   return BRANDS.map((b) => ({ params: { make: b.slug }, props: { b } }));
 }
@@ -26,6 +26,7 @@ const related = [
   description={it?.description || `Independent ${b.make} specialists in Dubai, ranked by how many owners vouch for them, with the evidence for each.`}
   h1={it?.h1 || `${b.make} specialists in Dubai`}
   lead={`Independent garages that work on ${b.make}, ranked by evidence from owner reviews.`}
+  answer={brandAnswer(b, L.ranked, (guideFor(b.slug) || GUIDES.find((g) => g.make === b.slug))?.fm.price_fact)}
   introText={it?.text}
   faq={it?.faq || []}
   garages={L.ranked}
