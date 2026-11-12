@@ -14,7 +14,7 @@ const L = splitBrand(b.garages, b.make);
 const lc = (x) => String(x || "").toLowerCase();
 const modelChips = [...b.models].sort((x, y) => y.evidenceCount - x.evidenceCount || y.garages.length - x.garages.length).slice(0, 12)
   .map((m) => ({ model: m.model, url: `/dubai/${b.slug}/${m.slug}/`,
-    codes: [...new Set(CATALOG.filter((c) => c.make === b.make && c.code && lc(c.model) === lc(m.model)).map((c) => c.code))].slice(0, 3).join("/") }));
+    codes: [...new Set(CATALOG.filter((c) => c.make === b.make && c.code && !c.classic && lc(c.model) === lc(m.model)).map((c) => c.code))].slice(0, 3).join("/") }));
 const related = [
   ...GUIDES.filter((x) => x.make === b.slug && x.live).map((x) => ({ name: x.model ? `${(b.models.find((m) => m.slug === x.model) || { model: x.model }).model} costs` : `${b.make} costs`, url: x.url })),
   ...b.models.map((m) => ({ name: `${b.make} ${m.model}`, url: `/dubai/${b.slug}/${m.slug}/` })),

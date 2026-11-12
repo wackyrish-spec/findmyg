@@ -41,8 +41,11 @@ function paintCar() {
 function pageFor(c) {
   const p = DATA.pages[c.make];
   if (!p) return `/car-not-covered/?make=${encodeURIComponent(c.make)}${c.model ? `&model=${encodeURIComponent(c.model)}` : ""}`;
-  if (c.model && p.models[c.model]) return p.models[c.model];
-  return c.model ? `${p.url}?close=${encodeURIComponent(c.model)}` : p.url;
+  // Deepest page that exists. A classic generation, or a model with no page, gets the honest "no X-specific evidence" banner.
+  const base = (c.model && p.models[c.model]) || p.url;
+  const hasModel = !!(c.model && p.models[c.model]);
+  const gap = c.classic ? (hasModel ? c.code || c.model : [c.model, c.code].filter(Boolean).join(" ")) : (c.model && !hasModel ? c.model : "");
+  return gap ? `${base}?close=${encodeURIComponent(gap)}` : base;
 }
 
 /* ---------- one search box: cars, garages, areas, problems ---------- */
@@ -111,28 +114,43 @@ function searchOthers(q) {
 }
 
 /* ---------- search ---------- */
+// Short names people type for a make.
+const MAKE_ALIAS = { "Mercedes-Benz": "merc mercedes benz mb", Volkswagen: "vw volkswagon", BMW: "beemer bimmer", "Land Rover": "rangie landrover lr", "Alfa Romeo": "alfa", Toyota: "", Chevrolet: "chevy" };
+const makeWords = (m) => `${m} ${MAKE_ALIAS[m] || ""}`.toLowerCase().split(/[\s-]+/).filter(Boolean);
+// Find a make named anywhere in the typed words ("e30 bmw", "merc e class"). Returns the make and the other words.
+function resolveMake(toks) {
+  const all = [...new Set(DATA.rows.map((r) => r.make))];
+  for (const m of all) {
+    const name = norm(m).split(" "), al = (MAKE_ALIAS[m] || "").split(" ").filter(Boolean);
+    if (name.every((w) => toks.includes(w))) return { make: m, rest: toks.filter((t) => !name.includes(t)) };
+    const hit = toks.find((t) => al.includes(t) || (t.length >= 4 && name.length === 1 && near(t, name[0]) && Math.abs(t.length - name[0].length) <= 1));
+    if (hit) return { make: m, rest: toks.filter((t) => t !== hit && !name.includes(t)) };
+  }
+  return null;
+}
 function searchCars(q) {
-  q = q.toLowerCase().replace(/\b(19[89]\d|20[0-3]\d)\b/, "").trim();
+  q = q.toLowerCase().replace(/\b(19[5-9]\d|20[0-3]\d)\b/, "").replace(/[^a-z0-9\s,.-]+/g, " ").trim();
   if (!q) return [];
   const toks = q.split(/[\s,-]+/).filter(Boolean);
   const out = [];
   BRANDS.forEach((b) => {
-    const bl = b.toLowerCase();
-    if (bl.startsWith(q) || toks.every((t) => bl.split(" ").some((w) => w.startsWith(t)))) out.push({ make: b, model: "", code: "", years: "", score: 3, brandOnly: true });
+    const bl = makeWords(b).join(" ");
+    if (b.toLowerCase().startsWith(q) || toks.every((t) => bl.split(" ").some((w) => w.startsWith(t)))) out.push({ make: b, model: "", code: "", years: "", score: 3, brandOnly: true });
     else if (toks.every((t) => bl.split(" ").some((w) => near(t, w)))) out.push({ make: b, model: "", code: "", years: "", score: 2, brandOnly: true });
   });
   DATA.rows.forEach((c) => {
-    const hay = [c.make, c.model, c.code, c.aliases].join(" ").toLowerCase();
+    const hay = [c.make, MAKE_ALIAS[c.make] || "", c.model, c.code, c.aliases].join(" ").toLowerCase();
     const words = hay.split(/[\s-]+/);
     let s = 0;
     for (const t of toks) {
       if (c.code && c.code.toLowerCase() === t) s += 5;
       else if (words.includes(t)) s += 3;
       else if (words.some((w) => w.startsWith(t))) s += 1;
-      else if (t.length >= 4 && words.some((w) => near(t, w))) s += 1; // one typo: "porshe cayene"
+      else if (t.length >= 4 && /^[a-z]+$/.test(t) && words.some((w) => near(t, w))) s += 1; // one typo: "porshe cayene" (never on codes like w212)
       else { s = -1; break; }
     }
-    if (s > 0) out.push({ ...c, score: s });
+    // Classic generations sit below current ones unless their code was typed.
+    if (s > 0) out.push({ ...c, score: c.classic && !toks.includes((c.code || "").toLowerCase()) ? s - 0.5 : s });
   });
   return out.sort((a, b) => b.score - a.score).slice(0, 8);
 }
@@ -149,16 +167,17 @@ function noMatch(v, all) {
   // Not Latin script (e.g. Arabic): we only index English names.
   if (!n) return `<p class="nomatch">Try searching in English, like "BMW", "Patrol" or "brakes".</p>${common}`;
   // Covered make, unknown model ("BMW i3"): the brand page says the model isn't covered yet.
-  const brand = BRANDS.find((b) => n.startsWith(norm(b) + " ") || n === norm(b));
-  if (brand) {
-    const model = words.slice(norm(brand).split(" ").length).join(" ");
-    return `<p class="nomatch">We have no ${esc(model || "model")}-specific evidence yet. <a href="${pageFor({ make: brand, model })}">See ${esc(brand)} specialists</a> or <a href="${notify(brand, model)}">get told when it's covered</a>.</p>${common}`;
+  const rm = resolveMake(n.split(" "));
+  if (rm) {
+    const model = words.filter((w) => rm.rest.includes(norm(w))).join(" ");
+    if (DATA.pages[rm.make]) return `<p class="nomatch">We have no ${esc(model || "model")}-specific evidence yet. <a href="${pageFor({ make: rm.make, model })}">See ${esc(rm.make)} specialists</a>, the closest we have.</p>${common}`;
+    return `<p class="nomatch">We don't cover ${esc(rm.make)} yet. We only list garages with owner evidence for a car. <a href="${notify(rm.make, model)}">Tell us you want it covered</a>.</p>${common}`;
   }
   // A make we don't cover ("Kia Sportage").
   const other = OTHER_MAKES.find((m) => n === m || n.startsWith(m + " "));
   if (other) {
     const make = words.slice(0, 1).join(" "), model = words.slice(1).join(" ");
-    return `<p class="nomatch">We don't cover ${esc(make)} yet. We only list garages with owner evidence for a car. <a href="${notify(make, model)}">Tell me when it's covered</a>.</p>${common}`;
+    return `<p class="nomatch">We don't cover ${esc(make)} yet. We only list garages with owner evidence for a car. <a href="${notify(make, model)}">Tell us you want it covered</a>.</p>${common}`;
   }
   // Looks like a garage name we don't list.
   if (all && GARAGE_RX.test(n)) return `<p class="nomatch">We don't list that garage. Know it? <a href="/add-a-garage/">Suggest a garage</a>.</p>${common}`;
@@ -170,7 +189,7 @@ function noMatch(v, all) {
       <p class="nomatch" style="padding-top:0">Got a quote already? <a href="/check-a-quote/">Check a dealer quote</a>.</p>`;
   }
   // Anything else: a car we couldn't match.
-  return `<p class="nomatch">We couldn't match that car. Try the make or model, like "Cayenne" or "Giulietta". Not listed? <a href="${notify(words[0] || raw, words.slice(1).join(" "))}">Tell me when it's covered</a>.</p>${common}`;
+  return `<p class="nomatch">We couldn't match that car. Try the make or model, like "Cayenne" or "Giulietta". Not listed? <a href="${notify(words[0] || raw, words.slice(1).join(" "))}">Pick your car</a>.</p>${common}`;
 }
 document.addEventListener("submit", (e) => {
   const f = e.target.closest("[data-tell]"); if (!f) return;
@@ -225,7 +244,7 @@ function wirePicker(root, onPick, all = false) {
     if (c.type === "area") { location.href = `/dubai/area/${c.slug}/`; return; }
     if (c.type === "problem") { location.href = `/dubai/problem/${c.slug}/`; return; }
     const yr = (inp.value.match(/\b(19[89]\d|20[0-3]\d)\b/) || [])[1] || "";
-    setCar({ make: c.make, model: c.model || "", code: c.code || "", year: yr });
+    setCar({ make: c.make, model: c.model || "", code: c.code || "", year: yr, ...(c.classic ? { classic: 1 } : {}) });
     items = []; draw(); inp.value = carLabel(car); onPick(car);
   };
   inp.addEventListener("input", () => {
@@ -479,17 +498,101 @@ if (fb && SB_URL && SB_KEY) {
   $(".fbmore", fb).addEventListener("submit", (e) => { e.preventDefault(); send(false, $("input", e.target).value.trim()); e.target.hidden = true; $(".fbthanks", fb).hidden = false; });
 }
 
-/* ---------- "close" answer: brand page without model-specific evidence ---------- */
+/* ---------- missing cars (PM missing-car spec, 11 Nov): one-tap "I want it covered", then an optional email ---------- */
+const sbPost = (table, row) => (SB_URL && SB_KEY)
+  ? fetch(`${SB_URL}/rest/v1/${table}`, { method: "POST", keepalive: true, headers: { apikey: SB_KEY, "Content-Type": "application/json", Prefer: "return=minimal" }, body: JSON.stringify(row) })
+  : Promise.reject(new Error("off"));
+const once = (key) => { try { if (sessionStorage.getItem(key)) return false; sessionStorage.setItem(key, "1"); } catch {} return true; };
+// state "B" = make covered, model or generation not; "C" = make not covered. page "want" marks a tap, not a view.
+function logDemand(make, model, state, page) {
+  const row = { make: String(make).slice(0, 40), model: (model || "").slice(0, 60) || null, state, page: String(page).slice(0, 200) };
+  if (!once("gg:dem:" + [row.make, row.model, state, page === "want" ? "want" : "view"].join("|"))) return;
+  sbPost("car_demand", row).catch(() => {});
+}
+// Fills `el` with the want button for one car. label is what we call it back ("E30", "Kia Sportage").
+function wantBox(el, { make, model, label, state }) {
+  const id = "w" + Math.random().toString(36).slice(2, 7);
+  el.innerHTML = `<button class="btn primary wantbtn" type="button">I want ${esc(label)} covered</button>
+    <div class="wantafter" hidden><p class="wantok">Noted, thanks.</p>
+      <form class="wantmail" novalidate><label class="fld" for="${id}">Want an email when it's covered? (optional)
+        <span class="wantrow"><input id="${id}" type="email" autocomplete="email" placeholder="you@example.com"><button class="btn" type="submit">Email me</button></span></label>
+        <div class="err" hidden></div><p class="muted wantfine">One email, when it's covered. Nothing else. <a href="/privacy/">Privacy</a>.</p></form></div>`;
+  const btn = $(".wantbtn", el), after = $(".wantafter", el), form = $(".wantmail", el), err = $(".err", el);
+  btn.addEventListener("click", () => { logDemand(make, model, state, "want"); btn.hidden = true; after.hidden = false; });
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = $("input", form).value.trim(), sub = $("button", form);
+    if (!/^\S+@\S+\.\S+$/.test(email)) { err.textContent = "Enter a valid email."; err.hidden = false; return; }
+    err.hidden = true; sub.disabled = true;
+    try {
+      const r = attribution(), res = await sbPost("coverage_requests", { email, car: [make, model].filter(Boolean).join(" ").slice(0, 80), page: location.pathname, ref: r.ref || r.utm_source || null });
+      if (!res.ok) throw new Error(res.status);
+      after.innerHTML = `<p class="wantok">Noted, thanks. We'll email you once, when ${esc(label)} is covered.</p>`;
+    } catch { sub.disabled = false; err.textContent = "Couldn't send. Please try again."; err.hidden = false; }
+  });
+}
+
+/* ---------- "close" answer: covered make, model or generation without its own evidence (state B) ---------- */
 {
-  const close = new URLSearchParams(location.search).get("close"), box = $("#results");
+  const close = (new URLSearchParams(location.search).get("close") || "").slice(0, 40), box = $("#results");
   if (close && box) {
+    const make = box.dataset.make || "", pm = box.dataset.model || "";
+    const model = pm && pm.toLowerCase() !== close.toLowerCase() ? `${pm} ${close}` : close;
     const n = document.createElement("div");
     n.className = "card closenote";
-    n.textContent = `No ${close.slice(0, 40)}-specific evidence yet. These are ${box.dataset.make || "brand"} specialists, which is the next best thing.`;
-    box.parentNode.insertBefore(n, box);
+    n.innerHTML = `<p><b>No ${esc(close)}-specific evidence yet.</b> These ${esc(make || "brand")} specialists are the closest.</p><div class="wantbox"></div>`;
+    const anchor = $(".mchips") || $("#resort") || box;
+    anchor.parentNode.insertBefore(n, anchor);
+    document.body.classList.add("is-close");
+    wantBox($(".wantbox", n), { make, model, label: close, state: "B" });
+    logDemand(make, model, "B", location.pathname);
   }
 }
 
+/* ---------- not-covered page: make we don't cover (state C), or a car we couldn't recognise ---------- */
+{
+  const nc = $("#ncPage");
+  if (nc) {
+    const q = new URLSearchParams(location.search), makes = [...new Set(DATA.rows.map((r) => r.make))].sort();
+    const findMake = (t) => makes.find((m) => norm(m) === norm(t || "")) || resolveMake(norm(t || "").split(" "))?.make || null;
+    const selMake = $("#ncMake"), selModel = $("#ncModel"), yr = $("#ncYear");
+    selMake.innerHTML = `<option value="">Make</option>` + makes.map((m) => `<option>${esc(m)}</option>`).join("");
+    const fillModels = (make, pick) => {
+      const ms = [...new Set(DATA.rows.filter((r) => r.make === make && r.model).map((r) => r.model))].sort();
+      selModel.innerHTML = `<option value="">Model (optional)</option>` + ms.map((m) => `<option${m.toLowerCase() === (pick || "").toLowerCase() ? " selected" : ""}>${esc(m)}</option>`).join("");
+      selModel.disabled = !make;
+    };
+    const paint = (make, model, typed) => {
+      const car = [make, model].filter(Boolean).join(" ");
+      if (!make) {
+        $("#ncTitle").textContent = typed ? "We couldn't recognise that car" : "Tell us your car";
+        $("#ncLead").textContent = typed ? `We couldn't match "${typed.slice(0, 40)}". Pick it here:` : "Pick your car here:";
+        $("#ncWant").hidden = true; $("#ncSuggest").hidden = true; $("#ncPick").open = true; $("#ncPickSum").textContent = "Pick your car";
+        return;
+      }
+      $("#ncTitle").textContent = `We don't cover the ${car} yet`;
+      $("#ncLead").textContent = "We only list garages that owners vouch for with your car. Tell us you want it, and it moves up our list.";
+      $("#ncWant").hidden = false; wantBox($("#ncWant"), { make, model, label: car, state: "C" });
+      $("#ncSuggest").hidden = false; $("#ncSuggestMake").textContent = make; $("#ncPickSum").textContent = "Not quite your car?"; $("#ncPick").open = false;
+      logDemand(make, model, "C", location.pathname);
+    };
+    const typedMake = (q.get("make") || "").slice(0, 40), typedModel = (q.get("model") || "").slice(0, 40);
+    const make0 = findMake(typedMake);
+    if (make0) { selMake.value = make0; fillModels(make0, typedModel); } else fillModels("", "");
+    paint(make0, make0 ? (selModel.value || typedModel) : "", [typedMake, typedModel].filter(Boolean).join(" "));
+    const changed = () => {
+      const make = selMake.value, model = selModel.value, y = /^(19[5-9]\d|20[0-2]\d)$/.test(yr.value) ? yr.value : "";
+      if (!make) return;
+      // A make we do cover: go to its specialists instead.
+      if (DATA.pages[make]) { setCar({ make, model, code: "", year: y }); location.href = pageFor({ make, model }); return; }
+      setCar({ make, model, code: "", year: y });
+      history.replaceState(null, "", `/car-not-covered/?make=${encodeURIComponent(make)}${model ? `&model=${encodeURIComponent(model)}` : ""}`);
+      paint(make, model, "");
+    };
+    selMake.addEventListener("change", () => { fillModels(selMake.value, ""); changed(); });
+    selModel.addEventListener("change", changed); yr.addEventListener("change", changed);
+  }
+}
 
 // Home: "Review a garage you've used" points the one search box at garage names.
 document.querySelector("[data-reviewcta]")?.addEventListener("click", () => {
@@ -558,21 +661,6 @@ if (nb) nb.addEventListener("click", () => {
 /* ---------- C5 quote check: car picker ---------- */
 const qc = $("#qcCar");
 if (qc) wirePicker(qc, () => {});
-
-/* ---------- demand log (10 Nov): which uncovered cars people look for; no personal data ---------- */
-// Logged when the picker or search lands someone on "not covered" (state C) or a brand page for a model we
-// don't cover yet (state B, ?close=model). Read back as counts only via coverage_top() (012_car_demand.sql).
-(() => {
-  const q = new URLSearchParams(location.search);
-  let row = null;
-  if (location.pathname.startsWith("/car-not-covered") && q.get("make")) row = { make: q.get("make"), model: q.get("model"), state: "C" };
-  else if (q.get("close") && $("#results")?.dataset.make) row = { make: $("#results").dataset.make, model: q.get("close"), state: "B" };
-  if (!row || !SB_URL || !SB_KEY) return;
-  row = { make: row.make.slice(0, 40), model: (row.model || "").slice(0, 60) || null, state: row.state, page: location.pathname };
-  const key = "gg:dem:" + [row.make, row.model, row.state].join("|");
-  try { if (sessionStorage.getItem(key)) return; sessionStorage.setItem(key, "1"); } catch {}
-  fetch(`${SB_URL}/rest/v1/car_demand`, { method: "POST", keepalive: true, headers: { apikey: SB_KEY, "Content-Type": "application/json", Prefer: "return=minimal" }, body: JSON.stringify(row) }).catch(() => {});
-})();
 
 /* ---------- page counter (11 Nov: the team reads visits without a dashboard) ---------- */
 // One row per page view on the live domain: path, referring site, ?ref tag, first page of the visit, mobile or not.
