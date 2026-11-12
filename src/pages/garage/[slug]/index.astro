@@ -12,9 +12,9 @@ const { g } = Astro.props;
 const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(g.name + " " + (g.area || "") + " Dubai")}`;
 const top = g.specs[0];
 // Self-claims, shown once: the makes, one link, and any distinct notes.
-const claimMakes = [...new Set((g.self_claims || []).map((c) => c.make + ((c.models || []).length ? ` (${c.models.join(", ")})` : "")).filter(Boolean))];
+const claimMakes = [...new Set((g.self_claims || []).filter((c) => c.make).map((c) => c.make + ((c.models || []).length ? ` (${c.models.join(", ")})` : "")).filter(Boolean))];
 const claimUrl = (g.self_claims || []).find((c) => c.url)?.url || "";
-const claimNotes = [...new Set((g.self_claims || []).map((c) => c.note).filter((n) => n && !/^Garage's own website lists/i.test(n)))];
+const claimNotes = [...new Set((g.self_claims || []).map((c) => c.note || (!c.make && c.claim)).filter((n) => n && !/^Garage's own website lists/i.test(n)))];
 const SB = import.meta.env.PUBLIC_SUPABASE_URL;
 const threads = g.isDealer ? [] : communityThreads(g);
 const groups = g.isDealer ? 0 : groupReports(g);
@@ -271,7 +271,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
             {g.phone && <div><dt>Phone</dt><dd class="num"><a href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">{g.phone}</a></dd></div>}
             {g.hours && <div><dt>Hours</dt><dd>{g.hours}</dd></div>}
             {g.website && <div><dt>Website</dt><dd><a href={g.website} target="_blank" rel="noopener" style="overflow-wrap:anywhere">{g.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}</a></dd></div>}
-            {(claimMakes.length > 0 || g.focus) && <div><dt>The garage says</dt><dd>{g.focus && <div>{g.focus}</div>}{claimMakes.length > 0 && <div>Works on {claimMakes.join(", ")}{claimUrl && <> · <a href={claimUrl} target="_blank" rel="noopener nofollow">their website</a></>}</div>}{claimNotes.map((n) => <div class="muted">{n}</div>)}<small class="muted">Their own claim, not owner evidence.</small></dd></div>}
+            {(claimMakes.length > 0 || claimNotes.length > 0 || g.focus) && <div><dt>The garage says</dt><dd>{g.focus && <div>{g.focus}</div>}{claimMakes.length > 0 && <div>Works on {claimMakes.join(", ")}{claimUrl && <> · <a href={claimUrl} target="_blank" rel="noopener nofollow">their website</a></>}</div>}{claimNotes.map((n) => <div class="muted">{n}</div>)}<small class="muted">Their own claim, not owner evidence.</small></dd></div>}
             {(g.services || []).length > 0 && <div><dt>Services</dt><dd>{g.services.join(", ")}</dd></div>}
           </dl>
           <p class="confirmed">Is something wrong or missing? <a href={`/add-a-garage/?fix=${g.slug}`}>Suggest a correction</a>.</p>

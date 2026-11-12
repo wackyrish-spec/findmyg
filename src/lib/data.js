@@ -327,10 +327,12 @@ export function normPrices(list) {
     if (!(high >= low)) high = low;
     const source = p.source || "";
     // Store AED including VAT: add 5% when the source says it excludes VAT.
-    const exVat = /excl/i.test(p.vat || "");
+    // Rows marked "5% added" already include it (the data pipeline did the sum), so never add it twice.
+    const vatDone = /added/i.test(p.vat || "");
+    const exVat = /excl/i.test(p.vat || "") && !vatDone;
     if (exVat) { low *= 1.05; high *= 1.05; }
     return { item: (p.item || "").replace(/\s+/g, " ").trim(), job: p.job || "", make: p.make || "", model: p.model || "",
-      low: Math.round(low), high: Math.round(high), vat: p.vat && p.vat !== "unknown" ? p.vat : "", vatNote: exVat ? "VAT added" : /incl/i.test(p.vat || "") ? "incl. VAT" : "",
+      low: Math.round(low), high: Math.round(high), vat: p.vat && p.vat !== "unknown" ? p.vat : "", vatNote: exVat || vatDone ? "VAT added" : /incl/i.test(p.vat || "") ? "incl. VAT" : "",
       from: /starting|from/i.test(source) || p.from === true,
       parts: p.includes_parts === true ? "parts included" : p.includes_parts === false ? "labour only" : "",
       source, owner: /owner/i.test(source), url: p.url || "", asOf: p.as_of || p.date || "" };
@@ -363,12 +365,15 @@ export function benchmarks(g, make = null, model = null) {
     if (!pts.length) return null;
     // Owner prices win once there are 3+; otherwise the garage's list, then owner reports online, then reviews elsewhere.
     const own = pts.filter((p) => p.src === "owners");
-    const src = own.length >= 3 ? "owners" : ["dealer", "list", "reported", "owners", "web"].find((s) => pts.some((p) => p.src === s));
+    const src = own.length >= 3 ? "owners" : ["dealer", "list", "site", "reported", "owners", "web"].find((s) => pts.some((p) => p.src === s));
     let use = pts.filter((p) => p.src === src);
     // Prefer rows filed under the main job key (e.g. minor_service over a plain oil_service).
     if (use.some((p) => p.job === b.job[0])) use = use.filter((p) => !p.job || p.job === b.job[0]);
     const one = (k) => { const v = [...new Set(use.map((p) => p[k] || ""))]; return v.length === 1 ? v[0] : ""; };
-    return { ...b, src, n: use.length, low: Math.min(...use.map((p) => p.low)), high: Math.max(...use.map((p) => p.high)),
+    // Only rows with a real number and a known source; never render an empty or infinite price.
+    use = use.filter((p) => Number(p.low) > 0 && Number.isFinite(Number(p.low)));
+    if (!src || !BENCH_SRC[src] || !use.length) return null;
+    return { ...b, src, n: use.length, low: Math.min(...use.map((p) => Number(p.low))), high: Math.max(...use.map((p) => Number(p.high) || Number(p.low))),
       from: use.some((p) => p.from), make: one("make"), car: [one("make"), one("model")].filter(Boolean).join(" "), vatNote: one("vatNote"), parts: one("parts") };
   }).filter(Boolean);
 }
