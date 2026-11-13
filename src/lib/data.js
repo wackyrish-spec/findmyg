@@ -48,6 +48,15 @@ function goodFor(text) {
 const BROKEN_SITE = /suspend|gambling|unrelated|default server|no content|check before/i;
 const NOT_WORKSHOP = /not (clearly )?a (repair )?workshop|parts (supplier|distributor)|distributor|retailer|transport company|showroom/i;
 // Website-only claims: basis "website", or a self-description with no review, community or founder basis behind it.
+// The pipeline's evidence string carries internal qualifiers. Public pages drop those clauses;
+// cards also drop the garage's own claims and the "% of reviews that name any make" aside (PM, 12 Nov).
+const WEAK_EV = /weak evidence/i;
+const INTERNAL_EV = /weak evidence|\bcandidate\b|not yet analysed/i;
+const SELF_EV = /advertises|website says|own (listing|website)|self-description/i;
+const clauses = (t) => String(t || "").split(/;\s*/).map((c) => c.trim()).filter(Boolean);
+const upFirst = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : "");
+export const publicEvidence = (t) => upFirst(clauses(t).filter((c) => !INTERNAL_EV.test(c)).join("; "));
+export const cardEvidence = (t) => upFirst(clauses(t).filter((c) => !INTERNAL_EV.test(c) && !SELF_EV.test(c)).join("; ").replace(/\s*\(\d+% of reviews that name any make\)/gi, ""));
 const SITE_BASIS = (s) => s.basis === "website" || (!/reviews|community|founder/.test(s.basis || "") && /self-description|on (the )?garage('s)? (own )?website/i.test(s.evidence || ""));
 // Rough drive time from Downtown Dubai: road distance about 1.2x straight line, 60 km/h for the first 20 km, 100 km/h after, plus 10 min traffic.
 const DRIVE_DEFAULT = { Sharjah: 30, Ajman: 40, "Abu Dhabi": 90, Musaffah: 90 };
@@ -76,8 +85,10 @@ function norm(g) {
       confidence: s.confidence || "low",
       // Spec 13.1: evidence older than 3 years counts one step lower and shows its year.
       year: Number(s.latest_year) || null,
-      conf: Math.max(1, (CONF[s.confidence] || 1) - (Number(s.latest_year) && new Date().getFullYear() - Number(s.latest_year) > 3 ? 1 : 0)),
-      evidence: (s.evidence || "") + (Number(s.latest_year) && new Date().getFullYear() - Number(s.latest_year) > 3 ? ` (latest ${s.latest_year})` : ""),
+      // The badge must match the visible proof: pipeline rows marked "weak evidence" never rank above "Some experience".
+      conf: Math.min(WEAK_EV.test(s.evidence || "") ? 1 : 3, Math.max(1, (CONF[s.confidence] || 1) - (Number(s.latest_year) && new Date().getFullYear() - Number(s.latest_year) > 3 ? 1 : 0))),
+      evidence: publicEvidence(s.evidence) + (Number(s.latest_year) && new Date().getFullYear() - Number(s.latest_year) > 3 ? ` (latest ${s.latest_year})` : ""),
+      cardEvidence: cardEvidence(s.evidence),
       mentions: s.mentions || 0,
       basis: s.basis || "",
     }))
@@ -443,7 +454,7 @@ export function communityLine(g, model = null) {
   const years = src.map((x) => Number(x.year)).filter((y) => y > 1990);
   const span = years.length ? (Math.min(...years) === Math.max(...years) ? ` · ${years[0]}` : ` · ${Math.min(...years)}–${Math.max(...years)}`) : "";
   const onModel = model ? src.filter((x) => (x.models || []).some((m) => String(m).toLowerCase() === model.toLowerCase())).length : 0;
-  return onModel >= 2 ? `Recommended in ${onModel} ${model} threads${span}` : `Recommended in ${pos} owner threads${span}`;
+  return onModel >= 2 ? `Recommended in ${onModel} threads about the ${model}${span}` : `Recommended in ${pos} owner threads${span}`;
 }
 // Threads for the garage page, newest first; older than 5 years are flagged.
 export function communityThreads(g) {

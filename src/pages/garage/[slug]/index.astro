@@ -69,7 +69,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
   ogImage={`/og/garage/${g.slug}.png`}
   crumbs={[{ name: "Dubai", url: "/dubai/" }, ...(firstMake ? [{ name: firstMake, url: `/dubai/${slugify(firstMake)}/` }] : []), { name: g.name }]}
 >
-  <div class="wrap" data-garage-page={g.slug} data-specs={evidenced ? JSON.stringify(g.specs.map((s) => [s.make, s.models, s.conf, s.evidence])) : "[]"}>
+  <div class="wrap" data-garage-page={g.slug} data-specs={evidenced ? JSON.stringify(g.specs.map((s) => [s.make, s.models, s.conf, s.cardEvidence])) : "[]"}>
     {photo ? (
       <img class="gphoto" src={photo} alt={`${g.name}, ${g.area || "Dubai"}`} width="1200" height="400" loading="eager" />
     ) : (

@@ -14,7 +14,7 @@ const cline = !g.isDealer ? communityLine(g, model) : "";
 const checked = fmt(g.google?.asOf || DATA_UPDATED);
 const brandLines = g.specs.slice(0, 3);
 // Compact spec payload for the browser to re-rank by the visitor's saved car.
-const payload = JSON.stringify(g.specs.map((s) => [s.make, s.models, s.conf, s.evidence]));
+const payload = JSON.stringify(g.specs.map((s) => [s.make, s.models, s.conf, s.cardEvidence]));
 const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(g.name + " " + (g.area || "") + " Dubai")}`;
 ---
 {plain ? (
@@ -32,7 +32,7 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
 ) : (
 <article class="card gcard" data-garage={g.slug} data-specs={payload} data-ll={g.lat && g.lng ? `${Number(g.lat).toFixed(4)},${Number(g.lng).toFixed(4)}` : ""}>
   <div class="main">
-    <div class="gtop"><h3><a href={`/garage/${g.slug}/`}>{g.name}</a></h3></div>
+    <div class="gtop"><h3><a href={`/garage/${g.slug}/`} data-track="view">{g.name}</a></h3></div>
     <div class="meta">
       <span><Icon name="pin" />{g.area || "Dubai"}</span>
       {g.worthDrive && <span class="wdrive">{g.emirate || "Outside Dubai"} · Worth the drive{g.driveMin ? `, about ${g.driveMin} min from Downtown` : ""}</span>}
@@ -43,16 +43,16 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
     {note && <p class="pnote">{note}</p>}
     <div class="matchslot">
       {spec && (
-        <><span class={`match l${level}`}><span class="meter">{[1, 2, 3].map((i) => <i class={i <= level ? "on" : ""}></i>)}</span>{LEVELS[level]}{model && !spec.modelHit ? ` (${make})` : ""}</span>{spec.mentions > 0 && <span class="mcount"> · from {spec.mentions} {/community/.test(spec.basis || "") && !/reviews/.test(spec.basis || "") ? (spec.mentions === 1 ? "community post" : "community posts") : (spec.mentions === 1 ? "review" : "reviews")}</span>}</>
+        <><span class={`match l${level}`}>{LEVELS[level]}{model && !spec.modelHit ? ` (${make})` : ""}</span>{spec.mentions > 0 && <span class="mcount"> · from {spec.mentions} {/community/.test(spec.basis || "") && !/reviews/.test(spec.basis || "") ? (spec.mentions === 1 ? "community post" : "community posts") : (spec.mentions === 1 ? "review" : "reviews")}</span>}</>
       )}
     </div>
     {cline && <div class="cline"><a href={`/garage/${g.slug}/#community`}>{cline}</a></div>}
     {/* One plain line on the card; the full evidence lives on the garage page. */}
     <div class="evid">
       {g.summary[0] && (g.hasEvidence || g.ownerCount > 0) ? <span class="esum">{g.summary[0]}</span>
-        : spec ? spec.evidence || `${make} specialist`
+        : spec ? spec.cardEvidence || <span class="muted">No owner evidence for {make} yet</span>
         : brandLines.length ? brandLines.map((s, i) => (<>{i > 0 && <span class="sep">|</span>}{s.make}</>)) : <span class="muted">No specialty found yet</span>}
-      {" "}<a class="seeev" href={`/garage/${g.slug}/#evidence`}>See the evidence</a>
+      {" "}<a class="seeev" href={`/garage/${g.slug}/#evidence`} data-track="view">See the evidence</a>
     </div>
   </div>
   <div class="stats">
@@ -65,9 +65,9 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
       : g.priceTalk?.label && !g.isDealer && <p class={`ptalk ${g.priceTalk.tone}`}>{g.priceTalk.label}</p>}
     <div class="acts">
       {g.waNumber && <button class="btn wa sm" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name} title={g.waConfirmed ? undefined : "WhatsApp (number from the garage's listing)"}><Icon name="wa" />{g.waConfirmed ? "WhatsApp" : "Try WhatsApp"}</button>}
-      {(!g.waNumber || !g.waConfirmed) && g.phone && <a class={`btn sm${g.waNumber ? "" : " primary"}`} href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">Call</a>}
+      {g.phone && <a class={`btn sm${g.waNumber ? "" : " primary"}`} href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">Call</a>}
       <a class="btn sm" href={maps} target="_blank" rel="noopener" data-track="directions">Directions</a>
-      <a class="btn sm primary" href={`/garage/${g.slug}/`}>View</a>
+      <a class={`btn sm${g.waNumber || g.phone ? "" : " primary"}`} href={`/garage/${g.slug}/`} data-track="view">View</a>
     </div>
   </div>
 </article>

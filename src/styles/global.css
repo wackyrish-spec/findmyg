@@ -127,8 +127,11 @@ nav.main a[aria-current="page"],nav.main a:hover{color:var(--ink)}
 .sub{font-size:13px;color:var(--muted);margin:-6px 0 12px}
 
 /* match */
-.match{display:inline-flex;align-items:center;gap:8px;font:800 13px/1 var(--f-body);padding:6px 10px 6px 8px;border-radius:8px;background:var(--signal-soft);color:var(--signal-text);white-space:nowrap}
-.match.l0{background:var(--soft);color:var(--muted)}
+.match{display:inline-flex;align-items:center;font:800 13px/1 var(--f-body);padding:5px 10px;border-radius:8px;border:2px solid transparent;white-space:nowrap}
+.match.l3{background:var(--signal);color:var(--signal-ink)}
+.match.l2{background:var(--surface);border-color:var(--signal-text);color:var(--signal-text)}
+.match.l1{padding-left:0;padding-right:0;color:var(--muted);font-weight:700}
+.match.l0{padding-left:0;padding-right:0;color:var(--muted);font-weight:600}
 .meter{display:inline-flex;gap:2px}
 .meter i{width:5px;height:13px;border-radius:2px;background:var(--line)}
 .meter i.on{background:var(--signal)}
@@ -442,7 +445,7 @@ footer .proof{margin:0 0 8px;font-weight:800}
 .grouptip summary{cursor:pointer;font-size:14px}
 .grouptip form{display:flex;flex-direction:column;gap:8px;margin-top:8px;max-width:420px}
 
-.followup{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 14px;margin:12px 0;border-radius:12px;background:var(--card,#fff);border:1px solid var(--line,#e5e5e5);font-size:14px}
+.followup{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 14px;margin:12px 0;border-radius:12px;background:var(--surface);border:1px solid var(--line,#e5e5e5);font-size:14px}
 .followup span{flex:1 1 auto}
 .kmaway{font-size:12px;font-weight:600}
 .mfilter{font-size:13px;display:flex;align-items:center;gap:6px}

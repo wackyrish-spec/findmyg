@@ -292,7 +292,7 @@ function matchFor(specs, c) {
   }
   return { l, ev: best[3], hit };
 }
-const matchHTML = (m) => `<span class="match l${m.l}"><span class="meter">${[1, 2, 3].map((i) => `<i class="${i <= m.l ? "on" : ""}"></i>`).join("")}</span>${LEVELS[m.l]}</span>`;
+const matchHTML = (m) => `<span class="match l${m.l}">${LEVELS[m.l]}</span>`;
 
 function rerank(announce) {
   const box = $("#results");
@@ -359,7 +359,7 @@ function waDialog(btn) {
     $("#waGo").href = `https://wa.me/${num}?text=${encodeURIComponent(m)}`;
   };
   $("#waJob").onchange = upd; $("#waNote").oninput = upd; upd();
-  $("#waGo").onclick = () => track(btn.dataset.wa, "whatsapp");
+  $("#waGo").onclick = () => { track(btn.dataset.wa, "whatsapp"); cta("whatsapp", btn, btn.dataset.wa); };
 }
 // North-star metric: garage contacts (WhatsApp, call, directions), with the visitor's ref/UTM tags.
 const SB_URL = import.meta.env.PUBLIC_SUPABASE_URL, SB_KEY = import.meta.env.PUBLIC_SUPABASE_ANON_KEY;
@@ -378,6 +378,21 @@ function track(slug, kind) {
   } catch {}
 }
 
+// Every tap on a contact or view control, with where it happened (page type, list or garage page, card position).
+// Lets us compare contact clicks per list view before and after a card change. No ids, no cookies.
+const pageType = () => { const p = location.pathname;
+  return p === "/" ? "home" : /\/service-cost\/$/.test(p) ? "cost" : /\/issues\/$/.test(p) ? "issues" : /^\/garage\//.test(p) ? "garage"
+    : /^\/dubai\/area\//.test(p) ? "area" : /^\/dubai\/problem\//.test(p) ? "problem" : /^\/dubai\/job\//.test(p) ? "job"
+    : /^\/dubai\/[^/]+\/[^/]+\/$/.test(p) ? "model" : /^\/dubai\/[^/]+\/$/.test(p) ? "brand" : p === "/dubai/" ? "dubai" : "other"; };
+function cta(kind, el, slug) {
+  if (!SB_URL || !SB_KEY) return;
+  const card = el && el.closest ? el.closest("[data-garage]") : null;
+  const cards = card ? [...document.querySelectorAll("[data-garage]")].filter((c) => !c.hidden) : [];
+  const row = { kind, garage_slug: slug || (card && card.dataset.garage) || null, page: location.pathname.slice(0, 200), page_type: pageType(),
+    place: card ? "card" : "page", position: card ? cards.indexOf(card) + 1 : null, mobile: matchMedia("(max-width: 700px)").matches };
+  try { fetch(`${SB_URL}/rest/v1/cta_clicks`, { method: "POST", keepalive: true, headers: { apikey: SB_KEY, "Content-Type": "application/json", Prefer: "return=minimal" }, body: JSON.stringify(row) }).catch(() => {}); } catch {}
+}
+
 /* ---------- events ---------- */
 document.addEventListener("click", (e) => {
   const pm = e.target.closest("[data-pickmodel]");
@@ -386,10 +401,11 @@ document.addEventListener("click", (e) => {
   const t = e.target.closest("[data-setcar],#mycarBtn,[data-wa],[data-track],[data-try]");
   if (!t) return;
   if (t.matches("[data-setcar],#mycarBtn")) carDialog();
-  else if (t.dataset.wa) waDialog(t);
+  else if (t.dataset.wa) { cta("whatsapp_open", t, t.dataset.wa); waDialog(t); }
   else if (t.dataset.track) {
     const slug = t.dataset.slug || t.closest("[data-garage]")?.dataset.garage || $("[data-garage-page]")?.dataset.garagePage;
-    if (slug) track(slug, t.dataset.track);
+    cta(t.dataset.track, t, slug);
+    if (slug && ["call", "directions", "whatsapp"].includes(t.dataset.track)) track(slug, t.dataset.track);
   }
   else if (t.dataset.try !== undefined) { const i = $("#hpIn"); if (i) { i.value = t.dataset.try; i.dispatchEvent(new Event("input")); i.focus(); } }
 });
