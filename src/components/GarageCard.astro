@@ -49,7 +49,7 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
     {cline && <div class="cline"><a href={`/garage/${g.slug}/#community`}>{cline}</a></div>}
     {/* One plain line on the card; the full evidence lives on the garage page. */}
     <div class="evid">
-      {g.summary[0] && (g.hasEvidence || g.ownerCount > 0) ? <span class="esum">{g.summary[0]}</span>
+      {g.cardSummary && (g.hasEvidence || g.ownerCount > 0) ? <span class="esum">{g.cardSummary}</span>
         : spec ? spec.cardEvidence || <span class="muted">No owner evidence for {make} yet</span>
         : brandLines.length ? brandLines.map((s, i) => (<>{i > 0 && <span class="sep">|</span>}{s.make}</>)) : <span class="muted">No specialty found yet</span>}
       {" "}<a class="seeev" href={`/garage/${g.slug}/#evidence`} data-track="view">See the evidence</a>
