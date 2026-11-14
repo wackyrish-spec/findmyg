@@ -48,6 +48,15 @@ function goodFor(text) {
 const BROKEN_SITE = /suspend|gambling|unrelated|default server|no content|check before/i;
 const NOT_WORKSHOP = /not (clearly )?a (repair )?workshop|parts (supplier|distributor)|distributor|retailer|transport company|showroom/i;
 // Website-only claims: basis "website", or a self-description with no review, community or founder basis behind it.
+// The pipeline's evidence string carries internal qualifiers. Public pages drop those clauses;
+// cards also drop the garage's own claims and the "% of reviews that name any make" aside (PM, 12 Nov).
+const INTERNAL_EV = /weak evidence|\bcandidate\b|not yet analysed/i;
+const SELF_EV = /advertises|website says|own (listing|website)|self-description|says it (works|specialises)/i;
+const clauses = (t) => String(t || "").split(/;\s*/).map((c) => c.trim()).filter(Boolean);
+const upFirst = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : "");
+export const publicEvidence = (t) => upFirst(clauses(t).filter((c) => !INTERNAL_EV.test(c)).join("; "));
+export const cardEvidence = (t) => upFirst(clauses(t).filter((c) => !INTERNAL_EV.test(c) && !SELF_EV.test(c)).join("; ").replace(/\s*\(\d+% of reviews that name any make\)/gi, ""));
+const cardSentences = (t) => String(t || "").split(/(?<=\.)\s+(?=[A-Z])/).filter((c) => !INTERNAL_EV.test(c) && !SELF_EV.test(c)).join(" ").trim();
 const SITE_BASIS = (s) => s.basis === "website" || (!/reviews|community|founder/.test(s.basis || "") && /self-description|on (the )?garage('s)? (own )?website/i.test(s.evidence || ""));
 // Rough drive time from Downtown Dubai: road distance about 1.2x straight line, 60 km/h for the first 20 km, 100 km/h after, plus 10 min traffic.
 const DRIVE_DEFAULT = { Sharjah: 30, Ajman: 40, "Abu Dhabi": 90, Musaffah: 90 };
@@ -77,7 +86,8 @@ function norm(g) {
       // Spec 13.1: evidence older than 3 years counts one step lower and shows its year.
       year: Number(s.latest_year) || null,
       conf: Math.max(1, (CONF[s.confidence] || 1) - (Number(s.latest_year) && new Date().getFullYear() - Number(s.latest_year) > 3 ? 1 : 0)),
-      evidence: (s.evidence || "") + (Number(s.latest_year) && new Date().getFullYear() - Number(s.latest_year) > 3 ? ` (latest ${s.latest_year})` : ""),
+      evidence: publicEvidence(s.evidence) + (Number(s.latest_year) && new Date().getFullYear() - Number(s.latest_year) > 3 ? ` (latest ${s.latest_year})` : ""),
+      cardEvidence: cardEvidence(s.evidence),
       mentions: s.mentions || 0,
       basis: s.basis || "",
     }))
@@ -134,6 +144,8 @@ function norm(g) {
     makes: [...new Set(specs.map((s) => s.make))],
     // Own-words summary (array of sentences, or a string in older data).
     summary: [].concat(g.evidence_summary || []).filter(Boolean),
+    // First summary line for cards, minus the garage's own claims and internal notes.
+    cardSummary: cardSentences([].concat(g.evidence_summary || []).filter(Boolean)[0]),
   };
 }
 
@@ -149,7 +161,10 @@ const defaultRank = (a, b) =>
 
 // Every garage keeps its page (slugs are frozen); non-workshops are left out of lists and search.
 // Records Data marks as duplicate_of another are skipped; public/_redirects sends their old URLs to the kept garage.
-export const ALL_GARAGES = (raw.garages || raw).filter((g) => g && g.name && !g.duplicate_of).map(norm).sort(defaultRank);
+// Brand-owned service centres are dealers even when the crawl files them as a workshop (AWR is Nissan's UAE distributor).
+const DEALER_NAME = /\bAWR Automotive\b/i;
+const asDealer = (g) => (DEALER_NAME.test(g.name) && g.business_type !== "dealer" ? { ...g, business_type: "dealer", dealer_for: g.dealer_for || "Nissan" } : g);
+export const ALL_GARAGES = (raw.garages || raw).filter((g) => g && g.name && !g.duplicate_of).map(asDealer).map(norm).sort(defaultRank);
 // Legal guard (PM + Legal, 10 Nov): no negatives from outside sources in any published text. Same pattern as
 // Data's pipeline/legal_strip.py. A hit fails the build and names the garage and field, so it can't reach the live site.
 const LEGAL_NEG = /pricey|pricy|expensive|overpric|over-pric|overcharg|over-charg|\bslow\b|delays?\b|rip ?-?off|scam|\bavoid|complain|terrible|horrible|worst|rude|do not use|don'?t use|not fixed|unresolved|upsell|\bfail|1[–-]2 stars?|negative|\bmixed\b|bad (service|experience)|poor (service|work|communication)/i;
@@ -443,7 +458,7 @@ export function communityLine(g, model = null) {
   const years = src.map((x) => Number(x.year)).filter((y) => y > 1990);
   const span = years.length ? (Math.min(...years) === Math.max(...years) ? ` · ${years[0]}` : ` · ${Math.min(...years)}–${Math.max(...years)}`) : "";
   const onModel = model ? src.filter((x) => (x.models || []).some((m) => String(m).toLowerCase() === model.toLowerCase())).length : 0;
-  return onModel >= 2 ? `Recommended in ${onModel} ${model} threads${span}` : `Recommended in ${pos} owner threads${span}`;
+  return onModel >= 2 ? `Recommended in ${onModel} threads about the ${model}${span}` : `Recommended in ${pos} owner threads${span}`;
 }
 // Threads for the garage page, newest first; older than 5 years are flagged.
 export function communityThreads(g) {

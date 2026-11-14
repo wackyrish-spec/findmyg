@@ -69,7 +69,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
   ogImage={`/og/garage/${g.slug}.png`}
   crumbs={[{ name: "Dubai", url: "/dubai/" }, ...(firstMake ? [{ name: firstMake, url: `/dubai/${slugify(firstMake)}/` }] : []), { name: g.name }]}
 >
-  <div class="wrap" data-garage-page={g.slug} data-specs={evidenced ? JSON.stringify(g.specs.map((s) => [s.make, s.models, s.conf, s.evidence])) : "[]"}>
+  <div class="wrap" data-garage-page={g.slug} data-specs={evidenced ? JSON.stringify(g.specs.map((s) => [s.make, s.models, s.conf, s.cardEvidence])) : "[]"}>
     {photo ? (
       <img class="gphoto" src={photo} alt={`${g.name}, ${g.area || "Dubai"}`} width="1200" height="400" loading="eager" />
     ) : (
@@ -271,6 +271,9 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
             {g.phone && <div><dt>Phone</dt><dd class="num"><a href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">{g.phone}</a></dd></div>}
             {g.hours && <div><dt>Hours</dt><dd>{g.hours}</dd></div>}
             {g.website && <div><dt>Website</dt><dd><a href={g.website} target="_blank" rel="noopener" style="overflow-wrap:anywhere">{g.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}</a></dd></div>}
+            {typeof g.instagram === "string" && /^https:\/\/(www\.)?instagram\.com\//.test(g.instagram) && <div><dt>Instagram</dt><dd><a href={g.instagram} target="_blank" rel="noopener nofollow">@{g.instagram.replace(/^https:\/\/(www\.)?instagram\.com\//, "").replace(/\/.*$/, "")}</a></dd></div>}
+            {g.bosch_partner === true && <div><dt>Network</dt><dd>Bosch Car Service partner{typeof g.bosch_partner_basis === "string" && /^https?:/.test(g.bosch_partner_basis) && <> (<a href={g.bosch_partner_basis} target="_blank" rel="noopener nofollow">per its website</a>)</>}</dd></div>}
+            {Array.isArray(g.editorial_mentions) && g.editorial_mentions.filter((m) => m && m.outlet && /^https?:/.test(m.url || "") && !/partner content|sponsored|press release|advertorial/i.test(`${m.outlet} ${m.note || ""}`)).length > 0 && <div><dt>In the press</dt><dd>{g.editorial_mentions.filter((m) => m && m.outlet && /^https?:/.test(m.url || "") && !/partner content|sponsored|press release|advertorial/i.test(`${m.outlet} ${m.note || ""}`)).slice(0, 3).map((m) => <div><a href={m.url} target="_blank" rel="noopener nofollow" >{String(m.outlet).replace(/\s*\(.*\)\s*$/, "")}{m.date ? `, ${String(m.date).slice(0, 4)}` : ""}</a></div>)}</dd></div>}
             {(claimMakes.length > 0 || claimNotes.length > 0 || g.focus) && <div><dt>The garage says</dt><dd>{g.focus && <div>{g.focus}</div>}{claimMakes.length > 0 && <div>Works on {claimMakes.join(", ")}{claimUrl && <> · <a href={claimUrl} target="_blank" rel="noopener nofollow">their website</a></>}</div>}{claimNotes.map((n) => <div class="muted">{n}</div>)}<small class="muted">Their own claim, not owner evidence.</small></dd></div>}
             {(g.services || []).length > 0 && <div><dt>Services</dt><dd>{g.services.join(", ")}</dd></div>}
           </dl>
@@ -285,7 +288,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
                 <span class="muted">{s.evidence}{s.basis ? ` (source: ${s.basis === "founder" ? "founder's own experience" : s.basis})` : ""}</span></div>
               ))}
               {(g.categories || []).length > 0 && <div class="muted">Google categories: {g.categories.join(", ")}</div>}
-              {(g.sources || []).length > 0 && <div>{g.sources.slice(0, 6).map((u) => <a href={u} target="_blank" rel="noopener nofollow" style="overflow-wrap:anywhere;display:block">{u.replace(/^https?:\/\/(www\.)?/, "").slice(0, 60)}</a>)}</div>}
+              {(g.sources || []).filter((u) => typeof u === "string" && /^https?:/.test(u)).length > 0 && <div>{g.sources.filter((u) => typeof u === "string" && /^https?:/.test(u)).slice(0, 6).map((u) => <a href={u} target="_blank" rel="noopener nofollow" style="overflow-wrap:anywhere;display:block">{u.replace(/^https?:\/\/(www\.)?/, "").slice(0, 60)}</a>)}</div>}
             </div>
           </details>
         </section>
