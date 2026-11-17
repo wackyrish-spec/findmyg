@@ -1,18 +1,17 @@
 ---
 slug: bmw-service-cost
 url: /dubai/bmw/service-cost/
-title: "BMW service cost in Dubai: independent garage prices"
+title: "BMW service and maintenance cost in Dubai: independent prices"
 description: "BMW minor service, front brake pads and AC re-gas in Dubai: what independent garages publish, from AED 249. BMW dealers don't publish prices. Sources and dates shown."
-price_fact: "Independent garages publish a BMW minor service at about AED 250 to 750; BMW dealers in the UAE don't publish service prices."
 h1: "BMW service cost in Dubai: what independent garages charge"
-status: approved by Marketer and SEO (figures re-checked against CSV, 91 rows), 10 Nov 2026
+status: approved by Marketer and SEO (Rapido rows added and checked against CSV, 17 Nov 2026)
 data_source: data/price-benchmarks.csv (BMW rows as of 10 Nov 2026)
 links_to: /dubai/bmw/, /dubai/problem/ac-not-cold/, /check-a-quote/
 schema: Article + FAQPage (3 FAQs below); no Review/AggregateRating markup
 review_by: 28 Feb 2027, or sooner if Data finds a dealer price (then switch the title to "dealer vs independent")
 ---
 
-**Short answer:** independent garages in Dubai publish a BMW minor service (oil, filter and checks) at about AED 250 to 750, depending on the garage, the engine and what's included. Front brake pads, fitted, run about AED 200 to 715 per axle, and an AC re-gas about AED 150 to 700. BMW dealers in the UAE don't publish service prices, so the only way to compare with the dealer is to get their quote in writing and set it next to these.
+**Short answer:** independent garages in Dubai publish a BMW minor service (oil, filter and checks) at about AED 250 to 890, depending on the garage, the engine and what's included. One garage also publishes a major service at AED 1,470 to 1,733 (4-cylinder) and AED 2,100 to 2,310 (6-cylinder), including VAT. Front brake pads, fitted, run about AED 200 to 715 per axle, and an AC re-gas about AED 150 to 700. BMW dealers in the UAE don't publish service prices, so the only way to compare with the dealer is to get their quote in writing and set it next to these.
 
 **Got a dealer quote?** [Check it here](/check-a-quote/) against what independents publish and what other owners paid.
 
@@ -24,8 +23,10 @@ review_by: 28 Feb 2027, or sooner if Data finds a dealer price (then switch the 
 | Golden Horse, Al Quoz 3 | Engine oil and filters | from 300, VAT not stated | [Garage's own page](https://golden-horse.ae/services/bmw/bmw-oil-change/) |
 | AMF Auto Services (BMWGarage.ae), Al Quoz 4 | Oil and filter service, engines up to 5 litres | 473 to 578, incl. VAT | [Garage's own price page](https://bmwgarage.ae/bmw-maintenance-cost-uae/) |
 | AMF Auto Services (BMWGarage.ae) | 520i minor service | from 749, VAT not stated | [Garage's own price page](https://bmwgarage.ae/bmw-maintenance-cost-uae/) |
+| Rapido Garage | 320i / 330i (4-cylinder) minor service | 683 to 840, incl. VAT | [Garage's own price list](https://rapidogarage.com/rapido-garage-detailed-price-list/) |
+| Rapido Garage | 540i / X5 40i (6-cylinder) minor service | 740 to 893, incl. VAT | [Garage's own price list](https://rapidogarage.com/rapido-garage-detailed-price-list/) |
 
-*All prices checked 10 Nov 2026. "From" is the garage's starting price.*
+*Prices checked 10 to 13 Nov 2026. "From" is the garage's starting price.*
 
 **Why the spread is so wide:** an oil change and a proper minor service aren't the same job. The cheaper prices are usually oil and filter only. A full minor service on a BMW should also reset the service indicator (CBS) with BMW software and include a scan for stored faults. Ask which oil is used (it should meet BMW Longlife spec), which filters are included, and whether VAT is included.
 
@@ -66,7 +67,7 @@ See the [BMW garages owners trust](/dubai/bmw/), or [check a quote you've been g
 ## FAQ
 
 **How much is a BMW service in Dubai?**
-Independent garages publish a BMW minor service at about AED 250 to 750, depending on the garage and what's included (garage price pages, Nov 2026). BMW dealers in the UAE don't publish service prices.
+Independent garages publish a BMW minor service at about AED 250 to 890, depending on the garage and what's included (garage price pages, Nov 2026). BMW dealers in the UAE don't publish service prices.
 
 **How much do BMW brake pads cost in Dubai?**
 Front pads, fitted, are published at about AED 200 to 715 per axle at independent garages, depending on the model and whether genuine or aftermarket pads are used. Discs and wear sensors are usually extra.

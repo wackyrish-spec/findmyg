@@ -36,6 +36,7 @@ function paintCar() {
     b.setAttribute("aria-label", car ? `Your car: ${carLabel(car)}. Change` : "Set your car");
   }
   $$("[data-carlabel]").forEach((e) => (e.textContent = car ? carLabel(car) : "not set"));
+  $$("[data-carset]").forEach((e) => (e.textContent = car ? carShort(car) : "Set your car"));
 }
 // Covered / close / not yet (PM spec 12.1).
 function pageFor(c) {
@@ -326,12 +327,9 @@ function matchPanel() {
   if (!page || !panel) return;
   const specs = JSON.parse(page.dataset.specs || "[]");
   $$("[data-model-tile]").forEach((t) => { const [mk, md] = t.dataset.modelTile.split("|"); t.classList.toggle("hit", !!car && car.make === mk && car.model === md); });
-  if (!car) {
-    panel.hidden = false;
-    panel.classList.remove("matchpanel");
-    panel.innerHTML = `<h2>Does it know your car?</h2><p class="muted" style="margin:0 0 12px">Set your car to see how well this garage matches it.</p><button class="btn primary" type="button" data-setcar>Set your car</button>`;
-    return;
-  }
+  // Wed 18 spec 1.5: no car set, so no card; the why line carries a "Set your car" link instead.
+  $$(".setlink").forEach((e) => (e.hidden = !!car));
+  if (!car) { panel.hidden = true; panel.innerHTML = ""; return; }
   const m = matchFor(specs, car);
   panel.classList.add("matchpanel");
   panel.hidden = false;

@@ -52,11 +52,15 @@ const NOT_WORKSHOP = /not (clearly )?a (repair )?workshop|parts (supplier|distri
 // cards also drop the garage's own claims and the "% of reviews that name any make" aside (PM, 12 Nov).
 const INTERNAL_EV = /weak evidence|\bcandidate\b|not yet analysed/i;
 const SELF_EV = /advertises|website says|own (listing|website)|self-description|says it (works|specialises)/i;
-const clauses = (t) => String(t || "").split(/;\s*/).map((c) => c.trim()).filter(Boolean);
+// Yuki 15 Nov: "(28 of the 29 that name a make)" and "(36% of reviews that name any make)" are pipeline asides, never public.
+const NAME_A_MAKE = /\s*\((?:\d+ of (?:the )?\d+|\d+%)(?: of reviews)? that name (?:a|any) make\)/gi;
+export const stripAside = (t) => String(t || "").replace(NAME_A_MAKE, "").replace(/the reviews that name a make are all ([A-Z][\w -]+)/g, "every review that names a make is about $1");
+const clauses = (t) => stripAside(t).split(/;\s*/).map((c) => c.trim()).filter(Boolean);
 const upFirst = (t) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : "");
 export const publicEvidence = (t) => upFirst(clauses(t).filter((c) => !INTERNAL_EV.test(c)).join("; "));
 export const cardEvidence = (t) => upFirst(clauses(t).filter((c) => !INTERNAL_EV.test(c) && !SELF_EV.test(c)).join("; ").replace(/\s*\(\d+% of reviews that name any make\)/gi, ""));
-const cardSentences = (t) => String(t || "").split(/(?<=\.)\s+(?=[A-Z])/).filter((c) => !INTERNAL_EV.test(c) && !SELF_EV.test(c)).join(" ").trim();
+const sentences = (t) => stripAside(t).split(/(?<=\.)\s+(?=[A-Z])/).filter((c) => !INTERNAL_EV.test(c) && !SELF_EV.test(c));
+const cardSentences = (t) => stripAside(t).split(/(?<=\.)\s+(?=[A-Z])/).filter((c) => !INTERNAL_EV.test(c) && !SELF_EV.test(c)).join(" ").trim();
 const SITE_BASIS = (s) => s.basis === "website" || (!/reviews|community|founder/.test(s.basis || "") && /self-description|on (the )?garage('s)? (own )?website/i.test(s.evidence || ""));
 // Rough drive time from Downtown Dubai: road distance about 1.2x straight line, 60 km/h for the first 20 km, 100 km/h after, plus 10 min traffic.
 const DRIVE_DEFAULT = { Sharjah: 30, Ajman: 40, "Abu Dhabi": 90, Musaffah: 90 };
@@ -143,7 +147,7 @@ function norm(g) {
     ownerCount: (REVIEWS[g.id || slugify(g.name)] || []).length,
     makes: [...new Set(specs.map((s) => s.make))],
     // Own-words summary (array of sentences, or a string in older data).
-    summary: [].concat(g.evidence_summary || []).filter(Boolean),
+    summary: [].concat(g.evidence_summary || []).filter(Boolean).map(stripAside).filter((t) => !INTERNAL_EV.test(t)),
     // First summary line for cards, minus the garage's own claims and internal notes.
     cardSummary: cardSentences([].concat(g.evidence_summary || []).filter(Boolean)[0]),
   };
@@ -195,6 +199,26 @@ export function specFor(g, make, model) {
     return { ...s[0], conf: Math.min(s[0].conf, 2), modelHit: false };
   }
   return s[0];
+}
+// Structured evidence line built from counts, never from the raw specialties[].evidence text (Yuki 15 Nov).
+export function structLine(g, s) {
+  if (!s) return "";
+  const n = g.reviews_analysed || 0;
+  if (s.mentions > 0 && n > 0 && /reviews/.test(s.basis || "") ) return `${Math.min(s.mentions, n)} of ${n} reviews we read mention ${s.make}`;
+  if (s.mentions > 0 && /community/.test(s.basis || "")) return `Recommended for ${s.make} in ${s.mentions} owner ${s.mentions === 1 ? "post" : "posts"}`;
+  if (s.basis === "founder") return `${s.make}: from the founder's own experience`;
+  if (s.mentions > 0 && n > 0) return `${Math.min(s.mentions, n)} of ${n} reviews we read mention ${s.make}`;
+  return "";
+}
+// Card evidence for a list page: the page's make leads (Yuki 15 Nov, Mavericks on Patrol opened with Jeep).
+export function cardLine(g, make, model) {
+  const all = [].concat(g.evidence_summary || []).filter(Boolean).flatMap(sentences);
+  if (!make) return all.slice(0, 2).join(" ");
+  const spec = specFor(g, make, model);
+  const hits = (x) => x.includes(make) || (model && x.includes(model));
+  const lead = all.filter((x) => hits(x) && !/^Also\b/.test(x));
+  const first = lead.length && /\b\d+ of \d+\b/.test(lead[0]) ? [] : [structLine(g, spec)].filter(Boolean).map((x) => x + ".");
+  return [...first, ...lead].slice(0, 2).join(" ");
 }
 export const levelOf = (spec) => (spec ? spec.conf : 0);
 const lc = (x) => String(x || "").toLowerCase();

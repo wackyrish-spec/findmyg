@@ -26,6 +26,12 @@ const itemList = {
       address: { "@type": "PostalAddress", ...(g.area ? { addressLocality: g.area } : {}), addressRegion: "Dubai", addressCountry: "AE" } },
   })),
 };
+// Wed 18 spec 2: basis line from our own counts; the answer's first sentence stays on top, the rest moves below the list.
+const R = garages.reduce((n, g) => n + (Number(g.reviews_analysed) || 0), 0);
+const T = garages.reduce((n, g) => n + (Number(g.community_mentions?.threads_positive) || 0), 0);
+const ans = String(answer || lead || "");
+const ansParts = ans.split(/(?<=\.)\s+(?=[A-Z])/);
+const ans1 = ansParts[0] || "", ansRest = ansParts.slice(1).join(" ");
 const strip = (h) => String(h).replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
 const webPage = { "@context": "https://schema.org", "@type": "CollectionPage", url: pageUrl, name: h1, ...(answer ? { description: answer } : {}),
   ...(DATA_UPDATED ? { dateModified: DATA_UPDATED } : {}), publisher: { "@type": "Organization", name: SITE.name, url: abs("/") } };
@@ -36,8 +42,14 @@ const faqLd = faq.length ? { "@context": "https://schema.org", "@type": "FAQPage
   <div class="wrap">
     <div class="rhead"><div>
       <h1>{h1}</h1>
-      <p class="answer">{answer || lead}</p>
-      {DATA_UPDATED && <p class="muted upd">Updated <time datetime={DATA_UPDATED}>{fmtDate(DATA_UPDATED)}</time></p>}
+      {(R > 0 || DATA_UPDATED) && <p class="basis">{R > 0 && <>We read <b>{R.toLocaleString("en-US")}</b> reviews{T > 0 && <> and <b>{T}</b> owner threads</>} to find these. </>}{DATA_UPDATED && <>Updated <time datetime={DATA_UPDATED}>{fmtDate(DATA_UPDATED)}</time>.</>}</p>}
+      <p class="answer">{ans1}</p>
+      <div class="ctrls">
+        <button class="pill ctl" type="button" data-setcar><span data-carset>Set your car</span></button>
+        {garages.some((g) => g.lat && g.lng) && <button class="pill ctl" type="button" id="nearBtn">Near me</button>}
+        <a class="pill ctl share" href={`https://wa.me/?text=${encodeURIComponent(shareText)}`} target="_blank" rel="noopener"><Icon name="wa" />Share</a>
+        {makeFilter.length > 0 && <label class="mfilter" for="makeFilter">Your car's make <select id="makeFilter"><option value="">Any make</option>{makeFilter.map((m) => <option value={m.make} data-url={m.url}>{m.make}</option>)}</select></label>}
+      </div>
       {modelChips.length > 0 && (
         <nav class="mchips" aria-label={`Which ${make} do you drive?`}>
           <span class="label">Which {make} do you drive?</span>
@@ -46,20 +58,13 @@ const faqLd = faq.length ? { "@context": "https://schema.org", "@type": "FAQPage
       )}
       <div class="resort" id="resort" hidden></div>
     </div></div>
-    <div class="bar">
-      <button class="btn sm" type="button" data-setcar>Your car: <span data-carlabel>not set</span></button>
-      <a class="btn sm wa" href={`https://wa.me/?text=${encodeURIComponent(shareText)}`} target="_blank" rel="noopener"><Icon name="wa" />Share this list</a>
-      {garages.some((g) => g.lat && g.lng) && <button class="btn sm" type="button" id="nearBtn">Near me</button>}
-      {makeFilter.length > 0 && <label class="mfilter" for="makeFilter">Your car's make <select id="makeFilter"><option value="">Any make</option>{makeFilter.map((m) => <option value={m.make} data-url={m.url}>{m.make}</option>)}</select></label>}
-      <span class="grow"></span>
-      <span class="muted" style="font-size:13px">{garages.length} with evidence{others.length ? ` · ${others.length} more listed` : ""}</span>
-    </div>
     <p class="muted nearout" id="nearOut" hidden></p>
     {makeFilter.length > 0 && <p class="muted" id="makeFilterOut" aria-live="polite"></p>}
     <div class="results" id="results" data-make={make || ""} data-model={model || ""}>
       {garages.map((g) => <GarageCard g={g} make={make} model={model} note={notes?.[g.slug]} />)}
       {garages.length === 0 && <div class="card empty">No garages with owner evidence here yet.{others.length > 0 ? " Some are listed below." : ""} Know a good one? <a href="/add-a-garage/">Tell us about it</a>.</div>}
     </div>
+    {ansRest && <section class="aboutlist"><h2>About this list</h2><p>{ansRest}</p></section>}
     {/* SEO rule (spec 12.4): one plain sentence above the list, the longer intro below it, in the HTML. */}
     {introText && <div class="intro" set:html={introText.split(/\n\n+/).map((p) => `<p>${p}</p>`).join("")} />}
     {owners && (
