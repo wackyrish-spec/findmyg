@@ -160,8 +160,10 @@ export function waNumber(g) {
   return "";
 }
 
+// Ranking floor (Daniel 17 Nov): under 3.5 stars on 20+ Google reviews stays listed but sorts after every other garage.
+export const lowRated = (g) => Number(g.google?.rating) > 0 && Number(g.google.rating) < 3.5 && (Number(g.google.count) || 0) >= 20;
 const defaultRank = (a, b) =>
-  a.isDealer - b.isDealer || (b.ownerCount >= 3) - (a.ownerCount >= 3) || b.hasEvidence - a.hasEvidence || b.topConf - a.topConf || a.name.localeCompare(b.name);
+  a.isDealer - b.isDealer || lowRated(a) - lowRated(b) || (b.ownerCount >= 3) - (a.ownerCount >= 3) || b.hasEvidence - a.hasEvidence || b.topConf - a.topConf || a.name.localeCompare(b.name);
 
 // Every garage keeps its page (slugs are frozen); non-workshops are left out of lists and search.
 // Records Data marks as duplicate_of another are skipped; public/_redirects sends their old URLs to the kept garage.
@@ -267,7 +269,7 @@ export function splitGeneral(garages) {
 function rankFor(make, model) {
   return (a, b) => {
     const sa = specFor(a, make, model), sb = specFor(b, make, model);
-    return (sb?.conf || 0) - (sa?.conf || 0) || (sb?.modelHit ? 1 : 0) - (sa?.modelHit ? 1 : 0) ||
+    return lowRated(a) - lowRated(b) || (sb?.conf || 0) - (sa?.conf || 0) || (sb?.modelHit ? 1 : 0) - (sa?.modelHit ? 1 : 0) ||
       (sb?.mentions || 0) - (sa?.mentions || 0) || a.name.localeCompare(b.name);
   };
 }
@@ -640,29 +642,40 @@ export function modelAnswer(b, m, ranked, fact) {
   return `${first} ${fact || priceFact(b.make, m.model) || ""}`.trim();
 }
 
-// Card v3 B (Sat 21 Nov): one big reason line from a fixed table, then one support line with the counts.
-// Table (Daniel 13 Nov), first row that applies wins; {X} is the model on a model page, else the make:
-//   founder's pick → "Founder's pick for the {X}"; 2+ owner threads → "Owners recommend it for the {X}";
-//   10+ mentions → "{X} owners often review it"; 3-9 → "{X} owners review it"; make mentions 3+ → "{make} owners have mentioned it".
+// Card v3 B (Sat 21 Nov): one big reason line and the badge, both from the same counts (Yuki + Daniel 17 Nov).
+// {X} = the model on a model page when the garage has 3+ reviews naming that model, else the make.
+// Headline, first row that applies: founder's pick → "Founder's pick for {X}"; 2+ positive owner threads about X →
+//   "Owners recommend it for {X}"; X count 10+ → "{X} owners often review it"; 3-9 → "{X} owners review it";
+//   make mentions 3+ → "{make} owners have mentioned it".
+// Badge: Strong = count 10+ and 15%+ of reviews read, or 3+ threads, or founder; Good = count 5+ or 2+ threads; else none.
+export const CARD_RULES = { strongN: 10, strongShare: 0.15, strongThreads: 3, goodN: 5, goodThreads: 2 };
 export function cardWhy(g, make, model) {
   const real = (s) => /reviews|community|founder/.test(s.basis || "") && s.conf >= 2;
   const mk = make || (g.specs.find(real) || g.specs[0] || {}).make;
-  if (!mk) return { why: "", threads: 0, m: 0, n: 0, mk: "", mostly: "" };
-  const s = specFor(g, mk, make ? model : null);
-  const md = make && model && s?.modelHit ? model : null;
-  const X = md || mk, the = md ? `the ${md}` : mk;
-  const cm = g.community_mentions, pos = cm?.threads_positive || 0, neg = cm?.threads_negative || 0;
-  const src = (cm?.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "") && !/negative|mixed/i.test(x.sentiment || ""));
-  const okThreads = pos >= 2 && neg * 3 < pos && s && s.conf >= 2;
-  const onModel = md ? src.filter((x) => (x.models || []).some((y) => String(y).toLowerCase() === md.toLowerCase())).length : 0;
-  const threads = !okThreads || (make && model && !md) ? 0 : md ? onModel : pos;
+  if (!mk) return { why: "", threads: 0, m: 0, n: 0, mk: "", mostly: "", badge: 0, cnt: 0, founder: false };
+  const onModelPage = !!(make && model);
+  const s = specFor(g, mk, onModelPage ? model : null);
   const n = g.reviews_analysed || 0;
   const m = s && /reviews/.test(s.basis || "") && n > 0 ? Math.min(s.mentions || 0, n) : 0;
+  const mc = g.model_mentions?.counts?.[mk] || {};
+  const mm = onModelPage && n > 0 ? Math.min(Number(mc[model]) || 0, n) : 0;
+  const md = onModelPage && mm >= 3 ? model : null;
+  const cm = g.community_mentions, neg = cm?.threads_negative || 0;
+  const pos = (cm?.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "") && x.sentiment === "positive");
+  const lc = (v) => String(v).toLowerCase();
+  const tagged = onModelPage ? pos.filter((x) => (x.models || []).some((y) => lc(y) === lc(model)))
+    : pos.filter((x) => (x.makes || []).some((y) => lc(y) === lc(mk)));
+  const threads = neg * 3 < (cm?.threads_positive || 0) ? tagged.length : 0;
+  const founder = s?.basis === "founder";
+  const X = onModelPage ? model : mk, the = onModelPage ? `the ${model}` : mk;
   let why = "";
-  if (s?.basis === "founder") why = `Founder's pick for ${the}`;
+  if (founder) why = `Founder's pick for ${the}`;
   else if (threads >= 2) why = `Owners recommend it for ${the}`;
-  else if (make && model && !md) why = m >= 3 ? `${mk} owners have mentioned it` : "";
-  else if (m >= 10) why = `${X} owners often review it`;
-  else if (m >= 3) why = `${X} owners review it`;
-  return { why, threads: threads >= 2 ? threads : 0, m, n, mk, mostly: md && m > 0 ? md : "", founder: s?.basis === "founder" };
+  else if (onModelPage ? mm >= 10 : m >= 10) why = `${X} owners often review it`;
+  else if (onModelPage ? mm >= 3 : m >= 3) why = `${X} owners review it`;
+  else if (m >= 3) why = `${mk} owners have mentioned it`;
+  const cnt = onModelPage ? mm : m, R = CARD_RULES;
+  const badge = founder || threads >= R.strongThreads || (cnt >= R.strongN && n > 0 && cnt / n >= R.strongShare) ? 3
+    : cnt >= R.goodN || threads >= R.goodThreads ? 2 : 0;
+  return { why, threads: threads >= 2 ? threads : 0, m, n, mk, mostly: md || "", founder, badge, cnt };
 }

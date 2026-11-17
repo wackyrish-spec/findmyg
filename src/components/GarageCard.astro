@@ -1,5 +1,5 @@
 ---
-import { cardWhy, specFor, structLine, LEVELS, DATA_UPDATED, benchmarks, budgetTier, BENCH_SRC } from "../lib/data.js";
+import { cardWhy, lowRated, specFor, structLine, LEVELS, DATA_UPDATED, benchmarks, budgetTier, BENCH_SRC } from "../lib/data.js";
 const fmt = (d) => (d ? new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "");
 import Icon from "./Icon.astro";
 const { g, make = null, model = null, plain = false, note = null } = Astro.props;
@@ -31,10 +31,10 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
   </div>
 </article>
 ) : (
-<article class="card gcard v3" data-garage={g.slug} data-specs={payload} data-ll={g.lat && g.lng ? `${Number(g.lat).toFixed(4)},${Number(g.lng).toFixed(4)}` : ""}>
+<article class="card gcard v3" data-garage={g.slug} data-low={lowRated(g) ? "1" : undefined} data-cw={W ? `${W.cnt}|${W.n}|${W.threads}|${W.founder ? 1 : 0}|${W.badge}` : ""} data-specs={payload} data-ll={g.lat && g.lng ? `${Number(g.lat).toFixed(4)},${Number(g.lng).toFixed(4)}` : ""}>
   <div class="main">
     <div class="gtop"><h3><a href={`/garage/${g.slug}/`} data-track="view">{g.name}</a></h3>
-      <span class="matchslot">{spec && level >= 2 && <span class={`match l${level}`}>{LEVELS[level]}</span>}</span></div>
+      <span class="matchslot">{W?.badge >= 2 && <span class={`match l${W.badge}`}>{LEVELS[W.badge]}</span>}</span></div>
     <div class="meta">
       <span>{g.area || "Dubai"}</span>
       {g.google && <span>{` · ★ ${Number(g.google.rating).toFixed(1)} on `}{ghref ? <a href={ghref} target="_blank" rel="noopener nofollow">Google</a> : "Google"}{` (${(g.google.count || 0).toLocaleString("en-US")})`}</span>}
@@ -55,12 +55,13 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
       {" "}<a class="seeev" href={`/garage/${g.slug}/#evidence`} data-track="view">How we know</a>
     </p>
     {bench.length > 0 ? <p class="benchline">{tier && <span class="tier" title="Compared with other independents for this make">{tier}</span>}Minor service from <b>AED {Number(bench[0].low).toLocaleString("en-US")}</b>{bench[0].car.replace(make || "", "").trim() ? ` (${bench[0].car.replace(make || "", "").trim()})` : ""} <span class="muted">· {BENCH_SRC[bench[0].src]}</span></p>
-      : g.priceTalk?.label && !g.isDealer && <p class={`ptalk ${g.priceTalk.tone}`}>{g.priceTalk.label}</p>}
+      : g.priceTalk?.label && !g.isDealer && (() => { const [a, b = "", c = ""] = g.priceTalk.label.split(/(\d+ of \d+)/); return <p class="ptalk v3p">{a}<b>{b}</b>{c}</p>; })()}
   </div>
   <div class="acts">
     <div class="ab">
       {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
-      {g.phone && <a class={`btn${g.waNumber ? "" : " wa callp"}`} href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">Call</a>}
+      {g.phone && (g.waNumber ? <a class="btn" href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">Call</a>
+        : <a class="btn primary" href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call"><Icon name="phone" />Call</a>)}
     </div>
     <div class="al">
       <a class="lnk" href={maps} target="_blank" rel="noopener" data-track="directions">Directions</a>

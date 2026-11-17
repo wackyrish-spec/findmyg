@@ -293,8 +293,7 @@ function matchFor(specs, c) {
   }
   return { l, ev: best[3], hit };
 }
-// Card v3 B: the badge shows only for Strong or Good.
-const matchHTML = (m) => (m.l >= 2 ? `<span class="match l${m.l}">${LEVELS[m.l]}</span>` : "");
+const matchHTML = (m) => `<span class="match l${m.l}">${LEVELS[m.l]}</span>`;
 
 function rerank(announce) {
   const box = $("#results");
@@ -309,9 +308,9 @@ function rerank(announce) {
     return { el, i, m };
   });
   if (c) {
-    scored.sort((a, b) => (b.m.l - a.m.l) || ((b.m.hit ? 1 : 0) - (a.m.hit ? 1 : 0)) || (a.i - b.i));
+    scored.sort((a, b) => (!!a.el.dataset.low - !!b.el.dataset.low) || (b.m.l - a.m.l) || ((b.m.hit ? 1 : 0) - (a.m.hit ? 1 : 0)) || (a.i - b.i));
     scored.forEach(({ el, m }) => {
-      const slot = $(".matchslot", el); if (slot) slot.innerHTML = matchHTML(m);
+      // Card v3 B: the badge is the server-side proof badge; re-ranking only re-orders.
       el.classList.toggle("dim", m.l === 0);
       const d = $("details.enth", el); if (d && c.code) d.open = true;
     });

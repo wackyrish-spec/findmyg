@@ -580,3 +580,6 @@ footer .flinks .linkbtn{color:inherit;font-size:inherit}
   .gcard.v3 .ab .btn.wa{flex:1.1 1 0}
 }
 .gcard.v3 .meta span{display:inline;gap:0}
+.gcard.v3 .ptalk.v3p,.gcard.v3 .benchline{color:var(--muted);font-weight:500;font-size:14px;margin:8px 0 0}
+.gcard.v3 .ptalk.v3p b,.gcard.v3 .benchline b{color:var(--ink)}
+.gcard.v3 .ab .btn.primary{flex:1 1 auto}
