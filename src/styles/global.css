@@ -545,3 +545,11 @@ footer .flinks .linkbtn{color:inherit;font-size:inherit}
 @media (max-width:640px){body.has-sticky .consent{bottom:calc(74px + env(safe-area-inset-bottom,0px))}}
 .whyline .linkbtn{font-weight:800;font-size:14px}
 .ghead .wanote{margin:6px 0 0}
+
+/* Slim banner on phones (Daniel 17 Nov) */
+@media (max-width:640px){
+  .consent{flex-direction:row;align-items:center;gap:8px;padding:8px 10px;inset-inline:8px;border-radius:12px}
+  .consent p{font-size:13px;line-height:1.3;flex:1}
+  .consent .clong{display:none}
+  .consent .cacts .btn{flex:0 0 auto;min-height:44px;padding-inline:12px}
+}

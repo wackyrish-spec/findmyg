@@ -92,7 +92,7 @@ const ld = [...jsonld, ...(crumbLd ? [crumbLd] : [])];
     <span class="muted">{SITE.name} · {SITE.tagline}.</span>
   </div></footer>
   <div class="consent" id="consent" role="region" aria-label="Cookie choice" hidden>
-    <p><b>Can we record how you use this site?</b> It shows us which pages confuse people so we can fix them. Anything you type is masked, and nothing is used for ads. <a href="/privacy/">Privacy</a></p>
+    <p><b>Can we record how you use this site?</b><span class="clong"> It shows us which pages confuse people so we can fix them. Anything you type is masked, and nothing is used for ads.</span> <a href="/privacy/">Privacy</a></p>
     <div class="cacts"><button class="btn sm primary" type="button" data-consent="yes">Allow</button><button class="btn sm" type="button" data-consent="no">No thanks</button></div>
   </div>
   <script is:inline>
@@ -112,7 +112,16 @@ const ld = [...jsonld, ...(crumbLd ? [crumbLd] : [])];
       function show() { box.hidden = false; document.body.classList.add("has-consent"); }
       function hide() { box.hidden = true; document.body.classList.remove("has-consent"); }
       var c = get();
-      if (c === "yes") load(); else if (c !== "no" && !excluded) show();
+      // Daniel 17 Nov: on phones the banner must not cover a contact button on the first screen,
+      // so it waits for a first scroll or the visitor's second page.
+      var phone = window.matchMedia && matchMedia("(max-width: 640px)").matches, views = 0;
+      try { views = (+sessionStorage.getItem("kmc_views") || 0) + 1; sessionStorage.setItem("kmc_views", views); } catch (e) {}
+      function later() {
+        if (!phone || views > 1) return show();
+        var on = function () { if (scrollY > 300) { removeEventListener("scroll", on); show(); } };
+        addEventListener("scroll", on, { passive: true });
+      }
+      if (c === "yes") load(); else if (c !== "no" && !excluded) later();
       box.addEventListener("click", function (e) {
         var b = e.target.closest("[data-consent]"); if (!b) return;
         var v = b.getAttribute("data-consent");
