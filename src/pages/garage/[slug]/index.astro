@@ -4,7 +4,7 @@ import Icon from "../../../components/Icon.astro";
 import HelpFeedback from "../../../components/HelpFeedback.astro";
 import { existsSync } from "node:fs";
 import { SITE } from "../../../lib/site.js";
-import { foundingModel, communityThreads, groupReports, ALL_GARAGES, garageIndexable, slugify, DATA_UPDATED, benchmarks, BENCH_SRC, aedRange } from "../../../lib/data.js";
+import { foundingModel, communityThreads, groupReports, ALL_GARAGES, garageIndexable, slugify, DATA_UPDATED, benchmarks, BENCH_SRC, aedRange, structLine, stripAside } from "../../../lib/data.js";
 export function getStaticPaths() {
   return ALL_GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
 }
@@ -22,9 +22,38 @@ const groups = g.isDealer ? 0 : groupReports(g);
 const photo = existsSync(`public/photos/${g.slug}.jpg`) ? `/photos/${g.slug}.jpg` : null;
 const mono = (g.name.match(/[A-Za-z0-9]+/g) || ["G"]).slice(0, 2).map((w) => w[0]).join("").toUpperCase();
 const brandsList = g.makes.join(", ");
-const desc = top
-  ? `${g.name} in ${g.area || "Dubai"}: ${brandsList} ${g.specs.length > 1 ? "specialist" : "specialist"}. See what owners say, the evidence and how to contact them.`
-  : `${g.name}, an independent garage in ${g.area || "Dubai"}. Reviews, contact details and directions.`;
+// Karim 15 Nov: tidy the name for title/meta only (slug and stored name untouched).
+const tidy = (n) => {
+  let t = String(n).split(/ \| |\. (?=[A-Z])/)[0].replace(/\b(L\.?L\.?C\.?|FZE|FZCO|FZ-LLC)\b\.?/gi, "").replace(/\s*\bbest (garage|car service|workshop)\b.*$/i, "").replace(/[\s,.-]+$/, "").replace(/\s{2,}/g, " ").trim();
+  if (t === t.toUpperCase() && /[A-Z]{4}/.test(t)) t = t.split(" ").map((w) => (w.length > 3 ? w.charAt(0) + w.slice(1).toLowerCase() : w)).join(" ");
+  return t;
+};
+const outside = g.outsideDubai || g.worthDrive;
+const areaT = g.areaGroup || (/al q[uo]{1,2}z/i.test(g.area || "") ? "Al Quoz" : g.area) || "";
+const placeT = outside ? (g.emirate || areaT || "UAE") : `${areaT || "Dubai"}${areaT ? ", Dubai" : ""}`;
+let tName = tidy(g.name).replace(/,?\s*Dubai$/i, "");
+if (areaT && tName.toLowerCase().endsWith(areaT.toLowerCase()) && tName.length > areaT.length + 3) tName = tName.slice(0, -areaT.length).replace(/[\s,-]+$/, "");
+const realSpecs = g.specs.filter((s) => s.conf >= 2 && /reviews|community|founder/.test(s.basis || ""));
+const showsPrice = ((g.hasEvidence || g.ownerCount > 0 || g.isDealer) && (benchmarks(g).length > 0 || g.prices.length > 0)) || g.ownerReviews.some((r) => r.price_paid > 0);
+const tOpts = [
+  showsPrice ? `${tName} reviews and prices, ${placeT}` : "",
+  realSpecs[0] && !g.isDealer ? `${tName} reviews: ${realSpecs[0].make} specialist, ${placeT}` : "",
+].filter((t) => t && t.length <= 60);
+const pageTitle = tOpts[0] || `${tName} reviews, ${placeT}`;
+const why1 = realSpecs[0] ? structLine(g, realSpecs[0]) : "";
+const metaMakes = realSpecs.slice(0, 2).map((s) => s.make);
+const desc0 = metaMakes.length
+  ? `${tName} in ${placeT}: ${metaMakes.join(" and ")} specialist. ${why1 ? why1 + (g.ownerCount ? `; ${g.ownerCount} owner reviews` : "") + ". " : ""}${showsPrice ? "Prices shown. " : ""}Call or WhatsApp in one tap.`
+  : "";
+const desc1 = top
+  ? `${tName} in ${placeT}: ${brandsList} ${g.specs.length > 1 ? "specialist" : "specialist"}. See what owners say, the evidence and how to contact them.`
+  : `${tName}, an independent garage in ${placeT}. Reviews, contact details and directions.`;
+const desc = desc0 || desc1;
+// "What reviewers say" only when reviews were actually read; never the pipeline's "not yet analysed".
+const rsum = g.reviews_analysed ? stripAside(g.review_summary || "").split(/(?<=\.)\s+/).filter((x) => x && !/not yet analysed|weak evidence|candidate/i.test(x)).join(" ") : "";
+// Why line under the H1 (Wed 18 spec 1.3): plain words, numbers with their denominator.
+const threadsN = g.isDealer ? 0 : communityThreads(g).length;
+const bandMakes = realSpecs.slice(0, 2).map((s) => s.make);
 const models = g.specs.flatMap((s) => s.models.map((m) => ({ make: s.make, model: m, conf: s.conf, confidence: s.confidence })));
 // AutoRepair schema. aggregateRating is added only from KnowsMyCar's own owner reviews (none yet).
 const ld = {
@@ -62,7 +91,7 @@ const fmtDay = (d) => (d ? new Date(d).toLocaleDateString("en-GB", { day: "numer
 const evidenced = g.hasEvidence || g.ownerCount > 0;
 ---
 <Base
-  title={`${g.name} reviews: what owners say${g.area ? ` · ${g.area}` : ""}`}
+  title={pageTitle}
   description={desc}
   noindex={!garageIndexable(g)}
   jsonld={[ld]}
@@ -74,7 +103,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
       <img class="gphoto" src={photo} alt={`${g.name}, ${g.area || "Dubai"}`} width="1200" height="400" loading="eager" />
     ) : (
       <div class="gband" aria-hidden="true"><span class="mono">{mono}</span>
-        <span class="gbtxt">{g.isDealer ? `${[].concat(g.dealer_for || []).join(", ") || "Main"} dealer` : g.makes.length ? g.makes.slice(0, 3).join(" · ") : "Independent garage"}<small>{g.isDealer ? "Franchised main dealer" : evidenced ? "Independent specialist" : "Independent garage"}</small></span></div>
+        <span class="gbtxt">{g.isDealer ? `${[].concat(g.dealer_for || []).join(", ") || "Main"} dealer` : bandMakes.length ? bandMakes.join(" · ") : "Independent garage"}<small>{g.isDealer ? "Franchised main dealer" : evidenced ? "Independent specialist" : "Independent garage"}</small></span></div>
     )}
     <div class="ghead"><div>
       <div class="meta" style="margin-bottom:8px">
@@ -83,26 +112,28 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
         {evidenced && g.goodFor.map((x) => <span class="goodfor">Good for: {x}</span>)}
         {g.isDealer ? <span class="dealer">Main dealer</span> : g.business_type && g.business_type !== "workshop" && <span class="biztag">Also sells parts</span>}
       </div>
-      <h1>{g.name}</h1></div>
+      <h1 class={g.name.length > 40 ? "long" : undefined}>{g.name}</h1>
+      {evidenced && !g.isDealer && (why1 || threadsN >= 2) && (
+        <p class="whyline">{threadsN >= 2 && <>Owners recommend it{realSpecs[0] ? <> for <b>{realSpecs[0].models[0] || realSpecs[0].make}</b></> : ""} in <b>{threadsN}</b> threads. </>}{why1 && (/^\d+ of \d+/.test(why1) ? <><b>{why1.match(/^\d+ of \d+/)[0]}</b>{why1.replace(/^\d+ of \d+/, "")}.</> : <>{why1}.</>)} <a href="#evidence">How we know</a></p>
+      )}</div>
       <div class="gacts">
-        {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name} title={g.waConfirmed ? undefined : "WhatsApp (number from the garage's listing)"}><Icon name="wa" />{g.waConfirmed ? "WhatsApp" : "Try WhatsApp"}</button>}
+        {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name} title={g.waConfirmed ? undefined : "WhatsApp (number from the garage's listing)"}><Icon name="wa" />WhatsApp</button>}
         {g.phone && <a class={`btn${g.waNumber ? "" : " primary"}`} href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call"><Icon name="phone" />Call</a>}
         <a class="btn" href={maps} target="_blank" rel="noopener" data-track="directions"><Icon name="nav" />Directions</a>
       </div>
     </div>
+    {g.waNumber && !g.waConfirmed && <p class="wanote">WhatsApp number from the garage's own listing, not confirmed on WhatsApp.</p>}
 
-    {evidenced && g.specs.length > 0 && (
+    {evidenced && realSpecs.length > 0 && (
       <div class="known"><span class="label" style="margin-inline-end:4px">Known for</span>
-        {g.specs.map((s) => (
-          <a class="pill" href={`/dubai/${s.makeSlug}/`}>{s.make}{s.mentions ? ` · ${s.mentions}` : ""} <span class={`conf c${s.conf}`}>{s.confidence}</span></a>
+        {realSpecs.map((s) => (
+          <a class="pill" href={`/dubai/${s.makeSlug}/`}>{s.make}{s.mentions ? ` · ${s.mentions} ${/reviews/.test(s.basis) ? (s.mentions === 1 ? "review" : "reviews") : (s.mentions === 1 ? "owner post" : "owner posts")}` : ""}</a>
         ))}
       </div>
     )}
 
     <div class="gbody">
       <div>
-        {evidenced && <section class="card panel matchpanel" id="matchPanel" hidden></section>}
-
         {!g.isDealer && (
           <section class="card panel community" id="community"><h2>What owner communities say</h2>
             {threads.length > 0 ? <>
@@ -116,17 +147,70 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
           </section>
         )}
 
-        {g.review_summary && (
+        {evidenced && <section class="card panel matchpanel" id="matchPanel" hidden></section>}
+
+        {rsum && (
           <section class="card panel summary"><h2>What reviewers say</h2>
             <p class="sub">Summary of reviews we read on {g.ext.map((e) => e.source).join(", ") || "other sites"}{g.reviews_analysed ? ` (${g.reviews_analysed} reviews read)` : ""}.</p>
-            <p>{g.review_summary}</p></section>
+            <p>{rsum}</p></section>
         )}
 
         {evidenced && models.length > 0 && (
           <section class="card panel"><h2>Models they've worked on</h2><p class="sub">Models that come up in reviews and owner recommendations.</p>
             <div class="models">{models.map((m) => (
-              <div data-model-tile={`${m.make}|${m.model}`}><b>{m.make} {m.model}</b><small>{m.confidence} confidence</small></div>
+              <div data-model-tile={`${m.make}|${m.model}`}><b>{m.make} {m.model}</b></div>
             ))}</div></section>
+        )}
+
+        <section class="card panel theirs" id="evidence"><h2>Around the web</h2>
+          <p class="sub">What other sites show, in our own words, with links to the originals. Shown separately and never mixed into KnowsMyCar ratings or ranking.</p>
+          {g.summary.map((x) => <p style="margin:0 0 8px">{x}</p>)}
+          <div class="srclist">
+            {g.ext.map((e) => (
+              <div class="src">
+                <div class="h"><span class="sname">{e.source}</span>
+                  {e.rating ? <span class="gfact">{Number(e.rating).toFixed(1)} on {e.source}, {(e.count || 0).toLocaleString("en-US")} reviews{(e.asOf || DATA_UPDATED) ? `, checked ${fmtDay(e.asOf || DATA_UPDATED)}` : ""}</span> : null}</div>
+                {(e.url || e.snips[0]?.url) && <a href={e.url || e.snips[0].url} target="_blank" rel="noopener nofollow" style="font-weight:800;font-size:13px">Read on {e.source} <Icon name="ext" /></a>}
+              </div>
+            ))}
+            {g.ext.length === 0 && <p class="muted">Nothing found on other sites yet.</p>}
+          </div>
+        </section>
+
+        {(priced.length > 0 || listPrices.length > 0 || g.priceTalk || bench.length > 0) && (
+          <section class="card panel"><h2>What owners paid</h2>
+            {bench.length > 0 && (
+              <div class="bench"><h3>Everyday jobs</h3><p class="sub">Prices in AED, including VAT, for jobs every driver knows. Compare within the same car make.</p>
+                <table class="ptable"><tbody>
+                  {bench.map((b) => <tr><td><b>{b.plain}</b>{b.car && <small class="muted"> · {b.car}</small>}<br /><small class="muted">{[BENCH_SRC[b.src] + (b.src === "owners" ? ` (${b.n})` : ""), b.vatNote, b.parts].filter(Boolean).join(" · ")}</small></td><td class="num">{b.from ? "from " : ""}{aedRange(b.low, b.high).replace("AED ", "")}</td></tr>)}
+                </tbody></table></div>
+            )}
+            <p class="sub">Totals owners reported in their reviews. Prices vary with parts and the car's condition.</p>
+            {priced.length > 0 ? (
+              <table class="ptable"><thead><tr><th>Job</th><th>Car</th><th class="num">AED</th></tr></thead><tbody>
+                {priced.map((r) => <tr><td>{[r.job, r.job_note].filter(Boolean).join(": ")}</td><td>{[r.car_make, r.car_model].filter(Boolean).join(" ")}</td><td class="num">{Number(r.price_paid).toLocaleString("en-US")}</td></tr>)}
+              </tbody></table>
+            ) : <p class="muted" style="font-size:14px">No owner has reported a price yet.</p>}
+            {g.priceTalk && (
+              <div class="ownlist"><h3>Price talk in reviews elsewhere</h3>
+                {g.priceTalk.label && <p class={`ptalk ${g.priceTalk.tone}`}><b>{g.priceTalk.label}</b>{g.priceTalk.read ? ` · ${g.priceTalk.read} reviews read` : ""}{g.priceTalk.asOf ? `, checked ${fmtDay(g.priceTalk.asOf)}` : ""}</p>}
+                {g.priceTalk.jobs.length > 0 && (
+                  <table class="ptable"><thead><tr><th>Job</th><th>Car</th><th class="num">AED</th></tr></thead><tbody>
+                    {g.priceTalk.jobs.map((j) => <tr><td>{j.job}</td><td>{[j.make, j.model].filter(Boolean).join(" ")}</td><td class="num">{j.aed_low === j.aed_high ? Number(j.aed_low).toLocaleString("en-US") : `${Number(j.aed_low).toLocaleString("en-US")} to ${Number(j.aed_high).toLocaleString("en-US")}`}</td></tr>)}
+                  </tbody></table>
+                )}
+                <p class="sub" style="margin-top:6px">Counted from public reviews on other sites, in our own words. A rough guide only, and never used to rank garages.</p>
+              </div>
+            )}
+            {listPrices.length > 0 && (
+              <div class="ownlist"><h3>Published and reported prices</h3><p class="sub">From the garage's own price list, or reported by owners online. Check what's included before comparing.</p>
+                <table class="ptable"><tbody>
+                  {listPrices.map((p) => <tr><td>{p.item}<br /><small class="muted">{[p.owner ? "owner-reported" : "price list", p.vat, p.parts, p.asOf && fmtDay(p.asOf)].filter(Boolean).join(" · ")}</small></td><td class="num">{p.low === p.high ? Number(p.low).toLocaleString("en-US") : `${Number(p.low).toLocaleString("en-US")} to ${Number(p.high).toLocaleString("en-US")}`}</td></tr>)}
+                </tbody></table>
+                {listPrices.find((p) => !p.owner)?.url && <a href={listPrices.find((p) => !p.owner).url} target="_blank" rel="noopener nofollow" style="font-size:13px;font-weight:800">See their price list <Icon name="ext" /></a>}
+              </div>
+            )}
+          </section>
         )}
 
         <section class="card panel ours" id="ownerRevs">
@@ -192,56 +276,6 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
           </div>
         </section>
 
-        {(priced.length > 0 || listPrices.length > 0 || g.priceTalk || bench.length > 0) && (
-          <section class="card panel"><h2>What owners paid</h2>
-            {bench.length > 0 && (
-              <div class="bench"><h3>Everyday jobs</h3><p class="sub">Prices in AED, including VAT, for jobs every driver knows. Compare within the same car make.</p>
-                <table class="ptable"><tbody>
-                  {bench.map((b) => <tr><td><b>{b.plain}</b>{b.car && <small class="muted"> · {b.car}</small>}<br /><small class="muted">{[BENCH_SRC[b.src] + (b.src === "owners" ? ` (${b.n})` : ""), b.vatNote, b.parts].filter(Boolean).join(" · ")}</small></td><td class="num">{b.from ? "from " : ""}{aedRange(b.low, b.high).replace("AED ", "")}</td></tr>)}
-                </tbody></table></div>
-            )}
-            <p class="sub">Totals owners reported in their reviews. Prices vary with parts and the car's condition.</p>
-            {priced.length > 0 ? (
-              <table class="ptable"><thead><tr><th>Job</th><th>Car</th><th class="num">AED</th></tr></thead><tbody>
-                {priced.map((r) => <tr><td>{[r.job, r.job_note].filter(Boolean).join(": ")}</td><td>{[r.car_make, r.car_model].filter(Boolean).join(" ")}</td><td class="num">{Number(r.price_paid).toLocaleString("en-US")}</td></tr>)}
-              </tbody></table>
-            ) : <p class="muted" style="font-size:14px">No owner has reported a price yet.</p>}
-            {g.priceTalk && (
-              <div class="ownlist"><h3>Price talk in reviews elsewhere</h3>
-                {g.priceTalk.label && <p class={`ptalk ${g.priceTalk.tone}`}><b>{g.priceTalk.label}</b>{g.priceTalk.read ? ` · ${g.priceTalk.read} reviews read` : ""}{g.priceTalk.asOf ? `, checked ${fmtDay(g.priceTalk.asOf)}` : ""}</p>}
-                {g.priceTalk.jobs.length > 0 && (
-                  <table class="ptable"><thead><tr><th>Job</th><th>Car</th><th class="num">AED</th></tr></thead><tbody>
-                    {g.priceTalk.jobs.map((j) => <tr><td>{j.job}</td><td>{[j.make, j.model].filter(Boolean).join(" ")}</td><td class="num">{j.aed_low === j.aed_high ? Number(j.aed_low).toLocaleString("en-US") : `${Number(j.aed_low).toLocaleString("en-US")} to ${Number(j.aed_high).toLocaleString("en-US")}`}</td></tr>)}
-                  </tbody></table>
-                )}
-                <p class="sub" style="margin-top:6px">Counted from public reviews on other sites, in our own words. A rough guide only, and never used to rank garages.</p>
-              </div>
-            )}
-            {listPrices.length > 0 && (
-              <div class="ownlist"><h3>Published and reported prices</h3><p class="sub">From the garage's own price list, or reported by owners online. Check what's included before comparing.</p>
-                <table class="ptable"><tbody>
-                  {listPrices.map((p) => <tr><td>{p.item}<br /><small class="muted">{[p.owner ? "owner-reported" : "price list", p.vat, p.parts, p.asOf && fmtDay(p.asOf)].filter(Boolean).join(" · ")}</small></td><td class="num">{p.low === p.high ? Number(p.low).toLocaleString("en-US") : `${Number(p.low).toLocaleString("en-US")} to ${Number(p.high).toLocaleString("en-US")}`}</td></tr>)}
-                </tbody></table>
-                {listPrices.find((p) => !p.owner)?.url && <a href={listPrices.find((p) => !p.owner).url} target="_blank" rel="noopener nofollow" style="font-size:13px;font-weight:800">See their price list <Icon name="ext" /></a>}
-              </div>
-            )}
-          </section>
-        )}
-
-        <section class="card panel theirs" id="evidence"><h2>Around the web</h2>
-          <p class="sub">What other sites show, in our own words, with links to the originals. Shown separately and never mixed into KnowsMyCar ratings or ranking.</p>
-          {g.summary.map((x) => <p style="margin:0 0 8px">{x}</p>)}
-          <div class="srclist">
-            {g.ext.map((e) => (
-              <div class="src">
-                <div class="h"><span class="sname">{e.source}</span>
-                  {e.rating ? <span class="gfact">{Number(e.rating).toFixed(1)} on {e.source}, {(e.count || 0).toLocaleString("en-US")} reviews{(e.asOf || DATA_UPDATED) ? `, checked ${fmtDay(e.asOf || DATA_UPDATED)}` : ""}</span> : null}</div>
-                {(e.url || e.snips[0]?.url) && <a href={e.url || e.snips[0].url} target="_blank" rel="noopener nofollow" style="font-weight:800;font-size:13px">Read on {e.source} <Icon name="ext" /></a>}
-              </div>
-            ))}
-            {g.ext.length === 0 && <p class="muted">Nothing found on other sites yet.</p>}
-          </div>
-        </section>
       </div>
 
       <div class="side">
@@ -284,8 +318,8 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
           <details class="enth" open={false}><summary>See the evidence</summary>
             <div class="enthlist">
               {g.specs.map((s) => (
-                <div><span><b>{s.make}</b>{s.models.length > 0 && <> · {s.models.map((m) => <span class="code">{m}</span>)}</>} <span class={`conf c${s.conf}`}>{s.confidence}</span></span>
-                <span class="muted">{s.evidence}{s.basis ? ` (source: ${s.basis === "founder" ? "founder's own experience" : s.basis})` : ""}</span></div>
+                <div><span><b>{s.make}</b>{s.models.length > 0 && <> · {s.models.map((m) => <span class="code">{m}</span>)}</>} </span>
+                <span class="muted">{structLine(g, s) || (s.basis === "website" ? "The garage's own claim" : "Mentioned in sources we read")}{s.year && new Date().getFullYear() - s.year > 3 ? ` (latest ${s.year})` : ""}{s.basis ? ` (source: ${s.basis === "founder" ? "founder's own experience" : s.basis})` : ""}</span></div>
               ))}
               {(g.categories || []).length > 0 && <div class="muted">Google categories: {g.categories.join(", ")}</div>}
               {(g.sources || []).filter((u) => typeof u === "string" && /^https?:/.test(u)).length > 0 && <div>{g.sources.filter((u) => typeof u === "string" && /^https?:/.test(u)).slice(0, 6).map((u) => <a href={u} target="_blank" rel="noopener nofollow" style="overflow-wrap:anywhere;display:block">{u.replace(/^https?:\/\/(www\.)?/, "").slice(0, 60)}</a>)}</div>}
@@ -297,7 +331,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
   </div>
   <div class="wrap"><HelpFeedback /></div>
   <div class="stickybar" id="sticky">
-    {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name} title={g.waConfirmed ? undefined : "WhatsApp (number from the garage's listing)"}><Icon name="wa" />{g.waConfirmed ? "WhatsApp" : "Try WhatsApp"}</button>}
+    {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name} title={g.waConfirmed ? undefined : "WhatsApp (number from the garage's listing)"}><Icon name="wa" />WhatsApp</button>}
     {g.phone && <a class="btn primary" href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call"><Icon name="phone" />Call</a>}
     <a class="btn" href={maps} target="_blank" rel="noopener" data-track="directions"><Icon name="nav" />Directions</a>
   </div>

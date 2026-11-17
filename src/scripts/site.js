@@ -36,6 +36,7 @@ function paintCar() {
     b.setAttribute("aria-label", car ? `Your car: ${carLabel(car)}. Change` : "Set your car");
   }
   $$("[data-carlabel]").forEach((e) => (e.textContent = car ? carLabel(car) : "not set"));
+  $$("[data-carset]").forEach((e) => (e.textContent = car ? carShort(car) : "Set your car"));
 }
 // Covered / close / not yet (PM spec 12.1).
 function pageFor(c) {
