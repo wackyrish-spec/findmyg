@@ -1,5 +1,5 @@
 ---
-import { communityLine, specFor, cardLine, structLine, LEVELS, DATA_UPDATED, benchmarks, budgetTier, BENCH_SRC } from "../lib/data.js";
+import { cardWhy, specFor, structLine, LEVELS, DATA_UPDATED, benchmarks, budgetTier, BENCH_SRC } from "../lib/data.js";
 const fmt = (d) => (d ? new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "");
 import Icon from "./Icon.astro";
 const { g, make = null, model = null, plain = false, note = null } = Astro.props;
@@ -10,7 +10,8 @@ const bench = (g.hasEvidence || g.ownerCount > 0) && !g.isDealer ? benchmarks(g,
 const tier = bench.length ? budgetTier(g, make) : "";
 // Dealer anchor in the "Main dealer for comparison" strip: same job (and model, when on a model page).
 const dmin = g.isDealer && make ? benchmarks(g, make, model).find((b) => b.slug === "minor-service") : null;
-const cline = !g.isDealer ? communityLine(g, model) : "";
+const W = !g.isDealer ? cardWhy(g, make, model) : null;
+const ghref = g.google ? (g.google.url || null) : null;
 const checked = fmt(g.google?.asOf || DATA_UPDATED);
 const brandLines = g.specs.slice(0, 3);
 // Compact spec payload for the browser to re-rank by the visitor's saved car.
@@ -30,44 +31,40 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
   </div>
 </article>
 ) : (
-<article class="card gcard" data-garage={g.slug} data-specs={payload} data-ll={g.lat && g.lng ? `${Number(g.lat).toFixed(4)},${Number(g.lng).toFixed(4)}` : ""}>
+<article class="card gcard v3" data-garage={g.slug} data-specs={payload} data-ll={g.lat && g.lng ? `${Number(g.lat).toFixed(4)},${Number(g.lng).toFixed(4)}` : ""}>
   <div class="main">
-    <div class="gtop"><h3><a href={`/garage/${g.slug}/`} data-track="view">{g.name}</a></h3></div>
+    <div class="gtop"><h3><a href={`/garage/${g.slug}/`} data-track="view">{g.name}</a></h3>
+      <span class="matchslot">{spec && level >= 2 && <span class={`match l${level}`}>{LEVELS[level]}</span>}</span></div>
     <div class="meta">
-      <span><Icon name="pin" />{g.area || "Dubai"}</span>
+      <span>{g.area || "Dubai"}</span>
+      {g.google && <span>{` · ★ ${Number(g.google.rating).toFixed(1)} on `}{ghref ? <a href={ghref} target="_blank" rel="noopener nofollow">Google</a> : "Google"}{` (${(g.google.count || 0).toLocaleString("en-US")})`}</span>}
+      {g.own && <span>{` · Owners here ${g.own.avg.toFixed(1)} (${g.own.n})`}</span>}
       {g.worthDrive && <span class="wdrive">{g.emirate || "Outside Dubai"} · Worth the drive{g.driveMin ? `, about ${g.driveMin} min from Downtown` : ""}</span>}
-      {g.founderPick && <a class="fpick" href="/how-it-works/#founders-picks">Founder's pick</a>}
-      {g.goodFor.map((x) => <span class="goodfor">Good for: {x}</span>)}
-      {g.isDealer ? <span class="dealer">Main dealer</span> : g.business_type && g.business_type !== "workshop" && <span class="biztag">Also sells parts</span>}
+      {g.isDealer && <span class="dealer">Main dealer</span>}
     </div>
     {note && <p class="pnote">{note}</p>}
-    <div class="matchslot">
-      {spec && (
-        <><span class={`match l${level}`}>{LEVELS[level]}{model && !spec.modelHit ? ` (${make})` : ""}</span>{spec.mentions > 0 && <span class="mcount"> · from {spec.mentions} {/community/.test(spec.basis || "") && !/reviews/.test(spec.basis || "") ? (spec.mentions === 1 ? "community post" : "community posts") : (spec.mentions === 1 ? "review" : "reviews")}</span>}</>
-      )}
-    </div>
-    {cline && <div class="cline"><a href={`/garage/${g.slug}/#community`}>{cline}</a></div>}
-    {/* One plain line on the card; the full evidence lives on the garage page. */}
-    <div class="evid">
-      {(g.hasEvidence || g.ownerCount > 0) && (make ? cardLine(g, make, model) : g.cardSummary) ? <span class="esum">{make ? cardLine(g, make, model) : g.cardSummary}</span>
-        : spec ? structLine(g, spec) || <span class="muted">No owner evidence for {make} yet</span>
-        : brandLines.length ? brandLines.map((s, i) => (<>{i > 0 && <span class="sep">|</span>}{s.make}</>)) : <span class="muted">No specialty found yet</span>}
-      {" "}<a class="seeev" href={`/garage/${g.slug}/#evidence`} data-track="view">See the evidence</a>
-    </div>
-  </div>
-  <div class="stats">
-    <div class="statrow">
-      {g.own ? <div class="stat"><b>{g.own.avg.toFixed(1)}</b><small>Owners · {g.own.n}</small></div> : null}
-
-    </div>
-    {g.google && <p class="gfact">{Number(g.google.rating).toFixed(1)} on <a href={g.google.url || maps} target="_blank" rel="noopener nofollow">Google</a>, {(g.google.count || 0).toLocaleString("en-US")} reviews{checked ? `, checked ${checked}` : ""}</p>}
+    {W?.why && <p class="why">{W.why}</p>}
+    {/* One support line with the counts and the denominator; "How we know" opens the full visible evidence. */}
+    <p class="evid sub">
+      {W && (W.threads || W.m) ? <>
+        {W.threads > 0 && <><b>{W.threads}</b> owner threads</>}{W.threads > 0 && W.m > 0 && ", and "}
+        {W.m > 0 && <><b>{W.m} of {W.n}</b> reviews we read mention {W.mk}{W.mostly && `, mostly the ${W.mostly}`}</>}.
+      </> : W?.founder ? <>From the founder's own experience with {W.mk}.</>
+        : spec ? (structLine(g, spec) ? `${structLine(g, spec)}.` : <span class="muted">No owner evidence for {make} yet.</span>)
+        : <span class="muted">No specialty found yet.</span>}
+      {" "}<a class="seeev" href={`/garage/${g.slug}/#evidence`} data-track="view">How we know</a>
+    </p>
     {bench.length > 0 ? <p class="benchline">{tier && <span class="tier" title="Compared with other independents for this make">{tier}</span>}Minor service from <b>AED {Number(bench[0].low).toLocaleString("en-US")}</b>{bench[0].car.replace(make || "", "").trim() ? ` (${bench[0].car.replace(make || "", "").trim()})` : ""} <span class="muted">· {BENCH_SRC[bench[0].src]}</span></p>
       : g.priceTalk?.label && !g.isDealer && <p class={`ptalk ${g.priceTalk.tone}`}>{g.priceTalk.label}</p>}
-    <div class="acts">
-      {g.waNumber && <button class="btn wa sm" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
-      {g.phone && <a class={`btn sm${g.waNumber ? "" : " primary"}`} href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">Call</a>}
-      <a class="btn sm" href={maps} target="_blank" rel="noopener" data-track="directions">Directions</a>
-      <a class="viewlink" href={`/garage/${g.slug}/`} data-track="view">View garage ›</a>
+  </div>
+  <div class="acts">
+    <div class="ab">
+      {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
+      {g.phone && <a class={`btn${g.waNumber ? "" : " wa callp"}`} href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">Call</a>}
+    </div>
+    <div class="al">
+      <a class="lnk" href={maps} target="_blank" rel="noopener" data-track="directions">Directions</a>
+      <a class="lnk" href={`/garage/${g.slug}/`} data-track="view">View garage ›</a>
     </div>
   </div>
 </article>

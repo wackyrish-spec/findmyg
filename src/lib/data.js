@@ -639,3 +639,30 @@ export function modelAnswer(b, m, ranked, fact) {
     : `No Dubai garage has ${m.model}-specific owner evidence yet; the ${plural(n, `${b.make} specialist`, `${b.make} specialists`)} below${areas ? `, mostly in ${areas},` : ""} ${n === 1 ? "is" : "are"} the closest.`;
   return `${first} ${fact || priceFact(b.make, m.model) || ""}`.trim();
 }
+
+// Card v3 B (Sat 21 Nov): one big reason line from a fixed table, then one support line with the counts.
+// Table (Daniel 13 Nov), first row that applies wins; {X} is the model on a model page, else the make:
+//   founder's pick → "Founder's pick for the {X}"; 2+ owner threads → "Owners recommend it for the {X}";
+//   10+ mentions → "{X} owners often review it"; 3-9 → "{X} owners review it"; make mentions 3+ → "{make} owners have mentioned it".
+export function cardWhy(g, make, model) {
+  const real = (s) => /reviews|community|founder/.test(s.basis || "") && s.conf >= 2;
+  const mk = make || (g.specs.find(real) || g.specs[0] || {}).make;
+  if (!mk) return { why: "", threads: 0, m: 0, n: 0, mk: "", mostly: "" };
+  const s = specFor(g, mk, make ? model : null);
+  const md = make && model && s?.modelHit ? model : null;
+  const X = md || mk, the = md ? `the ${md}` : mk;
+  const cm = g.community_mentions, pos = cm?.threads_positive || 0, neg = cm?.threads_negative || 0;
+  const src = (cm?.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "") && !/negative|mixed/i.test(x.sentiment || ""));
+  const okThreads = pos >= 2 && neg * 3 < pos && s && s.conf >= 2;
+  const onModel = md ? src.filter((x) => (x.models || []).some((y) => String(y).toLowerCase() === md.toLowerCase())).length : 0;
+  const threads = !okThreads || (make && model && !md) ? 0 : md ? onModel : pos;
+  const n = g.reviews_analysed || 0;
+  const m = s && /reviews/.test(s.basis || "") && n > 0 ? Math.min(s.mentions || 0, n) : 0;
+  let why = "";
+  if (s?.basis === "founder") why = `Founder's pick for ${the}`;
+  else if (threads >= 2) why = `Owners recommend it for ${the}`;
+  else if (make && model && !md) why = m >= 3 ? `${mk} owners have mentioned it` : "";
+  else if (m >= 10) why = `${X} owners often review it`;
+  else if (m >= 3) why = `${X} owners review it`;
+  return { why, threads: threads >= 2 ? threads : 0, m, n, mk, mostly: md && m > 0 ? md : "", founder: s?.basis === "founder" };
+}

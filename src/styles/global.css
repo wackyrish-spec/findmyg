@@ -553,3 +553,30 @@ footer .flinks .linkbtn{color:inherit;font-size:inherit}
   .consent .clong{display:none}
   .consent .cacts .btn{flex:0 0 auto;min-height:44px;padding-inline:12px}
 }
+
+/* Garage card v3 B (Sat 21 Nov): one reason line, one support line, one green button, text links */
+.gcard.v3{display:grid;grid-template-columns:1fr 230px;gap:4px 24px;padding:18px;border-radius:16px}
+.gcard.v3 .main{gap:0}
+.gcard.v3 .gtop{flex-wrap:nowrap;align-items:flex-start}
+.gcard.v3 h3{font-size:20px;line-height:1.2;text-transform:none;margin:0}
+.gcard.v3 .matchslot{flex:none}
+.gcard.v3 .match{font-size:12px;font-weight:800;border-radius:99px;padding:3px 9px;white-space:nowrap}
+.gcard.v3 .meta{font-size:14px;color:var(--muted);margin:4px 0 10px;display:block}
+.gcard.v3 .meta a{color:inherit}
+.gcard.v3 .meta .wdrive,.gcard.v3 .meta .dealer{display:inline-block;margin-inline-start:6px}
+.gcard.v3 .why{font:800 20px/1.25 var(--f-body);margin:0 0 4px;color:var(--ink)}
+.gcard.v3 .sub{margin:0;font-size:15px;font-weight:500;color:var(--muted)}
+.gcard.v3 .sub b{color:var(--ink)}
+.gcard.v3 .seeev{font-size:15px}
+.gcard.v3 .benchline{margin:8px 0 0;font-size:14px}
+.gcard.v3 .acts{display:flex;flex-direction:column;justify-content:center;gap:4px;margin:0}
+.gcard.v3 .ab{display:flex;gap:8px}
+.gcard.v3 .ab .btn{flex:1 1 0;min-height:44px;justify-content:center}
+.gcard.v3 .al{display:flex;justify-content:space-between}
+.gcard.v3 .lnk{min-height:44px;display:inline-flex;align-items:center;padding:0 4px;font-weight:800;font-size:15px}
+@media (max-width:700px){
+  .gcard.v3{grid-template-columns:1fr;padding:16px}
+  .gcard.v3 .acts{margin-top:12px}
+  .gcard.v3 .ab .btn.wa{flex:1.1 1 0}
+}
+.gcard.v3 .meta span{display:inline;gap:0}

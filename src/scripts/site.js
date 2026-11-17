@@ -293,7 +293,8 @@ function matchFor(specs, c) {
   }
   return { l, ev: best[3], hit };
 }
-const matchHTML = (m) => `<span class="match l${m.l}">${LEVELS[m.l]}</span>`;
+// Card v3 B: the badge shows only for Strong or Good.
+const matchHTML = (m) => (m.l >= 2 ? `<span class="match l${m.l}">${LEVELS[m.l]}</span>` : "");
 
 function rerank(announce) {
   const box = $("#results");
@@ -311,7 +312,6 @@ function rerank(announce) {
     scored.sort((a, b) => (b.m.l - a.m.l) || ((b.m.hit ? 1 : 0) - (a.m.hit ? 1 : 0)) || (a.i - b.i));
     scored.forEach(({ el, m }) => {
       const slot = $(".matchslot", el); if (slot) slot.innerHTML = matchHTML(m);
-      const ev = $(".evid", el); if (ev && m.ev) ev.textContent = m.ev;
       el.classList.toggle("dim", m.l === 0);
       const d = $("details.enth", el); if (d && c.code) d.open = true;
     });
