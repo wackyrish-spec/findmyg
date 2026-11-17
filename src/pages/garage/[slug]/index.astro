@@ -114,15 +114,15 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
       </div>
       <h1 class={g.name.length > 40 ? "long" : undefined}>{g.name}</h1>
       {evidenced && !g.isDealer && (why1 || threadsN >= 2) && (
-        <p class="whyline">{threadsN >= 2 && <>Owners recommend it{realSpecs[0] ? <> for <b>{realSpecs[0].models[0] || realSpecs[0].make}</b></> : ""} in <b>{threadsN}</b> threads. </>}{why1 && (/^\d+ of \d+/.test(why1) ? <><b>{why1.match(/^\d+ of \d+/)[0]}</b>{why1.replace(/^\d+ of \d+/, "")}.</> : <>{why1}.</>)} <a href="#evidence">How we know</a></p>
-      )}</div>
+        <p class="whyline">{threadsN >= 2 && <>Owners recommend it{realSpecs[0] ? <> for <b>{realSpecs[0].models[0] || realSpecs[0].make}</b></> : ""} in <b>{threadsN}</b> threads. </>}{why1 && (/^\d+ of \d+/.test(why1) ? <><b>{why1.match(/^\d+ of \d+/)[0]}</b>{why1.replace(/^\d+ of \d+/, "")}.</> : <>{why1}.</>)} <a href="#evidence">How we know</a><span class="setlink"> · <button class="linkbtn" type="button" data-setcar>Set your car to check the match</button></span></p>
+      )}
+      {g.waNumber && !g.waConfirmed && <p class="wanote">WhatsApp number from the garage's own listing, not confirmed on WhatsApp.</p>}</div>
       <div class="gacts">
         {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name} title={g.waConfirmed ? undefined : "WhatsApp (number from the garage's listing)"}><Icon name="wa" />WhatsApp</button>}
         {g.phone && <a class={`btn${g.waNumber ? "" : " primary"}`} href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call"><Icon name="phone" />Call</a>}
         <a class="btn" href={maps} target="_blank" rel="noopener" data-track="directions"><Icon name="nav" />Directions</a>
       </div>
     </div>
-    {g.waNumber && !g.waConfirmed && <p class="wanote">WhatsApp number from the garage's own listing, not confirmed on WhatsApp.</p>}
 
     {evidenced && realSpecs.length > 0 && (
       <div class="known"><span class="label" style="margin-inline-end:4px">Known for</span>
@@ -151,7 +151,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
 
         {rsum && (
           <section class="card panel summary"><h2>What reviewers say</h2>
-            <p class="sub">Summary of reviews we read on {g.ext.map((e) => e.source).join(", ") || "other sites"}{g.reviews_analysed ? ` (${g.reviews_analysed} reviews read)` : ""}.</p>
+            <p class="sub">Summary of reviews we read on {g.ext.map((e) => e.source).filter((x) => !/website|instagram/i.test(x)).join(", ") || "other sites"}{g.reviews_analysed ? ` (${g.reviews_analysed} reviews read)` : ""}.</p>
             <p>{rsum}</p></section>
         )}
 

@@ -540,3 +540,8 @@ footer .flinks .linkbtn{color:inherit;font-size:inherit}
 .aboutlist p{margin:0;max-width:72ch}
 .rhead>div{min-width:0;flex:1 1 100%}
 @media (max-width:640px){.rhead{padding-block:12px 4px;margin-bottom:8px}.rhead h1{font-size:28px}.rhead .answer{font-size:15px;line-height:1.4}.ctrls{margin-top:10px}}
+
+/* Consent banner sits above the phone sticky contact bar (Yuki 17 Nov) */
+@media (max-width:640px){body.has-sticky .consent{bottom:calc(74px + env(safe-area-inset-bottom,0px))}}
+.whyline .linkbtn{font-weight:800;font-size:14px}
+.ghead .wanote{margin:6px 0 0}
