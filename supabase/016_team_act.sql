@@ -1,10 +1,15 @@
--- 016_team_act.sql (Wed 18 Nov batch). Lets the team mark a site-inbox row handled, with a note.
--- Service role only: anon and signed-in visitors cannot call it. Safe to run more than once.
+-- 016_team_act.sql (Wed batch). Lets the team mark a site-inbox row handled, with a note.
+-- Callable with the site's public key, but only with the team passphrase. The passphrase is NOT in this file:
+-- it is stored only as a bcrypt hash. Set or rotate it in the Supabase SQL editor with:
+--   select public.set_team_passphrase('<passphrase>');
+-- Safe to run more than once.
+create extension if not exists pgcrypto with schema extensions;
+
 create table if not exists public.team_actions (
   id          bigint generated always as identity primary key,
   created_at  timestamptz not null default now(),
-  source      text not null,          -- the team_inbox source, e.g. 'suggestion', 'feedback', 'review', 'quote'
-  item_id     text not null,          -- the row id in that source
+  source      text not null,          -- the team_inbox source, e.g. 'garage_suggestion', 'feedback', 'review'
+  item_id     text not null,          -- the row id that team_inbox returns
   action      text not null check (action in ('handled','approved','rejected','dismissed')),
   note        text,
   unique (source, item_id)
@@ -12,15 +17,39 @@ create table if not exists public.team_actions (
 alter table public.team_actions enable row level security;
 revoke all on public.team_actions from anon, authenticated;
 
-create or replace function public.team_act(p_source text, p_id text, p_action text default 'handled', p_note text default null)
-returns json language sql security definer set search_path = public as $$
-  insert into public.team_actions (source, item_id, action, note)
+-- One row: the passphrase hash. No policies, so nobody reads it through the API.
+create table if not exists public.team_secret (id int primary key default 1 check (id = 1), hash text not null, set_at timestamptz not null default now());
+alter table public.team_secret enable row level security;
+revoke all on public.team_secret from anon, authenticated;
+
+create or replace function public.set_team_passphrase(p text) returns text
+language plpgsql security definer set search_path = public, extensions as $$
+begin
+  if p is null or length(p) < 20 then raise exception 'passphrase must be 20+ characters'; end if;
+  insert into team_secret (id, hash, set_at) values (1, crypt(p, gen_salt('bf', 10)), now())
+  on conflict (id) do update set hash = excluded.hash, set_at = now();
+  return 'passphrase set';
+end $$;
+revoke all on function public.set_team_passphrase(text) from public, anon, authenticated;
+
+drop function if exists public.team_act(text, text, text, text);
+create or replace function public.team_act(p_secret text, p_source text, p_id text, p_action text default 'handled', p_note text default null)
+returns json language plpgsql security definer set search_path = public, extensions as $$
+declare h text; r json;
+begin
+  select hash into h from team_secret where id = 1;
+  if h is null or p_secret is null or crypt(p_secret, h) <> h then
+    perform pg_sleep(1);
+    raise exception 'not allowed';
+  end if;
+  insert into team_actions (source, item_id, action, note)
   values (p_source, p_id, p_action, left(p_note, 500))
   on conflict (source, item_id) do update set action = excluded.action, note = excluded.note, created_at = now()
-  returning json_build_object('source', source, 'id', item_id, 'action', action, 'at', created_at);
-$$;
-revoke all on function public.team_act(text, text, text, text) from public, anon, authenticated;
-grant execute on function public.team_act(text, text, text, text) to service_role;
+  returning json_build_object('source', source, 'id', item_id, 'action', action, 'at', created_at) into r;
+  return r;
+end $$;
+revoke all on function public.team_act(text, text, text, text, text) from public;
+grant execute on function public.team_act(text, text, text, text, text) to anon, authenticated;
 
 -- team_inbox now returns item_id (pass it to team_act) and shows the team's action as the status, with its note.
 -- The return type changes, so the old function is dropped first. It still returns no personal data.
