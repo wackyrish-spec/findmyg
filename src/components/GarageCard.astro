@@ -1,5 +1,5 @@
 ---
-import { cardWhy, lowRated, specFor, structLine, LEVELS, DATA_UPDATED, benchmarks, budgetTier, BENCH_SRC } from "../lib/data.js";
+import { cardWhy, lowRated, specFor, structLine, cardLine, LEVELS, DATA_UPDATED, benchmarks, budgetTier, BENCH_SRC } from "../lib/data.js";
 const fmt = (d) => (d ? new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "");
 import Icon from "./Icon.astro";
 const { g, make = null, model = null, plain = false, note = null } = Astro.props;
@@ -50,6 +50,7 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
         {W.threads > 0 && <><b>{W.threads}</b> owner threads</>}{W.threads > 0 && W.m > 0 && ", and "}
         {W.m > 0 && <><b>{W.m} of {W.n}</b> reviews we read mention {W.mk}{W.mostly && `, mostly the ${W.mostly}`}</>}.</span>
         : W?.founder ? <span class="esum">From the founder's own experience with {W.mk}.</span>
+        : make && (g.hasEvidence || g.ownerCount > 0) && cardLine(g, make, model) ? <span class="esum">{cardLine(g, make, model)}</span>
         : spec ? (structLine(g, spec) ? <span class="esum">{structLine(g, spec)}.</span> : <span class="muted">No owner evidence for {make} yet</span>)
         : <span class="muted">No specialty found yet</span>}
       {" "}<a class="seeev" href={`/garage/${g.slug}/#evidence`} data-track="view">How we know</a>
