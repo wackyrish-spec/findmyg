@@ -11,7 +11,6 @@ const tier = bench.length ? budgetTier(g, make) : "";
 // Dealer anchor in the "Main dealer for comparison" strip: same job (and model, when on a model page).
 const dmin = g.isDealer && make ? benchmarks(g, make, model).find((b) => b.slug === "minor-service") : null;
 const W = !g.isDealer ? cardWhy(g, make, model) : null;
-const ghref = g.google ? (g.google.url || null) : null;
 const checked = fmt(g.google?.asOf || DATA_UPDATED);
 const brandLines = g.specs.slice(0, 3);
 // Compact spec payload for the browser to re-rank by the visitor's saved car.
@@ -31,41 +30,44 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
   </div>
 </article>
 ) : (
-<article class="card gcard v3" data-garage={g.slug} data-low={lowRated(g) ? "1" : undefined} data-cw={W ? `${W.cnt}|${W.n}|${W.threads}|${W.founder ? 1 : 0}|${W.badge}` : ""} data-specs={payload} data-ll={g.lat && g.lng ? `${Number(g.lat).toFixed(4)},${Number(g.lng).toFixed(4)}` : ""}>
+<article class="card gcard v31" data-garage={g.slug} data-low={lowRated(g) ? "1" : undefined} data-cw={W ? `${W.cnt}|${W.n}|${W.threads}|${W.founder ? 1 : 0}|${W.badge}` : ""} data-specs={payload} data-ll={g.lat && g.lng ? `${Number(g.lat).toFixed(4)},${Number(g.lng).toFixed(4)}` : ""}>
   <div class="main">
-    <div class="gtop"><h3><a href={`/garage/${g.slug}/`} data-track="view">{g.name}</a></h3>
-      <span class="matchslot">{W?.badge >= 2 && <span class={`match l${W.badge}`}>{LEVELS[W.badge]}</span>}</span></div>
+    <div class="gtop"><h3><a href={`/garage/${g.slug}/`} data-track="view">{g.name}</a></h3></div>
     <div class="meta">
-      <span>{g.area || "Dubai"}</span>
-      {g.google && <span>{` · ★ ${Number(g.google.rating).toFixed(1)} on `}{ghref ? <a href={ghref} target="_blank" rel="noopener nofollow">Google</a> : "Google"}{` (${(g.google.count || 0).toLocaleString("en-US")})`}</span>}
-      {g.own && <span>{` · Owners here ${g.own.avg.toFixed(1)} (${g.own.n})`}</span>}
+      <span><Icon name="pin" />{g.area || "Dubai"}</span>
       {g.worthDrive && <span class="wdrive">{g.emirate || "Outside Dubai"} · Worth the drive{g.driveMin ? `, about ${g.driveMin} min from Downtown` : ""}</span>}
-      {g.isDealer && <span class="dealer">Main dealer</span>}
+      {g.founderPick && <a class="fpick" href="/how-it-works/#founders-picks">Founder's pick</a>}
+      {g.goodFor.map((x) => <span class="goodfor">Good for: {x}</span>)}
+      {g.isDealer ? <span class="dealer">Main dealer</span> : g.business_type && g.business_type !== "workshop" && <span class="biztag">Also sells parts</span>}
     </div>
     {note && <p class="pnote">{note}</p>}
+    {/* Card v3.1 (18 Nov): live card look; badge, reason line and count line all come from the same counts. */}
+    <div class="matchslot">{W?.badge >= 2 && <span class={`match l${W.badge}`}>{LEVELS[W.badge]}</span>}</div>
     {W?.why && <p class="why">{W.why}</p>}
-    {/* One support line with the counts and the denominator; "How we know" opens the full visible evidence. */}
-    <p class="evid sub">
-      {W && (W.threads || W.m) ? <>
+    {/* One plain line on the card; the full evidence lives on the garage page. */}
+    <div class="evid">
+      {W && (W.threads || W.m) ? <span class="esum">
         {W.threads > 0 && <><b>{W.threads}</b> owner threads</>}{W.threads > 0 && W.m > 0 && ", and "}
-        {W.m > 0 && <><b>{W.m} of {W.n}</b> reviews we read mention {W.mk}{W.mostly && `, mostly the ${W.mostly}`}</>}.
-      </> : W?.founder ? <>From the founder's own experience with {W.mk}.</>
-        : spec ? (structLine(g, spec) ? `${structLine(g, spec)}.` : <span class="muted">No owner evidence for {make} yet.</span>)
-        : <span class="muted">No specialty found yet.</span>}
+        {W.m > 0 && <><b>{W.m} of {W.n}</b> reviews we read mention {W.mk}{W.mostly && `, mostly the ${W.mostly}`}</>}.</span>
+        : W?.founder ? <span class="esum">From the founder's own experience with {W.mk}.</span>
+        : spec ? (structLine(g, spec) ? <span class="esum">{structLine(g, spec)}.</span> : <span class="muted">No owner evidence for {make} yet</span>)
+        : <span class="muted">No specialty found yet</span>}
       {" "}<a class="seeev" href={`/garage/${g.slug}/#evidence`} data-track="view">How we know</a>
-    </p>
-    {bench.length > 0 ? <p class="benchline">{tier && <span class="tier" title="Compared with other independents for this make">{tier}</span>}Minor service from <b>AED {Number(bench[0].low).toLocaleString("en-US")}</b>{bench[0].car.replace(make || "", "").trim() ? ` (${bench[0].car.replace(make || "", "").trim()})` : ""} <span class="muted">· {BENCH_SRC[bench[0].src]}</span></p>
-      : g.priceTalk?.label && !g.isDealer && (() => { const [a, b = "", c = ""] = g.priceTalk.label.split(/(\d+ of \d+)/); return <p class="ptalk v3p">{a}<b>{b}</b>{c}</p>; })()}
-  </div>
-  <div class="acts">
-    <div class="ab">
-      {g.waNumber && <button class="btn wa" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
-      {g.phone && (g.waNumber ? <a class="btn" href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">Call</a>
-        : <a class="btn primary" href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call"><Icon name="phone" />Call</a>)}
     </div>
-    <div class="al">
-      <a class="lnk" href={maps} target="_blank" rel="noopener" data-track="directions">Directions</a>
-      <a class="lnk" href={`/garage/${g.slug}/`} data-track="view">View garage ›</a>
+  </div>
+  <div class="stats">
+    <div class="statrow">
+      {g.own ? <div class="stat"><b>{g.own.avg.toFixed(1)}</b><small>Owners · {g.own.n}</small></div> : null}
+
+    </div>
+    {g.google && <p class="gfact">{Number(g.google.rating).toFixed(1)} on <a href={g.google.url || maps} target="_blank" rel="noopener nofollow">Google</a>, {(g.google.count || 0).toLocaleString("en-US")} reviews{checked ? `, checked ${checked}` : ""}</p>}
+    {bench.length > 0 ? <p class="benchline">{tier && <span class="tier" title="Compared with other independents for this make">{tier}</span>}Minor service from <b>AED {Number(bench[0].low).toLocaleString("en-US")}</b>{bench[0].car.replace(make || "", "").trim() ? ` (${bench[0].car.replace(make || "", "").trim()})` : ""} <span class="muted">· {BENCH_SRC[bench[0].src]}</span></p>
+      : g.priceTalk?.label && !g.isDealer && <p class={`ptalk ${g.priceTalk.tone}`}>{g.priceTalk.label}</p>}
+    <div class="acts">
+      {g.waNumber && <button class="btn wa sm" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
+      {g.phone && <a class={`btn sm${g.waNumber ? "" : " primary"}`} href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">{!g.waNumber && <Icon name="phone" />}Call</a>}
+      <a class="btn sm" href={maps} target="_blank" rel="noopener" data-track="directions">Directions</a>
+      <a class="viewlink" href={`/garage/${g.slug}/`} data-track="view">View garage ›</a>
     </div>
   </div>
 </article>

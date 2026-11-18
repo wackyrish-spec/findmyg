@@ -19,7 +19,7 @@ function check(file) {
   const html = readFileSync(file, "utf8");
   const res = html.match(/id="results" data-make="([^"]*)" data-model="([^"]*)"/);
   const [, make = "", model = ""] = res || [];
-  for (const m of html.matchAll(/<article class="card gcard v3" data-garage="([^"]+)" data-cw="([^"]*)"([\s\S]*?)<\/article>/g)) {
+  for (const m of html.matchAll(/<article class="card gcard v31" data-garage="([^"]+)"(?: data-low="1")? data-cw="([^"]*)"([\s\S]*?)<\/article>/g)) {
     const [, slug, cw, body] = m;
     if (!cw) continue;
     cards++;
