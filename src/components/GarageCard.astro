@@ -62,7 +62,7 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
     </div>
     {g.google && <p class="gfact">{Number(g.google.rating).toFixed(1)} on <a href={g.google.url || maps} target="_blank" rel="noopener nofollow">Google</a>, {(g.google.count || 0).toLocaleString("en-US")} reviews{checked ? `, checked ${checked}` : ""}</p>}
     {bench.length > 0 ? <p class="benchline">{tier && <span class="tier" title="Compared with other independents for this make">{tier}</span>}Minor service from <b>AED {Number(bench[0].low).toLocaleString("en-US")}</b>{bench[0].car.replace(make || "", "").trim() ? ` (${bench[0].car.replace(make || "", "").trim()})` : ""} <span class="muted">· {BENCH_SRC[bench[0].src]}</span></p>
-      : g.priceTalk?.label && !g.isDealer && <p class={`ptalk ${g.priceTalk.tone}`}>{g.priceTalk.label}</p>}
+      : g.priceTalk?.label && !g.isDealer && (() => { const [a, b = "", c = ""] = g.priceTalk.label.split(/(\d+ of \d+)/); return <p class="ptalk v31p">{a}<b>{b}</b>{c}</p>; })()}
     <div class="acts">
       {g.waNumber && <button class="btn wa sm" type="button" data-wa={g.slug} data-wa-num={g.waNumber} data-name={g.name}><Icon name="wa" />WhatsApp</button>}
       {g.phone && <a class={`btn sm${g.waNumber ? "" : " primary"}`} href={`tel:${g.phone.replace(/\s/g, "")}`} data-track="call">{!g.waNumber && <Icon name="phone" />}Call</a>}

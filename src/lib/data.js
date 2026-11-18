@@ -677,5 +677,8 @@ export function cardWhy(g, make, model) {
   const cnt = onModelPage ? mm : m, R = CARD_RULES;
   const badge = founder || threads >= R.strongThreads || (cnt >= R.strongN && n > 0 && cnt / n >= R.strongShare) ? 3
     : cnt >= R.goodN || threads >= R.goodThreads ? 2 : 0;
-  return { why, threads: threads >= 2 ? threads : 0, m, n, mk, mostly: md || "", founder, badge, cnt };
+  // Brand pages keep the "knows my model" hint (Daniel 18 Nov): the garage's most-reviewed model for this make, when 3+.
+  const top = Object.entries(mc).map(([k, v]) => [k, Number(v) || 0]).sort((a, b) => b[1] - a[1])[0];
+  const mostly = md || (!onModelPage && m > 0 && top && top[1] >= 3 ? top[0] : "");
+  return { why, threads: threads >= 2 ? threads : 0, m, n, mk, mostly, founder, badge, cnt };
 }
