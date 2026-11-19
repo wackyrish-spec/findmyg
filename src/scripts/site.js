@@ -680,13 +680,14 @@ if (qc) wirePicker(qc, () => {});
 // No cookies, no ids; the "first page" flag lives in sessionStorage for this tab only.
 // 19 Nov (Arjun: 18 Nov was mostly bots): no count for bot user agents or on the 404 page, and a view is sent only
 // after a real sign of a person: a scroll or tap (engaged = true), or 5+ seconds on the page before it is left (engaged = false).
+// Leaving within 5 seconds sends a row marked bounced (Daniel: bounce rate by landing page); traffic_stats keeps those out of views and visits.
 (() => {
   if (!SB_URL || !SB_KEY || location.hostname !== "knowsmycar.com" || navigator.webdriver) return;
   if (/bot|crawl|spider|slurp|headless|lighthouse|pagespeed|preview|facebookexternalhit|whatsapp|python|curl|wget|httpclient|java\/|go-http|okhttp|axios|node-fetch|phantom|selenium|puppeteer|playwright|scrapy|semrush|ahrefs|bytespider|gptbot|claude|perplexity/i.test(navigator.userAgent || "") || !navigator.userAgent) return;
   if (document.querySelector("[data-nocount]")) return;
   const t0 = Date.now();
   let sent = false;
-  const send = (engaged) => {
+  const send = (engaged, bounced = false) => {
     if (sent) return; sent = true;
     ["scroll", "pointerdown", "keydown"].forEach((e) => removeEventListener(e, onAct, true));
     let landing = false;
@@ -694,14 +695,15 @@ if (qc) wirePicker(qc, () => {});
     let refHost = null;
     try { const h = document.referrer && new URL(document.referrer).hostname; if (h && h !== location.hostname) refHost = h.replace(/^www\./, "").slice(0, 100); } catch {}
     const r = attribution();
-    const row = { path: location.pathname.slice(0, 200), ref_host: refHost, ref_tag: (r.ref || r.utm_source || "").slice(0, 80) || null, landing, mobile: matchMedia("(max-width: 700px)").matches, engaged };
+    const row = { path: location.pathname.slice(0, 200), ref_host: refHost, ref_tag: (r.ref || r.utm_source || "").slice(0, 80) || null, landing, mobile: matchMedia("(max-width: 700px)").matches, engaged, ...(bounced ? { bounced: true } : {}) };
     const post = (body) => fetch(`${SB_URL}/rest/v1/page_views`, { method: "POST", keepalive: true, headers: { apikey: SB_KEY, "Content-Type": "application/json", Prefer: "return=minimal" }, body: JSON.stringify(body) });
     // Until 017 adds the engaged column, the insert without it still counts the view.
-    post(row).then((res) => { if (!res.ok) { const { engaged: _e, ...old } = row; return post(old); } }).catch(() => {});
+    // Until 017 adds the engaged and bounced columns, a normal view is resent without them; a bounce is dropped.
+    post(row).then((res) => { if (!res.ok && !bounced) { const { engaged: _e, ...old } = row; return post(old); } }).catch(() => {});
   };
   const onAct = (e) => { if (e.type !== "scroll" || scrollY > 40) send(true); };
   ["scroll", "pointerdown", "keydown"].forEach((e) => addEventListener(e, onAct, { capture: true, passive: true }));
   const leave = () => { if (document.visibilityState === "hidden" && Date.now() - t0 >= 5000) send(false); };
   document.addEventListener("visibilitychange", leave);
-  addEventListener("pagehide", () => { if (Date.now() - t0 >= 5000) send(false); });
+  addEventListener("pagehide", () => { if (Date.now() - t0 >= 5000) send(false); else send(false, true); });
 })();
