@@ -73,7 +73,7 @@ const desc = desc0 || desc1;
 const moreLinks = g.isDealer ? [] : realSpecs.flatMap((sp) => {
   const b = `/dubai/${sp.makeSlug}/`;
   const ms = (sp.models || []).map((m) => `${b}${slugify(m)}/`);
-  return [[b, sp.make], ...ms.flatMap((u, i) => [[u, sp.models[i]], [`${u}service-cost/`, `${sp.models[i]} service cost`], [`${u}issues/`, `${sp.models[i]} known issues`]]), [`${b}service-cost/`, `${sp.make} service cost`]];
+  return [[b, `${sp.make} garages`], ...ms.flatMap((u, i) => [[u, `${sp.models[i]} garages`], [`${u}service-cost/`, `${sp.models[i]} service cost`], [`${u}issues/`, `${sp.models[i]} known issues`]]), [`${b}service-cost/`, `${sp.make} service cost`]];
 }).filter(([u], i, arr) => isIndexableUrl(u) && arr.findIndex((x) => x[0] === u) === i);
 // "What reviewers say" only when reviews were actually read; never the pipeline's "not yet analysed".
 const rsum = g.reviews_analysed ? stripAside(g.review_summary || "").split(/(?<=\.)\s+/).filter((x) => x && !/not yet analysed|weak evidence|candidate/i.test(x)).join(" ") : "";
@@ -141,7 +141,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
       </div>
       <h1 class={g.name.length > 40 ? "long" : undefined}>{g.name}</h1>
       {evidenced && !g.isDealer && (why1 || threadsN >= 2) && (
-        <p class="whyline">{threadsN >= 2 && <>Owners recommend it{realSpecs[0] ? <> for <b>{realSpecs[0].models[0] || realSpecs[0].make}</b></> : ""} in <b>{threadsN}</b> {srcKind}. </>}{why1 && (/^\d+ of \d+/.test(why1) ? <><b>{why1.match(/^\d+ of \d+/)[0]}</b>{why1.replace(/^\d+ of \d+/, "")}.</> : <>{why1}.</>)} <a href="#evidence">How we know</a><span class="setlink"> · <button class="linkbtn" type="button" data-setcar>Set your car to check the match</button></span></p>
+        <p class="whyline">{threadsN >= 2 && <>Owners recommend it{realSpecs[0] ? <> for {realSpecs[0].models[0] ? "the " : ""}<b>{realSpecs[0].models[0] || realSpecs[0].make}</b></> : ""} in <b>{threadsN}</b> {srcKind}. </>}{why1 && (/^\d+ of \d+/.test(why1) ? <><b>{why1.match(/^\d+ of \d+/)[0]}</b>{why1.replace(/^\d+ of \d+/, "")}.</> : <>{why1}.</>)} <a href="#evidence">How we know</a><span class="setlink"> · <button class="linkbtn" type="button" data-setcar>Set your car to check the match</button></span></p>
       )}
       {g.waNumber && !g.waConfirmed && <p class="wanote">WhatsApp number from the garage's own listing, not confirmed on WhatsApp.</p>}</div>
       <div class="gacts">
@@ -159,7 +159,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
       </div>
     )}
     {moreLinks.length > 0 && (
-      <nav class="morefor" aria-label="More for your car"><span class="label">More for your {realSpecs[0].make === (SHORT[realSpecs[0].make] || realSpecs[0].make) ? realSpecs[0].make : SHORT[realSpecs[0].make]}</span>
+      <nav class="morefor" aria-label="More for your car"><span class="label">More for your {realSpecs.length === 1 ? SHORT[realSpecs[0].make] || realSpecs[0].make : "car"}</span>
         {moreLinks.map(([u, t]) => <a href={u}>{t}</a>)}
       </nav>
     )}
@@ -169,7 +169,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
         {!g.isDealer && (
           <section class="card panel community" id="community"><h2>What owner communities say</h2>
             {threads.length > 0 ? <>
-              <p class="sub">{threads.length} {threads.length === 1 ? "thread" : "threads"}{threads[0].year ? `, latest ${threads[0].year}` : ""}. Owners recommending this garage, unprompted.</p>
+              <p class="sub">{threads.length} {threads.length === 1 ? srcKind.replace(/discussions$/, "discussion") : srcKind}{threads[0].year ? `, latest ${threads[0].year}` : ""}. Owners recommending this garage, unprompted.</p>
               <ul class="threads">{threads.slice(0, 8).map((t) => (
                 <li><a href={t.url} target="_blank" rel="noopener nofollow">{t.label}</a>{t.old && <span class="oldtag">{t.year}, older</span>}
                   {t.quote && <q>{t.quote}</q>}{t.quote && <small class="muted"> {t.credit}</small>}</li>))}</ul>
