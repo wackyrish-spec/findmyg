@@ -42,7 +42,7 @@ const faqLd = faq.length ? { "@context": "https://schema.org", "@type": "FAQPage
   <div class="wrap">
     <div class="rhead"><div>
       <h1>{h1}</h1>
-      {(R > 0 || DATA_UPDATED) && <p class="basis">{R > 0 && <>We read <b>{R.toLocaleString("en-US")}</b> reviews{T > 0 && <> and <b>{T}</b> owner threads</>} to find these. </>}{DATA_UPDATED && <>Updated <time datetime={DATA_UPDATED}>{fmtDate(DATA_UPDATED)}</time>.</>}</p>}
+      {(R > 0 || DATA_UPDATED) && <p class="basis">{R > 0 && <>We read <b>{R.toLocaleString("en-US")}</b> reviews{T > 0 && <> and <b>{T}</b> Reddit and forum discussions</>} to find these. </>}{DATA_UPDATED && <>Updated <time datetime={DATA_UPDATED}>{fmtDate(DATA_UPDATED)}</time>.</>}</p>}
       <p class="answer">{ans1}</p>
       <div class="ctrls">
         <button class="pill ctl" type="button" data-setcar><span data-carset>Set your car</span></button>

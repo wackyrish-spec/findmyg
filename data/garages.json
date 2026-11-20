@@ -2352,7 +2352,20 @@
           "latest_year": 2021
         }
       ],
-      "self_claims": [],
+      "self_claims": [
+        {
+          "make": "Mercedes-Benz",
+          "models": [],
+          "url": "https://dtservicecentre.com/mercedes-service-price",
+          "note": "Garage's own website claims this make; not owner evidence"
+        },
+        {
+          "make": "Volkswagen",
+          "models": [],
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "note": "Garage's own website claims this make; not owner evidence"
+        }
+      ],
       "is_specialist": true,
       "external_ratings": [
         {
@@ -2645,6 +2658,748 @@
           "url": "https://dtservicecentre.com/volkswagen-service-prices/",
           "as_of": "2026-11-08",
           "note": ""
+        },
+        {
+          "job": "minor_service",
+          "make": "Mercedes-Benz",
+          "model": "A/C/E/GLA/GLK 4-cyl (e.g. C200, E200)",
+          "aed_low": 638,
+          "aed_high": 638,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/mercedes-service-price",
+          "as_of": "2026-11-17",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Mercedes-Benz",
+          "model": "6-cyl (e.g. C300, E350, GLE350, G350)",
+          "aed_low": 814,
+          "aed_high": 814,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/mercedes-service-price",
+          "as_of": "2026-11-17",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Mercedes-Benz",
+          "model": "V8 (e.g. S500, GLE450, G500)",
+          "aed_low": 979,
+          "aed_high": 979,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/mercedes-service-price",
+          "as_of": "2026-11-17",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Mercedes-Benz",
+          "model": "AMG V8 (C63, E63, G63, AMG GT)",
+          "aed_low": 1144,
+          "aed_high": 1144,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/mercedes-service-price",
+          "as_of": "2026-11-17",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Mercedes-Benz",
+          "model": "V12 (S600, G65, SL65)",
+          "aed_low": 1496,
+          "aed_high": 1496,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/mercedes-service-price",
+          "as_of": "2026-11-17",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Mercedes-Benz",
+          "model": "A/C/E/GLA/GLK 4-cyl (e.g. C200, E200)",
+          "aed_low": 2552,
+          "aed_high": 2552,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/mercedes-service-price",
+          "as_of": "2026-11-17",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Mercedes-Benz",
+          "model": "6-cyl (e.g. C300, E350, GLE350, G350)",
+          "aed_low": 3201,
+          "aed_high": 3201,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/mercedes-service-price",
+          "as_of": "2026-11-17",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Mercedes-Benz",
+          "model": "V8 (e.g. S500, GLE450, G500)",
+          "aed_low": 3861,
+          "aed_high": 3861,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/mercedes-service-price",
+          "as_of": "2026-11-17",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Mercedes-Benz",
+          "model": "AMG V8 (C63, E63, G63, AMG GT)",
+          "aed_low": 4686,
+          "aed_high": 4686,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/mercedes-service-price",
+          "as_of": "2026-11-17",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Mercedes-Benz",
+          "model": "V12 (S600, G65, SL65)",
+          "aed_low": 5995,
+          "aed_high": 5995,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/mercedes-service-price",
+          "as_of": "2026-11-17",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Audi",
+          "model": "A1 1.2 T (entry); RS3 from 891",
+          "aed_low": 638,
+          "aed_high": 891,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/audi-service-price/",
+          "as_of": "2026-11-17",
+          "note": "starting price ('from'); from search snippet of own price table (page table not readable)"
+        },
+        {
+          "job": "major_service",
+          "make": "Audi",
+          "model": "A1 1.2 T (entry)",
+          "aed_low": 2552,
+          "aed_high": 2552,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/audi-service-price/",
+          "as_of": "2026-11-17",
+          "note": "starting price ('from'); from search snippet of own price table"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "Amarok V4",
+          "aed_low": 638,
+          "aed_high": 638,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Amarok V4",
+          "aed_low": 2552,
+          "aed_high": 2552,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "Amarok V6",
+          "aed_low": 814,
+          "aed_high": 814,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Amarok V6",
+          "aed_low": 3201,
+          "aed_high": 3201,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "Arteon",
+          "aed_low": 638,
+          "aed_high": 638,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Arteon",
+          "aed_low": 2552,
+          "aed_high": 2552,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "Beetle",
+          "aed_low": 638,
+          "aed_high": 638,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Beetle",
+          "aed_low": 2552,
+          "aed_high": 2552,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "CC TSI",
+          "aed_low": 638,
+          "aed_high": 638,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "CC TSI",
+          "aed_low": 2552,
+          "aed_high": 2552,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "CC 4motion",
+          "aed_low": 814,
+          "aed_high": 814,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "CC 4motion",
+          "aed_low": 3201,
+          "aed_high": 3201,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "EOS",
+          "aed_low": 638,
+          "aed_high": 638,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "EOS",
+          "aed_low": 2552,
+          "aed_high": 2552,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Golf",
+          "aed_low": 2552,
+          "aed_high": 2552,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Golf GTI",
+          "aed_low": 2959,
+          "aed_high": 2959,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Golf R",
+          "aed_low": 2959,
+          "aed_high": 2959,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "Golf R32",
+          "aed_low": 891,
+          "aed_high": 891,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Golf R32",
+          "aed_low": 3619,
+          "aed_high": 3619,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "Jetta",
+          "aed_low": 638,
+          "aed_high": 638,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Jetta",
+          "aed_low": 2552,
+          "aed_high": 2552,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "Passat",
+          "aed_low": 638,
+          "aed_high": 638,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Passat",
+          "aed_low": 2552,
+          "aed_high": 2552,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "Phaeton V6",
+          "aed_low": 814,
+          "aed_high": 814,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Phaeton V6",
+          "aed_low": 3201,
+          "aed_high": 3201,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "Phaeton V8",
+          "aed_low": 979,
+          "aed_high": 979,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Phaeton V8",
+          "aed_low": 3861,
+          "aed_high": 3861,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "Phaeton W12",
+          "aed_low": 1408,
+          "aed_high": 1408,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Phaeton W12",
+          "aed_low": 5588,
+          "aed_high": 5588,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "Polo",
+          "aed_low": 638,
+          "aed_high": 638,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Polo",
+          "aed_low": 2552,
+          "aed_high": 2552,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "Scirocco",
+          "aed_low": 638,
+          "aed_high": 638,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Scirocco",
+          "aed_low": 2552,
+          "aed_high": 2552,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "Scirocco R",
+          "aed_low": 726,
+          "aed_high": 726,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Scirocco R",
+          "aed_low": 2959,
+          "aed_high": 2959,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Tiguan",
+          "aed_low": 2552,
+          "aed_high": 2552,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Touareg V6",
+          "aed_low": 3201,
+          "aed_high": 3201,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "Touareg V8",
+          "aed_low": 979,
+          "aed_high": 979,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Touareg V8",
+          "aed_low": 3861,
+          "aed_high": 3861,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "minor_service",
+          "make": "Volkswagen",
+          "model": "Teramont",
+          "aed_low": 814,
+          "aed_high": 814,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "minor service (oil + filter, checks)",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
+        },
+        {
+          "job": "major_service",
+          "make": "Volkswagen",
+          "model": "Teramont",
+          "aed_low": 3201,
+          "aed_high": 3201,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "Major (B) service, includes gearbox oil",
+          "source": "garage's own website",
+          "url": "https://dtservicecentre.com/volkswagen-service-prices/",
+          "as_of": "2026-11-18",
+          "note": "fixed price per model from the garage's price table; 'Interval service' tier sits between minor and major"
         }
       ],
       "evidence_summary": "11 of 60 Google reviews we read mention Audi work (mostly RS). 9 of 60 Google reviews we read mention Porsche work (mostly 911, Cayenne).",
@@ -7800,6 +8555,20 @@
           "url": "https://bisalamautotech.com/services/maintenance",
           "as_of": "2026-11-16",
           "note": "starting price ('from'); minor + spark plugs, new air filter, brake fluid flush, coolant check, 52-point check"
+        },
+        {
+          "job": "brake_pads_front",
+          "make": null,
+          "model": null,
+          "aed_low": 349,
+          "aed_high": 349,
+          "vat": "VAT not stated",
+          "includes_parts": null,
+          "includes": "brake pad replacement",
+          "source": "garage's own website",
+          "url": "https://bisalamautotech.com/services/suspension",
+          "as_of": "2026-11-17",
+          "note": "starting price ('from'); 'brake pad replacement', axle not stated"
         }
       ],
       "evidence_summary": "3 of 60 Google reviews we read mention Toyota work. Recommended by owners for Mercedes-Benz on Reddit r/DubaiPetrolHeads.",
@@ -11296,7 +12065,7 @@
       "closed": false,
       "business_status": "operational",
       "worth_the_drive": true,
-      "worth_the_drive_basis": "PM 2026-11-08: single-marque Porsche specialist, strong evidence",
+      "worth_the_drive_basis": "Strong match: 23 of 60 Google reviews read name Porsche (all reviews that name a make). Data check 2026-11-17.",
       "instagram": "jzmgulf",
       "instagram_basis": "https://www.jzmgulf.com/",
       "editorial_mentions": [
@@ -18333,7 +19102,8 @@
       "works_on_all_makes_basis": "reviews (6+ makes, none dominant)",
       "whatsapp_basis": "phone from garage's listing (UAE mobile)",
       "instagram": "https://www.instagram.com/sunshineautoae/",
-      "instagram_basis": "https://www.sunshineauto.ae/"
+      "instagram_basis": "https://www.sunshineauto.ae/",
+      "website_note": "Own website (sunshineauto.ae) lists phone/WhatsApp +971 55 168 1948 (2026-11-19)."
     },
     {
       "id": "check-point-car-garage-71eb",
@@ -20107,6 +20877,34 @@
           "url": "https://rapidogarage.com/alfa-romeo/",
           "as_of": "2026-11-13",
           "note": "starting price ('from'); depends on engine size"
+        },
+        {
+          "job": "oil_service",
+          "make": null,
+          "model": "European & luxury cars",
+          "aed_low": 450,
+          "aed_high": 450,
+          "vat": "VAT not stated",
+          "includes_parts": true,
+          "includes": "oil change",
+          "source": "garage's own website",
+          "url": "https://rapidogarage.com/oil-change-dubai",
+          "as_of": "2026-11-18",
+          "note": "starting price ('from'); 'moves with the car', a starting point not a quote"
+        },
+        {
+          "job": "minor_service",
+          "make": null,
+          "model": null,
+          "aed_low": 550,
+          "aed_high": 550,
+          "vat": "VAT not stated",
+          "includes_parts": null,
+          "includes": "scheduled service",
+          "source": "garage's own website",
+          "url": "https://rapidogarage.com/car-service-dubai",
+          "as_of": "2026-11-18",
+          "note": "starting price ('from'); 'scheduled service' (major & minor page), starting point not a quote"
         }
       ],
       "evidence_summary": "7 of 60 Google reviews we read mention Porsche work (mostly Cayenne).",
@@ -27556,7 +28354,10 @@
         "as_of": "2026-11-11",
         "jobs": []
       },
-      "checked_at": "2026-11-11"
+      "checked_at": "2026-11-11",
+      "bosch_partner": true,
+      "bosch_partner_basis": "https://yalah.ae/auto-repair/mtech-auto-services-bosch-car-service-jumeirah",
+      "bosch_partner_note": "Business listing is branded Bosch Car Service (as of 2026-11-17)"
     },
     {
       "id": "grand-city-auto-services-1583",
@@ -31342,8 +32143,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.7 from 147 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.7 from 147 reviews. In the 10 most relevant reviews we read, customers mostly bring Toyota and Infiniti; praise centres on fair prices, speed, honesty.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Adnan%20Auto%20Repair%20Garage&query_place_id=ChIJV-j2mLtdXz4R2xQnz9J8VIY",
         "http://www.adnanautos.com/"
@@ -31356,7 +32157,51 @@
       "whatsapp_basis": "phone from garage's listing (UAE mobile)",
       "website_note": "WhatsApp on own website: +971509483571 (2026-11-13)",
       "instagram": "adnanautogarage",
-      "instagram_basis": "http://www.adnanautos.com/"
+      "instagram_basis": "http://www.adnanautos.com/",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 0,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "fast": 5,
+          "honest": 5,
+          "fair_price": 7,
+          "explains": 3,
+          "communicates": 1,
+          "knows_its_stuff": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "bodywork": 2,
+          "brakes": 1,
+          "suspension": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 5,
+        "fair": 7,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "the-car-drs-e246",
@@ -31878,17 +32723,21 @@
       "specialties": [
         {
           "make": "Volkswagen",
-          "models": [],
+          "models": [
+            "Golf R",
+            "Golf GTI",
+            "Golf"
+          ],
           "level": "brand",
-          "confidence": "low",
-          "evidence": "Garage name advertises Volkswagen; reviews not yet analysed",
-          "mentions": 0,
-          "basis": "listing name",
+          "confidence": "high",
+          "evidence": "7 of 10 Google reviews read mention Volkswagen (88% of reviews that name any make); most-mentioned models: Golf R (2), Golf GTI (2), Golf (2); the garage's own listing name advertises Volkswagen; Garage name advertises Volkswagen; reviews not yet analysed",
+          "mentions": 7,
+          "basis": "listing name+reviews",
           "car_family": "german"
         }
       ],
       "self_claims": [],
-      "is_specialist": false,
+      "is_specialist": true,
       "external_ratings": [
         {
           "source": "Google",
@@ -31899,17 +32748,71 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.9 from 144 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.9 from 144 reviews. In the 10 most relevant reviews we read, customers mostly bring Volkswagen and Audi; praise centres on knowledgeable staff, honesty, clear explanations.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=VW%20Independent%20Specialist&query_place_id=ChIJ7engVABpXz4R4JiQpzibw8s"
       ],
       "possible_matches": [],
       "price_examples": [],
-      "evidence_summary": "Reviews not yet analysed.",
+      "evidence_summary": "7 of 10 Google reviews we read mention Volkswagen work (mostly Golf R, Golf GTI).",
       "works_on_all_makes": false,
       "works_on_all_makes_basis": "listing names specific makes",
-      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "Volkswagen": {
+            "Tiguan": 1,
+            "Golf R": 2,
+            "Golf GTI": 2,
+            "Golf": 2
+          },
+          "Audi": {
+            "Q5": 1
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 0,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "honest": 5,
+          "explains": 5,
+          "knows_its_stuff": 7,
+          "fast": 3,
+          "communicates": 2,
+          "fair_price": 2
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "gearbox": 2,
+          "service": 2,
+          "oil_leak": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 0,
+        "fair": 2,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "75auto-garage-al-quoz-c433",
@@ -31955,8 +32858,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.9 from 143 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.9 from 143 reviews. In the 10 most relevant reviews we read, customers mostly bring Chevrolet; praise centres on honesty, communication, fair prices.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=75Auto%20Garage%20Al%20Quoz&query_place_id=ChIJKVgJj-ZrXz4RM8TMsTUFAfg",
         "https://75auto.ae/"
@@ -31968,7 +32871,54 @@
       "works_on_all_makes_basis": "garage website: all vehicle brands",
       "whatsapp_basis": "phone from garage's listing (UAE mobile)",
       "instagram": "my75auto",
-      "instagram_basis": "https://75auto.ae/"
+      "instagram_basis": "https://75auto.ae/",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "Chevrolet": {
+            "Tahoe": 1
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 0,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "communicates": 3,
+          "honest": 6,
+          "fair_price": 3,
+          "knows_its_stuff": 3,
+          "fast": 2,
+          "explains": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "ac": 1,
+          "bodywork": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 5,
+        "fair": 3,
+        "expensive": 2,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "cars-auto-repairing-garage-a4dd",
@@ -32020,8 +32970,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.6 from 140 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.6 from 140 reviews. In the 10 most relevant reviews we read, customers bring a mix of makes; praise centres on fair prices, speed, knowledgeable staff.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Cars%20Auto%20Repairing%20Garage&query_place_id=ChIJcXn6OYpnXz4R3aSGfie5FZI"
       ],
@@ -32030,7 +32980,48 @@
       "evidence_summary": "Reviews not yet analysed.",
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
-      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 1,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "fair_price": 3,
+          "fast": 2,
+          "knows_its_stuff": 2
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "gearbox": 1,
+          "suspension": 1,
+          "oil_leak": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 1,
+        "fair": 3,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "hybrid-garage-7460",
@@ -32619,8 +33610,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.4 from 130 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.4 from 130 reviews. In the 10 most relevant reviews we read, customers mostly bring Nissan and Mitsubishi; praise centres on knowledgeable staff, honesty, fair prices.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Gentlemen%27s%20Garage%20Auto%20Services%20-%20Car%20Service%20%7C%20Car%20Garage%20%7C%20Car%20Repair%20in%20Dubai&query_place_id=ChIJ80mW75xrXz4RaHcChweyEi0",
         "https://gentlemensgarage.me/"
@@ -32631,7 +33622,53 @@
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
       "whatsapp_basis": "phone from garage's listing (UAE mobile)",
-      "website_note": "Website retry 2026-11-17: website unreachable again"
+      "website_note": "Website retry 2026-11-17: website unreachable again",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "Nissan": {
+            "Altima": 1
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 1,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "knows_its_stuff": 6,
+          "honest": 4,
+          "fair_price": 3,
+          "explains": 3
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "service": 2,
+          "steering": 1,
+          "ac": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 2,
+        "fair": 3,
+        "expensive": 1,
+        "cheap": 1,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "car-garage-auto-service-2396",
@@ -32919,9 +33956,21 @@
       "dealer_for": null,
       "hours": "",
       "services": [],
-      "specialties": [],
+      "specialties": [
+        {
+          "make": "Jeep",
+          "models": [
+            "Wrangler"
+          ],
+          "level": "model",
+          "confidence": "high",
+          "evidence": "10 of 10 Google reviews read mention Jeep (100% of reviews that name any make); most-mentioned models: Wrangler (5)",
+          "mentions": 10,
+          "basis": "reviews"
+        }
+      ],
       "self_claims": [],
-      "is_specialist": false,
+      "is_specialist": true,
       "external_ratings": [
         {
           "source": "Google",
@@ -32932,14 +33981,14 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.8 from 127 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.8 from 127 reviews. In the 10 most relevant reviews we read, customers mostly bring Jeep; praise centres on honesty, knowledgeable staff, speed.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Fury%20Automotive%20Dubai&query_place_id=ChIJ3_GYqvxpXz4R0c5-1E7r-d8"
       ],
       "possible_matches": [],
       "price_examples": [],
-      "evidence_summary": "Reviews not yet analysed.",
+      "evidence_summary": "10 of 10 Google reviews we read mention Jeep work (mostly Wrangler).",
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
       "community_mentions": {
@@ -32976,7 +34025,56 @@
         ],
         "note": "negative/mixed counts are internal only (legal); quotes positive/neutral, <=25 words, no usernames"
       },
-      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "Jeep": {
+            "Wrangler": 5,
+            "Grand Cherokee": 1
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 0,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "honest": 4,
+          "fast": 3,
+          "fair_price": 2,
+          "knows_its_stuff": 4
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "suspension": 1,
+          "service": 1,
+          "battery": 1,
+          "ac": 1,
+          "bodywork": 2
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 5,
+        "fair": 2,
+        "expensive": 1,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "xtreme-4x4-e1d0",
@@ -33505,8 +34603,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.7 from 119 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.7 from 119 reviews. In the 10 most relevant reviews we read, customers mostly bring Mercedes-Benz and BMW; praise centres on clear explanations, speed, honesty.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=MSG%20Autocare%20Dubai&query_place_id=ChIJBQcwacJrXz4R2ufiRRV4o9U",
         "http://msgauto.ae/"
@@ -33517,7 +34615,61 @@
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
       "whatsapp_basis": "phone from garage's listing (UAE mobile)",
-      "website_note": "Website retry 2026-11-17: website returned 402 again"
+      "website_note": "Website retry 2026-11-17: website returned 402 again",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "Mercedes-Benz": {
+            "S-Class": 1
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 2,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "explains": 4,
+          "fast": 4,
+          "honest": 4,
+          "knows_its_stuff": 2,
+          "fair_price": 1
+        },
+        "complaint_counts": {
+          "slow": 2,
+          "poor_communication": 1
+        },
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "suspension": 1,
+          "steering": 1,
+          "bodywork": 1,
+          "service": 1,
+          "oil_leak": 1,
+          "ac": 1,
+          "gearbox": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 3,
+        "fair": 1,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "high-range-garage-l-l-c-1d93",
@@ -33562,8 +34714,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.6 from 118 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.6 from 118 reviews. In the 10 most relevant reviews we read, customers mostly bring Toyota and Land Rover; praise centres on speed, honesty, clear explanations.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=HIGH%20RANGE%20GARAGE%20L%20L%20C&query_place_id=ChIJUb5pkZFpXz4Rkx2rhs3OuKE",
         "https://highrangegarage.com/"
@@ -33574,7 +34726,58 @@
       "works_on_all_makes": true,
       "works_on_all_makes_basis": "garage website: all makes (35 brands, European/American/Japanese/Korean)",
       "whatsapp_basis": "phone from garage's listing (UAE mobile)",
-      "website_note": "WhatsApp on own website: +971552356960 (2026-11-15); own site says all makes (2026-11-15)"
+      "website_note": "WhatsApp on own website: +971552356960 (2026-11-15); own site says all makes (2026-11-15)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "Toyota": {
+            "Corolla": 1
+          },
+          "Land Rover": {
+            "Range Rover": 1,
+            "Range Rover Sport": 1
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 3,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "fast": 5,
+          "honest": 5,
+          "explains": 3,
+          "knows_its_stuff": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "ac": 1,
+          "overheating": 1,
+          "oil_leak": 1,
+          "bodywork": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 3,
+        "fair": 0,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "autova-expert-garage-llc-b4b5",
@@ -33613,8 +34816,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 5 from 118 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 5 from 118 reviews. In the 10 most relevant reviews we read, customers bring a mix of makes; praise centres on honesty, knowledgeable staff, clear explanations.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Autova%20Expert%20Garage%20LLC&query_place_id=ChIJZWVVwFNrXz4RtbRwij2wD1o",
         "https://autova.ae/"
@@ -33634,7 +34837,50 @@
         "as_of": "2026-11-07"
       },
       "whatsapp_basis": "phone from garage's listing (UAE mobile)",
-      "website_note": "WhatsApp on own website: +971589743555 (2026-11-15); own site: luxury and performance cars, service, bodywork, PPF (2026-11-15)"
+      "website_note": "WhatsApp on own website: +971589743555 (2026-11-15); own site: luxury and performance cars, service, bodywork, PPF (2026-11-15)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 0,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "knows_its_stuff": 3,
+          "honest": 4,
+          "explains": 3,
+          "communicates": 1,
+          "fair_price": 3,
+          "fast": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "gearbox": 2,
+          "oil_leak": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 4,
+        "fair": 3,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "middle-east-auto-garage-2bd0",
@@ -33774,7 +35020,18 @@
           "latest_year": 2026
         }
       ],
-      "self_claims": [],
+      "self_claims": [
+        {
+          "make": "Land Rover",
+          "models": [
+            "Range Rover",
+            "Range Rover Sport",
+            "Range Rover Vogue"
+          ],
+          "url": "https://www.vogueautoservices.com/pakages",
+          "note": "Garage's own website claims this make; not owner evidence"
+        }
+      ],
       "is_specialist": false,
       "external_ratings": [
         {
@@ -33916,7 +35173,22 @@
         "http://www.vogueautoservices.com/"
       ],
       "possible_matches": [],
-      "price_examples": [],
+      "price_examples": [
+        {
+          "job": "major_service",
+          "make": "Land Rover",
+          "model": "Range Rover Vogue, Range Rover Sport",
+          "aed_low": 2999,
+          "aed_high": 2999,
+          "vat": "VAT not stated",
+          "includes_parts": null,
+          "includes": "major service (offer package)",
+          "source": "garage's own website",
+          "url": "https://www.vogueautoservices.com/pakages",
+          "as_of": "2026-11-19",
+          "note": "offer price; page labels it a '2026 Ramadan offer' for Range Rover Vogue & Sport, so it may no longer apply"
+        }
+      ],
       "evidence_summary": "26 of 60 Google reviews we read mention Land Rover work (mostly Range Rover).",
       "works_on_all_makes": false,
       "works_on_all_makes_basis": "listing names specific makes",
@@ -34137,8 +35409,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.7 from 115 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.7 from 115 reviews. In the 10 most relevant reviews we read, customers mostly bring Land Rover; praise centres on fair prices, honesty, clear explanations.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=RMB%20GARAGE%20L%20L%20C&query_place_id=ChIJhWnJgFZrXz4R4EJycs8cN2A",
         "http://rmbgarage.com/"
@@ -34149,7 +35421,51 @@
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
       "whatsapp_basis": "phone from garage's listing (UAE mobile)",
-      "website_note": "Website retry 2026-11-17: website URL invalid again"
+      "website_note": "Website retry 2026-11-17: website URL invalid again",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "Land Rover": {
+            "Range Rover": 2
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 1,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "honest": 1,
+          "explains": 1,
+          "knows_its_stuff": 1,
+          "fair_price": 3
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "suspension": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 2,
+        "fair": 3,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "meta-garage-f0ce",
@@ -34193,8 +35509,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.7 from 115 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.7 from 115 reviews. In the 10 most relevant reviews we read, customers bring a mix of makes; praise centres on speed, communication, fair prices.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Meta%20Garage&query_place_id=ChIJmTc0ReQ4c6IRzvBc8v-IqE4"
       ],
@@ -34202,7 +35518,49 @@
       "price_examples": [],
       "evidence_summary": "Reviews not yet analysed.",
       "works_on_all_makes": null,
-      "works_on_all_makes_basis": "unknown: reviews not read yet"
+      "works_on_all_makes_basis": "unknown: reviews not read yet",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-18",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 0,
+        "as_of": "2026-11-18",
+        "praise_counts": {
+          "fast": 4,
+          "communicates": 2,
+          "fair_price": 2,
+          "honest": 2,
+          "knows_its_stuff": 1,
+          "explains": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-18",
+        "counts": {
+          "bodywork": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 3,
+        "fair": 2,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-18",
+        "jobs": []
+      },
+      "checked_at": "2026-11-18",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "drive-way-classic-garage-4dd1",
@@ -35122,8 +36480,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.9 from 110 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.9 from 110 reviews. In the 10 most relevant reviews we read, customers mostly bring Hyundai and Jetour; praise centres on knowledgeable staff, fair prices, honesty.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=The%20Auto%20Guys%20Car%20Garage%20LLC&query_place_id=ChIJSWuLfqZpXz4RiEonsboRz6k",
         "https://theautoguysdubai.com/"
@@ -35136,7 +36494,49 @@
       "whatsapp_basis": "phone from garage's listing (UAE mobile)",
       "website_note": "WhatsApp on own website: +971506519205 (2026-11-15); own site: all vehicles (2026-11-15)",
       "instagram": "theautoguysdxb",
-      "instagram_basis": "https://theautoguysdubai.com/"
+      "instagram_basis": "https://theautoguysdubai.com/",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-18",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 0,
+        "as_of": "2026-11-18",
+        "praise_counts": {
+          "knows_its_stuff": 5,
+          "explains": 3,
+          "fair_price": 5,
+          "honest": 5,
+          "fast": 1,
+          "communicates": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-18",
+        "counts": {
+          "service": 3
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 2,
+        "fair": 5,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-18",
+        "jobs": []
+      },
+      "checked_at": "2026-11-18",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "blue-coastal-auto-workshop-538c",
@@ -35533,8 +36933,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.2 from 108 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.2 from 108 reviews. In the 10 most relevant reviews we read, customers mostly bring Nissan; praise centres on fair prices, speed, knowledgeable staff.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Bright%20Spark%20Auto%20Repairing%20Jebel%20Ali&query_place_id=ChIJeSO13LcSXz4RXXH6hmglQwo",
         "http://www.brightspark.ae/"
@@ -35545,7 +36945,52 @@
       "works_on_all_makes": true,
       "works_on_all_makes_basis": "garage website: multi-brand automotive services (since 1993)",
       "instagram": "BrightSparkAuto",
-      "instagram_basis": "http://www.brightspark.ae/"
+      "instagram_basis": "http://www.brightspark.ae/",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "Nissan": {
+            "X-Trail": 1
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 1,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "honest": 1,
+          "fair_price": 2,
+          "fast": 2,
+          "knows_its_stuff": 2
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "service": 3,
+          "bodywork": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 2,
+        "fair": 2,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "future-racing-14ab",
@@ -35779,8 +37224,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.5 from 106 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.5 from 106 reviews. In the 10 most relevant reviews we read, customers mostly bring Volkswagen; praise centres on honesty, speed, knowledgeable staff.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Al%20Horani%20Automotive%20Solutions%20L.L.C%20Dubai%20Branch%20%D8%A7%D9%84%D8%AD%D9%88%D8%B1%D8%A7%D9%86%D9%8A%20%D9%84%D8%AD%D9%84%D9%88%D9%84%20%D8%A7%D9%84%D9%85%D8%B1%D9%83%D8%A8%D8%A7%D8%AA&query_place_id=ChIJZ3Gm3NZrXz4RDPdmHqjYhdM",
         "https://horanias.com/"
@@ -35802,7 +37247,49 @@
       "whatsapp_basis": "phone from garage's listing (UAE mobile)",
       "website_note": "own site: gearbox and transmission specialist, all makes (2026-11-15)",
       "instagram": "https://www.instagram.com/hooraniat/",
-      "instagram_basis": "https://horanias.com/"
+      "instagram_basis": "https://horanias.com/",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-18",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 0,
+        "as_of": "2026-11-18",
+        "praise_counts": {
+          "knows_its_stuff": 3,
+          "fast": 4,
+          "honest": 7,
+          "explains": 3,
+          "fair_price": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-18",
+        "counts": {
+          "gearbox": 7,
+          "oil_leak": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 1,
+        "fair": 1,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-18",
+        "jobs": []
+      },
+      "checked_at": "2026-11-18",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "next-gen-auto-repair-llc-9049",
@@ -36148,8 +37635,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.5 from 99 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.5 from 99 reviews. In the 10 most relevant reviews we read, customers mostly bring Jeep and Ford; praise centres on fair prices, speed, knowledgeable staff.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Rage%20Performance%20Garage&query_place_id=ChIJlcWdaxNpXz4RFSiE0ou3NyY",
         "https://rageperformancegaragedxb.com/"
@@ -36160,7 +37647,56 @@
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
       "whatsapp_basis": "phone from garage's listing (UAE mobile)",
-      "website_note": "Website retry 2026-11-17: website unreachable again"
+      "website_note": "Website retry 2026-11-17: website unreachable again",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-18",
+        "counts": {
+          "Jeep": {
+            "Grand Cherokee": 1
+          },
+          "Ford": {
+            "Mustang": 1
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 0,
+        "as_of": "2026-11-18",
+        "praise_counts": {
+          "fast": 2,
+          "fair_price": 3,
+          "knows_its_stuff": 1,
+          "honest": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-18",
+        "counts": {
+          "suspension": 1,
+          "service": 3,
+          "pre_purchase": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 3,
+        "fair": 3,
+        "expensive": 2,
+        "cheap": 0,
+        "as_of": "2026-11-18",
+        "jobs": []
+      },
+      "checked_at": "2026-11-18",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "al-arabia-auto-services-5c6a",
@@ -36196,8 +37732,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 3.4 from 99 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 3.4 from 99 reviews. In the 10 most relevant reviews we read, customers bring a mix of makes; praise centres on honesty.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Al%20Arabia%20Auto%20services%20-%20Al%20Quoz&query_place_id=ChIJJxkTX_9pXz4RalxKPKXJz60"
       ],
@@ -36205,7 +37741,48 @@
       "price_examples": [],
       "evidence_summary": "Reviews not yet analysed.",
       "works_on_all_makes": null,
-      "works_on_all_makes_basis": "unknown: reviews not read yet"
+      "works_on_all_makes_basis": "unknown: reviews not read yet",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-19",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 9,
+        "as_of": "2026-11-19",
+        "praise_counts": {
+          "honest": 1
+        },
+        "complaint_counts": {
+          "slow": 2,
+          "poor_communication": 4
+        },
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-19",
+        "counts": {
+          "bodywork": 3,
+          "ac": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 3,
+        "fair": 0,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-19",
+        "jobs": []
+      },
+      "checked_at": "2026-11-19",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "orange-auto-f791",
@@ -36374,8 +37951,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.7 from 97 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.7 from 97 reviews. In the 10 most relevant reviews we read, customers mostly bring Kia and Toyota; praise centres on speed, honesty, knowledgeable staff.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Best%20Performance%20Garage%20%7C%20Car%20Repair%20And%20Maintenance%20Service&query_place_id=ChIJu993h-ldXz4RGam1_z6YDc4"
       ],
@@ -36384,7 +37961,54 @@
       "evidence_summary": "Reviews not yet analysed.",
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
-      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-19",
+        "counts": {
+          "Toyota": {
+            "RAV4": 1
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 0,
+        "as_of": "2026-11-19",
+        "praise_counts": {
+          "fast": 5,
+          "honest": 5,
+          "knows_its_stuff": 3,
+          "communicates": 3,
+          "fair_price": 3,
+          "explains": 3
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-19",
+        "counts": {
+          "service": 1,
+          "bodywork": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 5,
+        "fair": 3,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-19",
+        "jobs": []
+      },
+      "checked_at": "2026-11-19",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "cto-garage-c4a0",
@@ -36431,8 +38055,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.9 from 97 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.9 from 97 reviews. In the 10 most relevant reviews we read, customers bring a mix of makes; praise centres on honesty, clear explanations, knowledgeable staff.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=CTO%20Garage&query_place_id=ChIJH4Ug5MlpXz4RoMTjzw2y9KY",
         "https://ctogarage.com/"
@@ -36454,7 +38078,50 @@
       "whatsapp_basis": "phone from garage's listing (UAE mobile)",
       "website_note": "WhatsApp on own website: +971526115024 (2026-11-15); own site: European, American and Asian cars (2026-11-15)",
       "instagram": "https://www.instagram.com/cto_garage_dubai/",
-      "instagram_basis": "https://ctogarage.com/"
+      "instagram_basis": "https://ctogarage.com/",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-19",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 0,
+        "as_of": "2026-11-19",
+        "praise_counts": {
+          "honest": 8,
+          "knows_its_stuff": 2,
+          "fast": 2,
+          "explains": 3,
+          "fair_price": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-19",
+        "counts": {
+          "service": 1,
+          "overheating": 1,
+          "suspension": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 5,
+        "fair": 1,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-19",
+        "jobs": []
+      },
+      "checked_at": "2026-11-19",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "tcw-b6d5",
@@ -36499,8 +38166,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.8 from 96 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.8 from 96 reviews. In the 10 most relevant reviews we read, customers mostly bring Jaguar; praise centres on speed, fair prices, knowledgeable staff.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=TCW%20-%20The%20Collector%20Workshop&query_place_id=ChIJ36IWTVRrXz4R1bZaS9okgR8",
         "https://www.thecollectorworkshop.com/"
@@ -36556,7 +38223,51 @@
       },
       "website_note": "Website: classic car restoration.",
       "instagram": "https://www.instagram.com/thecollectorsworkshop/",
-      "instagram_basis": "https://www.thecollectorworkshop.com/"
+      "instagram_basis": "https://www.thecollectorworkshop.com/",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-19",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 1,
+        "as_of": "2026-11-19",
+        "praise_counts": {
+          "knows_its_stuff": 1,
+          "explains": 1,
+          "fast": 3,
+          "fair_price": 2,
+          "honest": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-19",
+        "counts": {
+          "ac": 1,
+          "overheating": 1,
+          "brakes": 1,
+          "bodywork": 2
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 2,
+        "fair": 2,
+        "expensive": 0,
+        "cheap": 1,
+        "as_of": "2026-11-19",
+        "jobs": []
+      },
+      "checked_at": "2026-11-19",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "spectrum-german-auto-garage-a930",
@@ -36599,8 +38310,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.7 from 96 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.7 from 96 reviews. In the 10 most relevant reviews we read, customers mostly bring Porsche and Land Rover; praise centres on clear explanations, knowledgeable staff, honesty.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Spectrum%20German%20Auto%20garage&query_place_id=ChIJgfBBXXhpXz4RMKlLbhkA2xI",
         "https://www.spectrumgermanauto.ae/"
@@ -36613,7 +38324,60 @@
       "whatsapp_basis": "phone from garage's listing (UAE mobile)",
       "website_note": "WhatsApp on own website: +971555766719 (2026-11-13)",
       "instagram": "spectrum_german_auto_care",
-      "instagram_basis": "https://www.spectrumgermanauto.ae/"
+      "instagram_basis": "https://www.spectrumgermanauto.ae/",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-19",
+        "counts": {
+          "Porsche": {
+            "Cayenne": 1
+          },
+          "Land Rover": {
+            "Range Rover": 1,
+            "Range Rover Sport": 1
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 1,
+        "as_of": "2026-11-19",
+        "praise_counts": {
+          "fast": 3,
+          "communicates": 3,
+          "explains": 4,
+          "knows_its_stuff": 4,
+          "honest": 4
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-19",
+        "counts": {
+          "brakes": 1,
+          "gearbox": 1,
+          "bodywork": 1,
+          "oil_leak": 1,
+          "service": 2
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 3,
+        "fair": 0,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-19",
+        "jobs": []
+      },
+      "checked_at": "2026-11-19",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "automoto-xtreme-workshop-023a",
@@ -36636,9 +38400,21 @@
       "dealer_for": null,
       "hours": "",
       "services": [],
-      "specialties": [],
+      "specialties": [
+        {
+          "make": "Jeep",
+          "models": [
+            "Wrangler"
+          ],
+          "level": "brand",
+          "confidence": "medium",
+          "evidence": "7 of 10 Google reviews read mention Jeep (100% of reviews that name any make); most-mentioned models: Wrangler (3)",
+          "mentions": 7,
+          "basis": "reviews"
+        }
+      ],
       "self_claims": [],
-      "is_specialist": false,
+      "is_specialist": true,
       "external_ratings": [
         {
           "source": "Google",
@@ -36649,17 +38425,62 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.2 from 96 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.2 from 96 reviews. In the 10 most relevant reviews we read, customers mostly bring Jeep; praise centres on honesty, knowledgeable staff, fair prices.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Automoto%20Xtreme%20Workshop&query_place_id=ChIJI6xcq1dpXz4ROgIsE8VCHzk"
       ],
       "possible_matches": [],
       "price_examples": [],
-      "evidence_summary": "Reviews not yet analysed.",
+      "evidence_summary": "7 of 10 Google reviews we read mention Jeep work (mostly Wrangler).",
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
-      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-19",
+        "counts": {
+          "Jeep": {
+            "Wrangler": 3
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 4,
+        "as_of": "2026-11-19",
+        "praise_counts": {
+          "knows_its_stuff": 1,
+          "honest": 2,
+          "fair_price": 1
+        },
+        "complaint_counts": {
+          "overcharged": 1
+        },
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-19",
+        "counts": {
+          "suspension": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 6,
+        "fair": 1,
+        "expensive": 1,
+        "cheap": 0,
+        "as_of": "2026-11-19",
+        "jobs": []
+      },
+      "checked_at": "2026-11-19",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "fperformance-garage-7c5e",
@@ -36695,8 +38516,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.4 from 93 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.4 from 93 reviews. In the 10 most relevant reviews we read, customers mostly bring Ford and Nissan; praise centres on fair prices.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Fperformance%20garage&query_place_id=ChIJtYlyuXppXz4RXnxxszTXHtY"
       ],
@@ -36705,7 +38526,52 @@
       "evidence_summary": "Reviews not yet analysed.",
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
-      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-19",
+        "counts": {
+          "Ford": {
+            "Mustang": 1
+          },
+          "Nissan": {
+            "GT-R": 1
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 2,
+        "as_of": "2026-11-19",
+        "praise_counts": {
+          "fair_price": 1
+        },
+        "complaint_counts": {
+          "slow": 1,
+          "overcharged": 1
+        },
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-19",
+        "counts": {}
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 1,
+        "fair": 1,
+        "expensive": 1,
+        "cheap": 0,
+        "as_of": "2026-11-19",
+        "jobs": []
+      },
+      "checked_at": "2026-11-19",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "pp-performance-dubai-d5d1",
@@ -36732,7 +38598,17 @@
         "Servicing",
         "Tuning & performance"
       ],
-      "specialties": [],
+      "specialties": [
+        {
+          "make": "Mercedes-Benz",
+          "models": [],
+          "level": "brand",
+          "confidence": "low",
+          "evidence": "3 of 10 Google reviews read mention Mercedes-Benz (60% of reviews that name any make)",
+          "mentions": 3,
+          "basis": "reviews"
+        }
+      ],
       "self_claims": [],
       "is_specialist": false,
       "external_ratings": [
@@ -36745,8 +38621,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.5 from 93 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.5 from 93 reviews. In the 10 most relevant reviews we read, customers mostly bring Mercedes-Benz and Ferrari; praise centres on speed, knowledgeable staff, honesty.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=PP-PERFORMANCE%20DUBAI&query_place_id=ChIJHW1RDsRrXz4R0dX1cHb37Vs",
         "https://www.pp-performance.de/"
@@ -36757,7 +38633,55 @@
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
       "whatsapp_basis": "phone from garage's listing (UAE mobile)",
-      "website_note": "Website (pp-performance.de) describes engine/turbo tuning across many premium makes; Middle East HQ."
+      "website_note": "Website (pp-performance.de) describes engine/turbo tuning across many premium makes; Middle East HQ.",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-19",
+        "counts": {
+          "MINI": {
+            "Cooper": 1
+          },
+          "Porsche": {
+            "911": 1
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 1,
+        "as_of": "2026-11-19",
+        "praise_counts": {
+          "honest": 1,
+          "knows_its_stuff": 2,
+          "fast": 3,
+          "fair_price": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-19",
+        "counts": {
+          "warning_light": 1,
+          "service": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 2,
+        "fair": 1,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-19",
+        "jobs": []
+      },
+      "checked_at": "2026-11-19",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "modern-century-auto-garage-dc54",
@@ -37696,8 +39620,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.5 from 81 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.5 from 81 reviews. In the 10 most relevant reviews we read, customers bring a mix of makes; praise centres on fair prices.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=KHF%20Automotive%20Trading%20LLC%20%26%20KHF%20Automotive%20Service%20LLC&query_place_id=ChIJC8otgYMSXz4REVXS2DhMTa0",
         "https://www.khfautomotive.com/"
@@ -37707,7 +39631,42 @@
       "evidence_summary": "Reviews not yet analysed.",
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
-      "website_note": "parts supplier (bus/truck), not a workshop | Website describes a bus/truck parts supplier."
+      "website_note": "parts supplier (bus/truck), not a workshop | Website describes a bus/truck parts supplier.",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 1,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "fair_price": 2
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 2,
+        "fair": 2,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "1-d12a",
@@ -37809,8 +39768,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.8 from 80 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.8 from 80 reviews. In the 5 most relevant reviews we read, customers bring a mix of makes; praise centres on speed, honesty, fair prices.",
+      "reviews_analysed": 5,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Big%20Ben%20Auto%20services%20%7C%20Car%20%26%20Truck%20workshop%20Garage&query_place_id=ChIJTWI_N7MRXz4RBufRKjK3N1U"
       ],
@@ -37819,7 +39778,44 @@
       "evidence_summary": "Reviews not yet analysed.",
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
-      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 5,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 5,
+        "low_rated_read": 0,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "fast": 1,
+          "honest": 1,
+          "fair_price": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 5,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "price_signal": {
+        "reviews_read": 5,
+        "price_mentions": 3,
+        "fair": 1,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "garage-4b0f",
@@ -38011,8 +40007,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 3.7 from 78 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 3.7 from 78 reviews. In the 10 most relevant reviews we read, customers mostly bring Nissan; praise centres on knowledgeable staff, speed, honesty.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Najm%20al%20shabab%20garage%20llc%20best%20garage%20near%20to%20me&query_place_id=ChIJz1b2LZUSXz4RPErwus4p8Pc"
       ],
@@ -38021,7 +40017,54 @@
       "evidence_summary": "Reviews not yet analysed.",
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
-      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "Nissan": {
+            "Pathfinder": 1
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 5,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "fast": 1,
+          "honest": 1,
+          "explains": 1,
+          "knows_its_stuff": 2
+        },
+        "complaint_counts": {
+          "poor_communication": 1
+        },
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "gearbox": 1,
+          "bodywork": 3
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 4,
+        "fair": 0,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "zeus-offroad-90f3",
@@ -39773,8 +41816,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 3.5 from 62 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 3.5 from 62 reviews. In the 10 most relevant reviews we read, customers bring a mix of makes; praise centres on fair prices, knowledgeable staff.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Rashed%20Al%20Shamsi%20Auto%20Repairing%20Garage&query_place_id=ChIJX6vzyq4TXz4RUAVr9XCKgWU"
       ],
@@ -39783,7 +41826,48 @@
       "evidence_summary": "Reviews not yet analysed.",
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
-      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 5,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "fair_price": 1,
+          "knows_its_stuff": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "battery": 1,
+          "ac": 1,
+          "overheating": 1,
+          "oil_leak": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 3,
+        "fair": 1,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "german-auto-expert-ad5b",
@@ -40406,8 +42490,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.8 from 57 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.8 from 57 reviews. In the 10 most relevant reviews we read, customers bring a mix of makes; praise centres on knowledgeable staff, fair prices, honesty.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=CODE%20NEXUS%20GARAGE%20L%20L%20C&query_place_id=ChIJ__6AaYUTXz4RYhPemjXdwG8",
         "http://codenexusgarage.ae/"
@@ -40418,7 +42502,47 @@
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
       "whatsapp_basis": "phone from garage's listing (UAE mobile)",
-      "website_note": "WhatsApp on own website: +971556453130 (2026-11-13)"
+      "website_note": "WhatsApp on own website: +971556453130 (2026-11-13)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 0,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "knows_its_stuff": 5,
+          "honest": 1,
+          "fair_price": 2,
+          "explains": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "brakes": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 1,
+        "fair": 2,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "svo-car-services-8069",
@@ -42326,8 +44450,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.5 from 47 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.5 from 47 reviews. In the 10 most relevant reviews we read, customers mostly bring Lexus and Suzuki; praise centres on fair prices, speed, knowledgeable staff.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Al%20Towar%20Star%20Garage&query_place_id=ChIJK0uJOK8SXz4RQLKtPYSMk04"
       ],
@@ -42336,7 +44460,53 @@
       "evidence_summary": "Reviews not yet analysed.",
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
-      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "Suzuki": {
+            "Jimny": 1
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 1,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "knows_its_stuff": 1,
+          "honest": 1,
+          "fair_price": 5,
+          "explains": 1,
+          "fast": 4
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "service": 1,
+          "ac": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 5,
+        "fair": 5,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "dr-performance-dubai-f3a8",
@@ -42885,8 +45055,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.7 from 43 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.7 from 43 reviews. In the 10 most relevant reviews we read, customers bring a mix of makes; praise centres on speed, fair prices, knowledgeable staff.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=AL%20MARSA%20GARAGE&query_place_id=ChIJqyhGpYgTXz4Ro00tGat3rlo"
       ],
@@ -42895,7 +45065,46 @@
       "evidence_summary": "Reviews not yet analysed.",
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
-      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 1,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "fast": 3,
+          "fair_price": 3,
+          "knows_its_stuff": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "bodywork": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 2,
+        "fair": 3,
+        "expensive": 1,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "salt-garage-fd38",
@@ -43795,8 +46004,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 5 from 37 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 5 from 37 reviews. In the 10 most relevant reviews we read, customers mostly bring Hyundai; praise centres on fair prices, knowledgeable staff.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Jahan%20Auto%20Rapair%20L.L.C&query_place_id=ChIJTxPlQAATXz4R1o16H9L-t4M"
       ],
@@ -43804,7 +46013,46 @@
       "price_examples": [],
       "evidence_summary": "Reviews not yet analysed.",
       "works_on_all_makes": null,
-      "works_on_all_makes_basis": "unknown: reviews not read yet"
+      "works_on_all_makes_basis": "unknown: reviews not read yet",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 0,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "fair_price": 3,
+          "knows_its_stuff": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "bodywork": 4,
+          "suspension": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 2,
+        "fair": 3,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "luxury-auto-care-dubai-d89d",
@@ -44540,8 +46788,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4 from 33 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4 from 33 reviews. In the 10 most relevant reviews we read, customers bring a mix of makes; praise centres on knowledgeable staff, speed, honesty.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=JPJ%20AUTO%20REPAIRING%20GARAGE%20LLC&query_place_id=ChIJY7Bf7wwTXz4R3PifZH9B_yM"
       ],
@@ -44550,7 +46798,49 @@
       "evidence_summary": "Reviews not yet analysed.",
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
-      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 2,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "knows_its_stuff": 1,
+          "fast": 1,
+          "honest": 1,
+          "communicates": 1,
+          "explains": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "ac": 1,
+          "service": 2
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 3,
+        "fair": 0,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "naseem-al-nahar-auto-mechelect-work-shop-ec9e",
@@ -46570,8 +48860,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.6 from 18 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.6 from 18 reviews. In the 10 most relevant reviews we read, customers bring a mix of makes; praise centres on knowledgeable staff, speed.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Shayan%20Auto%20Garage&query_place_id=ChIJ00MjLuANXz4RGtTgOZQWFdU",
         "http://www.roadstartransport.ae/"
@@ -46582,7 +48872,43 @@
       "works_on_all_makes": null,
       "works_on_all_makes_basis": "unknown: reviews not read yet",
       "website_note": "cargo transport company, not a workshop",
-      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 1,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "knows_its_stuff": 1,
+          "fast": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 0,
+        "fair": 0,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "otozaar-4451",
@@ -47959,8 +50285,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "Google rating 4.6 from 10 reviews. Reviews not yet analysed.",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.6 from 10 reviews. In the 10 most relevant reviews we read, customers bring a mix of makes; praise centres on fair prices.",
+      "reviews_analysed": 10,
       "sources": [
         "https://www.google.com/maps/search/?api=1&query=Super%20Ajmal%20Auto%20Repairing%20Garage&query_place_id=ChIJAyBAZewTXz4R149LN_d7Tl4"
       ],
@@ -47968,7 +50294,42 @@
       "price_examples": [],
       "evidence_summary": "Reviews not yet analysed.",
       "works_on_all_makes": null,
-      "works_on_all_makes_basis": "unknown: reviews not read yet"
+      "works_on_all_makes_basis": "unknown: reviews not read yet",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 1,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "fair_price": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 1,
+        "fair": 1,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "checked_at": "2026-11-17",
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
     },
     {
       "id": "dynostar-workshop-web",
@@ -56959,7 +59320,10 @@
         "as_of": "2026-11-17",
         "jobs": []
       },
-      "reviews_source": "SerpApi google_maps_reviews (first page)"
+      "reviews_source": "SerpApi google_maps_reviews (first page)",
+      "bosch_partner": true,
+      "bosch_partner_basis": "https://stations.ae/station/matrix-auto-repairing-llc-bosch-car-service/",
+      "bosch_partner_note": "Business listing is branded Bosch Car Service (as of 2026-11-17)"
     },
     {
       "id": "almashreq-garage-l-l-c-c97a",
@@ -58338,7 +60702,10 @@
       "evidence_summary": "",
       "worth_the_drive": false,
       "added_by": "data (places_match)",
-      "checked_at": "2026-11-13"
+      "checked_at": "2026-11-13",
+      "bosch_partner": true,
+      "bosch_partner_basis": "https://bestthings.ae/dubai/bosch-car-service-golden-workshop-car-repairing/118071",
+      "bosch_partner_note": "Business listing is branded Bosch Car Service (as of 2026-11-17)"
     },
     {
       "id": "axis-auto-garage-aea1",
@@ -60580,8 +62947,8 @@
         }
       ],
       "external_reviews": [],
-      "review_summary": "",
-      "reviews_analysed": 0,
+      "review_summary": "Google rating 4.8 from 31 reviews. In the 10 most relevant reviews we read, customers bring a mix of makes; praise centres on speed, knowledgeable staff, honesty.",
+      "reviews_analysed": 10,
       "sources": [
         {
           "type": "google_places",
@@ -60603,8 +62970,53 @@
       "evidence_summary": "",
       "worth_the_drive": false,
       "added_by": "data (places_match)",
-      "checked_at": "2026-11-16",
-      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
+      "checked_at": "2026-11-17",
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 1,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "knows_its_stuff": 3,
+          "honest": 1,
+          "fast": 4
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "bodywork": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 1,
+        "fair": 0,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "reviews_source": "SerpApi google_maps_reviews (first page)",
+      "make_review_search": {
+        "make": "Alfa Romeo",
+        "matching_positive_reviews": 0,
+        "method": "Google review search for 'Alfa Romeo' (first page)",
+        "as_of": "2026-11-17",
+        "note": "Separate from reviews_analysed: a keyword search, so not a share of all reviews."
+      }
     },
     {
       "id": "falcons-garage-9356",
@@ -60714,6 +63126,868 @@
       "worth_the_drive": false,
       "added_by": "data (places_match)",
       "checked_at": "2026-11-16"
+    },
+    {
+      "id": "al-gouth-auto-repairing-garage-ebee",
+      "name": "Al Gouth Auto Repairing Garage",
+      "listing_name": "Al Gouth Auto Repairing Garage",
+      "emirate": "Dubai",
+      "area": "behind Hyundai & Kia Service Centre",
+      "address": "55 1B Street - behind Hyundai & Kia Service Centre - Ras Al Khor Ind. Second - Dubai",
+      "lat": 25.1835906,
+      "lng": 55.366011799999995,
+      "phone": "050 501 1129",
+      "whatsapp": "+971505011129",
+      "website": "",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Al%20Gouth%20Auto%20Repairing%20Garage&query_place_id=ChIJm8d-JClnXz4RsAFzJyhZXww",
+      "google_place_id": "ChIJm8d-JClnXz4RsAFzJyhZXww",
+      "categories": [
+        "car_repair",
+        "establishment",
+        "point_of_interest",
+        "service"
+      ],
+      "business_type": "workshop",
+      "dealer_for": [],
+      "hours": "",
+      "services": [],
+      "specialties": [],
+      "is_specialist": false,
+      "external_ratings": [
+        {
+          "source": "Google",
+          "rating": 3.9,
+          "count": 116,
+          "url": "https://www.google.com/maps/search/?api=1&query=Al%20Gouth%20Auto%20Repairing%20Garage&query_place_id=ChIJm8d-JClnXz4RsAFzJyhZXww",
+          "as_of": "2026-11-17"
+        }
+      ],
+      "external_reviews": [],
+      "review_summary": "Google rating 3.9 from 116 reviews. In the 10 most relevant reviews we read, customers mostly bring Ferrari; praise centres on speed, honesty, communication.",
+      "reviews_analysed": 10,
+      "sources": [
+        {
+          "type": "google_places",
+          "as_of": "2026-11-17",
+          "found_via": "queue"
+        }
+      ],
+      "self_claims": [
+        {
+          "makes": [
+            "Bosch"
+          ],
+          "basis": "web listing (census), unverified",
+          "as_of": "2026-11-17"
+        }
+      ],
+      "possible_matches": [],
+      "price_examples": [],
+      "evidence_summary": "",
+      "worth_the_drive": false,
+      "added_by": "data (places_match)",
+      "checked_at": "2026-11-17",
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 2,
+        "as_of": "2026-11-17",
+        "praise_counts": {
+          "honest": 2,
+          "fast": 3,
+          "communicates": 2
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-17",
+        "counts": {
+          "steering": 1,
+          "bodywork": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 1,
+        "fair": 0,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-17",
+        "jobs": []
+      },
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
+    },
+    {
+      "id": "nine-eleven-rsr-llc-9085",
+      "name": "Nine Eleven RSR LLC",
+      "listing_name": "Nine Eleven RSR LLC",
+      "emirate": "Dubai",
+      "area": "Dubai",
+      "address": "Dubai Investment Park First - 1 (DIP 1 - Dubai",
+      "lat": 24.984419799999998,
+      "lng": 55.1495082,
+      "phone": "04 262 6567",
+      "whatsapp": "",
+      "website": "",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Nine%20Eleven%20RSR%20LLC&query_place_id=ChIJS2xjdABpXz4RByfAup6lcxY",
+      "google_place_id": "ChIJS2xjdABpXz4RByfAup6lcxY",
+      "categories": [
+        "car_repair",
+        "establishment",
+        "point_of_interest",
+        "service"
+      ],
+      "business_type": "workshop",
+      "dealer_for": [],
+      "hours": "",
+      "services": [],
+      "specialties": [
+        {
+          "make": "Porsche",
+          "models": [],
+          "level": "brand",
+          "confidence": "medium",
+          "evidence": "4 of 10 Google reviews read mention Porsche (100% of reviews that name any make)",
+          "mentions": 4,
+          "basis": "reviews"
+        }
+      ],
+      "is_specialist": true,
+      "external_ratings": [
+        {
+          "source": "Google",
+          "rating": 5,
+          "count": 40,
+          "url": "https://www.google.com/maps/search/?api=1&query=Nine%20Eleven%20RSR%20LLC&query_place_id=ChIJS2xjdABpXz4RByfAup6lcxY",
+          "as_of": "2026-11-18"
+        }
+      ],
+      "external_reviews": [],
+      "review_summary": "Google rating 5 from 40 reviews. In the 10 most relevant reviews we read, customers mostly bring Porsche; praise centres on knowledgeable staff, speed, honesty.",
+      "reviews_analysed": 10,
+      "sources": [
+        {
+          "type": "google_places",
+          "as_of": "2026-11-18",
+          "found_via": "queue"
+        }
+      ],
+      "self_claims": [
+        {
+          "makes": [
+            "Porsche"
+          ],
+          "basis": "web listing (census), unverified",
+          "as_of": "2026-11-18"
+        }
+      ],
+      "possible_matches": [],
+      "price_examples": [],
+      "evidence_summary": "4 of 10 Google reviews we read mention Porsche work.",
+      "worth_the_drive": false,
+      "added_by": "data (places_match)",
+      "checked_at": "2026-11-18",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-18",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 0,
+        "as_of": "2026-11-18",
+        "praise_counts": {
+          "knows_its_stuff": 5,
+          "fast": 1,
+          "honest": 1,
+          "communicates": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-18",
+        "counts": {}
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 0,
+        "fair": 0,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-18",
+        "jobs": []
+      },
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
+    },
+    {
+      "id": "rs-automotive-2bad",
+      "name": "RS Automotive",
+      "listing_name": "RS Automotive",
+      "emirate": "Dubai",
+      "area": "Ras Al Khor Ind. Second",
+      "address": "25B Street - Ras Al Khor Ind. Second - Ras Al Khor Industrial Area 2 - Dubai",
+      "lat": 25.173139499999998,
+      "lng": 55.354314599999995,
+      "phone": "054 225 4000",
+      "whatsapp": "+971542254000",
+      "website": "",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=RS%20Automotive&query_place_id=ChIJJUAHi1dnXz4RSlGwwR2lPxY",
+      "google_place_id": "ChIJJUAHi1dnXz4RSlGwwR2lPxY",
+      "categories": [
+        "car_repair",
+        "establishment",
+        "point_of_interest",
+        "service"
+      ],
+      "business_type": "workshop",
+      "dealer_for": [],
+      "hours": "",
+      "services": [],
+      "specialties": [
+        {
+          "make": "Mercedes-Benz",
+          "models": [],
+          "level": "brand",
+          "confidence": "low",
+          "evidence": "3 of 10 Google reviews read mention Mercedes-Benz (38% of reviews that name any make)",
+          "mentions": 3,
+          "basis": "reviews"
+        }
+      ],
+      "is_specialist": false,
+      "external_ratings": [
+        {
+          "source": "Google",
+          "rating": 4.9,
+          "count": 94,
+          "url": "https://www.google.com/maps/search/?api=1&query=RS%20Automotive&query_place_id=ChIJJUAHi1dnXz4RSlGwwR2lPxY",
+          "as_of": "2026-11-18"
+        }
+      ],
+      "external_reviews": [],
+      "review_summary": "Google rating 4.9 from 94 reviews. In the 10 most relevant reviews we read, customers mostly bring Mercedes-Benz and Mitsubishi; praise centres on honesty, knowledgeable staff, fair prices.",
+      "reviews_analysed": 10,
+      "sources": [
+        {
+          "type": "google_places",
+          "as_of": "2026-11-18",
+          "found_via": "queue"
+        }
+      ],
+      "self_claims": [
+        {
+          "makes": [
+            "Toyota"
+          ],
+          "basis": "web listing (census), unverified",
+          "as_of": "2026-11-18"
+        }
+      ],
+      "possible_matches": [],
+      "price_examples": [],
+      "evidence_summary": "",
+      "worth_the_drive": false,
+      "added_by": "data (places_match)",
+      "checked_at": "2026-11-18",
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-18",
+        "counts": {
+          "Ford": {
+            "Mustang": 1
+          },
+          "Dodge": {
+            "Charger": 1
+          },
+          "Mitsubishi": {
+            "Pajero": 2
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 0,
+        "as_of": "2026-11-18",
+        "praise_counts": {
+          "knows_its_stuff": 6,
+          "fair_price": 5,
+          "honest": 8,
+          "fast": 2,
+          "explains": 2
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-18",
+        "counts": {
+          "gearbox": 1,
+          "service": 2,
+          "brakes": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 2,
+        "fair": 5,
+        "expensive": 1,
+        "cheap": 0,
+        "as_of": "2026-11-18",
+        "jobs": []
+      },
+      "reviews_source": "SerpApi google_maps_reviews (first page)",
+      "make_review_search": {
+        "make": "Toyota",
+        "matching_positive_reviews": 0,
+        "method": "Google review search for 'Land Cruiser' (first page)",
+        "as_of": "2026-11-18",
+        "note": "Separate from reviews_analysed: a keyword search, so not a share of all reviews."
+      }
+    },
+    {
+      "id": "auto-hills-xb-auto-repairing-fecc",
+      "name": "AUTO HILLS XB AUTO REPAIRING",
+      "listing_name": "AUTO HILLS XB AUTO REPAIRING",
+      "emirate": "Dubai",
+      "area": "Nadd Al Hamar",
+      "address": "59PJ+GX3 - Nadd Al Hamar - Dubai",
+      "lat": 25.186267299999997,
+      "lng": 55.3824204,
+      "phone": "055 639 6101",
+      "whatsapp": "+971556396101",
+      "website": "",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=AUTO%20HILLS%20XB%20AUTO%20REPAIRING&query_place_id=ChIJJ9unWQBnXz4Rs00bLYJPvNw",
+      "google_place_id": "ChIJJ9unWQBnXz4Rs00bLYJPvNw",
+      "categories": [
+        "car_repair",
+        "establishment",
+        "point_of_interest",
+        "service"
+      ],
+      "business_type": "workshop",
+      "dealer_for": [],
+      "hours": "",
+      "services": [],
+      "specialties": [],
+      "is_specialist": false,
+      "external_ratings": [
+        {
+          "source": "Google",
+          "rating": 4,
+          "count": 101,
+          "url": "https://www.google.com/maps/search/?api=1&query=AUTO%20HILLS%20XB%20AUTO%20REPAIRING&query_place_id=ChIJJ9unWQBnXz4Rs00bLYJPvNw",
+          "as_of": "2026-11-18"
+        }
+      ],
+      "external_reviews": [],
+      "review_summary": "",
+      "reviews_analysed": 0,
+      "sources": [
+        {
+          "type": "google_places",
+          "as_of": "2026-11-18",
+          "found_via": "queue"
+        }
+      ],
+      "self_claims": [
+        {
+          "makes": [
+            "Nissan"
+          ],
+          "basis": "web listing (census), unverified",
+          "as_of": "2026-11-18"
+        }
+      ],
+      "possible_matches": [],
+      "price_examples": [],
+      "evidence_summary": "",
+      "worth_the_drive": false,
+      "added_by": "data (places_match)",
+      "checked_at": "2026-11-18",
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
+    },
+    {
+      "id": "german-auto-repair-dubai-brake-pads-replacement-ac-2ccc",
+      "name": "German Auto Repair Dubai | Brake Pads Replacement | AC Repair Service | Suspension Repair | Engine Oil Leak Repair",
+      "listing_name": "German Auto Repair Dubai | Brake Pads Replacement | AC Repair Service | Suspension Repair | Engine Oil Leak Repair",
+      "emirate": "Dubai",
+      "area": "Al Qouz Ind.third",
+      "address": "Al Qouz Ind.third - Al Quoz - Dubai",
+      "lat": 25.1152059,
+      "lng": 55.216813699999996,
+      "phone": "055 807 5306",
+      "whatsapp": "+971558075306",
+      "website": "",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=German%20Auto%20Repair%20Dubai%20%7C%20Brake%20Pads%20Replacement%20%7C%20AC%20Repair%20Service%20%7C%20Suspension%20Repair%20%7C%20Engine%20Oil%20Leak%20Repair&query_place_id=ChIJc-NQBstpXz4Rv0mN9tB2hYw",
+      "google_place_id": "ChIJc-NQBstpXz4Rv0mN9tB2hYw",
+      "categories": [
+        "car_repair",
+        "establishment",
+        "point_of_interest",
+        "service"
+      ],
+      "business_type": "workshop",
+      "dealer_for": [],
+      "hours": "",
+      "services": [],
+      "specialties": [],
+      "is_specialist": false,
+      "external_ratings": [
+        {
+          "source": "Google",
+          "rating": 5,
+          "count": 5,
+          "url": "https://www.google.com/maps/search/?api=1&query=German%20Auto%20Repair%20Dubai%20%7C%20Brake%20Pads%20Replacement%20%7C%20AC%20Repair%20Service%20%7C%20Suspension%20Repair%20%7C%20Engine%20Oil%20Leak%20Repair&query_place_id=ChIJc-NQBstpXz4Rv0mN9tB2hYw",
+          "as_of": "2026-11-18"
+        }
+      ],
+      "external_reviews": [],
+      "review_summary": "",
+      "reviews_analysed": 0,
+      "sources": [
+        {
+          "type": "google_places",
+          "as_of": "2026-11-18",
+          "found_via": "queue"
+        }
+      ],
+      "self_claims": [
+        {
+          "makes": [
+            "Audi"
+          ],
+          "basis": "web listing (census), unverified",
+          "as_of": "2026-11-18"
+        }
+      ],
+      "possible_matches": [],
+      "price_examples": [],
+      "evidence_summary": "",
+      "worth_the_drive": false,
+      "added_by": "data (places_match)",
+      "checked_at": "2026-11-18",
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
+    },
+    {
+      "id": "bosch-car-service-top-technology-cars-llc-8183",
+      "name": "Bosch Car Service - Top Technology Cars LLC",
+      "listing_name": "Bosch Car Service - Top Technology Cars LLC",
+      "emirate": "Dubai",
+      "area": "Al Qusais Ind. Fourth",
+      "address": "Al Qusais Ind. Fourth - Dubai",
+      "lat": 25.292171699999997,
+      "lng": 55.4013214,
+      "phone": "04 267 8400",
+      "whatsapp": "",
+      "website": "",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Bosch%20Car%20Service%20-%20Top%20Technology%20Cars%20LLC&query_place_id=ChIJ3bsbih9cXz4RXBpw4XyrmGc",
+      "google_place_id": "ChIJ3bsbih9cXz4RXBpw4XyrmGc",
+      "categories": [
+        "car_repair",
+        "establishment",
+        "point_of_interest",
+        "service"
+      ],
+      "business_type": "workshop",
+      "dealer_for": [],
+      "hours": "",
+      "services": [],
+      "specialties": [],
+      "is_specialist": false,
+      "external_ratings": [
+        {
+          "source": "Google",
+          "rating": 3.8,
+          "count": 46,
+          "url": "https://www.google.com/maps/search/?api=1&query=Bosch%20Car%20Service%20-%20Top%20Technology%20Cars%20LLC&query_place_id=ChIJ3bsbih9cXz4RXBpw4XyrmGc",
+          "as_of": "2026-11-18"
+        }
+      ],
+      "external_reviews": [],
+      "review_summary": "Google rating 3.8 from 46 reviews. In the 10 most relevant reviews we read, customers mostly bring BMW; praise centres on honesty, speed, knowledgeable staff.",
+      "reviews_analysed": 10,
+      "sources": [
+        {
+          "type": "google_places",
+          "as_of": "2026-11-18",
+          "found_via": "queue"
+        }
+      ],
+      "self_claims": [
+        {
+          "makes": [
+            "Bosch"
+          ],
+          "basis": "web listing (census), unverified",
+          "as_of": "2026-11-18"
+        }
+      ],
+      "possible_matches": [],
+      "price_examples": [],
+      "evidence_summary": "",
+      "worth_the_drive": false,
+      "added_by": "data (places_match)",
+      "checked_at": "2026-11-18",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-18",
+        "counts": {}
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 0,
+        "as_of": "2026-11-18",
+        "praise_counts": {
+          "fast": 1,
+          "knows_its_stuff": 1,
+          "honest": 2,
+          "fair_price": 1,
+          "explains": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-18",
+        "counts": {
+          "battery": 1,
+          "bodywork": 1
+        }
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 5,
+        "fair": 1,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-18",
+        "jobs": []
+      },
+      "reviews_source": "SerpApi google_maps_reviews (first page)"
+    },
+    {
+      "id": "bright-spark-auto-repairing-al-quoz-35d8",
+      "name": "Bright Spark Auto Repairing Al Quoz",
+      "listing_name": "Bright Spark Auto Repairing Al Quoz",
+      "emirate": "Dubai",
+      "area": "& near Al-Khail Gate 365 community",
+      "address": "& near Al-Khail Gate 365 community - Corner 7A 4A Street - behind Oasis Village - Al Qouz Ind.second - Al Quoz - Dubai",
+      "lat": 25.1409884,
+      "lng": 55.2450082,
+      "phone": "04 318 7806",
+      "whatsapp": "",
+      "website": "",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Bright%20Spark%20Auto%20Repairing%20Al%20Quoz&query_place_id=ChIJ-6BLjnNpXz4RinZnWC3t2vg",
+      "google_place_id": "ChIJ-6BLjnNpXz4RinZnWC3t2vg",
+      "categories": [
+        "car_repair",
+        "establishment",
+        "point_of_interest",
+        "service"
+      ],
+      "business_type": "workshop",
+      "dealer_for": [],
+      "hours": "",
+      "services": [],
+      "specialties": [],
+      "is_specialist": false,
+      "external_ratings": [
+        {
+          "source": "Google",
+          "rating": 4.5,
+          "count": 456,
+          "url": "https://www.google.com/maps/search/?api=1&query=Bright%20Spark%20Auto%20Repairing%20Al%20Quoz&query_place_id=ChIJ-6BLjnNpXz4RinZnWC3t2vg",
+          "as_of": "2026-11-18"
+        }
+      ],
+      "external_reviews": [],
+      "review_summary": "",
+      "reviews_analysed": 0,
+      "sources": [
+        {
+          "type": "google_places",
+          "as_of": "2026-11-18",
+          "found_via": "queue"
+        }
+      ],
+      "self_claims": [
+        {
+          "makes": [
+            "Bosch"
+          ],
+          "basis": "web listing (census), unverified",
+          "as_of": "2026-11-18"
+        }
+      ],
+      "possible_matches": [],
+      "price_examples": [],
+      "evidence_summary": "",
+      "worth_the_drive": false,
+      "added_by": "data (places_match)",
+      "checked_at": "2026-11-18"
+    },
+    {
+      "id": "al-kaser-autos-garage-car-workshop-9d86",
+      "name": "Al Kaser Autos Garage Car Workshop",
+      "listing_name": "Al Kaser Autos Garage Car Workshop",
+      "emirate": "Dubai",
+      "area": "Umm Ramool",
+      "address": "69G9+XX3 - 24B Street - Umm Ramool - Dubai",
+      "lat": 25.2273672,
+      "lng": 55.369960299999995,
+      "phone": "050 282 2240",
+      "whatsapp": "+971502822240",
+      "website": "",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Al%20Kaser%20Autos%20Garage%20Car%20Workshop&query_place_id=ChIJ5aI4HwBdXz4RjE5LUqBYrSQ",
+      "google_place_id": "ChIJ5aI4HwBdXz4RjE5LUqBYrSQ",
+      "categories": [
+        "auto_parts_store",
+        "car_repair",
+        "establishment",
+        "point_of_interest",
+        "service",
+        "store"
+      ],
+      "business_type": "workshop",
+      "dealer_for": [],
+      "hours": "",
+      "services": [],
+      "specialties": [],
+      "is_specialist": false,
+      "external_ratings": [
+        {
+          "source": "Google",
+          "rating": 4.4,
+          "count": 19,
+          "url": "https://www.google.com/maps/search/?api=1&query=Al%20Kaser%20Autos%20Garage%20Car%20Workshop&query_place_id=ChIJ5aI4HwBdXz4RjE5LUqBYrSQ",
+          "as_of": "2026-11-18"
+        }
+      ],
+      "external_reviews": [],
+      "review_summary": "",
+      "reviews_analysed": 0,
+      "sources": [
+        {
+          "type": "google_places",
+          "as_of": "2026-11-18",
+          "found_via": "queue"
+        }
+      ],
+      "self_claims": [
+        {
+          "makes": [
+            "Porsche"
+          ],
+          "basis": "web listing (census), unverified",
+          "as_of": "2026-11-18"
+        }
+      ],
+      "possible_matches": [],
+      "price_examples": [],
+      "evidence_summary": "",
+      "worth_the_drive": false,
+      "added_by": "data (places_match)",
+      "checked_at": "2026-11-18",
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
+    },
+    {
+      "id": "underground-performance-6b5b",
+      "name": "Underground performance",
+      "listing_name": "Underground performance",
+      "emirate": "Dubai",
+      "area": "Ras Al Khor Ind. First",
+      "address": "Ras Al Khor Ind. First - Ras Al Khor Industrial Area 1 - Dubai",
+      "lat": 25.1742356,
+      "lng": 55.338809499999996,
+      "phone": "056 144 4215",
+      "whatsapp": "+971561444215",
+      "website": "",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Underground%20performance&query_place_id=ChIJxxDoArVnXz4Rr-MJWi0bD4I",
+      "google_place_id": "ChIJxxDoArVnXz4Rr-MJWi0bD4I",
+      "categories": [
+        "car_repair",
+        "establishment",
+        "point_of_interest",
+        "service"
+      ],
+      "business_type": "workshop",
+      "dealer_for": [],
+      "hours": "",
+      "services": [],
+      "specialties": [],
+      "is_specialist": false,
+      "external_ratings": [
+        {
+          "source": "Google",
+          "rating": 4.6,
+          "count": 50,
+          "url": "https://www.google.com/maps/search/?api=1&query=Underground%20performance&query_place_id=ChIJxxDoArVnXz4Rr-MJWi0bD4I",
+          "as_of": "2026-11-18"
+        }
+      ],
+      "external_reviews": [],
+      "review_summary": "Google rating 4.6 from 50 reviews. In the 10 most relevant reviews we read, customers mostly bring Nissan; praise centres on honesty.",
+      "reviews_analysed": 10,
+      "sources": [
+        {
+          "type": "google_places",
+          "as_of": "2026-11-18",
+          "found_via": "queue"
+        }
+      ],
+      "self_claims": [
+        {
+          "makes": [
+            "Nissan"
+          ],
+          "basis": "web listing (census), unverified",
+          "as_of": "2026-11-18"
+        }
+      ],
+      "possible_matches": [],
+      "price_examples": [],
+      "evidence_summary": "",
+      "worth_the_drive": false,
+      "added_by": "data (places_match)",
+      "checked_at": "2026-11-18",
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)",
+      "model_mentions": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-18",
+        "counts": {
+          "Nissan": {
+            "Patrol": 1
+          }
+        }
+      },
+      "review_themes": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "low_rated_read": 1,
+        "as_of": "2026-11-18",
+        "praise_counts": {
+          "honest": 1
+        },
+        "complaint_counts": {},
+        "complaint_counts_public": false,
+        "note": "Counts of reviews mentioning each theme (praise from 4-5 star, complaints from 1-2 star). complaint_counts are internal only: never shown on the site."
+      },
+      "problem_counts": {
+        "source": "Google reviews read",
+        "reviews_read": 10,
+        "as_of": "2026-11-18",
+        "counts": {}
+      },
+      "price_signal": {
+        "reviews_read": 10,
+        "price_mentions": 0,
+        "fair": 0,
+        "expensive": 0,
+        "cheap": 0,
+        "as_of": "2026-11-18",
+        "jobs": []
+      },
+      "reviews_source": "SerpApi google_maps_reviews (first page)",
+      "make_review_search": {
+        "make": "Nissan",
+        "matching_positive_reviews": 1,
+        "method": "Google review search for 'Patrol' (first page)",
+        "as_of": "2026-11-18",
+        "note": "Separate from reviews_analysed: a keyword search, so not a share of all reviews."
+      }
+    },
+    {
+      "id": "stormer-auto-general-repairing-car-repair-327c",
+      "name": "Stormer Auto General repairing - Car Repair",
+      "listing_name": "Stormer Auto General repairing - Car Repair",
+      "emirate": "Dubai",
+      "area": "khairan street",
+      "address": "khairan street - Nadd Al Hamar - Dubai Festival City - Dubai",
+      "lat": 25.2038241,
+      "lng": 55.3749028,
+      "phone": "050 989 0013",
+      "whatsapp": "+971509890013",
+      "website": "",
+      "maps_url": "https://www.google.com/maps/search/?api=1&query=Stormer%20Auto%20General%20repairing%20-%20Car%20Repair&query_place_id=ChIJ0TptqSJnXz4RHaQCfSspU7o",
+      "google_place_id": "ChIJ0TptqSJnXz4RHaQCfSspU7o",
+      "categories": [
+        "association_or_organization",
+        "auto_parts_store",
+        "car_repair",
+        "establishment",
+        "manufacturer",
+        "point_of_interest"
+      ],
+      "business_type": "workshop",
+      "dealer_for": [],
+      "hours": "",
+      "services": [],
+      "specialties": [],
+      "is_specialist": false,
+      "external_ratings": [
+        {
+          "source": "Google",
+          "rating": 4.7,
+          "count": 112,
+          "url": "https://www.google.com/maps/search/?api=1&query=Stormer%20Auto%20General%20repairing%20-%20Car%20Repair&query_place_id=ChIJ0TptqSJnXz4RHaQCfSspU7o",
+          "as_of": "2026-11-19"
+        }
+      ],
+      "external_reviews": [],
+      "review_summary": "",
+      "reviews_analysed": 0,
+      "sources": [
+        {
+          "type": "google_places",
+          "as_of": "2026-11-19",
+          "found_via": "queue"
+        }
+      ],
+      "self_claims": [
+        {
+          "makes": [
+            "Land Rover"
+          ],
+          "basis": "web listing (census), unverified",
+          "as_of": "2026-11-19"
+        }
+      ],
+      "possible_matches": [],
+      "price_examples": [],
+      "evidence_summary": "",
+      "worth_the_drive": false,
+      "added_by": "data (places_match)",
+      "checked_at": "2026-11-19",
+      "whatsapp_basis": "phone from garage's listing (UAE mobile)"
     }
   ],
   "car_families": {
