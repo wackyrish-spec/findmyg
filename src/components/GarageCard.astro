@@ -1,5 +1,5 @@
 ---
-import { cardWhy, lowRated, specFor, structLine, cardLine, LEVELS, DATA_UPDATED, benchmarks, budgetTier, BENCH_SRC } from "../lib/data.js";
+import { cardWhy, lowRated, specFor, structLine, cardLine, sourceLine, LEVELS, DATA_UPDATED, benchmarks, budgetTier, BENCH_SRC } from "../lib/data.js";
 const fmt = (d) => (d ? new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "");
 import Icon from "./Icon.astro";
 const { g, make = null, model = null, plain = false, note = null } = Astro.props;
@@ -11,6 +11,7 @@ const tier = bench.length ? budgetTier(g, make) : "";
 // Dealer anchor in the "Main dealer for comparison" strip: same job (and model, when on a model page).
 const dmin = g.isDealer && make ? benchmarks(g, make, model).find((b) => b.slug === "minor-service") : null;
 const W = !g.isDealer ? cardWhy(g, make, model) : null;
+const SL = !g.isDealer ? sourceLine(g, spec || (g.specs.find((x) => x.conf >= 2) || null)) : null;
 const checked = fmt(g.google?.asOf || DATA_UPDATED);
 const brandLines = g.specs.slice(0, 3);
 // Compact spec payload for the browser to re-rank by the visitor's saved car.
@@ -46,9 +47,7 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
     {W?.why && <p class="why">{W.why}</p>}
     {/* One plain line on the card; the full evidence lives on the garage page. */}
     <div class="evid">
-      {W && (W.threads || W.m) ? <span class="esum">
-        {W.threads > 0 && <><b>{W.threads}</b> owner threads</>}{W.threads > 0 && W.m > 0 && ", and "}
-        {W.m > 0 && <><b>{W.m} of {W.n}</b> reviews we read mention {W.mk}{W.mostly && `, mostly the ${W.mostly}`}</>}.</span>
+      {W && W.m ? <span class="esum"><b>{W.m} of {W.n}</b> Google reviews we read mention {W.mk}{W.mostly && `, mostly the ${W.mostly}`}.</span>
         : W?.founder ? <span class="esum">From the founder's own experience with {W.mk}.</span>
         : make && (g.hasEvidence || g.ownerCount > 0) && cardLine(g, make, model) ? <span class="esum">{cardLine(g, make, model)}</span>
         : spec ? (structLine(g, spec) ? <span class="esum">{structLine(g, spec)}.</span> : <span class="muted">No owner evidence for {make} yet</span>)
@@ -61,6 +60,7 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
       {g.own ? <div class="stat"><b>{g.own.avg.toFixed(1)}</b><small>Owners · {g.own.n}</small></div> : null}
 
     </div>
+    {SL && <p class="gfact srcline"><a href={`/garage/${g.slug}/#community`}>Recommended in {SL.n} {SL.kind}</a>{SL.span && ` · ${SL.span}`}</p>}
     {g.google && <p class="gfact">{Number(g.google.rating).toFixed(1)} on <a href={g.google.url || maps} target="_blank" rel="noopener nofollow">Google</a>, {(g.google.count || 0).toLocaleString("en-US")} reviews{checked ? `, checked ${checked}` : ""}</p>}
     {bench.length > 0 ? <p class="benchline">{tier && <span class="tier" title="Compared with other independents for this make">{tier}</span>}Minor service from <b>AED {Number(bench[0].low).toLocaleString("en-US")}</b>{bench[0].car.replace(make || "", "").trim() ? ` (${bench[0].car.replace(make || "", "").trim()})` : ""} <span class="muted">· {BENCH_SRC[bench[0].src]}</span></p>
       : g.priceTalk?.label && !g.isDealer && (() => { const [a, b = "", c = ""] = g.priceTalk.label.split(/(\d+ of \d+)/); return <p class="ptalk v31p">{a}<b>{b}</b>{c}</p>; })()}

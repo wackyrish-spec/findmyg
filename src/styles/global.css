@@ -562,3 +562,11 @@ footer .flinks .linkbtn{color:inherit;font-size:inherit}
 .gcard.v31 .statrow:not(:has(.stat)){display:none}
 @media (max-width:1100px){.gcard.v31 .acts .btn.primary{flex:1 1 auto}}
 @media (max-width:1100px){.gcard.v31{row-gap:8px}}
+/* v3.2 (20 Nov): source line pairs with the Google line; card no taller than live at 360 */
+.gcard.v31 .srcline{margin:0}
+.gcard.v31 .srcline a{color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:2px}
+.gcard.v31 .srcline + .gfact{margin-top:2px}
+.gcard.v31 .main{gap:6px}
+.gcard.v31 .why{margin:0}
+.gcard.v31 .ptalk.v31p{font-size:13px;margin-top:4px}
+.gcard.v31 .why{line-height:1.2}

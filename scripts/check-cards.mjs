@@ -35,6 +35,7 @@ function check(file) {
     if (/^Founder's pick/.test(why) && !founder) err("founder headline without founder basis");
     if (shown === 3 && /(review it|have mentioned it)$/.test(why) && cnt < 10) err("Strong with a weak headline");
     if (/mostly the /.test(body) && model && cnt < 3) err("'mostly the' under 3");
+    if (/owner thread/i.test(body.replace(/data-specs="[^"]*"/, ""))) err("'owner thread' on a card (v3.2: plain source line instead)");
     if (make && model) {
       const g = byId[slug];
       const own = Math.min(Number(g?.model_mentions?.counts?.[make]?.[model]) || 0, Number(g?.reviews_analysed) || 0);
@@ -43,5 +44,7 @@ function check(file) {
   }
 }
 walk("dist/dubai");
+// v3.2: the words "owner thread(s)" are retired from list pages and the garage hero too.
+for (const d of ["dist/dubai", "dist/garage"]) (function w2(dir) { for (const f of readdirSync(dir)) { const p = join(dir, f); if (statSync(p).isDirectory()) w2(p); else if (f === "index.html") { const h = readFileSync(p, "utf8"); const hero = (h.match(/<p class="whyline">[\s\S]*?<\/p>/) || [""])[0]; const basis = (h.match(/<p class="basis">[\s\S]*?<\/p>/) || [""])[0]; if (/owner thread/i.test(hero + basis)) bad.push(`${p.replace("dist", "")}: 'owner thread' in the hero or list basis line`); } } })(d);
 if (bad.length) { console.error(`check-cards: ${bad.length} card(s) break the v3 B table:\n` + bad.slice(0, 40).join("\n")); process.exit(1); }
 console.log(`check-cards: ${cards} cards match the headline and badge table`);

@@ -484,7 +484,7 @@ export function communityLine(g, model = null) {
   const years = src.map((x) => Number(x.year)).filter((y) => y > 1990);
   const span = years.length ? (Math.min(...years) === Math.max(...years) ? ` · ${years[0]}` : ` · ${Math.min(...years)}–${Math.max(...years)}`) : "";
   const onModel = model ? src.filter((x) => (x.models || []).some((m) => String(m).toLowerCase() === model.toLowerCase())).length : 0;
-  return onModel >= 2 ? `Recommended in ${onModel} threads about the ${model}${span}` : `Recommended in ${pos} owner threads${span}`;
+  return onModel >= 2 ? `Recommended in ${onModel} threads about the ${model}${span}` : `Recommended in ${pos} discussions${span}`;
 }
 // Threads for the garage page, newest first; older than 5 years are flagged.
 export function communityThreads(g) {
@@ -681,4 +681,22 @@ export function cardWhy(g, make, model) {
   const top = Object.entries(mc).map(([k, v]) => [k, Number(v) || 0]).sort((a, b) => b[1] - a[1])[0];
   const mostly = md || (!onModelPage && m > 0 && top && top[1] >= 3 ? top[0] : "");
   return { why, threads: threads >= 2 ? threads : 0, m, n, mk, mostly, founder, badge, cnt };
+}
+
+// Card v3.2 (Daniel 20 Nov; Rishal: "owner thread" is too technical): one plain source line above the Google line.
+// N = threads_positive under the card thread rule (2+ positive, under a third negative, Good or better); names only
+// the sources this garage really has; no score and no positive/negative split.
+export function sourceLine(g, spec) {
+  const cm = g.community_mentions, pos = cm?.threads_positive || 0, neg = cm?.threads_negative || 0;
+  if (pos < 2 || neg * 3 >= pos || !spec || spec.conf < 2) return null;
+  const src = (cm.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "") && !/negative|mixed/i.test(x.sentiment || ""));
+  const kind = sourceKind(src);
+  const years = src.map((x) => Number(x.year)).filter((y) => y > 1990);
+  const span = years.length ? (Math.min(...years) === Math.max(...years) ? `${years[0]}` : `${Math.min(...years)}–${Math.max(...years)}`) : "";
+  return { n: pos, kind, span };
+}
+export function sourceKind(src) {
+  const isReddit = (x) => /reddit/i.test(x.type || "") || /reddit\.com/i.test(x.url || "") || /^r\//.test(x.site || "");
+  const r = src.some(isReddit), f = src.some((x) => !isReddit(x) && !/youtube/i.test(x.type || ""));
+  return r && f ? "Reddit and forum discussions" : f ? "forum discussions" : "Reddit discussions";
 }

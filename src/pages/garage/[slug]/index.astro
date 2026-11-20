@@ -4,7 +4,7 @@ import Icon from "../../../components/Icon.astro";
 import HelpFeedback from "../../../components/HelpFeedback.astro";
 import { existsSync } from "node:fs";
 import { SITE } from "../../../lib/site.js";
-import { foundingModel, communityThreads, groupReports, ALL_GARAGES, garageIndexable, slugify, DATA_UPDATED, benchmarks, BENCH_SRC, aedRange, structLine, stripAside } from "../../../lib/data.js";
+import { foundingModel, communityThreads, sourceKind, groupReports, ALL_GARAGES, garageIndexable, slugify, DATA_UPDATED, benchmarks, BENCH_SRC, aedRange, structLine, stripAside } from "../../../lib/data.js";
 export function getStaticPaths() {
   return ALL_GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
 }
@@ -53,6 +53,7 @@ const desc = desc0 || desc1;
 const rsum = g.reviews_analysed ? stripAside(g.review_summary || "").split(/(?<=\.)\s+/).filter((x) => x && !/not yet analysed|weak evidence|candidate/i.test(x)).join(" ") : "";
 // Why line under the H1 (Wed 18 spec 1.3): plain words, numbers with their denominator.
 const threadsN = g.isDealer ? 0 : communityThreads(g).length;
+const srcKind = sourceKind(communityThreads(g));
 const bandMakes = realSpecs.slice(0, 2).map((s) => s.make);
 const models = g.specs.flatMap((s) => s.models.map((m) => ({ make: s.make, model: m, conf: s.conf, confidence: s.confidence })));
 // AutoRepair schema. aggregateRating is added only from KnowsMyCar's own owner reviews (none yet).
@@ -114,7 +115,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
       </div>
       <h1 class={g.name.length > 40 ? "long" : undefined}>{g.name}</h1>
       {evidenced && !g.isDealer && (why1 || threadsN >= 2) && (
-        <p class="whyline">{threadsN >= 2 && <>Owners recommend it{realSpecs[0] ? <> for <b>{realSpecs[0].models[0] || realSpecs[0].make}</b></> : ""} in <b>{threadsN}</b> threads. </>}{why1 && (/^\d+ of \d+/.test(why1) ? <><b>{why1.match(/^\d+ of \d+/)[0]}</b>{why1.replace(/^\d+ of \d+/, "")}.</> : <>{why1}.</>)} <a href="#evidence">How we know</a><span class="setlink"> · <button class="linkbtn" type="button" data-setcar>Set your car to check the match</button></span></p>
+        <p class="whyline">{threadsN >= 2 && <>Owners recommend it{realSpecs[0] ? <> for <b>{realSpecs[0].models[0] || realSpecs[0].make}</b></> : ""} in <b>{threadsN}</b> {srcKind}. </>}{why1 && (/^\d+ of \d+/.test(why1) ? <><b>{why1.match(/^\d+ of \d+/)[0]}</b>{why1.replace(/^\d+ of \d+/, "")}.</> : <>{why1}.</>)} <a href="#evidence">How we know</a><span class="setlink"> · <button class="linkbtn" type="button" data-setcar>Set your car to check the match</button></span></p>
       )}
       {g.waNumber && !g.waConfirmed && <p class="wanote">WhatsApp number from the garage's own listing, not confirmed on WhatsApp.</p>}</div>
       <div class="gacts">
