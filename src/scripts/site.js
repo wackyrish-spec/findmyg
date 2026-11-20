@@ -310,7 +310,11 @@ function rerank(announce) {
   if (c) {
     scored.sort((a, b) => (!!a.el.dataset.low - !!b.el.dataset.low) || (b.m.l - a.m.l) || ((b.m.hit ? 1 : 0) - (a.m.hit ? 1 : 0)) || (a.i - b.i));
     scored.forEach(({ el, m }) => {
-      // Card v3 B: the badge is the server-side proof badge; re-ranking only re-orders.
+      // Card v3 B: the badge is the server-side proof badge; re-ranking only re-orders. The live card (no v31 class) keeps the car match badge.
+      if (!el.classList.contains("v31")) {
+        const slot = $(".matchslot", el); if (slot) slot.innerHTML = matchHTML(m);
+        const ev = $(".evid", el); if (ev && m.ev) ev.textContent = m.ev;
+      }
       el.classList.toggle("dim", m.l === 0);
       const d = $("details.enth", el); if (d && c.code) d.open = true;
     });

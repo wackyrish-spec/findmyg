@@ -4,6 +4,7 @@ import Icon from "../../../components/Icon.astro";
 import HelpFeedback from "../../../components/HelpFeedback.astro";
 import { existsSync } from "node:fs";
 import { SITE } from "../../../lib/site.js";
+import { isIndexableUrl } from "../../../lib/indexable.js";
 import { foundingModel, communityThreads, sourceKind, groupReports, ALL_GARAGES, garageIndexable, slugify, DATA_UPDATED, benchmarks, BENCH_SRC, aedRange, structLine, stripAside } from "../../../lib/data.js";
 export function getStaticPaths() {
   return ALL_GARAGES.map((g) => ({ params: { slug: g.slug }, props: { g } }));
@@ -35,20 +36,45 @@ let tName = tidy(g.name).replace(/,?\s*Dubai$/i, "");
 if (areaT && tName.toLowerCase().endsWith(areaT.toLowerCase()) && tName.length > areaT.length + 3) tName = tName.slice(0, -areaT.length).replace(/[\s,-]+$/, "");
 const realSpecs = g.specs.filter((s) => s.conf >= 2 && /reviews|community|founder/.test(s.basis || ""));
 const showsPrice = ((g.hasEvidence || g.ownerCount > 0 || g.isDealer) && (benchmarks(g).length > 0 || g.prices.length > 0)) || g.ownerReviews.some((r) => r.price_paid > 0);
+// Karim 20 Nov (seo/garage-upgrade-2026-11-24.md): titles and meta that answer "[garage] reviews" with what owners say.
+const SHORT = { "Mercedes-Benz": "Mercedes", Volkswagen: "VW" };
+const lead = !g.isDealer ? [...realSpecs].sort((a, b) => (b.mentions || 0) - (a.mentions || 0))[0] : null;
+const skipMake = lead && (lead.mentions || 0) < 5 && realSpecs.length >= 2 && !/community/.test(lead.basis || "");
+const MK = lead && !skipMake ? SHORT[lead.make] || lead.make : "";
+const tN = tName.replace(/\s+:\s+/g, ": ");
+const dub = outside ? "" : ", Dubai";
 const tOpts = [
-  showsPrice ? `${tName} reviews and prices, ${placeT}` : "",
-  realSpecs[0] && !g.isDealer ? `${tName} reviews: ${realSpecs[0].make} specialist, ${placeT}` : "",
+  MK && `${tN} reviews: what ${MK} owners say${dub}`,
+  MK && `${tN} reviews: what ${MK} owners say`,
+  MK && `${tN} reviews: ${MK} owners' verdict`,
+  `${tN} reviews: what owners say${dub}`,
+  `${tN} reviews: what owners say`,
+  `${tN} reviews`,
 ].filter((t) => t && t.length <= 60);
-const pageTitle = tOpts[0] || `${tName} reviews, ${placeT}`;
+const pageTitle = g.isDealer ? `${tN} reviews, ${placeT}` : tOpts[0] || `${tN} reviews`;
 const why1 = realSpecs[0] ? structLine(g, realSpecs[0]) : "";
+const leadLine = lead ? structLine(g, lead) : "";
+// Same count as the page's own discussions section (positive and neutral, never negative or mixed).
+const nDisc = g.isDealer ? 0 : communityThreads(g).length;
+const discTxt = nDisc ? `${nDisc} owner ${nDisc === 1 ? "discussion recommends" : "discussions recommend"} it` : "";
+const head1 = leadLine && !/^Recommended for/.test(leadLine) ? leadLine + (discTxt ? `; ${discTxt}` : "") : discTxt ? discTxt.charAt(0).toUpperCase() + discTxt.slice(1) : "";
+const praise = g.reviews_analysed ? ((g.review_summary || "").match(/praise centres on ([^.]+)\./i) || [])[1] || "" : "";
+const seen = [...new Set(realSpecs.flatMap((x) => x.models || []))].slice(0, 3);
+// Trim to 155 by dropping the last parts, the call line first (spec rule).
+const descParts = [head1 && head1 + ".", praise && `Owners praise ${praise}.`, seen.length && `Seen on ${seen.join(", ")}.`, "Call or WhatsApp in one tap."].filter(Boolean);
+while (descParts.join(" ").length > 155 && descParts.length > 1) descParts.pop();
+const desc0 = !g.isDealer && head1 ? descParts.join(" ") : "";
 const metaMakes = realSpecs.slice(0, 2).map((s) => s.make);
-const desc0 = metaMakes.length
-  ? `${tName} in ${placeT}: ${metaMakes.join(" and ")} specialist. ${why1 ? why1 + (g.ownerCount ? `; ${g.ownerCount} owner reviews` : "") + ". " : ""}${showsPrice ? "Prices shown. " : ""}Call or WhatsApp in one tap.`
-  : "";
 const desc1 = top
-  ? `${tName} in ${placeT}: ${brandsList} ${g.specs.length > 1 ? "specialist" : "specialist"}. See what owners say, the evidence and how to contact them.`
+  ? `${tName} in ${placeT}: ${brandsList} specialist. See what owners say, the evidence and how to contact them.`
   : `${tName}, an independent garage in ${placeT}. Reviews, contact details and directions.`;
 const desc = desc0 || desc1;
+// "More for your {Make}": brand, model, service-cost and issues pages, only when indexable (same list as the sitemap).
+const moreLinks = g.isDealer ? [] : realSpecs.flatMap((sp) => {
+  const b = `/dubai/${sp.makeSlug}/`;
+  const ms = (sp.models || []).map((m) => `${b}${slugify(m)}/`);
+  return [[b, sp.make], ...ms.flatMap((u, i) => [[u, sp.models[i]], [`${u}service-cost/`, `${sp.models[i]} service cost`], [`${u}issues/`, `${sp.models[i]} known issues`]]), [`${b}service-cost/`, `${sp.make} service cost`]];
+}).filter(([u], i, arr) => isIndexableUrl(u) && arr.findIndex((x) => x[0] === u) === i);
 // "What reviewers say" only when reviews were actually read; never the pipeline's "not yet analysed".
 const rsum = g.reviews_analysed ? stripAside(g.review_summary || "").split(/(?<=\.)\s+/).filter((x) => x && !/not yet analysed|weak evidence|candidate/i.test(x)).join(" ") : "";
 // Why line under the H1 (Wed 18 spec 1.3): plain words, numbers with their denominator.
@@ -131,6 +157,11 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
           <a class="pill" href={`/dubai/${s.makeSlug}/`}>{s.make}{s.mentions ? ` · ${s.mentions} ${/reviews/.test(s.basis) ? (s.mentions === 1 ? "review" : "reviews") : (s.mentions === 1 ? "owner post" : "owner posts")}` : ""}</a>
         ))}
       </div>
+    )}
+    {moreLinks.length > 0 && (
+      <nav class="morefor" aria-label="More for your car"><span class="label">More for your {realSpecs[0].make === (SHORT[realSpecs[0].make] || realSpecs[0].make) ? realSpecs[0].make : SHORT[realSpecs[0].make]}</span>
+        {moreLinks.map(([u, t]) => <a href={u}>{t}</a>)}
+      </nav>
     )}
 
     <div class="gbody">

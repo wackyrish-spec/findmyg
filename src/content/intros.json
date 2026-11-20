@@ -273,5 +273,21 @@
     "h1": "Car garages in Umm Ramool, Dubai",
     "text": "Umm Ramool, near the airport, has a small cluster of well-reviewed garages, including Mercedes, Land Rover and Jeep specialists.\n\nSet your car to see the garages that know it first, with their evidence and WhatsApp in one tap.",
     "approved_by": "PM 2026-11-12"
+  },
+  "dubai/nissan": {
+    "approved": true,
+    "approved_by": "PM 2026-11-20",
+    "title": "Nissan Patrol and GT-R specialists in Dubai",
+    "description": "Out of warranty? Independent Dubai garages owners trust for the Patrol Y62 and Y61 and the GT-R R35: gearbox, suspension, cooling and desert wear.",
+    "h1": "Nissan specialists in Dubai",
+    "text": "We cover the Nissans that Dubai owners keep long after the warranty: the Patrol (Y62 and Y61 Super Safari) and the GT-R R35. These are the independent garages Patrol and GT-R owners recommend, picked from the reviews we read and owner discussions on Reddit and forums.\n\nThe usual Patrol jobs are gearbox shifts and shudder on the Y62, suspension and steering wear after desert weekends, and overheating on Y61s used for dune runs. Our <a href=\"/dubai/nissan/patrol/issues/\">Patrol known issues</a> page explains how big each job is and what to ask the garage. GT-R owners mostly need a garage that knows the car's transmission and its servicing schedule, not just an oil change.\n\nWe don't quote prices here until a garage publishes them or owners report them. Pick your model and message the garage on WhatsApp with your car already filled in."
+  },
+  "dubai/toyota": {
+    "approved": true,
+    "approved_by": "PM 2026-11-20",
+    "title": "Toyota Land Cruiser and Prado specialists, Dubai",
+    "description": "Independent Dubai garages owners trust for the Land Cruiser (LC200, LC300, 70 Series), Prado and Supra: cooling, recalls, KDSS and desert wear.",
+    "h1": "Toyota specialists in Dubai",
+    "text": "We cover the Toyotas Dubai owners keep and use hard: the Land Cruiser (LC200, LC300 and the 70 Series), the Prado and the Supra. These are the independent garages owners of those models recommend, picked from the reviews we read and owner discussions on Reddit and forums. Driving a Lexus LX? See our <a href=\"/dubai/lexus/lx/\">Lexus LX</a> page.\n\nThe usual Land Cruiser jobs are the water pump and radiator on the LC200, seized KDSS bolts, suspension and steering wear after the desert, and checking the LC300 UAE recall by VIN. Our <a href=\"/dubai/toyota/land-cruiser/issues/\">Land Cruiser known issues</a> page explains each one and what to ask the garage.\n\nWe don't quote prices here until a garage publishes them or owners report them. Pick your model and message the garage on WhatsApp with your car already filled in."
   }
 }

@@ -570,3 +570,7 @@ footer .flinks .linkbtn{color:inherit;font-size:inherit}
 .gcard.v31 .why{margin:0}
 .gcard.v31 .ptalk.v31p{font-size:13px;margin-top:4px}
 .gcard.v31 .why{line-height:1.2}
+/* "More for your {Make}" links on garage pages (Karim 20 Nov) */
+.morefor{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;margin:8px 0 0;font-size:14px}
+.morefor .label{margin-inline-end:2px}
+.morefor a{font-weight:700;min-height:32px;display:inline-flex;align-items:center}
