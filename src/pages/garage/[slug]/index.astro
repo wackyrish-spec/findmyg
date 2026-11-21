@@ -41,28 +41,53 @@ const SHORT = { "Mercedes-Benz": "Mercedes", Volkswagen: "VW" };
 const lead = !g.isDealer ? [...realSpecs].sort((a, b) => (b.mentions || 0) - (a.mentions || 0))[0] : null;
 const skipMake = lead && (lead.mentions || 0) < 5 && realSpecs.length >= 2 && !/community/.test(lead.basis || "");
 const MK = lead && !skipMake ? SHORT[lead.make] || lead.make : "";
+// CTR pass 21 Nov: use the searchers' word for the make (Range Rover garages say Range Rover).
+const rrName = /range rover/i.test(tName) && lead?.make === "Land Rover";
+const nameHasMake = lead && (rrName || new RegExp(`\\b(${[lead.make, SHORT[lead.make]].filter(Boolean).join("|")})\\b`, "i").test(tName));
 const tN = tName.replace(/\s+:\s+/g, ": ");
 const dub = outside ? "" : ", Dubai";
 const tOpts = [
   MK && `${tN} reviews: what ${MK} owners say${dub}`,
   MK && `${tN} reviews: what ${MK} owners say`,
   MK && `${tN} reviews: ${MK} owners' verdict`,
+  // CTR pass 21 Nov: outside Dubai keeps its emirate; a name that already says the make gets the verdict form.
+  outside && `${tN} reviews, ${placeT}`,
+  lead && nameHasMake && `${tN} reviews: owners' verdict`,
   `${tN} reviews: what owners say${dub}`,
   `${tN} reviews: what owners say`,
   `${tN} reviews`,
 ].filter((t) => t && t.length <= 60);
 const pageTitle = g.isDealer ? `${tN} reviews, ${placeT}` : tOpts[0] || `${tN} reviews`;
 const why1 = realSpecs[0] ? structLine(g, realSpecs[0]) : "";
-const leadLine = lead ? structLine(g, lead) : "";
+const leadLine0 = lead ? structLine(g, lead) : "";
+const leadLine = rrName ? leadLine0.replace(/mention Land Rover\b/, "mention Range Rover or Land Rover") : leadLine0;
 // Same count as the page's own discussions section (positive and neutral, never negative or mixed).
 const nDisc = g.isDealer ? 0 : communityThreads(g).length;
 const discTxt = nDisc ? `${nDisc} owner ${nDisc === 1 ? "discussion recommends" : "discussions recommend"} it` : "";
-const head1 = leadLine && !/^Recommended for/.test(leadLine) ? leadLine + (discTxt ? `; ${discTxt}` : "") : discTxt ? discTxt.charAt(0).toUpperCase() + discTxt.slice(1) : "";
-const praise = g.reviews_analysed ? ((g.review_summary || "").match(/praise centres on ([^.]+)\./i) || [])[1] || "" : "";
-const seen = [...new Set(realSpecs.flatMap((x) => x.models || []))].slice(0, 3);
+// Daniel 21 Nov: a meta leads with discussions only at 2+ (the cards' bar), and the car it names comes from the discussions' own models.
+const discSrc = (g.community_mentions?.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "") && !/negative|mixed/i.test(x.sentiment || ""));
+const discModel = (() => { const c = {}; for (const x of discSrc) for (const m of x.models || []) { const k = `${SHORT[(x.makes || [])[0]] || (x.makes || [])[0] || ""} ${m}`.trim(); c[k] = (c[k] || 0) + 1; } return Object.entries(c).sort((a, b) => b[1] - a[1])[0]?.[0] || ""; })();
+const discFor = discModel ? ` for the ${discModel}${g.worthDrive ? ", so we mark it worth the drive from Dubai" : ""}` : "";
+const countLead = leadLine && !/^Recommended for/.test(leadLine);
+const discHead = nDisc >= 2 ? discTxt.charAt(0).toUpperCase() + discTxt.slice(1) : "";
+// Addendum 21 Nov (Yuki, Karim): the stronger count first when the make count is under 10.
+const head1 = countLead
+  ? (discHead && (lead.mentions || 0) < 10 ? `${discHead}; ${leadLine.charAt(0).toLowerCase() + leadLine.slice(1)}` : leadLine + (discTxt ? `; ${discTxt}` : ""))
+  : discHead ? discHead + discFor : "";
+// Praise as a sentence from a fixed map; anything not in the map is dropped (addendum 21 Nov).
+const PRAISE = { "knowledgeable staff": "knowledgeable staff", honest: "honesty", honesty: "honesty", "fast turnaround": "fast turnaround", speed: "fast turnaround", "fair prices": "fair prices", "explaining the work": "clear explanations", "clear explanations": "clear explanations", "good communication": "good communication" };
+const praise0 = g.reviews_analysed ? ((g.review_summary || "").match(/praise centres on ([^.]+)\./i) || [])[1] || "" : "";
+const praiseList = [...new Set(praise0.split(/,\s*|\s+and\s+/).map((p) => PRAISE[p.trim().toLowerCase()]).filter(Boolean))].slice(0, 3);
+const praise = praiseList.length > 1 ? `${praiseList.slice(0, -1).join(", ")} and ${praiseList.at(-1)}` : praiseList[0] || "";
+// None when the head already names the model (CTR pass 21 Nov).
+const seen = !countLead && discHead && discFor ? [] : [...new Set(realSpecs.flatMap((x) => x.models || []))].slice(0, 3);
 // Trim to 155 by dropping the last parts, the call line first (spec rule).
-const descParts = [head1 && head1 + ".", praise && `Owners praise ${praise}.`, seen.length && `Seen on ${seen.join(", ")}.`, "Call or WhatsApp in one tap."].filter(Boolean);
-while (descParts.join(" ").length > 155 && descParts.length > 1) descParts.pop();
+const descParts = [head1 && head1 + ".", praise && `Owners praise its ${praise}.`, seen.length && `Seen on ${seen.join(", ")}.`, "Call or WhatsApp in one tap."].filter(Boolean);
+while (descParts.join(" ").length > 155 && descParts.length > 1) {
+  // Praise last: keep two themes before dropping it (Karim's Waseem row).
+  if (descParts.at(-1).startsWith("Owners praise") && praiseList.length > 2) { praiseList.length = 2; descParts[descParts.length - 1] = `Owners praise its ${praiseList.join(" and ")}.`; }
+  else descParts.pop();
+}
 const desc0 = !g.isDealer && head1 ? descParts.join(" ") : "";
 const metaMakes = realSpecs.slice(0, 2).map((s) => s.make);
 const desc1 = top
