@@ -4,7 +4,7 @@ import GarageCard from "./GarageCard.astro";
 import HelpFeedback from "./HelpFeedback.astro";
 import Icon from "./Icon.astro";
 import { SITE } from "../lib/site.js";
-import { DATA_UPDATED, fmtDate } from "../lib/data.js";
+import { DATA_UPDATED, fmtDate, basisCounts } from "../lib/data.js";
 const {
   title, description, h1, lead, introText = null, garages, make = null, model = null,
   noindex, crumbs = [], related = [], pathKey, ogImage, makeFilter = [], dvi = [], dviNote = null, modelChips = [], problems = [], owners = null, faq = [], answer = null,
@@ -27,8 +27,7 @@ const itemList = {
   })),
 };
 // Wed 18 spec 2: basis line from our own counts; the answer's first sentence stays on top, the rest moves below the list.
-const R = garages.reduce((n, g) => n + (Number(g.reviews_analysed) || 0), 0);
-const T = garages.reduce((n, g) => n + (Number(g.community_mentions?.threads_positive) || 0), 0);
+const { reviews: R, threads: T } = basisCounts(garages);
 const ans = String(answer || lead || "");
 const ansParts = ans.split(/(?<=\.)\s+(?=[A-Z])/);
 const ans1 = ansParts[0] || "", ansRest = ansParts.slice(1).join(" ");

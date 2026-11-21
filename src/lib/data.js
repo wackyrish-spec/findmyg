@@ -702,3 +702,11 @@ export function sourceKind(src) {
   const r = src.some(isReddit), f = src.some((x) => !isReddit(x) && !/youtube/i.test(x.type || ""));
   return r && f ? "Reddit and forum discussions" : f ? "forum discussions" : "Reddit discussions";
 }
+
+// Reviews read and Reddit/forum discussions behind a list (ListPage basis line and the /dubai/ meta share it).
+export function basisCounts(garages) {
+  return {
+    reviews: garages.reduce((n, g) => n + (Number(g.reviews_analysed) || 0), 0),
+    threads: garages.reduce((n, g) => n + (Number(g.community_mentions?.threads_positive) || 0), 0),
+  };
+}

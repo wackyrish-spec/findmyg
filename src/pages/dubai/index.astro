@@ -1,16 +1,17 @@
 ---
 import ListPage from "../../components/ListPage.astro";
-import { GARAGES, BRANDS, AREAS, JOB_PAGES, splitGeneral, jobUrl } from "../../lib/data.js";
+import { GARAGES, BRANDS, AREAS, JOB_PAGES, splitGeneral, jobUrl, basisCounts } from "../../lib/data.js";
 const related = [
   ...BRANDS.slice(0, 12).map((b) => ({ name: `${b.make} specialists`, url: `/dubai/${b.slug}/` })),
   ...AREAS.map((a) => ({ name: `Garages in ${a.name}`, url: `/dubai/area/${a.slug}/` })),
   ...JOB_PAGES.map((j) => ({ name: j.name, url: jobUrl(j.slug) })),
 ];
 const L = splitGeneral(GARAGES);
+const C = basisCounts(L.ranked);
 ---
 <ListPage
-  title="Independent car garages in Dubai"
-  description={`Independent garages in Dubai, with the car brands and models each one knows best.`}
+  title="Independent garage specialists in Dubai, by car brand"
+  description={`We read ${C.reviews.toLocaleString("en-US")} reviews and ${C.threads} owner discussions to find which Dubai garages know your car: Porsche, BMW, Mercedes, Range Rover, Patrol and more.`}
   h1="Independent garages in Dubai"
   lead={`KnowsMyCar tracks ${GARAGES.length} Dubai garages; ${L.ranked.length} have owner reviews or community recommendations behind them, listed by car brand and model. Setting your car re-sorts the list around it.`}
   garages={L.ranked}
