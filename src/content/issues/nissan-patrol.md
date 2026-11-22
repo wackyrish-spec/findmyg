@@ -19,7 +19,7 @@ The Patrol is the UAE's own 4x4, and Dubai owners keep them for years, often wit
 **Trade name:** 7-speed automatic (RE7R01A) valve body.
 **How common:** a UAE used-car guide says early Y62s have a "known reputation for valve body issues", mainly 2010 to 2014 cars. An Australian review says "enough owners" report odd shift behaviour, especially when towing in heat, and suggests a fluid change about every 30,000 km, even though Nissan calls it a lifetime fill.
 **UAE cost:** AED 5,000 to 12,000 for a valve body repair, depending on severity (CarSwitch).
-[Tell us what you paid](/check-a-quote/?make=Nissan&model=Patrol&job=other&note=Harsh%20shifts%20or%20shudder%20between%202nd%20and%203rd)
+[Tell us what you paid](/check-a-quote/?make=Nissan&model=Patrol&job=other&note=Harsh%20shifts%20or%20shudder%20between%202nd%20and%203rd) · [Find a Patrol gearbox specialist](/dubai/nissan/patrol/gearbox/)
 
 ### The car flexes oddly, rides stiff, or the mounts look perished (HBMC cars)
 **Trade name:** Hydraulic Body Motion Control (HBMC) shocks and mounts, fitted on higher trims in place of anti-roll bars.

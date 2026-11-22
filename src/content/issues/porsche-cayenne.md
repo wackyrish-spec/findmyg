@@ -41,7 +41,7 @@ The Cayenne is one of the most common out-of-warranty Porsches in Dubai. Below a
 ### Car sitting low or the compressor running a lot
 **Trade name:** air suspension (struts, valve block, compressor).
 **Cost:** Moderate to Major, parts-heavy.
-[Tell us what you paid](/check-a-quote/?make=Porsche&model=Cayenne&job=other&note=Car%20sitting%20low%20or%20the%20compressor%20running%20a%20lot)
+[Tell us what you paid](/check-a-quote/?make=Porsche&model=Cayenne&job=other&note=Car%20sitting%20low%20or%20the%20compressor%20running%20a%20lot) · [Find an air suspension specialist](/dubai/porsche/cayenne/air-suspension/)
 
 ### Recalls to check by VIN
 - **Brake pedal pin clip** (AG02, US 16V-169, 2011 to 2016): the pedal pin can work loose.
