@@ -1,5 +1,6 @@
 // One list of indexable URLs, shared by the sitemap and by internal links that must only point at indexable pages (Karim 20 Nov).
 import { GUIDES } from "./guides.js";
+import { PROBLEM_PAGES, problemLive } from "./problems.js";
 import { slugify, BRANDS, AREAS, JOB_PAGES, GARAGES, isIndexable, modelIndexable, areaIndexable, garageIndexable, JOB_TO_PROBLEM, PROBLEMS, problemGarages } from "./data.js";
 let cache = null;
 export function indexableUrls() {
@@ -18,6 +19,8 @@ export function indexableUrls() {
     if (b && fm.status === "published" && Number(fm.sourced_issues || 0) >= 3) urls.push(`/dubai/${b.slug}/${(b.models.find((x) => x.model === fm.model) || { slug: slugify(fm.model) }).slug}/issues/`);
   });
   GUIDES.filter((g) => g.live).forEach((g) => urls.push(g.url));
+  // Model-problem pages: approved and 4+ garages on the list (Daniel).
+  PROBLEM_PAGES.filter(problemLive).forEach((p) => urls.push(p.url));
   GARAGES.filter(garageIndexable).forEach((g) => urls.push(`/garage/${g.slug}/`));
   cache = urls;
   return urls;

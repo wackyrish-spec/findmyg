@@ -1,0 +1,10 @@
+---
+// Make-level problem pages (/dubai/{make}/{problem}/). Paths never overlap the model pages in ../[model]/.
+import ProblemPage from "../../../../components/ProblemPage.astro";
+import { PROBLEM_PAGES } from "../../../../lib/problems.js";
+export function getStaticPaths() {
+  return PROBLEM_PAGES.filter((p) => !p.m).map((p) => ({ params: { make: p.b.slug, problem: p.slug }, props: { p } }));
+}
+const { p } = Astro.props;
+---
+<ProblemPage p={p} />
