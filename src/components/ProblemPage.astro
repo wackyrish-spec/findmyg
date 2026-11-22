@@ -16,7 +16,7 @@ const [body, srcRest = ""] = html.replace(/<p>More on this car:[\s\S]*?<\/p>\s*/
 const mk = b.make === "Mercedes-Benz" ? "Mercedes" : b.make;
 // Yuki 22 Nov: counts with their denominator, numbers bold, muted ink (green is for WhatsApp only).
 const readN = (g) => Number(g.problem_counts?.reviews_read) || Number(g.reviews_analysed) || 0;
-const notes = Object.fromEntries(list.map((r) => [r.g.slug, [r.job ? `<b>${r.job}</b>${readN(r.g) ? ` of <b>${readN(r.g)}</b>` : ""} reviews we read mention ${job} work` : "", m && r.mm ? `<b>${r.mm}</b> name the ${m.model}` : ""].filter(Boolean).join(" · ")]));
+const notes = Object.fromEntries(list.map((r) => [r.g.slug, [r.job ? `<b>${r.job}</b>${readN(r.g) ? ` of <b>${readN(r.g)}</b>` : ""} reviews we read mention ${job} work` : "", m && r.mm ? `<b>${r.mm}</b> ${r.mm === 1 ? "names" : "name"} the ${m.model}` : ""].filter(Boolean).join(" · ")]));
 const base = m ? `/dubai/${b.slug}/${m.slug}/` : `/dubai/${b.slug}/`;
 const more = [[base, `All ${m ? m.model : mk} specialists`], [`${base}issues/`, `${m ? m.model : mk} known issues`], [`${base}service-cost/`, `${m ? m.model : mk} service costs`]].filter(([u]) => isIndexableUrl(u));
 const pageUrl = new URL(p.url, Astro.site).toString();
