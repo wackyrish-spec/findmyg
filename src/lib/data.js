@@ -484,7 +484,7 @@ export function communityLine(g, model = null) {
   const years = src.map((x) => Number(x.year)).filter((y) => y > 1990);
   const span = years.length ? (Math.min(...years) === Math.max(...years) ? ` · ${years[0]}` : ` · ${Math.min(...years)}–${Math.max(...years)}`) : "";
   const onModel = model ? src.filter((x) => (x.models || []).some((m) => String(m).toLowerCase() === model.toLowerCase())).length : 0;
-  return onModel >= 2 ? `Recommended in ${onModel} threads about the ${model}${span}` : `Recommended in ${pos} discussions${span}`;
+  return onModel >= 2 ? `Recommended in ${onModel} discussions about the ${model}${span}` : `Recommended in ${pos} discussions${span}`;
 }
 // Threads for the garage page, newest first; older than 5 years are flagged.
 export function communityThreads(g) {
