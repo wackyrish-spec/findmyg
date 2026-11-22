@@ -649,7 +649,7 @@ export function modelAnswer(b, m, ranked, fact) {
 //   make mentions 3+ → "{make} owners have mentioned it".
 // Badge: Strong = count 10+ and 15%+ of reviews read, or 3+ threads, or founder; Good = count 5+ or 2+ threads; else none.
 // Flip to true when Rishal says ship it on card v3.2.
-export const CARD_V3 = false;
+export const CARD_V3 = true;
 export const CARD_RULES = { strongN: 10, strongShare: 0.15, strongThreads: 3, goodN: 5, goodThreads: 2 };
 export function cardWhy(g, make, model) {
   const real = (s) => /reviews|community|founder/.test(s.basis || "") && s.conf >= 2;

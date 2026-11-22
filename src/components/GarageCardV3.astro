@@ -2,7 +2,7 @@
 import { cardWhy, lowRated, specFor, structLine, cardLine, sourceLine, LEVELS, DATA_UPDATED, benchmarks, budgetTier, BENCH_SRC } from "../lib/data.js";
 const fmt = (d) => (d ? new Date(d).toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" }) : "");
 import Icon from "./Icon.astro";
-const { g, make = null, model = null, plain = false, note = null } = Astro.props;
+const { g, make = null, model = null, plain = false, note = null, noteHtml = null, carMatch = false } = Astro.props;
 const claim = plain && make ? (g.self_claims || []).find((c) => c.make === make) : null;
 const spec = make ? specFor(g, make, model) : null;
 const level = spec ? spec.conf : 0;
@@ -42,8 +42,9 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
       {g.isDealer ? <span class="dealer">Main dealer</span> : g.business_type && g.business_type !== "workshop" && <span class="biztag">Also sells parts</span>}
     </div>
     {note && <p class="pnote">{note}</p>}
+    {noteHtml && <p class="pnote pmuted" set:html={noteHtml} />}
     {/* Card v3.1 (18 Nov): live card look; badge, reason line and count line all come from the same counts. */}
-    <div class="matchslot">{W?.badge >= 2 && <span class={`match l${W.badge}`}>{LEVELS[W.badge]}</span>}</div>
+    <div class="matchslot">{W?.badge >= 2 && <span class={`match l${W.badge}`}>{carMatch ? LEVELS[W.badge].replace(/ match$/, ` ${make === "Mercedes-Benz" ? "Mercedes" : make} match`) : LEVELS[W.badge]}</span>}</div>
     {W?.why && <p class="why">{W.why}</p>}
     {/* One plain line on the card; the full evidence lives on the garage page. */}
     <div class="evid">
