@@ -11,9 +11,12 @@ const list = problemList(p);
 const live = problemLive(p);
 const job = JOB_WORD[p.key] || p.key.replace(/_/g, " ");
 const html = await f.compiledContent();
-const [body, srcRest = ""] = html.split(/(?=<h2[^>]*>Sources<\/h2>)/);
+// The page adds its own "More on this car" row before the sources (Yuki: once only).
+const [body, srcRest = ""] = html.replace(/<p>More on this car:[\s\S]*?<\/p>\s*/g, "").split(/(?=<h2[^>]*>Sources<\/h2>)/);
 const mk = b.make === "Mercedes-Benz" ? "Mercedes" : b.make;
-const notes = Object.fromEntries(list.map((r) => [r.g.slug, [`Reviews we read mention ${job} work (${r.job})`, m && r.mm ? `${r.mm} ${r.mm === 1 ? "review names" : "reviews name"} the ${m.model}` : ""].filter(Boolean).join(" · ")]));
+// Yuki 22 Nov: counts with their denominator, numbers bold, muted ink (green is for WhatsApp only).
+const readN = (g) => Number(g.problem_counts?.reviews_read) || Number(g.reviews_analysed) || 0;
+const notes = Object.fromEntries(list.map((r) => [r.g.slug, [r.job ? `<b>${r.job}</b>${readN(r.g) ? ` of <b>${readN(r.g)}</b>` : ""} reviews we read mention ${job} work` : "", m && r.mm ? `<b>${r.mm}</b> name the ${m.model}` : ""].filter(Boolean).join(" · ")]));
 const base = m ? `/dubai/${b.slug}/${m.slug}/` : `/dubai/${b.slug}/`;
 const more = [[base, `All ${m ? m.model : mk} specialists`], [`${base}issues/`, `${m ? m.model : mk} known issues`], [`${base}service-cost/`, `${m ? m.model : mk} service costs`]].filter(([u]) => isIndexableUrl(u));
 const pageUrl = new URL(p.url, Astro.site).toString();
@@ -28,10 +31,10 @@ const crumbs = [{ name: "Dubai", url: "/dubai/" }, { name: b.make, url: `/dubai/
     <p class="muted">Updated {new Date(p.updated).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}{list.length > 0 && <> · <a href="#garages">{list.length} garages</a></>}</p>
     <Fragment set:html={body} />
   </article>
-  <section class="wrap" id="garages" style="max-width:760px;padding-bottom:24px">
-    <h2>Independent {mk} specialists whose reviews mention {job} work</h2>
-    <p class="muted">From the Google reviews we read: how many mention {job} work{m ? `, and how many name the ${m.model}` : ""}. A mention isn't proof a garage fixed this fault on your car, so ask for a diagnosis first.</p>
-    <div class="results">{list.map((r) => <GarageCard g={r.g} make={b.make} model={m?.model} note={notes[r.g.slug]} />)}</div>
+  <section class="wrap" id="garages" style="padding-bottom:24px">
+    <h2 style="max-width:760px">Independent {mk} specialists whose reviews mention {job} work</h2>
+    <p class="muted" style="max-width:760px">From the Google reviews we read: how many mention {job} work{m ? `, and how many name the ${m.model}` : ""}. A mention isn't proof a garage fixed this fault on your car, so ask for a diagnosis first.</p>
+    <div class="results">{list.map((r) => <GarageCard g={r.g} make={b.make} model={m?.model} noteHtml={notes[r.g.slug]} carMatch />)}</div>
   </section>
   <section class="wrap prose issues" style="max-width:760px;padding-bottom:56px">
     {more.length > 0 && <p>More on this car: {more.map(([u, t], i) => <>{i > 0 && ", "}<a href={u}>{t}</a></>)}.</p>}
