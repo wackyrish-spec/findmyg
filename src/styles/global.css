@@ -574,3 +574,4 @@ footer .flinks .linkbtn{color:inherit;font-size:inherit}
 .morefor{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;margin:8px 0 0;font-size:14px}
 .morefor .label{margin-inline-end:2px}
 .morefor a{font-weight:700;min-height:32px;display:inline-flex;align-items:center}
+.pnote.pmuted{color:var(--muted);font-weight:500}.pnote.pmuted b{color:var(--ink,inherit);font-weight:800}

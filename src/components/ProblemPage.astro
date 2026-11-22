@@ -1,0 +1,43 @@
+---
+// Model-problem page (seo/model-problem-pages-plan.md): sourced content, then garages whose reviews mention the job, then sources.
+import Base from "../layouts/Base.astro";
+import GarageCard from "./GarageCard.astro";
+import { problemList, problemLive, JOB_WORD } from "../lib/problems.js";
+import { isIndexableUrl } from "../lib/indexable.js";
+import { DATA_UPDATED } from "../lib/data.js";
+const { p } = Astro.props;
+const { fm, f, b, m } = p;
+const list = problemList(p);
+const live = problemLive(p);
+const job = JOB_WORD[p.key] || p.key.replace(/_/g, " ");
+const html = await f.compiledContent();
+// The page adds its own "More on this car" row before the sources (Yuki: once only).
+const [body, srcRest = ""] = html.replace(/<p>More on this car:[\s\S]*?<\/p>\s*/g, "").split(/(?=<h2[^>]*>Sources<\/h2>)/);
+const mk = b.make === "Mercedes-Benz" ? "Mercedes" : b.make;
+// Yuki 22 Nov: counts with their denominator, numbers bold, muted ink (green is for WhatsApp only).
+const readN = (g) => Number(g.problem_counts?.reviews_read) || Number(g.reviews_analysed) || 0;
+const notes = Object.fromEntries(list.map((r) => [r.g.slug, [r.job ? `<b>${r.job}</b>${readN(r.g) ? ` of <b>${readN(r.g)}</b>` : ""} reviews we read mention ${job} work` : "", m && r.mm ? `<b>${r.mm}</b> ${r.mm === 1 ? "names" : "name"} the ${m.model}` : ""].filter(Boolean).join(" · ")]));
+const base = m ? `/dubai/${b.slug}/${m.slug}/` : `/dubai/${b.slug}/`;
+const more = [[base, `All ${m ? m.model : mk} specialists`], [`${base}issues/`, `${m ? m.model : mk} known issues`], [`${base}service-cost/`, `${m ? m.model : mk} service costs`]].filter(([u]) => isIndexableUrl(u));
+const pageUrl = new URL(p.url, Astro.site).toString();
+const asOf = DATA_UPDATED || p.updated;
+const article = { "@context": "https://schema.org", "@type": "Article", headline: fm.h1 || fm.title, description: fm.description,
+  dateModified: asOf, datePublished: p.updated, mainEntityOfPage: pageUrl, author: { "@type": "Organization", name: "KnowsMyCar" }, publisher: { "@type": "Organization", name: "KnowsMyCar" } };
+const crumbs = [{ name: "Dubai", url: "/dubai/" }, { name: b.make, url: `/dubai/${b.slug}/` }, ...(m && !m.none ? [{ name: m.model, url: `/dubai/${b.slug}/${m.slug}/` }] : []), { name: `${job.charAt(0).toUpperCase()}${job.slice(1)} repair` }];
+---
+<Base title={fm.title} description={fm.description} noindex={!live} jsonld={[article]} crumbs={crumbs}>
+  <article class="wrap prose issues" style="padding-block:20px 24px;max-width:760px">
+    <h1>{fm.h1 || fm.title}</h1>
+    <p class="muted">Updated {new Date(p.updated).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}{list.length > 0 && <> · <a href="#garages">{list.length} garages</a></>}</p>
+    <Fragment set:html={body} />
+  </article>
+  <section class="wrap" id="garages" style="padding-bottom:24px">
+    <h2 style="max-width:760px">Independent {mk} specialists whose reviews mention {job} work</h2>
+    <p class="muted" style="max-width:760px">From the Google reviews we read: how many mention {job} work{m ? `, and how many name the ${m.model}` : ""}. A mention isn't proof a garage fixed this fault on your car, so ask for a diagnosis first.</p>
+    <div class="results">{list.map((r) => <GarageCard g={r.g} make={b.make} model={m?.model} noteHtml={notes[r.g.slug]} carMatch />)}</div>
+  </section>
+  <section class="wrap prose issues" style="max-width:760px;padding-bottom:56px">
+    {more.length > 0 && <p>More on this car: {more.map(([u, t], i) => <>{i > 0 && ", "}<a href={u}>{t}</a></>)}.</p>}
+    <Fragment set:html={srcRest} />
+  </section>
+</Base>

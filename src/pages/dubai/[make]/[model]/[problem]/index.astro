@@ -1,0 +1,9 @@
+---
+import ProblemPage from "../../../../../components/ProblemPage.astro";
+import { PROBLEM_PAGES } from "../../../../../lib/problems.js";
+export function getStaticPaths() {
+  return PROBLEM_PAGES.filter((p) => p.m).map((p) => ({ params: { make: p.b.slug, model: p.m.slug, problem: p.slug }, props: { p } }));
+}
+const { p } = Astro.props;
+---
+<ProblemPage p={p} />
