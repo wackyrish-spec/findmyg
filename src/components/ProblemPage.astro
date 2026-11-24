@@ -11,8 +11,8 @@ const list = problemList(p);
 const live = problemLive(p);
 const job = JOB_WORD[p.key] || p.key.replace(/_/g, " ");
 const html = await f.compiledContent();
-// The page adds its own "More on this car" row before the sources (Yuki: once only).
-const [body, srcRest = ""] = html.replace(/<p>More on this car:[\s\S]*?<\/p>\s*/g, "").split(/(?=<h2[^>]*>Sources<\/h2>)/);
+// The page adds its own "More on this car" row before the sources; drafts' "More:" / "More on this car:" lines are dropped (Yuki: once only).
+const [body, srcRest = ""] = html.replace(/<p>More(?: on this car)?:[\s\S]*?<\/p>\s*/g, "").split(/(?=<h2[^>]*>Sources<\/h2>)/);
 const mk = b.make === "Mercedes-Benz" ? "Mercedes" : b.make;
 // Yuki 22 Nov: counts with their denominator, numbers bold, muted ink (green is for WhatsApp only).
 const readN = (g) => Number(g.problem_counts?.reviews_read) || Number(g.reviews_analysed) || 0;

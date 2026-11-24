@@ -38,7 +38,7 @@ The L405 Range Rover (2013 to 2021) is one of the most common luxury SUVs in Dub
 ## Coolant level dropping
 **Trade name:** coolant leaks (pipes, water pump). CarSwitch calls them "occasional".
 **Cost:** Moderate.
-[Tell us what you paid](/check-a-quote/?make=Land%20Rover&model=Range%20Rover&job=other&note=Coolant%20level%20dropping) · [Find a coolant leak specialist](/dubai/land-rover/range-rover/overheating/)
+[Tell us what you paid](/check-a-quote/?make=Land%20Rover&model=Range%20Rover&job=other&note=Coolant%20level%20dropping)
 
 ## Wet carpets after rain or a wash (2017 cars)
 **Trade name:** windscreen seal leak. Land Rover issued a service bulletin to re-bond windscreens.
