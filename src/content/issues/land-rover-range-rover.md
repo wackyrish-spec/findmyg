@@ -16,7 +16,7 @@ The L405 Range Rover (2013 to 2021) is one of the most common luxury SUVs in Dub
 ## Car sitting low, "suspension fault" message
 **Trade name:** air suspension (air springs, compressor, valve block, height sensors).
 **What you notice:** one corner sags overnight, a suspension warning, the compressor running for a long time, or a hard, crashy ride.
-**How common:** the most-cited Range Rover problem in every source we read. Heat is hard on the rubber air springs.
+**How common:** the most-cited Range Rover problem in every source we read.
 **UAE cost:** air spring AED 1,500 to 5,000. Compressor AED 2,500 to 8,000 (CarSwitch gives AED 3,500 to 6,000 for the L405). Valve block AED 1,500 to 4,000. Height sensor AED 500 to 2,000. The ArabWheels figures cover all makes with air suspension.
 [Tell us what you paid](/check-a-quote/?make=Land%20Rover&model=Range%20Rover&job=other&note=Car%20sitting%20low%2C%20%22suspension%20fault%22%20message) · [Find an air suspension specialist](/dubai/land-rover/range-rover/air-suspension/)
 

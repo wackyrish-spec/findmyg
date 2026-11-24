@@ -31,6 +31,6 @@ const published = fm.status === "published" && Number(fm.sourced_issues || 0) >=
     {fm.updated && <p class="muted">Updated {fm.updated}{fm.author ? ` · ${fm.author}` : ""}</p>}
     <Content />
     {probs.length > 0 && <p><b>Find a garage:</b> {probs.map((x, i) => <>{i > 0 && " · "}<a href={x.url}>{x.fm.h1 || x.fm.title}</a></>)}</p>}
-    <p><a class="btn primary" href={m.none ? `/dubai/${b.slug}/` : `/dubai/${b.slug}/${m.slug}/`}>See {m.none ? b.make : `${b.make} ${m.model}`} specialists</a></p>
+    <p><a class="btn primary" href={m.none ? `/dubai/${b.slug}/` : `/dubai/${b.slug}/${m.slug}/`}>See {m.none ? b.make : (/^Range Rover/.test(m.model) ? m.model : `${b.make} ${m.model}`)} specialists</a></p>
   </article>
 </Base>

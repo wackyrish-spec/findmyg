@@ -50,6 +50,7 @@ const maps = g.maps_url || `https://www.google.com/maps/search/?api=1&query=${en
     <div class="evid">
       {W && W.m ? <span class="esum"><b>{W.m} of {W.n}</b> Google reviews we read mention {W.mk}{W.mostly && `, mostly the ${W.mostly}`}.</span>
         : W?.founder ? <span class="esum">From the founder's own experience with {W.mk}.</span>
+        : carMatch ? null /* problem pages: the job note is the count line; no raw-summary fallback naming other makes (Yuki 24 Nov) */
         : make && (g.hasEvidence || g.ownerCount > 0) && cardLine(g, make, model) ? <span class="esum">{cardLine(g, make, model)}</span>
         : spec ? (structLine(g, spec) ? <span class="esum">{structLine(g, spec)}.</span> : <span class="muted">No owner evidence for {make} yet</span>)
         : <span class="muted">No specialty found yet</span>}

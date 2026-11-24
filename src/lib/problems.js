@@ -1,6 +1,6 @@
 // Model-problem pages (seo/model-problem-pages-plan.md): markdown in src/content/problems/, URL from frontmatter `url`
 // (/dubai/{make}/{model}/{problem}/ or /dubai/{make}/{problem}/). Garage list from data only, no hand-picking.
-import { BRANDS, GARAGES, garageIndexable, lowRated, communityThreads } from "./data.js";
+import { BRANDS, GARAGES, garageIndexable, lowRated, communityThreads, cardWhy } from "./data.js";
 const files = Object.values(import.meta.glob("../content/problems/*.md", { eager: true }));
 export const JOB_WORD = { suspension: "suspension", gearbox: "gearbox", oil_leak: "oil leak", overheating: "cooling system" };
 export const PROBLEM_PAGES = files.map((f) => {
@@ -26,12 +26,14 @@ export function problemList(p) {
     const job = Number(g.problem_counts?.counts?.[p.key]) || 0;
     const discJob = (g.community_mentions?.sources || []).filter((x) => (x.topics || []).includes(p.key) && !/negative|mixed/i.test(x.sentiment || "")).length;
     if (job < 1 && discJob < 1) return [];
-    return [{ g, job, disc: communityThreads(g).length, makeN: sp.mentions || 0, tier: model ? tier(mm) : 0, mm }];
+    // Make pages (Daniel 24 Nov): card badge tier first (Strong, Good, rest), so weak make matches never outrank strong ones.
+    return [{ g, job, disc: communityThreads(g).length, makeN: sp.mentions || 0, tier: model ? tier(mm) : cardWhy(g, make, null).badge || 0, mm }];
   });
   rows.sort((a, b) => b.tier - a.tier || b.job - a.job || b.disc - a.disc || b.makeN - a.makeN || a.g.name.localeCompare(b.g.name));
   // Ranking floor: a garage under 3.5 stars on 20+ reviews never sits in the top 3.
   const low = rows.filter((r) => lowRated(r.g)), ok = rows.filter((r) => !lowRated(r.g));
   return ok.length >= 3 ? [...ok.slice(0, 3), ...[...ok.slice(3), ...low].sort((a, b) => rows.indexOf(a) - rows.indexOf(b))] : [...ok, ...low];
 }
-export const problemLive = (p) => p.approved && problemList(p).length >= 4;
+// Index rule (Yuki + Daniel 24 Nov): 4+ garages, and at least 2 of them with 2+ reviews mentioning the job.
+export const problemLive = (p) => { const l = problemList(p); return p.approved && l.length >= 4 && l.filter((r) => r.job >= 2).length >= 2; };
 export const problemsFor = (makeSlug, modelSlug = null) => PROBLEM_PAGES.filter((p) => p.b.slug === makeSlug && (!p.m || p.m.slug === modelSlug) && problemLive(p));
