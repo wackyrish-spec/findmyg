@@ -18,7 +18,7 @@ review_by: 31 Dec 2026 (the dealer prices are a Q4 2026 promo that ends then)
 
 ## Cayenne maintenance cost at a glance
 
-| Job | Dealer, 958 (2011 to 2017) | Dealer, 9Y0 (2018 on) | Independent Porsche specialists |
+| Job | Dealer, 958 (2011 to 2017) | Dealer, 9Y0 (2018 on) | Independent |
 |---|---|---|---|
 | Minor service | from AED 1,590 | from AED 1,960 | AED 814 to 1,575 (one garage lists 699 for any Porsche) |
 | Oil service | from AED 1,098 | from AED 1,220 | AED 210, likely labour only, oil extra (one garage) |
