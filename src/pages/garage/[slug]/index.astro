@@ -155,7 +155,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
       <img class="gphoto" src={photo} alt={`${g.name}, ${g.area || "Dubai"}`} width="1200" height="400" loading="eager" />
     ) : (
       <div class="gband" aria-hidden="true"><span class="mono">{mono}</span>
-        <span class="gbtxt">{g.isDealer ? `${[].concat(g.dealer_for || []).join(", ") || "Main"} dealer` : bandMakes.length ? bandMakes.join(" · ") : "Independent garage"}<small>{g.isDealer ? "Franchised main dealer" : evidenced ? "Independent specialist" : "Independent garage"}</small></span></div>
+        <span class="gbtxt">{g.isDealer ? `${[].concat(g.dealer_for || []).join(", ") || "Main"} dealer` : bandMakes.length ? bandMakes.join(" · ") : "Independent garage"}{(g.isDealer || bandMakes.length > 0) && <small>{g.isDealer ? "Franchised main dealer" : evidenced ? "Independent specialist" : "Independent garage"}</small>}</span></div>
     )}
     <div class="ghead"><div>
       <div class="meta" style="margin-bottom:8px">
