@@ -155,7 +155,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
       <img class="gphoto" src={photo} alt={`${g.name}, ${g.area || "Dubai"}`} width="1200" height="400" loading="eager" />
     ) : (
       <div class="gband" aria-hidden="true"><span class="mono">{mono}</span>
-        <span class="gbtxt">{g.isDealer ? `${[].concat(g.dealer_for || []).join(", ") || "Main"} dealer` : bandMakes.length ? bandMakes.join(" · ") : "Independent garage"}<small>{g.isDealer ? "Franchised main dealer" : evidenced ? "Independent specialist" : "Independent garage"}</small></span></div>
+        <span class="gbtxt">{g.isDealer ? `${[].concat(g.dealer_for || []).join(", ") || "Main"} dealer` : bandMakes.length ? bandMakes.join(" · ") : "Independent garage"}{(g.isDealer || bandMakes.length > 0) && <small>{g.isDealer ? "Franchised main dealer" : evidenced ? "Independent specialist" : "Independent garage"}</small>}</span></div>
     )}
     <div class="ghead"><div>
       <div class="meta" style="margin-bottom:8px">
@@ -198,7 +198,7 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
               <ul class="threads">{threads.slice(0, 8).map((t) => (
                 <li><a href={t.url} target="_blank" rel="noopener nofollow">{t.label}</a>{t.old && <span class="oldtag">{t.year}, older</span>}
                   {t.quote && <q>{t.quote}</q>}{t.quote && <small class="muted"> {t.credit}</small>}</li>))}</ul>
-            </> : <p class="sub">No owner threads found for this garage yet.</p>}
+            </> : <p class="sub">No Reddit or forum discussions found for this garage yet.</p>}
             {groups > 0 && <p class="sub">Also mentioned in {groups} Facebook {groups === 1 ? "group" : "groups"}, reported by owners.</p>}
             <p class="grouptip"><a href={`/mention/${g.slug}/`}>Seen this garage recommended in a group? Tell us</a></p>
           </section>
