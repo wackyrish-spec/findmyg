@@ -1,21 +1,33 @@
 ---
 slug: porsche-cayenne-service-cost
 url: /dubai/porsche/cayenne/service-cost/
-title: "Porsche Cayenne service and maintenance cost in Dubai"
-description: "Cayenne E2 and E3 minor service, oil and brakes in Dubai: dealer from AED 1,590 (Q4 2026 price list) vs independents from AED 699. Sources and dates shown."
-h1: "Porsche Cayenne service cost in Dubai: dealer vs independent"
-status: approved by Marketer and SEO (Britfix rows checked against CSV, 98 rows), 10 Nov 2026
-data_source: data/price-benchmarks.csv (rows as of 6 to 10 Nov 2026)
+title: "Porsche Cayenne maintenance cost in Dubai (2026 prices)"
+description: "Cayenne maintenance cost in Dubai by job: minor service AED 1,590+ at the dealer vs from AED 814 at Cayenne specialists. Oil, brakes, major service."
+h1: "Porsche Cayenne maintenance cost in Dubai: dealer vs independent"
+status: approved by PM 2026-11-25
+data_source: data/price-benchmarks.csv (rows as of 6 to 24 Nov 2026)
 links_to: /dubai/porsche/cayenne/, /dubai/porsche/cayenne/issues/, /check-a-quote/
 schema: Article + FAQPage (3 FAQs below); no Review/AggregateRating markup on this page
+updated: "2026-11-25"
 review_by: 31 Dec 2026 (the dealer prices are a Q4 2026 promo that ends then)
 ---
 
-**Short answer:** in November 2026 the Porsche dealer in Al Quoz advertises a Cayenne minor service *from* AED 1,590 (958, 2011 to 2017) or AED 1,960 (9Y0, 2018 on), including VAT. Independent Porsche specialists in Dubai publish the same job from about AED 700 to 1,575, depending on the engine and what's included. At the low end that's about half the dealer's starting price for the basic job.
+**Short answer:** in November 2026 the Porsche dealer in Al Quoz advertises a Cayenne minor service *from* AED 1,590 (958, 2011 to 2017) or AED 1,960 (9Y0, 2018 on), including VAT. Independent Cayenne specialists in Dubai publish the same job from AED 814 (Deutsche Technik, parts included) up to about AED 1,575, depending on the engine and what's included. At the low end that's about half the dealer's starting price for the basic job.
 
 **Got a dealer quote?** [Check it here](/check-a-quote/) against what independents publish and what other owners paid.
 
-I look after a Cayenne myself, and the question I get asked most isn't "is the dealer good?" (it is), it's "do I have to pay that?" Out of warranty, usually not. Here's what the published numbers say, where they came from, and what to check before you book.
+## Cayenne maintenance cost at a glance
+
+| Job | Dealer, 958 (2011 to 2017) | Dealer, 9Y0 (2018 on) | Independent Porsche specialists |
+|---|---|---|---|
+| Minor service | from AED 1,590 | from AED 1,960 | AED 814 to 1,575 (one garage lists 699 for any Porsche) |
+| Oil service | from AED 1,098 | from AED 1,220 | AED 210, likely labour only, oil extra (one garage) |
+| Brakes | from AED 1,738 (contents not stated) | from AED 2,182 (contents not stated) | Cayenne front pads AED 800 to 1,400 per axle (Britfix) |
+| Major service | not published | not published | AED 799 to 2,500 (prices listed for any Porsche) |
+
+*Dealer prices are starting prices including VAT, from the dealer's Q4 2026 promo, which ends 31 Dec 2026. Independent prices are published by the garages, and most don't state VAT. Each row's sources are in the sections below.*
+
+Out of warranty, you usually don't have to pay dealer prices. Here's what the published numbers say, where they came from, and what to check before you book.
 
 ## Minor service: dealer vs independent
 
@@ -45,6 +57,15 @@ Britfix, in Al Quoz 4, publishes Cayenne front pads with wear sensors, fitted, a
 
 Front pads alone aren't a big job. Discs, sensors and brake fluid are what turn a quote into a bill, so ask for each one to be listed separately.
 
+## Major service
+
+Independents publish major services for Porsches in general, not just the Cayenne, so treat these as a guide and ask for a Cayenne quote:
+- PRO.CTO: AED 1,049, which covers the minor items plus wiper blades, filters and belt and hose checks ([price list](https://procto.ae/porsche-price.html), checked 24 Nov 2026).
+- Station One Autos: AED 799 to 2,500 ([price list](https://stationoneautos.com/brands/porsche-repair-service-dubai), checked 22 Nov 2026).
+- Rapido Garage: AED 2,500 ([price list](https://rapidogarage.com/porsche-repair), checked 22 Nov 2026).
+
+None of them state VAT. The dealer's Q4 promo doesn't list a major service price.
+
 ## Dealer or independent: how to decide
 
 - **Still under warranty or Porsche Approved?** Stay with the dealer for anything warranty-related, and check your terms before using an independent for servicing.
@@ -60,7 +81,7 @@ See the [Cayenne garages owners trust](/dubai/porsche/cayenne/), the [common Cay
 ## FAQ
 
 **How much is a Porsche Cayenne service in Dubai?**
-At the dealer, a minor service starts from AED 1,590 (958) or AED 1,960 (9Y0) including VAT, per its Q4 2026 promo. Independent Porsche specialists publish minor services from about AED 700 to 1,575, depending on the model and what's included.
+At the dealer, a minor service starts from AED 1,590 (958) or AED 1,960 (9Y0) including VAT, per its Q4 2026 promo. Independent Cayenne specialists publish minor services from AED 814 to about 1,575, depending on the model and what's included.
 
 **Is it cheaper to service a Cayenne at an independent garage in Dubai?**
 For routine servicing, published prices suggest it usually is: the lowest independent prices are about half the dealer's starting price. Choose a Porsche specialist with Porsche diagnostics, ask for an itemised quote, and check your warranty terms if the car is still covered.
