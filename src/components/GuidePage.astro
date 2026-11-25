@@ -3,7 +3,19 @@ import Base from "../layouts/Base.astro";
 import { GUIDES } from "../lib/guides.js";
 const { g, b, m = null } = Astro.props;
 const { fm, f } = g;
-const Content = f.Content;
+// Tables (Yuki 25 Nov): wrapped so they scroll inside their box; a table whose last column is "Source" gets the source
+// copied as a small line under the first cell, and below 600px the Source column is hidden (3 columns fit a phone).
+const html = (await f.compiledContent()).replace(/<table>([\s\S]*?)<\/table>/g, (t, inner) => {
+  const heads = [...inner.matchAll(/<th[^>]*>([\s\S]*?)<\/th>/g)].map((x) => x[1].replace(/<[^>]+>/g, "").trim());
+  if (heads.at(-1)?.toLowerCase() !== "source") return `<div class="tbl gtbl">${t}</div>`;
+  const body = inner.replace(/<tr>([\s\S]*?)<\/tr>/g, (row, cells) => {
+    const tds = [...cells.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)];
+    if (tds.length < 2) return row;
+    const src = tds.at(-1)[1];
+    return row.replace(tds[0][0], tds[0][0].replace(/<\/td>$/, `<small class="srcm">${src}</small></td>`));
+  });
+  return `<div class="tbl gtbl"><table class="srct">${body}</table></div>`;
+});
 const pageUrl = new URL(g.url, Astro.site).toString();
 const article = { "@context": "https://schema.org", "@type": "Article", headline: fm.h1 || fm.title, description: fm.description,
   dateModified: g.updated, datePublished: g.updated, mainEntityOfPage: pageUrl, author: { "@type": "Organization", name: "KnowsMyCar" },
@@ -17,7 +29,7 @@ const crumbs = [{ name: "Dubai", url: "/dubai/" }, { name: b.make, url: `/dubai/
   <article class="wrap prose issues" style="padding-block:20px 56px;max-width:760px">
     <h1>{fm.h1 || fm.title}</h1>
     <p class="muted">Updated {new Date(g.updated).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</p>
-    <Content />
+    <Fragment set:html={html} />
     {siblings.length > 0 && <p>More costs: {siblings.map((x, i) => <>{i > 0 && " · "}<a href={x.url}>{x.fm.h1 || x.fm.title}</a></>)}</p>}
     <p><a class="btn primary" href={m ? `/dubai/${b.slug}/${m.slug}/` : `/dubai/${b.slug}/`}>See {m ? `${b.make} ${m.model}` : b.make} specialists</a> <a class="btn" href="/check-a-quote/">Check a quote</a></p>
   </article>
