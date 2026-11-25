@@ -38,4 +38,4 @@ More: [Mercedes service and maintenance cost](/dubai/mercedes-benz/service-cost/
 
 ## Sources
 - [Mercedes-Benz TSB LI01.00-P-067802, M276/M278/M176 oil seepage (2018)](https://static.nhtsa.gov/odi/tsbs/2018/MC-10150713-9999.pdf)
-- MBWorld owner threads: [E550 M278 reseal](https://mbworld.org/forums/e-class-w212/918981-new-e550-owner-cam-plate-reseal-o-rings-both.html), [E400 M276 timing cover](https://mbworld.org/forums/e-class-w212/927081-m276tt-upper-timing-cover-service-oil-leak-15-e400-parts-replace.html), [ML350 M276](https://mbworld.org/forums/m-class-w166/921746-m276-engine-oil-leak.html)
+- MBWorld owner discussions: [E550 M278 reseal](https://mbworld.org/forums/e-class-w212/918981-new-e550-owner-cam-plate-reseal-o-rings-both.html), [E400 M276 timing cover](https://mbworld.org/forums/e-class-w212/927081-m276tt-upper-timing-cover-service-oil-leak-15-e400-parts-replace.html), [ML350 M276](https://mbworld.org/forums/m-class-w166/921746-m276-engine-oil-leak.html)

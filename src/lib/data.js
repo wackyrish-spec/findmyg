@@ -7,6 +7,14 @@ import { CATALOG, EXTRA_FAMILIES } from "./catalog.js";
 import { loadReviews, ownerStats } from "./reviews.js";
 
 const REVIEWS = await loadReviews();
+// Wording rule (Daniel 21 Nov; Rishal: "owner thread" is too technical): data text says "owner discussion(s)" on the site.
+(function fixWording(o) {
+  for (const k of Object.keys(o)) {
+    const v = o[k];
+    if (typeof v === "string") o[k] = v.replace(/\b(owner) thread(s?)\b/gi, (m, a, s) => `${a} discussion${s}`);
+    else if (v && typeof v === "object") fixWording(v);
+  }
+})(raw);
 
 export const CITY = { slug: "dubai", name: "Dubai" };
 export const slugify = (s) =>
