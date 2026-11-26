@@ -3,6 +3,7 @@ import raw from "../../data/garages.json";
 import { readFileSync, existsSync } from "node:fs";
 import intros from "../content/intros.json";
 import dataUpdated from "../content/data-updated.json";
+import SITE_FIX from "../content/website-overrides.json";
 import { CATALOG, EXTRA_FAMILIES } from "./catalog.js";
 import { loadReviews, ownerStats } from "./reviews.js";
 
@@ -53,6 +54,7 @@ function goodFor(text) {
 }
 
 // Data's website_note: dead or hijacked sites lose their link; non-workshops are left out of lists.
+const blockedUrl = (u) => typeof u === "string" && SITE_FIX.blocked_hosts.some((h) => u.replace(/^https?:\/\/(www\.)?/i, "").toLowerCase().startsWith(h));
 const BROKEN_SITE = /suspend|gambling|unrelated|default server|no content|check before/i;
 const NOT_WORKSHOP = /not (clearly )?a (repair )?workshop|parts (supplier|distributor)|distributor|retailer|transport company|showroom/i;
 // Website-only claims: basis "website", or a self-description with no review, community or founder basis behind it.
@@ -82,10 +84,11 @@ function driveFromDowntown(g) {
   return DRIVE_DEFAULT[g.emirate] || DRIVE_DEFAULT[g.area] || null;
 }
 function norm(g) {
-  const note = g.website_note || "";
-  const website = g.website && !BROKEN_SITE.test(note) ? g.website : "";
+  const fix = Object.hasOwn(SITE_FIX.sites, g.id) ? SITE_FIX.sites[g.id] : undefined;
+  const note = fix === null ? "unrelated (repo override)" : g.website_note || "";
+  const website = fix ? fix : g.website && !BROKEN_SITE.test(note) && !blockedUrl(g.website) ? g.website : "";
   // A specialty whose only basis is the garage's own website is "the garage says", never owner-backed or ranked.
-  const self_claims = [...(g.self_claims || []).map((c) => ({ ...c, url: c.url && BROKEN_SITE.test(note) ? "" : c.url })), ...(g.specialties || []).filter((s) => s.make && SITE_BASIS(s))
+  const self_claims = [...(g.self_claims || []).map((c) => ({ ...c, url: c.url && (BROKEN_SITE.test(note) || blockedUrl(c.url)) ? "" : c.url })), ...(g.specialties || []).filter((s) => s.make && SITE_BASIS(s))
     .map((s) => ({ make: s.make, models: (s.models || []).filter(Boolean), url: website, note: "" }))];
   const specs = (g.specialties || []).filter((s) => !SITE_BASIS(s))
     .filter((s) => s.make)
@@ -124,7 +127,7 @@ function norm(g) {
     name: String(g.name).normalize("NFKC").replace(/\s+/g, " ").trim(),
     slug: g.id || slugify(g.name),
     website, self_claims,
-    sources: (g.sources || []).filter((u) => website || !g.website || !u.includes(g.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/.*$/, ""))),
+    sources: (g.sources || []).filter((u) => !blockedUrl(u) && (website || !g.website || !u.includes(g.website.replace(/^https?:\/\/(www\.)?/, "").replace(/\/.*$/, "")))),
     focus: g.website_focus?.focus && website ? g.website_focus.focus : "",
     notWorkshop: NOT_WORKSHOP.test(note) && !/workshop in/i.test(note),
     // PM: curated specialists in Sharjah, Ajman or Musaffah rank on Dubai brand and model pages, labelled "Worth the drive".
