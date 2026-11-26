@@ -1,0 +1,10 @@
+{
+  "_why": "Repo-side website fixes that survive every data sync. sites: garage id -> null (never link) or a URL (use this site). blocked_hosts: never linked anywhere, even if a sync brings them back.",
+  "sites": {
+    "1-d12a": null,
+    "garage-partinn-auto-service-5858": "https://www.partinnautoservice.ae/"
+  },
+  "blocked_hosts": [
+    "no1autorepairing.com"
+  ]
+}

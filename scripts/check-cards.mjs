@@ -48,3 +48,14 @@ walk("dist/dubai");
 for (const d of ["dist/dubai", "dist/garage"]) (function w2(dir) { for (const f of readdirSync(dir)) { const p = join(dir, f); if (statSync(p).isDirectory()) w2(p); else if (f === "index.html") { const h = readFileSync(p, "utf8"); const hero = (h.match(/<p class="whyline">[\s\S]*?<\/p>/) || [""])[0]; const basis = (h.match(/<p class="basis">[\s\S]*?<\/p>/) || [""])[0]; if (/owner thread/i.test(h.replace(/<script[\s\S]*?<\/script>/g, "").replace(/<[^>]*>/g, " "))) bad.push(`${p.replace("dist", "")}: 'owner thread' in visible page text (say 'discussions', Daniel 21 Nov)`); if (/owner thread/i.test(hero + basis)) bad.push(`${p.replace("dist", "")}: 'owner thread' in the hero or list basis line`); if (/\bthreads? about the\b/i.test(h)) bad.push(`${p.replace("dist", "")}: 'threads about' on a card (say 'discussions', Daniel 22 Nov)`); } } })(d);
 if (bad.length) { console.error(`check-cards: ${bad.length} card(s) break the v3 B table:\n` + bad.slice(0, 40).join("\n")); process.exit(1); }
 console.log(`check-cards: ${cards} cards match the headline and badge table`);
+
+// Website overrides (CEO 26 Nov): a domain blocked in website-overrides.json must never be linked on any page.
+{
+  const fix = JSON.parse(readFileSync("src/content/website-overrides.json", "utf8"));
+  const G = JSON.parse(readFileSync("data/garages.json", "utf8")).garages;
+  const hosts = G.filter((g) => fix.sites[g.id] === null).flatMap((g) => [g.website, ...(g.self_claims || []).map((c) => c.url)]).filter(Boolean).map((u) => { try { return new URL(u).hostname.replace(/^www\./, ""); } catch { return ""; } }).filter(Boolean);
+  const blocked = [...new Set([...hosts, ...fix.blocked_hosts])];
+  const hits = [];
+  (function w(dir) { for (const f of readdirSync(dir)) { const p = join(dir, f); if (statSync(p).isDirectory()) w(p); else if (f.endsWith(".html")) { const h = readFileSync(p, "utf8"); for (const b of blocked) if (h.includes(`href="https://${b}`) || h.includes(`href="https://www.${b}`) || h.includes(`href="http://${b}`) || h.includes(`href="http://www.${b}`)) hits.push(`${p.replace("dist", "")}: links blocked site ${b}`); } } })("dist");
+  if (hits.length) { console.error("check-cards: blocked website linked\n" + hits.slice(0, 10).join("\n")); process.exit(1); }
+}
