@@ -3,6 +3,7 @@ import Base from "../../../layouts/Base.astro";
 import Icon from "../../../components/Icon.astro";
 import HelpFeedback from "../../../components/HelpFeedback.astro";
 import { existsSync } from "node:fs";
+import GSEO from "../../../content/garage-seo.json";
 import { SITE } from "../../../lib/site.js";
 import { isIndexableUrl } from "../../../lib/indexable.js";
 import { foundingModel, communityThreads, sourceKind, groupReports, ALL_GARAGES, garageIndexable, slugify, DATA_UPDATED, benchmarks, BENCH_SRC, aedRange, structLine, stripAside } from "../../../lib/data.js";
@@ -57,15 +58,18 @@ const tOpts = [
   `${tN} reviews: what owners say`,
   `${tN} reviews`,
 ].filter((t) => t && t.length <= 60);
-const pageTitle = g.isDealer ? `${tN} reviews, ${placeT}` : tOpts[0] || `${tN} reviews`;
+const ovSeo = GSEO[g.slug] || {};
+const pageTitle0 = g.isDealer ? `${tN} reviews, ${placeT}` : tOpts[0] || `${tN} reviews`;
+const pageTitle = ovSeo.title || pageTitle0;
 const why1 = realSpecs[0] ? structLine(g, realSpecs[0]) : "";
 const leadLine0 = lead ? structLine(g, lead) : "";
 const leadLine = rrName ? leadLine0.replace(/mention Land Rover\b/, "mention Range Rover or Land Rover") : leadLine0;
 // Same count as the page's own discussions section (positive and neutral, never negative or mixed).
-const nDisc = g.isDealer ? 0 : communityThreads(g).length;
+// Daniel 27 Nov: "recommend" counts positive discussions only (threads_positive); neutral ones show only in the section list.
+const nDisc = g.isDealer ? 0 : Math.min(Number(g.community_mentions?.threads_positive) || 0, communityThreads(g).length);
 const discTxt = nDisc ? `${nDisc} owner ${nDisc === 1 ? "discussion recommends" : "discussions recommend"} it` : "";
 // Daniel 21 Nov: a meta leads with discussions only at 2+ (the cards' bar), and the car it names comes from the discussions' own models.
-const discSrc = (g.community_mentions?.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "") && !/negative|mixed/i.test(x.sentiment || ""));
+const discSrc = (g.community_mentions?.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "") && x.sentiment === "positive");
 const discModel = (() => { const c = {}; for (const x of discSrc) for (const m of x.models || []) { const k = `${SHORT[(x.makes || [])[0]] || (x.makes || [])[0] || ""} ${m}`.trim(); c[k] = (c[k] || 0) + 1; } return Object.entries(c).sort((a, b) => b[1] - a[1])[0]?.[0] || ""; })();
 const discFor = discModel ? ` for the ${discModel}${g.worthDrive ? ", so we mark it worth the drive from Dubai" : ""}` : "";
 const countLead = leadLine && !/^Recommended for/.test(leadLine);
@@ -93,7 +97,7 @@ const metaMakes = realSpecs.slice(0, 2).map((s) => s.make);
 const desc1 = top
   ? `${tName} in ${placeT}: ${brandsList} specialist. See what owners say, the evidence and how to contact them.`
   : `${tName}, an independent garage in ${placeT}. Reviews, contact details and directions.`;
-const desc = desc0 || desc1;
+const desc = ovSeo.description || desc0 || desc1;
 // "More for your {Make}": brand, model, service-cost and issues pages, only when indexable (same list as the sitemap).
 const moreLinks = g.isDealer ? [] : realSpecs.flatMap((sp) => {
   const b = `/dubai/${sp.makeSlug}/`;
@@ -103,7 +107,7 @@ const moreLinks = g.isDealer ? [] : realSpecs.flatMap((sp) => {
 // "What reviewers say" only when reviews were actually read; never the pipeline's "not yet analysed".
 const rsum = g.reviews_analysed ? stripAside(g.review_summary || "").split(/(?<=\.)\s+/).filter((x) => x && !/not yet analysed|weak evidence|candidate/i.test(x)).join(" ") : "";
 // Why line under the H1 (Wed 18 spec 1.3): plain words, numbers with their denominator.
-const threadsN = g.isDealer ? 0 : communityThreads(g).length;
+const threadsN = nDisc;
 const srcKind = sourceKind(communityThreads(g));
 const bandMakes = realSpecs.slice(0, 2).map((s) => s.make);
 const models = g.specs.flatMap((s) => s.models.map((m) => ({ make: s.make, model: m, conf: s.conf, confidence: s.confidence })));

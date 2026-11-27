@@ -1,6 +1,6 @@
 // Card v3 B guard (Yuki + Daniel 17 Nov): every rendered card's headline row and badge must match the table thresholds,
 // and on model pages the count must be the garage's own count for that model in garages.json.
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
 import { join } from "node:path";
 const raw = JSON.parse(readFileSync("data/garages.json", "utf8"));
 const list = Array.isArray(raw) ? raw : raw.garages;
@@ -58,4 +58,20 @@ console.log(`check-cards: ${cards} cards match the headline and badge table`);
   const hits = [];
   (function w(dir) { for (const f of readdirSync(dir)) { const p = join(dir, f); if (statSync(p).isDirectory()) w(p); else if (f.endsWith(".html")) { const h = readFileSync(p, "utf8"); for (const b of blocked) if (h.includes(`href="https://${b}`) || h.includes(`href="https://www.${b}`) || h.includes(`href="http://${b}`) || h.includes(`href="http://www.${b}`)) hits.push(`${p.replace("dist", "")}: links blocked site ${b}`); } } })("dist");
   if (hits.length) { console.error("check-cards: blocked website linked\n" + hits.slice(0, 10).join("\n")); process.exit(1); }
+}
+
+// Daniel 27 Nov: a "recommend" count never exceeds threads_positive (neutral discussions don't count), on page text and meta.
+{
+  const G = JSON.parse(readFileSync("data/garages.json", "utf8")).garages;
+  const over = [];
+  for (const g of G) {
+    const p = join("dist/garage", g.id, "index.html");
+    if (!existsSync(p)) continue;
+    const tp = Number(g.community_mentions?.threads_positive) || 0;
+    const h = readFileSync(p, "utf8").replace(/<script[\s\S]*?<\/script>/g, "");
+    const txt = h.replace(/<[^>]*>/g, "");
+    const ns = [...txt.matchAll(/recommends? it[^.]{0,80}? in (\d+)/gi), ...txt.matchAll(/(\d+) owner discussions? recommends?/gi), ...txt.matchAll(/Recommended in (\d+)/gi)].map((m) => Number(m[1]));
+    if (ns.some((n) => n > tp)) over.push(`/garage/${g.id}/: recommend count ${Math.max(...ns)} > threads_positive ${tp}`);
+  }
+  if (over.length) { console.error("check-cards: recommend counts above positive discussions\n" + over.slice(0, 15).join("\n")); process.exit(1); }
 }

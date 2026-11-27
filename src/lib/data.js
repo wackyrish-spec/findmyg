@@ -218,7 +218,12 @@ export function structLine(g, s) {
   if (!s) return "";
   const n = g.reviews_analysed || 0;
   if (s.mentions > 0 && n > 0 && /reviews/.test(s.basis || "") ) return `${Math.min(s.mentions, n)} of ${n} reviews we read mention ${s.make}`;
-  if (s.mentions > 0 && /community/.test(s.basis || "")) return `Recommended for ${s.make} in ${s.mentions} owner ${s.mentions === 1 ? "post" : "posts"}`;
+  if (s.mentions > 0 && /community/.test(s.basis || "")) {
+    // Daniel 27 Nov: "recommended" counts positive discussions only; neutral ones are "named".
+    const tp = Number(g.community_mentions?.threads_positive) || 0, pl = (n) => `${n} owner ${n === 1 ? "post" : "posts"}`;
+    if (tp >= s.mentions) return `Recommended for ${s.make} in ${pl(s.mentions)}`;
+    return tp > 0 ? `Recommended for ${s.make} in ${pl(tp)}, named in ${s.mentions}` : `Named for ${s.make} in ${pl(s.mentions)}`;
+  }
   if (s.basis === "founder") return `${s.make}: from the founder's own experience`;
   if (s.mentions > 0 && n > 0) return `${Math.min(s.mentions, n)} of ${n} reviews we read mention ${s.make}`;
   return "";
@@ -494,7 +499,7 @@ export function communityLine(g, model = null) {
   const src = (cm.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "") && !/negative|mixed/i.test(x.sentiment || ""));
   const years = src.map((x) => Number(x.year)).filter((y) => y > 1990);
   const span = years.length ? (Math.min(...years) === Math.max(...years) ? ` · ${years[0]}` : ` · ${Math.min(...years)}–${Math.max(...years)}`) : "";
-  const onModel = model ? src.filter((x) => (x.models || []).some((m) => String(m).toLowerCase() === model.toLowerCase())).length : 0;
+  const onModel = model ? Math.min(pos, src.filter((x) => x.sentiment === "positive").filter((x) => (x.models || []).some((m) => String(m).toLowerCase() === model.toLowerCase())).length) : 0;
   return onModel >= 2 ? `Recommended in ${onModel} discussions about the ${model}${span}` : `Recommended in ${pos} discussions${span}`;
 }
 // Threads for the garage page, newest first; older than 5 years are flagged.
