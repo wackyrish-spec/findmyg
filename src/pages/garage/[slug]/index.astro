@@ -61,12 +61,12 @@ const tOpts = [
 const ovSeo = GSEO[g.slug] || {};
 const pageTitle0 = g.isDealer ? `${tN} reviews, ${placeT}` : tOpts[0] || `${tN} reviews`;
 const pageTitle = ovSeo.title || pageTitle0;
-const why1 = realSpecs[0] ? structLine(g, realSpecs[0]) : "";
+const why1raw = realSpecs[0] ? structLine(g, realSpecs[0]) : "";
 const leadLine0 = lead ? structLine(g, lead) : "";
 const leadLine = rrName ? leadLine0.replace(/mention Land Rover\b/, "mention Range Rover or Land Rover") : leadLine0;
 // Same count as the page's own discussions section (positive and neutral, never negative or mixed).
 // Daniel 27 Nov: "recommend" counts positive discussions only (threads_positive); neutral ones show only in the section list.
-const nDisc = g.isDealer ? 0 : Math.min(Number(g.community_mentions?.threads_positive) || 0, communityThreads(g).length);
+const nDisc = g.isDealer ? 0 : Math.min(Number(g.community_mentions?.threads_positive) || 0, communityThreads(g).filter((t) => t.pos).length);
 const discTxt = nDisc ? `${nDisc} owner ${nDisc === 1 ? "discussion recommends" : "discussions recommend"} it` : "";
 // Daniel 21 Nov: a meta leads with discussions only at 2+ (the cards' bar), and the car it names comes from the discussions' own models.
 const discSrc = (g.community_mentions?.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "") && x.sentiment === "positive");
@@ -108,6 +108,8 @@ const moreLinks = g.isDealer ? [] : realSpecs.flatMap((sp) => {
 const rsum = g.reviews_analysed ? stripAside(g.review_summary || "").split(/(?<=\.)\s+/).filter((x) => x && !/not yet analysed|weak evidence|candidate/i.test(x)).join(" ") : "";
 // Why line under the H1 (Wed 18 spec 1.3): plain words, numbers with their denominator.
 const threadsN = nDisc;
+// Daniel 27 Nov: the recommend line already says it, so a community-based structLine is not repeated.
+const why1 = threadsN >= 2 && /community/.test(realSpecs[0]?.basis || "") ? "" : why1raw;
 const srcKind = sourceKind(communityThreads(g));
 const bandMakes = realSpecs.slice(0, 2).map((s) => s.make);
 const models = g.specs.flatMap((s) => s.models.map((m) => ({ make: s.make, model: m, conf: s.conf, confidence: s.confidence })));
@@ -198,7 +200,10 @@ const evidenced = g.hasEvidence || g.ownerCount > 0;
         {!g.isDealer && (
           <section class="card panel community" id="community"><h2>What owner communities say</h2>
             {threads.length > 0 ? <>
-              <p class="sub">{threads.length} {threads.length === 1 ? srcKind.replace(/discussions$/, "discussion") : srcKind}{threads[0].year ? `, latest ${threads[0].year}` : ""}. Owners recommending this garage, unprompted.</p>
+              <p class="sub">{(() => { const k = (n) => `${n} ${n === 1 ? srcKind.replace(/discussions$/, "discussion") : srcKind}`, rest = threads.length - nDisc, yr = threads[0].year ? `, latest ${threads[0].year}` : "";
+                return nDisc === threads.length ? `${k(nDisc)}${yr}. Owners recommending this garage, unprompted.`
+                  : nDisc > 0 ? `Recommended in ${k(nDisc)}, mentioned in ${rest} more${yr}.`
+                  : `Mentioned in ${k(threads.length)}${yr}.`; })()}</p>
               <ul class="threads">{threads.slice(0, 8).map((t) => (
                 <li><a href={t.url} target="_blank" rel="noopener nofollow">{t.label}</a>{t.old && <span class="oldtag">{t.year}, older</span>}
                   {t.quote && <q>{t.quote}</q>}{t.quote && <small class="muted"> {t.credit}</small>}</li>))}</ul>

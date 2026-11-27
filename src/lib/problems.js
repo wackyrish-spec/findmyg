@@ -27,7 +27,7 @@ export function problemList(p) {
     const discJob = (g.community_mentions?.sources || []).filter((x) => (x.topics || []).includes(p.key) && !/negative|mixed/i.test(x.sentiment || "")).length;
     if (job < 1 && discJob < 1) return [];
     // Make pages (Daniel 24 Nov): card badge tier first (Strong, Good, rest), so weak make matches never outrank strong ones.
-    return [{ g, job, disc: communityThreads(g).length, makeN: sp.mentions || 0, tier: model ? tier(mm) : cardWhy(g, make, null).badge || 0, mm }];
+    return [{ g, job, disc: Math.min(Number(g.community_mentions?.threads_positive) || 0, communityThreads(g).filter((t) => t.pos).length), makeN: sp.mentions || 0, tier: model ? tier(mm) : cardWhy(g, make, null).badge || 0, mm }];
   });
   rows.sort((a, b) => b.tier - a.tier || b.job - a.job || b.disc - a.disc || b.makeN - a.makeN || a.g.name.localeCompare(b.g.name));
   // Ranking floor: a garage under 3.5 stars on 20+ reviews never sits in the top 3.
