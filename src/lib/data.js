@@ -218,7 +218,17 @@ export function structLine(g, s) {
   if (!s) return "";
   const n = g.reviews_analysed || 0;
   if (s.mentions > 0 && n > 0 && /reviews/.test(s.basis || "") ) return `${Math.min(s.mentions, n)} of ${n} reviews we read mention ${s.make}`;
-  if (s.mentions > 0 && /community/.test(s.basis || "")) return `Recommended for ${s.make} in ${s.mentions} owner ${s.mentions === 1 ? "post" : "posts"}`;
+  if (s.mentions > 0 && /community/.test(s.basis || "")) {
+    // Daniel 27 Nov: "recommended" counts positive discussions only; neutral ones are "named".
+    // Yuki 27 Nov: same source words as the hero and cards ("Reddit discussions"), and "mentioned in N more" for the neutral rest.
+    const tp = Number(g.community_mentions?.threads_positive) || 0;
+    const kind = sourceKind((g.community_mentions?.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "") && !/negative|mixed/i.test(x.sentiment || "")));
+    const pl = (n) => `${n} ${n === 1 ? kind.replace(/discussions$/, "discussion") : kind}`;
+    const nonNeg = (g.community_mentions?.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "") && !/negative|mixed/i.test(x.sentiment || "")).length;
+    const m = Math.max(Math.min(s.mentions, nonNeg), Math.min(tp, s.mentions));
+    if (tp >= m) return `Recommended for ${s.make} in ${pl(m)}`;
+    return tp > 0 ? `Recommended for ${s.make} in ${pl(tp)}, mentioned in ${m - tp} more` : `Mentioned for ${s.make} in ${pl(m)}`;
+  }
   if (s.basis === "founder") return `${s.make}: from the founder's own experience`;
   if (s.mentions > 0 && n > 0) return `${Math.min(s.mentions, n)} of ${n} reviews we read mention ${s.make}`;
   return "";
@@ -494,13 +504,14 @@ export function communityLine(g, model = null) {
   const src = (cm.sources || []).filter((x) => x.url && !/facebook/i.test(x.type || "") && !/negative|mixed/i.test(x.sentiment || ""));
   const years = src.map((x) => Number(x.year)).filter((y) => y > 1990);
   const span = years.length ? (Math.min(...years) === Math.max(...years) ? ` · ${years[0]}` : ` · ${Math.min(...years)}–${Math.max(...years)}`) : "";
-  const onModel = model ? src.filter((x) => (x.models || []).some((m) => String(m).toLowerCase() === model.toLowerCase())).length : 0;
+  const onModel = model ? Math.min(pos, src.filter((x) => x.sentiment === "positive").filter((x) => (x.models || []).some((m) => String(m).toLowerCase() === model.toLowerCase())).length) : 0;
   return onModel >= 2 ? `Recommended in ${onModel} discussions about the ${model}${span}` : `Recommended in ${pos} discussions${span}`;
 }
 // Threads for the garage page, newest first; older than 5 years are flagged.
 export function communityThreads(g) {
   const cm = g.community_mentions;
-  if (!cm || (cm.threads_positive || 0) < 1) return [];
+  // Daniel 27 Nov: neutral discussions are listed too (never negative or mixed); only positives count as "recommend".
+  if (!cm) return [];
   const now = new Date().getFullYear();
   // Legal: a title only when Data marks it title_ok; quotes credited to "an owner on <place>", never a username.
   // Data rules: never a negative or mixed source; a quote only with title_ok.
@@ -510,7 +521,7 @@ export function communityThreads(g) {
     const place = sub ? `r/${sub}` : host;
     const kind = type === "reddit" || sub ? "Reddit thread" : type === "youtube" ? "YouTube video" : "Forum thread";
     return {
-      url: x.url, year: Number(x.year) || null, old: Number(x.year) > 0 && now - Number(x.year) > 3,
+      url: x.url, pos: x.sentiment === "positive", year: Number(x.year) || null, old: Number(x.year) > 0 && now - Number(x.year) > 3,
       label: x.title_ok && x.title ? x.title : [kind, type === "youtube" ? "" : place, x.year].filter(Boolean).join(", "),
       quote: x.quote && x.title_ok && x.quote.split(/\s+/).length <= 25 ? x.quote : "",
       credit: `an owner on ${type === "youtube" ? "YouTube" : place || "a forum"}`,
