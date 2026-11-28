@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && node scripts/check-html.mjs && node scripts/check-cards.mjs",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "lastmod": "node scripts/lastmod-map.mjs"
   },
   "dependencies": {
     "@resvg/resvg-js": "2.6.2",

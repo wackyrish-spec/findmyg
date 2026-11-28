@@ -83,3 +83,15 @@ console.log(`check-cards: ${cards} cards match the headline and badge table`);
   const bad = urls.filter((u) => { const d = (u.match(/<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/) || [])[1]; return !d || d > today; });
   if (bad.length) { console.error(`check-cards: ${bad.length} sitemap URLs without a valid lastmod\n` + bad.slice(0, 5).join("\n")); process.exit(1); }
 }
+
+// lastmod.json must match git where git history exists (local builds): stale map → "npm run lastmod".
+{
+  const { execFileSync } = await import("node:child_process");
+  let full = false; try { full = execFileSync("git", ["rev-parse", "--is-shallow-repository"], { encoding: "utf8" }).trim() === "false"; } catch {}
+  if (full) {
+    const map = JSON.parse(readFileSync("src/content/lastmod.json", "utf8")), today = new Date().toISOString().slice(0, 10);
+    const dirty = new Set(execFileSync("git", ["status", "--porcelain"], { encoding: "utf8" }).split("\n").filter(Boolean).map((l) => l.slice(3)));
+    const stale = Object.keys(map).filter((f) => !f.startsWith("_")).filter((f) => map[f] !== (dirty.has(f) ? today : execFileSync("git", ["log", "-1", "--format=%cs", "--", f], { encoding: "utf8" }).trim() || today));
+    if (stale.length) { console.error("check-cards: src/content/lastmod.json is stale, run npm run lastmod\n" + stale.slice(0, 5).join("\n")); process.exit(1); }
+  }
+}
