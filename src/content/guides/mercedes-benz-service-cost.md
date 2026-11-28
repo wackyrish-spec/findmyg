@@ -1,11 +1,12 @@
 ---
 slug: mercedes-benz-service-cost
 url: /dubai/mercedes-benz/service-cost/
-title: "Mercedes and AMG service and maintenance cost in Dubai"
-description: "Mercedes Service A and B, brake pads and AC re-gas in Dubai: independent garage prices by model, from AED 249. Dealers don't publish prices. Sources shown."
-h1: "Mercedes service cost in Dubai: what independent garages charge"
-status: approved by Marketer and SEO (figures re-checked against CSV, 91 rows), 10 Nov 2026
-data_source: data/price-benchmarks.csv (Mercedes-Benz rows as of 10 Nov 2026)
+title: "Mercedes maintenance cost in Dubai: C-Class, E-Class, G-Class"
+description: "Mercedes C-Class maintenance cost in Dubai: Service A AED 400 to 1,247, Service B from AED 1,470 at independents. E, S and G-Class too, all sourced."
+h1: "Mercedes maintenance cost in Dubai: what independent garages charge"
+status: approved by PM 2026-11-26
+data_source: data/price-benchmarks.csv (Mercedes-Benz rows as of 7 to 17 Nov 2026)
+updated: "2026-11-26"
 links_to: /dubai/mercedes-benz/, /dubai/problem/ac-not-cold/, /check-a-quote/
 schema: Article + FAQPage (3 FAQs below); no Review/AggregateRating markup
 review_by: 28 Feb 2027, or sooner if Data finds a dealer price (then switch the title to "dealer vs independent")
@@ -14,6 +15,21 @@ review_by: 28 Feb 2027, or sooner if Data finds a dealer price (then switch the 
 **Short answer:** independent garages in Dubai publish a Mercedes Service A (the smaller of the two scheduled services) from about AED 250 to 1,250 for most models, and about AED 1,360 for the larger S-Class and GLE/GLS. A G-Class costs AED 1,764. Service B starts from about AED 350. Front brake pads on a C- or E-Class, fitted, are published at AED 400 to 650 per axle, and an AC re-gas from AED 150. Mercedes dealers in the UAE don't publish service prices, so to compare, get the dealer's quote in writing and set it next to these.
 
 **Got a dealer quote?** [Check it here](/check-a-quote/) against what independents publish and what other owners paid.
+
+## Mercedes C-Class maintenance cost
+
+These are the prices Dubai independents publish for C-Class servicing and common jobs. Mercedes dealers in the UAE don't publish service prices, so there's no dealer column.
+
+| Job | Independent price (AED) | Who publishes it |
+|---|---|---|
+| Service A (minor) | 400 to 1,247 | DME (C-Class) 400; Deutsche Technik (4-cylinder, e.g. C200) 638; Rapido (C200) 683 to 840; SilberArrows (A/C/CLA/CLE) 1,247 |
+| Service B (major) | 1,470 to 2,552 | Rapido (C200) 1,470 to 1,733; Deutsche Technik (4-cylinder, e.g. C200) 2,552 |
+| Front brake pads, per axle | 400 to 650 | Britfix (C- and E-Class) |
+| AC re-gas | from 150 (R134a) or 550 (R1234yf) | iTyreCare (any Mercedes) |
+
+*Sources: [DME](https://www.dmeauto.ae/mercedes-service-cost/), checked 10 Nov 2026; [Deutsche Technik](https://dtservicecentre.com/mercedes-service-price), checked 17 Nov 2026; [Rapido](https://rapidogarage.com/rapido-garage-detailed-price-list/), checked 13 Nov 2026; [SilberArrows](https://mercedes-benz.silberarrows.com/service-pricing), checked 7 Nov 2026; [Britfix](https://britfix.ae/services/brake-pads), checked 10 Nov 2026; [iTyreCare](https://www.ityrecare.com/mercedes-repair-dubai), checked 10 Nov 2026. Rapido and SilberArrows publish prices excluding VAT, and we've added 5%. The others don't state VAT. Rapido also lists C200 front brakes at AED 1,838 to 2,310, but doesn't break down what's included, so ask before you compare it with a pads-only price.*
+
+One owner reported paying about AED 1,600 for a same-day major service on a 2019 C300 at SilberArrows (see [What owners paid](#what-owners-paid) below).
 
 ## Service A (minor service), by model
 
@@ -69,13 +85,13 @@ Newer Mercedes models use R1234yf gas, which costs much more than the older R134
 
 - **Under warranty or a service contract:** stay with the dealer for warranty work, and check your terms before servicing elsewhere.
 - **Out of warranty:** an independent with Mercedes diagnostic software (XENTRY or equivalent, to read faults and reset the service) does routine work for much less. Ask for an itemised quote.
-- **Common Mercedes jobs in Dubai heat:** air suspension (Airmatic) on the S-Class, E-Class and GLE/GLS, engine mounts, and AC components. Get two quotes for any of them.
+- **Common big Mercedes jobs:** air suspension (Airmatic) on the S-Class, E-Class and GLE/GLS, engine mounts, and AC components. Get two quotes for any of them.
 
 ## What owners paid
 
 | Car | Job | Garage | Price (AED) | Source |
 |---|---|---|---|---|
-| 2019 C300 | Major service, done the same day | SilberArrows | about 1,600 | One owner, Oct 2026, in an [r/DubaiPetrolHeads thread](https://www.reddit.com/r/DubaiPetrolHeads/comments/1gtnka6/any_good_mercedes_specialists/) |
+| 2019 C300 | Major service, done the same day | SilberArrows | about 1,600 | One owner, Oct 2026, in an [r/DubaiPetrolHeads discussion](https://www.reddit.com/r/DubaiPetrolHeads/comments/1gtnka6/any_good_mercedes_specialists/) |
 
 *One owner's report, not a price list. More owner prices will appear here as reviews come in.* If you've had your Mercedes serviced in Dubai, [add what you paid](/dubai/mercedes-benz/). It's anonymous and takes two minutes.
 
