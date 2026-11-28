@@ -579,3 +579,4 @@ footer .flinks .linkbtn{color:inherit;font-size:inherit}
 /* Cost-guide tables on phones (Yuki 25 Nov): tighter cells, Source column folded into the first cell. */
 .gtbl .srcm{display:none}
 @media (max-width:600px){.gtbl table{min-width:0}.gtbl th,.gtbl td{padding:8px}.gtbl .srct th:last-child,.gtbl .srct td:last-child{display:none}.gtbl .srcm{display:block;margin-top:4px;font-size:12px;color:var(--muted)}.gtbl .srcm a{color:inherit}}
+@media (max-width:600px){.gtbl .hidec2 th:nth-child(2),.gtbl .hidec2 td:nth-child(2){display:none}.gtbl .hidec3 th:nth-child(3),.gtbl .hidec3 td:nth-child(3){display:none}.gtbl .hidec4 th:nth-child(4),.gtbl .hidec4 td:nth-child(4){display:none}.gtbl .hidec5 th:nth-child(5),.gtbl .hidec5 td:nth-child(5){display:none}}

@@ -7,14 +7,20 @@ const { fm, f } = g;
 // copied as a small line under the first cell, and below 600px the Source column is hidden (3 columns fit a phone).
 const html = (await f.compiledContent()).replace(/<table>([\s\S]*?)<\/table>/g, (t, inner) => {
   const heads = [...inner.matchAll(/<th[^>]*>([\s\S]*?)<\/th>/g)].map((x) => x[1].replace(/<[^>]+>/g, "").trim());
-  if (heads.at(-1)?.toLowerCase() !== "source") return `<div class="tbl gtbl">${t}</div>`;
+  // Yuki 28 Nov: a "Garage" column that isn't first or last also folds, as a muted line under the cell before it.
+  const gi = heads.findIndex((h, i) => i > 0 && i < heads.length - 1 && h.toLowerCase() === "garage");
+  const hasSrc = heads.at(-1)?.toLowerCase() === "source";
+  if (!hasSrc && gi < 0) return `<div class="tbl gtbl">${t}</div>`;
   const body = inner.replace(/<tr>([\s\S]*?)<\/tr>/g, (row, cells) => {
     const tds = [...cells.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)];
     if (tds.length < 2) return row;
-    const src = tds.at(-1)[1];
-    return row.replace(tds[0][0], tds[0][0].replace(/<\/td>$/, `<small class="srcm">${src}</small></td>`));
+    let out = row;
+    if (gi > 0 && tds[gi]) out = out.replace(tds[gi - 1][0], tds[gi - 1][0].replace(/<\/td>$/, `<small class="srcm">${tds[gi][1]}</small></td>`));
+    if (hasSrc) { const first = [...out.matchAll(/<td[^>]*>[\s\S]*?<\/td>/g)][0][0]; out = out.replace(first, first.replace(/<\/td>$/, `<small class="srcm">${tds.at(-1)[1]}</small></td>`)); }
+    return out;
   });
-  return `<div class="tbl gtbl"><table class="srct">${body}</table></div>`;
+  const cls = [hasSrc ? "srct" : "", gi > 0 ? `hidec${gi + 1}` : ""].filter(Boolean).join(" ");
+  return `<div class="tbl gtbl"><table class="${cls}">${body}</table></div>`;
 });
 const pageUrl = new URL(g.url, Astro.site).toString();
 const article = { "@context": "https://schema.org", "@type": "Article", headline: fm.h1 || fm.title, description: fm.description,
