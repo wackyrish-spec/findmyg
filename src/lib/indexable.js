@@ -26,7 +26,8 @@ export function indexableUrls() {
   GUIDES.filter((g) => g.live).forEach((g) => { urls.push(g.url); LASTMOD.set(g.url, contentDate(g.f.file, g.fm.updated)); });
   // Model-problem pages: approved and 4+ garages on the list (Daniel).
   PROBLEM_PAGES.filter(problemLive).forEach((p) => { urls.push(p.url); LASTMOD.set(p.url, contentDate(p.f.file, p.fm.updated)); });
-  GARAGES.filter(garageIndexable).forEach((g) => urls.push(`/garage/${g.slug}/`));
+  // Garage pages also move when their template's visible text changes (Daniel 28 Nov).
+  GARAGES.filter(garageIndexable).forEach((g) => { const p = `/garage/${g.slug}/`; urls.push(p); LASTMOD.set(p, dataPageDate("src/pages/garage/[slug]/index.astro")); });
   for (const p of urls) if (!LASTMOD.has(p)) LASTMOD.set(p, dataPageDate(/^\/dubai\/[^/]+\/$/.test(p) || /^\/dubai\/[^/]+\/[^/]+\/$/.test(p) ? "src/content/intros.json" : ""));
   cache = urls;
   return urls;

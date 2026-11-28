@@ -28,6 +28,7 @@
   "src/pages/add-a-garage.astro": "2026-11-07",
   "src/pages/car-not-covered.astro": "2026-11-12",
   "src/pages/check-a-quote.astro": "2026-11-07",
+  "src/pages/garage/[slug]/index.astro": "2026-11-27",
   "src/pages/how-it-works.astro": "2026-11-06",
   "src/pages/index.astro": "2026-11-14",
   "src/pages/privacy.astro": "2026-11-06",
