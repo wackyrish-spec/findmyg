@@ -1,8 +1,8 @@
 ---
 slug: mercedes-benz-service-cost
 url: /dubai/mercedes-benz/service-cost/
-title: "Mercedes maintenance cost in Dubai: C-Class, E-Class, AMG"
-description: "Mercedes C-Class maintenance cost in Dubai: Service A AED 400 to 1,247, Service B from AED 1,470 at independents. E, S, G-Class and AMG too, all sourced."
+title: "Mercedes maintenance cost in Dubai: C-Class, E-Class, G-Class"
+description: "Mercedes C-Class maintenance cost in Dubai: Service A AED 400 to 1,247, Service B from AED 1,470 at independents. E, S and G-Class too, all sourced."
 h1: "Mercedes maintenance cost in Dubai: what independent garages charge"
 status: approved by PM 2026-11-26
 data_source: data/price-benchmarks.csv (Mercedes-Benz rows as of 7 to 17 Nov 2026)
