@@ -75,3 +75,11 @@ console.log(`check-cards: ${cards} cards match the headline and badge table`);
   }
   if (over.length) { console.error("check-cards: recommend counts above positive discussions\n" + over.slice(0, 15).join("\n")); process.exit(1); }
 }
+
+// Sitemap lastmod (28 Nov): every URL carries a real date, never in the future.
+{
+  const sm = readFileSync("dist/sitemap.xml", "utf8"), today = new Date().toISOString().slice(0, 10);
+  const urls = [...sm.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((m) => m[1]);
+  const bad = urls.filter((u) => { const d = (u.match(/<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/) || [])[1]; return !d || d > today; });
+  if (bad.length) { console.error(`check-cards: ${bad.length} sitemap URLs without a valid lastmod\n` + bad.slice(0, 5).join("\n")); process.exit(1); }
+}
